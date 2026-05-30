@@ -37,6 +37,20 @@ AMAZON_URLS = {
     "Lighting|bsr": "https://www.amazon.co.uk/gp/bestsellers/lighting/",
     "Bedding|bsr": "https://www.amazon.co.uk/gp/bestsellers/bedding/",
     "Pets|bsr": "https://www.amazon.co.uk/gp/bestsellers/pet-supplies/",
+    # === MOST WISHED FOR (需求信号) ===
+    "Kitchen|wished": "https://www.amazon.co.uk/gp/most-wished-for/kitchen/",
+    "Garden|wished": "https://www.amazon.co.uk/gp/most-wished-for/garden/",
+    "DIY|wished": "https://www.amazon.co.uk/gp/most-wished-for/diy/",
+    "Sports|wished": "https://www.amazon.co.uk/gp/most-wished-for/sports/",
+    "Home|wished": "https://www.amazon.co.uk/gp/most-wished-for/home/",
+    "Automotive|wished": "https://www.amazon.co.uk/gp/most-wished-for/automotive/",
+    "Pets|wished": "https://www.amazon.co.uk/gp/most-wished-for/pet-supplies/",
+    "Office|wished": "https://www.amazon.co.uk/gp/most-wished-for/stationery-office/",
+    # === GIFT IDEAS (送礼需求) ===
+    "Kitchen|gifts": "https://www.amazon.co.uk/gp/gifts/kitchen/",
+    "Garden|gifts": "https://www.amazon.co.uk/gp/gifts/garden/",
+    "DIY|gifts": "https://www.amazon.co.uk/gp/gifts/diy/",
+    "Home|gifts": "https://www.amazon.co.uk/gp/gifts/home/",
 }
 
 GBP_COOKIES = "lc-main=en_GB; i18n-prefs=GBP"
@@ -45,6 +59,8 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 CHANNEL_NAMES = {
     "new_releases": "Amazon新品榜",
     "bsr": "Amazon畅销榜",
+    "wished": "Amazon心愿榜",
+    "gifts": "Amazon送礼榜",
 }
 
 

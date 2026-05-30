@@ -13,10 +13,16 @@ BASE = Path(__file__).parent
 CHANNELS = {
     "new_releases":   ("🆕", "Amazon新品榜", "#007AFF"),
     "bsr":            ("📈", "Amazon畅销榜", "#FF9500"),
-    "tiktok_verified":("🎵", "TikTok验证品", "#FF2D55"),
-    "google_trends":  ("📊", "Google趋势",    "#34C759"),
-    "multi_source":   ("🔥", "多源验证",      "#AF52DE"),
-    "all":            ("📋", "全部",          "#8e8e93"),
+    "wished":         ("💝", "Amazon心愿榜", "#FF6B9D"),
+    "gifts":          ("🎁", "Amazon送礼榜", "#AF52DE"),
+    "tiktok_verified":("🎵", "TikTok热品",   "#FF2D55"),
+    "hotukdeals":     ("🔥", "HotUKDeals",   "#FF3B30"),
+    "temu_trending":  ("🛒", "Temu热销",     "#FF9500"),
+    "etsy_trending":  ("🎨", "Etsy趋势",     "#FF6B9D"),
+    "youtube_review": ("▶️", "YouTube种草",  "#FF0000"),
+    "google_trends":  ("📊", "Google趋势",   "#34C759"),
+    "multi_source":   ("🔗", "多源验证",     "#5856D6"),
+    "all":            ("📋", "全部",         "#8e8e93"),
 }
 
 STATUS_CONFIG = {

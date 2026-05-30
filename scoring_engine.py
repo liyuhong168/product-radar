@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Product Radar v2 - Multi-factor scoring engine
-Combines signals from all sources into a weighted score.
+Product Radar v2 - Multi-factor scoring engine v2
+Includes: Amazon (New/BSR/Wished/Gifts), TikTok, HotUKDeals, Temu, Etsy, YouTube, Google Trends, Reddit
 """
 import json, sys
 from pathlib import Path
@@ -9,22 +9,53 @@ from pathlib import Path
 BASE = Path(__file__).parent
 CONFIG = json.loads((BASE / "config.json").read_text())
 
+# Scoring weights - easily tunifiable
+WEIGHTS = {
+    # Source signals
+    "new_releases": 25,      # Amazon New Releases
+    "wished": 20,            # Amazon Most Wished For (demand signal)
+    "gifts": 15,             # Amazon Gift Ideas
+    "tiktok": 25,            # TikTok trend match
+    "google_rising": 20,     # Google Trends rising
+    "reddit": 10,            # Reddit demand
+    "hotukdeals": 15,        # HotUKDeals popular
+    "temu": 15,              # Temu trending
+    "etsy": 10,              # Etsy trending
+    "youtube": 10,           # YouTube haul/review
+
+    # Multi-source boost
+    "dual_source": 15,
+    "triple_source": 25,
+
+    # Competition
+    "ultra_low_compete": 20, # <50 reviews
+    "low_compete": 15,       # 50-100 reviews
+    "mid_compete": 5,        # 100-300 reviews
+
+    # Profit
+    "ultra_margin": 15,      # >=35%
+    "high_margin": 10,       # >=30%
+    "good_margin": 5,        # >=25%
+
+    # Rating
+    "high_rating": 5,        # >=4.5 stars
+
+    # AnySearch trend
+    "hot_category": 20,      # category heat >=70
+    "trend_category": 10,    # category heat 40-69
+    "demand_keyword": 8,     # trending keyword match
+    "cross_validated": 5,    # cross-source category validation
+
+    # History
+    "rank_improving": 15,
+    "consistent_growth": 10,
+}
+
 
 def score_product(product, trend_data=None, history=None):
-    """Calculate a multi-factor weighted score for a product.
-    
-    Scoring dimensions:
-    1. Source signals (where the product was found)
-    2. Trend signals (AnySearch, TikTok, Google Trends)
-    3. Competition signals (review count, rating)
-    4. Profit signals (margin %)
-    5. Historical signals (rank trajectory)
-    
-    Returns: (total_score, score_breakdown)
-    """
-    s = CONFIG.get("scoring", {})
+    """Calculate multi-factor weighted score."""
     breakdown = {}
-    total = 50  # Base score
+    total = 50  # Base
 
     name = product.get("name", "").lower()
     sources = [x.lower() for x in product.get("sources", [])]
@@ -34,119 +65,125 @@ def score_product(product, trend_data=None, history=None):
     margin = product.get("profit_margin", 0)
     channel = product.get("channel", "")
 
-    # === 1. Source Signals ===
-    if "new_releases" in channel or "new" in sources_str:
-        pts = s.get("new_releases_bonus", 25)
-        total += pts
-        breakdown["新品榜"] = pts
+    # === Source Signals ===
+    if "new_releases" in channel:
+        pts = WEIGHTS["new_releases"]
+        total += pts; breakdown["🆕 新品榜"] = pts
+
+    if "wished" in channel:
+        pts = WEIGHTS["wished"]
+        total += pts; breakdown["💝 心愿榜"] = pts
+
+    if "gifts" in channel:
+        pts = WEIGHTS["gifts"]
+        total += pts; breakdown["🎁 送礼榜"] = pts
 
     if "tiktok" in sources_str:
-        pts = s.get("tiktok_trending_bonus", 25)
-        total += pts
-        breakdown["TikTok趋势"] = pts
+        pts = WEIGHTS["tiktok"]
+        total += pts; breakdown["🎵 TikTok"] = pts
 
     if product.get("google_trend") == "rising":
-        pts = s.get("google_rising_bonus", 20)
-        total += pts
-        breakdown["Google趋势↑"] = pts
+        pts = WEIGHTS["google_rising"]
+        total += pts; breakdown["📊 Google↑"] = pts
 
     if "reddit" in sources_str:
-        pts = s.get("reddit_mention_bonus", 10)
-        total += pts
-        breakdown["Reddit需求"] = pts
+        pts = WEIGHTS["reddit"]
+        total += pts; breakdown["💬 Reddit"] = pts
 
-    # === 2. AnySearch Trend Signals ===
-    if trend_data:
-        name_lower = product.get("name", "").lower()
-        category = product.get("category", "").lower()
-        cat_scores = trend_data.get("category_scores", {})
-        cat_evidence = trend_data.get("category_evidence", {})
+    if any("hotukdeals" in s for s in sources):
+        pts = WEIGHTS["hotukdeals"]
+        total += pts; breakdown["🔥 HotUKDeals"] = pts
 
-        for cat, tscore in cat_scores.items():
-            if cat in category or any(kw in name_lower for kw in cat_evidence.get(cat, [])):
-                if tscore >= 70:
-                    pts = 20
-                    total += pts
-                    breakdown[f"AnySearch热门({cat})"] = pts
-                elif tscore >= 40:
-                    pts = 10
-                    total += pts
-                    breakdown[f"AnySearch趋势({cat})"] = pts
-                break  # Only count best match
+    if any("temu" in s for s in sources):
+        pts = WEIGHTS["temu"]
+        total += pts; breakdown["🛒 Temu"] = pts
 
-        # Trending keyword bonus
-        trending_words = {"viral", "tiktok", "trending", "must have", "eco friendly",
-                         "reusable", "portable", "mini", "compact", "multifunction"}
-        for tw in trending_words:
-            if tw in name_lower:
-                pts = 5
-                total += pts
-                breakdown[f"趋势词({tw})"] = pts
-                break
+    if any("etsy" in s for s in sources):
+        pts = WEIGHTS["etsy"]
+        total += pts; breakdown["🎨 Etsy"] = pts
 
-    # === 3. Multi-source boost ===
+    if any("youtube" in s for s in sources):
+        pts = WEIGHTS["youtube"]
+        total += pts; breakdown["▶️ YouTube"] = pts
+
+    # === Multi-source boost ===
     unique_sources = len(set(sources))
     if unique_sources >= 3:
-        pts = s.get("multi_source_boost", 20) + 5
-        total += pts
-        breakdown["三源验证"] = pts
+        pts = WEIGHTS["triple_source"]
+        total += pts; breakdown["🔗 三源验证"] = pts
     elif unique_sources >= 2:
-        pts = s.get("multi_source_boost", 15)
-        total += pts
-        breakdown["双源验证"] = pts
+        pts = WEIGHTS["dual_source"]
+        total += pts; breakdown["🔗 双源验证"] = pts
 
-    # === 4. Competition Signals ===
+    # === AnySearch Trend Signals ===
+    if trend_data:
+        cat_scores = trend_data.get("category_scores", {})
+        cat_evidence = trend_data.get("category_evidence", {})
+        cross_validated = trend_data.get("cross_validated", {})
+        category = product.get("category", "").lower()
+
+        for cat, tscore in cat_scores.items():
+            if cat in category or any(kw in name for kw in cat_evidence.get(cat, [])):
+                if tscore >= 70:
+                    label = "🔥 多源热门" if cat in cross_validated else "🔥 热门品类"
+                    pts = WEIGHTS["hot_category"]
+                    if cat in cross_validated:
+                        pts += cross_validated[cat] * 3
+                    total += pts; breakdown[label + f"({cat})"] = pts
+                elif tscore >= 40:
+                    pts = WEIGHTS["trend_category"]
+                    total += pts; breakdown[f"📈 趋势({cat})"] = pts
+                break
+
+        # Demand keywords
+        for kw in trend_data.get("demand_keywords", []):
+            if kw in name:
+                pts = WEIGHTS["demand_keyword"]
+                total += pts; breakdown[f"✨ 热词"] = pts
+                break
+
+    # === Competition ===
     if reviews and reviews < 50:
-        pts = s.get("low_review_bonus", 15) + 5
-        total += pts
-        breakdown["超低竞争(<50)"] = pts
+        pts = WEIGHTS["ultra_low_compete"]
+        total += pts; breakdown["🟢 超低竞争"] = pts
     elif reviews and reviews < 100:
-        pts = s.get("low_review_bonus", 15)
-        total += pts
-        breakdown["低竞争(<100)"] = pts
+        pts = WEIGHTS["low_compete"]
+        total += pts; breakdown["🟡 低竞争"] = pts
     elif reviews and reviews < 300:
-        pts = 5
-        total += pts
-        breakdown["中等竞争(<300)"] = pts
+        pts = WEIGHTS["mid_compete"]
+        total += pts; breakdown["⚪ 中等竞争"] = pts
 
     if rating and rating >= 4.5:
-        pts = 5
-        total += pts
-        breakdown["高评分(≥4.5)"] = pts
+        pts = WEIGHTS["high_rating"]
+        total += pts; breakdown["⭐ 高评分"] = pts
 
-    # === 5. Profit Signals ===
+    # === Profit ===
     if margin >= 0.35:
-        pts = s.get("high_margin_bonus", 10) + 5
-        total += pts
-        breakdown["超高利润(≥35%)"] = pts
+        pts = WEIGHTS["ultra_margin"]
+        total += pts; breakdown["💰 超高利润"] = pts
     elif margin >= 0.30:
-        pts = s.get("high_margin_bonus", 10)
-        total += pts
-        breakdown["高利润(≥30%)"] = pts
+        pts = WEIGHTS["high_margin"]
+        total += pts; breakdown["💰 高利润"] = pts
     elif margin >= 0.25:
-        pts = 5
-        total += pts
-        breakdown["较好利润(≥25%)"] = pts
+        pts = WEIGHTS["good_margin"]
+        total += pts; breakdown["💰 较好利润"] = pts
 
-    # === 6. Historical Signals ===
+    # === History ===
     if history:
         key = product.get("asin") or product.get("name", "").lower().strip()
         if key in history:
             hist = history[key]
             if len(hist) >= 2:
-                recent_rank = hist[-1].get("rank")
-                older_rank = hist[-2].get("rank")
-                if recent_rank and older_rank and recent_rank < older_rank:
-                    pts = 15
-                    total += pts
-                    breakdown["排名上升"] = pts
-                # Consistent improvement
+                recent = hist[-1].get("rank")
+                older = hist[-2].get("rank")
+                if recent and older and recent < older:
+                    pts = WEIGHTS["rank_improving"]
+                    total += pts; breakdown["📈 排名上升"] = pts
                 if len(hist) >= 3:
                     scores = [h.get("score", 0) for h in hist[-3:]]
                     if all(scores[i] <= scores[i+1] for i in range(len(scores)-1)):
-                        pts = 10
-                        total += pts
-                        breakdown["持续上升"] = pts
+                        pts = WEIGHTS["consistent_growth"]
+                        total += pts; breakdown["📊 持续上升"] = pts
 
     return total, breakdown
 
@@ -158,50 +195,24 @@ def score_all_products(products, trend_data=None, history=None):
         p["score"] = score
         p["score_breakdown"] = breakdown
 
-        # Generate star rating (1-5 stars based on score)
-        if score >= 100:
+        if score >= 120:
             p["stars"] = 5
-        elif score >= 85:
+        elif score >= 100:
             p["stars"] = 4
-        elif score >= 70:
+        elif score >= 80:
             p["stars"] = 3
-        elif score >= 55:
+        elif score >= 60:
             p["stars"] = 2
         else:
             p["stars"] = 1
 
-    # Sort by score descending
     products.sort(key=lambda x: -x.get("score", 0))
     return products
 
 
 def get_score_label(score):
-    """Return a human-readable label for a score."""
-    if score >= 100:
-        return "🔥 强烈推荐", "#FF2D55"
-    elif score >= 85:
-        return "⭐ 值得关注", "#FF9500"
-    elif score >= 70:
-        return "👍 可以考虑", "#007AFF"
-    elif score >= 55:
-        return "👀 待观察", "#8e8e93"
-    else:
-        return "💤 优先级低", "#c7c7cc"
-
-
-if __name__ == "__main__":
-    # Test scoring
-    test_product = {
-        "name": "Kitchen Storage Organizer Box",
-        "category": "Kitchen",
-        "channel": "new_releases",
-        "sources": ["TikTok趋势", "Google趋势"],
-        "google_trend": "rising",
-        "reviews": 45,
-        "rating": 4.3,
-        "profit_margin": 0.32,
-        "price": 7.99,
-    }
-    score, breakdown = score_product(test_product)
-    print(f"Score: {score}")
-    print(f"Breakdown: {json.dumps(breakdown, ensure_ascii=False, indent=2)}")
+    if score >= 120: return "🔥 强烈推荐", "#FF2D55"
+    elif score >= 100: return "⭐ 值得关注", "#FF9500"
+    elif score >= 80: return "👍 可以考虑", "#007AFF"
+    elif score >= 60: return "👀 待观察", "#8e8e93"
+    else: return "💤 优先级低", "#c7c7cc"
