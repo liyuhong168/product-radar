@@ -1,0 +1,104 @@
+{
+  "target_market": "UK",
+  "platform": "Amazon",
+  "price_range": {"min": 6.0, "max": 10.0},
+  "min_profit_margin": 0.20,
+  "max_weight_g": 500,
+  "exchange_rate_cny_gbp": 7.3,
+
+  "cost_structure": {
+    "vat_rate": 0.167,
+    "commission_rate": 0.15,
+    "commission_home": 0.08,
+    "commission_pets": 0.05,
+    "ad_rate": 0.05,
+    "return_rate": 0.03,
+    "storage_rate": 0.01,
+    "digital_service_fee": 0.07,
+    "fba_small_standard": 1.28,
+    "fba_large_standard": 2.46
+  },
+
+  "forbidden_categories": [
+    "children", "toys", "baby",
+    "cosmetics", "skincare", "beauty_tools",
+    "food", "medicine", "supplements", "health",
+    "clothing", "shoes", "apparel", "fashion",
+    "furniture", "large_items",
+    "electronics", "battery", "electrical", "powered",
+    "petroleum", "aerosol", "flammable",
+    "weapons", "knives"
+  ],
+
+  "forbidden_keywords": [
+      "toy", "kids", "children", "baby", "infant",
+      "makeup", "lipstick", "cream", "lotion", "serum",
+      "food", "snack", "vitamin", "supplement", "pill",
+      "dress", "shirt", "shoes", "trousers", "clothing",
+      "lithium", "battery", "charger", "adapter", "electronic",
+      "furniture", "desk", "chair", "wardrobe",
+      "rechargeable", "usb powered", "battery operated",
+      "plug in", "electric", "mains powered",
+      "beauty buys", "skincare", "hair care",
+      "deionised water", "paint", "emulsion"
+  ],
+
+  "sources": {
+    "amazon_uk": {
+      "enabled": true,
+      "categories": [
+        "kitchen", "diy-tools", "garden", "automotive",
+        "pet-supplies", "sports", "office-products", "beauty",
+        "kitchen-dining", "bathroom", "storage-organisation",
+        "cleaning", "crafts", "stationery"
+      ],
+      "urls": {
+        "bestsellers": "https://www.amazon.co.uk/gp/bestsellers/{cat}",
+        "new_releases": "https://www.amazon.co.uk/gp/new-releases/{cat}",
+        "movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/{cat}"
+      }
+    },
+    "tiktok_shop_uk": {
+      "enabled": true,
+      "platforms": [
+        "https://fastmoss.com/uk/ranking/product",
+        "https://www.kalodata.com/ranking/uk",
+        "https://shoplus.net/ranking/product/uk"
+      ]
+    },
+    "google_trends_uk": {
+      "enabled": true,
+      "geo": "GB"
+    },
+    "reddit_demand": {
+      "enabled": true,
+      "subreddits": [
+        "r/CasualUK", "r/AskUK", "r/FrugalUK",
+        "r/AmazonUK", "r/UKFrugal"
+      ]
+    },
+    "amazon_movers": {
+      "enabled": true,
+      "note": "Biggest rank gainers in 24h"
+    }
+  },
+
+  "scoring": {
+    "multi_source_boost": 15,
+    "bsr_top100_bonus": 10,
+    "bsr_top50_bonus": 20,
+    "tiktok_trending_bonus": 15,
+    "google_rising_bonus": 10,
+    "reddit_mention_bonus": 5,
+    "low_review_bonus": 10,
+    "high_margin_bonus": 10,
+    "seasonal_bonus": 10
+  },
+
+  "output": {
+    "max_recommendations": 10,
+    "snapshot_dir": "data/snapshots",
+    "history_dir": "data/history",
+    "report_dir": "output"
+  }
+}

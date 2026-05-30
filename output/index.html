@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Radar · 选品雷达</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px}
+
+/* Header */
+.header{text-align:center;padding:48px 0 16px}
+.header h1{font-size:2.4em;font-weight:700;letter-spacing:-.02em;background:linear-gradient(135deg,#1d1d1f,#6e6e73);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .sub{color:#86868b;font-size:1.05em;margin-top:8px;font-weight:400}
+.header .date{color:#aeaeb2;font-size:.85em;margin-top:6px}
+
+/* Stats */
+.stats{display:flex;gap:12px;justify-content:center;margin:28px 0 32px;flex-wrap:wrap}
+.stat{background:#fff;border-radius:16px;padding:20px 28px;text-align:center;min-width:130px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04)}
+.stat .num{font-size:2.2em;font-weight:700;letter-spacing:-.02em}
+.stat .label{color:#86868b;font-size:.8em;margin-top:2px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.stat-blue .num{color:#007AFF}
+.stat-green .num{color:#34C759}
+.stat-orange .num{color:#FF9500}
+.stat-purple .num{color:#AF52DE}
+
+/* Sources */
+.sources-section{margin:0 0 32px}
+.sources-section h2{font-size:1.1em;font-weight:600;color:#1d1d1f;margin-bottom:12px}
+.source-pills{display:flex;gap:8px;flex-wrap:wrap}
+.source-pill{display:inline-flex;align-items:center;gap:5px;background:#fff;border-radius:20px;padding:6px 14px;font-size:.82em;font-weight:500;color:#1d1d1f;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.source-pill b{color:var(--pill-color,#007AFF)}
+.pill-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* Filter + Search */
+.toolbar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.search{flex:1;min-width:200px;padding:10px 16px;background:#fff;border:1px solid #d2d2d7;border-radius:12px;font-size:.9em;color:#1d1d1f;outline:none;transition:border .2s}
+.search:focus{border-color:#007AFF;box-shadow:0 0 0 3px rgba(0,122,255,.12)}
+.search::placeholder{color:#aeaeb2}
+.fbtn{background:#fff;color:#1d1d1f;border:1px solid #d2d2d7;padding:7px 16px;border-radius:20px;cursor:pointer;font-size:.82em;font-weight:500;transition:all .2s;white-space:nowrap}
+.fbtn:hover{border-color:#86868b}
+.fbtn.active{background:#1d1d1f;color:#fff;border-color:#1d1d1f}
+
+/* Product Grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);transition:transform .2s,box-shadow .2s;position:relative}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.08),0 4px 10px rgba(0,0,0,.04)}
+.card.new{border-left:3px solid #34C759}
+.card-top{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 0}
+.card-rank{font-size:.72em;font-weight:700;color:#fff;padding:3px 10px;border-radius:10px;letter-spacing:.03em}
+.new-badge{font-size:.68em;font-weight:600;color:#34C759;background:#34C75912;padding:2px 8px;border-radius:8px}
+.card-body{padding:10px 18px 14px}
+.product-name{font-size:.95em;font-weight:600;color:#1d1d1f;text-decoration:none;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+a.product-name:hover{color:#007AFF}
+.card-subtitle{font-size:.78em;color:#86868b;margin-top:4px}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.tag{display:inline-block;padding:3px 10px;border-radius:8px;font-size:.78em;font-weight:600}
+.tag-price{background:#f5f5f7;color:#1d1d1f}
+.tag-margin{border-radius:8px}
+.rank-tag{font-size:.78em;font-weight:600}
+.card-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#f0f0f2;border-radius:10px;overflow:hidden;margin:10px 0}
+.metric{background:#fafafa;padding:8px 10px;text-align:center}
+.metric-label{display:block;font-size:.65em;color:#86868b;text-transform:uppercase;letter-spacing:.04em;font-weight:500}
+.metric-value{display:block;font-size:.88em;font-weight:600;color:#1d1d1f;margin-top:1px}
+.margin-bar{height:4px;background:#f0f0f2;border-radius:2px;overflow:hidden}
+.margin-fill{height:100%;border-radius:2px;transition:width .6s ease}
+.card-footer{display:flex;align-items:center;gap:6px;padding:10px 18px;border-top:1px solid #f5f5f7}
+.source-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.source-label{font-size:.72em;color:#86868b;font-weight:500}
+.star-row{margin-left:auto;display:flex;gap:1px}
+
+/* Footer */
+.footer{text-align:center;padding:48px 0 32px;color:#aeaeb2;font-size:.8em}
+.footer a{color:#007AFF;text-decoration:none}
+
+@media(max-width:768px){
+  .header h1{font-size:1.8em}
+  .grid{grid-template-columns:1fr}
+  .stats{flex-direction:column;align-items:center}
+  .toolbar{flex-direction:column}
+  .search{min-width:100%}
+  .card-metrics{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🔍 Product Radar</h1>
+    <div class="sub">Amazon UK · TikTok Shop · Google Trends · Reddit</div>
+    <div class="date">Last updated 2026-05-30</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat stat-blue"><div class="num">14</div><div class="label">Scanned</div></div>
+    <div class="stat stat-green"><div class="num">10</div><div class="label">Passed</div></div>
+    <div class="stat stat-orange"><div class="num">10</div><div class="label">New</div></div>
+    <div class="stat stat-purple"><div class="num">5</div><div class="label">Sources</div></div>
+  </div>
+
+  <div class="sources-section">
+    <h2>Sources</h2>
+    <div class="source-pills">
+<span class="source-pill" style="--pill-color:#007AFF"><span class="pill-dot" style="background:#007AFF"></span>Sports BSR <b>8</b></span>
+<span class="source-pill" style="--pill-color:#FF9500"><span class="pill-dot" style="background:#FF9500"></span>Automotive BSR <b>8</b></span>
+<span class="source-pill" style="--pill-color:#34C759"><span class="pill-dot" style="background:#34C759"></span>Pet Supplies BSR <b>4</b></span>
+<span class="source-pill" style="--pill-color:#FF2D55"><span class="pill-dot" style="background:#FF2D55"></span>Kitchen New <b>2</b></span>
+<span class="source-pill" style="--pill-color:#AF52DE"><span class="pill-dot" style="background:#AF52DE"></span>DIY & Tools BSR <b>2</b></span>
+
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" class="search" id="searchBox" placeholder="Search products, ASIN, sources…" oninput="doFilter()">
+    <button class="fbtn active" onclick="filterBySrc('all')">All</button>
+<button class="fbtn" style="--accent:#FF9500" onclick="filterBySrc('Automotive BSR')">Automotive BSR</button>
+<button class="fbtn" style="--accent:#AF52DE" onclick="filterBySrc('DIY & Tools BSR')">DIY & Tools BSR</button>
+<button class="fbtn" style="--accent:#FF2D55" onclick="filterBySrc('Kitchen New')">Kitchen New</button>
+<button class="fbtn" style="--accent:#34C759" onclick="filterBySrc('Pet Supplies BSR')">Pet Supplies BSR</button>
+<button class="fbtn" style="--accent:#007AFF" onclick="filterBySrc('Sports BSR')">Sports BSR</button>
+
+  </div>
+
+  <div class="grid" id="productGrid">
+
+      <div class="card" data-source="Sports BSR" data-name="oze sports yoga mat, nbr foam, extra thick, non-slip, high density, large, for p" data-asin="b0bmgckqt4">
+        <div class="card-top">
+          <div class="card-rank" style="background:#007AFF">#1</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B0BMGCKQT4" target="_blank" class="product-name">OZE SPORTS Yoga Mat, NBR Foam, Extra Thick, Non-Slip, High Density, Large, for P</a>
+          <div class="card-subtitle">6439 reviews, 4.7★ · 4.7★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£9.99</span>
+            <span class="tag tag-margin" style="background:#34C75915;color:#34C759">30.8% margin</span>
+            <span class="rank-tag" style="color:#007AFF">BSR #12</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£3.07</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.67</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">80</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:77%;background:#34C759"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#007AFF"></span>
+          <span class="source-label">Sports BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#007AFF"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Kitchen New" data-name="wangle rust remover, anti-rusts lubricant spray & rusts removers, 2026 upgrade r" data-asin="b0gl7v1f1q">
+        <div class="card-top">
+          <div class="card-rank" style="background:#FF2D55">#2</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B0GL7V1F1Q" target="_blank" class="product-name">Wangle Rust Remover, Anti-Rusts Lubricant Spray & Rusts Removers, 2026 Upgrade R</a>
+          <div class="card-subtitle">0 reviews, 4.0★ · 4.0★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£9.95</span>
+            <span class="tag tag-margin" style="background:#34C75915;color:#34C759">30.7% margin</span>
+            <span class="rank-tag" style="color:#FF2D55">BSR #6</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£3.05</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.66</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.49</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">80</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:77%;background:#34C759"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#FF2D55"></span>
+          <span class="source-label">Kitchen New</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#FF2D55"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Sports BSR" data-name="bestway single size air bed | inflatable outdoor, indoor airbed for camping, air" data-asin="b00f0b5ilk">
+        <div class="card-top">
+          <div class="card-rank" style="background:#007AFF">#3</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B00F0B5ILK" target="_blank" class="product-name">Bestway Single Size Air Bed | Inflatable Outdoor, Indoor Airbed for Camping, Air</a>
+          <div class="card-subtitle">9983 reviews, 4.5★ · 4.5★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£8.33</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">25.1% margin</span>
+            <span class="rank-tag" style="color:#007AFF">BSR #8</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£2.09</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.39</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.25</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:63%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#007AFF"></span>
+          <span class="source-label">Sports BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#007AFF"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Sports BSR" data-name="yqxcc 2 pack cooling towels | 120x30 cm | cold cool for neck | microfibre soft b" data-asin="b07ss9nplj">
+        <div class="card-top">
+          <div class="card-rank" style="background:#007AFF">#4</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B07SS9NPLJ" target="_blank" class="product-name">YQXCC 2 Pack Cooling Towels | 120x30 cm | Cold Cool for Neck | Microfibre Soft B</a>
+          <div class="card-subtitle">14571 reviews, 4.7★ · 4.7★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£7.49</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">21.2% margin</span>
+            <span class="rank-tag" style="color:#007AFF">BSR #13</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£1.59</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.25</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.12</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:53%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#007AFF"></span>
+          <span class="source-label">Sports BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#007AFF"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Sports BSR" data-name="seaseven 1l water bottle with straw,plastic drinks bottle,1 litre sports water b" data-asin="b0cbfzf8td">
+        <div class="card-top">
+          <div class="card-rank" style="background:#007AFF">#5</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B0CBFZF8TD" target="_blank" class="product-name">SEASEVEN 1L Water Bottle with Straw,Plastic Drinks Bottle,1 Litre Sports Water B</a>
+          <div class="card-subtitle">3896 reviews, 4.6★ · 4.6★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£7.49</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">21.2% margin</span>
+            <span class="rank-tag" style="color:#007AFF">BSR #24</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£1.59</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.25</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.12</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:53%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#007AFF"></span>
+          <span class="source-label">Sports BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#007AFF"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Automotive BSR" data-name="dr beckmann upholstery stain remover with brush 400ml" data-asin="b09q42nq5d">
+        <div class="card-top">
+          <div class="card-rank" style="background:#FF9500">#6</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B09Q42NQ5D" target="_blank" class="product-name">Dr Beckmann Upholstery Stain Remover with Brush 400ml</a>
+          <div class="card-subtitle">8247 reviews, 4.6★ · 4.6★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£7.99</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">23.6% margin</span>
+            <span class="rank-tag" style="color:#FF9500">BSR #9</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£1.89</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.33</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.20</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:59%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#FF9500"></span>
+          <span class="source-label">Automotive BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#FF9500"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Automotive BSR" data-name="california scents, car air fresheners can, coronado cherry scent, pack of 4, str" data-asin="b09gg3rx93">
+        <div class="card-top">
+          <div class="card-rank" style="background:#FF9500">#7</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B09GG3RX93" target="_blank" class="product-name">California Scents, Car Air Fresheners Can, Coronado Cherry Scent, Pack of 4, Str</a>
+          <div class="card-subtitle">6459 reviews, 4.5★ · 4.5★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£9.16</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">28.2% margin</span>
+            <span class="rank-tag" style="color:#FF9500">BSR #16</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£2.58</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.53</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.37</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:70%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#FF9500"></span>
+          <span class="source-label">Automotive BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#FF9500"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Automotive BSR" data-name="romuto car phone holder mount【strong suction】mobile phone holder for cars phone " data-asin="b0fjdpj86g">
+        <div class="card-top">
+          <div class="card-rank" style="background:#FF9500">#8</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B0FJDPJ86G" target="_blank" class="product-name">Romuto Car Phone Holder Mount【Strong Suction】Mobile Phone Holder for Cars Phone </a>
+          <div class="card-subtitle">5427 reviews, 4.4★ · 4.4★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£8.32</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">25.0% margin</span>
+            <span class="rank-tag" style="color:#FF9500">BSR #17</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£2.08</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.39</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.25</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:62%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#FF9500"></span>
+          <span class="source-label">Automotive BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#FF9500"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Automotive BSR" data-name="meguiar's ultimate compound colour & clarity restorer 450ml for hand or machine " data-asin="b002kkclo6">
+        <div class="card-top">
+          <div class="card-rank" style="background:#FF9500">#9</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B002KKCLO6" target="_blank" class="product-name">Meguiar's Ultimate Compound Colour & Clarity Restorer 450ml for Hand or Machine </a>
+          <div class="card-subtitle">12711 reviews, 4.6★ · 4.6★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£9.66</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">29.8% margin</span>
+            <span class="rank-tag" style="color:#FF9500">BSR #28</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£2.88</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.61</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.45</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:74%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#FF9500"></span>
+          <span class="source-label">Automotive BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#FF9500"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Pet Supplies BSR" data-name="earth rated dog poo bags, guaranteed leak proof and extra thick waste bag refill" data-asin="b00bsyr7k8">
+        <div class="card-top">
+          <div class="card-rank" style="background:#34C759">#10</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B00BSYR7K8" target="_blank" class="product-name">Earth Rated Dog Poo Bags, Guaranteed Leak Proof and Extra Thick Waste Bag Refill</a>
+          <div class="card-subtitle">228358 reviews, 4.7★ · 4.7★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£9.57</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">29.5% margin</span>
+            <span class="rank-tag" style="color:#34C759">BSR #5</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£2.83</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.60</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.44</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.50</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">70</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:74%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#34C759"></span>
+          <span class="source-label">Pet Supplies BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#34C759"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="footer">
+  Product Radar · Built with <a href="https://github.com/liyuhong168/ai-news-radar">Hermes Agent</a>
+</div>
+
+<script>
+function doFilter(){
+  var q=document.getElementById('searchBox').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(function(c){
+    var n=c.dataset.name||'',a=c.dataset.asin||'',s=c.dataset.source||'';
+    c.style.display=(n.indexOf(q)>=0||a.indexOf(q)>=0||s.indexOf(q)>=0)?'':'none';
+  });
+}
+function filterBySrc(src){
+  document.querySelectorAll('.fbtn').forEach(function(b){b.classList.remove('active');});
+  event.target.classList.add('active');
+  document.querySelectorAll('.card').forEach(function(c){
+    c.style.display=(src==='all'||(c.dataset.source||'').indexOf(src)>=0)?'':'none';
+  });
+}
+</script>
+</body>
+</html>
