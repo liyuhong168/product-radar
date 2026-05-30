@@ -48,20 +48,29 @@ def is_forbidden(name, category=""):
         if re.search(pattern, text):
             return True, kw
 
-    # Volume/weight detection - catch oversized items
+    # Volume/weight detection - use config limits
     import re
-    # Match patterns like "10L", "2.5 litre", "500ml", "5kg" in product name
+    max_ml = 100   # ≤100ml liquids OK, >100ml reject (conservative for small items)
+    max_l = 0.1    # 100ml = 0.1L
+    max_kg = CONFIG.get("max_weight_g", 300) / 1000  # 300g = 0.3kg
+
+    # Volume: "2.5 litre", "10L", "500ml"
     vol_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:l\b|litre|litres|liter|liters)', text)
-    if vol_match and float(vol_match.group(1)) >= 1.0:
-        return True, f"volume {vol_match.group(0)} (too heavy)"
+    if vol_match and float(vol_match.group(1)) > max_l:
+        return True, f"体积 {vol_match.group(0)} (>{max_l*1000:.0f}ml)"
 
     ml_match = re.search(r'(\d+)\s*ml', text)
-    if ml_match and int(ml_match.group(1)) >= 350:
-        return True, f"volume {ml_match.group(0)} (too heavy)"
+    if ml_match and int(ml_match.group(1)) > max_ml:
+        return True, f"体积 {ml_match.group(0)} (>{max_ml}ml)"
 
+    # Weight: "5kg", "500g"
     kg_match = re.search(r'(\d+(?:\.\d+)?)\s*kg', text)
-    if kg_match and float(kg_match.group(1)) >= 0.5:
-        return True, f"weight {kg_match.group(0)} (too heavy)"
+    if kg_match and float(kg_match.group(1)) > max_kg:
+        return True, f"重量 {kg_match.group(0)} (>{max_kg*1000:.0f}g)"
+
+    g_match = re.search(r'(\d+)\s*(?:g\b|grams?)', text)
+    if g_match and int(g_match.group(1)) > CONFIG.get("max_weight_g", 300):
+        return True, f"重量 {g_match.group(0)} (>{CONFIG.get('max_weight_g', 300)}g)"
 
     return False, None
 
