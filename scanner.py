@@ -41,8 +41,28 @@ def is_forbidden(name, category=""):
     """Check if product matches forbidden categories."""
     text = (name + " " + category).lower()
     for kw in CONFIG["forbidden_keywords"]:
-        if kw in text:
+        # Use word-boundary matching to avoid false positives
+        # e.g., "paint" should not match "painter" or "painters"
+        import re
+        pattern = r'(?<![a-z])' + re.escape(kw.strip()) + r'(?![a-z])' if kw.strip().isalpha() else re.escape(kw)
+        if re.search(pattern, text):
             return True, kw
+
+    # Volume/weight detection - catch oversized items
+    import re
+    # Match patterns like "10L", "2.5 litre", "500ml", "5kg" in product name
+    vol_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:l\b|litre|litres|liter|liters)', text)
+    if vol_match and float(vol_match.group(1)) >= 1.0:
+        return True, f"volume {vol_match.group(0)} (too heavy)"
+
+    ml_match = re.search(r'(\d+)\s*ml', text)
+    if ml_match and int(ml_match.group(1)) >= 350:
+        return True, f"volume {ml_match.group(0)} (too heavy)"
+
+    kg_match = re.search(r'(\d+(?:\.\d+)?)\s*kg', text)
+    if kg_match and float(kg_match.group(1)) >= 0.5:
+        return True, f"weight {kg_match.group(0)} (too heavy)"
+
     return False, None
 
 

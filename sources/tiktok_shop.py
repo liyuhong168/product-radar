@@ -159,14 +159,25 @@ def fetch():
                 if CONFIG["price_range"]["min"] <= price <= CONFIG["price_range"]["max"]:
                     current["price"] = price
 
-            # Product name (skip generic lines)
+            # Product name (skip generic lines, articles, non-products)
             if len(line) > 15 and not line.startswith("http"):
                 skip = ['search results', 'tiktok shop', 'ranking', 'platform',
                         'login', 'sign up', 'filter', 'discover', 'explore',
-                        'results', 'page', 'www.', '.com']
+                        'results', 'page', 'www.', '.com', '## ', '### ',
+                        'affordable', 'buys that', 'really work', 'the times',
+                        'the sun', 'daily mail', 'guardian', 'bbc', 'magazine',
+                        'best products', 'top picks', 'review', 'roundup',
+                        'how to', 'guide', 'tips', 'list of', 'here are',
+                                        'these are', 'we found', 'our favourite', 'editor',
+                                        'viral', 'best-selling', 'best selling', 'amazon products',
+                                        'hacks you need', 'tiktok finds', 'must-have', 'date:', 'published', 'updated']
                 if not any(s in line.lower() for s in skip):
-                    if "name" not in current:
-                        current["name"] = line[:100]
+                    # Must look like a product name (not an article title)
+                    # Articles tend to have many common English words
+                    words = line.split()
+                    if len(words) >= 3 and len(words) <= 15:
+                        if "name" not in current:
+                            current["name"] = line[:100]
 
         if current.get("name") and current.get("name").lower() not in seen_names:
             current.setdefault("sources", []).append("TikTok趋势")

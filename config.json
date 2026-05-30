@@ -36,11 +36,16 @@
       "food", "snack", "vitamin", "supplement", "pill",
       "dress", "shirt", "shoes", "trousers", "clothing",
       "lithium", "battery", "charger", "adapter", "electronic",
-      "furniture", "desk", "chair", "wardrobe",
+      "furniture", "chair", "wardrobe",
       "rechargeable", "usb powered", "battery operated",
       "plug in", "electric", "mains powered",
       "beauty buys", "skincare", "hair care",
-      "deionised water", "paint", "emulsion"
+      "deionised water", "paint", "emulsion",
+      "spray", "aerosol", "pressurised", "compressed",
+      "inflatable", "air bed", "airbed", "mattress",
+      "polish 500", "restorer 500", "wax 500",
+      " 2.5l", " 5l", " 10l", " 5kg", " 10kg",
+      " 1 litre", " 2 litre", " 5 litre"
   ],
 
   "sources": {

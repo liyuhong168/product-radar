@@ -17,8 +17,15 @@ AMAZON_URLS = {
     "Pet Supplies BSR": "https://www.amazon.co.uk/gp/bestsellers/pet-supplies/",
     "Sports BSR": "https://www.amazon.co.uk/gp/bestsellers/sports/",
     "Automotive BSR": "https://www.amazon.co.uk/gp/bestsellers/automotive/",
+    "Storage BSR": "https://www.amazon.co.uk/gp/bestsellers/kitchen/storage-accessories/",
+    "Home & Living BSR": "https://www.amazon.co.uk/gp/bestsellers/home/",
+    "Crafts BSR": "https://www.amazon.co.uk/gp/bestsellers/diy-craft-tools/",
+    "Lighting BSR": "https://www.amazon.co.uk/gp/bestsellers/lighting/",
+    "Bedding BSR": "https://www.amazon.co.uk/gp/bestsellers/bedding/",
     "Kitchen New": "https://www.amazon.co.uk/gp/new-releases/kitchen/",
     "Garden New": "https://www.amazon.co.uk/gp/new-releases/garden/",
+    "Sports New": "https://www.amazon.co.uk/gp/new-releases/sports/",
+    "DIY New": "https://www.amazon.co.uk/gp/new-releases/diy/",
 }
 
 # GBP cookie forces Amazon to show GBP prices
@@ -117,7 +124,7 @@ def fetch():
     # Rotate categories each run
     import random
     url_keys = list(AMAZON_URLS.keys())
-    selected = random.sample(url_keys, min(6, len(url_keys)))
+    selected = random.sample(url_keys, min(8, len(url_keys)))
 
     for source_name in selected:
         url = AMAZON_URLS[source_name]
