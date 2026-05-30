@@ -1,9 +1,12 @@
 {
   "target_market": "UK",
   "platform": "Amazon",
-  "price_range": {"min": 6.0, "max": 10.0},
+  "price_range": {"min": 5.59, "max": 10.0},
   "min_profit_margin": 0.20,
-  "max_weight_g": 500,
+  "max_weight_g": 300,
+  "max_length_cm": 32,
+  "preferred_weight_g": 100,
+  "preferred_thickness_cm": 2.5,
   "exchange_rate_cny_gbp": 7.3,
 
   "cost_structure": {
@@ -16,7 +19,8 @@
     "storage_rate": 0.01,
     "digital_service_fee": 0.07,
     "fba_small_standard": 1.28,
-    "fba_large_standard": 2.46
+    "fba_large_standard": 2.46,
+    "sourcing_cost": 1.00
   },
 
   "forbidden_categories": [
@@ -27,44 +31,53 @@
     "furniture", "large_items",
     "electronics", "battery", "electrical", "powered",
     "petroleum", "aerosol", "flammable",
-    "weapons", "knives"
+    "weapons", "knives",
+    "liquids", "pet_food"
   ],
 
   "forbidden_keywords": [
       "toy", "kids", "children", "baby", "infant",
+      "action figure", "figurine", "collectible", "plush", "doll",
       "makeup", "lipstick", "cream", "lotion", "serum",
       "food", "snack", "vitamin", "supplement", "pill",
+      "pet food", "dog food", "cat food", "pet treat", "dog treat", "cat treat", "cat litter",
       "dress", "shirt", "shoes", "trousers", "clothing",
       "lithium", "battery", "charger", "adapter", "electronic",
-      "furniture", "chair", "wardrobe",
       "rechargeable", "usb powered", "battery operated",
-      "plug in", "electric", "mains powered",
+      "plug in", "electric", "mains powered", "motor", "fan",
+      "smart watch", "smart band", "fitness tracker", "smartwatch",
+      "glove", "gloves", "sock", "hat", "cap", "scarf",
+      "furniture", "chair", "wardrobe",
       "beauty buys", "skincare", "hair care",
-      "deionised water", "paint", "emulsion",
+      "paint", "emulsion", "varnish", "stain",
       "spray", "aerosol", "pressurised", "compressed",
       "inflatable", "air bed", "airbed", "mattress",
-      "polish 500", "restorer 500", "wax 500",
-      " 2.5l", " 5l", " 10l", " 5kg", " 10kg",
-      " 1 litre", " 2 litre", " 5 litre"
+      "liquid", "fluid", "solution", "gel", "oil", "grease", "paste",
+      "ml", "litre", "litres", "liter", "liters",
+      "polish", "restorer", "wax", "compound",
+      "deionised water", "bleach", "detergent"
   ],
 
   "sources": {
     "amazon_uk": {
       "enabled": true,
+      "priority": "new_releases",
       "categories": [
         "kitchen", "diy-tools", "garden", "automotive",
-        "pet-supplies", "sports", "office-products", "beauty",
+        "sports", "office-products",
         "kitchen-dining", "bathroom", "storage-organisation",
-        "cleaning", "crafts", "stationery"
+        "cleaning", "crafts", "stationery",
+        "home", "lighting", "bedding"
       ],
       "urls": {
-        "bestsellers": "https://www.amazon.co.uk/gp/bestsellers/{cat}",
         "new_releases": "https://www.amazon.co.uk/gp/new-releases/{cat}",
+        "bestsellers": "https://www.amazon.co.uk/gp/bestsellers/{cat}",
         "movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/{cat}"
       }
     },
     "tiktok_shop_uk": {
       "enabled": true,
+      "priority": "high",
       "platforms": [
         "https://fastmoss.com/uk/ranking/product",
         "https://www.kalodata.com/ranking/uk",
@@ -73,6 +86,7 @@
     },
     "google_trends_uk": {
       "enabled": true,
+      "priority": "high",
       "geo": "GB"
     },
     "reddit_demand": {
@@ -81,24 +95,24 @@
         "r/CasualUK", "r/AskUK", "r/FrugalUK",
         "r/AmazonUK", "r/UKFrugal"
       ]
-    },
-    "amazon_movers": {
-      "enabled": true,
-      "note": "Biggest rank gainers in 24h"
     }
   },
 
   "scoring": {
-    "multi_source_boost": 15,
-    "bsr_top100_bonus": 10,
-    "bsr_top50_bonus": 20,
-    "tiktok_trending_bonus": 15,
-    "google_rising_bonus": 10,
-    "reddit_mention_bonus": 5,
-    "low_review_bonus": 10,
+    "new_releases_bonus": 25,
+    "tiktok_trending_bonus": 25,
+    "google_rising_bonus": 20,
+    "multi_source_boost": 20,
+    "low_review_bonus": 15,
     "high_margin_bonus": 10,
-    "seasonal_bonus": 10
+    "seasonal_bonus": 10,
+    "reddit_mention_bonus": 5,
+    "bsr_top50_bonus": 5,
+    "bsr_top100_bonus": 3
   },
+
+  "demand_signal_required": true,
+  "demand_signal_sources": ["new_releases", "tiktok", "google_trends"],
 
   "output": {
     "max_recommendations": 10,

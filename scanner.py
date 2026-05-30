@@ -82,7 +82,7 @@ def calc_profit(price_gbp, category="general"):
     returns = price_gbp * c["return_rate"]
     storage = price_gbp * c["storage_rate"]
     dsc = c["digital_service_fee"]
-    sourcing = 1.50
+    sourcing = c.get("sourcing_cost", 1.00)
 
     total_cost = vat + commission + fba + ads + returns + storage + dsc + sourcing
     net_profit = price_gbp - total_cost
@@ -105,48 +105,61 @@ def calc_profit(price_gbp, category="general"):
 
 
 def score_product(product, history):
-    """Score a product based on multiple signals."""
+    """Score a product based on multiple signals.
+    Priority: New Releases > TikTok > Google Trends >> BSR (reference only)
+    """
     s = CONFIG["scoring"]
     score = 50
 
     name = product.get("name", "")
     asin = product.get("asin", "")
     key = asin or name.lower().strip()
-
     sources = product.get("sources", [])
-    if len(sources) >= 2:
-        score += s["multi_source_boost"]
-    if len(sources) >= 3:
-        score += s["multi_source_boost"]
+    sources_str = str(sources).lower()
 
+    # High priority signals (primary)
+    is_new_release = "new" in sources_str or "new release" in sources_str
+    is_tiktok = "tiktok" in sources_str
+    is_google_rising = product.get("google_trend") == "rising"
+
+    if is_new_release:
+        score += s.get("new_releases_bonus", 25)
+    if is_tiktok:
+        score += s.get("tiktok_trending_bonus", 25)
+    if is_google_rising:
+        score += s.get("google_rising_bonus", 20)
+
+    # Multi-source boost (strong signal)
+    if len(sources) >= 2:
+        score += s.get("multi_source_boost", 20)
+    if len(sources) >= 3:
+        score += s.get("multi_source_boost", 20)
+
+    # BSR - reference only, low weight
     rank = product.get("rank", 999)
     if rank and rank <= 50:
-        score += s["bsr_top50_bonus"]
+        score += s.get("bsr_top50_bonus", 5)
     elif rank and rank <= 100:
-        score += s["bsr_top100_bonus"]
+        score += s.get("bsr_top100_bonus", 3)
 
-    if "tiktok" in str(sources).lower():
-        score += s["tiktok_trending_bonus"]
-
-    if product.get("google_trend") == "rising":
-        score += s["google_rising_bonus"]
-
-    if "reddit" in str(sources).lower():
-        score += s["reddit_mention_bonus"]
+    # Secondary signals
+    if "reddit" in sources_str:
+        score += s.get("reddit_mention_bonus", 5)
 
     reviews = product.get("reviews", 0)
     if reviews and reviews < 100:
-        score += s["low_review_bonus"]
+        score += s.get("low_review_bonus", 15)
 
     margin = product.get("profit_margin", 0)
     if margin >= 0.30:
-        score += s["high_margin_bonus"]
+        score += s.get("high_margin_bonus", 10)
 
+    # Historical trend
     if key in history:
         hist = history[key]
         if len(hist) >= 2:
-            recent = hist[-1]["rank"]
-            older = hist[-2]["rank"]
+            recent = hist[-1].get("rank")
+            older = hist[-2].get("rank")
             if recent and older and recent < older:
                 score += 15
             if len(hist) >= 3:
@@ -183,6 +196,17 @@ def generate_report(all_products, history):
 
         if profit["margin"] < cfg["min_profit_margin"]:
             rejected.append({"name": p["name"], "reason": f"利润率{profit['margin']*100:.1f}%<20%"})
+            continue
+
+        # Demand signal filter - must have at least one primary signal
+        # (New Release, TikTok, or Google Trends)
+        sources_str = str(p.get("sources", [])).lower()
+        has_new_release = "new" in sources_str
+        has_tiktok = "tiktok" in sources_str
+        has_google = p.get("google_trend") == "rising"
+
+        if cfg.get("demand_signal_required") and not (has_new_release or has_tiktok or has_google):
+            rejected.append({"name": p["name"], "reason": "无需求信号(仅BSR,非新品/非趋势)"})
             continue
 
         p["score"] = score_product(p, history)

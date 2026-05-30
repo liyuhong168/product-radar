@@ -8,24 +8,25 @@ CONFIG = json.loads((BASE / "config.json").read_text())
 
 # Amazon UK BSR category URLs
 AMAZON_URLS = {
+    # NEW RELEASES (primary - always fetch)
+    "Kitchen New": "https://www.amazon.co.uk/gp/new-releases/kitchen/",
+    "Garden New": "https://www.amazon.co.uk/gp/new-releases/garden/",
+    "DIY New": "https://www.amazon.co.uk/gp/new-releases/diy/",
+    "Sports New": "https://www.amazon.co.uk/gp/new-releases/sports/",
+    "Bathroom New": "https://www.amazon.co.uk/gp/new-releases/bathroom/",
+    "Cleaning New": "https://www.amazon.co.uk/gp/new-releases/cleaning/",
+    "Office New": "https://www.amazon.co.uk/gp/new-releases/stationery-office/",
+    "Automotive New": "https://www.amazon.co.uk/gp/new-releases/automotive/",
+    "Lighting New": "https://www.amazon.co.uk/gp/new-releases/lighting/",
+    "Storage New": "https://www.amazon.co.uk/gp/new-releases/kitchen/storage-accessories/",
+    # BSR (reference only - secondary)
     "Kitchen BSR": "https://www.amazon.co.uk/gp/bestsellers/kitchen/",
     "Garden BSR": "https://www.amazon.co.uk/gp/bestsellers/garden/",
     "DIY & Tools BSR": "https://www.amazon.co.uk/gp/bestsellers/diy/",
-    "Bathroom BSR": "https://www.amazon.co.uk/gp/bestsellers/bathroom/",
-    "Cleaning BSR": "https://www.amazon.co.uk/gp/bestsellers/cleaning/",
-    "Office BSR": "https://www.amazon.co.uk/gp/bestsellers/stationery-office/",
-    "Pet Supplies BSR": "https://www.amazon.co.uk/gp/bestsellers/pet-supplies/",
     "Sports BSR": "https://www.amazon.co.uk/gp/bestsellers/sports/",
     "Automotive BSR": "https://www.amazon.co.uk/gp/bestsellers/automotive/",
-    "Storage BSR": "https://www.amazon.co.uk/gp/bestsellers/kitchen/storage-accessories/",
-    "Home & Living BSR": "https://www.amazon.co.uk/gp/bestsellers/home/",
+    "Home BSR": "https://www.amazon.co.uk/gp/bestsellers/home/",
     "Crafts BSR": "https://www.amazon.co.uk/gp/bestsellers/diy-craft-tools/",
-    "Lighting BSR": "https://www.amazon.co.uk/gp/bestsellers/lighting/",
-    "Bedding BSR": "https://www.amazon.co.uk/gp/bestsellers/bedding/",
-    "Kitchen New": "https://www.amazon.co.uk/gp/new-releases/kitchen/",
-    "Garden New": "https://www.amazon.co.uk/gp/new-releases/garden/",
-    "Sports New": "https://www.amazon.co.uk/gp/new-releases/sports/",
-    "DIY New": "https://www.amazon.co.uk/gp/new-releases/diy/",
 }
 
 # GBP cookie forces Amazon to show GBP prices
