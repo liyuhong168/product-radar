@@ -11,8 +11,8 @@ BASE = Path(__file__).parent
 
 # Channel config: tab_id -> (emoji, label, color)
 CHANNELS = {
-    "amazon_new":     ("🆕", "Amazon新品榜", "#007AFF"),
-    "amazon_movers":  ("📈", "Amazon飙升榜", "#FF9500"),
+    "new_releases":   ("🆕", "Amazon新品榜", "#007AFF"),
+    "bsr":            ("📈", "Amazon畅销榜", "#FF9500"),
     "tiktok_verified":("🎵", "TikTok验证品", "#FF2D55"),
     "google_trends":  ("📊", "Google趋势",    "#34C759"),
     "multi_source":   ("🔥", "多源验证",      "#AF52DE"),
