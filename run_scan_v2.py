@@ -245,30 +245,25 @@ def main():
         print(f"    [{p['score']:3d}] £{p['price']:.2f} {p['profit_margin']*100:.0f}% | {p['name'][:50]}", file=sys.stderr)
 
     # === Build output ===
-    # Assign channels for tabbed view
-    output_products = []
+    # Each product appears ONCE, but carries all channel tags for filtering
     for p in passed:
-        output_products.append(p)
-        # Tag multi-source
         sources = [s.lower() for s in p.get("sources", [])]
+        p["channel_tags"] = [p.get("channel", "other")]
         if any("tiktok" in s for s in sources):
-            p_copy = dict(p)
-            p_copy["channel"] = "tiktok_verified"
-            p_copy["channel_name"] = "TikTok验证品"
-            output_products.append(p_copy)
+            p["channel_tags"].append("tiktok_verified")
         if p.get("google_trend") == "rising":
-            p_copy = dict(p)
-            p_copy["channel"] = "google_trends"
-            p_copy["channel_name"] = "Google趋势"
-            output_products.append(p_copy)
+            p["channel_tags"].append("google_trends")
         if len(p.get("sources", [])) >= 2:
             p["is_multi"] = True
+            p["channel_tags"].append("multi_source")
 
-    # Channel counts
+    output_products = passed  # No duplication
+
+    # Channel counts (count each product in every channel it belongs to)
     channel_counts = {}
     for p in output_products:
-        ch = p.get("channel", "other")
-        channel_counts[ch] = channel_counts.get(ch, 0) + 1
+        for ch in p.get("channel_tags", [p.get("channel", "other")]):
+            channel_counts[ch] = channel_counts.get(ch, 0) + 1
 
     stats = {
         "total_scanned": len(products),

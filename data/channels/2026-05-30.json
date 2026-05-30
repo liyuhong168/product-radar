@@ -8,6 +8,7 @@
     "channels": {
       "new_releases": 14,
       "tiktok_verified": 1,
+      "multi_source": 1,
       "google_trends": 1,
       "bsr": 7
     },
@@ -58,46 +59,12 @@
         "超高利润(≥35%)": 15
       },
       "stars": 5,
-      "is_multi": true
-    },
-    {
-      "asin": "B0GGBFHZ99",
-      "name": "Dolvitrny For American Flag Motorcycle Accessory with Mount, For Durable Polyester Flag and Galvanized Pole, Motorbike R",
-      "price": 7.83,
-      "reviews": 0,
-      "rating": 0,
-      "rank": 12,
-      "category": "Pets",
-      "channel": "tiktok_verified",
-      "channel_name": "TikTok验证品",
-      "review_info": "0 reviews",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0GGBFHZ99",
-      "sources": [
-        "TikTok趋势",
-        "Reddit需求"
-      ],
-      "profit_margin": 0.393,
-      "net_profit": 3.08,
-      "cost_breakdown": {
-        "vat": 1.31,
-        "commission": 0.39,
-        "fba": 1.28,
-        "ads": 0.39,
-        "returns": 0.23,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 4.75
-      },
-      "score": 140,
-      "score_breakdown": {
-        "新品榜": 25,
-        "TikTok趋势": 25,
-        "Reddit需求": 5,
-        "双源验证": 20,
-        "超高利润(≥35%)": 15
-      },
-      "stars": 5
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "multi_source"
+      ]
     },
     {
       "asin": "B0GFXC7681",
@@ -136,46 +103,11 @@
         "高评分(≥4.5)": 5,
         "高利润(≥30%)": 10
       },
-      "stars": 5
-    },
-    {
-      "asin": "B0GFXC7681",
-      "name": "TaylorMade Men's Stratus Tech Glove",
-      "price": 9.16,
-      "reviews": 20,
-      "rating": 4.7,
-      "rank": 11,
-      "category": "Sports",
-      "channel": "google_trends",
-      "channel_name": "Google趋势",
-      "review_info": "20 reviews, 4.7★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0GFXC7681",
-      "google_trend": "rising",
-      "sources": [
-        "Google趋势"
-      ],
-      "profit_margin": 0.336,
-      "net_profit": 3.08,
-      "cost_breakdown": {
-        "vat": 1.53,
-        "commission": 1.37,
-        "fba": 1.28,
-        "ads": 0.46,
-        "returns": 0.27,
-        "storage": 0.09,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 6.08
-      },
-      "score": 130,
-      "score_breakdown": {
-        "新品榜": 25,
-        "Google趋势↑": 20,
-        "超低竞争(<50)": 20,
-        "高评分(≥4.5)": 5,
-        "高利润(≥30%)": 10
-      },
-      "stars": 5
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
     },
     {
       "asin": "B0GVTCQ4JG",
@@ -210,7 +142,10 @@
         "高评分(≥4.5)": 5,
         "较好利润(≥25%)": 5
       },
-      "stars": 5
+      "stars": 5,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GCHZ91Z2",
@@ -244,7 +179,10 @@
         "高评分(≥4.5)": 5,
         "超高利润(≥35%)": 15
       },
-      "stars": 5
+      "stars": 5,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GW9CF7Q8",
@@ -278,7 +216,10 @@
         "高评分(≥4.5)": 5,
         "高利润(≥30%)": 10
       },
-      "stars": 5
+      "stars": 5,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GY96VB6S",
@@ -312,7 +253,10 @@
         "高评分(≥4.5)": 5,
         "高利润(≥30%)": 10
       },
-      "stars": 5
+      "stars": 5,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GWRK5RZF",
@@ -349,7 +293,10 @@
         "超低竞争(<50)": 20,
         "高评分(≥4.5)": 5
       },
-      "stars": 5
+      "stars": 5,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0H1T62Y7Z",
@@ -386,7 +333,10 @@
         "超低竞争(<50)": 20,
         "高评分(≥4.5)": 5
       },
-      "stars": 5
+      "stars": 5,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GL939PG3",
@@ -423,7 +373,10 @@
         "AnySearch趋势(car)": 10,
         "较好利润(≥25%)": 5
       },
-      "stars": 4
+      "stars": 4,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GL23Y821",
@@ -459,7 +412,10 @@
         "Reddit需求": 5,
         "超高利润(≥35%)": 15
       },
-      "stars": 4
+      "stars": 4,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GKVCBF6F",
@@ -492,7 +448,10 @@
         "AnySearch趋势(car)": 10,
         "高利润(≥30%)": 10
       },
-      "stars": 4
+      "stars": 4,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GLNF9ZRJ",
@@ -524,7 +483,10 @@
         "新品榜": 25,
         "超高利润(≥35%)": 15
       },
-      "stars": 4
+      "stars": 4,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GHQMH1FQ",
@@ -556,7 +518,10 @@
         "新品榜": 25,
         "超高利润(≥35%)": 15
       },
-      "stars": 4
+      "stars": 4,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B0GLXWV6S7",
@@ -593,7 +558,10 @@
         "中等竞争(<300)": 5,
         "较好利润(≥25%)": 5
       },
-      "stars": 4
+      "stars": 4,
+      "channel_tags": [
+        "new_releases"
+      ]
     },
     {
       "asin": "B00BSYR7K8",
@@ -629,7 +597,10 @@
         "高评分(≥4.5)": 5,
         "超高利润(≥35%)": 15
       },
-      "stars": 3
+      "stars": 3,
+      "channel_tags": [
+        "bsr"
+      ]
     },
     {
       "asin": "B00MW8G3YU",
@@ -665,7 +636,10 @@
         "高评分(≥4.5)": 5,
         "超高利润(≥35%)": 15
       },
-      "stars": 3
+      "stars": 3,
+      "channel_tags": [
+        "bsr"
+      ]
     },
     {
       "asin": "B0746M9WMW",
@@ -697,7 +671,10 @@
         "高评分(≥4.5)": 5,
         "超高利润(≥35%)": 15
       },
-      "stars": 3
+      "stars": 3,
+      "channel_tags": [
+        "bsr"
+      ]
     },
     {
       "asin": "B00IZMW3H8",
@@ -729,7 +706,10 @@
         "高评分(≥4.5)": 5,
         "超高利润(≥35%)": 15
       },
-      "stars": 3
+      "stars": 3,
+      "channel_tags": [
+        "bsr"
+      ]
     },
     {
       "asin": "B07XKL81NZ",
@@ -765,7 +745,10 @@
         "高评分(≥4.5)": 5,
         "较好利润(≥25%)": 5
       },
-      "stars": 2
+      "stars": 2,
+      "channel_tags": [
+        "bsr"
+      ]
     },
     {
       "asin": "B0BCK4K9ZC",
@@ -796,7 +779,10 @@
       "score_breakdown": {
         "高利润(≥30%)": 10
       },
-      "stars": 2
+      "stars": 2,
+      "channel_tags": [
+        "bsr"
+      ]
     },
     {
       "asin": "B0081Q3YNA",
@@ -828,7 +814,10 @@
         "高评分(≥4.5)": 5,
         "较好利润(≥25%)": 5
       },
-      "stars": 2
+      "stars": 2,
+      "channel_tags": [
+        "bsr"
+      ]
     }
   ],
   "trend_summary": {

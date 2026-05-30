@@ -467,9 +467,11 @@ function getFiltered() {
     const status = loadStatus();
 
     return products.filter(p => {
-        // Channel filter
-        if (currentChannel !== 'all' && p.channel !== currentChannel && !p.is_multi) return false;
-        if (currentChannel === 'multi_source' && !p.is_multi) return false;
+        // Channel filter - use channel_tags array instead of single channel
+        if (currentChannel !== 'all') {
+            const tags = p.channel_tags || [p.channel];
+            if (!tags.includes(currentChannel)) return false;
+        }
 
         // Status filter
         if (currentStatus !== 'all') {
@@ -520,12 +522,18 @@ function renderProducts() {
     document.getElementById('emptyState').style.display = isEmpty ? 'block' : 'none';
     grid.style.display = isEmpty ? 'none' : 'grid';
 
-    // Update tab counts
+    // Update tab counts using channel_tags
     document.querySelectorAll('.tab').forEach(tab => {
         const ch = tab.dataset.channel;
-        const cnt = ch === 'all' ? products.length :
-            ch === 'multi_source' ? products.filter(p => p.is_multi).length :
-            products.filter(p => p.channel === ch).length;
+        let cnt = 0;
+        if (ch === 'all') {
+            cnt = products.length;
+        } else {
+            products.forEach(p => {
+                const tags = p.channel_tags || [p.channel];
+                if (tags.includes(ch)) cnt++;
+            });
+        }
         tab.querySelector('.tab-count').textContent = cnt;
     });
 
