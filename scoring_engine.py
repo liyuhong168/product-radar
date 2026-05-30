@@ -168,6 +168,25 @@ def score_product(product, trend_data=None, history=None):
         pts = WEIGHTS["good_margin"]
         total += pts; breakdown["💰 较好利润"] = pts
 
+    # === Seasonal ===
+    from datetime import datetime
+    month = datetime.now().month
+    season = "summer" if month in (6,7,8) else "winter" if month in (12,1,2) else "spring" if month in (3,4,5) else "autumn"
+    seasonal_cfg = CONFIG.get("seasonal_categories", {})
+    hot_kw = set(kw.lower() for kw in seasonal_cfg.get(f"{season}_hot", []))
+    
+    name_for_season = product.get("name", "").lower() + " " + product.get("category", "").lower()
+    is_seasonal_hot = any(kw in name_for_season for kw in hot_kw)
+    is_off_season = product.get("off_season", False)
+    
+    if is_seasonal_hot and not is_off_season:
+        pts = 15
+        total += pts; breakdown[f"🌴 当季热门({season})"] = pts
+    
+    if is_off_season:
+        pts = -30
+        total += pts; breakdown["❄️ 过季降权"] = pts
+
     # === History ===
     if history:
         key = product.get("asin") or product.get("name", "").lower().strip()

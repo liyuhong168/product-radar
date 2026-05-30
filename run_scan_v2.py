@@ -104,20 +104,63 @@ def enrich_reddit(products, reddit_text):
 
 def filter_products(products, config):
     passed, rejected = [], []
+    from datetime import datetime
+    month = datetime.now().month
+    season = "summer" if month in (6,7,8) else "winter" if month in (12,1,2) else "spring" if month in (3,4,5) else "autumn"
+    
+    seasonal = config.get("seasonal_categories", {})
+    off_season_key = f"{season}_cold"
+    off_season_kw = set(kw.lower() for kw in seasonal.get(off_season_key, []))
+    forbidden_brands = set(b.lower() for b in config.get("forbidden_brands", []))
+    max_reviews = config.get("max_reviews", 300)
+
     for p in products:
         name, category = p.get("name", ""), p.get("category", "")
+        name_lower = name.lower()
+        reviews = p.get("reviews", 0)
+
+        # 1. 禁选品类/关键词
         forbidden, reason = is_forbidden(name, category)
         if forbidden:
             rejected.append({"name": name[:60], "reason": f"禁选: {reason}", "asin": p.get("asin")}); continue
+
+        # 2. 大品牌排除
+        brand_hit = None
+        for brand in forbidden_brands:
+            if brand in name_lower:
+                brand_hit = brand; break
+        if brand_hit:
+            rejected.append({"name": name[:60], "reason": f"大牌: {brand_hit}", "asin": p.get("asin")}); continue
+
+        # 3. 评论数范围（排除红海+排除无验证产品）
+        max_reviews = config.get("max_reviews", 300)
+        min_reviews = 5  # 至少5条评论，确保有基本需求验证
+        if reviews > max_reviews:
+            rejected.append({"name": name[:60], "reason": f"评论{reviews}>{max_reviews}(红海)", "asin": p.get("asin")}); continue
+        if reviews < min_reviews and "new_releases" not in p.get("channel", ""):
+            # 新品榜允许0评论，其他渠道需要基本验证
+            rejected.append({"name": name[:60], "reason": f"评论{reviews}<{min_reviews}(无验证)", "asin": p.get("asin")}); continue
+
+        # 4. 价格区间
         price = p.get("price", 0)
         if price < config["price_range"]["min"] or price > config["price_range"]["max"]:
             rejected.append({"name": name[:60], "reason": f"£{price} 不在区间", "asin": p.get("asin")}); continue
+
+        # 5. 利润率
         profit = calc_profit(price, category)
         p["profit_margin"] = profit["margin"]
         p["net_profit"] = profit["net_profit"]
         p["cost_breakdown"] = profit["breakdown"]
         if profit["margin"] < config["min_profit_margin"]:
             rejected.append({"name": name[:60], "reason": f"利润率{profit['margin']*100:.1f}%", "asin": p.get("asin")}); continue
+
+        # 6. 过季产品标记（不排除，但降权）
+        is_off_season = any(kw in name_lower for kw in off_season_kw)
+        if is_off_season:
+            p["off_season"] = True
+        else:
+            p["off_season"] = False
+
         passed.append(p)
     return passed, rejected
 
@@ -196,7 +239,7 @@ def main():
 
     # 1. Amazon (New/BSR/Wished/Gifts)
     print("[1/7] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
-    amazon_products = fetch_amazon(max_per_channel_type=5)
+    amazon_products = fetch_amazon(max_per_channel_type=8)  # 每类扫8个品类
     print(f"  Amazon: {len(amazon_products)} products", file=sys.stderr)
 
     # 2. AnySearch trends (TikTok+HotUKDeals+Temu+Etsy+YouTube+Google+Reddit)

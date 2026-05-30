@@ -1,321 +1,125 @@
 {
   "scan_date": "2026-05-30",
-  "scan_time": "23:04",
+  "scan_time": "23:55",
   "stats": {
-    "total_scanned": 206,
-    "passed_filter": 40,
-    "rejected": 166,
+    "total_scanned": 372,
+    "passed_filter": 20,
+    "rejected": 352,
     "channels": {
-      "multi_source": 20,
-      "etsy_trending": 19,
-      "wished": 18,
-      "temu_trending": 17,
-      "new_releases": 7,
-      "tiktok_verified": 1,
-      "bsr": 15,
-      "google_trends": 1
+      "temu_trending": 14,
+      "etsy_trending": 11,
+      "multi_source": 10,
+      "new_releases": 19,
+      "wished": 1
     },
     "trend_categories": {
       "pets": 100,
       "crafts": 100,
-      "home decor": 84,
-      "eco": 84,
-      "kitchen": 77,
-      "seasonal": 61
+      "kitchen": 97,
+      "office": 79,
+      "eco": 79,
+      "home decor": 73
     }
   },
   "products": [
     {
-      "asin": "B00VWJC24U",
-      "name": "Deconovo Grey Blackout Curtains Thermal Super Soft Pencil Pleat Curtains Bedroom 46 x 54 Drop Inch Light Grey 2 Panels",
-      "price": 8.72,
-      "reviews": 30726,
-      "rating": 4.6,
-      "rank": 7,
-      "category": "Kitchen",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "30726 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B00VWJC24U",
+      "asin": "B0GGBFHZ99",
+      "name": "Dolvitrny For American Flag Motorcycle Accessory with Mount, For Durable Polyester Flag and Galvanized Pole, Motorbike R",
+      "price": 7.83,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 12,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GGBFHZ99",
       "sources": [
         "Reddit需求",
         "Temu热销",
         "Etsy趋势"
       ],
-      "profit_margin": 0.394,
-      "net_profit": 3.43,
+      "profit_margin": 0.393,
+      "net_profit": 3.08,
       "cost_breakdown": {
-        "vat": 1.46,
-        "commission": 0.7,
-        "fba": 1.28,
-        "ads": 0.44,
-        "returns": 0.26,
-        "storage": 0.09,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.29
-      },
-      "score": 182,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "💬 Reddit": 10,
-        "🛒 Temu": 15,
-        "🎨 Etsy": 10,
-        "🔗 三源验证": 25,
-        "🔥 多源热门(eco)": 32,
-        "⭐ 高评分": 5,
-        "💰 超高利润": 15
-      },
-      "stars": 5,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B0BFXMMQFZ",
-      "name": "Frame Company Allington Black Photo Frame with Off-White Mount, 12x10 for 10x8 inch, fitted with perspex",
-      "price": 9.57,
-      "reviews": 684,
-      "rating": 4.5,
-      "rank": 19,
-      "category": "Kitchen",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "684 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0BFXMMQFZ",
-      "sources": [
-        "Reddit需求",
-        "Temu热销",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.417,
-      "net_profit": 3.99,
-      "cost_breakdown": {
-        "vat": 1.6,
-        "commission": 0.77,
-        "fba": 1.28,
-        "ads": 0.48,
-        "returns": 0.29,
-        "storage": 0.1,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.58
-      },
-      "score": 179,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "💬 Reddit": 10,
-        "🛒 Temu": 15,
-        "🎨 Etsy": 10,
-        "🔗 三源验证": 25,
-        "🔥 多源热门(home decor)": 29,
-        "⭐ 高评分": 5,
-        "💰 超高利润": 15
-      },
-      "stars": 5,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B06Y2N6ZSH",
-      "name": "Deconovo Blackout Curtain 52 x 84 Inch Drop Door Curtain Thermal Insulated Energy Saving Eyelet Panels for Bedroom Light",
-      "price": 7.77,
-      "reviews": 42662,
-      "rating": 4.3,
-      "rank": 24,
-      "category": "Kitchen",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "42662 reviews, 4.3★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B06Y2N6ZSH",
-      "sources": [
-        "Reddit需求",
-        "Temu热销",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.361,
-      "net_profit": 2.8,
-      "cost_breakdown": {
-        "vat": 1.3,
-        "commission": 0.62,
+        "vat": 1.31,
+        "commission": 0.39,
         "fba": 1.28,
         "ads": 0.39,
         "returns": 0.23,
         "storage": 0.08,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 4.97
+        "total_cost": 4.75
       },
-      "score": 177,
+      "off_season": false,
+      "score": 182,
       "score_breakdown": {
-        "💝 心愿榜": 20,
+        "🆕 新品榜": 25,
         "💬 Reddit": 10,
         "🛒 Temu": 15,
         "🎨 Etsy": 10,
         "🔗 三源验证": 25,
-        "🔥 多源热门(eco)": 32,
+        "🔥 多源热门(pets)": 32,
         "💰 超高利润": 15
       },
       "stars": 5,
       "is_multi": true,
       "channel_tags": [
-        "multi_source",
+        "temu_trending",
         "etsy_trending",
-        "wished",
-        "temu_trending"
+        "multi_source",
+        "new_releases"
       ]
     },
     {
-      "asin": "B01CNV25VU",
-      "name": "PONY DANCE Grey Blackout Thermal Insulated Curtains for Bedroom, 46 x 54 Inch Short Eyelet Curtains & Drapes, Soft Black",
-      "price": 8.18,
-      "reviews": 50356,
-      "rating": 4.6,
-      "rank": 8,
-      "category": "Kitchen",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "50356 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B01CNV25VU",
+      "asin": "B0GL23Y821",
+      "name": "/2 Inch Replacement Knuckle Breaker Bar Head Kit for Power For Bars – Chrome Vanadium Steel, Black Phosphate Finish, Inc",
+      "price": 6.89,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 20,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GL23Y821",
       "sources": [
+        "Reddit需求",
         "Temu热销",
         "Etsy趋势"
       ],
-      "profit_margin": 0.376,
-      "net_profit": 3.07,
+      "profit_margin": 0.352,
+      "net_profit": 2.42,
       "cost_breakdown": {
-        "vat": 1.37,
-        "commission": 0.65,
+        "vat": 1.15,
+        "commission": 0.34,
         "fba": 1.28,
-        "ads": 0.41,
-        "returns": 0.25,
-        "storage": 0.08,
+        "ads": 0.34,
+        "returns": 0.21,
+        "storage": 0.07,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 5.11
+        "total_cost": 4.47
       },
-      "score": 159,
+      "off_season": false,
+      "score": 182,
       "score_breakdown": {
-        "💝 心愿榜": 20,
+        "🆕 新品榜": 25,
+        "💬 Reddit": 10,
         "🛒 Temu": 15,
         "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
-        "🔥 多源热门(kitchen)": 29,
-        "⭐ 高评分": 5,
+        "🔗 三源验证": 25,
+        "🔥 多源热门(pets)": 32,
         "💰 超高利润": 15
       },
       "stars": 5,
       "is_multi": true,
       "channel_tags": [
-        "multi_source",
+        "temu_trending",
         "etsy_trending",
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "604032547X",
-      "name": "DARKOAK WOODEN EFFECT PICTURE PHOTO FRAMES SIZE: 18\" x 14\", PORTRAIT OR LANDSCAPE READYMADE",
-      "price": 7.59,
-      "reviews": 1606,
-      "rating": 4.6,
-      "rank": 18,
-      "category": "Kitchen",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "1606 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/604032547X",
-      "sources": [
-        "Temu热销",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.353,
-      "net_profit": 2.68,
-      "cost_breakdown": {
-        "vat": 1.27,
-        "commission": 0.61,
-        "fba": 1.28,
-        "ads": 0.38,
-        "returns": 0.23,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 4.91
-      },
-      "score": 159,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "🛒 Temu": 15,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
-        "🔥 多源热门(home decor)": 29,
-        "⭐ 高评分": 5,
-        "💰 超高利润": 15
-      },
-      "stars": 5,
-      "is_multi": true,
-      "channel_tags": [
         "multi_source",
-        "etsy_trending",
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B0DB5FSHZM",
-      "name": "Procut Global 10X5 Oak Picture Frames – Sleek Wooden Photo Frame with Shatterproof Perspex for Wall or Tabletop – Perfec",
-      "price": 9.63,
-      "reviews": 778,
-      "rating": 4.6,
-      "rank": 28,
-      "category": "Kitchen",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "778 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0DB5FSHZM",
-      "sources": [
-        "Temu热销",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.419,
-      "net_profit": 4.03,
-      "cost_breakdown": {
-        "vat": 1.61,
-        "commission": 0.77,
-        "fba": 1.28,
-        "ads": 0.48,
-        "returns": 0.29,
-        "storage": 0.1,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.6
-      },
-      "score": 159,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "🛒 Temu": 15,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
-        "🔥 多源热门(home decor)": 29,
-        "⭐ 高评分": 5,
-        "💰 超高利润": 15
-      },
-      "stars": 5,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "wished",
-        "temu_trending"
+        "new_releases"
       ]
     },
     {
@@ -347,13 +151,14 @@
         "sourcing": 1.0,
         "total_cost": 6.01
       },
-      "score": 155,
+      "off_season": false,
+      "score": 174,
       "score_breakdown": {
         "🆕 新品榜": 25,
         "💬 Reddit": 10,
         "🎨 Etsy": 10,
         "🔗 双源验证": 15,
-        "📈 趋势(car)": 10,
+        "🔥 多源热门(car)": 29,
         "🟢 超低竞争": 20,
         "⭐ 高评分": 5,
         "💰 高利润": 10
@@ -361,8 +166,8 @@
       "stars": 5,
       "is_multi": true,
       "channel_tags": [
-        "multi_source",
         "etsy_trending",
+        "multi_source",
         "new_releases"
       ]
     },
@@ -395,211 +200,360 @@
         "sourcing": 1.0,
         "total_cost": 5.81
       },
-      "score": 155,
+      "off_season": false,
+      "score": 174,
       "score_breakdown": {
         "🆕 新品榜": 25,
         "🛒 Temu": 15,
         "🎨 Etsy": 10,
         "🔗 双源验证": 15,
-        "📈 趋势(car)": 10,
+        "🔥 多源热门(car)": 29,
         "🟢 超低竞争": 20,
         "💰 高利润": 10
       },
       "stars": 5,
       "is_multi": true,
       "channel_tags": [
-        "multi_source",
         "temu_trending",
         "etsy_trending",
+        "multi_source",
         "new_releases"
       ]
     },
     {
-      "asin": "B09NCZNVLZ",
-      "name": "MIULEE Set of 2 Striped Corduroy Square Throw Pillow Case Soft Cushion Covers Sham Home for Sofa Couch/Bedroom Decorativ",
-      "price": 7.11,
-      "reviews": 18981,
-      "rating": 4.4,
-      "rank": 30,
-      "category": "Kitchen",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "18981 reviews, 4.4★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B09NCZNVLZ",
+      "asin": "B0GVTCQ4JG",
+      "name": "Yoga Mat Unisex Non-Slip Thick Foam Exercise Mat 10mm with Carry Strap – Lightweight Home Gym Equipment for Yoga, Pilate",
+      "price": 7.99,
+      "reviews": 12,
+      "rating": 4.5,
+      "rank": 15,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "12 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GVTCQ4JG",
       "sources": [
         "Temu热销",
         "Etsy趋势"
       ],
-      "profit_margin": 0.332,
-      "net_profit": 2.36,
+      "profit_margin": 0.299,
+      "net_profit": 2.39,
       "cost_breakdown": {
-        "vat": 1.19,
-        "commission": 0.57,
+        "vat": 1.33,
+        "commission": 1.2,
         "fba": 1.28,
-        "ads": 0.36,
-        "returns": 0.21,
-        "storage": 0.07,
+        "ads": 0.4,
+        "returns": 0.24,
+        "storage": 0.08,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 4.75
+        "total_cost": 5.6
       },
-      "score": 149,
+      "off_season": false,
+      "score": 174,
       "score_breakdown": {
-        "💝 心愿榜": 20,
+        "🆕 新品榜": 25,
         "🛒 Temu": 15,
         "🎨 Etsy": 10,
         "🔗 双源验证": 15,
-        "🔥 多源热门(home decor)": 29,
+        "🔥 多源热门(car)": 29,
+        "🟢 超低竞争": 20,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 5
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "temu_trending",
+        "etsy_trending",
+        "multi_source",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GL939PG3",
+      "name": "Gdfnmogo 12V-24V DC Car Power Socket Extension Cord with 20A Fuse, Female Automotive Auxiliary Power Outlet for Vehicles",
+      "price": 5.78,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 11,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GL939PG3",
+      "sources": [
+        "Reddit需求",
+        "Temu热销",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.286,
+      "net_profit": 1.66,
+      "cost_breakdown": {
+        "vat": 0.97,
+        "commission": 0.29,
+        "fba": 1.28,
+        "ads": 0.29,
+        "returns": 0.17,
+        "storage": 0.06,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.12
+      },
+      "off_season": false,
+      "score": 169,
+      "score_breakdown": {
+        "🆕 新品榜": 25,
+        "💬 Reddit": 10,
+        "🛒 Temu": 15,
+        "🎨 Etsy": 10,
+        "🔗 三源验证": 25,
+        "🔥 多源热门(car)": 29,
+        "💰 较好利润": 5
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "temu_trending",
+        "etsy_trending",
+        "multi_source",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GLNF9ZRJ",
+      "name": "Rubber Winch Cable Hook Stopper for Synthetic Rope – Roller Wear, Maintains Tension & Eliminates Clicking Noise – Fits F",
+      "price": 8.72,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 21,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GLNF9ZRJ",
+      "sources": [
+        "Temu热销",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.424,
+      "net_profit": 3.69,
+      "cost_breakdown": {
+        "vat": 1.46,
+        "commission": 0.44,
+        "fba": 1.28,
+        "ads": 0.44,
+        "returns": 0.26,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.03
+      },
+      "off_season": false,
+      "score": 162,
+      "score_breakdown": {
+        "🆕 新品榜": 25,
+        "🛒 Temu": 15,
+        "🎨 Etsy": 10,
+        "🔗 双源验证": 15,
+        "🔥 多源热门(pets)": 32,
+        "💰 超高利润": 15
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "temu_trending",
+        "etsy_trending",
+        "multi_source",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GHQMH1FQ",
+      "name": "Aluminum Saddlebag Latch Lever Lid Lifter for Touring For Road Glide 2014-21, Compatible with CVO Models, Black Anodized",
+      "price": 9.6,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 23,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GHQMH1FQ",
+      "sources": [
+        "Temu热销",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.448,
+      "net_profit": 4.3,
+      "cost_breakdown": {
+        "vat": 1.6,
+        "commission": 0.48,
+        "fba": 1.28,
+        "ads": 0.48,
+        "returns": 0.29,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.3
+      },
+      "off_season": false,
+      "score": 162,
+      "score_breakdown": {
+        "🆕 新品榜": 25,
+        "🛒 Temu": 15,
+        "🎨 Etsy": 10,
+        "🔗 双源验证": 15,
+        "🔥 多源热门(pets)": 32,
+        "💰 超高利润": 15
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "temu_trending",
+        "etsy_trending",
+        "multi_source",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GKVCBF6F",
+      "name": "Shophubio Adjustable RV Drain Hose for Caravans, Motorhomes & Campervans – Flexible For EVA Waste Pipe, For Length with ",
+      "price": 6.64,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 26,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GKVCBF6F",
+      "sources": [
+        "Temu热销",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.339,
+      "net_profit": 2.25,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.33,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.39
+      },
+      "off_season": false,
+      "score": 154,
+      "score_breakdown": {
+        "🆕 新品榜": 25,
+        "🛒 Temu": 15,
+        "🎨 Etsy": 10,
+        "🔗 双源验证": 15,
+        "🔥 多源热门(car)": 29,
         "💰 高利润": 10
       },
       "stars": 5,
       "is_multi": true,
       "channel_tags": [
-        "multi_source",
+        "temu_trending",
         "etsy_trending",
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B0F9ZM575G",
-      "name": "Cable Extension Cable - Copper Cable 4 Pin Connector - Motherboard Extended Connector Heat Cord Computer Accessories for",
-      "price": 7.02,
-      "reviews": 0,
-      "rating": 5.0,
-      "rank": 2,
-      "category": "Lighting",
-      "channel": "new_releases",
-      "channel_name": "Amazon新品榜",
-      "review_info": "0 reviews, 5.0★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0F9ZM575G",
-      "sources": [
-        "TikTok趋势",
-        "Reddit需求"
-      ],
-      "profit_margin": 0.258,
-      "net_profit": 1.81,
-      "cost_breakdown": {
-        "vat": 1.17,
-        "commission": 1.05,
-        "fba": 1.28,
-        "ads": 0.35,
-        "returns": 0.21,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.21
-      },
-      "score": 135,
-      "score_breakdown": {
-        "🆕 新品榜": 25,
-        "🎵 TikTok": 25,
-        "💬 Reddit": 10,
-        "🔗 双源验证": 15,
-        "⭐ 高评分": 5,
-        "💰 较好利润": 5
-      },
-      "stars": 5,
-      "is_multi": true,
-      "channel_tags": [
-        "tiktok_verified",
         "multi_source",
         "new_releases"
       ]
     },
     {
-      "asin": "B0B942ZBNB",
-      "name": "Fit-Flip Microfibre towel - compact, ultra lightweight & quick dry - perfect for gym, travel & beach - swimming towels f",
-      "price": 7.49,
-      "reviews": 34221,
-      "rating": 4.5,
-      "rank": 5,
+      "asin": "B0GWRK5RZF",
+      "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
+      "price": 6.66,
+      "reviews": 38,
+      "rating": 4.6,
+      "rank": 2,
       "category": "Sports",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "34221 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0B942ZBNB",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "38 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK5RZF",
       "sources": [
         "Reddit需求",
         "Temu热销"
       ],
-      "profit_margin": 0.279,
-      "net_profit": 2.09,
+      "profit_margin": 0.24,
+      "net_profit": 1.6,
       "cost_breakdown": {
-        "vat": 1.25,
-        "commission": 1.12,
+        "vat": 1.11,
+        "commission": 1.0,
         "fba": 1.28,
-        "ads": 0.37,
-        "returns": 0.22,
+        "ads": 0.33,
+        "returns": 0.2,
         "storage": 0.07,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 5.4
+        "total_cost": 5.06
       },
-      "score": 130,
+      "off_season": false,
+      "score": 150,
       "score_breakdown": {
-        "💝 心愿榜": 20,
+        "🆕 新品榜": 25,
         "💬 Reddit": 10,
         "🛒 Temu": 15,
         "🔗 双源验证": 15,
         "📈 趋势(sports)": 10,
-        "⭐ 高评分": 5,
-        "💰 较好利润": 5
-      },
-      "stars": 5,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B094DFY8PC",
-      "name": "Prestone Screenwash, Ready To Use Screen Wash For Cars, High Performance Cleaning With Streak Free Formula, Maximum Visi",
-      "price": 5.98,
-      "reviews": 2168,
-      "rating": 4.6,
-      "rank": 10,
-      "category": "Automotive",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "2168 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B094DFY8PC",
-      "sources": [
-        "Reddit需求",
-        "Temu热销",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.2,
-      "net_profit": 1.2,
-      "cost_breakdown": {
-        "vat": 1.0,
-        "commission": 0.9,
-        "fba": 1.28,
-        "ads": 0.3,
-        "returns": 0.18,
-        "storage": 0.06,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 4.78
-      },
-      "score": 125,
-      "score_breakdown": {
-        "💬 Reddit": 10,
-        "🛒 Temu": 15,
-        "🎨 Etsy": 10,
-        "🔗 三源验证": 25,
-        "📈 趋势(car)": 10,
+        "🟢 超低竞争": 20,
         "⭐ 高评分": 5
       },
       "stars": 5,
       "is_multi": true,
       "channel_tags": [
+        "temu_trending",
         "multi_source",
-        "etsy_trending",
-        "bsr",
-        "temu_trending"
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GCHZ91Z2",
+      "name": "Vexloria Hand Grip Strengthener",
+      "price": 9.99,
+      "reviews": 2,
+      "rating": 4.7,
+      "rank": 23,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "2 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GCHZ91Z2",
+      "sources": [
+        "Temu热销"
+      ],
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "score": 140,
+      "score_breakdown": {
+        "🆕 新品榜": 25,
+        "🛒 Temu": 15,
+        "📈 趋势(sports)": 10,
+        "🟢 超低竞争": 20,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 15
+      },
+      "stars": 5,
+      "channel_tags": [
+        "temu_trending",
+        "new_releases"
       ]
     },
     {
@@ -630,11 +584,12 @@
         "sourcing": 1.0,
         "total_cost": 5.19
       },
-      "score": 120,
+      "off_season": false,
+      "score": 139,
       "score_breakdown": {
         "🆕 新品榜": 25,
         "🎨 Etsy": 10,
-        "📈 趋势(car)": 10,
+        "🔥 多源热门(car)": 29,
         "🟡 低竞争": 15,
         "⭐ 高评分": 5,
         "💰 较好利润": 5
@@ -646,501 +601,150 @@
       ]
     },
     {
-      "asin": "B0854JWZHT",
-      "name": "Lezonic Solar Fairy Lights Outdoor Waterproof, 50LED Solar Garden Lights, 8 Mode 7M/23Ft Indoor/Outdoor String Lights fo",
-      "price": 7.9,
-      "reviews": 15022,
-      "rating": 4.4,
-      "rank": 9,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "15022 reviews, 4.4★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0854JWZHT",
-      "google_trend": "rising",
-      "sources": [
-        "Google趋势",
-        "Reddit需求",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.296,
-      "net_profit": 2.33,
-      "cost_breakdown": {
-        "vat": 1.32,
-        "commission": 1.19,
-        "fba": 1.28,
-        "ads": 0.4,
-        "returns": 0.24,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.57
-      },
-      "score": 120,
-      "score_breakdown": {
-        "📊 Google↑": 20,
-        "💬 Reddit": 10,
-        "🎨 Etsy": 10,
-        "🔗 三源验证": 25,
-        "💰 较好利润": 5
-      },
-      "stars": 5,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "bsr",
-        "google_trends"
-      ]
-    },
-    {
-      "asin": "B06ZY9655C",
-      "name": "Reaction Tackle Braided Fishing Line - Professional Performance for Saltwater or Freshwater Fish - Colorful Line for Inc",
-      "price": 9.66,
-      "reviews": 24743,
-      "rating": 4.6,
-      "rank": 20,
-      "category": "Sports",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "24743 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B06ZY9655C",
-      "sources": [
-        "Temu热销"
-      ],
-      "profit_margin": 0.35,
-      "net_profit": 3.38,
-      "cost_breakdown": {
-        "vat": 1.61,
-        "commission": 1.45,
-        "fba": 1.28,
-        "ads": 0.48,
-        "returns": 0.29,
-        "storage": 0.1,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 6.28
-      },
-      "score": 115,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "🛒 Temu": 15,
-        "📈 趋势(sports)": 10,
-        "⭐ 高评分": 5,
-        "💰 超高利润": 15
-      },
-      "stars": 4,
-      "channel_tags": [
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B08GJ7WK5Y",
-      "name": "Blue Tarpaulin Waterproof Cover with 4 Ball Bungees - 2 x 3 m Versatile Sheet with Eyelets - Ground Sheet for Garden, Ca",
-      "price": 8.49,
-      "reviews": 1458,
-      "rating": 4.3,
-      "rank": 29,
-      "category": "DIY",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "1458 reviews, 4.3★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B08GJ7WK5Y",
-      "sources": [
-        "Reddit需求",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.316,
-      "net_profit": 2.68,
-      "cost_breakdown": {
-        "vat": 1.42,
-        "commission": 1.27,
-        "fba": 1.28,
-        "ads": 0.42,
-        "returns": 0.25,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.81
-      },
-      "score": 115,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "💬 Reddit": 10,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
-        "💰 高利润": 10
-      },
-      "stars": 4,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "wished"
-      ]
-    },
-    {
-      "asin": "B0DHJSBGTT",
-      "name": "Miracase Car Phone Holder for Cars Dashboard Windscreen Desk, 3in 1 Mobile Phone Mount Automobile Cradle 360° Rotatable ",
-      "price": 8.71,
-      "reviews": 57767,
-      "rating": 4.8,
-      "rank": 4,
-      "category": "Automotive",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "57767 reviews, 4.8★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0DHJSBGTT",
-      "sources": [
-        "Reddit需求",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.323,
-      "net_profit": 2.82,
-      "cost_breakdown": {
-        "vat": 1.45,
-        "commission": 1.31,
-        "fba": 1.28,
-        "ads": 0.44,
-        "returns": 0.26,
-        "storage": 0.09,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.89
-      },
-      "score": 110,
-      "score_breakdown": {
-        "💬 Reddit": 10,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
-        "📈 趋势(car)": 10,
-        "⭐ 高评分": 5,
-        "💰 高利润": 10
-      },
-      "stars": 4,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B0BXNKTRT2",
-      "name": "HERCULES Super Tough Braided Fishing Line 150-1000 Yards Braid Fishing Line 4lb-160lb Test for Saltwater Freshwater PE B",
-      "price": 8.43,
-      "reviews": 766,
-      "rating": 4.7,
-      "rank": 15,
-      "category": "Sports",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "766 reviews, 4.7★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0BXNKTRT2",
-      "sources": [
-        "Temu热销"
-      ],
-      "profit_margin": 0.314,
-      "net_profit": 2.65,
-      "cost_breakdown": {
-        "vat": 1.41,
-        "commission": 1.26,
-        "fba": 1.28,
-        "ads": 0.42,
-        "returns": 0.25,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.78
-      },
-      "score": 110,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "🛒 Temu": 15,
-        "📈 趋势(sports)": 10,
-        "⭐ 高评分": 5,
-        "💰 高利润": 10
-      },
-      "stars": 4,
-      "channel_tags": [
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B0FJDPJ86G",
-      "name": "Romuto Car Phone Holder Mount【Strong Suction】Mobile Phone Holder for Cars Phone Mount for Car Vent/Windscreen/Dashboard ",
-      "price": 8.32,
-      "reviews": 5431,
-      "rating": 4.4,
-      "rank": 25,
-      "category": "Automotive",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "5431 reviews, 4.4★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0FJDPJ86G",
-      "sources": [
-        "Reddit需求",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.311,
-      "net_profit": 2.58,
-      "cost_breakdown": {
-        "vat": 1.39,
-        "commission": 1.25,
-        "fba": 1.28,
-        "ads": 0.42,
-        "returns": 0.25,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.74
-      },
-      "score": 105,
-      "score_breakdown": {
-        "💬 Reddit": 10,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
-        "📈 趋势(car)": 10,
-        "💰 高利润": 10
-      },
-      "stars": 4,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B076FNN1WJ",
-      "name": "Hercules Braided Fishing Line 4 Strands 100m-2000m 6lb-100lb Super Strong PE Fishing Wire Multifilament Fishing Lines fo",
-      "price": 6.94,
-      "reviews": 7771,
+      "asin": "B0GW9CF7Q8",
+      "name": "Football Wallcharts 2026 World Cup Wallchart – A1 Sized Stadium Glow Style Tournament Tracker (59.4 x 84.1 cm)",
+      "price": 8.29,
+      "reviews": 4,
       "rating": 4.5,
-      "rank": 1,
+      "rank": 14,
       "category": "Sports",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "7771 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B076FNN1WJ",
-      "sources": [
-        "Temu热销"
-      ],
-      "profit_margin": 0.254,
-      "net_profit": 1.77,
-      "cost_breakdown": {
-        "vat": 1.16,
-        "commission": 1.04,
-        "fba": 1.28,
-        "ads": 0.35,
-        "returns": 0.21,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.17
-      },
-      "score": 105,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "🛒 Temu": 15,
-        "📈 趋势(sports)": 10,
-        "⭐ 高评分": 5,
-        "💰 较好利润": 5
-      },
-      "stars": 4,
-      "channel_tags": [
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B0CR1J265Z",
-      "name": "EdcX Paracord 4mm, 35+ Solid Colors (10m, 15m, 30m, 50m, 100m, 300m) | Ideal for Crafting, DIY, Camping, Survival, Outdo",
-      "price": 6.99,
-      "reviews": 9137,
-      "rating": 4.6,
-      "rank": 4,
-      "category": "Sports",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "9137 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0CR1J265Z",
-      "sources": [
-        "Temu热销"
-      ],
-      "profit_margin": 0.257,
-      "net_profit": 1.8,
-      "cost_breakdown": {
-        "vat": 1.17,
-        "commission": 1.05,
-        "fba": 1.28,
-        "ads": 0.35,
-        "returns": 0.21,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.19
-      },
-      "score": 105,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "🛒 Temu": 15,
-        "📈 趋势(sports)": 10,
-        "⭐ 高评分": 5,
-        "💰 较好利润": 5
-      },
-      "stars": 4,
-      "channel_tags": [
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B0GYRSM22M",
-      "name": "JADUFHU Ratchet Screwdriver, 13-in-1 Magnetic Screwdriver Set, 3-Way High Torque Multi Screwdriver with CR-V Steel Bits,",
-      "price": 8.99,
-      "reviews": 0,
-      "rating": 5.0,
-      "rank": 9,
-      "category": "DIY",
       "channel": "new_releases",
       "channel_name": "Amazon新品榜",
-      "review_info": "0 reviews, 5.0★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0GYRSM22M",
+      "review_info": "4 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GW9CF7Q8",
       "sources": [
-        "Reddit需求"
+        "Temu热销"
       ],
-      "profit_margin": 0.332,
-      "net_profit": 2.98,
+      "profit_margin": 0.31,
+      "net_profit": 2.57,
       "cost_breakdown": {
-        "vat": 1.5,
-        "commission": 1.35,
+        "vat": 1.38,
+        "commission": 1.24,
         "fba": 1.28,
-        "ads": 0.45,
-        "returns": 0.27,
-        "storage": 0.09,
+        "ads": 0.41,
+        "returns": 0.25,
+        "storage": 0.08,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 6.01
+        "total_cost": 5.72
       },
-      "score": 100,
+      "off_season": false,
+      "score": 135,
       "score_breakdown": {
         "🆕 新品榜": 25,
-        "💬 Reddit": 10,
+        "🛒 Temu": 15,
+        "📈 趋势(sports)": 10,
+        "🟢 超低竞争": 20,
         "⭐ 高评分": 5,
         "💰 高利润": 10
       },
-      "stars": 4,
+      "stars": 5,
       "channel_tags": [
+        "temu_trending",
         "new_releases"
       ]
     },
     {
-      "asin": "B08R1BST1N",
-      "name": "Moxled Solar Garden Lights Outdoor, 36ft 60 LED Solar String Lights Waterproof, Solar Powered Crystal Ball Indoor/Outdoo",
-      "price": 8.9,
-      "reviews": 9320,
-      "rating": 5.0,
-      "rank": 2,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "9320 reviews, 5.0★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B08R1BST1N",
+      "asin": "B0GY96VB6S",
+      "name": "Lockie Fitness Yoga Mat 8 mm Thick, Non Slip Exercise Mat for Women and Men, NBR Foam Pilates Mat, Gym Mat for Home Work",
+      "price": 8.95,
+      "reviews": 40,
+      "rating": 4.9,
+      "rank": 22,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "40 reviews, 4.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GY96VB6S",
       "sources": [
-        "Reddit需求",
-        "Etsy趋势"
+        "Temu热销"
       ],
-      "profit_margin": 0.329,
-      "net_profit": 2.93,
+      "profit_margin": 0.33,
+      "net_profit": 2.96,
       "cost_breakdown": {
         "vat": 1.49,
-        "commission": 1.33,
+        "commission": 1.34,
         "fba": 1.28,
         "ads": 0.45,
         "returns": 0.27,
         "storage": 0.09,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 5.97
+        "total_cost": 5.99
       },
-      "score": 100,
+      "off_season": false,
+      "score": 135,
       "score_breakdown": {
-        "💬 Reddit": 10,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
+        "🆕 新品榜": 25,
+        "🛒 Temu": 15,
+        "📈 趋势(sports)": 10,
+        "🟢 超低竞争": 20,
         "⭐ 高评分": 5,
         "💰 高利润": 10
       },
-      "stars": 4,
-      "is_multi": true,
+      "stars": 5,
       "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "bsr"
+        "temu_trending",
+        "new_releases"
       ]
     },
     {
-      "asin": "B0CDLS3PCZ",
-      "name": "btfarm 2 Pack Solar String Lights Outdoor Garden Waterproof, Total 16M/53FT 160 LED Solar Powered Fairy Lights, 8 Modes ",
-      "price": 8.03,
-      "reviews": 3811,
-      "rating": 4.6,
-      "rank": 11,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "3811 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0CDLS3PCZ",
-      "sources": [
-        "Reddit需求",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.3,
-      "net_profit": 2.41,
-      "cost_breakdown": {
-        "vat": 1.34,
-        "commission": 1.2,
-        "fba": 1.28,
-        "ads": 0.4,
-        "returns": 0.24,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.62
-      },
-      "score": 100,
-      "score_breakdown": {
-        "💬 Reddit": 10,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
-        "⭐ 高评分": 5,
-        "💰 高利润": 10
-      },
-      "stars": 4,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B076K57NC7",
-      "name": "Dorisea Extreme Braid 100% Pe 300m/328Yards Braided Fishing Line 6-550Lb Test Fishing Wire Fishing String-Abrasion Resis",
-      "price": 5.99,
-      "reviews": 2945,
-      "rating": 4.5,
-      "rank": 17,
+      "asin": "B0H1T62Y7Z",
+      "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
+      "price": 6.66,
+      "reviews": 9,
+      "rating": 4.8,
+      "rank": 3,
       "category": "Sports",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "2945 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B076K57NC7",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "9 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1T62Y7Z",
       "sources": [
         "Temu热销"
+      ],
+      "profit_margin": 0.24,
+      "net_profit": 1.6,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.06
+      },
+      "off_season": false,
+      "score": 125,
+      "score_breakdown": {
+        "🆕 新品榜": 25,
+        "🛒 Temu": 15,
+        "📈 趋势(sports)": 10,
+        "🟢 超低竞争": 20,
+        "⭐ 高评分": 5
+      },
+      "stars": 5,
+      "channel_tags": [
+        "temu_trending",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B00PAS77J4",
+      "name": "Active Film Limo Black, Medium, Light & Ultra Light Car Auto Tint Window Tinting Film 5% Limo Black 1mx50cm",
+      "price": 5.99,
+      "reviews": 212,
+      "rating": 4.1,
+      "rank": 7,
+      "category": "Automotive",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "212 reviews, 4.1★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B00PAS77J4",
+      "sources": [
+        "Etsy趋势"
       ],
       "profit_margin": 0.201,
       "net_profit": 1.2,
@@ -1155,182 +759,98 @@
         "sourcing": 1.0,
         "total_cost": 4.79
       },
-      "score": 100,
+      "off_season": false,
+      "score": 114,
       "score_breakdown": {
         "💝 心愿榜": 20,
-        "🛒 Temu": 15,
-        "📈 趋势(sports)": 10,
-        "⭐ 高评分": 5
+        "🎨 Etsy": 10,
+        "🔥 多源热门(car)": 29,
+        "⚪ 中等竞争": 5
       },
       "stars": 4,
       "channel_tags": [
-        "wished",
-        "temu_trending"
+        "etsy_trending",
+        "wished"
       ]
     },
     {
-      "asin": "B0D1R2ST3X",
-      "name": "KastKing SuperPower Braided Fishing Line - Abrasion Resistant Braided Lines – Incredible Superline – Zero Stretch – Smal",
-      "price": 6.58,
-      "reviews": 15905,
-      "rating": 4.6,
-      "rank": 26,
+      "asin": "B0GLXWV6S7",
+      "name": "1 Pcs Foot Pedal Resistance Band,Stomach Exercise Equipment,Elastic Pull Rope Foot Resistance Band,Abdominal and Muscle ",
+      "price": 6.91,
+      "reviews": 121,
+      "rating": 3.5,
+      "rank": 29,
       "category": "Sports",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "15905 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0D1R2ST3X",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "121 reviews, 3.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GLXWV6S7",
       "sources": [
         "Temu热销"
       ],
-      "profit_margin": 0.236,
-      "net_profit": 1.55,
+      "profit_margin": 0.253,
+      "net_profit": 1.75,
       "cost_breakdown": {
-        "vat": 1.1,
-        "commission": 0.99,
+        "vat": 1.15,
+        "commission": 1.04,
         "fba": 1.28,
-        "ads": 0.33,
-        "returns": 0.2,
+        "ads": 0.35,
+        "returns": 0.21,
         "storage": 0.07,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 5.03
+        "total_cost": 5.16
       },
-      "score": 100,
+      "off_season": false,
+      "score": 110,
       "score_breakdown": {
-        "💝 心愿榜": 20,
+        "🆕 新品榜": 25,
         "🛒 Temu": 15,
         "📈 趋势(sports)": 10,
-        "⭐ 高评分": 5
-      },
-      "stars": 4,
-      "channel_tags": [
-        "wished",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B083P3LGFY",
-      "name": "Lezonic Solar String Lights Outdoor, 2Pack Total 240 LED/80FT Solar Garden Lights Waterproof, 8 Modes Indoor/Outdoor Fai",
-      "price": 7.49,
-      "reviews": 14430,
-      "rating": 4.4,
-      "rank": 7,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "14430 reviews, 4.4★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B083P3LGFY",
-      "sources": [
-        "Reddit需求",
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.279,
-      "net_profit": 2.09,
-      "cost_breakdown": {
-        "vat": 1.25,
-        "commission": 1.12,
-        "fba": 1.28,
-        "ads": 0.37,
-        "returns": 0.22,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.4
-      },
-      "score": 90,
-      "score_breakdown": {
-        "💬 Reddit": 10,
-        "🎨 Etsy": 10,
-        "🔗 双源验证": 15,
+        "⚪ 中等竞争": 5,
         "💰 较好利润": 5
       },
-      "stars": 3,
-      "is_multi": true,
+      "stars": 4,
       "channel_tags": [
-        "multi_source",
-        "etsy_trending",
-        "bsr"
+        "temu_trending",
+        "new_releases"
       ]
     },
     {
-      "asin": "B08R8F8FGM",
-      "name": "URAQT Microfibre Cleaning Cloths, 6 Pack, Two-layer Thickened Towels, Lint Free Super Absorbent Towel for Household and ",
-      "price": 6.57,
-      "reviews": 6359,
-      "rating": 4.1,
-      "rank": 29,
-      "category": "Automotive",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "6359 reviews, 4.1★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B08R8F8FGM",
-      "sources": [
-        "Reddit需求",
-        "Temu热销"
-      ],
-      "profit_margin": 0.235,
-      "net_profit": 1.55,
-      "cost_breakdown": {
-        "vat": 1.1,
-        "commission": 0.99,
-        "fba": 1.28,
-        "ads": 0.33,
-        "returns": 0.2,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.02
-      },
-      "score": 90,
-      "score_breakdown": {
-        "💬 Reddit": 10,
-        "🛒 Temu": 15,
-        "🔗 双源验证": 15
-      },
-      "stars": 3,
-      "is_multi": true,
-      "channel_tags": [
-        "multi_source",
-        "bsr",
-        "temu_trending"
-      ]
-    },
-    {
-      "asin": "B0974XC9ZX",
-      "name": "Hippo Hardware M6 (6mm X 45mm) Socket Cap Screw Hex Head Allen Bolts A2 Stainless Steel (Pack of 3)",
-      "price": 8.31,
-      "reviews": 254,
-      "rating": 4.5,
-      "rank": 16,
+      "asin": "B0GYRSM22M",
+      "name": "JADUFHU Ratchet Screwdriver, 13-in-1 Magnetic Screwdriver Set, 3-Way High Torque Multi Screwdriver with CR-V Steel Bits,",
+      "price": 8.99,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 9,
       "category": "DIY",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "254 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0974XC9ZX",
-      "profit_margin": 0.31,
-      "net_profit": 2.58,
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYRSM22M",
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
       "cost_breakdown": {
-        "vat": 1.39,
-        "commission": 1.25,
+        "vat": 1.5,
+        "commission": 1.35,
         "fba": 1.28,
-        "ads": 0.42,
-        "returns": 0.25,
-        "storage": 0.08,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
         "dsc": 0.07,
         "sourcing": 1.0,
-        "total_cost": 5.73
+        "total_cost": 6.01
       },
+      "off_season": false,
       "score": 90,
       "score_breakdown": {
-        "💝 心愿榜": 20,
-        "⚪ 中等竞争": 5,
+        "🆕 新品榜": 25,
         "⭐ 高评分": 5,
         "💰 高利润": 10
       },
       "stars": 3,
       "channel_tags": [
-        "wished"
+        "new_releases"
       ]
     },
     {
@@ -1358,6 +878,7 @@
         "sourcing": 1.0,
         "total_cost": 5.68
       },
+      "off_season": false,
       "score": 85,
       "score_breakdown": {
         "🆕 新品榜": 25,
@@ -1366,156 +887,6 @@
       "stars": 3,
       "channel_tags": [
         "new_releases"
-      ]
-    },
-    {
-      "asin": "B09GG3RX93",
-      "name": "California Scents, Car Air Fresheners Can, Coronado Cherry Scent, Pack of 4, Strong Adjustable Long-Lasting Fragrance, E",
-      "price": 9.16,
-      "reviews": 6467,
-      "rating": 4.5,
-      "rank": 15,
-      "category": "Automotive",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "6467 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B09GG3RX93",
-      "sources": [
-        "Etsy趋势"
-      ],
-      "profit_margin": 0.336,
-      "net_profit": 3.08,
-      "cost_breakdown": {
-        "vat": 1.53,
-        "commission": 1.37,
-        "fba": 1.28,
-        "ads": 0.46,
-        "returns": 0.27,
-        "storage": 0.09,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 6.08
-      },
-      "score": 85,
-      "score_breakdown": {
-        "🎨 Etsy": 10,
-        "📈 趋势(car)": 10,
-        "⭐ 高评分": 5,
-        "💰 高利润": 10
-      },
-      "stars": 3,
-      "channel_tags": [
-        "etsy_trending",
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B07XKL81NZ",
-      "name": "3 x 3 m Blue Tarpaulin Waterproof Tarp Sheet Cover, Groundsheet - Waterproof, Weatherproof, Frost-Resistant, UV Protecti",
-      "price": 7.99,
-      "reviews": 23443,
-      "rating": 4.1,
-      "rank": 9,
-      "category": "DIY",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "23443 reviews, 4.1★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B07XKL81NZ",
-      "sources": [
-        "Reddit需求"
-      ],
-      "profit_margin": 0.299,
-      "net_profit": 2.39,
-      "cost_breakdown": {
-        "vat": 1.33,
-        "commission": 1.2,
-        "fba": 1.28,
-        "ads": 0.4,
-        "returns": 0.24,
-        "storage": 0.08,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.6
-      },
-      "score": 85,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "💬 Reddit": 10,
-        "💰 较好利润": 5
-      },
-      "stars": 3,
-      "channel_tags": [
-        "wished"
-      ]
-    },
-    {
-      "asin": "B08CRST9TB",
-      "name": "Lepro E14 LED Light Bulb, Warm White 2700K, 4.2W 470 Lumen, 40W Equivalent Candle Bulbs, Small Edison Screw SES, Energy ",
-      "price": 7.28,
-      "reviews": 6834,
-      "rating": 4.3,
-      "rank": 21,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "6834 reviews, 4.3★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B08CRST9TB",
-      "profit_margin": 0.27,
-      "net_profit": 1.97,
-      "cost_breakdown": {
-        "vat": 1.22,
-        "commission": 1.09,
-        "fba": 1.28,
-        "ads": 0.36,
-        "returns": 0.22,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.31
-      },
-      "score": 84,
-      "score_breakdown": {
-        "🔥 多源热门(home decor)": 29,
-        "💰 较好利润": 5
-      },
-      "stars": 3,
-      "channel_tags": [
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B0F6N1CC6W",
-      "name": "PVC Floor Transition Strip(5cm Wide × 2mm Thick) Laminate Floor Cover Strips Self Adhesive Door Bar Divider Strip Flat F",
-      "price": 9.57,
-      "reviews": 1310,
-      "rating": 4.3,
-      "rank": 30,
-      "category": "DIY",
-      "channel": "wished",
-      "channel_name": "Amazon心愿榜",
-      "review_info": "1310 reviews, 4.3★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0F6N1CC6W",
-      "profit_margin": 0.347,
-      "net_profit": 3.33,
-      "cost_breakdown": {
-        "vat": 1.6,
-        "commission": 1.44,
-        "fba": 1.28,
-        "ads": 0.48,
-        "returns": 0.29,
-        "storage": 0.1,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 6.24
-      },
-      "score": 80,
-      "score_breakdown": {
-        "💝 心愿榜": 20,
-        "💰 高利润": 10
-      },
-      "stars": 3,
-      "channel_tags": [
-        "wished"
       ]
     },
     {
@@ -1543,6 +914,7 @@
         "sourcing": 1.0,
         "total_cost": 5.07
       },
+      "off_season": false,
       "score": 75,
       "score_breakdown": {
         "🆕 新品榜": 25
@@ -1550,187 +922,6 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
-    },
-    {
-      "asin": "B085L3D7RD",
-      "name": "Mexllex LED Strip Lights 10M (1X10M) APP Control Colour Changing LED Lights with Remote, Music Sync Built-in Mic, SMD RG",
-      "price": 9.99,
-      "reviews": 16055,
-      "rating": 4.4,
-      "rank": 23,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "16055 reviews, 4.4★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B085L3D7RD",
-      "sources": [
-        "Reddit需求"
-      ],
-      "profit_margin": 0.358,
-      "net_profit": 3.57,
-      "cost_breakdown": {
-        "vat": 1.67,
-        "commission": 1.5,
-        "fba": 1.28,
-        "ads": 0.5,
-        "returns": 0.3,
-        "storage": 0.1,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 6.42
-      },
-      "score": 75,
-      "score_breakdown": {
-        "💬 Reddit": 10,
-        "💰 超高利润": 15
-      },
-      "stars": 2,
-      "channel_tags": [
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B0CM3HWT7G",
-      "name": "Ledivion Night Light, LED Touch Bedside Table Lamp, RGB Colours Changing, 5 Brightness Level, Timing Function, Dimmable ",
-      "price": 6.63,
-      "reviews": 952,
-      "rating": 4.3,
-      "rank": 19,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "952 reviews, 4.3★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0CM3HWT7G",
-      "sources": [
-        "Reddit需求"
-      ],
-      "profit_margin": 0.239,
-      "net_profit": 1.58,
-      "cost_breakdown": {
-        "vat": 1.11,
-        "commission": 0.99,
-        "fba": 1.28,
-        "ads": 0.33,
-        "returns": 0.2,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.05
-      },
-      "score": 60,
-      "score_breakdown": {
-        "💬 Reddit": 10
-      },
-      "stars": 2,
-      "channel_tags": [
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B0DZ2NVD8Q",
-      "name": "Quebec 16W 2D Square 4-Pin GR8 Cap Compact Fluorescent Lamp, Warm White 3500K, Non-Dimmable CFL Light Bulb, Energy Class",
-      "price": 7.49,
-      "reviews": 404,
-      "rating": 4.5,
-      "rank": 28,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "404 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0DZ2NVD8Q",
-      "profit_margin": 0.279,
-      "net_profit": 2.09,
-      "cost_breakdown": {
-        "vat": 1.25,
-        "commission": 1.12,
-        "fba": 1.28,
-        "ads": 0.37,
-        "returns": 0.22,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.4
-      },
-      "score": 60,
-      "score_breakdown": {
-        "⭐ 高评分": 5,
-        "💰 较好利润": 5
-      },
-      "stars": 2,
-      "channel_tags": [
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B0CLM34WXT",
-      "name": "Tiger Tape® Number Plate Sticky Pads. Automotive Grade Heavy Duty, Extra Strong Double Sided Adhesive for Vehicle Number",
-      "price": 5.99,
-      "reviews": 2167,
-      "rating": 4.4,
-      "rank": 21,
-      "category": "Automotive",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "2167 reviews, 4.4★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0CLM34WXT",
-      "sources": [
-        "Reddit需求"
-      ],
-      "profit_margin": 0.201,
-      "net_profit": 1.2,
-      "cost_breakdown": {
-        "vat": 1.0,
-        "commission": 0.9,
-        "fba": 1.28,
-        "ads": 0.3,
-        "returns": 0.18,
-        "storage": 0.06,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 4.79
-      },
-      "score": 60,
-      "score_breakdown": {
-        "💬 Reddit": 10
-      },
-      "stars": 2,
-      "channel_tags": [
-        "bsr"
-      ]
-    },
-    {
-      "asin": "B0C3BC4QG2",
-      "name": "Gritin 19 LED Book Light, Reading Light Book Lamp for Reading at Night with Memory Function, 3 Eye-Protecting Modes -Ste",
-      "price": 7.49,
-      "reviews": 38000,
-      "rating": 4.3,
-      "rank": 17,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "38000 reviews, 4.3★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0C3BC4QG2",
-      "profit_margin": 0.279,
-      "net_profit": 2.09,
-      "cost_breakdown": {
-        "vat": 1.25,
-        "commission": 1.12,
-        "fba": 1.28,
-        "ads": 0.37,
-        "returns": 0.22,
-        "storage": 0.07,
-        "dsc": 0.07,
-        "sourcing": 1.0,
-        "total_cost": 5.4
-      },
-      "score": 55,
-      "score_breakdown": {
-        "💰 较好利润": 5
-      },
-      "stars": 1,
-      "channel_tags": [
-        "bsr"
       ]
     }
   ],
@@ -1745,33 +936,31 @@
         100
       ],
       [
-        "home decor",
-        84
+        "kitchen",
+        97
+      ],
+      [
+        "office",
+        79
       ],
       [
         "eco",
-        84
+        79
       ],
       [
-        "kitchen",
-        77
-      ],
-      [
-        "seasonal",
-        61
+        "home decor",
+        73
       ]
     ],
     "cross_validated": [
       "car",
-      "pets",
-      "home decor",
-      "eco",
+      "phone",
       "kitchen",
-      "bathroom",
       "office",
+      "pets",
       "sports",
-      "seasonal",
-      "crafts"
+      "crafts",
+      "eco"
     ],
     "demand_keywords": [
       "amazon comparing",
@@ -1779,11 +968,11 @@
       "cool gadgets",
       "cool stuff gadgets",
       "cool things to buy",
-      "explore trending products",
+      "has anyone here looked seriously",
+      "here are the top trending",
       "home decor and furniture",
-      "magnetic eyelashes",
-      "magnetic phone charger",
-      "posture corrector"
+      "kitchen gadgets",
+      "shop like a billionaire"
     ],
     "season": "spring",
     "sources_scanned": [
