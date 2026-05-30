@@ -1,0 +1,61 @@
+{
+  "category_scores": {
+    "car": 67,
+    "phone": 22,
+    "home decor": 11,
+    "kitchen": 100,
+    "office": 56,
+    "sports": 33,
+    "pets": 22,
+    "beauty": 33,
+    "cleaning": 11,
+    "storage": 11,
+    "crafts": 11
+  },
+  "category_evidence": {
+    "car": [
+      "organiser",
+      "car"
+    ],
+    "phone": [
+      "phone",
+      "stand"
+    ],
+    "home decor": [
+      "decor"
+    ],
+    "kitchen": [
+      "kitchen",
+      "gadget",
+      "organiser"
+    ],
+    "office": [
+      "pen",
+      "office",
+      "organiser"
+    ],
+    "sports": [
+      "water bottle"
+    ],
+    "pets": [
+      "cat",
+      "pet"
+    ],
+    "beauty": [
+      "skincare",
+      "hair"
+    ],
+    "cleaning": [
+      "organiser"
+    ],
+    "storage": [
+      "organiser"
+    ],
+    "crafts": [
+      "art"
+    ]
+  },
+  "season": "spring",
+  "total_queries": 4,
+  "total_results_chars": 9538
+}

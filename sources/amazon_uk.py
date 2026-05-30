@@ -1,37 +1,51 @@
 #!/usr/bin/env python3
-"""Amazon UK data fetcher - uses curl with GBP cookie to get real BSR data"""
-import json, subprocess, re, sys, os
+"""Amazon UK data fetcher v2 - New Releases + BSR with channel tagging"""
+import json, subprocess, re, sys, random
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent
 CONFIG = json.loads((BASE / "config.json").read_text())
 
-# Amazon UK BSR category URLs
+# Amazon UK URLs with channel type
 AMAZON_URLS = {
-    # NEW RELEASES (primary - always fetch)
-    "Kitchen New": "https://www.amazon.co.uk/gp/new-releases/kitchen/",
-    "Garden New": "https://www.amazon.co.uk/gp/new-releases/garden/",
-    "DIY New": "https://www.amazon.co.uk/gp/new-releases/diy/",
-    "Sports New": "https://www.amazon.co.uk/gp/new-releases/sports/",
-    "Bathroom New": "https://www.amazon.co.uk/gp/new-releases/bathroom/",
-    "Cleaning New": "https://www.amazon.co.uk/gp/new-releases/cleaning/",
-    "Office New": "https://www.amazon.co.uk/gp/new-releases/stationery-office/",
-    "Automotive New": "https://www.amazon.co.uk/gp/new-releases/automotive/",
-    "Lighting New": "https://www.amazon.co.uk/gp/new-releases/lighting/",
-    "Storage New": "https://www.amazon.co.uk/gp/new-releases/kitchen/storage-accessories/",
-    # BSR (reference only - secondary)
-    "Kitchen BSR": "https://www.amazon.co.uk/gp/bestsellers/kitchen/",
-    "Garden BSR": "https://www.amazon.co.uk/gp/bestsellers/garden/",
-    "DIY & Tools BSR": "https://www.amazon.co.uk/gp/bestsellers/diy/",
-    "Sports BSR": "https://www.amazon.co.uk/gp/bestsellers/sports/",
-    "Automotive BSR": "https://www.amazon.co.uk/gp/bestsellers/automotive/",
-    "Home BSR": "https://www.amazon.co.uk/gp/bestsellers/home/",
-    "Crafts BSR": "https://www.amazon.co.uk/gp/bestsellers/diy-craft-tools/",
+    # === NEW RELEASES ===
+    "Kitchen|new_releases": "https://www.amazon.co.uk/gp/new-releases/kitchen/",
+    "Garden|new_releases": "https://www.amazon.co.uk/gp/new-releases/garden/",
+    "DIY|new_releases": "https://www.amazon.co.uk/gp/new-releases/diy/",
+    "Sports|new_releases": "https://www.amazon.co.uk/gp/new-releases/sports/",
+    "Bathroom|new_releases": "https://www.amazon.co.uk/gp/new-releases/bathroom/",
+    "Cleaning|new_releases": "https://www.amazon.co.uk/gp/new-releases/cleaning/",
+    "Office|new_releases": "https://www.amazon.co.uk/gp/new-releases/stationery-office/",
+    "Automotive|new_releases": "https://www.amazon.co.uk/gp/new-releases/automotive/",
+    "Lighting|new_releases": "https://www.amazon.co.uk/gp/new-releases/lighting/",
+    "Storage|new_releases": "https://www.amazon.co.uk/gp/new-releases/kitchen/storage-accessories/",
+    "Crafts|new_releases": "https://www.amazon.co.uk/gp/new-releases/diy-craft-tools/",
+    "Bedding|new_releases": "https://www.amazon.co.uk/gp/new-releases/bedding/",
+    "Pets|new_releases": "https://www.amazon.co.uk/gp/new-releases/pet-supplies/",
+    "Home|new_releases": "https://www.amazon.co.uk/gp/new-releases/home/",
+    # === BESTSELLERS (BSR) ===
+    "Kitchen|bsr": "https://www.amazon.co.uk/gp/bestsellers/kitchen/",
+    "Garden|bsr": "https://www.amazon.co.uk/gp/bestsellers/garden/",
+    "DIY|bsr": "https://www.amazon.co.uk/gp/bestsellers/diy/",
+    "Sports|bsr": "https://www.amazon.co.uk/gp/bestsellers/sports/",
+    "Home|bsr": "https://www.amazon.co.uk/gp/bestsellers/home/",
+    "Automotive|bsr": "https://www.amazon.co.uk/gp/bestsellers/automotive/",
+    "Crafts|bsr": "https://www.amazon.co.uk/gp/bestsellers/diy-craft-tools/",
+    "Office|bsr": "https://www.amazon.co.uk/gp/bestsellers/stationery-office/",
+    "Bathroom|bsr": "https://www.amazon.co.uk/gp/bestsellers/bathroom/",
+    "Cleaning|bsr": "https://www.amazon.co.uk/gp/bestsellers/cleaning/",
+    "Lighting|bsr": "https://www.amazon.co.uk/gp/bestsellers/lighting/",
+    "Bedding|bsr": "https://www.amazon.co.uk/gp/bestsellers/bedding/",
+    "Pets|bsr": "https://www.amazon.co.uk/gp/bestsellers/pet-supplies/",
 }
 
-# GBP cookie forces Amazon to show GBP prices
 GBP_COOKIES = "lc-main=en_GB; i18n-prefs=GBP"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+
+CHANNEL_NAMES = {
+    "new_releases": "Amazon新品榜",
+    "bsr": "Amazon畅销榜",
+}
 
 
 def _curl_fetch(url):
@@ -52,34 +66,25 @@ def _curl_fetch(url):
     return ""
 
 
-def _parse_amazon_bsr(html, source_name):
-    """Parse Amazon BSR page HTML for products."""
+def _parse_amazon_page(html, category, channel_type):
+    """Parse Amazon page HTML for products."""
     products = []
     if not html or len(html) < 1000:
         return products
 
     import html as htmlmod
 
-    # Extract ASINs
     asins = re.findall(r'data-asin="([A-Z0-9]{10})"', html)
     if not asins:
         asins = list(set(re.findall(r'/dp/([A-Z0-9]{10})', html)))
 
-    # Extract titles (img alt text)
     titles = re.findall(r'<img[^>]*alt="([^"]{15,300})"', html)
-
-    # Extract GBP prices
     prices = re.findall(r'£(\d+\.\d{2})', html)
-
-    # Extract review counts
     reviews = re.findall(r'>(\d[\d,]*)</span>\s*</a>', html)
     if not reviews:
         reviews = re.findall(r'(\d[\d,]+)\s*(?:ratings?|reviews?)', html, re.I)
-
-    # Extract star ratings
     ratings = re.findall(r'(\d+\.?\d?)\s*out of\s*5', html)
 
-    # Match them up
     seen_asins = set()
     for i, asin in enumerate(asins):
         if asin in seen_asins:
@@ -87,7 +92,6 @@ def _parse_amazon_bsr(html, source_name):
         seen_asins.add(asin)
 
         title = htmlmod.unescape(titles[i]).strip() if i < len(titles) else ""
-        # Clean title
         title = re.sub(r'\s+', ' ', title).strip()
 
         price_str = prices[i] if i < len(prices) else ""
@@ -109,54 +113,64 @@ def _parse_amazon_bsr(html, source_name):
                 "reviews": review_count,
                 "rating": rating,
                 "rank": i + 1,
-                "sources": [source_name],
+                "category": category,
+                "channel": channel_type,
+                "channel_name": CHANNEL_NAMES.get(channel_type, channel_type),
                 "review_info": f"{review_count} reviews, {rating}★" if rating else f"{review_count} reviews",
-                "signal": f"{source_name} BSR #{i+1}"
+                "amazon_url": f"https://www.amazon.co.uk/dp/{asin}",
             })
 
     return products
 
 
-def fetch():
-    """Fetch Amazon UK BSR data from multiple categories."""
+def fetch(max_per_channel_type=8):
+    """Fetch Amazon UK data from New Releases and BSR."""
     all_products = []
     seen_asins = set()
 
-    # Smart category rotation - prioritize uncovered categories
-    import random
-    url_keys = list(AMAZON_URLS.keys())
-    rotation_file = BASE / "data" / "last_categories.json"
-    last_cats = []
+    # Category rotation per channel type
+    rotation_file = BASE / "data" / "last_categories_v2.json"
+    last_cats = {}
     if rotation_file.exists():
         try:
             last_cats = json.loads(rotation_file.read_text())
         except Exception:
             pass
 
-    # Find categories not covered in last run
-    uncovered = [k for k in url_keys if k not in last_cats]
-    if len(uncovered) >= 8:
-        selected = random.sample(uncovered, 8)
-    else:
-        # Take all uncovered + fill remaining randomly from covered
-        selected = uncovered[:]
-        remaining = [k for k in url_keys if k not in selected]
-        selected.extend(random.sample(remaining, min(8 - len(selected), len(remaining))))
+    # Group URLs by channel type
+    by_channel = {}
+    for key, url in AMAZON_URLS.items():
+        cat, ch = key.split("|")
+        by_channel.setdefault(ch, []).append((cat, url))
 
-    # Save for next run
+    selected_keys = []
+    for channel_type, entries in by_channel.items():
+        last = last_cats.get(channel_type, [])
+        uncovered = [e for e in entries if e[0] not in last]
+        if len(uncovered) >= max_per_channel_type:
+            picked = random.sample(uncovered, max_per_channel_type)
+        else:
+            picked = uncovered[:]
+            remaining = [e for e in entries if e[0] not in [p[0] for p in picked]]
+            picked.extend(random.sample(remaining, min(max_per_channel_type - len(picked), len(remaining))))
+
+        for cat, url in picked:
+            selected_keys.append((cat, channel_type, url))
+        last_cats[channel_type] = [p[0] for p in picked]
+
+    # Save rotation
     rotation_file.parent.mkdir(parents=True, exist_ok=True)
-    rotation_file.write_text(json.dumps(selected))
+    rotation_file.write_text(json.dumps(last_cats))
 
-    for source_name in selected:
-        url = AMAZON_URLS[source_name]
-        print(f"  Fetching {source_name}...", file=sys.stderr)
-
+    # Fetch each URL
+    for category, channel_type, url in selected_keys:
+        print(f"  Fetching {category} ({CHANNEL_NAMES[channel_type]})...", file=sys.stderr)
         html = _curl_fetch(url)
         if not html:
-            print(f"  warn {source_name}: empty response", file=sys.stderr)
+            print(f"  warn {category}/{channel_type}: empty", file=sys.stderr)
             continue
 
-        products = _parse_amazon_bsr(html, source_name)
+        products = _parse_amazon_page(html, category, channel_type)
         new_count = 0
         for p in products:
             if p["asin"] not in seen_asins:
@@ -164,7 +178,12 @@ def fetch():
                 all_products.append(p)
                 new_count += 1
 
-        print(f"  ok {source_name}: {new_count} products ({len(products)} total)", file=sys.stderr)
+        print(f"  ok {category}/{channel_type}: {new_count} new", file=sys.stderr)
+
+    # Summary by channel
+    for ch in CHANNEL_NAMES:
+        count = sum(1 for p in all_products if p["channel"] == ch)
+        print(f"  {CHANNEL_NAMES[ch]}: {count} products", file=sys.stderr)
 
     print(f"  Amazon UK total: {len(all_products)} products", file=sys.stderr)
     return all_products

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选品雷达 v2 | 2026-05-30</title>
+    <style>
+:root {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --border: #e5e5ea;
+    --radius: 16px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1440px; margin: 0 auto; padding: 24px; }
+
+/* Header */
+.header { margin-bottom: 20px; }
+.header-top { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.header h1 { font-size: 28px; font-weight: 700; }
+.version {
+    font-size: 12px; background: #007AFF; color: white;
+    padding: 2px 8px; border-radius: 8px; vertical-align: middle;
+}
+.scan-info { color: var(--text-secondary); font-size: 14px; }
+.stat-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.stat-badge {
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 13px; font-weight: 600;
+}
+.trend-section {
+    margin-top: 10px; display: flex; align-items: center;
+    gap: 8px; flex-wrap: wrap;
+}
+.trend-label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.trend-chip {
+    padding: 4px 12px; border-radius: 14px;
+    background: #f0f0f5; font-size: 12px;
+    color: var(--text-secondary);
+}
+.trend-chip b { color: #FF9500; margin-left: 4px; }
+
+/* Tab Bar */
+.tab-bar { margin-bottom: 16px; }
+.channel-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; }
+.tab {
+    padding: 10px 18px; border: none; border-radius: 12px;
+    background: var(--card-bg); color: var(--text-secondary);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    white-space: nowrap; transition: all 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.tab:hover { background: #e8e8ed; }
+.tab.active {
+    background: var(--ch-color, #007AFF);
+    color: white;
+}
+.tab-count {
+    display: inline-block; min-width: 20px;
+    background: rgba(255,255,255,0.3); border-radius: 10px;
+    padding: 0 6px; font-size: 12px; text-align: center;
+}
+.tab:not(.active) .tab-count { background: #e5e5ea; }
+
+/* Status Filter */
+.status-filter {
+    display: flex; align-items: center; gap: 8px;
+    margin-top: 10px; flex-wrap: wrap;
+}
+.filter-label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.status-tab {
+    padding: 5px 12px; border: 2px solid var(--s-color, #8e8e93);
+    border-radius: 16px; background: transparent;
+    color: var(--s-color, #8e8e93); font-size: 12px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.status-tab:hover, .status-tab.active {
+    background: var(--s-color, #8e8e93);
+    color: white;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; flex-wrap: wrap;
+    padding: 12px 16px; background: var(--card-bg);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.search-box { flex: 1; min-width: 200px; }
+.search-box input {
+    width: 100%; padding: 8px 14px; border: 2px solid var(--border);
+    border-radius: 10px; font-size: 14px; outline: none;
+    transition: border-color 0.2s;
+}
+.search-box input:focus { border-color: #007AFF; }
+.filter-group { display: flex; align-items: center; gap: 6px; }
+.filter-group label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.filter-group select {
+    padding: 7px 12px; border: 2px solid var(--border);
+    border-radius: 10px; font-size: 13px; background: white;
+    cursor: pointer; outline: none;
+}
+.btn-export {
+    padding: 8px 16px; border: none; border-radius: 10px;
+    background: #007AFF; color: white; font-size: 13px;
+    font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+}
+.btn-export:hover { opacity: 0.85; }
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+/* Product Card */
+.product-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column; gap: 10px;
+    border-left: 4px solid transparent;
+}
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.product-card[data-status="listed"] { border-left-color: #34C759; opacity: 0.7; }
+.product-card[data-status="rejected"] { border-left-color: #FF3B30; opacity: 0.5; }
+
+.card-header { display: flex; justify-content: space-between; align-items: center; }
+.channel-badge {
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+    background: var(--ch-color, #007AFF); color: white;
+}
+.signal-badges { display: flex; gap: 4px; }
+.signal-badge {
+    padding: 2px 8px; border-radius: 6px;
+    font-size: 10px; font-weight: 600;
+    background: #f0f0f5; color: var(--text-secondary);
+}
+.signal-badge.tiktok { background: #FF2D5515; color: #FF2D55; }
+.signal-badge.google { background: #34C75915; color: #34C759; }
+.signal-badge.multi { background: #AF52DE15; color: #AF52DE; }
+
+/* Score Badge */
+.score-badge {
+    padding: 4px 12px; border-radius: 10px;
+    font-size: 14px; font-weight: 700;
+}
+.score-badge.score-hot { background: #FF2D5515; color: #FF2D55; }
+.score-badge.score-high { background: #FF950015; color: #FF9500; }
+.score-badge.score-mid { background: #007AFF15; color: #007AFF; }
+.score-badge.score-low { background: #f0f0f5; color: #8e8e93; }
+.score-label {
+    font-size: 13px; font-weight: 600;
+    color: var(--text-secondary);
+}
+.score-detail {
+    font-size: 11px; color: var(--text-secondary);
+    background: #f8f8fa; padding: 6px 10px;
+    border-radius: 8px; line-height: 1.6;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.product-name {
+    font-size: 15px; font-weight: 600; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+}
+.product-name a { color: var(--text); text-decoration: none; }
+.product-name a:hover { color: #007AFF; }
+
+.product-meta {
+    display: flex; gap: 16px; font-size: 13px;
+    color: var(--text-secondary);
+}
+.product-meta span { white-space: nowrap; }
+
+/* Profit Bar */
+.profit-section { display: flex; align-items: center; gap: 10px; }
+.profit-bar-bg {
+    flex: 1; height: 8px; background: #e5e5ea;
+    border-radius: 4px; overflow: hidden;
+}
+.profit-bar {
+    height: 100%; border-radius: 4px;
+    transition: width 0.3s;
+}
+.profit-text { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.profit-text.high { color: #34C759; }
+.profit-text.mid { color: #FF9500; }
+.profit-text.low { color: #FF3B30; }
+
+/* Cost Breakdown */
+.cost-toggle {
+    font-size: 12px; color: #007AFF; cursor: pointer;
+    border: none; background: none; padding: 0;
+}
+.cost-detail {
+    display: none; font-size: 12px; color: var(--text-secondary);
+    background: #f5f5f7; padding: 8px 12px; border-radius: 8px;
+    line-height: 1.8;
+}
+.cost-detail.show { display: block; }
+
+/* Status Buttons */
+.status-btns {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: auto; padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+.status-btn {
+    padding: 5px 10px; border: 2px solid var(--s-color, #8e8e93);
+    border-radius: 10px; background: transparent;
+    color: var(--s-color, #8e8e93); font-size: 11px;
+    font-weight: 600; cursor: pointer; transition: all 0.15s;
+}
+.status-btn:hover, .status-btn.active {
+    background: var(--s-color, #8e8e93);
+    color: white;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center; padding: 60px 20px;
+    color: var(--text-secondary);
+}
+.empty-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-hint { font-size: 13px; margin-top: 8px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 12px; }
+    .header h1 { font-size: 22px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .filter-bar { flex-direction: column; }
+    .search-box { min-width: 100%; }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        
+    <header class="header">
+        <div class="header-top">
+            <h1>🔍 选品雷达 <span class="version">v2</span></h1>
+            <div class="scan-info">2026-05-30 22:12 · 扫描 148 · 通过 21</div>
+        </div>
+        <div class="stat-badges"><span class="stat-badge" style="background:#FF2D5515;color:#FF2D55">🎵 TikTok验证品: 1</span><span class="stat-badge" style="background:#34C75915;color:#34C759">📊 Google趋势: 1</span></div>
+        <div class="trend-section"><span class="trend-label">📊 AnySearch趋势:</span> <span class="trend-chip">kitchen <b>100</b></span><span class="trend-chip">car <b>67</b></span><span class="trend-chip">office <b>56</b></span><span class="trend-chip">sports <b>33</b></span><span class="trend-chip">beauty <b>33</b></span></div>
+    </header>
+        
+    <nav class="tab-bar">
+        <div class="channel-tabs"><button class="tab" data-channel="amazon_new" style="--ch-color:#007AFF">🆕 Amazon新品榜 <span class="tab-count">0</span></button><button class="tab" data-channel="amazon_movers" style="--ch-color:#FF9500">📈 Amazon飙升榜 <span class="tab-count">0</span></button><button class="tab" data-channel="tiktok_verified" style="--ch-color:#FF2D55">🎵 TikTok验证品 <span class="tab-count">1</span></button><button class="tab" data-channel="google_trends" style="--ch-color:#34C759">📊 Google趋势 <span class="tab-count">1</span></button><button class="tab" data-channel="multi_source" style="--ch-color:#AF52DE">🔥 多源验证 <span class="tab-count">0</span></button><button class="tab active" data-channel="all" style="--ch-color:#8e8e93">📋 全部 <span class="tab-count">23</span></button></div>
+        <div class="status-filter"><span class="filter-label">状态:</span><button class="status-tab" data-status="pending" style="--s-color:#8e8e93">待评估</button><button class="status-tab" data-status="supplier" style="--s-color:#007AFF">找供应商</button><button class="status-tab" data-status="sample" style="--s-color:#FF9500">已采样</button><button class="status-tab" data-status="listed" style="--s-color:#34C759">已上架</button><button class="status-tab" data-status="rejected" style="--s-color:#FF3B30">不考虑</button><button class="status-tab active" data-status="all">全部</button></div>
+    </nav>
+        
+    <div class="filter-bar">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 搜索产品名称..." />
+        </div>
+        <div class="filter-group">
+            <label>价格:</label>
+            <select id="filterPrice">
+                <option value="all">全部</option>
+                <option value="5-7">£5-7</option>
+                <option value="7-8.5">£7-8.5</option>
+                <option value="8.5-10">£8.5-10</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>利润率:</label>
+            <select id="filterMargin">
+                <option value="all">全部</option>
+                <option value="30">≥30%</option>
+                <option value="25">≥25%</option>
+                <option value="20">≥20%</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>品类:</label>
+            <select id="filterCategory">
+                <option value="all">全部</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>排序:</label>
+            <select id="sortBy">
+                <option value="score">评分↓</option>
+                <option value="margin">利润率↓</option>
+                <option value="price">价格↑</option>
+                <option value="reviews">评论数↑</option>
+            </select>
+        </div>
+        <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
+    </div>
+        <div class="product-grid" id="productGrid"></div>
+        
+    <div class="empty-state" id="emptyState" style="display:none">
+        <div class="empty-icon">📦</div>
+        <p>没有匹配的产品</p>
+        <p class="empty-hint">尝试调整筛选条件</p>
+    </div>
+    </div>
+    <script>const DATA = {"scan_date": "2026-05-30", "scan_time": "22:12", "stats": {"total_scanned": 148, "passed_filter": 21, "rejected": 127, "channels": {"new_releases": 14, "tiktok_verified": 1, "google_trends": 1, "bsr": 7, "all": 23}, "trend_categories": {"kitchen": 100, "car": 67, "office": 56, "sports": 33, "beauty": 33}}, "products": [{"asin": "B0GGBFHZ99", "name": "Dolvitrny For American Flag Motorcycle Accessory with Mount, For Durable Polyester Flag and Galvanized Pole, Motorbike R", "price": 7.83, "reviews": 0, "rating": 0, "rank": 12, "category": "Pets", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GGBFHZ99", "sources": ["TikTok趋势", "Reddit需求"], "profit_margin": 0.393, "net_profit": 3.08, "cost_breakdown": {"vat": 1.31, "commission": 0.39, "fba": 1.28, "ads": 0.39, "returns": 0.23, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 4.75}, "score": 140, "score_breakdown": {"新品榜": 25, "TikTok趋势": 25, "Reddit需求": 5, "双源验证": 20, "超高利润(≥35%)": 15}, "stars": 5, "is_multi": true}, {"asin": "B0GGBFHZ99", "name": "Dolvitrny For American Flag Motorcycle Accessory with Mount, For Durable Polyester Flag and Galvanized Pole, Motorbike R", "price": 7.83, "reviews": 0, "rating": 0, "rank": 12, "category": "Pets", "channel": "tiktok_verified", "channel_name": "TikTok验证品", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GGBFHZ99", "sources": ["TikTok趋势", "Reddit需求"], "profit_margin": 0.393, "net_profit": 3.08, "cost_breakdown": {"vat": 1.31, "commission": 0.39, "fba": 1.28, "ads": 0.39, "returns": 0.23, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 4.75}, "score": 140, "score_breakdown": {"新品榜": 25, "TikTok趋势": 25, "Reddit需求": 5, "双源验证": 20, "超高利润(≥35%)": 15}, "stars": 5, "is_multi": true}, {"asin": "B0GFXC7681", "name": "TaylorMade Men's Stratus Tech Glove", "price": 9.16, "reviews": 20, "rating": 4.7, "rank": 11, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "20 reviews, 4.7★", "amazon_url": "https://www.amazon.co.uk/dp/B0GFXC7681", "google_trend": "rising", "sources": ["Google趋势"], "profit_margin": 0.336, "net_profit": 3.08, "cost_breakdown": {"vat": 1.53, "commission": 1.37, "fba": 1.28, "ads": 0.46, "returns": 0.27, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.08}, "score": 130, "score_breakdown": {"新品榜": 25, "Google趋势↑": 20, "超低竞争(<50)": 20, "高评分(≥4.5)": 5, "高利润(≥30%)": 10}, "stars": 5, "is_multi": false}, {"asin": "B0GFXC7681", "name": "TaylorMade Men's Stratus Tech Glove", "price": 9.16, "reviews": 20, "rating": 4.7, "rank": 11, "category": "Sports", "channel": "google_trends", "channel_name": "Google趋势", "review_info": "20 reviews, 4.7★", "amazon_url": "https://www.amazon.co.uk/dp/B0GFXC7681", "google_trend": "rising", "sources": ["Google趋势"], "profit_margin": 0.336, "net_profit": 3.08, "cost_breakdown": {"vat": 1.53, "commission": 1.37, "fba": 1.28, "ads": 0.46, "returns": 0.27, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.08}, "score": 130, "score_breakdown": {"新品榜": 25, "Google趋势↑": 20, "超低竞争(<50)": 20, "高评分(≥4.5)": 5, "高利润(≥30%)": 10}, "stars": 5, "is_multi": false}, {"asin": "B0GVTCQ4JG", "name": "Yoga Mat Unisex Non-Slip Thick Foam Exercise Mat 10mm with Carry Strap – Lightweight Home Gym Equipment for Yoga, Pilate", "price": 7.99, "reviews": 12, "rating": 4.5, "rank": 15, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "12 reviews, 4.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0GVTCQ4JG", "profit_margin": 0.299, "net_profit": 2.39, "cost_breakdown": {"vat": 1.33, "commission": 1.2, "fba": 1.28, "ads": 0.4, "returns": 0.24, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.6}, "score": 115, "score_breakdown": {"新品榜": 25, "AnySearch趋势(car)": 10, "超低竞争(<50)": 20, "高评分(≥4.5)": 5, "较好利润(≥25%)": 5}, "stars": 5, "is_multi": false}, {"asin": "B0GCHZ91Z2", "name": "Vexloria Hand Grip Strengthener", "price": 9.99, "reviews": 2, "rating": 5.0, "rank": 23, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "2 reviews, 5.0★", "amazon_url": "https://www.amazon.co.uk/dp/B0GCHZ91Z2", "profit_margin": 0.358, "net_profit": 3.57, "cost_breakdown": {"vat": 1.67, "commission": 1.5, "fba": 1.28, "ads": 0.5, "returns": 0.3, "storage": 0.1, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.42}, "score": 115, "score_breakdown": {"新品榜": 25, "超低竞争(<50)": 20, "高评分(≥4.5)": 5, "超高利润(≥35%)": 15}, "stars": 5, "is_multi": false}, {"asin": "B0GW9CF7Q8", "name": "Football Wallcharts 2026 World Cup Wallchart – A1 Sized Stadium Glow Style Tournament Tracker (59.4 x 84.1 cm)", "price": 8.29, "reviews": 4, "rating": 4.5, "rank": 14, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "4 reviews, 4.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0GW9CF7Q8", "profit_margin": 0.31, "net_profit": 2.57, "cost_breakdown": {"vat": 1.38, "commission": 1.24, "fba": 1.28, "ads": 0.41, "returns": 0.25, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.72}, "score": 110, "score_breakdown": {"新品榜": 25, "超低竞争(<50)": 20, "高评分(≥4.5)": 5, "高利润(≥30%)": 10}, "stars": 5, "is_multi": false}, {"asin": "B0GY96VB6S", "name": "Lockie Fitness Yoga Mat 8 mm Thick, Non Slip Exercise Mat for Women and Men, NBR Foam Pilates Mat, Gym Mat for Home Work", "price": 8.95, "reviews": 40, "rating": 4.9, "rank": 22, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "40 reviews, 4.9★", "amazon_url": "https://www.amazon.co.uk/dp/B0GY96VB6S", "profit_margin": 0.33, "net_profit": 2.96, "cost_breakdown": {"vat": 1.49, "commission": 1.34, "fba": 1.28, "ads": 0.45, "returns": 0.27, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.99}, "score": 110, "score_breakdown": {"新品榜": 25, "超低竞争(<50)": 20, "高评分(≥4.5)": 5, "高利润(≥30%)": 10}, "stars": 5, "is_multi": false}, {"asin": "B0GWRK5RZF", "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ", "price": 6.66, "reviews": 38, "rating": 4.6, "rank": 2, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "38 reviews, 4.6★", "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK5RZF", "sources": ["Reddit需求"], "profit_margin": 0.24, "net_profit": 1.6, "cost_breakdown": {"vat": 1.11, "commission": 1.0, "fba": 1.28, "ads": 0.33, "returns": 0.2, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.06}, "score": 105, "score_breakdown": {"新品榜": 25, "Reddit需求": 5, "超低竞争(<50)": 20, "高评分(≥4.5)": 5}, "stars": 5, "is_multi": false}, {"asin": "B0H1T62Y7Z", "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga", "price": 6.66, "reviews": 8, "rating": 4.8, "rank": 3, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "8 reviews, 4.8★", "amazon_url": "https://www.amazon.co.uk/dp/B0H1T62Y7Z", "sources": ["Reddit需求"], "profit_margin": 0.24, "net_profit": 1.6, "cost_breakdown": {"vat": 1.11, "commission": 1.0, "fba": 1.28, "ads": 0.33, "returns": 0.2, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.06}, "score": 105, "score_breakdown": {"新品榜": 25, "Reddit需求": 5, "超低竞争(<50)": 20, "高评分(≥4.5)": 5}, "stars": 5, "is_multi": false}, {"asin": "B0GL939PG3", "name": "Gdfnmogo 12V-24V DC Car Power Socket Extension Cord with 20A Fuse, Female Automotive Auxiliary Power Outlet for Vehicles", "price": 5.78, "reviews": 0, "rating": 0, "rank": 11, "category": "Pets", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GL939PG3", "sources": ["Reddit需求"], "profit_margin": 0.286, "net_profit": 1.66, "cost_breakdown": {"vat": 0.97, "commission": 0.29, "fba": 1.28, "ads": 0.29, "returns": 0.17, "storage": 0.06, "dsc": 0.07, "sourcing": 1.0, "total_cost": 4.12}, "score": 95, "score_breakdown": {"新品榜": 25, "Reddit需求": 5, "AnySearch趋势(car)": 10, "较好利润(≥25%)": 5}, "stars": 4, "is_multi": false}, {"asin": "B0GL23Y821", "name": "/2 Inch Replacement Knuckle Breaker Bar Head Kit for Power For Bars – Chrome Vanadium Steel, Black Phosphate Finish, Inc", "price": 6.89, "reviews": 0, "rating": 0, "rank": 20, "category": "Pets", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GL23Y821", "sources": ["Reddit需求"], "profit_margin": 0.352, "net_profit": 2.42, "cost_breakdown": {"vat": 1.15, "commission": 0.34, "fba": 1.28, "ads": 0.34, "returns": 0.21, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 4.47}, "score": 95, "score_breakdown": {"新品榜": 25, "Reddit需求": 5, "超高利润(≥35%)": 15}, "stars": 4, "is_multi": false}, {"asin": "B0GKVCBF6F", "name": "Shophubio Adjustable RV Drain Hose for Caravans, Motorhomes & Campervans – Flexible For EVA Waste Pipe, For Length with ", "price": 6.64, "reviews": 0, "rating": 0, "rank": 26, "category": "Pets", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GKVCBF6F", "profit_margin": 0.339, "net_profit": 2.25, "cost_breakdown": {"vat": 1.11, "commission": 0.33, "fba": 1.28, "ads": 0.33, "returns": 0.2, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 4.39}, "score": 95, "score_breakdown": {"新品榜": 25, "AnySearch趋势(car)": 10, "高利润(≥30%)": 10}, "stars": 4, "is_multi": false}, {"asin": "B0GLNF9ZRJ", "name": "Rubber Winch Cable Hook Stopper for Synthetic Rope – Roller Wear, Maintains Tension & Eliminates Clicking Noise – Fits F", "price": 8.72, "reviews": 0, "rating": 0, "rank": 21, "category": "Pets", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GLNF9ZRJ", "profit_margin": 0.424, "net_profit": 3.69, "cost_breakdown": {"vat": 1.46, "commission": 0.44, "fba": 1.28, "ads": 0.44, "returns": 0.26, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.03}, "score": 90, "score_breakdown": {"新品榜": 25, "超高利润(≥35%)": 15}, "stars": 4, "is_multi": false}, {"asin": "B0GHQMH1FQ", "name": "Aluminum Saddlebag Latch Lever Lid Lifter for Touring For Road Glide 2014-21, Compatible with CVO Models, Black Anodized", "price": 9.6, "reviews": 0, "rating": 0, "rank": 23, "category": "Pets", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GHQMH1FQ", "profit_margin": 0.448, "net_profit": 4.3, "cost_breakdown": {"vat": 1.6, "commission": 0.48, "fba": 1.28, "ads": 0.48, "returns": 0.29, "storage": 0.1, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.3}, "score": 90, "score_breakdown": {"新品榜": 25, "超高利润(≥35%)": 15}, "stars": 4, "is_multi": false}, {"asin": "B0GLXWV6S7", "name": "1 Pcs Foot Pedal Resistance Band,Stomach Exercise Equipment,Elastic Pull Rope Foot Resistance Band,Abdominal and Muscle ", "price": 6.91, "reviews": 121, "rating": 3.5, "rank": 29, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "121 reviews, 3.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0GLXWV6S7", "sources": ["Reddit需求"], "profit_margin": 0.253, "net_profit": 1.75, "cost_breakdown": {"vat": 1.15, "commission": 1.04, "fba": 1.28, "ads": 0.35, "returns": 0.21, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.16}, "score": 90, "score_breakdown": {"新品榜": 25, "Reddit需求": 5, "中等竞争(<300)": 5, "较好利润(≥25%)": 5}, "stars": 4, "is_multi": false}, {"asin": "B00BSYR7K8", "name": "Earth Rated Dog Poo Bags, Guaranteed Leak Proof and Extra Thick Waste Bag Refill Rolls For Dogs, Lavender Scented, 270 C", "price": 9.57, "reviews": 228392, "rating": 4.7, "rank": 5, "category": "Pets", "channel": "bsr", "channel_name": "Amazon畅销榜", "review_info": "228392 reviews, 4.7★", "amazon_url": "https://www.amazon.co.uk/dp/B00BSYR7K8", "sources": ["Reddit需求"], "profit_margin": 0.447, "net_profit": 4.28, "cost_breakdown": {"vat": 1.6, "commission": 0.48, "fba": 1.28, "ads": 0.48, "returns": 0.29, "storage": 0.1, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.29}, "score": 75, "score_breakdown": {"Reddit需求": 5, "高评分(≥4.5)": 5, "超高利润(≥35%)": 15}, "stars": 3, "is_multi": false}, {"asin": "B00MW8G3YU", "name": "Amazon Basics Dog and Puppy Training Pads, Leakproof, 5-Layer Design with Quick-Dry Surface, Regular, Pack of 50, Blue", "price": 7.42, "reviews": 224179, "rating": 4.7, "rank": 14, "category": "Pets", "channel": "bsr", "channel_name": "Amazon畅销榜", "review_info": "224179 reviews, 4.7★", "amazon_url": "https://www.amazon.co.uk/dp/B00MW8G3YU", "sources": ["Reddit需求"], "profit_margin": 0.376, "net_profit": 2.79, "cost_breakdown": {"vat": 1.24, "commission": 0.37, "fba": 1.28, "ads": 0.37, "returns": 0.22, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 4.63}, "score": 75, "score_breakdown": {"Reddit需求": 5, "高评分(≥4.5)": 5, "超高利润(≥35%)": 15}, "stars": 3, "is_multi": false}, {"asin": "B0746M9WMW", "name": "MediHands Nitrile Gloves Medium, Blue Heavy Duty Disposable Glove and Surgical Gloves, Powder Free and Latex Free, Medic", "price": 9.99, "reviews": 8477, "rating": 4.6, "rank": 22, "category": "DIY", "channel": "bsr", "channel_name": "Amazon畅销榜", "review_info": "8477 reviews, 4.6★", "amazon_url": "https://www.amazon.co.uk/dp/B0746M9WMW", "profit_margin": 0.358, "net_profit": 3.57, "cost_breakdown": {"vat": 1.67, "commission": 1.5, "fba": 1.28, "ads": 0.5, "returns": 0.3, "storage": 0.1, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.42}, "score": 70, "score_breakdown": {"高评分(≥4.5)": 5, "超高利润(≥35%)": 15}, "stars": 3, "is_multi": false}, {"asin": "B00IZMW3H8", "name": "Frog Tape Green Multi Surface Painters Masking Tape 48mm x 41.1m. Indoor painting and decorating for sharp lines and no ", "price": 9.85, "reviews": 28952, "rating": 4.5, "rank": 25, "category": "DIY", "channel": "bsr", "channel_name": "Amazon畅销榜", "review_info": "28952 reviews, 4.5★", "amazon_url": "https://www.amazon.co.uk/dp/B00IZMW3H8", "profit_margin": 0.354, "net_profit": 3.49, "cost_breakdown": {"vat": 1.64, "commission": 1.48, "fba": 1.28, "ads": 0.49, "returns": 0.3, "storage": 0.1, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.36}, "score": 70, "score_breakdown": {"高评分(≥4.5)": 5, "超高利润(≥35%)": 15}, "stars": 3, "is_multi": false}, {"asin": "B07XKL81NZ", "name": "3 x 3 m Blue Tarpaulin Waterproof Tarp Sheet Cover, Groundsheet - Waterproof, Weatherproof, Frost-Resistant, UV Protecti", "price": 7.99, "reviews": 23443, "rating": 4.5, "rank": 12, "category": "DIY", "channel": "bsr", "channel_name": "Amazon畅销榜", "review_info": "23443 reviews, 4.5★", "amazon_url": "https://www.amazon.co.uk/dp/B07XKL81NZ", "sources": ["Reddit需求"], "profit_margin": 0.299, "net_profit": 2.39, "cost_breakdown": {"vat": 1.33, "commission": 1.2, "fba": 1.28, "ads": 0.4, "returns": 0.24, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.6}, "score": 65, "score_breakdown": {"Reddit需求": 5, "高评分(≥4.5)": 5, "较好利润(≥25%)": 5}, "stars": 2, "is_multi": false}, {"asin": "B0BCK4K9ZC", "name": "FRONTLINE WORMER - Worming Tablets for Dogs - 2 Tablets", "price": 6.49, "reviews": 14525, "rating": 4.2, "rank": 21, "category": "Pets", "channel": "bsr", "channel_name": "Amazon畅销榜", "review_info": "14525 reviews, 4.2★", "amazon_url": "https://www.amazon.co.uk/dp/B0BCK4K9ZC", "profit_margin": 0.331, "net_profit": 2.15, "cost_breakdown": {"vat": 1.08, "commission": 0.32, "fba": 1.28, "ads": 0.32, "returns": 0.19, "storage": 0.06, "dsc": 0.07, "sourcing": 1.0, "total_cost": 4.34}, "score": 60, "score_breakdown": {"高利润(≥30%)": 10}, "stars": 2, "is_multi": false}, {"asin": "B0081Q3YNA", "name": "Unigloves Black Pearl Nitrile Examination Gloves - Multipurpose, Powder Free and Latex Free Disposable Gloves - Box of 1", "price": 7.94, "reviews": 27093, "rating": 4.6, "rank": 1, "category": "DIY", "channel": "bsr", "channel_name": "Amazon畅销榜", "review_info": "27093 reviews, 4.6★", "amazon_url": "https://www.amazon.co.uk/dp/B0081Q3YNA", "profit_margin": 0.297, "net_profit": 2.36, "cost_breakdown": {"vat": 1.33, "commission": 1.19, "fba": 1.28, "ads": 0.4, "returns": 0.24, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.58}, "score": 60, "score_breakdown": {"高评分(≥4.5)": 5, "较好利润(≥25%)": 5}, "stars": 2, "is_multi": false}], "trend_summary": {"top_categories": [["kitchen", 100], ["car", 67], ["office", 56], ["sports", 33], ["beauty", 33]], "season": "spring", "total_queries": 4}};
+const CHANNELS = {"amazon_new": ["\ud83c\udd95", "Amazon\u65b0\u54c1\u699c", "#007AFF"], "amazon_movers": ["\ud83d\udcc8", "Amazon\u98d9\u5347\u699c", "#FF9500"], "tiktok_verified": ["\ud83c\udfb5", "TikTok\u9a8c\u8bc1\u54c1", "#FF2D55"], "google_trends": ["\ud83d\udcca", "Google\u8d8b\u52bf", "#34C759"], "multi_source": ["\ud83d\udd25", "\u591a\u6e90\u9a8c\u8bc1", "#AF52DE"], "all": ["\ud83d\udccb", "\u5168\u90e8", "#8e8e93"]};
+const STATUS_CONFIG = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier": ["\u627e\u4f9b\u5e94\u5546", "#007AFF"], "sample": ["\u5df2\u91c7\u6837", "#FF9500"], "listed": ["\u5df2\u4e0a\u67b6", "#34C759"], "rejected": ["\u4e0d\u8003\u8651", "#FF3B30"]};
+    </script>
+    <script>
+// Data from Python
+const products = DATA.products || [];
+const statusKey = 'productRadar_v2_status';
+
+// Load status from localStorage
+function loadStatus() {
+    try { return JSON.parse(localStorage.getItem(statusKey) || '{}'); }
+    catch { return {}; }
+}
+function saveStatus(status) {
+    localStorage.setItem(statusKey, JSON.stringify(status));
+}
+
+// Tab switching
+let currentChannel = 'all';
+let currentStatus = 'all';
+
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentChannel = tab.dataset.channel;
+        renderProducts();
+    });
+});
+
+document.querySelectorAll('.status-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentStatus = tab.dataset.status;
+        renderProducts();
+    });
+});
+
+// Filters
+document.getElementById('searchInput').addEventListener('input', renderProducts);
+document.getElementById('filterPrice').addEventListener('change', renderProducts);
+document.getElementById('filterMargin').addEventListener('change', renderProducts);
+document.getElementById('filterCategory').addEventListener('change', renderProducts);
+document.getElementById('sortBy').addEventListener('change', renderProducts);
+
+// Populate category filter
+const categories = [...new Set(products.map(p => p.category).filter(Boolean))].sort();
+const catSelect = document.getElementById('filterCategory');
+categories.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c; opt.textContent = c;
+    catSelect.appendChild(opt);
+});
+
+// Mark status
+function markStatus(asin, status) {
+    const s = loadStatus();
+    if (s[asin] === status) { delete s[asin]; } // toggle off
+    else { s[asin] = status; }
+    saveStatus(s);
+    renderProducts();
+}
+
+// Toggle cost detail
+function toggleCost(asin) {
+    const el = document.getElementById('cost-' + asin);
+    el.classList.toggle('show');
+}
+
+// Get filtered products
+function getFiltered() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const priceRange = document.getElementById('filterPrice').value;
+    const minMargin = parseFloat(document.getElementById('filterMargin').value) || 0;
+    const category = document.getElementById('filterCategory').value;
+    const status = loadStatus();
+
+    return products.filter(p => {
+        // Channel filter
+        if (currentChannel !== 'all' && p.channel !== currentChannel && !p.is_multi) return false;
+        if (currentChannel === 'multi_source' && !p.is_multi) return false;
+
+        // Status filter
+        if (currentStatus !== 'all') {
+            const ps = status[p.asin] || 'pending';
+            if (ps !== currentStatus) return false;
+        }
+
+        // Search
+        if (search && !p.name.toLowerCase().includes(search)) return false;
+
+        // Price
+        if (priceRange !== 'all') {
+            const [min, max] = priceRange.split('-').map(Number);
+            if (p.price < min || p.price > max) return false;
+        }
+
+        // Margin
+        if (minMargin && (p.profit_margin * 100) < minMargin) return false;
+
+        // Category
+        if (category !== 'all' && p.category !== category) return false;
+
+        return true;
+    });
+
+    // Sort
+    const sortBy = document.getElementById('sortBy').value;
+    filtered.sort((a, b) => {
+        switch(sortBy) {
+            case 'score': return (b.score || 50) - (a.score || 50);
+            case 'margin': return (b.profit_margin || 0) - (a.profit_margin || 0);
+            case 'price': return (a.price || 0) - (b.price || 0);
+            case 'reviews': return (a.reviews || 0) - (b.reviews || 0);
+            default: return (b.score || 50) - (a.score || 50);
+        }
+    });
+
+    return filtered;
+}
+
+// Render products
+function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    const filtered = getFiltered();
+    const status = loadStatus();
+    const isEmpty = filtered.length === 0;
+
+    document.getElementById('emptyState').style.display = isEmpty ? 'block' : 'none';
+    grid.style.display = isEmpty ? 'none' : 'grid';
+
+    // Update tab counts
+    document.querySelectorAll('.tab').forEach(tab => {
+        const ch = tab.dataset.channel;
+        const cnt = ch === 'all' ? products.length :
+            ch === 'multi_source' ? products.filter(p => p.is_multi).length :
+            products.filter(p => p.channel === ch).length;
+        tab.querySelector('.tab-count').textContent = cnt;
+    });
+
+    grid.innerHTML = filtered.map(p => {
+        const s = status[p.asin] || 'pending';
+        const margin = (p.profit_margin * 100).toFixed(1);
+        const marginClass = margin >= 30 ? 'high' : margin >= 20 ? 'mid' : 'low';
+        const marginWidth = Math.min(100, Math.max(5, margin * 2));
+        const ch = CHANNELS[p.channel] || CHANNELS['all'];
+        const bd = p.cost_breakdown || {};
+
+        const signals = [];
+        if (p.sources && p.sources.includes('TikTok趋势')) signals.push('<span class="signal-badge tiktok">TikTok</span>');
+        if (p.google_trend === 'rising') signals.push('<span class="signal-badge google">Google↑</span>');
+        if (p.is_multi) signals.push('<span class="signal-badge multi">多源</span>');
+
+        // Score display
+        const score = p.score || 50;
+        const stars = p.stars || 1;
+        const starStr = '⭐'.repeat(stars);
+        let scoreClass = 'low';
+        let scoreLabel = '待观察';
+        if (score >= 100) { scoreClass = 'hot'; scoreLabel = '🔥 强烈推荐'; }
+        else if (score >= 85) { scoreClass = 'high'; scoreLabel = '⭐ 值得关注'; }
+        else if (score >= 70) { scoreClass = 'mid'; scoreLabel = '👍 可以考虑'; }
+
+        const scoreBreakdown = p.score_breakdown ? Object.entries(p.score_breakdown).map(([k,v]) => `+${v} ${k}`).join(' | ') : '';
+
+        const statusBtns = Object.entries(STATUS_CONFIG).map(([sid, [slabel, scolor]]) => {
+            const active = s === sid ? ' active' : '';
+            return `<button class="status-btn${active}" style="--s-color:${scolor}" onclick="markStatus('${p.asin}','${sid}')">${slabel}</button>`;
+        }).join('');
+
+        const costLine = bd.vat !== undefined ?
+            `VAT £${bd.vat} + 佣金 £${bd.commission} + FBA £${bd.fba} + 广告 £${bd.ads} + 退货 £${bd.returns} + 仓储 £${bd.storage} + 数字 £${bd.dsc} + 采购 £${bd.sourcing}` : '';
+
+        return `
+        <div class="product-card" data-status="${s}" data-asin="${p.asin}">
+            <div class="card-header">
+                <span class="channel-badge" style="background:${ch[2]}">${ch[0]} ${ch[1]}</span>
+                <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${score}分 ${starStr}</span>
+            </div>
+            <div class="score-label">${scoreLabel}</div>
+            ${scoreBreakdown ? `<div class="score-detail">${scoreBreakdown}</div>` : ''}
+            <div class="product-name">
+                <a href="${p.amazon_url}" target="_blank" rel="noopener">${escHtml(p.name)}</a>
+            </div>
+            <div class="product-meta">
+                <span>💷 £${p.price.toFixed(2)}</span>
+                <span>⭐ ${p.rating || '-'}★</span>
+                <span>💬 ${p.reviews || 0}</span>
+                <span>📁 ${p.category || '-'}</span>
+            </div>
+            <div class="signal-badges">${signals.join('')}</div>
+            <div class="profit-section">
+                <div class="profit-bar-bg">
+                    <div class="profit-bar" style="width:${marginWidth}%;background:${margin >= 30 ? '#34C759' : margin >= 20 ? '#FF9500' : '#FF3B30'}"></div>
+                </div>
+                <span class="profit-text ${marginClass}">${margin}% (£${p.net_profit.toFixed(2)})</span>
+            </div>
+            ${costLine ? `<button class="cost-toggle" onclick="toggleCost('${p.asin}')">📋 成本明细 ▾</button>
+            <div class="cost-detail" id="cost-${p.asin}">${costLine}<br>总计: £${bd.total_cost} · 净利: £${p.net_profit.toFixed(2)}</div>` : ''}
+            <div class="status-btns">${statusBtns}</div>
+        </div>`;
+    }).join('');
+}
+
+function escHtml(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+}
+
+// Export CSV
+function exportCSV() {
+    const status = loadStatus();
+    const rows = [['ASIN','产品名','价格','利润率','净利','品类','渠道','状态','链接']];
+    products.forEach(p => {
+        const s = status[p.asin] || 'pending';
+        rows.push([
+            p.asin, `"${p.name}"`, p.price,
+            (p.profit_margin*100).toFixed(1)+'%',
+            p.net_profit.toFixed(2), p.category || '',
+            p.channel_name || p.channel,
+            STATUS_CONFIG[s] ? STATUS_CONFIG[s][0] : s,
+            p.amazon_url
+        ]);
+    });
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob(['\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `选品雷达_${DATA.scan_date}.csv`;
+    a.click();
+}
+
+// Status summary
+function updateStatusSummary() {
+    const status = loadStatus();
+    const counts = {};
+    Object.values(status).forEach(s => { counts[s] = (counts[s]||0) + 1; });
+    // Could render a summary bar - placeholder for now
+}
+
+// Initial render
+renderProducts();
+</script>
+</body>
+</html>

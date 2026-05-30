@@ -1,61 +1,233 @@
 [
   {
-    "asin": "B0GSRPLWXL",
-    "name": "Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Sparkle Cloth for Any Car Scratches,Cars Pain",
-    "price": 8.99,
-    "rank": 2,
-    "reviews": 1,
+    "asin": "B0GGBFHZ99",
+    "name": "Dolvitrny For American Flag Motorcycle Accessory with Mount, For Durable Polyester Flag and Galvanized Pole, Motorbike R",
+    "price": 7.83,
+    "rank": 12,
+    "reviews": 0,
+    "score": 140,
+    "sources": [
+      "TikTok趋势",
+      "Reddit需求"
+    ],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GFXC7681",
+    "name": "TaylorMade Men's Stratus Tech Glove",
+    "price": 9.16,
+    "rank": 11,
+    "reviews": 20,
     "score": 130,
     "sources": [
-      "Automotive New",
-      "Reddit需求"
-    ]
+      "Google趋势"
+    ],
+    "channel": "new_releases"
   },
   {
-    "asin": "B0GWHDHC64",
-    "name": "The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self-Tightening for Small Places, Multifunct",
-    "price": 6.68,
+    "asin": "B0GVTCQ4JG",
+    "name": "Yoga Mat Unisex Non-Slip Thick Foam Exercise Mat 10mm with Carry Strap – Lightweight Home Gym Equipment for Yoga, Pilate",
+    "price": 7.99,
+    "rank": 15,
+    "reviews": 12,
+    "score": 115,
+    "sources": [],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GCHZ91Z2",
+    "name": "Vexloria Hand Grip Strengthener",
+    "price": 9.99,
+    "rank": 23,
+    "reviews": 2,
+    "score": 115,
+    "sources": [],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GW9CF7Q8",
+    "name": "Football Wallcharts 2026 World Cup Wallchart – A1 Sized Stadium Glow Style Tournament Tracker (59.4 x 84.1 cm)",
+    "price": 8.29,
+    "rank": 14,
+    "reviews": 4,
+    "score": 110,
+    "sources": [],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GY96VB6S",
+    "name": "Lockie Fitness Yoga Mat 8 mm Thick, Non Slip Exercise Mat for Women and Men, NBR Foam Pilates Mat, Gym Mat for Home Work",
+    "price": 8.95,
+    "rank": 22,
+    "reviews": 40,
+    "score": 110,
+    "sources": [],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GWRK5RZF",
+    "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
+    "price": 6.66,
+    "rank": 2,
+    "reviews": 38,
+    "score": 105,
+    "sources": [
+      "Reddit需求"
+    ],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0H1T62Y7Z",
+    "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
+    "price": 6.66,
+    "rank": 3,
+    "reviews": 8,
+    "score": 105,
+    "sources": [
+      "Reddit需求"
+    ],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GL939PG3",
+    "name": "Gdfnmogo 12V-24V DC Car Power Socket Extension Cord with 20A Fuse, Female Automotive Auxiliary Power Outlet for Vehicles",
+    "price": 5.78,
+    "rank": 11,
+    "reviews": 0,
+    "score": 95,
+    "sources": [
+      "Reddit需求"
+    ],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GL23Y821",
+    "name": "/2 Inch Replacement Knuckle Breaker Bar Head Kit for Power For Bars – Chrome Vanadium Steel, Black Phosphate Finish, Inc",
+    "price": 6.89,
     "rank": 20,
     "reviews": 0,
-    "score": 125,
+    "score": 95,
     "sources": [
-      "DIY New",
-      "TikTok趋势"
-    ]
-  },
-  {
-    "asin": "B0GYRSM22M",
-    "name": "JADUFHU Ratchet Screwdriver, 13-in-1 Magnetic Screwdriver Set, 3-Way High Torque Multi Screwdriver with CR-V Steel Bits,",
-    "price": 8.99,
-    "rank": 7,
-    "reviews": 0,
-    "score": 115,
-    "sources": [
-      "DIY New",
       "Reddit需求"
-    ]
+    ],
+    "channel": "new_releases"
   },
   {
-    "asin": "B07RSCPH4N",
-    "name": "Amazon Basics Vacuum Compression Zipper Storage Bags with Airtight Valve and Hand Pump, Large, 5-Pack, Clear",
-    "price": 7.32,
-    "rank": 5,
-    "reviews": 150523,
-    "score": 100,
-    "sources": [
-      "Kitchen BSR",
-      "TikTok趋势"
-    ]
+    "asin": "B0GKVCBF6F",
+    "name": "Shophubio Adjustable RV Drain Hose for Caravans, Motorhomes & Campervans – Flexible For EVA Waste Pipe, For Length with ",
+    "price": 6.64,
+    "rank": 26,
+    "reviews": 0,
+    "score": 95,
+    "sources": [],
+    "channel": "new_releases"
   },
   {
-    "asin": "B0FF9V7Z7J",
-    "name": "24Pcs 1/2-20 Inch Wheel Nuts for 1/2\" Wheel Studs for Trailers for Boat Trailer Tires Length: 0.62\"(15.77mm), Width: 0.8",
-    "price": 8.17,
-    "rank": 13,
+    "asin": "B0GLNF9ZRJ",
+    "name": "Rubber Winch Cable Hook Stopper for Synthetic Rope – Roller Wear, Maintains Tension & Eliminates Clicking Noise – Fits F",
+    "price": 8.72,
+    "rank": 21,
     "reviews": 0,
     "score": 90,
+    "sources": [],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GHQMH1FQ",
+    "name": "Aluminum Saddlebag Latch Lever Lid Lifter for Touring For Road Glide 2014-21, Compatible with CVO Models, Black Anodized",
+    "price": 9.6,
+    "rank": 23,
+    "reviews": 0,
+    "score": 90,
+    "sources": [],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B0GLXWV6S7",
+    "name": "1 Pcs Foot Pedal Resistance Band,Stomach Exercise Equipment,Elastic Pull Rope Foot Resistance Band,Abdominal and Muscle ",
+    "price": 6.91,
+    "rank": 29,
+    "reviews": 121,
+    "score": 90,
     "sources": [
-      "DIY New"
-    ]
+      "Reddit需求"
+    ],
+    "channel": "new_releases"
+  },
+  {
+    "asin": "B00BSYR7K8",
+    "name": "Earth Rated Dog Poo Bags, Guaranteed Leak Proof and Extra Thick Waste Bag Refill Rolls For Dogs, Lavender Scented, 270 C",
+    "price": 9.57,
+    "rank": 5,
+    "reviews": 228392,
+    "score": 75,
+    "sources": [
+      "Reddit需求"
+    ],
+    "channel": "bsr"
+  },
+  {
+    "asin": "B00MW8G3YU",
+    "name": "Amazon Basics Dog and Puppy Training Pads, Leakproof, 5-Layer Design with Quick-Dry Surface, Regular, Pack of 50, Blue",
+    "price": 7.42,
+    "rank": 14,
+    "reviews": 224179,
+    "score": 75,
+    "sources": [
+      "Reddit需求"
+    ],
+    "channel": "bsr"
+  },
+  {
+    "asin": "B0746M9WMW",
+    "name": "MediHands Nitrile Gloves Medium, Blue Heavy Duty Disposable Glove and Surgical Gloves, Powder Free and Latex Free, Medic",
+    "price": 9.99,
+    "rank": 22,
+    "reviews": 8477,
+    "score": 70,
+    "sources": [],
+    "channel": "bsr"
+  },
+  {
+    "asin": "B00IZMW3H8",
+    "name": "Frog Tape Green Multi Surface Painters Masking Tape 48mm x 41.1m. Indoor painting and decorating for sharp lines and no ",
+    "price": 9.85,
+    "rank": 25,
+    "reviews": 28952,
+    "score": 70,
+    "sources": [],
+    "channel": "bsr"
+  },
+  {
+    "asin": "B07XKL81NZ",
+    "name": "3 x 3 m Blue Tarpaulin Waterproof Tarp Sheet Cover, Groundsheet - Waterproof, Weatherproof, Frost-Resistant, UV Protecti",
+    "price": 7.99,
+    "rank": 12,
+    "reviews": 23443,
+    "score": 65,
+    "sources": [
+      "Reddit需求"
+    ],
+    "channel": "bsr"
+  },
+  {
+    "asin": "B0BCK4K9ZC",
+    "name": "FRONTLINE WORMER - Worming Tablets for Dogs - 2 Tablets",
+    "price": 6.49,
+    "rank": 21,
+    "reviews": 14525,
+    "score": 60,
+    "sources": [],
+    "channel": "bsr"
+  },
+  {
+    "asin": "B0081Q3YNA",
+    "name": "Unigloves Black Pearl Nitrile Examination Gloves - Multipurpose, Powder Free and Latex Free Disposable Gloves - Box of 1",
+    "price": 7.94,
+    "rank": 1,
+    "reviews": 27093,
+    "score": 60,
+    "sources": [],
+    "channel": "bsr"
   }
 ]
