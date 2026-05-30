@@ -62,52 +62,69 @@ def enrich_with_demand_signals(products, gtrends_text, reddit_text):
         words = [w for w in name_lower.split() if len(w) > 3]
         matched = False
 
-        # Check Google Trends keywords
+        # Check Google Trends keywords - require 2+ matches for confidence
+        gt_match_count = 0
         for kw in gtrends_keywords:
             if kw in name_lower:
-                p["google_trend"] = "rising"
-                if "Google趋势" not in str(p.get("sources", [])):
-                    p.setdefault("sources", []).append("Google趋势")
-                matched = True
-                break
+                gt_match_count += 1
+        # Also check raw text for product keywords
+        for word in words[:5]:
+            if len(word) > 4 and word in gtrends_lower:
+                gt_match_count += 1
 
-        # Also check raw Google Trends text for product keywords
-        if not matched:
-            for word in words[:4]:
-                if word in gtrends_lower and len(word) > 4:
-                    p["google_trend"] = "rising"
-                    if "Google趋势" not in str(p.get("sources", [])):
-                        p.setdefault("sources", []).append("Google趋势")
-                    matched = True
-                    break
+        if gt_match_count >= 2:
+            p["google_trend"] = "rising"
+            if "Google趋势" not in str(p.get("sources", [])):
+                p.setdefault("sources", []).append("Google趋势")
 
-        # Check Reddit
-        for word in words[:4]:
-            if word in reddit_lower and len(word) > 4:
-                if "Reddit需求" not in str(p.get("sources", [])):
-                    p.setdefault("sources", []).append("Reddit需求")
-                break
+        # Check Reddit - require specific product words (not generic)
+        reddit_generic = {'that', 'this', 'with', 'from', 'have', 'been', 'your',
+                          'they', 'will', 'more', 'than', 'what', 'when', 'very',
+                          'just', 'like', 'would', 'could', 'should', 'about'}
+        reddit_match = 0
+        for word in words[:5]:
+            if word in reddit_lower and len(word) > 4 and word not in reddit_generic:
+                reddit_match += 1
+        if reddit_match >= 2:
+            if "Reddit需求" not in str(p.get("sources", [])):
+                p.setdefault("sources", []).append("Reddit需求")
 
     return products
 
 
 def match_tiktok_to_amazon(tiktok_products, amazon_products):
-    """Match TikTok trending keywords to Amazon products."""
+    """Match TikTok trending categories/keywords to Amazon products."""
     matched_count = 0
-    for tp in tiktok_products:
-        tp_name = tp.get("name", "").lower()
-        tp_words = [w for w in tp_name.split() if len(w) > 3]
 
-        for ap in amazon_products:
-            ap_name = ap.get("name", "").lower()
-            # Check if TikTok keyword appears in Amazon product name
-            for word in tp_words:
-                if word in ap_name and len(word) > 4:
-                    if "TikTok趋势" not in str(ap.get("sources", [])):
-                        ap.setdefault("sources", []).append("TikTok趋势")
-                        ap["signal"] = ap.get("signal", "") + " + TikTok验证"
-                        matched_count += 1
-                    break
+    # Build a set of all TikTok keywords (phrases and individual words)
+    tiktok_keywords = set()
+    for tp in tiktok_products:
+        name = tp.get("name", "").lower().strip()
+        # Add full phrase
+        if len(name) > 3:
+            tiktok_keywords.add(name)
+        # Add individual words
+        for word in name.split():
+            if len(word) > 4:
+                tiktok_keywords.add(word)
+
+    for ap in amazon_products:
+        ap_name = ap.get("name", "").lower()
+        ap_words = set(ap_name.split())
+
+        # Check for keyword overlap
+        matches = 0
+        for kw in tiktok_keywords:
+            if kw in ap_name:
+                matches += 1
+            elif len(kw) > 5 and any(w.startswith(kw[:5]) for w in ap_words):
+                matches += 1  # Partial match for longer keywords
+
+        if matches >= 1:
+            if "TikTok趋势" not in str(ap.get("sources", [])):
+                ap.setdefault("sources", []).append("TikTok趋势")
+                ap["signal"] = ap.get("signal", "") + " + TikTok验证"
+                matched_count += 1
 
     return matched_count
 

@@ -122,10 +122,30 @@ def fetch():
     all_products = []
     seen_asins = set()
 
-    # Rotate categories each run
+    # Smart category rotation - prioritize uncovered categories
     import random
     url_keys = list(AMAZON_URLS.keys())
-    selected = random.sample(url_keys, min(8, len(url_keys)))
+    rotation_file = BASE / "data" / "last_categories.json"
+    last_cats = []
+    if rotation_file.exists():
+        try:
+            last_cats = json.loads(rotation_file.read_text())
+        except Exception:
+            pass
+
+    # Find categories not covered in last run
+    uncovered = [k for k in url_keys if k not in last_cats]
+    if len(uncovered) >= 8:
+        selected = random.sample(uncovered, 8)
+    else:
+        # Take all uncovered + fill remaining randomly from covered
+        selected = uncovered[:]
+        remaining = [k for k in url_keys if k not in selected]
+        selected.extend(random.sample(remaining, min(8 - len(selected), len(remaining))))
+
+    # Save for next run
+    rotation_file.parent.mkdir(parents=True, exist_ok=True)
+    rotation_file.write_text(json.dumps(selected))
 
     for source_name in selected:
         url = AMAZON_URLS[source_name]

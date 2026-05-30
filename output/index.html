@@ -94,18 +94,20 @@ a.product-name:hover{color:#007AFF}
   </div>
 
   <div class="stats">
-    <div class="stat stat-blue"><div class="num">6</div><div class="label">Scanned</div></div>
-    <div class="stat stat-green"><div class="num">6</div><div class="label">Passed</div></div>
-    <div class="stat stat-orange"><div class="num">6</div><div class="label">New</div></div>
-    <div class="stat stat-purple"><div class="num">3</div><div class="label">Sources</div></div>
+    <div class="stat stat-blue"><div class="num">5</div><div class="label">Scanned</div></div>
+    <div class="stat stat-green"><div class="num">5</div><div class="label">Passed</div></div>
+    <div class="stat stat-orange"><div class="num">5</div><div class="label">New</div></div>
+    <div class="stat stat-purple"><div class="num">5</div><div class="label">Sources</div></div>
   </div>
 
   <div class="sources-section">
     <h2>Sources</h2>
     <div class="source-pills">
-<span class="source-pill" style="--pill-color:#007AFF"><span class="pill-dot" style="background:#007AFF"></span>Sports BSR <b>6</b></span>
-<span class="source-pill" style="--pill-color:#8E8E93"><span class="pill-dot" style="background:#8E8E93"></span>Google趋势 <b>6</b></span>
 <span class="source-pill" style="--pill-color:#8E8E93"><span class="pill-dot" style="background:#8E8E93"></span>DIY New <b>6</b></span>
+<span class="source-pill" style="--pill-color:#8E8E93"><span class="pill-dot" style="background:#8E8E93"></span>Reddit需求 <b>4</b></span>
+<span class="source-pill" style="--pill-color:#5856D6"><span class="pill-dot" style="background:#5856D6"></span>TikTok趋势 <b>4</b></span>
+<span class="source-pill" style="--pill-color:#FF9500"><span class="pill-dot" style="background:#FF9500"></span>Automotive New <b>2</b></span>
+<span class="source-pill" style="--pill-color:#FF2D55"><span class="pill-dot" style="background:#FF2D55"></span>Kitchen BSR <b>2</b></span>
 
     </div>
   </div>
@@ -113,39 +115,41 @@ a.product-name:hover{color:#007AFF}
   <div class="toolbar">
     <input type="text" class="search" id="searchBox" placeholder="Search products, ASIN, sources…" oninput="doFilter()">
     <button class="fbtn active" onclick="filterBySrc('all')">All</button>
+<button class="fbtn" style="--accent:#FF9500" onclick="filterBySrc('Automotive New')">Automotive New</button>
 <button class="fbtn" style="--accent:#8E8E93" onclick="filterBySrc('DIY New')">DIY New</button>
-<button class="fbtn" style="--accent:#8E8E93" onclick="filterBySrc('Google趋势')">Google趋势</button>
-<button class="fbtn" style="--accent:#007AFF" onclick="filterBySrc('Sports BSR')">Sports BSR</button>
+<button class="fbtn" style="--accent:#FF2D55" onclick="filterBySrc('Kitchen BSR')">Kitchen BSR</button>
+<button class="fbtn" style="--accent:#8E8E93" onclick="filterBySrc('Reddit需求')">Reddit需求</button>
+<button class="fbtn" style="--accent:#5856D6" onclick="filterBySrc('TikTok趋势')">TikTok趋势</button>
 
   </div>
 
   <div class="grid" id="productGrid">
 
-      <div class="card" data-source="Sports BSR Google趋势" data-name="world cup wall chart 2026 - world cup chart – football tournament poster huge a1" data-asin="b0gwrk5rzf">
+      <div class="card" data-source="Automotive New Reddit需求" data-name="nanopolix scratch remover,nanopolix ultimate car scratch remover with nano spark" data-asin="b0gsrplwxl">
         <div class="card-top">
-          <div class="card-rank" style="background:#007AFF">#1</div>
+          <div class="card-rank" style="background:#FF9500">#1</div>
           <span class="badge new-badge">NEW</span>
         </div>
         <div class="card-body">
-          <a href="https://www.amazon.co.uk/dp/B0GWRK5RZF" target="_blank" class="product-name">World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1</a>
-          <div class="card-subtitle">36 reviews, 4.4★ · 4.4★</div>
+          <a href="https://www.amazon.co.uk/dp/B0GSRPLWXL" target="_blank" class="product-name">Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Spark</a>
+          <div class="card-subtitle">1 reviews, 5.0★ · 5.0★</div>
           <div class="card-tags">
-            <span class="tag tag-price">£6.66</span>
-            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">24.0% margin</span>
-            <span class="rank-tag" style="color:#007AFF">BSR #17</span>
+            <span class="tag tag-price">£8.99</span>
+            <span class="tag tag-margin" style="background:#34C75915;color:#34C759">33.2% margin</span>
+            <span class="rank-tag" style="color:#FF9500">BSR #2</span>
           </div>
           <div class="card-metrics">
             <div class="metric">
               <span class="metric-label">Net Profit</span>
-              <span class="metric-value">£1.60</span>
+              <span class="metric-value">£2.98</span>
             </div>
             <div class="metric">
               <span class="metric-label">VAT</span>
-              <span class="metric-value">£1.11</span>
+              <span class="metric-value">£1.50</span>
             </div>
             <div class="metric">
               <span class="metric-label">Commission</span>
-              <span class="metric-value">£1.00</span>
+              <span class="metric-value">£1.35</span>
             </div>
             <div class="metric">
               <span class="metric-label">FBA</span>
@@ -157,91 +161,44 @@ a.product-name:hover{color:#007AFF}
             </div>
             <div class="metric">
               <span class="metric-label">Score</span>
-              <span class="metric-value">110</span>
+              <span class="metric-value">130</span>
             </div>
           </div>
-          <div class="margin-bar"><div class="margin-fill" style="width:60%;background:#FF9500"></div></div>
+          <div class="margin-bar"><div class="margin-fill" style="width:83%;background:#34C759"></div></div>
         </div>
         <div class="card-footer">
-          <span class="source-dot" style="background:#007AFF"></span>
-          <span class="source-label">Sports BSR</span>
-          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#007AFF"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+          <span class="source-dot" style="background:#FF9500"></span>
+          <span class="source-label">Automotive New</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#FF9500"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
         </div>
       </div>
-      <div class="card" data-source="Sports BSR Google趋势" data-name="premium world cup wall chart 2026 - xl a1 world cup football 2026 poster, 2-in-1" data-asin="b0h1t62y7z">
+      <div class="card" data-source="DIY New TikTok趋势" data-name="the bolt stripper 3000 wrench tool, universal automotive torx wrench 8-24mm self" data-asin="b0gwhdhc64">
         <div class="card-top">
-          <div class="card-rank" style="background:#007AFF">#2</div>
+          <div class="card-rank" style="background:#8E8E93">#2</div>
           <span class="badge new-badge">NEW</span>
         </div>
         <div class="card-body">
-          <a href="https://www.amazon.co.uk/dp/B0H1T62Y7Z" target="_blank" class="product-name">Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1</a>
-          <div class="card-subtitle">7 reviews, 4.4★ · 4.4★</div>
+          <a href="https://www.amazon.co.uk/dp/B0GWHDHC64" target="_blank" class="product-name">The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self</a>
+          <div class="card-subtitle">0 reviews </div>
           <div class="card-tags">
-            <span class="tag tag-price">£6.66</span>
-            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">24.0% margin</span>
-            <span class="rank-tag" style="color:#007AFF">BSR #25</span>
+            <span class="tag tag-price">£6.68</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">24.1% margin</span>
+            <span class="rank-tag" style="color:#8E8E93">BSR #20</span>
           </div>
           <div class="card-metrics">
             <div class="metric">
               <span class="metric-label">Net Profit</span>
-              <span class="metric-value">£1.60</span>
+              <span class="metric-value">£1.61</span>
             </div>
             <div class="metric">
               <span class="metric-label">VAT</span>
-              <span class="metric-value">£1.11</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Commission</span>
-              <span class="metric-value">£1.00</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">FBA</span>
-              <span class="metric-value">£1.28</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Sourcing</span>
-              <span class="metric-value">£1.00</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Score</span>
-              <span class="metric-value">110</span>
-            </div>
-          </div>
-          <div class="margin-bar"><div class="margin-fill" style="width:60%;background:#FF9500"></div></div>
-        </div>
-        <div class="card-footer">
-          <span class="source-dot" style="background:#007AFF"></span>
-          <span class="source-label">Sports BSR</span>
-          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#007AFF"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
-        </div>
-      </div>
-      <div class="card" data-source="Sports BSR Google趋势" data-name="yqxcc 2 pack cooling towels | 120x30 cm | cold cool for neck | microfibre soft b" data-asin="b07ss9nplj">
-        <div class="card-top">
-          <div class="card-rank" style="background:#007AFF">#3</div>
-          <span class="badge new-badge">NEW</span>
-        </div>
-        <div class="card-body">
-          <a href="https://www.amazon.co.uk/dp/B07SS9NPLJ" target="_blank" class="product-name">YQXCC 2 Pack Cooling Towels | 120x30 cm | Cold Cool for Neck | Microfibre Soft B</a>
-          <div class="card-subtitle">14571 reviews, 4.7★ · 4.7★</div>
-          <div class="card-tags">
-            <span class="tag tag-price">£7.49</span>
-            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">27.9% margin</span>
-            <span class="rank-tag" style="color:#007AFF">BSR #13</span>
-          </div>
-          <div class="card-metrics">
-            <div class="metric">
-              <span class="metric-label">Net Profit</span>
-              <span class="metric-value">£2.09</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">VAT</span>
-              <span class="metric-value">£1.25</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Commission</span>
               <span class="metric-value">£1.12</span>
             </div>
             <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.00</span>
+            </div>
+            <div class="metric">
               <span class="metric-label">FBA</span>
               <span class="metric-value">£1.28</span>
             </div>
@@ -251,20 +208,20 @@ a.product-name:hover{color:#007AFF}
             </div>
             <div class="metric">
               <span class="metric-label">Score</span>
-              <span class="metric-value">95</span>
+              <span class="metric-value">125</span>
             </div>
           </div>
-          <div class="margin-bar"><div class="margin-fill" style="width:70%;background:#FF9500"></div></div>
+          <div class="margin-bar"><div class="margin-fill" style="width:60%;background:#FF9500"></div></div>
         </div>
         <div class="card-footer">
-          <span class="source-dot" style="background:#007AFF"></span>
-          <span class="source-label">Sports BSR</span>
-          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#007AFF"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+          <span class="source-dot" style="background:#8E8E93"></span>
+          <span class="source-label">DIY New</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#8E8E93"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
         </div>
       </div>
-      <div class="card" data-source="DIY New" data-name="jadufhu ratchet screwdriver, 13-in-1 magnetic screwdriver set, 3-way high torque" data-asin="b0gyrsm22m">
+      <div class="card" data-source="DIY New Reddit需求" data-name="jadufhu ratchet screwdriver, 13-in-1 magnetic screwdriver set, 3-way high torque" data-asin="b0gyrsm22m">
         <div class="card-top">
-          <div class="card-rank" style="background:#8E8E93">#4</div>
+          <div class="card-rank" style="background:#8E8E93">#3</div>
           <span class="badge new-badge">NEW</span>
         </div>
         <div class="card-body">
@@ -298,7 +255,7 @@ a.product-name:hover{color:#007AFF}
             </div>
             <div class="metric">
               <span class="metric-label">Score</span>
-              <span class="metric-value">90</span>
+              <span class="metric-value">115</span>
             </div>
           </div>
           <div class="margin-bar"><div class="margin-fill" style="width:83%;background:#34C759"></div></div>
@@ -307,6 +264,53 @@ a.product-name:hover{color:#007AFF}
           <span class="source-dot" style="background:#8E8E93"></span>
           <span class="source-label">DIY New</span>
           <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#8E8E93"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
+        </div>
+      </div>
+      <div class="card" data-source="Kitchen BSR TikTok趋势" data-name="amazon basics vacuum compression zipper storage bags with airtight valve and han" data-asin="b07rscph4n">
+        <div class="card-top">
+          <div class="card-rank" style="background:#FF2D55">#4</div>
+          <span class="badge new-badge">NEW</span>
+        </div>
+        <div class="card-body">
+          <a href="https://www.amazon.co.uk/dp/B07RSCPH4N" target="_blank" class="product-name">Amazon Basics Vacuum Compression Zipper Storage Bags with Airtight Valve and Han</a>
+          <div class="card-subtitle">150523 reviews, 4.5★ · 4.5★</div>
+          <div class="card-tags">
+            <span class="tag tag-price">£7.32</span>
+            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">27.2% margin</span>
+            <span class="rank-tag" style="color:#FF2D55">BSR #5</span>
+          </div>
+          <div class="card-metrics">
+            <div class="metric">
+              <span class="metric-label">Net Profit</span>
+              <span class="metric-value">£1.99</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">VAT</span>
+              <span class="metric-value">£1.22</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Commission</span>
+              <span class="metric-value">£1.10</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">FBA</span>
+              <span class="metric-value">£1.28</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Sourcing</span>
+              <span class="metric-value">£1.00</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Score</span>
+              <span class="metric-value">100</span>
+            </div>
+          </div>
+          <div class="margin-bar"><div class="margin-fill" style="width:68%;background:#FF9500"></div></div>
+        </div>
+        <div class="card-footer">
+          <span class="source-dot" style="background:#FF2D55"></span>
+          <span class="source-label">Kitchen BSR</span>
+          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#FF2D55"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
         </div>
       </div>
       <div class="card" data-source="DIY New" data-name="24pcs 1/2-20 inch wheel nuts for 1/2&quot; wheel studs for trailers for boat trailer " data-asin="b0ff9v7z7j">
@@ -349,53 +353,6 @@ a.product-name:hover{color:#007AFF}
             </div>
           </div>
           <div class="margin-bar"><div class="margin-fill" style="width:76%;background:#34C759"></div></div>
-        </div>
-        <div class="card-footer">
-          <span class="source-dot" style="background:#8E8E93"></span>
-          <span class="source-label">DIY New</span>
-          <span class="star-row"><svg width="14" height="14" viewBox="0 0 20 20" fill="#8E8E93"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg>"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.33L10 13.27l-4.77 2.51.91-5.33L2.27 6.68l5.34-.78L10 1z"/></svg></span>
-        </div>
-      </div>
-      <div class="card" data-source="DIY New" data-name="the bolt stripper 3000 wrench tool, universal automotive torx wrench 8-24mm self" data-asin="b0gwhdhc64">
-        <div class="card-top">
-          <div class="card-rank" style="background:#8E8E93">#6</div>
-          <span class="badge new-badge">NEW</span>
-        </div>
-        <div class="card-body">
-          <a href="https://www.amazon.co.uk/dp/B0GWHDHC64" target="_blank" class="product-name">The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self</a>
-          <div class="card-subtitle">0 reviews </div>
-          <div class="card-tags">
-            <span class="tag tag-price">£6.68</span>
-            <span class="tag tag-margin" style="background:#FF950015;color:#FF9500">24.1% margin</span>
-            <span class="rank-tag" style="color:#8E8E93">BSR #20</span>
-          </div>
-          <div class="card-metrics">
-            <div class="metric">
-              <span class="metric-label">Net Profit</span>
-              <span class="metric-value">£1.61</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">VAT</span>
-              <span class="metric-value">£1.12</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Commission</span>
-              <span class="metric-value">£1.00</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">FBA</span>
-              <span class="metric-value">£1.28</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Sourcing</span>
-              <span class="metric-value">£1.00</span>
-            </div>
-            <div class="metric">
-              <span class="metric-label">Score</span>
-              <span class="metric-value">80</span>
-            </div>
-          </div>
-          <div class="margin-bar"><div class="margin-fill" style="width:60%;background:#FF9500"></div></div>
         </div>
         <div class="card-footer">
           <span class="source-dot" style="background:#8E8E93"></span>

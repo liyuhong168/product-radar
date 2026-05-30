@@ -44,7 +44,9 @@
       "dress", "shirt", "shoes", "trousers", "clothing",
       "lithium", "battery", "charger", "adapter", "electronic",
       "rechargeable", "usb powered", "battery operated",
-      "plug in", "electric", "mains powered", "motor", "fan",
+      "plug in", "electric", "mains powered", "motor",
+      "ceiling fan", "desk fan", "tower fan", "stand fan", "pedestal fan",
+      "neck fan", "handheld fan", "portable fan", "clip fan",
       "smart watch", "smart band", "fitness tracker", "smartwatch",
 
       "furniture", "chair", "wardrobe",

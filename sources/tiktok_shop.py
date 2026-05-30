@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""TikTok Shop UK data fetcher - extracts trending product keywords from search"""
+"""TikTok Shop UK data fetcher - extracts trending product CATEGORIES"""
 import json, subprocess, re, sys
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent
-CONFIG = json.loads((BASE / "config.json").read_text())
 ANYSEARCH = str(Path.home() / ".hermes/skills/search/anysearch/scripts/anysearch_cli.py")
 
 
@@ -22,69 +21,66 @@ def _run_anysearch(query, domain="ecommerce", max_results=5):
     return ""
 
 
-def _extract_products_from_search(text):
-    """Extract product names from AnySearch result text.
+def _extract_trending_categories(text):
+    """Extract trending product category keywords from search results.
     
-    AnySearch returns article snippets, not product listings.
-    We extract product mentions from the text content.
+    Returns a list of category keywords that can be matched against Amazon products.
     """
-    products = []
     if not text:
-        return products
+        return []
 
-    lines = text.split("\n")
-    for line in lines:
-        line = line.strip()
-        if not line:
-            continue
+    categories = set()
+    text_lower = text.lower()
 
-        # Skip metadata lines
-        skip = ['## search results', 'url:', 'date:', 'keywords:',
-                'posted on', 'shopping', 'explore', 'see more']
-        if any(line.lower().startswith(s) for s in skip):
-            continue
+    # Known TikTok trending product categories
+    known_categories = [
+        'kitchen gadgets', 'kitchen accessories', 'kitchen utensils',
+        'cleaning', 'organizer', 'storage', 'home decor',
+        'phone case', 'phone accessories', 'phone holder',
+        'beauty tools', 'skincare', 'hair care',
+        'fitness', 'yoga', 'exercise',
+        'car accessories', 'car organizer',
+        'garden', 'outdoor', 'camping',
+        'led lights', 'solar lights', 'string lights',
+        'water bottle', 'lunch box',
+        'pet accessories', 'dog toys',
+        'craft supplies', 'stationery', 'art supplies',
+        'travel accessories', 'packing cubes',
+        'usb gadgets', 'tech accessories',
+        'wall art', 'posters', 'stickers',
+        'candles', 'home fragrance',
+        'bathroom accessories', 'shower',
+        'desk accessories', 'office supplies',
+        'reusable', 'eco friendly', 'sustainable',
+        'personalized', 'custom',
+        'tote bag', 'makeup bag', 'storage bag',
+        'phone stand', 'laptop stand',
+        'mini', 'portable', 'compact',
+    ]
 
-        # Extract numbered product mentions: "1. Waterproof Headphones"
-        numbered = re.match(r'^\d+\.?\s+(.+)', line)
-        if numbered:
-            name = numbered.group(1).strip()
-            if len(name) > 5 and len(name) < 80:
-                products.append(name)
-            continue
+    for cat in known_categories:
+        if cat in text_lower:
+            categories.add(cat)
 
-        # Extract from "trending products" type content
-        # Look for product-like phrases with descriptors
-        product_patterns = [
-            r'(?:waterproof|portable|reusable|silicone|stainless|adjustable|'
-            r'folding|compact|led|magnetic|automatic|mini|large|smart|'
-            r'eco|organic|premium|professional)\s+\w+(?:\s+\w+){0,3}',
-            r'(?:set|pack|kit|organizer|holder|cleaner|brush|container|'
-            r'bottle|light|lamp|mat|bag|cover|case|stand|mount|clip)\s+\w+',
-        ]
+    # Also extract from numbered lists in the text
+    # "1. Unique mobile phone cases" → "phone cases"
+    for m in re.finditer(r'\d+[\.\)]\s*([A-Za-z][a-z]+(?:\s+[a-z]+){1,4})', text):
+        phrase = m.group(1).strip().lower()
+        if len(phrase) > 5 and len(phrase) < 40:
+            categories.add(phrase)
 
-        for pattern in product_patterns:
-            matches = re.findall(pattern, line, re.I)
-            for match in matches:
-                match = match.strip()
-                if 5 < len(match) < 60:
-                    products.append(match)
+    # Extract from "X trending products" patterns
+    for m in re.finditer(r'(?:trending|popular|viral|best selling)\s+([a-z\s]+?)(?:\s+on\s|\s+in\s|\s+for\s|\.|,)', text_lower):
+        phrase = m.group(1).strip()
+        if 3 < len(phrase) < 30:
+            categories.add(phrase)
 
-    # Deduplicate
-    seen = set()
-    unique = []
-    for p in products:
-        key = p.lower().strip()
-        if key not in seen:
-            seen.add(key)
-            unique.append(p)
-
-    return unique
+    return list(categories)
 
 
 def fetch():
-    """Fetch TikTok trending product keywords."""
-    all_products = []
-    seen_names = set()
+    """Fetch TikTok trending categories for cross-matching with Amazon."""
+    all_categories = set()
 
     queries = [
         "TikTok Shop UK trending products under 10 pounds 2026",
@@ -96,21 +92,20 @@ def fetch():
     for q in queries:
         print(f"  TikTok search: {q[:50]}...", file=sys.stderr)
         text = _run_anysearch(q)
-        if not text:
-            continue
+        cats = _extract_trending_categories(text)
+        all_categories.update(cats)
 
-        names = _extract_products_from_search(text)
-        for name in names:
-            name_lower = name.lower().strip()
-            if name_lower not in seen_names and len(name_lower) > 5:
-                seen_names.add(name_lower)
-                all_products.append({
-                    "name": name,
-                    "price": 0,
-                    "sources": ["TikTok趋势"],
-                    "signal": "TikTok社交爆品信号",
-                    "needs_price_check": True
-                })
+    print(f"  TikTok UK: {len(all_categories)} trending categories", file=sys.stderr)
 
-    print(f"  TikTok UK total: {len(all_products)} product keywords", file=sys.stderr)
-    return all_products
+    # Return as product-like entries for the matcher
+    products = []
+    for cat in all_categories:
+        products.append({
+            "name": cat,
+            "price": 0,
+            "sources": ["TikTok趋势"],
+            "signal": "TikTok品类趋势",
+            "is_category": True
+        })
+
+    return products

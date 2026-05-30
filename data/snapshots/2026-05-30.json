@@ -1,23 +1,52 @@
 [
   {
-    "asin": "B0GWRK5RZF",
-    "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
-    "price": 6.66,
-    "rank": 17,
-    "reviews": 36,
-    "rating": 4.4,
-    "review_info": "36 reviews, 4.4★",
-    "score": 110,
+    "asin": "B0GSRPLWXL",
+    "name": "Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Sparkle Cloth for Any Car Scratches,Cars Pain",
+    "price": 8.99,
+    "rank": 2,
+    "reviews": 1,
+    "rating": 5.0,
+    "review_info": "1 reviews, 5.0★",
+    "score": 130,
     "sources": [
-      "Sports BSR",
-      "Google趋势"
+      "Automotive New",
+      "Reddit需求"
     ],
-    "profit_margin": 0.24,
-    "net_profit": 1.6,
+    "profit_margin": 0.332,
+    "net_profit": 2.98,
     "category": "",
-    "signal": "Sports BSR BSR #17",
+    "signal": "Automotive New BSR #2",
     "cost_breakdown": {
-      "vat": 1.11,
+      "vat": 1.5,
+      "commission": 1.35,
+      "fba": 1.28,
+      "ads": 0.45,
+      "returns": 0.27,
+      "storage": 0.09,
+      "dsc": 0.07,
+      "sourcing": 1.0,
+      "total_cost": 6.01
+    }
+  },
+  {
+    "asin": "B0GWHDHC64",
+    "name": "The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self-Tightening for Small Places, Multifunct",
+    "price": 6.68,
+    "rank": 20,
+    "reviews": 0,
+    "rating": 0,
+    "review_info": "0 reviews",
+    "score": 125,
+    "sources": [
+      "DIY New",
+      "TikTok趋势"
+    ],
+    "profit_margin": 0.241,
+    "net_profit": 1.61,
+    "category": "",
+    "signal": "DIY New BSR #20 + TikTok验证",
+    "cost_breakdown": {
+      "vat": 1.12,
       "commission": 1.0,
       "fba": 1.28,
       "ads": 0.33,
@@ -25,65 +54,7 @@
       "storage": 0.07,
       "dsc": 0.07,
       "sourcing": 1.0,
-      "total_cost": 5.06
-    }
-  },
-  {
-    "asin": "B0H1T62Y7Z",
-    "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
-    "price": 6.66,
-    "rank": 25,
-    "reviews": 7,
-    "rating": 4.4,
-    "review_info": "7 reviews, 4.4★",
-    "score": 110,
-    "sources": [
-      "Sports BSR",
-      "Google趋势"
-    ],
-    "profit_margin": 0.24,
-    "net_profit": 1.6,
-    "category": "",
-    "signal": "Sports BSR BSR #25",
-    "cost_breakdown": {
-      "vat": 1.11,
-      "commission": 1.0,
-      "fba": 1.28,
-      "ads": 0.33,
-      "returns": 0.2,
-      "storage": 0.07,
-      "dsc": 0.07,
-      "sourcing": 1.0,
-      "total_cost": 5.06
-    }
-  },
-  {
-    "asin": "B07SS9NPLJ",
-    "name": "YQXCC 2 Pack Cooling Towels | 120x30 cm | Cold Cool for Neck | Microfibre Soft Breathable Chilly | for Sports Yoga, Golf",
-    "price": 7.49,
-    "rank": 13,
-    "reviews": 14571,
-    "rating": 4.7,
-    "review_info": "14571 reviews, 4.7★",
-    "score": 95,
-    "sources": [
-      "Sports BSR",
-      "Google趋势"
-    ],
-    "profit_margin": 0.279,
-    "net_profit": 2.09,
-    "category": "",
-    "signal": "Sports BSR BSR #13",
-    "cost_breakdown": {
-      "vat": 1.25,
-      "commission": 1.12,
-      "fba": 1.28,
-      "ads": 0.37,
-      "returns": 0.22,
-      "storage": 0.07,
-      "dsc": 0.07,
-      "sourcing": 1.0,
-      "total_cost": 5.4
+      "total_cost": 5.07
     }
   },
   {
@@ -94,9 +65,10 @@
     "reviews": 0,
     "rating": 3.5,
     "review_info": "0 reviews, 3.5★",
-    "score": 90,
+    "score": 115,
     "sources": [
-      "DIY New"
+      "DIY New",
+      "Reddit需求"
     ],
     "profit_margin": 0.332,
     "net_profit": 2.98,
@@ -112,6 +84,35 @@
       "dsc": 0.07,
       "sourcing": 1.0,
       "total_cost": 6.01
+    }
+  },
+  {
+    "asin": "B07RSCPH4N",
+    "name": "Amazon Basics Vacuum Compression Zipper Storage Bags with Airtight Valve and Hand Pump, Large, 5-Pack, Clear",
+    "price": 7.32,
+    "rank": 5,
+    "reviews": 150523,
+    "rating": 4.5,
+    "review_info": "150523 reviews, 4.5★",
+    "score": 100,
+    "sources": [
+      "Kitchen BSR",
+      "TikTok趋势"
+    ],
+    "profit_margin": 0.272,
+    "net_profit": 1.99,
+    "category": "",
+    "signal": "Kitchen BSR BSR #5 + TikTok验证",
+    "cost_breakdown": {
+      "vat": 1.22,
+      "commission": 1.1,
+      "fba": 1.28,
+      "ads": 0.37,
+      "returns": 0.22,
+      "storage": 0.07,
+      "dsc": 0.07,
+      "sourcing": 1.0,
+      "total_cost": 5.33
     }
   },
   {
@@ -140,34 +141,6 @@
       "dsc": 0.07,
       "sourcing": 1.0,
       "total_cost": 5.68
-    }
-  },
-  {
-    "asin": "B0GWHDHC64",
-    "name": "The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self-Tightening for Small Places, Multifunct",
-    "price": 6.68,
-    "rank": 20,
-    "reviews": 0,
-    "rating": 0,
-    "review_info": "0 reviews",
-    "score": 80,
-    "sources": [
-      "DIY New"
-    ],
-    "profit_margin": 0.241,
-    "net_profit": 1.61,
-    "category": "",
-    "signal": "DIY New BSR #20",
-    "cost_breakdown": {
-      "vat": 1.12,
-      "commission": 1.0,
-      "fba": 1.28,
-      "ads": 0.33,
-      "returns": 0.2,
-      "storage": 0.07,
-      "dsc": 0.07,
-      "sourcing": 1.0,
-      "total_cost": 5.07
     }
   }
 ]

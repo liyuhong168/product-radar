@@ -11,7 +11,7 @@ def _run_anysearch(query, max_results=5):
     try:
         result = subprocess.run(
             ["python3", ANYSEARCH, "search", query,
-             "--domain", "discussions", "--max_results", str(max_results), "--zone", "intl"],
+             "--domain", "home", "--max_results", str(max_results), "--zone", "intl"],
             capture_output=True, text=True, timeout=30
         )
         if result.returncode == 0 and result.stdout.strip():
