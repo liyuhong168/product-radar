@@ -1,68 +1,38 @@
 [
   {
-    "asin": "B0GSRPLWXL",
-    "name": "Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Sparkle Cloth for Any Car Scratches,Cars Pain",
-    "price": 8.99,
-    "rank": 2,
-    "reviews": 1,
-    "score": 105,
-    "sources": [
-      "Automotive New"
-    ]
-  },
-  {
-    "asin": "B0GWRC38S6",
-    "name": "World Cup Wall Chart 2026 – Scotland World Cup Chart - Huge A1 Football Tournament Poster Planner with Fixtures, UK Kick",
-    "price": 8.95,
-    "rank": 19,
-    "reviews": 27,
-    "score": 105,
-    "sources": [
-      "Sports New"
-    ]
-  },
-  {
-    "asin": "B0GX6X7KSY",
-    "name": "SC Products Large A1 Football World Cup Wall Chart 2026 with Group & Knockout Phase UK Kick Off Times | 84x59cm Front an",
-    "price": 9.99,
-    "rank": 23,
-    "reviews": 40,
-    "score": 105,
-    "sources": [
-      "Sports New"
-    ]
-  },
-  {
     "asin": "B0GWRK5RZF",
     "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
     "price": 6.66,
-    "rank": 2,
+    "rank": 17,
     "reviews": 36,
-    "score": 95,
+    "score": 110,
     "sources": [
-      "Sports New"
+      "Sports BSR",
+      "Google趋势"
     ]
   },
   {
     "asin": "B0H1T62Y7Z",
     "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
     "price": 6.66,
-    "rank": 5,
+    "rank": 25,
     "reviews": 7,
-    "score": 95,
+    "score": 110,
     "sources": [
-      "Sports New"
+      "Sports BSR",
+      "Google趋势"
     ]
   },
   {
-    "asin": "B0GVTCQ4JG",
-    "name": "Yoga Mat Unisex Non-Slip Thick Foam Exercise Mat 10mm with Carry Strap – Lightweight Home Gym Equipment for Yoga, Pilate",
-    "price": 7.99,
-    "rank": 14,
-    "reviews": 25,
+    "asin": "B07SS9NPLJ",
+    "name": "YQXCC 2 Pack Cooling Towels | 120x30 cm | Cold Cool for Neck | Microfibre Soft Breathable Chilly | for Sports Yoga, Golf",
+    "price": 7.49,
+    "rank": 13,
+    "reviews": 14571,
     "score": 95,
     "sources": [
-      "Sports New"
+      "Sports BSR",
+      "Google趋势"
     ]
   },
   {
@@ -96,17 +66,6 @@
     "score": 80,
     "sources": [
       "DIY New"
-    ]
-  },
-  {
-    "asin": "B0F9ZM575G",
-    "name": "Cable Extension Cable - Copper Cable 4 Pin Connector - Motherboard Extended Connector Heat Cord Computer Accessories for",
-    "price": 7.02,
-    "rank": 2,
-    "reviews": 0,
-    "score": 80,
-    "sources": [
-      "Lighting New"
     ]
   }
 ]

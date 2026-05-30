@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """
 Product Radar - Main scan runner
-Scans Amazon UK, TikTok Shop UK, Google Trends, Reddit for product opportunities.
 Usage: python3 run_scan.py
 """
-import json, sys, os
+import json, sys, os, re
 from datetime import datetime
 from pathlib import Path
 
@@ -14,7 +13,7 @@ sys.path.insert(0, str(BASE))
 from scanner import load_history, is_forbidden, calc_profit, score_product, generate_report
 from sources.amazon_uk import fetch as fetch_amazon
 from sources.tiktok_shop import fetch as fetch_tiktok
-from sources.google_trends import fetch_demand_signals as fetch_gtrends
+from sources.google_trends import fetch_demand_signals, extract_trending_keywords
 from sources.reddit_demand import fetch_demand_signals as fetch_reddit
 
 
@@ -23,11 +22,9 @@ def dedup_products(all_products):
     by_asin = {}
     by_name = {}
     merged = []
-
     for p in all_products:
         asin = p.get("asin", "")
         name_key = p.get("name", "").lower().strip()[:40]
-
         if asin and asin in by_asin:
             existing = by_asin[asin]
             for src in p.get("sources", []):
@@ -38,45 +35,81 @@ def dedup_products(all_products):
             if p.get("reviews") and not existing.get("reviews"):
                 existing["reviews"] = p["reviews"]
             continue
-
         if name_key and name_key in by_name:
             existing = by_name[name_key]
             for src in p.get("sources", []):
                 if src not in existing["sources"]:
                     existing["sources"].append(src)
             continue
-
         if asin:
             by_asin[asin] = p
         if name_key:
             by_name[name_key] = p
         merged.append(p)
-
     return merged
 
 
 def enrich_with_demand_signals(products, gtrends_text, reddit_text):
-    """Cross-reference products with demand signals."""
+    """Cross-reference Amazon products with TikTok/Google Trends/Reddit signals."""
     gtrends_lower = gtrends_text.lower() if gtrends_text else ""
     reddit_lower = reddit_text.lower() if reddit_text else ""
+
+    # Extract trending keywords from Google Trends
+    gtrends_keywords = extract_trending_keywords(gtrends_text)
 
     for p in products:
         name_lower = p.get("name", "").lower()
         words = [w for w in name_lower.split() if len(w) > 3]
-        for word in words[:3]:
-            if word in gtrends_lower:
+        matched = False
+
+        # Check Google Trends keywords
+        for kw in gtrends_keywords:
+            if kw in name_lower:
                 p["google_trend"] = "rising"
-                p["signal"] = p.get("signal", "") + " + Google趋势"
+                if "Google趋势" not in str(p.get("sources", [])):
+                    p.setdefault("sources", []).append("Google趋势")
+                matched = True
                 break
-        for word in words[:3]:
-            if word in reddit_lower:
-                p["reddit_context"] = "Reddit用户讨论中"
-                p["signal"] = p.get("signal", "") + " + Reddit需求"
-                if "reddit" not in str(p.get("sources", [])):
+
+        # Also check raw Google Trends text for product keywords
+        if not matched:
+            for word in words[:4]:
+                if word in gtrends_lower and len(word) > 4:
+                    p["google_trend"] = "rising"
+                    if "Google趋势" not in str(p.get("sources", [])):
+                        p.setdefault("sources", []).append("Google趋势")
+                    matched = True
+                    break
+
+        # Check Reddit
+        for word in words[:4]:
+            if word in reddit_lower and len(word) > 4:
+                if "Reddit需求" not in str(p.get("sources", [])):
                     p.setdefault("sources", []).append("Reddit需求")
                 break
 
     return products
+
+
+def match_tiktok_to_amazon(tiktok_products, amazon_products):
+    """Match TikTok trending keywords to Amazon products."""
+    matched_count = 0
+    for tp in tiktok_products:
+        tp_name = tp.get("name", "").lower()
+        tp_words = [w for w in tp_name.split() if len(w) > 3]
+
+        for ap in amazon_products:
+            ap_name = ap.get("name", "").lower()
+            # Check if TikTok keyword appears in Amazon product name
+            for word in tp_words:
+                if word in ap_name and len(word) > 4:
+                    if "TikTok趋势" not in str(ap.get("sources", [])):
+                        ap.setdefault("sources", []).append("TikTok趋势")
+                        ap["signal"] = ap.get("signal", "") + " + TikTok验证"
+                        matched_count += 1
+                    break
+
+    return matched_count
 
 
 def main():
@@ -87,48 +120,50 @@ def main():
 
     # Step 1: Fetch from all sources
     print("[1/5] Multi-source data collection...", file=sys.stderr)
-    all_products = []
 
     print("\n--- Amazon UK ---", file=sys.stderr)
     amazon_products = fetch_amazon()
-    all_products.extend(amazon_products)
 
     print("\n--- TikTok Shop UK ---", file=sys.stderr)
     tiktok_products = fetch_tiktok()
-    all_products.extend(tiktok_products)
 
     print("\n--- Google Trends UK ---", file=sys.stderr)
-    gtrends_text = fetch_gtrends()
+    gtrends_text = fetch_demand_signals()
 
     print("\n--- Reddit Demand ---", file=sys.stderr)
     reddit_text = fetch_reddit()
 
-    amazon_count = len([p for p in all_products if any("Amazon" in s for s in p.get("sources", []))])
-    tiktok_count = len([p for p in all_products if any("TikTok" in s for s in p.get("sources", []))])
-    print(f"\nRaw data: Amazon {amazon_count} | TikTok {tiktok_count}", file=sys.stderr)
+    print(f"\nRaw: Amazon {len(amazon_products)} | TikTok keywords {len(tiktok_products)}", file=sys.stderr)
 
-    # Step 2: Dedup and merge
-    print("\n[2/5] Dedup and merge...", file=sys.stderr)
-    merged = dedup_products(all_products)
-    print(f"  After dedup: {len(merged)}", file=sys.stderr)
+    # Step 2: Match TikTok keywords to Amazon products
+    print("\n[2/5] TikTok → Amazon cross-match...", file=sys.stderr)
+    tiktok_matched = match_tiktok_to_amazon(tiktok_products, amazon_products)
+    print(f"  TikTok signals matched to {tiktok_matched} Amazon products", file=sys.stderr)
 
-    # Step 3: Enrich with demand signals
-    print("\n[3/5] Demand signal cross-validation...", file=sys.stderr)
-    enriched = enrich_with_demand_signals(merged, gtrends_text, reddit_text)
+    # Step 3: Dedup
+    print("\n[3/5] Dedup and merge...", file=sys.stderr)
+    all_products = dedup_products(amazon_products)
+    print(f"  After dedup: {len(all_products)}", file=sys.stderr)
 
-    # Step 4: Load history for trend detection
-    print("\n[4/5] Historical trend comparison...", file=sys.stderr)
+    # Step 4: Enrich with Google Trends + Reddit
+    print("\n[4/5] Google Trends + Reddit cross-validation...", file=sys.stderr)
+    enriched = enrich_with_demand_signals(all_products, gtrends_text, reddit_text)
+
+    # Count how many got Google Trends signal
+    gt_count = sum(1 for p in enriched if p.get("google_trend") == "rising")
+    print(f"  Google Trends signals matched to {gt_count} products", file=sys.stderr)
+
+    # Step 5: Load history
+    print("\n[5/5] Historical trend comparison...", file=sys.stderr)
     history = load_history(days=7)
     print(f"  History: {len(history)} products tracked", file=sys.stderr)
 
-    # Step 5: Generate report
-    print("\n[5/5] Generating report...", file=sys.stderr)
+    # Generate report
+    print("\nGenerating report...", file=sys.stderr)
     report_text, report_path = generate_report(enriched, history)
 
     print(f"\nReport saved: {report_path}", file=sys.stderr)
     print(f"{'='*60}\n", file=sys.stderr)
-
-    # Output report to stdout
     print(report_text)
 
 
