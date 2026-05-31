@@ -284,7 +284,7 @@ body {
 .product-card[data-status="listed"] { border-left-color: #34C759; opacity: 0.7; }
 .product-card[data-status="rejected"] { border-left-color: #FF3B30; opacity: 0.5; }
 
-.card-header { display: flex; justify-content: space-between; align-items: center; }
+.card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .channel-badge {
     padding: 3px 10px; border-radius: 8px;
     font-size: 11px; font-weight: 700;
@@ -304,20 +304,22 @@ body {
 .score-badge {
     padding: 4px 12px; border-radius: 10px;
     font-size: 14px; font-weight: 700;
+    white-space: nowrap; flex-shrink: 0;
 }
 .score-badge.score-hot { background: #FF2D5515; color: #FF2D55; }
 .score-badge.score-high { background: #FF950015; color: #FF9500; }
 .score-badge.score-mid { background: #007AFF15; color: #007AFF; }
 .score-badge.score-low { background: #f0f0f5; color: #8e8e93; }
 .score-label {
-    font-size: 13px; font-weight: 600;
+    font-size: 12px; font-weight: 600;
     color: var(--text-secondary);
+    white-space: nowrap;
 }
 .score-detail {
     font-size: 11px; color: var(--text-secondary);
     background: #f8f8fa; padding: 6px 10px;
-    border-radius: 8px; line-height: 1.6;
-    display: -webkit-box; -webkit-line-clamp: 2;
+    border-radius: 8px; line-height: 1.8;
+    display: -webkit-box; -webkit-line-clamp: 3;
     -webkit-box-orient: vertical; overflow: hidden;
 }
 
@@ -353,12 +355,15 @@ body {
 /* Cost Breakdown */
 .cost-toggle {
     font-size: 12px; color: #007AFF; cursor: pointer;
-    border: none; background: none; padding: 0;
+    border: none; background: #f0f4ff; padding: 4px 10px;
+    border-radius: 8px; transition: background 0.2s;
 }
+.cost-toggle:hover { background: #dce5ff; }
 .cost-detail {
     display: none; font-size: 12px; color: var(--text-secondary);
-    background: #f5f5f7; padding: 8px 12px; border-radius: 8px;
-    line-height: 1.8;
+    background: #f5f5f7; padding: 10px 12px; border-radius: 8px;
+    line-height: 1.8; margin-top: 4px;
+    border-left: 3px solid #007AFF;
 }
 .cost-detail.show { display: block; }
 
@@ -556,15 +561,17 @@ function renderProducts() {
         if (p.google_trend === 'rising') signals.push('<span class="signal-badge google">Google↑</span>');
         if (p.is_multi) signals.push('<span class="signal-badge multi">多源</span>');
 
-        // Score display
-        const score = p.score || 50;
+        // Score display - cap at 99 for visual balance
+        const score = p.score || 30;
+        const displayScore = score > 99 ? '99+' : score;
         const stars = p.stars || 1;
         const starStr = '⭐'.repeat(stars);
         let scoreClass = 'low';
-        let scoreLabel = '待观察';
+        let scoreLabel = '💤 优先级低';
         if (score >= 100) { scoreClass = 'hot'; scoreLabel = '🔥 强烈推荐'; }
-        else if (score >= 85) { scoreClass = 'high'; scoreLabel = '⭐ 值得关注'; }
-        else if (score >= 70) { scoreClass = 'mid'; scoreLabel = '👍 可以考虑'; }
+        else if (score >= 80) { scoreClass = 'high'; scoreLabel = '⭐ 值得关注'; }
+        else if (score >= 60) { scoreClass = 'mid'; scoreLabel = '👍 可以考虑'; }
+        else if (score >= 40) { scoreClass = 'low'; scoreLabel = '👀 待观察'; }
 
         const scoreBreakdown = p.score_breakdown ? Object.entries(p.score_breakdown).map(([k,v]) => `+${v} ${k}`).join(' | ') : '';
 
@@ -580,7 +587,7 @@ function renderProducts() {
         <div class="product-card" data-status="${s}" data-asin="${p.asin}">
             <div class="card-header">
                 <span class="channel-badge" style="background:${ch[2]}">${ch[0]} ${ch[1]}</span>
-                <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${score}分 ${starStr}</span>
+                <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${displayScore}分 ${starStr}</span>
             </div>
             <div class="score-label">${scoreLabel}</div>
             ${scoreBreakdown ? `<div class="score-detail">${scoreBreakdown}</div>` : ''}

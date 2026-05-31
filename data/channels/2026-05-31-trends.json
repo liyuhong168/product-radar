@@ -1,0 +1,180 @@
+{
+  "category_scores": {
+    "car": 65,
+    "phone": 40,
+    "home decor": 73,
+    "eco": 82,
+    "kitchen": 98,
+    "office": 65,
+    "seasonal": 65,
+    "pets": 100,
+    "sports": 25,
+    "crafts": 100,
+    "beauty": 40,
+    "cleaning": 8,
+    "kitchen_gadgets": 8,
+    "bathroom": 25,
+    "travel": 33,
+    "garden": 25,
+    "bedding": 8
+  },
+  "category_evidence": {
+    "car": [
+      "car"
+    ],
+    "phone": [
+      "stand",
+      "holder",
+      "phone"
+    ],
+    "home decor": [
+      "decor",
+      "candle"
+    ],
+    "eco": [
+      "reusable",
+      "eco"
+    ],
+    "kitchen": [
+      "mug",
+      "kitchen",
+      "gadget"
+    ],
+    "office": [
+      "pen",
+      "office",
+      "desk"
+    ],
+    "seasonal": [
+      "gift"
+    ],
+    "pets": [
+      "grooming",
+      "dog",
+      "toy",
+      "pet",
+      "cat"
+    ],
+    "sports": [
+      "sport",
+      "fitness",
+      "water bottle"
+    ],
+    "crafts": [
+      "tape",
+      "art",
+      "craft"
+    ],
+    "beauty": [
+      "makeup",
+      "hair",
+      "skincare"
+    ],
+    "cleaning": [
+      "vacuum"
+    ],
+    "kitchen_gadgets": [
+      "kitchen gadget"
+    ],
+    "bathroom": [
+      "bath",
+      "toilet"
+    ],
+    "travel": [
+      "travel",
+      "toiletry"
+    ],
+    "garden": [
+      "garden",
+      "flower",
+      "bird"
+    ],
+    "bedding": [
+      "blanket"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "car": 3,
+      "phone": 1,
+      "home decor": 1,
+      "eco": 2,
+      "kitchen": 3,
+      "office": 1,
+      "seasonal": 1,
+      "pets": 1,
+      "sports": 2,
+      "crafts": 1,
+      "beauty": 1
+    },
+    "temu": {
+      "crafts": 5,
+      "home decor": 2,
+      "eco": 2,
+      "kitchen": 4,
+      "cleaning": 1,
+      "office": 2,
+      "pets": 5,
+      "seasonal": 2,
+      "kitchen_gadgets": 1
+    },
+    "etsy": {
+      "car": 2,
+      "office": 3,
+      "pets": 3,
+      "crafts": 5,
+      "phone": 1,
+      "home decor": 4,
+      "eco": 3,
+      "seasonal": 3,
+      "kitchen": 3,
+      "bathroom": 3,
+      "travel": 3,
+      "garden": 3,
+      "bedding": 1,
+      "beauty": 1
+    },
+    "market_intel": {
+      "car": 1,
+      "pets": 3,
+      "sports": 1,
+      "crafts": 1,
+      "travel": 1,
+      "phone": 1,
+      "beauty": 1,
+      "eco": 1
+    }
+  },
+  "cross_validated": {
+    "car": 3,
+    "phone": 3,
+    "home decor": 3,
+    "eco": 4,
+    "kitchen": 3,
+    "office": 3,
+    "seasonal": 3,
+    "pets": 4,
+    "crafts": 4,
+    "beauty": 3
+  },
+  "demand_keywords": [
+    "amazon comparing",
+    "best sellers",
+    "cool gadgets",
+    "cool things to buy",
+    "find the trending items and",
+    "shop like a billionaire",
+    "spring fashion for women",
+    "spring outfits for women",
+    "temu products selling on amazon",
+    "the most popular items in",
+    "these are the biggest spring",
+    "tiktok made me buy it",
+    "top trending",
+    "what are some of the",
+    "who else thinks"
+  ],
+  "season": "spring",
+  "total_queries": 10,
+  "total_results_chars": 24347
+}

@@ -20,21 +20,32 @@ from scoring_engine import score_all_products
 
 
 def match_keywords_to_products(keywords, products, source_tag):
-    """Generic keyword-to-product matcher. Adds source_tag to matched products."""
+    """Improved keyword-to-product matcher with word boundary and multi-hit requirement."""
+    import re
     kw_set = set()
+    kw_phrases = set()
     for kw_item in keywords:
         name = kw_item.get("name", "").lower().strip() if isinstance(kw_item, dict) else str(kw_item).lower().strip()
-        if len(name) > 3:
-            kw_set.add(name)
+        if len(name) > 4:
+            kw_phrases.add(name)  # Full phrase match
         for word in name.split():
-            if len(word) > 4:
+            word = word.strip()
+            if len(word) >= 5 and word.isalpha():  # Only real words, min 5 chars
                 kw_set.add(word)
 
     matched = []
     for p in products:
         p_name = p.get("name", "").lower()
-        hits = sum(1 for kw in kw_set if kw in p_name)
-        if hits >= 1:
+        # Word boundary matching for single words
+        word_hits = 0
+        for kw in kw_set:
+            if re.search(r'(?<![a-z])' + re.escape(kw) + r'(?![a-z])', p_name):
+                word_hits += 1
+        # Phrase matching (more reliable)
+        phrase_hits = sum(1 for kw in kw_phrases if kw in p_name)
+        total_hits = word_hits + phrase_hits * 2  # Phrases count double
+
+        if total_hits >= 2:  # Require at least 2 signal strength
             if source_tag not in p.get("sources", []):
                 p.setdefault("sources", []).append(source_tag)
             matched.append(p)
@@ -42,10 +53,10 @@ def match_keywords_to_products(keywords, products, source_tag):
 
 
 def enrich_from_trend_data(products, trend_data):
-    """Add trend-based signals to products (HotUKDeals, Temu, Etsy, YouTube)."""
+    """Add trend-based signals to products (HotUKDeals, Temu, Etsy, YouTube).
+    Uses improved matching: requires category keyword in product name, not just category field."""
     source_signals = trend_data.get("source_signals", {})
 
-    # Map AnySearch sources to product source tags
     source_map = {
         "hotukdeals": "HotUKDeals热帖",
         "temu": "Temu热销",
@@ -53,18 +64,36 @@ def enrich_from_trend_data(products, trend_data):
         "youtube": "YouTube种草",
     }
 
+    # Build keyword sets per source from trend data
+    demand_keywords = set()
+    for kw in trend_data.get("demand_keywords", []):
+        if len(kw) > 4:
+            demand_keywords.add(kw.lower())
+
     for source_key, source_tag in source_map.items():
         if source_key in source_signals:
-            # Get keywords from this source
             cats = source_signals[source_key]
             for p in products:
                 name_lower = p.get("name", "").lower()
                 category = p.get("category", "").lower()
+                # Match: keyword must appear in product NAME (not just category)
+                matched = False
                 for cat in cats:
-                    if cat in category or cat in name_lower:
-                        if source_tag not in p.get("sources", []):
-                            p.setdefault("sources", []).append(source_tag)
+                    cat_lower = cat.lower() if isinstance(cat, str) else str(cat).lower()
+                    if len(cat_lower) >= 5 and cat_lower in name_lower:
+                        matched = True
                         break
+                    # Also check category field for exact category match
+                    if len(cat_lower) >= 5 and cat_lower in category:
+                        # But also require at least one name keyword
+                        name_words = set(w for w in name_lower.split() if len(w) >= 5)
+                        cat_words = set(w for w in cat_lower.split() if len(w) >= 4)
+                        if name_words & cat_words:
+                            matched = True
+                            break
+                if matched:
+                    if source_tag not in p.get("sources", []):
+                        p.setdefault("sources", []).append(source_tag)
 
     return products
 
@@ -72,16 +101,19 @@ def enrich_from_trend_data(products, trend_data):
 def enrich_google_trends(products, gtrends_text):
     if not gtrends_text:
         return products
+    import re
     keywords = extract_trending_keywords(gtrends_text)
     gtrends_lower = gtrends_text.lower()
     for p in products:
         name_lower = p.get("name", "").lower()
-        words = [w for w in name_lower.split() if len(w) > 3]
+        words = [w for w in name_lower.split() if len(w) >= 5 and w.isalpha()]
         match_count = 0
         for kw in keywords:
-            if kw in name_lower: match_count += 1
+            if len(kw) >= 5 and re.search(r'(?<![a-z])' + re.escape(kw) + r'(?![a-z])', name_lower):
+                match_count += 1
         for word in words[:5]:
-            if len(word) > 4 and word in gtrends_lower: match_count += 1
+            if len(word) >= 5 and re.search(r'(?<![a-z])' + re.escape(word) + r'(?![a-z])', gtrends_lower):
+                match_count += 1
         if match_count >= 2:
             p["google_trend"] = "rising"
             if "Google趋势" not in p.get("sources", []):
@@ -91,11 +123,14 @@ def enrich_google_trends(products, gtrends_text):
 
 def enrich_reddit(products, reddit_text):
     if not reddit_text: return products
+    import re
     reddit_lower = reddit_text.lower()
-    generic = {'that', 'this', 'with', 'from', 'have', 'been', 'your', 'they', 'will', 'more', 'than', 'what', 'when', 'very', 'just', 'like', 'would', 'could', 'should', 'about'}
+    generic = {'that', 'this', 'with', 'from', 'have', 'been', 'your', 'they', 'will', 'more', 'than', 'what', 'when', 'very', 'just', 'like', 'would', 'could', 'should', 'about', 'these', 'those', 'here', 'there', 'some', 'each', 'much', 'many'}
     for p in products:
-        words = [w for w in p.get("name", "").lower().split() if len(w) > 3]
-        match = sum(1 for word in words[:5] if word in reddit_lower and len(word) > 4 and word not in generic)
+        words = [w for w in p.get("name", "").lower().split() if len(w) >= 5 and w.isalpha()]
+        match = sum(1 for word in words[:5]
+                    if word not in generic
+                    and re.search(r'(?<![a-z])' + re.escape(word) + r'(?![a-z])', reddit_lower))
         if match >= 2:
             if "Reddit需求" not in p.get("sources", []):
                 p.setdefault("sources", []).append("Reddit需求")

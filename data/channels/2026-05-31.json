@@ -1,0 +1,670 @@
+{
+  "scan_date": "2026-05-31",
+  "scan_time": "11:05",
+  "stats": {
+    "total_scanned": 372,
+    "passed_filter": 15,
+    "rejected": 357,
+    "channels": {
+      "new_releases": 14,
+      "wished": 1
+    },
+    "trend_categories": {
+      "pets": 100,
+      "crafts": 100,
+      "kitchen": 98,
+      "eco": 82,
+      "home decor": 73,
+      "car": 65
+    }
+  },
+  "products": [
+    {
+      "asin": "B0GVTCQ4JG",
+      "name": "Yoga Mat Unisex Non-Slip Thick Foam Exercise Mat 10mm with Carry Strap – Lightweight Home Gym Equipment for Yoga, Pilate",
+      "price": 7.99,
+      "reviews": 12,
+      "rating": 4.5,
+      "rank": 15,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "12 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GVTCQ4JG",
+      "sources": [
+        "Reddit需求"
+      ],
+      "profit_margin": 0.299,
+      "net_profit": 2.39,
+      "cost_breakdown": {
+        "vat": 1.33,
+        "commission": 1.2,
+        "fba": 1.28,
+        "ads": 0.4,
+        "returns": 0.24,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.6
+      },
+      "off_season": false,
+      "score": 82,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "💬 Reddit": 5,
+        "📈 趋势(car)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4
+      },
+      "stars": 4,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GY96VB6S",
+      "name": "Lockie Fitness Yoga Mat 8 mm Thick, Non Slip Exercise Mat for Women and Men, NBR Foam Pilates Mat, Gym Mat for Home Work",
+      "price": 8.95,
+      "reviews": 40,
+      "rating": 4.9,
+      "rank": 22,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "40 reviews, 4.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GY96VB6S",
+      "sources": [
+        "Reddit需求"
+      ],
+      "profit_margin": 0.33,
+      "net_profit": 2.96,
+      "cost_breakdown": {
+        "vat": 1.49,
+        "commission": 1.34,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.99
+      },
+      "off_season": false,
+      "score": 78,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "💬 Reddit": 5,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H2922WKJ",
+      "name": "NanoPolix Scratch Remover, Eliminate All Car Scratches in 60 Seconds, Nano polix Scratch Remover, Quick Fix Removal Past",
+      "price": 8.49,
+      "reviews": 5,
+      "rating": 4.1,
+      "rank": 24,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "5 reviews, 4.1★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2922WKJ",
+      "profit_margin": 0.316,
+      "net_profit": 2.68,
+      "cost_breakdown": {
+        "vat": 1.42,
+        "commission": 1.27,
+        "fba": 1.28,
+        "ads": 0.42,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.81
+      },
+      "off_season": false,
+      "score": 76,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📈 趋势(car)": 8,
+        "🟢 低竞争": 10,
+        "💰 高利润": 8
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H28HXP3K",
+      "name": "Nanopolix Scratch Remover, Nanopolix Ultimate Scratch Remover, Innovative Nano-Cloth Technology Harmless to Cars, Quick ",
+      "price": 6.99,
+      "reviews": 59,
+      "rating": 4.5,
+      "rank": 16,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "59 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H28HXP3K",
+      "profit_margin": 0.257,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.19
+      },
+      "off_season": false,
+      "score": 72,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📈 趋势(car)": 8,
+        "🟡 中等竞争": 5,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GSRPLWXL",
+      "name": "Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Sparkle Cloth for Any Car Scratches,Cars Pain",
+      "price": 8.99,
+      "reviews": 1,
+      "rating": 5.0,
+      "rank": 2,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "1 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GSRPLWXL",
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.01
+      },
+      "off_season": false,
+      "score": 63,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📈 趋势(car)": 8,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GYRSM22M",
+      "name": "JADUFHU Ratchet Screwdriver, 13-in-1 Magnetic Screwdriver Set, 3-Way High Torque Multi Screwdriver with CR-V Steel Bits,",
+      "price": 8.99,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 9,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYRSM22M",
+      "sources": [
+        "Reddit需求"
+      ],
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.01
+      },
+      "off_season": false,
+      "score": 60,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "💬 Reddit": 5,
+        "⏳ 待验证": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GCHZ91Z2",
+      "name": "Vexloria Hand Grip Strengthener",
+      "price": 9.99,
+      "reviews": 3,
+      "rating": 4.8,
+      "rank": 23,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "3 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GCHZ91Z2",
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "score": 59,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GLXWV6S7",
+      "name": "1 Pcs Foot Pedal Resistance Band,Stomach Exercise Equipment,Elastic Pull Rope Foot Resistance Band,Abdominal and Muscle ",
+      "price": 6.91,
+      "reviews": 121,
+      "rating": 3.5,
+      "rank": 29,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "121 reviews, 3.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GLXWV6S7",
+      "profit_margin": 0.253,
+      "net_profit": 1.75,
+      "cost_breakdown": {
+        "vat": 1.15,
+        "commission": 1.04,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.16
+      },
+      "off_season": false,
+      "score": 59,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🟡 中等竞争": 5,
+        "💰 较好利润": 4
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GWRK5RZF",
+      "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
+      "price": 6.66,
+      "reviews": 38,
+      "rating": 4.6,
+      "rank": 2,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "38 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK5RZF",
+      "profit_margin": 0.24,
+      "net_profit": 1.6,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.06
+      },
+      "off_season": false,
+      "score": 55,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "❓ 品类不符": -10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H1T62Y7Z",
+      "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
+      "price": 6.66,
+      "reviews": 10,
+      "rating": 4.8,
+      "rank": 3,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "10 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1T62Y7Z",
+      "profit_margin": 0.24,
+      "net_profit": 1.6,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.06
+      },
+      "off_season": false,
+      "score": 55,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "❓ 品类不符": -10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0FF9V7Z7J",
+      "name": "24Pcs 1/2-20 Inch Wheel Nuts for 1/2\" Wheel Studs for Trailers for Boat Trailer Tires Length: 0.62\"(15.77mm), Width: 0.8",
+      "price": 8.17,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 14,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FF9V7Z7J",
+      "profit_margin": 0.305,
+      "net_profit": 2.49,
+      "cost_breakdown": {
+        "vat": 1.36,
+        "commission": 1.23,
+        "fba": 1.28,
+        "ads": 0.41,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.68
+      },
+      "off_season": false,
+      "category_corrected": true,
+      "category_original": "DIY",
+      "score": 50,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0F9ZM575G",
+      "name": "Cable Extension Cable - Copper Cable 4 Pin Connector - Motherboard Extended Connector Heat Cord Computer Accessories for",
+      "price": 7.02,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 2,
+      "category": "Lighting",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F9ZM575G",
+      "sources": [
+        "Reddit需求"
+      ],
+      "profit_margin": 0.258,
+      "net_profit": 1.81,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.21
+      },
+      "off_season": false,
+      "score": 46,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "💬 Reddit": 5,
+        "⏳ 待验证": -8,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GW9CF7Q8",
+      "name": "Football Wallcharts 2026 World Cup Wallchart – A1 Sized Stadium Glow Style Tournament Tracker (59.4 x 84.1 cm)",
+      "price": 8.29,
+      "reviews": 4,
+      "rating": 4.5,
+      "rank": 14,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "4 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GW9CF7Q8",
+      "profit_margin": 0.31,
+      "net_profit": 2.57,
+      "cost_breakdown": {
+        "vat": 1.38,
+        "commission": 1.24,
+        "fba": 1.28,
+        "ads": 0.41,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.72
+      },
+      "off_season": false,
+      "score": 45,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GWHDHC64",
+      "name": "The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self-Tightening for Small Places, Multifunct",
+      "price": 6.68,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 21,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWHDHC64",
+      "profit_margin": 0.241,
+      "net_profit": 1.61,
+      "cost_breakdown": {
+        "vat": 1.12,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.07
+      },
+      "off_season": false,
+      "score": 42,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⏳ 待验证": -8
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0974X8WXL",
+      "name": "Hippo Hardware M8 (8mm X 40mm) Socket Cap Screw Hex Head Allen Bolts A2 Stainless Steel (Pack of 5)",
+      "price": 9.42,
+      "reviews": 254,
+      "rating": 4.3,
+      "rank": 17,
+      "category": "DIY",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "254 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0974X8WXL",
+      "profit_margin": 0.344,
+      "net_profit": 3.24,
+      "cost_breakdown": {
+        "vat": 1.57,
+        "commission": 1.41,
+        "fba": 1.28,
+        "ads": 0.47,
+        "returns": 0.28,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.18
+      },
+      "off_season": false,
+      "score": 38,
+      "score_breakdown": {
+        "💝 心愿榜": 15,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "wished"
+      ]
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "pets",
+        100
+      ],
+      [
+        "crafts",
+        100
+      ],
+      [
+        "kitchen",
+        98
+      ],
+      [
+        "eco",
+        82
+      ],
+      [
+        "home decor",
+        73
+      ],
+      [
+        "car",
+        65
+      ]
+    ],
+    "cross_validated": [
+      "car",
+      "phone",
+      "home decor",
+      "eco",
+      "kitchen",
+      "office",
+      "seasonal",
+      "pets",
+      "crafts",
+      "beauty"
+    ],
+    "demand_keywords": [
+      "amazon comparing",
+      "best sellers",
+      "cool gadgets",
+      "cool things to buy",
+      "find the trending items and",
+      "shop like a billionaire",
+      "spring fashion for women",
+      "spring outfits for women",
+      "temu products selling on amazon",
+      "the most popular items in"
+    ],
+    "season": "spring",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}

@@ -1,61 +1,164 @@
 #!/usr/bin/env python3
 """
-Product Radar v2 - Multi-factor scoring engine v2
-Includes: Amazon (New/BSR/Wished/Gifts), TikTok, HotUKDeals, Temu, Etsy, YouTube, Google Trends, Reddit
+Product Radar v2 - Multi-factor scoring engine v3
+Key changes from v2:
+- Lower base score (30 vs 50)
+- 0-review penalty for non-new-releases
+- Demand signal requirement with penalty
+- Category validation penalty
+- Higher thresholds for recommendation labels
+- Score capped at 99 for display
 """
-import json, sys
+import json, sys, re
 from pathlib import Path
 
 BASE = Path(__file__).parent
 CONFIG = json.loads((BASE / "config.json").read_text())
 
-# Scoring weights - easily tunifiable
+# Category keyword map for validation
+CATEGORY_KEYWORDS = {
+    "kitchen": ["kitchen", "cooking", "baking", "utensil", "gadget", "spice", "mug", "cup", "pan", "pot", "chop", "peel", "slice", "grater", "measuring", "timer", "tray", "bowl", "plate"],
+    "garden": ["garden", "outdoor", "plant", "flower", "patio", "bbq", "grill", "solar", "bird", "hose", "watering", "lawn", "hedge", "seed", "pot"],
+    "diy": ["diy", "tool", "drill", "screw", "nail", "hammer", "wrench", "pliers", "tape measure", "level", "saw", "clamp", "socket", "hex", "torx", "breaker"],
+    "sports": ["sport", "fitness", "yoga", "gym", "exercise", "resistance", "mat", "dumbbell", "kettlebell", "band", "jump rope", "grip", "foam roller"],
+    "bathroom": ["bathroom", "shower", "toilet", "towel", "soap", "mirror", "bath", "shaver", "razor", "hook", "organiser", "dispenser"],
+    "cleaning": ["clean", "mop", "duster", "brush", "sponge", "vacuum", "cloth", "wipe", "stain", "lint", "lint roller"],
+    "office": ["desk", "office", "stationery", "pen", "notebook", "organiser", "laptop", "mouse", "keyboard", "monitor", "stand", "file", "folder", "stapler", "clip"],
+    "automotive": ["car", "vehicle", "dashboard", "phone holder", "motor", "tyre", "wheel", "wiper", "seat", "mat", "tint", "winch", "tow", "hitch", "socket", "ratchet", "wrench", "nut", "bolt", "fuse", "led", "light", "flag", "motorcycle", "bike"],
+    "lighting": ["led", "light", "lamp", "night light", "strip", "fairy", "solar light", "bulb", "lantern"],
+    "storage": ["storage", "organiser", "box", "basket", "shelf", "drawer", "container", "bag", "pouch", "rack"],
+    "crafts": ["craft", "art", "paint", "brush", "stickers", "tape", "sewing", "knit", "crochet", "needle", "thread", "fabric", "scissors"],
+    "bedding": ["bedding", "pillow", "blanket", "sheet", "duvet", "cushion", "throw", "mattress", "sleep"],
+    "pets": ["pet", "dog", "cat", "collar", "leash", "bed", "grooming", "litter", "feeder", "aquarium", "fish", "hamster", "rabbit"],
+    "home": ["home", "decor", "wall", "candle", "vase", "frame", "mirror", "clock", "hook", "hanger", "doormat"],
+}
+
+
+def _validate_category(product):
+    """Check if product name actually relates to its assigned category.
+    Returns (is_valid, confidence 0-1).
+    Also auto-corrects obviously wrong categories.
+    """
+    name_lower = product.get("name", "").lower()
+    category = product.get("category", "").lower()
+
+    if not category or category == "general":
+        return True, 0.5
+
+    # Find matching category keywords
+    matched_cat = None
+    for cat_key, keywords in CATEGORY_KEYWORDS.items():
+        if cat_key in category:
+            matched_cat = cat_key
+            break
+
+    if not matched_cat:
+        return True, 0.3  # Unknown category, don't penalize
+
+    # Check if any category keyword appears in product name
+    keywords = CATEGORY_KEYWORDS[matched_cat]
+    hits = sum(1 for kw in keywords if kw in name_lower)
+
+    if hits >= 2:
+        return True, 1.0
+    elif hits == 1:
+        return True, 0.7
+    else:
+        # Category mismatch! Try to auto-correct
+        best_cat = None
+        best_hits = 0
+        for cat_key, cat_kws in CATEGORY_KEYWORDS.items():
+            cat_hits = sum(1 for kw in cat_kws if kw in name_lower)
+            if cat_hits > best_hits:
+                best_hits = cat_hits
+                best_cat = cat_key
+
+        if best_cat and best_hits >= 2:
+            # Auto-correct the category
+            old_cat = product.get("category", "")
+            product["category"] = best_cat.capitalize()
+            product["category_corrected"] = True
+            product["category_original"] = old_cat
+            return True, 0.8  # Valid after correction
+
+        return False, 0.0
+
+
+def _has_demand_signal(product):
+    """Check if product has at least one primary demand signal."""
+    sources = [s.lower() for s in product.get("sources", [])]
+    channel = product.get("channel", "")
+    google_trend = product.get("google_trend", "")
+
+    # Primary signals
+    if "new_releases" in channel:
+        return True
+    if any("tiktok" in s for s in sources):
+        return True
+    if google_trend == "rising":
+        return True
+    if any("hotukdeals" in s for s in sources):
+        return True
+    if any("youtube" in s for s in sources):
+        return True
+
+    return False
+
+
+# Scoring weights
 WEIGHTS = {
     # Source signals
-    "new_releases": 25,      # Amazon New Releases
-    "wished": 20,            # Amazon Most Wished For (demand signal)
-    "gifts": 15,             # Amazon Gift Ideas
-    "tiktok": 25,            # TikTok trend match
-    "google_rising": 20,     # Google Trends rising
-    "reddit": 10,            # Reddit demand
-    "hotukdeals": 15,        # HotUKDeals popular
-    "temu": 15,              # Temu trending
-    "etsy": 10,              # Etsy trending
-    "youtube": 10,           # YouTube haul/review
+    "new_releases": 20,
+    "wished": 15,
+    "gifts": 10,
+    "tiktok": 20,
+    "google_rising": 15,
+    "reddit": 5,
+    "hotukdeals": 12,
+    "temu": 8,
+    "etsy": 6,
+    "youtube": 10,
 
-    # Multi-source boost
-    "dual_source": 15,
-    "triple_source": 25,
+    # Multi-source boost (capped: max one level)
+    "dual_source": 12,
+    "triple_source": 18,
 
-    # Competition
-    "ultra_low_compete": 20, # <50 reviews
-    "low_compete": 15,       # 50-100 reviews
-    "mid_compete": 5,        # 100-300 reviews
+    # Competition (inverted: fewer reviews = higher competition risk for 0 reviews)
+    "verified_low": 10,      # 5-50 reviews (sweet spot)
+    "moderate": 5,           # 50-150 reviews
+    "established": 0,        # 150-300 reviews (neutral)
 
     # Profit
-    "ultra_margin": 15,      # >=35%
-    "high_margin": 10,       # >=30%
-    "good_margin": 5,        # >=25%
+    "ultra_margin": 12,
+    "high_margin": 8,
+    "good_margin": 4,
 
     # Rating
-    "high_rating": 5,        # >=4.5 stars
+    "high_rating": 5,
 
     # AnySearch trend
-    "hot_category": 20,      # category heat >=70
-    "trend_category": 10,    # category heat 40-69
-    "demand_keyword": 8,     # trending keyword match
-    "cross_validated": 5,    # cross-source category validation
+    "hot_category": 15,
+    "trend_category": 8,
+    "demand_keyword": 6,
+    "cross_validated": 4,
 
     # History
-    "rank_improving": 15,
-    "consistent_growth": 10,
+    "rank_improving": 10,
+    "consistent_growth": 8,
+
+    # Penalties
+    "zero_review_penalty": -15,
+    "unverified_penalty": -8,
+    "no_demand_signal": -15,
+    "category_mismatch": -10,
+    "off_season": -20,
 }
 
 
 def score_product(product, trend_data=None, history=None):
     """Calculate multi-factor weighted score."""
     breakdown = {}
-    total = 50  # Base
+    total = 30  # Base (lowered from 50)
 
     name = product.get("name", "").lower()
     sources = [x.lower() for x in product.get("sources", [])]
@@ -106,7 +209,7 @@ def score_product(product, trend_data=None, history=None):
         pts = WEIGHTS["youtube"]
         total += pts; breakdown["▶️ YouTube"] = pts
 
-    # === Multi-source boost ===
+    # === Multi-source boost (pick best, don't stack) ===
     unique_sources = len(set(sources))
     if unique_sources >= 3:
         pts = WEIGHTS["triple_source"]
@@ -128,7 +231,7 @@ def score_product(product, trend_data=None, history=None):
                     label = "🔥 多源热门" if cat in cross_validated else "🔥 热门品类"
                     pts = WEIGHTS["hot_category"]
                     if cat in cross_validated:
-                        pts += cross_validated[cat] * 3
+                        pts += min(cross_validated[cat] * 2, 8)  # Capped
                     total += pts; breakdown[label + f"({cat})"] = pts
                 elif tscore >= 40:
                     pts = WEIGHTS["trend_category"]
@@ -139,19 +242,28 @@ def score_product(product, trend_data=None, history=None):
         for kw in trend_data.get("demand_keywords", []):
             if kw in name:
                 pts = WEIGHTS["demand_keyword"]
-                total += pts; breakdown[f"✨ 热词"] = pts
+                total += pts; breakdown["✨ 热词"] = pts
                 break
 
     # === Competition ===
-    if reviews and reviews < 50:
-        pts = WEIGHTS["ultra_low_compete"]
-        total += pts; breakdown["🟢 超低竞争"] = pts
-    elif reviews and reviews < 100:
-        pts = WEIGHTS["low_compete"]
-        total += pts; breakdown["🟡 低竞争"] = pts
-    elif reviews and reviews < 300:
-        pts = WEIGHTS["mid_compete"]
-        total += pts; breakdown["⚪ 中等竞争"] = pts
+    if reviews == 0:
+        # 0 reviews = unproven product
+        if "new_releases" not in channel:
+            pts = WEIGHTS["zero_review_penalty"]
+            total += pts; breakdown["⚠️ 零评论(非新品)"] = pts
+        else:
+            # New releases with 0 reviews is expected, small penalty
+            pts = WEIGHTS["unverified_penalty"]
+            total += pts; breakdown["⏳ 待验证"] = pts
+    elif reviews < 5:
+        pts = WEIGHTS["unverified_penalty"]
+        total += pts; breakdown["⏳ 评论偏少"] = pts
+    elif reviews <= 50:
+        pts = WEIGHTS["verified_low"]
+        total += pts; breakdown["🟢 低竞争"] = pts
+    elif reviews <= 150:
+        pts = WEIGHTS["moderate"]
+        total += pts; breakdown["🟡 中等竞争"] = pts
 
     if rating and rating >= 4.5:
         pts = WEIGHTS["high_rating"]
@@ -168,23 +280,37 @@ def score_product(product, trend_data=None, history=None):
         pts = WEIGHTS["good_margin"]
         total += pts; breakdown["💰 较好利润"] = pts
 
+    # === Category Validation ===
+    cat_valid, cat_confidence = _validate_category(product)
+    if not cat_valid:
+        pts = WEIGHTS["category_mismatch"]
+        total += pts; breakdown["❓ 品类不符"] = pts
+    elif cat_confidence < 0.5:
+        pts = WEIGHTS["category_mismatch"] // 2
+        total += pts; breakdown["❓ 品类存疑"] = pts
+
+    # === Demand Signal Check ===
+    if not _has_demand_signal(product):
+        pts = WEIGHTS["no_demand_signal"]
+        total += pts; breakdown["📉 无需求信号"] = pts
+
     # === Seasonal ===
     from datetime import datetime
     month = datetime.now().month
     season = "summer" if month in (6,7,8) else "winter" if month in (12,1,2) else "spring" if month in (3,4,5) else "autumn"
     seasonal_cfg = CONFIG.get("seasonal_categories", {})
     hot_kw = set(kw.lower() for kw in seasonal_cfg.get(f"{season}_hot", []))
-    
+
     name_for_season = product.get("name", "").lower() + " " + product.get("category", "").lower()
     is_seasonal_hot = any(kw in name_for_season for kw in hot_kw)
     is_off_season = product.get("off_season", False)
-    
+
     if is_seasonal_hot and not is_off_season:
-        pts = 15
-        total += pts; breakdown[f"🌴 当季热门({season})"] = pts
-    
+        pts = 10
+        total += pts; breakdown[f"🌴 当季({season})"] = pts
+
     if is_off_season:
-        pts = -30
+        pts = WEIGHTS["off_season"]
         total += pts; breakdown["❄️ 过季降权"] = pts
 
     # === History ===
@@ -204,7 +330,7 @@ def score_product(product, trend_data=None, history=None):
                         pts = WEIGHTS["consistent_growth"]
                         total += pts; breakdown["📊 持续上升"] = pts
 
-    return total, breakdown
+    return max(total, 0), breakdown
 
 
 def score_all_products(products, trend_data=None, history=None):
@@ -214,13 +340,13 @@ def score_all_products(products, trend_data=None, history=None):
         p["score"] = score
         p["score_breakdown"] = breakdown
 
-        if score >= 120:
+        if score >= 100:
             p["stars"] = 5
-        elif score >= 100:
-            p["stars"] = 4
         elif score >= 80:
-            p["stars"] = 3
+            p["stars"] = 4
         elif score >= 60:
+            p["stars"] = 3
+        elif score >= 40:
             p["stars"] = 2
         else:
             p["stars"] = 1
@@ -230,8 +356,8 @@ def score_all_products(products, trend_data=None, history=None):
 
 
 def get_score_label(score):
-    if score >= 120: return "🔥 强烈推荐", "#FF2D55"
-    elif score >= 100: return "⭐ 值得关注", "#FF9500"
-    elif score >= 80: return "👍 可以考虑", "#007AFF"
-    elif score >= 60: return "👀 待观察", "#8e8e93"
+    if score >= 100: return "🔥 强烈推荐", "#FF2D55"
+    elif score >= 80: return "⭐ 值得关注", "#FF9500"
+    elif score >= 60: return "👍 可以考虑", "#007AFF"
+    elif score >= 40: return "👀 待观察", "#8e8e93"
     else: return "💤 优先级低", "#c7c7cc"
