@@ -1,0 +1,192 @@
+{
+  "category_scores": {
+    "kitchen": 50,
+    "car": 17,
+    "lighting": 50,
+    "pets": 98,
+    "sports": 25,
+    "crafts": 100,
+    "beauty": 57,
+    "bathroom": 48,
+    "cleaning": 17,
+    "home decor": 82,
+    "baby": 8,
+    "seasonal": 48,
+    "phone": 25,
+    "eco": 33,
+    "office": 33,
+    "storage": 8,
+    "kitchen_gadgets": 8,
+    "travel": 17,
+    "garden": 8
+  },
+  "category_evidence": {
+    "kitchen": [
+      "gadget",
+      "kitchen"
+    ],
+    "car": [
+      "car"
+    ],
+    "lighting": [
+      "light",
+      "lamp",
+      "led"
+    ],
+    "pets": [
+      "cat",
+      "pet"
+    ],
+    "sports": [
+      "yoga",
+      "water bottle",
+      "fitness"
+    ],
+    "crafts": [
+      "brush",
+      "art",
+      "craft"
+    ],
+    "beauty": [
+      "mirror",
+      "nail",
+      "brush",
+      "makeup"
+    ],
+    "bathroom": [
+      "mirror",
+      "toilet",
+      "bath"
+    ],
+    "cleaning": [
+      "brush",
+      "vacuum"
+    ],
+    "home decor": [
+      "wall art",
+      "decor",
+      "mirror",
+      "clock",
+      "candle"
+    ],
+    "baby": [
+      "child"
+    ],
+    "seasonal": [
+      "gift"
+    ],
+    "phone": [
+      "case",
+      "earbuds"
+    ],
+    "eco": [
+      "eco"
+    ],
+    "office": [
+      "pen",
+      "office"
+    ],
+    "storage": [
+      "box"
+    ],
+    "kitchen_gadgets": [
+      "kitchen gadget"
+    ],
+    "travel": [
+      "travel",
+      "toiletry"
+    ],
+    "garden": [
+      "garden"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "kitchen": 3,
+      "car": 1,
+      "lighting": 4,
+      "pets": 3,
+      "sports": 3,
+      "crafts": 4,
+      "beauty": 3,
+      "bathroom": 1,
+      "cleaning": 2,
+      "home decor": 2,
+      "baby": 1,
+      "seasonal": 1
+    },
+    "temu": {
+      "kitchen": 3,
+      "bathroom": 1,
+      "pets": 2,
+      "crafts": 3,
+      "phone": 3,
+      "beauty": 1,
+      "home decor": 2,
+      "eco": 2,
+      "office": 2,
+      "storage": 1,
+      "lighting": 2,
+      "kitchen_gadgets": 1,
+      "seasonal": 1
+    },
+    "etsy": {
+      "pets": 4,
+      "crafts": 4,
+      "bathroom": 2,
+      "office": 2,
+      "home decor": 4,
+      "eco": 2,
+      "seasonal": 2,
+      "travel": 2,
+      "beauty": 1
+    },
+    "market_intel": {
+      "garden": 1,
+      "car": 1,
+      "pets": 1,
+      "crafts": 1
+    }
+  },
+  "cross_validated": {
+    "pets": 4,
+    "crafts": 4,
+    "beauty": 3,
+    "bathroom": 3,
+    "home decor": 3,
+    "seasonal": 3
+  },
+  "demand_keywords": [
+    "amazon comparing",
+    "analyze the title",
+    "etsy uk shops we love",
+    "find profitable niches",
+    "handmade jewelry",
+    "home decor items",
+    "how to",
+    "lidl launches",
+    "mini lightweight wireless earbuds",
+    "mini wireless lanyard speaker thumb",
+    "personalized gifts",
+    "pink cardigan",
+    "real market data on trending",
+    "scalloped knit tank",
+    "shoppers are",
+    "temu selling",
+    "temu vs",
+    "the findings are based on",
+    "these are the",
+    "these are the biggest spring",
+    "tiktok made me buy it",
+    "top sellers",
+    "trending on",
+    "uncover the keys to their",
+    "what are some cool independent",
+    "what things are worth buying",
+    "where can",
+    "£25 cheaper than airtags"
+  ],
+  "season": "summer",
+  "total_queries": 10,
+  "total_results_chars": 28912
+}

@@ -84,25 +84,66 @@ def _validate_category(product):
         return False, 0.0
 
 
-def _has_demand_signal(product):
-    """Check if product has at least one primary demand signal."""
-    sources = [s.lower() for s in product.get("sources", [])]
+def _classify_signal_sources(product):
+    """Classify product signals into internal (Amazon) and external (independent demand signals).
+    Returns (internal_sources, external_sources, external_count).
+    
+    Internal = Amazon platform data (new_releases, bsr, wished, gifts)
+    External = Independent demand signals (TikTok, Google Trends, HotUKDeals, Temu, Etsy, YouTube, Reddit)
+    """
+    sources = [x.lower() for x in product.get("sources", [])]
+    sources_str = " ".join(sources)
     channel = product.get("channel", "")
-    google_trend = product.get("google_trend", "")
+    
+    internal = []
+    external = []
+    
+    # Internal: Amazon platform signals
+    if "new_releases" in channel: internal.append("新品榜")
+    if "bsr" in channel: internal.append("畅销榜")
+    if "wished" in channel: internal.append("心愿榜")
+    if "gifts" in channel: internal.append("送礼榜")
+    
+    # External: independent demand signals (each counts as 1)
+    if "tiktok" in sources_str: external.append("TikTok")
+    if product.get("google_trend") == "rising": external.append("Google")
+    if "hotukdeals" in sources_str: external.append("HotUKDeals")
+    if "temu" in sources_str: external.append("Temu")
+    if "etsy" in sources_str: external.append("Etsy")
+    if "youtube" in sources_str: external.append("YouTube")
+    if "reddit" in sources_str: external.append("Reddit")
+    
+    return internal, external, len(set(external))
 
-    # Primary signals
-    if "new_releases" in channel:
-        return True
-    if any("tiktok" in s for s in sources):
-        return True
-    if google_trend == "rising":
-        return True
-    if any("hotukdeals" in s for s in sources):
-        return True
-    if any("youtube" in s for s in sources):
-        return True
 
-    return False
+def _get_signal_confidence(internal, external_count):
+    """Return signal confidence level and scoring impact.
+    
+    🔴 强信号 (≥3 external) → +20, priority push
+    🟠 中信号 (2 external) → +10
+    🟡 弱信号 (1 external) → 0 (no bonus, but passes demand check)
+    ⚪ 无信号 (0 external, only Amazon internal) → -10
+    """
+    if external_count >= 3:
+        return "strong", "🔴 强信号", 20
+    elif external_count >= 2:
+        return "medium", "🟠 中信号", 10
+    elif external_count >= 1:
+        return "weak", "🟡 弱信号", 0
+    else:
+        # No external signals — only Amazon internal data
+        if internal:
+            return "none", "⚪ 仅Amazon", -10
+        else:
+            return "none", "⚪ 无信号", -15
+
+
+def _has_demand_signal(product):
+    """Check if product has at least one external demand signal.
+    Internal-only (Amazon) does NOT count as demand signal for filter purposes."""
+    _, external_count = _classify_signal_sources(product)[1], _classify_signal_sources(product)[2]
+    internal, ext_list, ext_count = _classify_signal_sources(product)
+    return ext_count >= 1
 
 
 # Scoring weights
@@ -119,9 +160,9 @@ WEIGHTS = {
     "etsy": 6,
     "youtube": 10,
 
-    # Multi-source boost (capped: max one level)
-    "dual_source": 12,
-    "triple_source": 18,
+    # Multi-source boost (REPLACED by signal voting below)
+    # "dual_source": 12,  → removed, use signal voting
+    # "triple_source": 18, → removed, use signal voting
 
     # Competition (inverted: fewer reviews = higher competition risk for 0 reviews)
     "verified_low": 10,      # 5-50 reviews (sweet spot)
@@ -168,7 +209,7 @@ def score_product(product, trend_data=None, history=None):
     margin = product.get("profit_margin", 0)
     channel = product.get("channel", "")
 
-    # === Source Signals ===
+    # === Source Signals (Internal: Amazon platform) ===
     if "new_releases" in channel:
         pts = WEIGHTS["new_releases"]
         total += pts; breakdown["🆕 新品榜"] = pts
@@ -181,6 +222,7 @@ def score_product(product, trend_data=None, history=None):
         pts = WEIGHTS["gifts"]
         total += pts; breakdown["🎁 送礼榜"] = pts
 
+    # === External Signals (independent demand sources) ===
     if "tiktok" in sources_str:
         pts = WEIGHTS["tiktok"]
         total += pts; breakdown["🎵 TikTok"] = pts
@@ -209,14 +251,15 @@ def score_product(product, trend_data=None, history=None):
         pts = WEIGHTS["youtube"]
         total += pts; breakdown["▶️ YouTube"] = pts
 
-    # === Multi-source boost (pick best, don't stack) ===
-    unique_sources = len(set(sources))
-    if unique_sources >= 3:
-        pts = WEIGHTS["triple_source"]
-        total += pts; breakdown["🔗 三源验证"] = pts
-    elif unique_sources >= 2:
-        pts = WEIGHTS["dual_source"]
-        total += pts; breakdown["🔗 双源验证"] = pts
+    # === Signal Voting (replaces old multi-source boost) ===
+    internal, external_list, external_count = _classify_signal_sources(product)
+    sig_level, sig_label, sig_pts = _get_signal_confidence(internal, external_count)
+    product["signal_level"] = sig_level
+    product["signal_label"] = sig_label
+    product["external_sources"] = external_list
+    product["internal_sources"] = internal
+    if sig_pts != 0:
+        total += sig_pts; breakdown[sig_label] = sig_pts
 
     # === AnySearch Trend Signals ===
     if trend_data:
@@ -312,6 +355,20 @@ def score_product(product, trend_data=None, history=None):
     if is_off_season:
         pts = WEIGHTS["off_season"]
         total += pts; breakdown["❄️ 过季降权"] = pts
+
+    # === Supply-Demand Index (from market_intelligence) ===
+    sd_score = product.get("sd_score", 0)
+    sd_label = product.get("sd_label", "")
+    if sd_score != 0:
+        total += sd_score
+        breakdown[sd_label] = sd_score
+
+    # === Trend Divergence (from market_intelligence) ===
+    div_score = product.get("div_score", 0)
+    div_label = product.get("div_label", "")
+    if div_score != 0:
+        total += div_score
+        breakdown[div_label] = div_score
 
     # === History ===
     if history:

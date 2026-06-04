@@ -60,6 +60,16 @@ def _render_header(data):
         )
         trend_html = f'<div class="trend-section"><span class="trend-label">📊 AnySearch趋势:</span> {trend_items}</div>'
 
+    # Supply-Demand section
+    sd_data = stats.get("supply_demand", {})
+    sd_html = ""
+    if sd_data:
+        sd_items = "".join(
+            f'<span class="trend-chip">{info["label"]} {cat} <b>{info["ratio"]}</b></span>'
+            for cat, info in list(sd_data.items())[:6]
+        )
+        sd_html = f'<div class="trend-section"><span class="trend-label">🌊 供需比:</span> {sd_items}</div>'
+
     return f"""
     <header class="header">
         <div class="header-top">
@@ -68,6 +78,7 @@ def _render_header(data):
         </div>
         <div class="stat-badges">{badges}</div>
         {trend_html}
+        {sd_html}
     </header>"""
 
 
@@ -299,6 +310,11 @@ body {
 .signal-badge.tiktok { background: #FF2D5515; color: #FF2D55; }
 .signal-badge.google { background: #34C75915; color: #34C759; }
 .signal-badge.multi { background: #AF52DE15; color: #AF52DE; }
+.signal-badge.sd-deep-blue { background: #007AFF15; color: #007AFF; font-weight: 700; }
+.signal-badge.sd-balanced { background: #8e8e9315; color: #8e8e93; }
+.signal-badge.sd-red-ocean { background: #FF3B3015; color: #FF3B30; }
+.signal-badge.div-up { background: #34C75915; color: #34C759; }
+.signal-badge.div-down { background: #FF3B3015; color: #FF3B30; }
 
 /* Score Badge */
 .score-badge {
@@ -383,6 +399,41 @@ body {
     background: var(--s-color, #8e8e93);
     color: white;
 }
+
+/* Signal Confidence */
+.signal-confidence {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+}
+.signal-confidence.strong { background: #FF2D5515; color: #FF2D55; }
+.signal-confidence.medium { background: #FF950015; color: #FF9500; }
+.signal-confidence.weak { background: #FFCC0015; color: #998500; }
+.signal-confidence.none { background: #f0f0f5; color: #8e8e93; }
+
+/* 1688 Button */
+.btn-1688 {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 5px 12px; border: 2px solid #FF6A00;
+    border-radius: 10px; background: transparent;
+    color: #FF6A00; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; text-decoration: none;
+}
+.btn-1688:hover { background: #FF6A00; color: white; }
+
+/* Sourcing Tiers */
+.sourcing-tiers {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px;
+}
+.tier-chip {
+    padding: 3px 8px; border-radius: 6px;
+    font-size: 11px; background: #f5f5f7;
+    color: var(--text-secondary);
+}
+.tier-chip .tier-label { font-weight: 700; }
+.tier-chip .tier-margin { color: #34C759; font-weight: 600; }
+.tier-chip .tier-margin.mid { color: #FF9500; }
+.tier-chip .tier-margin.low { color: #FF3B30; }
 
 /* Empty State */
 .empty-state {
@@ -559,7 +610,48 @@ function renderProducts() {
         const signals = [];
         if (p.sources && p.sources.includes('TikTok趋势')) signals.push('<span class="signal-badge tiktok">TikTok</span>');
         if (p.google_trend === 'rising') signals.push('<span class="signal-badge google">Google↑</span>');
-        if (p.is_multi) signals.push('<span class="signal-badge multi">多源</span>');
+
+        // Signal confidence (replaces old multi-source badge)
+        const sigLevel = p.signal_level || 'none';
+        const sigLabel = p.signal_label || '⚪ 无信号';
+        const extSrcs = (p.external_sources || []).join('+');
+        const confidenceHtml = `<span class="signal-confidence ${sigLevel}" title="外部信号: ${extSrcs || '无'}">${sigLabel}</span>`;
+
+        // Supply-Demand badge
+        const sdLabel = p.sd_label || '';
+        const sdScore = p.sd_score || 0;
+        let sdHtml = '';
+        if (sdLabel) {
+            const sdClass = sdScore >= 10 ? 'deep-blue' : sdScore >= 0 ? 'balanced' : 'red-ocean';
+            sdHtml = `<span class="signal-badge sd-${sdClass}">${sdLabel}</span>`;
+        }
+
+        // Trend Divergence badge
+        const divLabel = p.div_label || '';
+        const divScore = p.div_score || 0;
+        let divHtml = '';
+        if (divLabel) {
+            const divClass = divScore > 0 ? 'div-up' : divScore < 0 ? 'div-down' : '';
+            divHtml = `<span class="signal-badge ${divClass}">${divLabel}</span>`;
+        }
+
+        // 1688 search URL
+        const searchName = encodeURIComponent(p.name);
+        const url1688 = `https://s.1688.com/selloffer/offer_search.htm?keywords=${searchName}`;
+
+        // 3-tier sourcing profit estimates
+        const tiers = DATA.tiers || [];
+        let tiersHtml = '';
+        if (tiers.length > 0 && bd.vat !== undefined) {
+            const tierParts = tiers.map(t => {
+                const tierCost = bd.vat + bd.commission + bd.fba + bd.ads + bd.returns + bd.storage + bd.dsc + t.cost;
+                const tierNet = p.price - tierCost;
+                const tierMargin = (tierNet / p.price * 100).toFixed(1);
+                const mClass = tierMargin >= 25 ? '' : tierMargin >= 20 ? ' mid' : ' low';
+                return `<span class="tier-chip"><span class="tier-label">${t.label}</span> £${t.cost} → <span class="tier-margin${mClass}">${tierMargin}%</span></span>`;
+            }).join('');
+            tiersHtml = `<div class="sourcing-tiers">${tierParts}</div>`;
+        }
 
         // Score display - cap at 99 for visual balance
         const score = p.score || 30;
@@ -600,7 +692,7 @@ function renderProducts() {
                 <span>💬 ${p.reviews || 0}</span>
                 <span>📁 ${p.category || '-'}</span>
             </div>
-            <div class="signal-badges">${signals.join('')}</div>
+            <div class="signal-badges">${signals.join('')} ${confidenceHtml} ${sdHtml} ${divHtml}</div>
             <div class="profit-section">
                 <div class="profit-bar-bg">
                     <div class="profit-bar" style="width:${marginWidth}%;background:${margin >= 30 ? '#34C759' : margin >= 20 ? '#FF9500' : '#FF3B30'}"></div>
@@ -609,6 +701,10 @@ function renderProducts() {
             </div>
             ${costLine ? `<button class="cost-toggle" onclick="toggleCost('${p.asin}')">📋 成本明细 ▾</button>
             <div class="cost-detail" id="cost-${p.asin}">${costLine}<br>总计: £${bd.total_cost} · 净利: £${p.net_profit.toFixed(2)}</div>` : ''}
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <a class="btn-1688" href="${url1688}" target="_blank" rel="noopener">🔍 1688找货源</a>
+            </div>
+            ${tiersHtml}
             <div class="status-btns">${statusBtns}</div>
         </div>`;
     }).join('');
@@ -671,12 +767,16 @@ def _build_product_list(data):
 
 def generate_html(data_file, output_file=None):
     """Generate the v2 HTML dashboard from a JSON data file."""
+    config = json.loads((BASE / "config.json").read_text())
     data = json.loads(Path(data_file).read_text())
     products = _build_product_list(data)
 
     # Add 'all' channel count
     stats = data.get("stats", {})
     stats["channels"]["all"] = len(products)
+
+    # Inject sourcing tiers from config
+    data["tiers"] = config.get("sourcing_tiers", [])
 
     if not output_file:
         output_file = str(BASE / "output" / "v2.html")

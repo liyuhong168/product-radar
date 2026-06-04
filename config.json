@@ -254,7 +254,13 @@
     "history_dir": "data/history",
     "report_dir": "output"
   },
-  "max_reviews": 300,
+  "max_reviews": 100,
+  "min_rating": 4.0,
+  "sourcing_tiers": [
+    {"label": "低档", "cost": 0.80, "desc": "1688低价+空运"},
+    {"label": "中档", "cost": 1.20, "desc": "1688均价+空运"},
+    {"label": "高档", "cost": 1.50, "desc": "品牌供应商+卡航"}
+  ],
   "forbidden_brands": [
     "amazon basics",
     "amazon collection",

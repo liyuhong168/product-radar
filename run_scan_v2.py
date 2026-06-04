@@ -17,6 +17,7 @@ from sources.google_trends import fetch_demand_signals, extract_trending_keyword
 from sources.reddit_demand import fetch_demand_signals as fetch_reddit
 from sources.anysearch_trends import fetch_trend_signals
 from scoring_engine import score_all_products
+from market_intelligence import analyze_market, get_product_sd_score, get_product_divergence_score
 
 
 def match_keywords_to_products(keywords, products, source_tag):
@@ -168,13 +169,19 @@ def filter_products(products, config):
             rejected.append({"name": name[:60], "reason": f"大牌: {brand_hit}", "asin": p.get("asin")}); continue
 
         # 3. 评论数范围（排除红海+排除无验证产品）
-        max_reviews = config.get("max_reviews", 300)
+        max_reviews = config.get("max_reviews", 100)
         min_reviews = 5  # 至少5条评论，确保有基本需求验证
         if reviews > max_reviews:
             rejected.append({"name": name[:60], "reason": f"评论{reviews}>{max_reviews}(红海)", "asin": p.get("asin")}); continue
         if reviews < min_reviews and "new_releases" not in p.get("channel", ""):
             # 新品榜允许0评论，其他渠道需要基本验证
             rejected.append({"name": name[:60], "reason": f"评论{reviews}<{min_reviews}(无验证)", "asin": p.get("asin")}); continue
+
+        # 3b. 评分过滤（排除退货风险品）
+        min_rating = config.get("min_rating", 4.0)
+        rating = p.get("rating", 0)
+        if rating and rating < min_rating:
+            rejected.append({"name": name[:60], "reason": f"评分{rating}<{min_rating}(退货风险)", "asin": p.get("asin")}); continue
 
         # 4. 价格区间
         price = p.get("price", 0)
@@ -321,6 +328,32 @@ def main():
     print(f"  Passed: {len(passed)} | Rejected: {len(rejected)}", file=sys.stderr)
 
     history = load_history(days=7)
+
+    # 7b. Market Intelligence (supply-demand + trend divergence)
+    print("\n[7b] Market Intelligence...", file=sys.stderr)
+    market = analyze_market(products, trend_data, history_days=3)
+    sd_ratios = market["sd_ratios"]
+    divergences = market["divergences"]
+    if sd_ratios:
+        top_sd = sorted(sd_ratios.items(), key=lambda x: -x[1]["ratio"])[:5]
+        print(f"  Supply-Demand top categories:", file=sys.stderr)
+        for cat, info in top_sd:
+            print(f"    {info['label']} {cat}: ratio={info['ratio']} (demand={info['demand']} supply={info['supply']})", file=sys.stderr)
+    if divergences:
+        print(f"  Trend divergences: {len(divergences)} categories", file=sys.stderr)
+
+    # Enrich products with market intelligence before scoring
+    for p in passed:
+        sd_bonus, sd_label, sd_info = get_product_sd_score(p, sd_ratios)
+        p["sd_score"] = sd_bonus
+        p["sd_label"] = sd_label
+        p["sd_info"] = sd_info
+        
+        div_bonus, div_label, div_info = get_product_divergence_score(p, divergences)
+        p["div_score"] = div_bonus
+        p["div_label"] = div_label
+        p["div_info"] = div_info
+
     passed = score_all_products(passed, trend_data=trend_data, history=history)
 
     # Assign channel tags
@@ -344,6 +377,8 @@ def main():
         "rejected": len(rejected),
         "channels": channel_counts,
         "trend_categories": dict(top_cats),
+        "supply_demand": {cat: info for cat, info in sorted(sd_ratios.items(), key=lambda x: -x[1]["ratio"])[:8]} if sd_ratios else {},
+        "divergences": divergences if divergences else {},
     }
 
     print(f"\n  Channels:", file=sys.stderr)
