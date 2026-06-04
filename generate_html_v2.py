@@ -802,49 +802,44 @@ function renderGaps(grid) {
     document.getElementById('emptyState').style.display = isEmpty ? 'block' : 'none';
     grid.style.display = isEmpty ? 'none' : 'grid';
 
-    if (isEmpty) {
-        grid.innerHTML = '';
-        return;
-    }
+    if (isEmpty) { grid.innerHTML = ''; return; }
+
+    const levelLabels = {strong: '🟢 强缺口', moderate: '🟡 中等缺口', weak: '🟠 弱缺口'};
+    const levelColors = {strong: '#34C759', moderate: '#FF9500', weak: '#FF9500'};
 
     grid.innerHTML = gaps.map(g => {
-        const amazonLevel = g.amazon_supply ? g.amazon_supply.level : 'unknown';
-        const amazonCount = g.amazon_supply ? g.amazon_supply.count : 0;
-        const amazonReviews = g.amazon_supply ? g.amazon_supply.reviews : 0;
-
-        const supplyLabels = {none: '🟢 Amazon无竞品', low: '🟡 Amazon少量', medium: '🟠 Amazon中等', high: '🔴 Amazon饱和'};
-
-        // Platform badges
-        let platformHtml = '';
-        if (g.external_platforms) {
-            Object.entries(g.external_platforms).forEach(([key, info]) => {
-                const cls = info.found ? 'found' : 'not-found';
-                const icon = info.found ? '✅' : '❌';
-                platformHtml += `<span class="gap-platform ${cls}">${icon} ${info.platform_name}</span>`;
-            });
-        }
-
-        // SD info
+        const level = g.gap_level || 'weak';
+        const label = levelLabels[level] || level;
+        const color = levelColors[level] || '#8e8e93';
+        const cv = g.is_cross_validated ? `<span class="signal-badge multi">🔗 ${g.cross_sources}源验证</span>` : '';
         const sdLabel = g.sd_info ? g.sd_info.label : '';
-        const sdRatio = g.sd_info ? g.sd_info.ratio : '-';
+
+        const suggestions = (g.suggestions || []).slice(0, 5);
+        const suggestHtml = suggestions.map(s => {
+            const url = `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(s)}`;
+            return `<a href="${url}" target="_blank" rel="noopener" class="gap-platform found" style="text-decoration:none">${s}</a>`;
+        }).join('');
 
         return `
-        <div class="gap-card">
-            <div class="gap-keyword">🎯 ${escHtml(g.keyword)}</div>
+        <div class="gap-card" style="border-left-color:${color}">
+            <div class="gap-keyword">🎯 ${escHtml(g.category)}</div>
             <div class="gap-meta">
+                <span style="color:${color};font-weight:700">${label}</span>
                 <span>📊 热度: ${g.heat}</span>
-                <span>🏷️ ${g.category || '-'}</span>
                 <span>🏆 评分: ${g.score}</span>
-                ${sdLabel ? `<span>${sdLabel} ${sdRatio}</span>` : ''}
+                ${cv}
+                ${sdLabel ? `<span>${sdLabel}</span>` : ''}
             </div>
-            <div>
-                <span class="gap-amazon-supply ${amazonLevel}">${supplyLabels[amazonLevel] || amazonLevel}</span>
-                <span style="font-size:12px;color:#8e8e93;margin-left:6px">${amazonCount}个产品 / ${amazonReviews}条评论</span>
+            <div style="font-size:13px;color:#6e6e73">
+                Amazon: ${g.amazon_count}个产品 / ${g.amazon_reviews}条评论
+                ${g.evidence && g.evidence.length > 0 ? `<br>趋势证据: ${g.evidence.slice(0,3).join(', ')}` : ''}
             </div>
-            <div class="gap-platforms">${platformHtml}</div>
+            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-top:4px">📦 建议产品（点击搜1688）:</div>
+            <div class="gap-platforms">${suggestHtml}</div>
             <div class="gap-actions">
-                <a class="btn-1688" href="${g.search_1688}" target="_blank" rel="noopener">🔍 1688找货源</a>
-                <a class="btn-1688" href="${g.search_amazon}" target="_blank" rel="noopener" style="border-color:#007AFF;color:#007AFF">📦 查Amazon</a>
+                <a class="btn-1688" href="${g.url_1688}" target="_blank" rel="noopener">🔍 1688找货源</a>
+                <a class="btn-1688" href="${g.url_amazon}" target="_blank" rel="noopener" style="border-color:#007AFF;color:#007AFF">📦 查Amazon</a>
+                <a class="btn-1688" href="${g.url_google}" target="_blank" rel="noopener" style="border-color:#34C759;color:#34C759">📈 Google趋势</a>
             </div>
         </div>`;
     }).join('');
