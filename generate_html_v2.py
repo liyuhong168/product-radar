@@ -21,6 +21,7 @@ CHANNELS = {
     "etsy_trending":  ("🎨", "Etsy趋势",     "#FF6B9D"),
     "youtube_review": ("▶️", "YouTube种草",  "#FF0000"),
     "google_trends":  ("📊", "Google趋势",   "#34C759"),
+    "gap_opportunity":("🎯", "缺口机会",     "#5856D6"),
     "multi_source":   ("🔗", "多源验证",     "#5856D6"),
     "all":            ("📋", "全部",         "#8e8e93"),
 }
@@ -454,6 +455,44 @@ body {
 .empty-icon { font-size: 48px; margin-bottom: 12px; }
 .empty-hint { font-size: 13px; margin-top: 8px; }
 
+/* Gap Opportunity Cards */
+.gap-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    border-left: 4px solid #5856D6;
+    display: flex; flex-direction: column; gap: 10px;
+}
+.gap-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.gap-keyword {
+    font-size: 18px; font-weight: 700; color: #5856D6;
+}
+.gap-meta {
+    display: flex; gap: 12px; font-size: 13px; color: var(--text-secondary);
+    flex-wrap: wrap;
+}
+.gap-meta span { white-space: nowrap; }
+.gap-platforms {
+    display: flex; gap: 6px; flex-wrap: wrap;
+}
+.gap-platform {
+    padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+}
+.gap-platform.found { background: #34C75915; color: #34C759; }
+.gap-platform.not-found { background: #f0f0f5; color: #8e8e93; }
+.gap-amazon-supply {
+    padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+}
+.gap-amazon-supply.none { background: #34C75915; color: #34C759; }
+.gap-amazon-supply.low { background: #FF950015; color: #FF9500; }
+.gap-amazon-supply.medium { background: #FF3B3015; color: #FF3B30; }
+.gap-amazon-supply.high { background: #FF3B3015; color: #FF3B30; }
+.gap-actions {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto;
+    padding-top: 10px; border-top: 1px solid var(--border);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .container { padding: 12px; }
@@ -609,17 +648,27 @@ function renderProducts() {
     const grid = document.getElementById('productGrid');
     const filtered = getFiltered();
     const status = loadStatus();
+
+    // Gap opportunity mode
+    if (currentChannel === 'gap_opportunity') {
+        renderGaps(grid);
+        return;
+    }
+
     const isEmpty = filtered.length === 0;
 
     document.getElementById('emptyState').style.display = isEmpty ? 'block' : 'none';
     grid.style.display = isEmpty ? 'none' : 'grid';
 
     // Update tab counts using channel_tags
+    const gapCount = (DATA.gaps || []).length;
     document.querySelectorAll('.tab').forEach(tab => {
         const ch = tab.dataset.channel;
         let cnt = 0;
         if (ch === 'all') {
             cnt = products.length;
+        } else if (ch === 'gap_opportunity') {
+            cnt = gapCount;
         } else {
             products.forEach(p => {
                 const tags = p.channel_tags || [p.channel];
@@ -744,6 +793,61 @@ function escHtml(s) {
     const d = document.createElement('div');
     d.textContent = s;
     return d.innerHTML;
+}
+
+// Render gap opportunities
+function renderGaps(grid) {
+    const gaps = DATA.gaps || [];
+    const isEmpty = gaps.length === 0;
+    document.getElementById('emptyState').style.display = isEmpty ? 'block' : 'none';
+    grid.style.display = isEmpty ? 'none' : 'grid';
+
+    if (isEmpty) {
+        grid.innerHTML = '';
+        return;
+    }
+
+    grid.innerHTML = gaps.map(g => {
+        const amazonLevel = g.amazon_supply ? g.amazon_supply.level : 'unknown';
+        const amazonCount = g.amazon_supply ? g.amazon_supply.count : 0;
+        const amazonReviews = g.amazon_supply ? g.amazon_supply.reviews : 0;
+
+        const supplyLabels = {none: '🟢 Amazon无竞品', low: '🟡 Amazon少量', medium: '🟠 Amazon中等', high: '🔴 Amazon饱和'};
+
+        // Platform badges
+        let platformHtml = '';
+        if (g.external_platforms) {
+            Object.entries(g.external_platforms).forEach(([key, info]) => {
+                const cls = info.found ? 'found' : 'not-found';
+                const icon = info.found ? '✅' : '❌';
+                platformHtml += `<span class="gap-platform ${cls}">${icon} ${info.platform_name}</span>`;
+            });
+        }
+
+        // SD info
+        const sdLabel = g.sd_info ? g.sd_info.label : '';
+        const sdRatio = g.sd_info ? g.sd_info.ratio : '-';
+
+        return `
+        <div class="gap-card">
+            <div class="gap-keyword">🎯 ${escHtml(g.keyword)}</div>
+            <div class="gap-meta">
+                <span>📊 热度: ${g.heat}</span>
+                <span>🏷️ ${g.category || '-'}</span>
+                <span>🏆 评分: ${g.score}</span>
+                ${sdLabel ? `<span>${sdLabel} ${sdRatio}</span>` : ''}
+            </div>
+            <div>
+                <span class="gap-amazon-supply ${amazonLevel}">${supplyLabels[amazonLevel] || amazonLevel}</span>
+                <span style="font-size:12px;color:#8e8e93;margin-left:6px">${amazonCount}个产品 / ${amazonReviews}条评论</span>
+            </div>
+            <div class="gap-platforms">${platformHtml}</div>
+            <div class="gap-actions">
+                <a class="btn-1688" href="${g.search_1688}" target="_blank" rel="noopener">🔍 1688找货源</a>
+                <a class="btn-1688" href="${g.search_amazon}" target="_blank" rel="noopener" style="border-color:#007AFF;color:#007AFF">📦 查Amazon</a>
+            </div>
+        </div>`;
+    }).join('');
 }
 
 // Export CSV

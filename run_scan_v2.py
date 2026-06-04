@@ -18,6 +18,7 @@ from sources.reddit_demand import fetch_demand_signals as fetch_reddit
 from sources.anysearch_trends import fetch_trend_signals
 from scoring_engine import score_all_products
 from market_intelligence import analyze_market, get_product_sd_score, get_product_divergence_score
+from gap_opportunity import detect_gaps
 
 
 def match_keywords_to_products(keywords, products, source_tag):
@@ -355,6 +356,15 @@ def main():
         p["div_label"] = div_label
         p["div_info"] = div_info
 
+    # 7c. Gap Opportunity Detection (cross-platform demand gaps)
+    print("\n[7c] Gap Opportunity Detection...", file=sys.stderr)
+    gaps = detect_gaps(trend_data, sd_ratios, products, max_keywords=6)
+    if gaps:
+        print(f"  🎯 {len(gaps)} gap opportunities found!", file=sys.stderr)
+        for g in gaps[:3]:
+            ext_platforms = [v["platform_name"] for v in g["external_platforms"].values() if v["found"]]
+            print(f"    {g['keyword']} → Amazon:{g['amazon_supply']['level']} | External: {', '.join(ext_platforms)}", file=sys.stderr)
+
     passed = score_all_products(passed, trend_data=trend_data, history=history)
 
     # Assign channel tags
@@ -380,6 +390,7 @@ def main():
         "trend_categories": dict(top_cats),
         "supply_demand": {cat: info for cat, info in sorted(sd_ratios.items(), key=lambda x: -x[1]["ratio"])[:8]} if sd_ratios else {},
         "divergences": divergences if divergences else {},
+        "gap_opportunities": len(gaps) if gaps else 0,
     }
 
     print(f"\n  Channels:", file=sys.stderr)
@@ -391,6 +402,7 @@ def main():
         "scan_date": scan_date, "scan_time": scan_time,
         "scan_ts": scan_ts,
         "stats": stats, "products": passed,
+        "gaps": gaps if gaps else [],
         "trend_summary": {
             "top_categories": top_cats,
             "cross_validated": list(trend_data.get("cross_validated", {}).keys()),

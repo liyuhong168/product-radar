@@ -1,0 +1,1570 @@
+{
+  "scan_date": "2026-06-04",
+  "scan_time": "23:19",
+  "scan_ts": "2026-06-04_2319",
+  "stats": {
+    "total_scanned": 254,
+    "passed_filter": 17,
+    "rejected": 237,
+    "channels": {
+      "new_releases": 16,
+      "google_trends": 11,
+      "wished": 1
+    },
+    "trend_categories": {
+      "pets": 100,
+      "crafts": 100,
+      "eco": 73,
+      "seasonal": 65,
+      "lighting": 50,
+      "home decor": 50
+    },
+    "supply_demand": {
+      "crafts": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "eco": {
+        "ratio": 99,
+        "demand": 73,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "home decor": {
+        "ratio": 99,
+        "demand": 50,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "seasonal": {
+        "ratio": 99,
+        "demand": 65,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "pets": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "lighting": {
+        "ratio": 4.0,
+        "demand": 50,
+        "supply": 236831,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "kitchen": {
+        "ratio": 2.6,
+        "demand": 33,
+        "supply": 310270,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "sports": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      }
+    },
+    "divergences": {
+      "car": {
+        "current_heat": 17,
+        "previous_heat": 17,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "lighting": {
+        "current_heat": 58,
+        "previous_heat": 50,
+        "heat_change_pct": 16.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "pets": {
+        "current_heat": 90,
+        "previous_heat": 98,
+        "heat_change_pct": -8.2,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "sports": {
+        "current_heat": 25,
+        "previous_heat": 25,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "beauty": {
+        "current_heat": 25,
+        "previous_heat": 57,
+        "heat_change_pct": -56.1,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "kitchen": {
+        "current_heat": 42,
+        "previous_heat": 50,
+        "heat_change_pct": -16.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 17,
+        "previous_heat": 48,
+        "heat_change_pct": -64.6,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "home decor": {
+        "current_heat": 67,
+        "previous_heat": 82,
+        "heat_change_pct": -18.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "baby": {
+        "current_heat": 8,
+        "previous_heat": 8,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 65,
+        "previous_heat": 48,
+        "heat_change_pct": 35.4,
+        "direction": "rising",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 8,
+        "previous_heat": 17,
+        "heat_change_pct": -52.9,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "garden": {
+        "current_heat": 8,
+        "previous_heat": 8,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "eco": {
+        "current_heat": 42,
+        "previous_heat": 33,
+        "heat_change_pct": 27.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "office": {
+        "current_heat": 33,
+        "previous_heat": 33,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "phone": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 8,
+        "previous_heat": 8,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-04",
+          "2026-06-04_1756"
+        ]
+      }
+    },
+    "gap_opportunities": 5
+  },
+  "products": [
+    {
+      "asin": "B0GH7XM354",
+      "name": "AhfuLife Extra Large World Cup Wall Chart for Party Decorations 2026-100 x 70cm World Cup WallChart Schedule Poster - In",
+      "price": 6.66,
+      "reviews": 46,
+      "rating": 4.3,
+      "rank": 5,
+      "category": "Home",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "46 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GH7XM354",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.24,
+      "net_profit": 1.6,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.06
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 73,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Sports",
+      "score": 116,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GRC94D92",
+      "name": "FourFourTwo World Cup 2026 Wall Chart - The Ultimate World Cup Countdown Poster, Gift for Football Fans, Giant A1 Wall C",
+      "price": 6.99,
+      "reviews": 17,
+      "rating": 4.7,
+      "rank": 13,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "17 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GRC94D92",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.257,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.19
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 115,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "🌴 当季(summer)": 10
+      },
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GW9CF7Q8",
+      "name": "Football Wallcharts 2026 World Cup Wallchart – A1 Sized Stadium Glow Style Tournament Tracker (59.4 x 84.1 cm)",
+      "price": 8.29,
+      "reviews": 5,
+      "rating": 4.6,
+      "rank": 4,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "5 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GW9CF7Q8",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.31,
+      "net_profit": 2.57,
+      "cost_breakdown": {
+        "vat": 1.38,
+        "commission": 1.24,
+        "fba": 1.28,
+        "ads": 0.41,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.72
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 109,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📈 排名上升": 10
+      },
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0H33RDKBV",
+      "name": "SpirWoRchlan Trophy Style Beer Glass for 2026 World Cup, Large Beer Mug for 2026 Football Match Day Bar Watch Party & Gi",
+      "price": 9.16,
+      "reviews": 9,
+      "rating": 4.6,
+      "rank": 21,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "9 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H33RDKBV",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.336,
+      "net_profit": 3.08,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 1.37,
+        "fba": 1.28,
+        "ads": 0.46,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.08
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 109,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8
+      },
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GWRK5RZF",
+      "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
+      "price": 8.32,
+      "reviews": 54,
+      "rating": 4.8,
+      "rank": 1,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "54 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK5RZF",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.311,
+      "net_profit": 2.58,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 1.25,
+        "fba": 1.28,
+        "ads": 0.42,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.74
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 104,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟡 中等竞争": 5,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📈 排名上升": 10
+      },
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GPDNC9J7",
+      "name": "Giftinghouse Official Football World Cup 2026 Wall Chart Schedule – A1 Poster (84 x 59 cm) – 48 Team Fixtures, Dates, St",
+      "price": 9.99,
+      "reviews": 10,
+      "rating": 4.8,
+      "rank": 18,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "10 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GPDNC9J7",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 103,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10
+      },
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GYHCM2C4",
+      "name": "jijAcraft World Cup Football Bunting 2026, 48 Teams World Flags Bunting, 15m Waterproof National Flags Football Party De",
+      "price": 6.82,
+      "reviews": 20,
+      "rating": 4.5,
+      "rank": 15,
+      "category": "Crafts",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "20 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYHCM2C4",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.248,
+      "net_profit": 1.69,
+      "cost_breakdown": {
+        "vat": 1.14,
+        "commission": 1.02,
+        "fba": 1.28,
+        "ads": 0.34,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.13
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Sports",
+      "score": 101,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5
+      },
+      "stars": 5,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0H1T62Y7Z",
+      "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
+      "price": 8.32,
+      "reviews": 18,
+      "rating": 4.6,
+      "rank": 3,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "18 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1T62Y7Z",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.311,
+      "net_profit": 2.58,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 1.25,
+        "fba": 1.28,
+        "ads": 0.42,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.74
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 99,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10
+      },
+      "stars": 4,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GWRT1W4Q",
+      "name": "World Cup Wall Chart 2026 | A1 Size 2026 World Cup Football Poster with UK Fixtures, Dates, Kick Off Times, Stadiums & H",
+      "price": 9.99,
+      "reviews": 25,
+      "rating": 4.4,
+      "rank": 20,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "25 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRT1W4Q",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 98,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10
+      },
+      "stars": 4,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GXWK5PNV",
+      "name": "160 GSM Gloss Laminated World Cup Wall Chart 2026 – Large A1 (84 x 59 cm) Football Wall Planner Poster | 48 Teams, Fixtu",
+      "price": 6.99,
+      "reviews": 13,
+      "rating": 4.8,
+      "rank": 17,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "13 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GXWK5PNV",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.257,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.19
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 95,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10
+      },
+      "stars": 4,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GYQ199F8",
+      "name": "World Cup Wall Chart 2026 Interactive Kit (England Edition) – A1 Football Championship Wall Planner, 288 Team Progressio",
+      "price": 6.74,
+      "reviews": 11,
+      "rating": 4.4,
+      "rank": 19,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "11 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYQ199F8",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.244,
+      "net_profit": 1.65,
+      "cost_breakdown": {
+        "vat": 1.13,
+        "commission": 1.01,
+        "fba": 1.28,
+        "ads": 0.34,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.09
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.3,
+        "demand": 17,
+        "supply": 485916,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 86,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "🔥 多源热门(crafts)": 21,
+        "🟢 低竞争": 10,
+        "❓ 品类不符": -10
+      },
+      "stars": 4,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0GGBFHZ99",
+      "name": "Dolvitrny For American Flag Motorcycle Accessory with Mount, For Durable Polyester Flag and Galvanized Pole, Motorbike R",
+      "price": 7.83,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 12,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GGBFHZ99",
+      "profit_margin": 0.393,
+      "net_profit": 3.08,
+      "cost_breakdown": {
+        "vat": 1.31,
+        "commission": 0.39,
+        "fba": 1.28,
+        "ads": 0.39,
+        "returns": 0.23,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.75
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Pets",
+      "score": 72,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(pets)": 23,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GLNF9ZRJ",
+      "name": "Rubber Winch Cable Hook Stopper for Synthetic Rope – Roller Wear, Maintains Tension & Eliminates Clicking Noise – Fits F",
+      "price": 6.89,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 20,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GLNF9ZRJ",
+      "profit_margin": 0.352,
+      "net_profit": 2.42,
+      "cost_breakdown": {
+        "vat": 1.15,
+        "commission": 0.34,
+        "fba": 1.28,
+        "ads": 0.34,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.47
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 72,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(pets)": 23,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "📈 排名上升": 10
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GL23Y821",
+      "name": "/2 Inch Replacement Knuckle Breaker Bar Head Kit for Power For Bars – Chrome Vanadium Steel, Black Phosphate Finish, Inc",
+      "price": 5.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 19,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GL23Y821",
+      "profit_margin": 0.301,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.0,
+        "commission": 0.3,
+        "fba": 1.28,
+        "ads": 0.3,
+        "returns": 0.18,
+        "storage": 0.06,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.19
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 68,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(pets)": 23,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "📈 排名上升": 10
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GL939PG3",
+      "name": "Gdfnmogo 12V-24V DC Car Power Socket Extension Cord with 20A Fuse, Female Automotive Auxiliary Power Outlet for Vehicles",
+      "price": 5.78,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 10,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GL939PG3",
+      "profit_margin": 0.286,
+      "net_profit": 1.66,
+      "cost_breakdown": {
+        "vat": 0.97,
+        "commission": 0.29,
+        "fba": 1.28,
+        "ads": 0.29,
+        "returns": 0.17,
+        "storage": 0.06,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.12
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Pets",
+      "score": 51,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "📈 排名上升": 10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0DPVBQSM1",
+      "name": "SYLC Caravan Seat Covers Waterproof Velvet, Motorhome Seat Cover with Elastic-band and Lacing, RV Sofa Cushion Cover for",
+      "price": 8.99,
+      "reviews": 50,
+      "rating": 4.5,
+      "rank": 9,
+      "category": "Automotive",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "50 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DPVBQSM1",
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.01
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "心愿榜"
+      ],
+      "score": 43,
+      "score_breakdown": {
+        "💝 心愿榜": 15,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "wished"
+      ]
+    },
+    {
+      "asin": "B0GH7Q1N6D",
+      "name": "Gdfnmogo Adjustable RV Drain Hose, Flexible For EVA Waste Pipe, Length with Multi-Size Fitment (30-42mm), Grey for Carav",
+      "price": 6.64,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 26,
+      "category": "Pets",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GH7Q1N6D",
+      "profit_margin": 0.339,
+      "net_profit": 2.25,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.33,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.39
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 35,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "dog toy",
+      "category": "pets",
+      "heat": 100,
+      "score": 85,
+      "amazon_supply": {
+        "level": "none",
+        "count": 0,
+        "reviews": 0
+      },
+      "external_platforms": {
+        "ebay": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 8253ms)",
+          "platform_name": "eBay UK"
+        },
+        "etsy": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 3213ms)",
+          "platform_name": "Etsy UK"
+        }
+      },
+      "external_count": 2,
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "predefined",
+      "search_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=dog toy",
+      "search_amazon": "https://www.amazon.co.uk/s?k=dog+toy"
+    },
+    {
+      "keyword": "cat bed",
+      "category": "pets",
+      "heat": 100,
+      "score": 85,
+      "amazon_supply": {
+        "level": "none",
+        "count": 0,
+        "reviews": 0
+      },
+      "external_platforms": {
+        "ebay": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 4780ms)",
+          "platform_name": "eBay UK"
+        },
+        "etsy": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 2142ms)",
+          "platform_name": "Etsy UK"
+        }
+      },
+      "external_count": 2,
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "predefined",
+      "search_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=cat bed",
+      "search_amazon": "https://www.amazon.co.uk/s?k=cat+bed"
+    },
+    {
+      "keyword": "grooming tool",
+      "category": "pets",
+      "heat": 100,
+      "score": 70,
+      "amazon_supply": {
+        "level": "low",
+        "count": 2,
+        "reviews": 1
+      },
+      "external_platforms": {
+        "ebay": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 2662ms)",
+          "platform_name": "eBay UK"
+        },
+        "etsy": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 2889ms)",
+          "platform_name": "Etsy UK"
+        }
+      },
+      "external_count": 2,
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "predefined",
+      "search_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=grooming tool",
+      "search_amazon": "https://www.amazon.co.uk/s?k=grooming+tool"
+    },
+    {
+      "keyword": "pet feeder",
+      "category": "pets",
+      "heat": 100,
+      "score": 70,
+      "amazon_supply": {
+        "level": "low",
+        "count": 2,
+        "reviews": 0
+      },
+      "external_platforms": {
+        "ebay": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 3879ms)",
+          "platform_name": "eBay UK"
+        },
+        "etsy": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 2433ms)",
+          "platform_name": "Etsy UK"
+        }
+      },
+      "external_count": 2,
+      "sd_info": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 956063,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "predefined",
+      "search_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=pet feeder",
+      "search_amazon": "https://www.amazon.co.uk/s?k=pet+feeder"
+    },
+    {
+      "keyword": "stickers",
+      "category": "crafts",
+      "heat": 100,
+      "score": 70,
+      "amazon_supply": {
+        "level": "low",
+        "count": 2,
+        "reviews": 5057
+      },
+      "external_platforms": {
+        "ebay": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 7659ms)",
+          "platform_name": "eBay UK"
+        },
+        "etsy": {
+          "found": true,
+          "result_count": 5,
+          "sample": "## Search Results (5 results, 7557ms)",
+          "platform_name": "Etsy UK"
+        }
+      },
+      "external_count": 2,
+      "sd_info": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "evidence",
+      "search_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=stickers",
+      "search_amazon": "https://www.amazon.co.uk/s?k=stickers"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "pets",
+        100
+      ],
+      [
+        "crafts",
+        100
+      ],
+      [
+        "eco",
+        73
+      ],
+      [
+        "seasonal",
+        65
+      ],
+      [
+        "lighting",
+        50
+      ],
+      [
+        "home decor",
+        50
+      ]
+    ],
+    "cross_validated": [
+      "pets",
+      "crafts",
+      "eco",
+      "seasonal"
+    ],
+    "demand_keywords": [
+      "amazon comparing",
+      "analyze the title",
+      "best of",
+      "find profitable niches",
+      "handmade jewelry",
+      "home decor items",
+      "how to",
+      "lidl launches",
+      "mini lightweight wireless earbuds",
+      "personalized gifts"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}
