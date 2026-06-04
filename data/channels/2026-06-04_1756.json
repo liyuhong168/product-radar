@@ -1,0 +1,1187 @@
+{
+  "scan_date": "2026-06-04",
+  "scan_time": "17:56",
+  "scan_ts": "2026-06-04_1756",
+  "stats": {
+    "total_scanned": 337,
+    "passed_filter": 16,
+    "rejected": 321,
+    "channels": {
+      "tiktok_verified": 1,
+      "new_releases": 10,
+      "wished": 1,
+      "bsr": 5
+    },
+    "trend_categories": {
+      "crafts": 100,
+      "pets": 90,
+      "home decor": 67,
+      "seasonal": 65,
+      "lighting": 58,
+      "kitchen": 42
+    },
+    "supply_demand": {
+      "lighting": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "crafts": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "home decor": {
+        "ratio": 99,
+        "demand": 67,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "seasonal": {
+        "ratio": 99,
+        "demand": 65,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "pets": {
+        "ratio": 7.1,
+        "demand": 90,
+        "supply": 317768,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "kitchen": {
+        "ratio": 3.0,
+        "demand": 42,
+        "supply": 1232902,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "sports": {
+        "ratio": 1.8,
+        "demand": 25,
+        "supply": 775512,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "kitchen_gadgets": {
+        "ratio": 0.6,
+        "demand": 8,
+        "supply": 1232902,
+        "label": "🔴 红海",
+        "level": "red_ocean"
+      }
+    },
+    "divergences": {
+      "kitchen": {
+        "current_heat": 50,
+        "previous_heat": 98,
+        "heat_change_pct": -49.0,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "car": {
+        "current_heat": 17,
+        "previous_heat": 65,
+        "heat_change_pct": -73.8,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "pets": {
+        "current_heat": 98,
+        "previous_heat": 100,
+        "heat_change_pct": -2.0,
+        "direction": "stable",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "sports": {
+        "current_heat": 25,
+        "previous_heat": 25,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "beauty": {
+        "current_heat": 57,
+        "previous_heat": 40,
+        "heat_change_pct": 42.5,
+        "direction": "rising",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 48,
+        "previous_heat": 25,
+        "heat_change_pct": 92.0,
+        "direction": "rising",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 17,
+        "previous_heat": 8,
+        "heat_change_pct": 112.5,
+        "direction": "rising",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "home decor": {
+        "current_heat": 82,
+        "previous_heat": 73,
+        "heat_change_pct": 12.3,
+        "direction": "stable",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 48,
+        "previous_heat": 65,
+        "heat_change_pct": -26.2,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "phone": {
+        "current_heat": 25,
+        "previous_heat": 40,
+        "heat_change_pct": -37.5,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "eco": {
+        "current_heat": 33,
+        "previous_heat": 82,
+        "heat_change_pct": -59.8,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "office": {
+        "current_heat": 33,
+        "previous_heat": 65,
+        "heat_change_pct": -49.2,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 8,
+        "previous_heat": 8,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "travel": {
+        "current_heat": 17,
+        "previous_heat": 33,
+        "heat_change_pct": -48.5,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "garden": {
+        "current_heat": 8,
+        "previous_heat": 25,
+        "heat_change_pct": -68.0,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      }
+    }
+  },
+  "products": [
+    {
+      "asin": "B0H3CM6R1P",
+      "name": "Number Plate Frames | Personalised Custom Novelty Plates - Frameless Number Plate Surround For UK Number Plates - Univer",
+      "price": 9.99,
+      "reviews": 26,
+      "rating": 4.5,
+      "rank": 1,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "26 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H3CM6R1P",
+      "sources": [
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "TikTok"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 87,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10
+      },
+      "stars": 4,
+      "channel_tags": [
+        "tiktok_verified",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0F9ZM575G",
+      "name": "Cable Extension Cable - Copper Cable 4 Pin Connector - Motherboard Extended Connector Heat Cord Computer Accessories for",
+      "price": 7.02,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 1,
+      "category": "Lighting",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F9ZM575G",
+      "profit_margin": 0.258,
+      "net_profit": 1.81,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.21
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 49,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "📈 趋势(lighting)": 8,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "📈 排名上升": 10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H2922WKJ",
+      "name": "NanoPolix Scratch Remover, Eliminate All Car Scratches in 60 Seconds, Nano polix Scratch Remover, Quick Fix Removal Past",
+      "price": 7.99,
+      "reviews": 18,
+      "rating": 4.6,
+      "rank": 15,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "18 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2922WKJ",
+      "profit_margin": 0.299,
+      "net_profit": 2.39,
+      "cost_breakdown": {
+        "vat": 1.33,
+        "commission": 1.2,
+        "fba": 1.28,
+        "ads": 0.4,
+        "returns": 0.24,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.6
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 44,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GSRPLWXL",
+      "name": "Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Sparkle Cloth for Any Car Scratches,Cars Pain",
+      "price": 8.5,
+      "reviews": 31,
+      "rating": 4.2,
+      "rank": 3,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "31 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GSRPLWXL",
+      "profit_margin": 0.317,
+      "net_profit": 2.69,
+      "cost_breakdown": {
+        "vat": 1.42,
+        "commission": 1.27,
+        "fba": 1.28,
+        "ads": 0.43,
+        "returns": 0.26,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.81
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 43,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0DPVBQSM1",
+      "name": "SYLC Caravan Seat Covers Waterproof Velvet, Motorhome Seat Cover with Elastic-band and Lacing, RV Sofa Cushion Cover for",
+      "price": 8.99,
+      "reviews": 50,
+      "rating": 4.5,
+      "rank": 9,
+      "category": "Automotive",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "50 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DPVBQSM1",
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.01
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "心愿榜"
+      ],
+      "score": 43,
+      "score_breakdown": {
+        "💝 心愿榜": 15,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "wished"
+      ]
+    },
+    {
+      "asin": "B0H28HXP3K",
+      "name": "Nanopolix Scratch Remover, Nanopolix Ultimate Scratch Remover, Innovative Nano-Cloth Technology Harmless to Cars, Quick ",
+      "price": 6.49,
+      "reviews": 43,
+      "rating": 4.8,
+      "rank": 23,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "43 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H28HXP3K",
+      "profit_margin": 0.231,
+      "net_profit": 1.5,
+      "cost_breakdown": {
+        "vat": 1.08,
+        "commission": 0.97,
+        "fba": 1.28,
+        "ads": 0.32,
+        "returns": 0.19,
+        "storage": 0.06,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.99
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 40,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B074H5296B",
+      "name": "Xtremeauto 2 in 1 Car Emergency Escape Tool, Window Breaker & Seat Belt Cutter, Compact Safety Hammer for Car, Vehicle G",
+      "price": 8.99,
+      "reviews": 2,
+      "rating": 5.0,
+      "rank": 17,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "2 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B074H5296B",
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.01
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 30,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GQP93C22",
+      "name": "6 Gang Way 13A UK Rewireable Mains Extension with Neon Light Black",
+      "price": 8.17,
+      "reviews": 3,
+      "rating": 5.0,
+      "rank": 6,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "3 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GQP93C22",
+      "profit_margin": 0.305,
+      "net_profit": 2.49,
+      "cost_breakdown": {
+        "vat": 1.36,
+        "commission": 1.23,
+        "fba": 1.28,
+        "ads": 0.41,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.68
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 28,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "📈 趋势(lighting)": 8,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H11D3V7H",
+      "name": "Alyvisun 220PCS Cupcake Cases, Paper Muffin Cases for Baking, Mini Cupcake Wrappers, Greaseproof Baking Cups for Muffins",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 12,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H11D3V7H",
+      "profit_margin": 0.31,
+      "net_profit": 2.07,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.53,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.59
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 3.0,
+        "demand": 42,
+        "supply": 1232902,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-49%)",
+      "div_info": {
+        "current_heat": 50,
+        "previous_heat": 98,
+        "heat_change_pct": -49.0,
+        "direction": "falling",
+        "dates": [
+          "2026-05-31",
+          "2026-06-04"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 23,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15,
+        "📉 品类降温(-49%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GWRK5RZF",
+      "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
+      "price": 8.32,
+      "reviews": 53,
+      "rating": 4.8,
+      "rank": 1,
+      "category": "Sports",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "53 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK5RZF",
+      "profit_margin": 0.311,
+      "net_profit": 2.58,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 1.25,
+        "fba": 1.28,
+        "ads": 0.42,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.74
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.8,
+        "demand": 25,
+        "supply": 775512,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 23,
+      "score_breakdown": {
+        "⚪ 仅Amazon": -10,
+        "🟡 中等竞争": 5,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "📈 排名上升": 10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "bsr"
+      ]
+    },
+    {
+      "asin": "B0GW9CF7Q8",
+      "name": "Football Wallcharts 2026 World Cup Wallchart – A1 Sized Stadium Glow Style Tournament Tracker (59.4 x 84.1 cm)",
+      "price": 8.29,
+      "reviews": 5,
+      "rating": 4.3,
+      "rank": 14,
+      "category": "Sports",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "5 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GW9CF7Q8",
+      "profit_margin": 0.31,
+      "net_profit": 2.57,
+      "cost_breakdown": {
+        "vat": 1.38,
+        "commission": 1.24,
+        "fba": 1.28,
+        "ads": 0.41,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.72
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.8,
+        "demand": 25,
+        "supply": 775512,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 23,
+      "score_breakdown": {
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "📈 排名上升": 10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "bsr"
+      ]
+    },
+    {
+      "asin": "B0H154LY2Y",
+      "name": "England Car Flags | Football World Cup 2026 St George Cross Window Flags | Pack of 2 England Supporter Car Flags with Wi",
+      "price": 6.99,
+      "reviews": 2,
+      "rating": 4.3,
+      "rank": 19,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "2 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H154LY2Y",
+      "profit_margin": 0.257,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.19
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 21,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 评论偏少": -8,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GH7XM354",
+      "name": "AhfuLife Extra Large World Cup Wall Chart for Party Decorations 2026-100 x 70cm World Cup WallChart Schedule Poster - In",
+      "price": 6.66,
+      "reviews": 46,
+      "rating": 4.5,
+      "rank": 24,
+      "category": "Home",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "46 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GH7XM354",
+      "profit_margin": 0.24,
+      "net_profit": 1.6,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.06
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.8,
+        "demand": 25,
+        "supply": 775512,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Sports",
+      "score": 20,
+      "score_breakdown": {
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "bsr"
+      ]
+    },
+    {
+      "asin": "B0GWHDHC64",
+      "name": "The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self-Tightening for Small Places, Multifunct",
+      "price": 6.68,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 23,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWHDHC64",
+      "profit_margin": 0.241,
+      "net_profit": 1.61,
+      "cost_breakdown": {
+        "vat": 1.12,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.07
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 17,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H1T62Y7Z",
+      "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
+      "price": 7.49,
+      "reviews": 18,
+      "rating": 4.4,
+      "rank": 7,
+      "category": "Sports",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "18 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1T62Y7Z",
+      "profit_margin": 0.279,
+      "net_profit": 2.09,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.28,
+        "ads": 0.37,
+        "returns": 0.22,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.4
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.8,
+        "demand": 25,
+        "supply": 775512,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 9,
+      "score_breakdown": {
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "bsr"
+      ]
+    },
+    {
+      "asin": "B0GY8HYLFZ",
+      "name": "Premium Reusable World Cup Bunting 2026 - All 48 Qualified Teams - World Cup Football 2026 Decorations - Paper Banner, F",
+      "price": 9.16,
+      "reviews": 59,
+      "rating": 4.2,
+      "rank": 27,
+      "category": "Sports",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "59 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GY8HYLFZ",
+      "profit_margin": 0.336,
+      "net_profit": 3.08,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 1.37,
+        "fba": 1.28,
+        "ads": 0.46,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.08
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.8,
+        "demand": 25,
+        "supply": 775512,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 8,
+      "score_breakdown": {
+        "⚪ 仅Amazon": -10,
+        "🟡 中等竞争": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "bsr"
+      ]
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "crafts",
+        100
+      ],
+      [
+        "pets",
+        90
+      ],
+      [
+        "home decor",
+        67
+      ],
+      [
+        "seasonal",
+        65
+      ],
+      [
+        "lighting",
+        58
+      ],
+      [
+        "kitchen",
+        42
+      ]
+    ],
+    "cross_validated": [
+      "pets",
+      "crafts",
+      "seasonal"
+    ],
+    "demand_keywords": [
+      "amazon comparing",
+      "analyze the title",
+      "backed by",
+      "check out these",
+      "how to",
+      "lidl launches",
+      "mini lightweight wireless earbuds",
+      "mini wireless lanyard speaker thumb",
+      "real market data on trending",
+      "sources reviewed"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}

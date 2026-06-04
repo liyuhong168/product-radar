@@ -272,6 +272,7 @@ def main():
     now = datetime.now()
     scan_date = now.strftime("%Y-%m-%d")
     scan_time = now.strftime("%H:%M")
+    scan_ts = now.strftime("%Y-%m-%d_%H%M")  # Timestamp for filenames
     config = json.loads((BASE / "config.json").read_text())
 
     print(f"\n{'='*60}", file=sys.stderr)
@@ -385,9 +386,10 @@ def main():
     for ch, cnt in sorted(channel_counts.items(), key=lambda x: -x[1]):
         print(f"    {ch}: {cnt}", file=sys.stderr)
 
-    # Save
+    # Save (use scan_ts for unique filenames, scan_date for display)
     data = {
         "scan_date": scan_date, "scan_time": scan_time,
+        "scan_ts": scan_ts,
         "stats": stats, "products": passed,
         "trend_summary": {
             "top_categories": top_cats,
@@ -400,19 +402,19 @@ def main():
 
     data_dir = BASE / "data" / "channels"
     data_dir.mkdir(parents=True, exist_ok=True)
-    (data_dir / f"{scan_date}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    (data_dir / f"{scan_date}-rejected.json").write_text(json.dumps(rejected, ensure_ascii=False, indent=2), encoding="utf-8")
-    (data_dir / f"{scan_date}-trends.json").write_text(json.dumps(trend_data, ensure_ascii=False, indent=2), encoding="utf-8")
+    (data_dir / f"{scan_ts}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    (data_dir / f"{scan_ts}-rejected.json").write_text(json.dumps(rejected, ensure_ascii=False, indent=2), encoding="utf-8")
+    (data_dir / f"{scan_ts}-trends.json").write_text(json.dumps(trend_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     hist_dir = BASE / "data" / "history"
     hist_dir.mkdir(parents=True, exist_ok=True)
     hist_data = [{"asin": p.get("asin",""), "name": p.get("name",""), "price": p.get("price",0),
                   "rank": p.get("rank"), "reviews": p.get("reviews"), "score": p.get("score",0),
                   "sources": p.get("sources",[]), "channel": p.get("channel","")} for p in passed]
-    (hist_dir / f"{scan_date}.json").write_text(json.dumps(hist_data, ensure_ascii=False, indent=2), encoding="utf-8")
+    (hist_dir / f"{scan_ts}.json").write_text(json.dumps(hist_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
     from generate_html_v2 import generate_html
-    output_html = generate_html(str(data_dir / f"{scan_date}.json"))
+    output_html = generate_html(str(data_dir / f"{scan_ts}.json"))
 
     print(f"\n{'='*60}", file=sys.stderr)
     print(f"  ✅ {len(passed)} scored products | {len(channel_counts)} channels", file=sys.stderr)

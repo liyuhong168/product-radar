@@ -1,168 +1,10 @@
-#!/usr/bin/env python3
-"""
-Product Radar v2 - Channel Aggregation HTML Dashboard
-Generates a tabbed, filterable product dashboard with review status tracking.
-"""
-import json, sys, html as htmlmod
-from datetime import datetime
-from pathlib import Path
-
-BASE = Path(__file__).parent
-
-# Channel config: tab_id -> (emoji, label, color)
-CHANNELS = {
-    "new_releases":   ("🆕", "Amazon新品榜", "#007AFF"),
-    "bsr":            ("📈", "Amazon畅销榜", "#FF9500"),
-    "wished":         ("💝", "Amazon心愿榜", "#FF6B9D"),
-    "gifts":          ("🎁", "Amazon送礼榜", "#AF52DE"),
-    "tiktok_verified":("🎵", "TikTok热品",   "#FF2D55"),
-    "hotukdeals":     ("🔥", "HotUKDeals",   "#FF3B30"),
-    "temu_trending":  ("🛒", "Temu热销",     "#FF9500"),
-    "etsy_trending":  ("🎨", "Etsy趋势",     "#FF6B9D"),
-    "youtube_review": ("▶️", "YouTube种草",  "#FF0000"),
-    "google_trends":  ("📊", "Google趋势",   "#34C759"),
-    "multi_source":   ("🔗", "多源验证",     "#5856D6"),
-    "all":            ("📋", "全部",         "#8e8e93"),
-}
-
-STATUS_CONFIG = {
-    "pending":   ("待评估",   "#8e8e93"),
-    "supplier":  ("找供应商", "#007AFF"),
-    "sample":    ("已采样",   "#FF9500"),
-    "listed":    ("已上架",   "#34C759"),
-    "rejected":  ("不考虑",   "#FF3B30"),
-}
-
-
-def _render_header(data):
-    d = data.get("scan_date", "")
-    t = data.get("scan_time", "")
-    stats = data.get("stats", {})
-    total = stats.get("total_scanned", 0)
-    passed = stats.get("passed_filter", 0)
-    ch_counts = stats.get("channels", {})
-    trend_cats = stats.get("trend_categories", {})
-
-    badges = ""
-    for ch_id, (emoji, label, color) in CHANNELS.items():
-        if ch_id == "all":
-            continue
-        cnt = ch_counts.get(ch_id, 0)
-        if cnt > 0:
-            badges += f'<span class="stat-badge" style="background:{color}15;color:{color}">{emoji} {label}: {cnt}</span>'
-
-    # Trending categories section
-    trend_html = ""
-    if trend_cats:
-        trend_items = "".join(
-            f'<span class="trend-chip">{cat} <b>{score}</b></span>'
-            for cat, score in sorted(trend_cats.items(), key=lambda x: -x[1])[:6]
-        )
-        trend_html = f'<div class="trend-section"><span class="trend-label">📊 AnySearch趋势:</span> {trend_items}</div>'
-
-    # Supply-Demand section
-    sd_data = stats.get("supply_demand", {})
-    sd_html = ""
-    if sd_data:
-        sd_items = "".join(
-            f'<span class="trend-chip">{info["label"]} {cat} <b>{info["ratio"]}</b></span>'
-            for cat, info in list(sd_data.items())[:6]
-        )
-        sd_html = f'<div class="trend-section"><span class="trend-label">🌊 供需比:</span> {sd_items}</div>'
-
-    return f"""
-    <header class="header">
-        <div class="header-top">
-            <h1>🔍 选品雷达 <span class="version">v3</span></h1>
-            <div class="scan-info">{d} {t} · 扫描 {total} · 通过 {passed}</div>
-            <div class="date-picker" id="datePicker"></div>
-        </div>
-        <div class="stat-badges">{badges}</div>
-        {trend_html}
-        {sd_html}
-    </header>"""
-
-
-def _render_tabs(data):
-    ch_counts = data.get("stats", {}).get("channels", {})
-    tabs = ""
-    for ch_id, (emoji, label, color) in CHANNELS.items():
-        cnt = ch_counts.get(ch_id, len(data.get("products", [])) if ch_id == "all" else 0)
-        active = ' active' if ch_id == "all" else ''
-        tabs += f'<button class="tab{active}" data-channel="{ch_id}" style="--ch-color:{color}">{emoji} {label} <span class="tab-count">{cnt}</span></button>'
-
-    # Status filter tabs
-    status_tabs = '<div class="status-filter">'
-    status_tabs += '<span class="filter-label">状态:</span>'
-    for sid, (slabel, scolor) in STATUS_CONFIG.items():
-        status_tabs += f'<button class="status-tab" data-status="{sid}" style="--s-color:{scolor}">{slabel}</button>'
-    status_tabs += '<button class="status-tab active" data-status="all">全部</button>'
-    status_tabs += '</div>'
-
-    return f"""
-    <nav class="tab-bar">
-        <div class="channel-tabs">{tabs}</div>
-        {status_tabs}
-    </nav>"""
-
-
-def _render_filters():
-    return """
-    <div class="filter-bar">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 搜索产品名称..." />
-        </div>
-        <div class="filter-group">
-            <label>价格:</label>
-            <select id="filterPrice">
-                <option value="all">全部</option>
-                <option value="5-7">£5-7</option>
-                <option value="7-8.5">£7-8.5</option>
-                <option value="8.5-10">£8.5-10</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label>利润率:</label>
-            <select id="filterMargin">
-                <option value="all">全部</option>
-                <option value="30">≥30%</option>
-                <option value="25">≥25%</option>
-                <option value="20">≥20%</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label>品类:</label>
-            <select id="filterCategory">
-                <option value="all">全部</option>
-            </select>
-        </div>
-        <div class="filter-group">
-            <label>排序:</label>
-            <select id="sortBy">
-                <option value="score">评分↓</option>
-                <option value="margin">利润率↓</option>
-                <option value="price">价格↑</option>
-                <option value="reviews">评论数↑</option>
-            </select>
-        </div>
-        <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
-    </div>"""
-
-
-def _render_product_grid():
-    return '<div class="product-grid" id="productGrid"></div>'
-
-
-def _render_empty_state():
-    return """
-    <div class="empty-state" id="emptyState" style="display:none">
-        <div class="empty-icon">📦</div>
-        <p>没有匹配的产品</p>
-        <p class="empty-hint">尝试调整筛选条件</p>
-    </div>"""
-
-
-CSS = """
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选品雷达 v3 | 2026-05-31</title>
+    <style>
 :root {
     --bg: #f5f5f7;
     --card-bg: #ffffff;
@@ -462,9 +304,80 @@ body {
     .filter-bar { flex-direction: column; }
     .search-box { min-width: 100%; }
 }
-"""
-
-JS = """
+</style>
+</head>
+<body>
+    <div class="container">
+        
+    <header class="header">
+        <div class="header-top">
+            <h1>🔍 选品雷达 <span class="version">v3</span></h1>
+            <div class="scan-info">2026-05-31 11:05 · 扫描 372 · 通过 15</div>
+            <div class="date-picker" id="datePicker"></div>
+        </div>
+        <div class="stat-badges"><span class="stat-badge" style="background:#007AFF15;color:#007AFF">🆕 Amazon新品榜: 14</span><span class="stat-badge" style="background:#FF6B9D15;color:#FF6B9D">💝 Amazon心愿榜: 1</span></div>
+        <div class="trend-section"><span class="trend-label">📊 AnySearch趋势:</span> <span class="trend-chip">pets <b>100</b></span><span class="trend-chip">crafts <b>100</b></span><span class="trend-chip">kitchen <b>98</b></span><span class="trend-chip">eco <b>82</b></span><span class="trend-chip">home decor <b>73</b></span><span class="trend-chip">car <b>65</b></span></div>
+        
+    </header>
+        
+    <nav class="tab-bar">
+        <div class="channel-tabs"><button class="tab" data-channel="new_releases" style="--ch-color:#007AFF">🆕 Amazon新品榜 <span class="tab-count">14</span></button><button class="tab" data-channel="bsr" style="--ch-color:#FF9500">📈 Amazon畅销榜 <span class="tab-count">0</span></button><button class="tab" data-channel="wished" style="--ch-color:#FF6B9D">💝 Amazon心愿榜 <span class="tab-count">1</span></button><button class="tab" data-channel="gifts" style="--ch-color:#AF52DE">🎁 Amazon送礼榜 <span class="tab-count">0</span></button><button class="tab" data-channel="tiktok_verified" style="--ch-color:#FF2D55">🎵 TikTok热品 <span class="tab-count">0</span></button><button class="tab" data-channel="hotukdeals" style="--ch-color:#FF3B30">🔥 HotUKDeals <span class="tab-count">0</span></button><button class="tab" data-channel="temu_trending" style="--ch-color:#FF9500">🛒 Temu热销 <span class="tab-count">0</span></button><button class="tab" data-channel="etsy_trending" style="--ch-color:#FF6B9D">🎨 Etsy趋势 <span class="tab-count">0</span></button><button class="tab" data-channel="youtube_review" style="--ch-color:#FF0000">▶️ YouTube种草 <span class="tab-count">0</span></button><button class="tab" data-channel="google_trends" style="--ch-color:#34C759">📊 Google趋势 <span class="tab-count">0</span></button><button class="tab" data-channel="multi_source" style="--ch-color:#5856D6">🔗 多源验证 <span class="tab-count">0</span></button><button class="tab active" data-channel="all" style="--ch-color:#8e8e93">📋 全部 <span class="tab-count">15</span></button></div>
+        <div class="status-filter"><span class="filter-label">状态:</span><button class="status-tab" data-status="pending" style="--s-color:#8e8e93">待评估</button><button class="status-tab" data-status="supplier" style="--s-color:#007AFF">找供应商</button><button class="status-tab" data-status="sample" style="--s-color:#FF9500">已采样</button><button class="status-tab" data-status="listed" style="--s-color:#34C759">已上架</button><button class="status-tab" data-status="rejected" style="--s-color:#FF3B30">不考虑</button><button class="status-tab active" data-status="all">全部</button></div>
+    </nav>
+        
+    <div class="filter-bar">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 搜索产品名称..." />
+        </div>
+        <div class="filter-group">
+            <label>价格:</label>
+            <select id="filterPrice">
+                <option value="all">全部</option>
+                <option value="5-7">£5-7</option>
+                <option value="7-8.5">£7-8.5</option>
+                <option value="8.5-10">£8.5-10</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>利润率:</label>
+            <select id="filterMargin">
+                <option value="all">全部</option>
+                <option value="30">≥30%</option>
+                <option value="25">≥25%</option>
+                <option value="20">≥20%</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>品类:</label>
+            <select id="filterCategory">
+                <option value="all">全部</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>排序:</label>
+            <select id="sortBy">
+                <option value="score">评分↓</option>
+                <option value="margin">利润率↓</option>
+                <option value="price">价格↑</option>
+                <option value="reviews">评论数↑</option>
+            </select>
+        </div>
+        <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
+    </div>
+        <div class="product-grid" id="productGrid"></div>
+        
+    <div class="empty-state" id="emptyState" style="display:none">
+        <div class="empty-icon">📦</div>
+        <p>没有匹配的产品</p>
+        <p class="empty-hint">尝试调整筛选条件</p>
+    </div>
+    </div>
+    <p style="text-align:center;padding:20px"><a href="v2.html">← 返回最新扫描</a></p>
+    <script>const DATA = {"scan_date": "2026-05-31", "scan_time": "11:05", "stats": {"total_scanned": 372, "passed_filter": 15, "rejected": 357, "channels": {"new_releases": 14, "wished": 1, "all": 15}, "trend_categories": {"pets": 100, "crafts": 100, "kitchen": 98, "eco": 82, "home decor": 73, "car": 65}}, "products": [{"asin": "B0GVTCQ4JG", "name": "Yoga Mat Unisex Non-Slip Thick Foam Exercise Mat 10mm with Carry Strap – Lightweight Home Gym Equipment for Yoga, Pilate", "price": 7.99, "reviews": 12, "rating": 4.5, "rank": 15, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "12 reviews, 4.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0GVTCQ4JG", "sources": ["Reddit需求"], "profit_margin": 0.299, "net_profit": 2.39, "cost_breakdown": {"vat": 1.33, "commission": 1.2, "fba": 1.28, "ads": 0.4, "returns": 0.24, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.6}, "off_season": false, "score": 82, "score_breakdown": {"🆕 新品榜": 20, "💬 Reddit": 5, "📈 趋势(car)": 8, "🟢 低竞争": 10, "⭐ 高评分": 5, "💰 较好利润": 4}, "stars": 4, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GY96VB6S", "name": "Lockie Fitness Yoga Mat 8 mm Thick, Non Slip Exercise Mat for Women and Men, NBR Foam Pilates Mat, Gym Mat for Home Work", "price": 8.95, "reviews": 40, "rating": 4.9, "rank": 22, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "40 reviews, 4.9★", "amazon_url": "https://www.amazon.co.uk/dp/B0GY96VB6S", "sources": ["Reddit需求"], "profit_margin": 0.33, "net_profit": 2.96, "cost_breakdown": {"vat": 1.49, "commission": 1.34, "fba": 1.28, "ads": 0.45, "returns": 0.27, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.99}, "off_season": false, "score": 78, "score_breakdown": {"🆕 新品榜": 20, "💬 Reddit": 5, "🟢 低竞争": 10, "⭐ 高评分": 5, "💰 高利润": 8}, "stars": 3, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0H2922WKJ", "name": "NanoPolix Scratch Remover, Eliminate All Car Scratches in 60 Seconds, Nano polix Scratch Remover, Quick Fix Removal Past", "price": 8.49, "reviews": 5, "rating": 4.1, "rank": 24, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "5 reviews, 4.1★", "amazon_url": "https://www.amazon.co.uk/dp/B0H2922WKJ", "profit_margin": 0.316, "net_profit": 2.68, "cost_breakdown": {"vat": 1.42, "commission": 1.27, "fba": 1.28, "ads": 0.42, "returns": 0.25, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.81}, "off_season": false, "score": 76, "score_breakdown": {"🆕 新品榜": 20, "📈 趋势(car)": 8, "🟢 低竞争": 10, "💰 高利润": 8}, "stars": 3, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0H28HXP3K", "name": "Nanopolix Scratch Remover, Nanopolix Ultimate Scratch Remover, Innovative Nano-Cloth Technology Harmless to Cars, Quick ", "price": 6.99, "reviews": 59, "rating": 4.5, "rank": 16, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "59 reviews, 4.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0H28HXP3K", "profit_margin": 0.257, "net_profit": 1.8, "cost_breakdown": {"vat": 1.17, "commission": 1.05, "fba": 1.28, "ads": 0.35, "returns": 0.21, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.19}, "off_season": false, "score": 72, "score_breakdown": {"🆕 新品榜": 20, "📈 趋势(car)": 8, "🟡 中等竞争": 5, "⭐ 高评分": 5, "💰 较好利润": 4}, "stars": 3, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GSRPLWXL", "name": "Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Sparkle Cloth for Any Car Scratches,Cars Pain", "price": 8.99, "reviews": 1, "rating": 5.0, "rank": 2, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "1 reviews, 5.0★", "amazon_url": "https://www.amazon.co.uk/dp/B0GSRPLWXL", "profit_margin": 0.332, "net_profit": 2.98, "cost_breakdown": {"vat": 1.5, "commission": 1.35, "fba": 1.28, "ads": 0.45, "returns": 0.27, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.01}, "off_season": false, "score": 63, "score_breakdown": {"🆕 新品榜": 20, "📈 趋势(car)": 8, "⏳ 评论偏少": -8, "⭐ 高评分": 5, "💰 高利润": 8}, "stars": 3, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GYRSM22M", "name": "JADUFHU Ratchet Screwdriver, 13-in-1 Magnetic Screwdriver Set, 3-Way High Torque Multi Screwdriver with CR-V Steel Bits,", "price": 8.99, "reviews": 0, "rating": 5.0, "rank": 9, "category": "DIY", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews, 5.0★", "amazon_url": "https://www.amazon.co.uk/dp/B0GYRSM22M", "sources": ["Reddit需求"], "profit_margin": 0.332, "net_profit": 2.98, "cost_breakdown": {"vat": 1.5, "commission": 1.35, "fba": 1.28, "ads": 0.45, "returns": 0.27, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.01}, "off_season": false, "score": 60, "score_breakdown": {"🆕 新品榜": 20, "💬 Reddit": 5, "⏳ 待验证": -8, "⭐ 高评分": 5, "💰 高利润": 8}, "stars": 3, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GCHZ91Z2", "name": "Vexloria Hand Grip Strengthener", "price": 9.99, "reviews": 3, "rating": 4.8, "rank": 23, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "3 reviews, 4.8★", "amazon_url": "https://www.amazon.co.uk/dp/B0GCHZ91Z2", "profit_margin": 0.358, "net_profit": 3.57, "cost_breakdown": {"vat": 1.67, "commission": 1.5, "fba": 1.28, "ads": 0.5, "returns": 0.3, "storage": 0.1, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.42}, "off_season": false, "score": 59, "score_breakdown": {"🆕 新品榜": 20, "⏳ 评论偏少": -8, "⭐ 高评分": 5, "💰 超高利润": 12}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GLXWV6S7", "name": "1 Pcs Foot Pedal Resistance Band,Stomach Exercise Equipment,Elastic Pull Rope Foot Resistance Band,Abdominal and Muscle ", "price": 6.91, "reviews": 121, "rating": 3.5, "rank": 29, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "121 reviews, 3.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0GLXWV6S7", "profit_margin": 0.253, "net_profit": 1.75, "cost_breakdown": {"vat": 1.15, "commission": 1.04, "fba": 1.28, "ads": 0.35, "returns": 0.21, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.16}, "off_season": false, "score": 59, "score_breakdown": {"🆕 新品榜": 20, "🟡 中等竞争": 5, "💰 较好利润": 4}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GWRK5RZF", "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ", "price": 6.66, "reviews": 38, "rating": 4.6, "rank": 2, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "38 reviews, 4.6★", "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK5RZF", "profit_margin": 0.24, "net_profit": 1.6, "cost_breakdown": {"vat": 1.11, "commission": 1.0, "fba": 1.28, "ads": 0.33, "returns": 0.2, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.06}, "off_season": false, "score": 55, "score_breakdown": {"🆕 新品榜": 20, "🟢 低竞争": 10, "⭐ 高评分": 5, "❓ 品类不符": -10}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0H1T62Y7Z", "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga", "price": 6.66, "reviews": 10, "rating": 4.8, "rank": 3, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "10 reviews, 4.8★", "amazon_url": "https://www.amazon.co.uk/dp/B0H1T62Y7Z", "profit_margin": 0.24, "net_profit": 1.6, "cost_breakdown": {"vat": 1.11, "commission": 1.0, "fba": 1.28, "ads": 0.33, "returns": 0.2, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.06}, "off_season": false, "score": 55, "score_breakdown": {"🆕 新品榜": 20, "🟢 低竞争": 10, "⭐ 高评分": 5, "❓ 品类不符": -10}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0FF9V7Z7J", "name": "24Pcs 1/2-20 Inch Wheel Nuts for 1/2\" Wheel Studs for Trailers for Boat Trailer Tires Length: 0.62\"(15.77mm), Width: 0.8", "price": 8.17, "reviews": 0, "rating": 0, "rank": 14, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0FF9V7Z7J", "profit_margin": 0.305, "net_profit": 2.49, "cost_breakdown": {"vat": 1.36, "commission": 1.23, "fba": 1.28, "ads": 0.41, "returns": 0.25, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.68}, "off_season": false, "category_corrected": true, "category_original": "DIY", "score": 50, "score_breakdown": {"🆕 新品榜": 20, "⏳ 待验证": -8, "💰 高利润": 8}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0F9ZM575G", "name": "Cable Extension Cable - Copper Cable 4 Pin Connector - Motherboard Extended Connector Heat Cord Computer Accessories for", "price": 7.02, "reviews": 0, "rating": 5.0, "rank": 2, "category": "Lighting", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews, 5.0★", "amazon_url": "https://www.amazon.co.uk/dp/B0F9ZM575G", "sources": ["Reddit需求"], "profit_margin": 0.258, "net_profit": 1.81, "cost_breakdown": {"vat": 1.17, "commission": 1.05, "fba": 1.28, "ads": 0.35, "returns": 0.21, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.21}, "off_season": false, "score": 46, "score_breakdown": {"🆕 新品榜": 20, "💬 Reddit": 5, "⏳ 待验证": -8, "⭐ 高评分": 5, "💰 较好利润": 4, "❓ 品类不符": -10}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GW9CF7Q8", "name": "Football Wallcharts 2026 World Cup Wallchart – A1 Sized Stadium Glow Style Tournament Tracker (59.4 x 84.1 cm)", "price": 8.29, "reviews": 4, "rating": 4.5, "rank": 14, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "4 reviews, 4.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0GW9CF7Q8", "profit_margin": 0.31, "net_profit": 2.57, "cost_breakdown": {"vat": 1.38, "commission": 1.24, "fba": 1.28, "ads": 0.41, "returns": 0.25, "storage": 0.08, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.72}, "off_season": false, "score": 45, "score_breakdown": {"🆕 新品榜": 20, "⏳ 评论偏少": -8, "⭐ 高评分": 5, "💰 高利润": 8, "❓ 品类不符": -10}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0GWHDHC64", "name": "The Bolt Stripper 3000 Wrench Tool, Universal Automotive Torx Wrench 8-24mm Self-Tightening for Small Places, Multifunct", "price": 6.68, "reviews": 0, "rating": 0, "rank": 21, "category": "DIY", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "0 reviews", "amazon_url": "https://www.amazon.co.uk/dp/B0GWHDHC64", "profit_margin": 0.241, "net_profit": 1.61, "cost_breakdown": {"vat": 1.12, "commission": 1.0, "fba": 1.28, "ads": 0.33, "returns": 0.2, "storage": 0.07, "dsc": 0.07, "sourcing": 1.0, "total_cost": 5.07}, "off_season": false, "score": 42, "score_breakdown": {"🆕 新品榜": 20, "⏳ 待验证": -8}, "stars": 2, "channel_tags": ["new_releases"], "is_multi": false}, {"asin": "B0974X8WXL", "name": "Hippo Hardware M8 (8mm X 40mm) Socket Cap Screw Hex Head Allen Bolts A2 Stainless Steel (Pack of 5)", "price": 9.42, "reviews": 254, "rating": 4.3, "rank": 17, "category": "DIY", "channel": "wished", "channel_name": "Amazon心愿榜", "review_info": "254 reviews, 4.3★", "amazon_url": "https://www.amazon.co.uk/dp/B0974X8WXL", "profit_margin": 0.344, "net_profit": 3.24, "cost_breakdown": {"vat": 1.57, "commission": 1.41, "fba": 1.28, "ads": 0.47, "returns": 0.28, "storage": 0.09, "dsc": 0.07, "sourcing": 1.0, "total_cost": 6.18}, "off_season": false, "score": 38, "score_breakdown": {"💝 心愿榜": 15, "💰 高利润": 8, "📉 无需求信号": -15}, "stars": 1, "channel_tags": ["wished"], "is_multi": false}], "trend_summary": {"top_categories": [["pets", 100], ["crafts", 100], ["kitchen", 98], ["eco", 82], ["home decor", 73], ["car", 65]], "cross_validated": ["car", "phone", "home decor", "eco", "kitchen", "office", "seasonal", "pets", "crafts", "beauty"], "demand_keywords": ["amazon comparing", "best sellers", "cool gadgets", "cool things to buy", "find the trending items and", "shop like a billionaire", "spring fashion for women", "spring outfits for women", "temu products selling on amazon", "the most popular items in"], "season": "spring", "sources_scanned": ["tiktok", "temu", "etsy", "market_intel"]}, "tiers": [{"label": "低档", "cost": 0.8, "desc": "1688低价+空运"}, {"label": "中档", "cost": 1.2, "desc": "1688均价+空运"}, {"label": "高档", "cost": 1.5, "desc": "品牌供应商+卡航"}], "available_scans": []};
+const CHANNELS = {"new_releases": ["\ud83c\udd95", "Amazon\u65b0\u54c1\u699c", "#007AFF"], "bsr": ["\ud83d\udcc8", "Amazon\u7545\u9500\u699c", "#FF9500"], "wished": ["\ud83d\udc9d", "Amazon\u5fc3\u613f\u699c", "#FF6B9D"], "gifts": ["\ud83c\udf81", "Amazon\u9001\u793c\u699c", "#AF52DE"], "tiktok_verified": ["\ud83c\udfb5", "TikTok\u70ed\u54c1", "#FF2D55"], "hotukdeals": ["\ud83d\udd25", "HotUKDeals", "#FF3B30"], "temu_trending": ["\ud83d\uded2", "Temu\u70ed\u9500", "#FF9500"], "etsy_trending": ["\ud83c\udfa8", "Etsy\u8d8b\u52bf", "#FF6B9D"], "youtube_review": ["\u25b6\ufe0f", "YouTube\u79cd\u8349", "#FF0000"], "google_trends": ["\ud83d\udcca", "Google\u8d8b\u52bf", "#34C759"], "multi_source": ["\ud83d\udd17", "\u591a\u6e90\u9a8c\u8bc1", "#5856D6"], "all": ["\ud83d\udccb", "\u5168\u90e8", "#8e8e93"]};
+const STATUS_CONFIG = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier": ["\u627e\u4f9b\u5e94\u5546", "#007AFF"], "sample": ["\u5df2\u91c7\u6837", "#FF9500"], "listed": ["\u5df2\u4e0a\u67b6", "#34C759"], "rejected": ["\u4e0d\u8003\u8651", "#FF3B30"]};
+    </script>
+    <script>
 // Data from Python
 const products = DATA.products || [];
 const statusKey = 'productRadar_v2_status';
@@ -761,8 +674,8 @@ function exportCSV() {
             p.amazon_url
         ]);
     });
-    const csv = rows.map(r => r.join(',')).join('\\n');
-    const blob = new Blob(['\\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob(['\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = `选品雷达_${DATA.scan_date}.csv`;
@@ -779,173 +692,6 @@ function updateStatusSummary() {
 
 // Initial render
 renderProducts();
-"""
-
-
-def _build_product_list(data):
-    """Build the product list for the HTML, adding computed fields."""
-    products = data.get("products", [])
-    # Tag multi-source products
-    for p in products:
-        sources = p.get("sources", [])
-        if len(sources) >= 2:
-            p["is_multi"] = True
-        else:
-            p["is_multi"] = False
-    return products
-
-
-def generate_html(data_file, output_file=None):
-    """Generate the v2 HTML dashboard from a JSON data file.
-    Also scans for all available data files to build a date index."""
-    config = json.loads((BASE / "config.json").read_text())
-    data = json.loads(Path(data_file).read_text())
-    products = _build_product_list(data)
-
-    # Add 'all' channel count
-    stats = data.get("stats", {})
-    stats["channels"]["all"] = len(products)
-
-    # Inject sourcing tiers from config
-    data["tiers"] = config.get("sourcing_tiers", [])
-
-    # Scan all available data files for date picker
-    data_dir = BASE / "data" / "channels"
-    available_scans = []
-    for f in sorted(data_dir.glob("*.json"), reverse=True):
-        if "-rejected" in f.name or "-trends" in f.name:
-            continue
-        try:
-            scan_data = json.loads(f.read_text())
-            ts = scan_data.get("scan_ts", f.stem)  # Fallback to filename stem for old files
-            date = scan_data.get("scan_date", f.stem[:10])
-            time_str = scan_data.get("scan_time", "")
-            count = len(scan_data.get("products", []))
-            available_scans.append({"ts": ts, "date": date, "time": time_str, "count": count, "file": f.name})
-        except Exception:
-            continue
-    data["available_scans"] = available_scans
-
-    if not output_file:
-        output_file = str(BASE / "output" / "v2.html")
-
-    js_data = json.dumps(data, ensure_ascii=False)
-
-    page = f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选品雷达 v3 | {data.get('scan_date', '')}</title>
-    <style>{CSS}</style>
-</head>
-<body>
-    <div class="container">
-        {_render_header(data)}
-        {_render_tabs(data)}
-        {_render_filters()}
-        {_render_product_grid()}
-        {_render_empty_state()}
-    </div>
-    <script>const DATA = {js_data};
-const CHANNELS = {json.dumps({k: list(v) for k, v in CHANNELS.items()})};
-const STATUS_CONFIG = {json.dumps({k: list(v) for k, v in STATUS_CONFIG.items()})};
-    </script>
-    <script>{JS}</script>
+</script>
 </body>
-</html>"""
-
-    Path(output_file).parent.mkdir(parents=True, exist_ok=True)
-    Path(output_file).write_text(page, encoding="utf-8")
-    print(f"  HTML saved: {output_file}", file=sys.stderr)
-
-    # Also save per-scan HTML (for date picker navigation)
-    # Also save per-scan HTML (for date picker navigation)
-    scan_ts = data.get("scan_ts", "")
-    if not scan_ts:
-        scan_ts = Path(data_file).stem
-    per_scan_file = str(BASE / "output" / f"{scan_ts}.html")
-    Path(per_scan_file).write_text(page, encoding="utf-8")
-    print(f"  Per-scan HTML: {per_scan_file}", file=sys.stderr)
-
-    # Generate missing per-scan HTML files for other dates (date picker support)
-    for scan_info in available_scans:
-        other_ts = scan_info["ts"]
-        other_html = BASE / "output" / f"{other_ts}.html"
-        if not other_html.exists():
-            other_data_file = data_dir / scan_info["file"]
-            if other_data_file.exists():
-                try:
-                    _generate_single(other_data_file, str(other_html), config)
-                    print(f"  Backfill HTML: {other_html.name}", file=sys.stderr)
-                except Exception:
-                    pass
-
-    return output_file
-
-
-def _generate_single(data_file, output_file, config):
-    """Generate a single per-scan HTML file (for date picker backfill)."""
-    data = json.loads(Path(data_file).read_text())
-    products = _build_product_list(data)
-    stats = data.get("stats", {})
-    stats["channels"]["all"] = len(products)
-    data["tiers"] = config.get("sourcing_tiers", [])
-    data["available_scans"] = []  # Not needed for per-scan pages
-
-    js_data = json.dumps(data, ensure_ascii=False)
-    page = f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选品雷达 v3 | {data.get('scan_date', '')}</title>
-    <style>{CSS}</style>
-</head>
-<body>
-    <div class="container">
-        {_render_header(data)}
-        {_render_tabs(data)}
-        {_render_filters()}
-        {_render_product_grid()}
-        {_render_empty_state()}
-    </div>
-    <p style="text-align:center;padding:20px"><a href="v2.html">← 返回最新扫描</a></p>
-    <script>const DATA = {js_data};
-const CHANNELS = {json.dumps({k: list(v) for k, v in CHANNELS.items()})};
-const STATUS_CONFIG = {json.dumps({k: list(v) for k, v in STATUS_CONFIG.items()})};
-    </script>
-    <script>{JS}</script>
-</body>
-</html>"""
-    Path(output_file).parent.mkdir(parents=True, exist_ok=True)
-    Path(output_file).write_text(page, encoding="utf-8")
-
-
-def generate_from_products(products, stats=None, output_file=None):
-    """Generate HTML directly from a product list (used by run_scan_v2)."""
-    now = datetime.now()
-    data = {
-        "scan_date": now.strftime("%Y-%m-%d"),
-        "scan_time": now.strftime("%H:%M"),
-        "scan_ts": now.strftime("%Y-%m-%d_%H%M"),
-        "stats": stats or {},
-        "products": products,
-    }
-
-    # Save data JSON alongside HTML
-    data_dir = BASE / "data" / "channels"
-    data_dir.mkdir(parents=True, exist_ok=True)
-    data_file = data_dir / f"{now.strftime('%Y-%m-%d')}.json"
-    data_file.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    return generate_html(str(data_file), output_file)
-
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python3 generate_html_v2.py <data.json> [output.html]")
-        sys.exit(1)
-    data_file = sys.argv[1]
-    output_file = sys.argv[2] if len(sys.argv) > 2 else None
-    generate_html(data_file, output_file)
+</html>
