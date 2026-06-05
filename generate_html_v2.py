@@ -6,6 +6,7 @@ Generates a tabbed, filterable product dashboard with review status tracking.
 import json, sys, html as htmlmod, re
 from datetime import datetime
 from pathlib import Path
+from translate import translate_title_to_chinese
 
 BASE = Path(__file__).parent
 
@@ -351,6 +352,22 @@ body {
     border-radius: 8px; line-height: 1.8;
     display: -webkit-box; -webkit-line-clamp: 3;
     -webkit-box-orient: vertical; overflow: hidden;
+}
+
+.product-image {
+    margin: 8px 0;
+    text-align: center;
+}
+.product-image img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.product-image img:hover {
+    transform: scale(1.02);
 }
 
 .product-name {
@@ -796,8 +813,8 @@ function renderProducts() {
             divHtml = `<span class="signal-badge ${divClass}">${divLabel}</span>`;
         }
 
-        // 1688 search URL
-        const searchName = encodeURIComponent(p.name);
+        // 1688 search URL - use Chinese translation if available
+        const searchName = encodeURIComponent(p.name_cn || p.name);
         const url1688 = `https://s.1688.com/selloffer/offer_search.htm?keywords=${searchName}`;
 
         // 3-tier sourcing profit estimates
@@ -841,6 +858,13 @@ function renderProducts() {
             <div class="card-header">
                 <span class="channel-badge" style="background:${ch[2]}">${ch[0]} ${ch[1]}</span>
                 <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${displayScore}分 ${starStr}</span>
+            </div>
+            <div class="product-image">
+                <img src="https://m.media-amazon.com/images/I/${p.asin}._AC_SL300_.jpg" 
+                     alt="${escHtml(p.name)}" 
+                     loading="lazy"
+                     onerror="this.style.display='none'"
+                     onclick="window.open('${p.amazon_url}', '_blank')">
             </div>
             <div class="product-name">
                 <a href="${p.amazon_url}" target="_blank" rel="noopener">${escHtml(p.name)}</a>

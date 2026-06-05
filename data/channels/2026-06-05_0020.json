@@ -318,7 +318,8 @@
       "channel_tags": [
         "tiktok_verified",
         "new_releases"
-      ]
+      ],
+      "name_cn": "盘子"
     },
     {
       "asin": "B0GKPG6VW5",
@@ -380,7 +381,8 @@
       "stars": 3,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "支架 白色 个 宠物床 笔"
     },
     {
       "asin": "B0H2922WKJ",
@@ -439,7 +441,8 @@
       "stars": 3,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "汽车"
     },
     {
       "asin": "B0F9ZM575G",
@@ -500,7 +503,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "数据线 图钉"
     },
     {
       "asin": "B0H3NK4NT3",
@@ -560,7 +564,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "迷你 包装 个 金色 套装"
     },
     {
       "asin": "B0GSRPLWXL",
@@ -611,7 +616,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "脚垫 汽车"
     },
     {
       "asin": "B0DPVBQSM1",
@@ -663,7 +669,8 @@
       "stars": 2,
       "channel_tags": [
         "wished"
-      ]
+      ],
+      "name_cn": "车衣 饮水器 弹力带 座椅 汽车"
     },
     {
       "asin": "B0H28HXP3K",
@@ -714,7 +721,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "脚垫 汽车"
     },
     {
       "asin": "B074H5296B",
@@ -766,7 +774,8 @@
       "stars": 1,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "工具 皮带 座椅 帽子 汽车"
     },
     {
       "asin": "B0H154LY2Y",
@@ -817,7 +826,8 @@
       "stars": 1,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "球 包装 杯子 汽车"
     }
   ],
   "gaps": [

@@ -298,7 +298,8 @@
       "channel_tags": [
         "tiktok_verified",
         "new_releases"
-      ]
+      ],
+      "name_cn": "盘子"
     },
     {
       "asin": "B0F9ZM575G",
@@ -359,7 +360,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "数据线 图钉"
     },
     {
       "asin": "B0H2922WKJ",
@@ -411,7 +413,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "汽车"
     },
     {
       "asin": "B0GSRPLWXL",
@@ -462,7 +465,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "脚垫 汽车"
     },
     {
       "asin": "B0DPVBQSM1",
@@ -514,7 +518,8 @@
       "stars": 2,
       "channel_tags": [
         "wished"
-      ]
+      ],
+      "name_cn": "车衣 饮水器 弹力带 座椅 汽车"
     },
     {
       "asin": "B0H28HXP3K",
@@ -565,7 +570,8 @@
       "stars": 2,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "脚垫 汽车"
     },
     {
       "asin": "B074H5296B",
@@ -617,7 +623,8 @@
       "stars": 1,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "工具 皮带 座椅 帽子 汽车"
     },
     {
       "asin": "B0GQP93C22",
@@ -671,7 +678,8 @@
       "stars": 1,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "花园灯 黑色"
     },
     {
       "asin": "B0H11D3V7H",
@@ -739,7 +747,8 @@
       "stars": 1,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "纸 保护壳 迷你 杯子"
     },
     {
       "asin": "B0GWRK5RZF",
@@ -798,7 +807,8 @@
       "stars": 1,
       "channel_tags": [
         "bsr"
-      ]
+      ],
+      "name_cn": "球 杯子"
     },
     {
       "asin": "B0GW9CF7Q8",
@@ -856,7 +866,8 @@
       "stars": 1,
       "channel_tags": [
         "bsr"
-      ]
+      ],
+      "name_cn": "架子 球 杯子"
     },
     {
       "asin": "B0H154LY2Y",
@@ -907,7 +918,8 @@
       "stars": 1,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "球 包装 杯子 汽车"
     },
     {
       "asin": "B0GH7XM354",
@@ -965,7 +977,8 @@
       "stars": 1,
       "channel_tags": [
         "bsr"
-      ]
+      ],
+      "name_cn": "大号 杯子"
     },
     {
       "asin": "B0GWHDHC64",
@@ -1015,7 +1028,8 @@
       "stars": 1,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "name_cn": "灯带 小号 工具"
     },
     {
       "asin": "B0H1T62Y7Z",
@@ -1072,7 +1086,8 @@
       "stars": 1,
       "channel_tags": [
         "bsr"
-      ]
+      ],
+      "name_cn": "球 杯子"
     },
     {
       "asin": "B0GY8HYLFZ",
@@ -1129,7 +1144,8 @@
       "stars": 1,
       "channel_tags": [
         "bsr"
-      ]
+      ],
+      "name_cn": "纸 球 杯子"
     }
   ],
   "trend_summary": {
