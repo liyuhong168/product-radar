@@ -52,5 +52,14 @@ git add data/ output/ status.json -f 2>/dev/null
 git diff --cached --quiet && echo "  无变更" && exit 0
 git commit -m "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>/dev/null
 git pull --rebase 2>/dev/null || true
-git push 2>/dev/null
+
+# Read token from file and push
+TOKEN_FILE="/mnt/d/Desktop/token.txt"
+if [ -f "$TOKEN_FILE" ]; then
+    TOKEN=$(cat "$TOKEN_FILE" | tr -d '\n')
+    git push https://liyuhong168:${TOKEN}@github.com/liyuhong168/product-radar.git main 2>/dev/null
+else
+    echo "  ⚠️ Token文件不存在: $TOKEN_FILE"
+    git push origin main 2>/dev/null
+fi
 echo "  ✅ 已部署：https://liyuhong168.github.io/product-radar/v2.html"
