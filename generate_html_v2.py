@@ -550,11 +550,30 @@ function scheduleSyncToGitHub(status) {
     document.getElementById('syncStatus').textContent = '⏳ 待同步...';
 }
 
+// Token management
+function getGitHubToken() {
+    return localStorage.getItem('github_token') || '';
+}
+function setGitHubToken(token) {
+    localStorage.setItem('github_token', token);
+    alert('Token已保存到浏览器');
+}
+function promptForToken() {
+    const token = prompt('请输入GitHub Personal Access Token (repo权限):');
+    if (token) {
+        setGitHubToken(token);
+    }
+    return token;
+}
+
 async function syncToGitHub(status) {
-    const token = atob(DATA.github_token_b64 || '');
+    let token = getGitHubToken();
     if (!token) {
-        document.getElementById('syncStatus').textContent = '⚠️ 未配置token';
-        return;
+        token = promptForToken();
+        if (!token) {
+            document.getElementById('syncStatus').textContent = '⚠️ 未配置token';
+            return;
+        }
     }
     const el = document.getElementById('syncStatus');
     el.textContent = '☁️ 同步中...';
