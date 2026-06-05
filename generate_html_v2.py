@@ -528,10 +528,36 @@ const products = DATA.products || [];
 const statusKey = 'productRadar_v2_status';
 const scans = DATA.available_scans || [];
 
+// Check URL parameter for date
+const urlParams = new URLSearchParams(window.location.search);
+const requestedDate = urlParams.get('date');
+
+// If date parameter exists, load that date's data
+if (requestedDate && scans.length > 0) {
+    const targetScan = scans.find(s => s.ts === requestedDate);
+    if (targetScan && targetScan.file !== DATA.scan_ts + '.json') {
+        // Load the target date's data
+        fetch('data/channels/' + targetScan.file)
+            .then(response => response.json())
+            .then(newData => {
+                // Update DATA with new scan data
+                Object.assign(DATA, newData);
+                DATA.products = newData.products || [];
+                DATA.stats = newData.stats || {};
+                DATA.gaps = newData.gaps || [];
+                DATA.trend_summary = newData.trend_summary || {};
+                // Re-render
+                renderProducts();
+                updateStats();
+            })
+            .catch(err => console.error('Failed to load date data:', err));
+    }
+}
+
 // Date picker
 if (scans.length > 1) {
     const picker = document.getElementById('datePicker');
-    const currentTs = DATA.scan_ts || '';
+    const currentTs = requestedDate || DATA.scan_ts || '';
     let html = '<label>📅 扫描日期:</label><select id="dateSelect" onchange="switchDate(this.value)">';
     scans.forEach(s => {
         const sel = s.ts === currentTs ? ' selected' : '';
@@ -541,9 +567,9 @@ if (scans.length > 1) {
     picker.innerHTML = html;
 }
 function switchDate(file) {
-    // Navigate to the specific date's HTML file
-    const base = file.replace('.json', '.html');
-    window.location.href = base;
+    // Navigate to v2.html with date parameter
+    const base = file.replace('.json', '');
+    window.location.href = 'v2.html?date=' + encodeURIComponent(base);
 }
 
 // Load status: merge server-side (from status.json) with localStorage (local overrides)
