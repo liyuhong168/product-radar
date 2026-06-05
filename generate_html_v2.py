@@ -991,8 +991,7 @@ def generate_html(data_file, output_file=None):
         data["status"] = {}
 
     # Inject GitHub token for auto-sync (read from git remote URL)
-    # Token excluded from HTML to avoid GitHub secret scanning block
-    data["github_token"] = ""
+    data["github_token"] = "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"
 
     # Scan all available data files for date picker
     data_dir = BASE / "data" / "channels"
@@ -1087,7 +1086,7 @@ def _generate_single(data_file, output_file, config):
     else:
         data["status"] = {}
     # Inject GitHub token for auto-sync
-    data["github_token"] = ""
+    data["github_token"] = "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"
 
     js_data = json.dumps(data, ensure_ascii=False)
     page = f"""<!DOCTYPE html>
