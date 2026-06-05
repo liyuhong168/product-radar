@@ -357,17 +357,34 @@ body {
 .product-image {
     margin: 8px 0;
     text-align: center;
+    cursor: pointer;
 }
 .product-image img {
     max-width: 100%;
     max-height: 180px;
     object-fit: contain;
     border-radius: 8px;
-    cursor: pointer;
     transition: transform 0.2s;
 }
 .product-image img:hover {
     transform: scale(1.02);
+}
+.img-placeholder {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f7;
+    border-radius: 8px;
+    color: #8e8e93;
+    font-size: 28px;
+}
+.img-placeholder small {
+    font-size: 11px;
+    margin-top: 4px;
+    color: #aeaeb2;
 }
 
 .product-name {
@@ -917,12 +934,8 @@ function renderProducts() {
                 <span class="channel-badge" style="background:${ch[2]}">${ch[0]} ${ch[1]}</span>
                 <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${displayScore}分 ${starStr}</span>
             </div>
-            <div class="product-image">
-                <img src="${p.image_url || 'https://m.media-amazon.com/images/I/' + p.asin + '._AC_SL300_.jpg'}" 
-                     alt="${escHtml(p.name)}" 
-                     loading="lazy"
-                     onerror="this.style.display='none'"
-                     onclick="window.open('${p.amazon_url}', '_blank')">
+            <div class="product-image" onclick="window.open('${p.amazon_url}', '_blank')">
+                ${p.image_url ? `<img src="${p.image_url}" alt="${escHtml(p.name)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'img-placeholder\\'>📷</div>'">` : `<div class="img-placeholder">📷<br><small>下次扫描显示图片</small></div>`}
             </div>
             <div class="product-name">
                 <a href="${p.amazon_url}" target="_blank" rel="noopener">${escHtml(p.name)}</a>
