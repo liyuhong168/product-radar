@@ -553,7 +553,6 @@ if (requestedDate && scans.length > 0) {
                 DATA.trend_summary = newData.trend_summary || {};
                 // Re-render
                 renderProducts();
-                updateStats();
             })
             .catch(err => {
                 console.error('Failed to load date data:', err);
