@@ -434,7 +434,7 @@ const STATUS_CONFIG = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier":
     </script>
     <script>
 // Data from Python
-const products = DATA.products || [];
+let products = DATA.products || [];
 const statusKey = 'productRadar_v2_status';
 const scans = DATA.available_scans || [];
 
@@ -446,8 +446,6 @@ const requestedDate = urlParams.get('date');
 if (requestedDate && scans.length > 0) {
     const targetScan = scans.find(s => s.ts === requestedDate);
     if (targetScan && targetScan.ts !== DATA.scan_ts) {
-        // Find the scan data in available_scans
-        // Note: We need to fetch the JSON file from the server
         const jsonFile = 'data/channels/' + targetScan.file;
         fetch(jsonFile)
             .then(response => {
@@ -455,21 +453,47 @@ if (requestedDate && scans.length > 0) {
                 return response.json();
             })
             .then(newData => {
-                // Update DATA with new scan data
+                // Update DATA and products reference
                 Object.assign(DATA, newData);
-                DATA.products = newData.products || [];
+                products = newData.products || [];
+                DATA.products = products;
                 DATA.stats = newData.stats || {};
                 DATA.gaps = newData.gaps || [];
                 DATA.trend_summary = newData.trend_summary || {};
+                // Update header stats
+                updateHeaderStats();
                 // Re-render
                 renderProducts();
             })
             .catch(err => {
                 console.error('Failed to load date data:', err);
-                // Fallback: try to load from embedded data
-                // (This won't work unless we embed all data in the HTML)
             });
     }
+}
+
+function updateHeaderStats() {
+    const stats = DATA.stats || {};
+    const total = stats.total_scanned || 0;
+    const passed = products.length;
+    const header = document.querySelector('.banner');
+    if (header) {
+        const subtitle = header.querySelector('.subtitle') || header.querySelectorAll('div')[1];
+        if (subtitle) subtitle.textContent = `${DATA.scan_date} ${DATA.scan_time} · 扫描 ${total} · 通过 ${passed}`;
+    }
+    // Update tab counts
+    const gapCount = (DATA.gaps || []).length;
+    document.querySelectorAll('.tab').forEach(tab => {
+        const ch = tab.dataset.channel;
+        let cnt = 0;
+        if (ch === 'all') cnt = products.length;
+        else if (ch === 'gap_opportunity') cnt = gapCount;
+        else products.forEach(p => {
+            const tags = p.channel_tags || [p.channel];
+            if (tags.includes(ch)) cnt++;
+        });
+        const badge = tab.querySelector('.tab-count') || tab;
+        badge.textContent = badge.textContent.replace(/\d+/, cnt);
+    });
 }
 
 // Date picker
