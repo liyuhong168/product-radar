@@ -918,7 +918,7 @@ function renderProducts() {
                 <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${displayScore}分 ${starStr}</span>
             </div>
             <div class="product-image">
-                <img src="https://m.media-amazon.com/images/I/${p.asin}._AC_SL300_.jpg" 
+                <img src="${p.image_url || 'https://m.media-amazon.com/images/I/' + p.asin + '._AC_SL300_.jpg'}" 
                      alt="${escHtml(p.name)}" 
                      loading="lazy"
                      onerror="this.style.display='none'"

@@ -119,36 +119,42 @@ def _parse_amazon_page(html, category, channel_type):
 
     import html as htmlmod
 
-    asins = re.findall(r'data-asin="([A-Z0-9]{10})"', html)
-    if not asins:
-        asins = list(set(re.findall(r'/dp/([A-Z0-9]{10})', html)))
-
-    titles = re.findall(r'<img[^>]*alt="([^"]{15,300})"', html)
-    prices = re.findall(r'£(\d+\.\d{2})', html)
-    reviews = re.findall(r'>(\d[\d,]*)</span>\s*</a>', html)
-    if not reviews:
-        reviews = re.findall(r'(\d[\d,]+)\s*(?:ratings?|reviews?)', html, re.I)
-    ratings = re.findall(r'(\d+\.?\d?)\s*out of\s*5', html)
+    # Split HTML by data-asin blocks for per-product extraction
+    blocks = re.split(r'data-asin="([A-Z0-9]{10})"', html)
 
     seen_asins = set()
-    for i, asin in enumerate(asins):
-        if asin in seen_asins:
+    for i in range(1, len(blocks) - 1, 2):
+        asin = blocks[i]
+        block = blocks[i + 1]
+
+        if asin in seen_asins or not asin:
             continue
         seen_asins.add(asin)
 
-        title = htmlmod.unescape(titles[i]).strip() if i < len(titles) else ""
+        # Extract title from <img alt="..."> in this block
+        title_match = re.search(r'<img[^>]*alt="([^"]{15,300})"', block)
+        title = htmlmod.unescape(title_match.group(1)).strip() if title_match else ""
         title = re.sub(r'\s+', ' ', title).strip()
 
-        price_str = prices[i] if i < len(prices) else ""
-        price = float(price_str) if price_str else 0
+        # Extract image URL from <img src="m.media-amazon.com..."> in this block
+        img_url = ""
+        img_match = re.search(r'<img[^>]*src="(https?://m\.media-amazon\.com/images/[^"]+)"', block)
+        if img_match:
+            img_url = img_match.group(1)
 
-        review_str = reviews[i].replace(",", "") if i < len(reviews) else "0"
-        try:
-            review_count = int(review_str)
-        except ValueError:
-            review_count = 0
+        # Extract price in this block
+        price_match = re.search(r'£(\d+\.\d{2})', block)
+        price = float(price_match.group(1)) if price_match else 0
 
-        rating = float(ratings[i]) if i < len(ratings) else 0
+        # Extract review count in this block
+        review_match = re.search(r'>(\d[\d,]*)</span>\s*</a>', block)
+        if not review_match:
+            review_match = re.search(r'(\d[\d,]+)\s*(?:ratings?|reviews?)', block, re.I)
+        review_count = int(review_match.group(1).replace(",", "")) if review_match else 0
+
+        # Extract rating in this block
+        rating_match = re.search(r'(\d+\.?\d?)\s*out of\s*5', block)
+        rating = float(rating_match.group(1)) if rating_match else 0
 
         if title and price > 0:
             # Validate category: skip products whose name doesn't match the page category
@@ -163,12 +169,13 @@ def _parse_amazon_page(html, category, channel_type):
                 "price": price,
                 "reviews": review_count,
                 "rating": rating,
-                "rank": i + 1,
+                "rank": len(products) + 1,
                 "category": category,
                 "channel": channel_type,
                 "channel_name": CHANNEL_NAMES.get(channel_type, channel_type),
                 "review_info": f"{review_count} reviews, {rating}★" if rating else f"{review_count} reviews",
                 "amazon_url": f"https://www.amazon.co.uk/dp/{asin}",
+                "image_url": img_url,
             })
 
     return products
