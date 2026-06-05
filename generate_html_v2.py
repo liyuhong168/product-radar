@@ -551,7 +551,7 @@ function scheduleSyncToGitHub(status) {
 }
 
 async function syncToGitHub(status) {
-    const token = DATA.github_token;
+    const token = atob(DATA.github_token_b64 || '');
     if (!token) {
         document.getElementById('syncStatus').textContent = '⚠️ 未配置token';
         return;
@@ -990,9 +990,6 @@ def generate_html(data_file, output_file=None):
     else:
         data["status"] = {}
 
-    # Inject GitHub token for auto-sync (read from git remote URL)
-    data["github_token"] = "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"
-
     # Scan all available data files for date picker
     data_dir = BASE / "data" / "channels"
     available_scans = []
@@ -1085,9 +1082,6 @@ def _generate_single(data_file, output_file, config):
             data["status"] = {}
     else:
         data["status"] = {}
-    # Inject GitHub token for auto-sync
-    data["github_token"] = "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"
-
     js_data = json.dumps(data, ensure_ascii=False)
     page = f"""<!DOCTYPE html>
 <html lang="zh-CN">
