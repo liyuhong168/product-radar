@@ -560,7 +560,7 @@ function setGitHubToken(token) {
     alert('Token已保存到浏览器');
 }
 function promptForToken() {
-    const token = prompt('请输入GitHub Personal Access Token (repo权限):');
+    const token = prompt('请输入GitHub Token (仅需public_repo权限):');
     if (token) {
         setGitHubToken(token);
     }
@@ -581,46 +581,34 @@ async function syncToGitHub(status) {
     el.style.color = '#FF9500';
 
     try {
-        // 1. Get current file SHA (needed for update)
-        const apiUrl = 'https://api.github.com/repos/liyuhong168/product-radar/contents/status.json';
-        const getRes = await fetch(apiUrl, { headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' } });
-        
-        let sha = null;
-        let serverStatus = {};
-        if (getRes.ok) {
-            const fileData = await getRes.json();
-            sha = fileData.sha;
-            serverStatus = JSON.parse(atob(fileData.content));
+        // Trigger GitHub Actions workflow for each status change
+        const results = [];
+        for (const [asin, newStatus] of Object.entries(status)) {
+            const apiUrl = 'https://api.github.com/repos/liyuhong168/product-radar/actions/workflows/update-status.yml/dispatches';
+            const res = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ref: 'main',
+                    inputs: { asin, status: newStatus }
+                }),
+            });
+            results.push({ asin, ok: res.ok, status: res.status });
         }
 
-        // 2. Merge: our local changes + server (local wins for changed keys)
-        const merged = {...serverStatus, ...status};
-
-        // 3. Commit merged status
-        const body = {
-            message: `update status (${Object.keys(merged).length} products)`,
-            content: btoa(unescape(encodeURIComponent(JSON.stringify(merged, null, 2)))),
-        };
-        if (sha) body.sha = sha;
-
-        const putRes = await fetch(apiUrl, {
-            method: 'PUT',
-            headers: {
-                'Authorization': `token ${token}`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body),
-        });
-
-        if (putRes.ok) {
-            el.textContent = '✅ 已同步';
+        const allOk = results.every(r => r.ok);
+        if (allOk) {
+            el.textContent = '✅ 已提交同步';
             el.style.color = '#34C759';
-            // Update DATA.status so next loadStatus picks it up
-            DATA.status = merged;
+            // Update local DATA
+            DATA.status = {...DATA.status, ...status};
         } else {
-            const err = await putRes.json();
-            el.textContent = `❌ 同步失败: ${err.message || putRes.status}`;
+            const failed = results.filter(r => !r.ok);
+            el.textContent = `❌ 同步失败 (${failed[0].status})`;
             el.style.color = '#FF3B30';
         }
     } catch(e) {
