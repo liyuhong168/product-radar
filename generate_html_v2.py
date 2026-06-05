@@ -147,6 +147,7 @@ def _render_filters():
             </select>
         </div>
         <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
+        <button class="btn-export" onclick="promptForToken()" style="background:#5856d6;margin-left:4px">🔑 设置Token</button>
         <span id="syncStatus" style="font-size:12px;color:#8e8e93;margin-left:8px"></span>
     </div>"""
 
