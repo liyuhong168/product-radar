@@ -532,13 +532,18 @@ const scans = DATA.available_scans || [];
 const urlParams = new URLSearchParams(window.location.search);
 const requestedDate = urlParams.get('date');
 
-// If date parameter exists, load that date's data
+// If date parameter exists, load that date's data from embedded scans
 if (requestedDate && scans.length > 0) {
     const targetScan = scans.find(s => s.ts === requestedDate);
-    if (targetScan && targetScan.file !== DATA.scan_ts + '.json') {
-        // Load the target date's data
-        fetch('data/channels/' + targetScan.file)
-            .then(response => response.json())
+    if (targetScan && targetScan.ts !== DATA.scan_ts) {
+        // Find the scan data in available_scans
+        // Note: We need to fetch the JSON file from the server
+        const jsonFile = 'data/channels/' + targetScan.file;
+        fetch(jsonFile)
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load');
+                return response.json();
+            })
             .then(newData => {
                 // Update DATA with new scan data
                 Object.assign(DATA, newData);
@@ -550,7 +555,11 @@ if (requestedDate && scans.length > 0) {
                 renderProducts();
                 updateStats();
             })
-            .catch(err => console.error('Failed to load date data:', err));
+            .catch(err => {
+                console.error('Failed to load date data:', err);
+                // Fallback: try to load from embedded data
+                // (This won't work unless we embed all data in the HTML)
+            });
     }
 }
 

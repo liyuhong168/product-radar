@@ -21,9 +21,20 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
+      - name: Prepare deployment
+        run: |
+          # Create deploy directory
+          mkdir -p deploy/data/channels
+          
+          # Copy output files
+          cp -r output/* deploy/
+          
+          # Copy data files for date picker
+          cp data/channels/*.json deploy/data/channels/
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: output
+          path: deploy
 
       - id: deployment
         uses: actions/deploy-pages@v4
