@@ -3,7 +3,7 @@
 Product Radar v2 - Channel Aggregation HTML Dashboard
 Generates a tabbed, filterable product dashboard with review status tracking.
 """
-import json, sys, html as htmlmod
+import json, sys, html as htmlmod, re
 from datetime import datetime
 from pathlib import Path
 
@@ -147,6 +147,7 @@ def _render_filters():
             </select>
         </div>
         <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
+        <span id="syncStatus" style="font-size:12px;color:#8e8e93;margin-left:8px"></span>
     </div>"""
 
 
@@ -527,13 +528,86 @@ function switchDate(file) {
     window.location.href = base;
 }
 
-// Load status from localStorage
+// Load status: merge server-side (from status.json) with localStorage (local overrides)
 function loadStatus() {
-    try { return JSON.parse(localStorage.getItem(statusKey) || '{}'); }
-    catch { return {}; }
+    let server = {};
+    try { server = DATA.status || {}; } catch {}
+    let local = {};
+    try { local = JSON.parse(localStorage.getItem(statusKey) || '{}'); } catch {}
+    return {...server, ...local};
 }
 function saveStatus(status) {
     localStorage.setItem(statusKey, JSON.stringify(status));
+    scheduleSyncToGitHub(status);
+}
+
+// Auto-sync to GitHub (debounced - waits 3s after last change)
+let syncTimer = null;
+let syncPending = false;
+function scheduleSyncToGitHub(status) {
+    if (syncTimer) clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => syncToGitHub(status), 3000);
+    document.getElementById('syncStatus').textContent = '⏳ 待同步...';
+}
+
+async function syncToGitHub(status) {
+    const token = DATA.github_token;
+    if (!token) {
+        document.getElementById('syncStatus').textContent = '⚠️ 未配置token';
+        return;
+    }
+    const el = document.getElementById('syncStatus');
+    el.textContent = '☁️ 同步中...';
+    el.style.color = '#FF9500';
+
+    try {
+        // 1. Get current file SHA (needed for update)
+        const apiUrl = 'https://api.github.com/repos/liyuhong168/product-radar/contents/status.json';
+        const getRes = await fetch(apiUrl, { headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' } });
+        
+        let sha = null;
+        let serverStatus = {};
+        if (getRes.ok) {
+            const fileData = await getRes.json();
+            sha = fileData.sha;
+            serverStatus = JSON.parse(atob(fileData.content));
+        }
+
+        // 2. Merge: our local changes + server (local wins for changed keys)
+        const merged = {...serverStatus, ...status};
+
+        // 3. Commit merged status
+        const body = {
+            message: `update status (${Object.keys(merged).length} products)`,
+            content: btoa(unescape(encodeURIComponent(JSON.stringify(merged, null, 2)))),
+        };
+        if (sha) body.sha = sha;
+
+        const putRes = await fetch(apiUrl, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+        });
+
+        if (putRes.ok) {
+            el.textContent = '✅ 已同步';
+            el.style.color = '#34C759';
+            // Update DATA.status so next loadStatus picks it up
+            DATA.status = merged;
+        } else {
+            const err = await putRes.json();
+            el.textContent = `❌ 同步失败: ${err.message || putRes.status}`;
+            el.style.color = '#FF3B30';
+        }
+    } catch(e) {
+        el.textContent = `❌ 网络错误`;
+        el.style.color = '#FF3B30';
+    }
+    setTimeout(() => { el.textContent = ''; }, 5000);
 }
 
 // Tab switching
@@ -723,7 +797,7 @@ function renderProducts() {
         let tiersHtml = '';
         if (tiers.length > 0 && bd.vat !== undefined) {
             const tierParts = tiers.map(t => {
-                const tierCost = bd.vat + bd.commission + bd.fba + bd.ads + bd.returns + bd.storage + bd.dsc + t.cost;
+                const tierCost = bd.vat + bd.commission + bd.fba + bd.ads + bd.returns + t.cost;
                 const tierNet = p.price - tierCost;
                 const tierMargin = (tierNet / p.price * 100).toFixed(1);
                 const mClass = tierMargin >= 25 ? '' : tierMargin >= 20 ? ' mid' : ' low';
@@ -752,7 +826,7 @@ function renderProducts() {
         }).join('');
 
         const costLine = bd.vat !== undefined ?
-            `VAT £${bd.vat} + 佣金 £${bd.commission} + FBA £${bd.fba} + 广告 £${bd.ads} + 退货 £${bd.returns} + 仓储 £${bd.storage} + 数字 £${bd.dsc} + 采购 £${bd.sourcing}` : '';
+            `VAT £${bd.vat} + 佣金 £${bd.commission} + FBA £${bd.fba} + 广告 £${bd.ads} + 退货 £${bd.returns} + 采购 £${bd.sourcing}` : '';
 
         return `
         <div class="product-card" data-status="${s}" data-asin="${p.asin}">
@@ -760,8 +834,6 @@ function renderProducts() {
                 <span class="channel-badge" style="background:${ch[2]}">${ch[0]} ${ch[1]}</span>
                 <span class="score-badge score-${scoreClass}" title="${scoreBreakdown}">${displayScore}分 ${starStr}</span>
             </div>
-            <div class="score-label">${scoreLabel}</div>
-            ${scoreBreakdown ? `<div class="score-detail">${scoreBreakdown}</div>` : ''}
             <div class="product-name">
                 <a href="${p.amazon_url}" target="_blank" rel="noopener">${escHtml(p.name)}</a>
             </div>
@@ -771,7 +843,7 @@ function renderProducts() {
                 <span>💬 ${p.reviews || 0}</span>
                 <span>📁 ${p.category || '-'}</span>
             </div>
-            <div class="signal-badges">${signals.join('')} ${confidenceHtml} ${sdHtml} ${divHtml}</div>
+            <div class="signal-badges">${signals.join('')}</div>
             <div class="profit-section">
                 <div class="profit-bar-bg">
                     <div class="profit-bar" style="width:${marginWidth}%;background:${margin >= 30 ? '#34C759' : margin >= 20 ? '#FF9500' : '#FF3B30'}"></div>
@@ -908,6 +980,20 @@ def generate_html(data_file, output_file=None):
     # Inject sourcing tiers from config
     data["tiers"] = config.get("sourcing_tiers", [])
 
+    # Inject shared team status from status.json
+    status_file = BASE / "status.json"
+    if status_file.exists():
+        try:
+            data["status"] = json.loads(status_file.read_text())
+        except Exception:
+            data["status"] = {}
+    else:
+        data["status"] = {}
+
+    # Inject GitHub token for auto-sync (read from git remote URL)
+    # Token excluded from HTML to avoid GitHub secret scanning block
+    data["github_token"] = ""
+
     # Scan all available data files for date picker
     data_dir = BASE / "data" / "channels"
     available_scans = []
@@ -991,6 +1077,17 @@ def _generate_single(data_file, output_file, config):
     stats["channels"]["all"] = len(products)
     data["tiers"] = config.get("sourcing_tiers", [])
     data["available_scans"] = []  # Not needed for per-scan pages
+    # Inject shared team status
+    status_file = BASE / "status.json"
+    if status_file.exists():
+        try:
+            data["status"] = json.loads(status_file.read_text())
+        except Exception:
+            data["status"] = {}
+    else:
+        data["status"] = {}
+    # Inject GitHub token for auto-sync
+    data["github_token"] = ""
 
     js_data = json.dumps(data, ensure_ascii=False)
     page = f"""<!DOCTYPE html>

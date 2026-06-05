@@ -190,12 +190,31 @@ def _analyze_trends(results, source_names):
             cross_validated[cat] = sources_found
             category_scores[cat] = min(100, category_scores[cat] + 15)
 
+    # Filter garbage demand keywords (LLM instruction artifacts)
+    GARBAGE_PATTERNS = {
+        'analyze', 'compare', 'find profitable', 'best of', 'how to', 'what is',
+        'top 10', 'top 5', 'review', 'guide', 'tutorial', 'tips for', 'ways to',
+        'reasons to', 'things to', 'amazon comparing', 'the title', 'the product',
+    }
+    filtered_keywords = set()
+    for kw in demand_keywords:
+        kw_lower = kw.lower().strip()
+        # Skip if too short or matches garbage pattern
+        if len(kw_lower) < 6:
+            continue
+        if any(g in kw_lower for g in GARBAGE_PATTERNS):
+            continue
+        # Skip if it looks like an instruction (starts with verb + "the")
+        if re.match(r'^(analyze|find|compare|check|review|list|identify)\s', kw_lower):
+            continue
+        filtered_keywords.add(kw)
+
     return {
         "category_scores": category_scores,
         "category_evidence": {k: list(v) for k, v in category_evidence.items()},
         "source_signals": {k: dict(v) for k, v in source_signals.items() if v},
         "cross_validated": cross_validated,
-        "demand_keywords": sorted(demand_keywords)[:30],
+        "demand_keywords": sorted(filtered_keywords)[:30],
         "season": _get_season(season_month),
         "total_queries": len(results),
         "total_results_chars": sum(len(r["text"]) for r in results),

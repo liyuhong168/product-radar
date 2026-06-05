@@ -17,12 +17,10 @@
     "commission_home": 0.08,
     "commission_pets": 0.05,
     "ad_rate": 0.05,
-    "return_rate": 0.03,
-    "storage_rate": 0.01,
-    "digital_service_fee": 0.07,
-    "fba_small_standard": 1.28,
+    "return_rate": 0.02,
+    "fba_small_standard": 1.46,
     "fba_large_standard": 2.46,
-    "sourcing_cost": 1.0
+    "sourcing_cost": 0.8
   },
   "forbidden_categories": [
     "children",
@@ -66,10 +64,8 @@
     "doll",
     "makeup",
     "lipstick",
-    "cream",
     "lotion",
     "serum",
-    "food",
     "snack",
     "vitamin",
     "supplement",
@@ -111,41 +107,26 @@
     "smart band",
     "fitness tracker",
     "smartwatch",
-    "furniture",
-    "chair",
     "wardrobe",
     "beauty buys",
     "skincare",
     "hair care",
-    "paint",
     "emulsion",
     "varnish",
-    "stain",
-    "spray",
     "aerosol",
-    "pressurised",
-    "compressed",
     "inflatable",
     "air bed",
     "airbed",
     "mattress",
     "liquid",
     "fluid",
-    "solution",
-    "gel",
-    "oil",
     "grease",
-    "paste",
-    "ml",
     "litre",
     "litres",
     "liter",
     "liters",
     "polish",
-    "restorer",
     "wax",
-    "compound",
-    "deionised water",
     "bleach",
     "detergent",
     "shampoo",
@@ -164,16 +145,14 @@
     "massage oil",
     "baby oil",
     "glue",
-    "adhesive",
     "resin",
     "epoxy",
     "drink",
     "beverage",
     "juice",
-    "water bottle",
     "perfume",
-    "cologne",
-    "fragrance"
+    "spray paint",
+    "tooth paste"
   ],
   "sources": {
     "amazon_uk": {
@@ -197,7 +176,16 @@
         "bedding",
         "pet-supplies",
         "diy-craft-tools",
-        "home-improvement"
+        "home-improvement",
+        "pet-toys",
+        "car-accessories",
+        "travel-accessories",
+        "party-supplies",
+        "bathroom-accessories",
+        "home-storage",
+        "kitchen-accessories",
+        "phone-accessories",
+        "tech-accessories"
       ],
       "urls": {
         "new_releases": "https://www.amazon.co.uk/gp/new-releases/{cat}",
@@ -257,9 +245,21 @@
   "max_reviews": 100,
   "min_rating": 4.0,
   "sourcing_tiers": [
-    {"label": "低档", "cost": 0.80, "desc": "1688低价+空运"},
-    {"label": "中档", "cost": 1.20, "desc": "1688均价+空运"},
-    {"label": "高档", "cost": 1.50, "desc": "品牌供应商+卡航"}
+    {
+      "label": "低档",
+      "cost": 0.8,
+      "desc": "1688低价+空运"
+    },
+    {
+      "label": "中档",
+      "cost": 1.2,
+      "desc": "1688均价+空运"
+    },
+    {
+      "label": "高档",
+      "cost": 1.5,
+      "desc": "品牌供应商+卡航"
+    }
   ],
   "forbidden_brands": [
     "amazon basics",

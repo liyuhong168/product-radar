@@ -141,8 +141,7 @@ def _get_signal_confidence(internal, external_count):
 def _has_demand_signal(product):
     """Check if product has at least one external demand signal.
     Internal-only (Amazon) does NOT count as demand signal for filter purposes."""
-    _, external_count = _classify_signal_sources(product)[1], _classify_signal_sources(product)[2]
-    internal, ext_list, ext_count = _classify_signal_sources(product)
+    _, _, ext_count = _classify_signal_sources(product)
     return ext_count >= 1
 
 

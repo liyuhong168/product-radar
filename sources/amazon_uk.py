@@ -23,6 +23,10 @@ AMAZON_URLS = {
     "Bedding|new_releases": "https://www.amazon.co.uk/gp/new-releases/bedding/",
     "Pets|new_releases": "https://www.amazon.co.uk/gp/new-releases/pet-supplies/",
     "Home|new_releases": "https://www.amazon.co.uk/gp/new-releases/home/",
+    "Phone|new_releases": "https://www.amazon.co.uk/gp/new-releases/mobile-phone-accessories/",
+    "Tech|new_releases": "https://www.amazon.co.uk/gp/new-releases/computers-accessories/",
+    "Travel|new_releases": "https://www.amazon.co.uk/gp/new-releases/sport-leisure/travel-accessories/",
+    "Party|new_releases": "https://www.amazon.co.uk/gp/new-releases/party-supplies-balloons/",
     # === BESTSELLERS (BSR) ===
     "Kitchen|bsr": "https://www.amazon.co.uk/gp/bestsellers/kitchen/",
     "Garden|bsr": "https://www.amazon.co.uk/gp/bestsellers/garden/",
@@ -37,6 +41,8 @@ AMAZON_URLS = {
     "Lighting|bsr": "https://www.amazon.co.uk/gp/bestsellers/lighting/",
     "Bedding|bsr": "https://www.amazon.co.uk/gp/bestsellers/bedding/",
     "Pets|bsr": "https://www.amazon.co.uk/gp/bestsellers/pet-supplies/",
+    "Phone|bsr": "https://www.amazon.co.uk/gp/bestsellers/mobile-phone-accessories/",
+    "Tech|bsr": "https://www.amazon.co.uk/gp/bestsellers/computers-accessories/",
     # === MOST WISHED FOR (需求信号) ===
     "Kitchen|wished": "https://www.amazon.co.uk/gp/most-wished-for/kitchen/",
     "Garden|wished": "https://www.amazon.co.uk/gp/most-wished-for/garden/",
@@ -46,6 +52,7 @@ AMAZON_URLS = {
     "Automotive|wished": "https://www.amazon.co.uk/gp/most-wished-for/automotive/",
     "Pets|wished": "https://www.amazon.co.uk/gp/most-wished-for/pet-supplies/",
     "Office|wished": "https://www.amazon.co.uk/gp/most-wished-for/stationery-office/",
+    "Phone|wished": "https://www.amazon.co.uk/gp/most-wished-for/mobile-phone-accessories/",
     # === GIFT IDEAS (送礼需求) ===
     "Kitchen|gifts": "https://www.amazon.co.uk/gp/gifts/kitchen/",
     "Garden|gifts": "https://www.amazon.co.uk/gp/gifts/garden/",
@@ -61,6 +68,28 @@ CHANNEL_NAMES = {
     "bsr": "Amazon畅销榜",
     "wished": "Amazon心愿榜",
     "gifts": "Amazon送礼榜",
+}
+
+# Category validation keywords — product name must contain at least one
+CATEGORY_VALIDATORS = {
+    "Kitchen": ["kitchen", "cooking", "baking", "utensil", "gadget", "spice", "mug", "cup", "pan", "pot", "chop", "peel", "slice", "grater", "measuring", "timer", "tray", "bowl", "plate", "coffee", "tea", "stove", "oven", "dish", "cutlery", "ladle", "whisk", "tongs", "colander", "sieve"],
+    "Garden": ["garden", "outdoor", "plant", "flower", "patio", "bbq", "grill", "solar", "bird", "hose", "watering", "lawn", "hedge", "seed", "pot", "soil", "compost", "fence", "decking", "terrace", "planter", "trellis"],
+    "DIY": ["diy", "tool", "drill", "screw", "nail", "hammer", "wrench", "pliers", "tape measure", "level", "saw", "clamp", "socket", "hex", "torx", "breaker", "spanner", "ratchet", "chisel", "sandpaper", "paint roller"],
+    "Sports": ["sport", "fitness", "yoga", "gym", "exercise", "resistance", "mat", "dumbbell", "kettlebell", "band", "jump rope", "grip", "foam roller", "running", "cycling", "swimming", "camping", "hiking", "ball", "racket"],
+    "Bathroom": ["bathroom", "shower", "toilet", "towel", "soap", "mirror", "bath", "shaver", "razor", "hook", "organiser", "dispenser", "toothbrush", "tumbler", "mat", "rail", "caddy"],
+    "Cleaning": ["clean", "mop", "duster", "brush", "sponge", "vacuum", "cloth", "wipe", "stain", "lint", "scrub", "squeegee", "broom", "dustpan", "bucket"],
+    "Office": ["desk", "office", "stationery", "pen", "notebook", "organiser", "laptop", "mouse", "keyboard", "monitor", "stand", "file", "folder", "stapler", "clip", "marker", "highlighter", "diary", "planner"],
+    "Automotive": ["car", "vehicle", "dashboard", "phone holder", "motor", "tyre", "wheel", "wiper", "seat", "mat", "winch", "tow", "hitch", "socket", "ratchet", "wrench", "nut", "bolt", "fuse", "led", "light", "motorcycle", "bike", "engine", "oil", "brake", "bumper", "mudguard"],
+    "Lighting": ["led", "light", "lamp", "night light", "strip", "fairy", "solar light", "bulb", "lantern", "chandelier", "spotlight", "dimmer"],
+    "Storage": ["storage", "organiser", "box", "basket", "shelf", "drawer", "container", "bag", "pouch", "rack", "crate", "bin", "caddy"],
+    "Crafts": ["craft", "art", "paint", "brush", "sticker", "tape", "sewing", "knit", "crochet", "needle", "thread", "fabric", "scissors", "bead", "ribbon", "washi", "vinyl", "resin", "mould"],
+    "Bedding": ["bedding", "pillow", "blanket", "sheet", "duvet", "cushion", "throw", "mattress", "sleep", "quilt", "comforter"],
+    "Pets": ["pet", "dog", "cat", "collar", "leash", "bed", "grooming", "litter", "feeder", "aquarium", "fish", "hamster", "rabbit", "puppy", "kitten", "paw", "chew", "scratch"],
+    "Home": ["home", "decor", "wall", "candle", "vase", "frame", "mirror", "clock", "hook", "hanger", "doormat", "curtain", "blind", "rug", "carpet"],
+    "Phone": ["phone", "mobile", "iphone", "samsung galaxy", "case", "screen protector", "tempered glass", "sim card", "earphone", "earbuds", "headphone", "pop socket", "magsafe"],
+    "Tech": ["laptop", "computer", "tablet", "keyboard", "mouse", "webcam", "usb", "hub", "docking", "monitor", "ethernet", "wifi", "bluetooth", "speaker", "headset", "micro sd", "memory card", "cable", "adapter"],
+    "Travel": ["travel", "luggage", "suitcase", "packing", "passport", "luggage tag", "neck pillow", "eye mask", "toiletry", "travel adapter", "compression", "organiser bag"],
+    "Party": ["party", "balloon", "birthday", "banner", "confetti", "bunting", "decoration", "disposable", "plates", "napkin", "cupcake", "candle"],
 }
 
 
@@ -122,6 +151,12 @@ def _parse_amazon_page(html, category, channel_type):
         rating = float(ratings[i]) if i < len(ratings) else 0
 
         if title and price > 0:
+            # Validate category: skip products whose name doesn't match the page category
+            title_lower = title.lower()
+            validators = CATEGORY_VALIDATORS.get(category, [])
+            if validators and not any(kw in title_lower for kw in validators):
+                continue  # Skip cross-category contamination
+
             products.append({
                 "asin": asin,
                 "name": title[:120],

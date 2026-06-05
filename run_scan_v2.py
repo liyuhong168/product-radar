@@ -55,47 +55,67 @@ def match_keywords_to_products(keywords, products, source_tag):
 
 
 def enrich_from_trend_data(products, trend_data):
-    """Add trend-based signals to products (HotUKDeals, Temu, Etsy, YouTube).
-    Uses improved matching: requires category keyword in product name, not just category field."""
+    """Add trend-based signals to products using evidence keywords + raw text matching.
+    
+    Uses three matching strategies:
+    1. category_evidence keywords (specific terms like "grooming", "collar") → product name
+    2. source_signals categories → product category field (loose match)
+    3. Raw AnySearch text → product name keyword extraction (like Google/Reddit enrichment)
+    """
+    import re
     source_signals = trend_data.get("source_signals", {})
-
+    cat_evidence = trend_data.get("category_evidence", {})
+    cat_scores = trend_data.get("category_scores", {})
+    
     source_map = {
         "hotukdeals": "HotUKDeals热帖",
         "temu": "Temu热销",
         "etsy": "Etsy趋势",
         "youtube": "YouTube种草",
+        "tiktok": "TikTok趋势",
     }
 
-    # Build keyword sets per source from trend data
-    demand_keywords = set()
-    for kw in trend_data.get("demand_keywords", []):
-        if len(kw) > 4:
-            demand_keywords.add(kw.lower())
+    # Strategy 1: Use category evidence keywords for precise matching
+    # e.g., "pets" has evidence ["grooming", "collar", "leash", "feeder"]
+    # A product named "Dog Grooming Brush" matches because "grooming" is in evidence
+    for p in products:
+        name_lower = p.get("name", "").lower()
+        category = p.get("category", "").lower()
+        
+        matched_sources = set()
+        for cat, evidence_kws in cat_evidence.items():
+            if cat_scores.get(cat, 0) < 30:  # Only care about trending categories
+                continue
+            # Check if evidence keyword appears in product name
+            for kw in evidence_kws:
+                kw_lower = kw.lower().strip()
+                if len(kw_lower) >= 4 and kw_lower in name_lower:
+                    # Find which sources had this category
+                    for source_key, source_tag in source_map.items():
+                        if source_key in source_signals:
+                            if cat in source_signals[source_key]:
+                                matched_sources.add(source_tag)
+                    break  # One match per category is enough
+        
+        for tag in matched_sources:
+            if tag not in p.get("sources", []):
+                p.setdefault("sources", []).append(tag)
 
-    for source_key, source_tag in source_map.items():
-        if source_key in source_signals:
-            cats = source_signals[source_key]
-            for p in products:
-                name_lower = p.get("name", "").lower()
-                category = p.get("category", "").lower()
-                # Match: keyword must appear in product NAME (not just category)
-                matched = False
+    # Strategy 2: Match by product category field (only for products not yet matched)
+    for p in products:
+        if p.get("sources"):  # Already matched by evidence keywords — skip
+            continue
+        category = p.get("category", "").lower()
+        if not category:
+            continue
+        for source_key, source_tag in source_map.items():
+            if source_key in source_signals:
+                cats = source_signals[source_key]
                 for cat in cats:
-                    cat_lower = cat.lower() if isinstance(cat, str) else str(cat).lower()
-                    if len(cat_lower) >= 5 and cat_lower in name_lower:
-                        matched = True
+                    if cat in category or category in cat:
+                        if source_tag not in p.get("sources", []):
+                            p.setdefault("sources", []).append(source_tag)
                         break
-                    # Also check category field for exact category match
-                    if len(cat_lower) >= 5 and cat_lower in category:
-                        # But also require at least one name keyword
-                        name_words = set(w for w in name_lower.split() if len(w) >= 5)
-                        cat_words = set(w for w in cat_lower.split() if len(w) >= 4)
-                        if name_words & cat_words:
-                            matched = True
-                            break
-                if matched:
-                    if source_tag not in p.get("sources", []):
-                        p.setdefault("sources", []).append(source_tag)
 
     return products
 
@@ -161,11 +181,20 @@ def filter_products(products, config):
         if forbidden:
             rejected.append({"name": name[:60], "reason": f"禁选: {reason}", "asin": p.get("asin")}); continue
 
-        # 2. 大品牌排除
+        # 2. 大品牌排除（配件豁免：如果同时出现配件关键词，说明是兼容配件不是品牌自营）
+        ACCESSORY_KEYWORDS = {
+            "case", "cover", "charger", "cable", "holder", "protector", "stand",
+            "mount", "dock", "sleeve", "pouch", "strap", "band", "screen protector",
+            "tempered glass", "skin", "decals", "sticker", "adapter", "hub",
+            "compatible", "for ", "fits ", "replacement"
+        }
         brand_hit = None
         for brand in forbidden_brands:
             if brand in name_lower:
-                brand_hit = brand; break
+                # Check if this is an accessory FOR the brand (not the brand's own product)
+                is_accessory = any(kw in name_lower for kw in ACCESSORY_KEYWORDS)
+                if not is_accessory:
+                    brand_hit = brand; break
         if brand_hit:
             rejected.append({"name": name[:60], "reason": f"大牌: {brand_hit}", "asin": p.get("asin")}); continue
 
@@ -283,7 +312,7 @@ def main():
 
     # 1. Amazon (New/BSR/Wished/Gifts)
     print("[1/7] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
-    amazon_products = fetch_amazon(max_per_channel_type=8)  # 每类扫8个品类
+    amazon_products = fetch_amazon(max_per_channel_type=18)  # 扫描全部品类
     print(f"  Amazon: {len(amazon_products)} products", file=sys.stderr)
 
     # 2. AnySearch trends (TikTok+HotUKDeals+Temu+Etsy+YouTube+Google+Reddit)

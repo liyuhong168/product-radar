@@ -40,10 +40,15 @@ for i, p in enumerate(d.get('products',[])[:3], 1):
     print(f'     £{p[\"price\"]} | 利润{p[\"profit_margin\"]*100:.0f}% | 评分{p[\"score\"]} | {sig} {sd}')
 "
 
+# 飞书推送
+echo ""
+echo "📨 推送到飞书..."
+python3 feishu_push.py 2>&1 || echo "  ⚠️ 飞书推送失败（不影响扫描）"
+
 # Deploy to GitHub
 echo ""
 echo "📦 部署到 GitHub Pages..."
-git add data/ output/ -f 2>/dev/null
+git add data/ output/ status.json -f 2>/dev/null
 git diff --cached --quiet && echo "  无变更" && exit 0
 git commit -m "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>/dev/null
 git pull --rebase 2>/dev/null || true
