@@ -1,0 +1,59 @@
+{
+  "updated": "2026-06-06",
+  "note": "每季度更新一次，覆盖未来3个月的UK消费节点",
+  "events": [
+    {
+      "date": "2026-06-14",
+      "name": "FIFA世界杯开幕",
+      "end_date": "2026-07-13",
+      "categories": ["party supplies", "flags", "football accessories", "bbq", "outdoor seating"],
+      "action_deadline": "2026-05-25",
+      "note": "英格兰首战6/17 vs克罗地亚"
+    },
+    {
+      "date": "2026-07-22",
+      "name": "学校暑假开始",
+      "end_date": "2026-09-01",
+      "categories": ["kids activities", "outdoor toys", "travel accessories", "beach items", "pool toys"],
+      "action_deadline": "2026-06-15"
+    },
+    {
+      "date": "2026-08-25",
+      "name": "Summer Bank Holiday",
+      "categories": ["bbq", "outdoor entertaining", "garden decor", "picnic supplies"],
+      "action_deadline": "2026-07-20"
+    },
+    {
+      "date": "2026-09-01",
+      "name": "返校季高峰",
+      "categories": ["stationery", "lunch boxes", "backpacks", "organisers", "desk accessories"],
+      "action_deadline": "2026-07-25"
+    },
+    {
+      "date": "2026-09-22",
+      "name": "秋季开始",
+      "categories": ["autumn decor", "warm lighting", "cosy home", "halloween prep"],
+      "action_deadline": "2026-08-15"
+    },
+    {
+      "date": "2026-10-31",
+      "name": "万圣节",
+      "categories": ["halloween costumes", "halloween decor", "spooky accessories", "face paint", "party supplies"],
+      "action_deadline": "2026-09-15"
+    },
+    {
+      "date": "2026-11-27",
+      "name": "Black Friday",
+      "end_date": "2026-11-30",
+      "categories": ["gift sets", "home gadgets", "tech accessories", "beauty sets"],
+      "action_deadline": "2026-10-15"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "圣诞节",
+      "end_date": "2026-12-26",
+      "categories": ["christmas decor", "gift wrap", "stocking fillers", "advent calendars", "party supplies"],
+      "action_deadline": "2026-10-20"
+    }
+  ]
+}
