@@ -53,35 +53,38 @@ def _render_header(data):
         if cnt > 0:
             badges += f'<span class="stat-badge" style="background:{color}15;color:{color}">{emoji} {label}: {cnt}</span>'
 
-    # Trending categories section
+    # Trending categories section — removed (redundant with gap opportunity section)
     trend_html = ""
-    if trend_cats:
-        trend_items = "".join(
-            f'<span class="trend-chip">{cat} <b>{score}</b></span>'
-            for cat, score in sorted(trend_cats.items(), key=lambda x: -x[1])[:6]
-        )
-        trend_html = f'<div class="trend-section"><span class="trend-label">📊 AnySearch趋势:</span> {trend_items}</div>'
-
-    # Supply-Demand section
-    sd_data = stats.get("supply_demand", {})
     sd_html = ""
-    if sd_data:
-        sd_items = "".join(
-            f'<span class="trend-chip">{info["label"]} {cat} <b>{info["ratio"]}</b></span>'
-            for cat, info in list(sd_data.items())[:6]
-        )
-        sd_html = f'<div class="trend-section"><span class="trend-label">🌊 供需比:</span> {sd_items}</div>'
+
+    # Radar SVG logo
+    radar_logo = '''<svg class="radar-logo" viewBox="0 0 48 48" width="40" height="40">
+        <circle cx="24" cy="24" r="22" fill="none" stroke="#007AFF" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="24" cy="24" r="16" fill="none" stroke="#007AFF" stroke-width="1.2" opacity="0.25"/>
+        <circle cx="24" cy="24" r="10" fill="none" stroke="#007AFF" stroke-width="1" opacity="0.2"/>
+        <line x1="24" y1="24" x2="24" y2="4" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24,24 L24,4 A20,20 0 0,1 40,16 Z" fill="#007AFF" opacity="0.15"/>
+        <circle cx="24" cy="24" r="3" fill="#007AFF"/>
+        <circle cx="32" cy="14" r="2.5" fill="#34C759" opacity="0.8">
+            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="18" cy="12" r="2" fill="#FF9500" opacity="0.7">
+            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="30" cy="28" r="1.8" fill="#34C759" opacity="0.6">
+            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="4s" repeatCount="indefinite"/>
+    </svg>'''
 
     return f"""
     <header class="header">
         <div class="header-top">
-            <h1>🔍 选品雷达 <span class="version">v3</span></h1>
+            <h1>{radar_logo} 选品雷达 <span class="version">V2</span></h1>
             <div class="scan-info">{d} {t} · 扫描 {total} · 通过 {passed}</div>
             <div class="date-picker" id="datePicker"></div>
         </div>
         <div class="stat-badges">{badges}</div>
-        {trend_html}
-        {sd_html}
     </header>"""
 
 
@@ -189,7 +192,8 @@ body {
 /* Header */
 .header { margin-bottom: 20px; }
 .header-top { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-.header h1 { font-size: 28px; font-weight: 700; }
+.header h1 { font-size: 28px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.radar-logo { flex-shrink: 0; }
 .version {
     font-size: 12px; background: #007AFF; color: white;
     padding: 2px 8px; border-radius: 8px; vertical-align: middle;
@@ -990,8 +994,10 @@ function renderGaps(grid) {
         const sdLabel = g.sd_info ? g.sd_info.label : '';
 
         const suggestions = (g.suggestions || []).slice(0, 5);
-        const suggestHtml = suggestions.map(s => {
-            const url = `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(s)}`;
+        const suggestionsCn = (g.suggestions_cn || []).slice(0, 5);
+        const suggestHtml = suggestions.map((s, i) => {
+            const searchKw = suggestionsCn[i] || s;
+            const url = `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(searchKw)}`;
             return `<a href="${url}" target="_blank" rel="noopener" class="gap-platform found" style="text-decoration:none">${s}</a>`;
         }).join('');
 
@@ -1120,7 +1126,8 @@ def generate_html(data_file, output_file=None):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选品雷达 v3 | {data.get('scan_date', '')}</title>
+    <title>选品雷达V2 | {data.get('scan_date', '')}</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='none' stroke='%23007AFF' stroke-width='2'/%3E%3Ccircle cx='24' cy='24' r='16' fill='none' stroke='%23007AFF' stroke-width='1.5' opacity='0.5'/%3E%3Ccircle cx='24' cy='24' r='10' fill='none' stroke='%23007AFF' stroke-width='1' opacity='0.3'/%3E%3Cline x1='24' y1='24' x2='24' y2='4' stroke='%23007AFF' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M24,24 L24,4 A20,20 0 0,1 40,16 Z' fill='%23007AFF' opacity='0.2'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%23007AFF'/%3E%3Ccircle cx='32' cy='14' r='2.5' fill='%2334C759'/%3E%3Ccircle cx='18' cy='12' r='2' fill='%23FF9500'/%3E%3C/svg%3E">
     <style>{CSS}</style>
 </head>
 <body>
@@ -1191,7 +1198,8 @@ def _generate_single(data_file, output_file, config):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选品雷达 v3 | {data.get('scan_date', '')}</title>
+    <title>选品雷达V2 | {data.get('scan_date', '')}</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='none' stroke='%23007AFF' stroke-width='2'/%3E%3Ccircle cx='24' cy='24' r='16' fill='none' stroke='%23007AFF' stroke-width='1.5' opacity='0.5'/%3E%3Ccircle cx='24' cy='24' r='10' fill='none' stroke='%23007AFF' stroke-width='1' opacity='0.3'/%3E%3Cline x1='24' y1='24' x2='24' y2='4' stroke='%23007AFF' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M24,24 L24,4 A20,20 0 0,1 40,16 Z' fill='%23007AFF' opacity='0.2'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%23007AFF'/%3E%3Ccircle cx='32' cy='14' r='2.5' fill='%2334C759'/%3E%3Ccircle cx='18' cy='12' r='2' fill='%23FF9500'/%3E%3C/svg%3E">
     <style>{CSS}</style>
 </head>
 <body>

@@ -49,8 +49,8 @@ def is_forbidden(name, category=""):
             return True, kw
 
     # Volume/weight detection - use config limits
-    max_ml = 100   # ≤100ml liquids OK, >100ml reject (conservative for small items)
-    max_l = 0.1    # 100ml = 0.1L
+    max_ml = 0     # 0 = reject ALL liquids (except containers)
+    max_l = 0      # reject all litre-sized liquids too
     max_kg = CONFIG.get("max_weight_g", 300) / 1000  # 300g = 0.3kg
 
     # Skip volume check for containers (bottles, flasks, tumblers) — their volume is capacity, not content

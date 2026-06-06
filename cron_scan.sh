@@ -7,15 +7,15 @@ cd /home/lee/product-radar
 # ScraperAPI fallback key (free: 5000 req/month)
 # Register at https://dashboard.scraperapi.com/signup
 export SCRAPER_API_KEY=""
-if [ -f "$HOME/.hermes/scraperapi_key.txt" ]; then
-    export SCRAPER_API_KEY=$(cat "$HOME/.hermes/scraperapi_key.txt" | tr -d '\n')
+if [ -f "/home/lee/.hermes/scraperapi_key.txt" ]; then
+    export SCRAPER_API_KEY=$(cat "/home/lee/.hermes/scraperapi_key.txt" | tr -d '\n')
 fi
 
 echo "🔍 选品雷达自动扫描 | $(date '+%Y-%m-%d %H:%M')"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-# Run scan
-python3 run_scan_v2.py 2>/dev/null
+# Run scan (timeout: 7 min)
+timeout 600 python3 run_scan_v2.py 2>/dev/null || { echo "❌ 扫描超时或失败"; exit 1; }
 
 # Get latest data file
 LATEST=$(ls -t data/channels/*.json 2>/dev/null | grep -v rejected | grep -v trends | head -1)
@@ -47,26 +47,26 @@ for i, p in enumerate(d.get('products',[])[:3], 1):
     print(f'     £{p[\"price\"]} | 利润{p[\"profit_margin\"]*100:.0f}% | 评分{p[\"score\"]} | {sig} {sd}')
 "
 
-# 飞书推送
+# 飞书推送 (timeout: 2 min)
 echo ""
 echo "📨 推送到飞书..."
-python3 feishu_push.py 2>&1 || echo "  ⚠️ 飞书推送失败（不影响扫描）"
+timeout 120 python3 feishu_push.py 2>&1 || echo "  ⚠️ 飞书推送失败（不影响扫描）"
 
-# Deploy to GitHub
+# Deploy to GitHub (timeout: 1 min total)
 echo ""
 echo "📦 部署到 GitHub Pages..."
-git add data/ output/ status.json -f 2>/dev/null
+timeout 30 git add data/ output/ status.json -f 2>/dev/null
 git diff --cached --quiet && echo "  无变更" && exit 0
-git commit -m "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>/dev/null
-git pull --rebase 2>/dev/null || true
+timeout 15 git commit -m "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>/dev/null
+timeout 30 git pull --rebase 2>/dev/null || true
 
 # Read token from file and push
 TOKEN_FILE="/mnt/d/Desktop/token.txt"
 if [ -f "$TOKEN_FILE" ]; then
     TOKEN=$(cat "$TOKEN_FILE" | tr -d '\n')
-    git push https://liyuhong168:${TOKEN}@github.com/liyuhong168/product-radar.git main 2>/dev/null
+    timeout 30 git push https://liyuhong168:${TOKEN}@github.com/liyuhong168/product-radar.git main 2>/dev/null
 else
     echo "  ⚠️ Token文件不存在: $TOKEN_FILE"
-    git push origin main 2>/dev/null
+    timeout 30 git push origin main 2>/dev/null
 fi
 echo "  ✅ 已部署：https://liyuhong168.github.io/product-radar/v2.html"

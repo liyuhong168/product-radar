@@ -1,45 +1,153 @@
 #!/usr/bin/env python3
 """
-Gap Opportunity Detector v5 — Category Gap Analysis (final)
+Gap Opportunity Detector v6 — Evidence-Based Product Suggestions
 
 Strategy: Use data we ALREADY HAVE (accurate, no noise).
 1. AnySearch trend data → category heat scores + evidence keywords
 2. Amazon scan data → products per category + review counts
 3. Cross-reference: high heat + low Amazon product count = gap
 
-Also: For high-heat categories, generate specific product suggestions
-based on evidence keywords + predefined patterns for 1688 search.
+Key improvement: Generate specific product suggestions from evidence keywords,
+not generic category-level terms.
 """
 import json, re, sys
 from pathlib import Path
 
 BASE = Path(__file__).parent
 
-# Product suggestions per category (for 1688 search)
-CATEGORY_PRODUCTS = {
-    "pets": ["dog chew toy", "cat interactive toy", "pet grooming brush", "dog harness", "cat bed", "pet water fountain", "dog lead", "cat scratching post"],
-    "kitchen": ["spice rack", "silicone utensil set", "measuring cup", "vegetable peeler", "oil dispenser", "garlic press", "dish rack"],
-    "garden": ["solar garden light", "bird feeder", "garden tool set", "plant pot holder", "hose nozzle", "garden kneeler"],
-    "bathroom": ["shower caddy", "soap dispenser", "bathroom shelf", "toilet brush holder", "towel rail", "bath mat"],
-    "cleaning": ["lint roller", "microfiber cloth", "duster extendable", "grout brush", "drain cover"],
-    "storage": ["drawer divider", "under bed storage", "wardrobe organizer", "cable management box", "shoe rack"],
-    "lighting": ["led strip usb", "night light sensor", "fairy lights battery", "desk lamp", "book light"],
-    "office": ["desk organizer", "monitor stand", "pen holder", "laptop stand", "cable clip"],
-    "sports": ["resistance band set", "yoga mat", "foam roller", "jump rope", "gym bag"],
-    "crafts": ["vinyl sticker", "washi tape", "paint brush set", "craft knife", "cutting mat"],
-    "home decor": ["wall shelf floating", "photo frame", "candle holder", "artificial plant", "wall hook"],
-    "eco": ["reusable food wrap", "bamboo cutlery", "steel straw set", "beeswax wrap", "compost bin"],
-    "car": ["phone holder mount", "boot organiser", "seat gap filler", "car sun shade", "tyre gauge"],
-    "beauty": ["makeup brush set", "nail art kit", "hair accessories", "mirror vanity", "storage organiser"],
-    "phone": ["phone case", "charger cable", "phone stand", "earbuds case", "screen protector"],
+# Evidence keyword → specific product suggestion mapping
+# Maps evidence keywords to concrete searchable product terms
+EVIDENCE_TO_PRODUCT = {
+    # Pets
+    "collar": ["dog collar", "cat collar", "pet collar"],
+    "leash": ["dog lead", "retractable leash", "training lead"],
+    "grooming": ["pet grooming brush", "dog grooming kit", "deshedding tool"],
+    "bed": ["cat bed", "dog bed", "pet cushion"],
+    "feeder": ["pet feeder", "automatic cat feeder", "bird feeder"],
+    "toy": ["dog chew toy", "cat interactive toy", "pet ball"],
+    "scratching": ["cat scratching post", "cat scratch board"],
+    "harness": ["dog harness", "cat harness", "no-pull harness"],
+    "water": ["pet water fountain", "dog water bottle"],
+    "treat": ["dog treat bag", "pet treat pouch"],
+    "cat": ["cat toy", "cat bed", "cat collar", "cat scratcher"],
+    "pet": ["pet grooming", "pet bed", "pet feeder"],
+    
+    # Crafts
+    "craft": ["craft knife", "craft supplies", "DIY craft kit"],
+    "art": ["art supplies", "paint set", "drawing kit"],
+    "sticker": ["vinyl sticker", "decal sticker", "craft sticker"],
+    "tape": ["washi tape", "decorative tape", "masking tape"],
+    "paint": ["acrylic paint set", "paint brush set", "paint by numbers"],
+    "bead": ["jewelry making beads", "bead set"],
+    "yarn": ["knitting yarn", "crochet yarn"],
+    "fabric": ["fabric material", "sewing fabric"],
+    
+    # Beauty
+    "hair": ["hair clip", "hair accessories", "hair band", "hair tie"],
+    "nail": ["nail art kit", "nail tools", "nail stickers"],
+    "mirror": ["makeup mirror", "vanity mirror", "LED mirror"],
+    "skincare": ["face roller", "gua sha", "face mask"],
+    "makeup": ["makeup brush set", "makeup bag", "makeup organizer"],
+    "eyebrow": ["eyebrow trimmer", "eyebrow stencil"],
+    "lip": ["lip balm", "lip scrubber"],
+    
+    # Eco
+    "eco": ["环保产品", "reusable bag", "bamboo products"],
+    "reusable": ["reusable food wrap", "reusable straws", "reusable bags"],
+    "bamboo": ["bamboo cutlery", "bamboo toothbrush", "bamboo organizer"],
+    "beeswax": ["beeswax wrap", "beeswax candles"],
+    "compost": ["compost bin", "kitchen compost"],
+    "recycled": ["recycled products", "eco bag"],
+    "sustainable": ["sustainable products", "eco friendly"],
+    "organic": ["organic products", "organic cotton"],
+    
+    # Home Decor
+    "wall art": ["wall art print", "wall hanging", "wall decal"],
+    "decor": ["home decor", "room decor", "table decor"],
+    "candle": ["candle holder", "scented candle", "candle set"],
+    "clock": ["wall clock", "desk clock", "digital clock"],
+    "frame": ["photo frame", "picture frame", "wall frame"],
+    "vase": ["flower vase", "decorative vase"],
+    "plant": ["artificial plant", "plant pot", "plant stand"],
+    "shelf": ["floating shelf", "wall shelf", "corner shelf"],
+    "hook": ["wall hook", "adhesive hook", "coat hook"],
+    
+    # Lighting
+    "lamp": ["desk lamp", "night light", "table lamp"],
+    "light": ["LED light", "fairy lights", "string lights"],
+    "strip": ["LED strip", "LED strip light", "RGB strip"],
+    "led": ["LED bulb", "LED light", "LED panel"],
+    "solar": ["solar light", "solar garden light", "solar lamp"],
+    "sensor": ["sensor light", "motion sensor light", "night sensor"],
+    "fairy": ["fairy lights", "fairy light curtain"],
+    
+    # Car
+    "car": ["car accessories", "car organizer", "car phone holder"],
+    "motor": ["motorcycle accessories", "motorcycle cover"],
+    "tyre": ["tyre inflator", "tyre pressure gauge", "tyre repair kit"],
+    "seat": ["car seat cover", "car seat organizer"],
+    "dash": ["dashboard camera", "dashboard mat"],
+    "boot": ["boot organiser", "boot mat", "boot liner"],
+    
+    # Phone
+    "earbuds": ["earbuds case", "wireless earbuds"],
+    "phone": ["phone case", "phone holder", "phone stand"],
+    "charger": ["phone charger", "wireless charger", "car charger"],
+    "cable": ["charging cable", "USB cable", "phone cable"],
+    "watch": ["watch band", "watch strap", "smart watch case"],
+    
+    # Kitchen
+    "spice": ["spice rack", "spice jar set", "spice organizer"],
+    "silicone": ["silicone utensil", "silicone mat", "silicone mould"],
+    "measuring": ["measuring cup", "measuring spoon set", "kitchen scale"],
+    "storage": ["food storage", "kitchen storage", "container set"],
+    "rack": ["dish rack", "spice rack", "pot rack"],
+    "baking": ["baking set", "baking tray", "cake mould"],
+    
+    # Garden
+    "garden": ["garden tool set", "garden light", "garden decor"],
+    "bird": ["bird feeder", "bird bath", "bird house"],
+    "plant": ["plant pot", "plant stand", "plant hanger"],
+    "hose": ["garden hose", "hose nozzle", "hose reel"],
+    "seed": ["seed starter kit", "herb seed kit"],
+    
+    # Bathroom
+    "shower": ["shower caddy", "shower head", "shower curtain"],
+    "towel": ["towel rail", "towel rack", "towel hook"],
+    "soap": ["soap dispenser", "soap dish", "soap holder"],
+    "bath": ["bath mat", "bath caddy", "bath pillow"],
+    
+    # Office
+    "desk": ["desk organizer", "desk lamp", "desk mat"],
+    "pen": ["pen holder", "pen set", "fountain pen"],
+    "monitor": ["monitor stand", "monitor riser", "monitor light"],
+    "laptop": ["laptop stand", "laptop sleeve", "laptop cooler"],
+    "office": ["办公用品", "desk organizer", "pen holder"],
+    "stationery": ["文具", "notebook", "pen set"],
+    
+    # Sports
+    "yoga": ["yoga mat", "yoga block", "yoga strap"],
+    "gym": ["gym bag", "gym gloves", "gym towel"],
+    "fitness": ["resistance band", "fitness tracker", "foam roller"],
+    "running": ["running belt", "running light", "running armband"],
+    
+    # Seasonal / Gift
+    "gift": ["礼物", "gift set", "gift box"],
+    "seasonal": ["季节性产品", "seasonal decor", "holiday gift"],
+    "party": ["party supplies", "party decoration", "party favours"],
+    "wedding": ["wedding decor", "wedding favour", "wedding gift"],
+    "birthday": ["birthday gift", "birthday decoration", "birthday card"],
+    "christmas": ["christmas decoration", "christmas gift", "christmas stocking"],
+    "halloween": ["halloween decoration", "halloween costume"],
+    "easter": ["easter egg", "easter decoration"],
+    "valentine": ["valentine gift", "valentine card"],
 }
 
 
 def analyze_gaps(trend_data, sd_ratios, amazon_products):
     """Analyze category-level gaps using existing data.
     
-    Returns list of gap opportunities at category level with specific
-    product suggestions for each.
+    Returns list of gap opportunities with evidence-based product suggestions.
     """
     cat_scores = trend_data.get("category_scores", {})
     cat_evidence = trend_data.get("category_evidence", {})
@@ -48,7 +156,6 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
     # Count Amazon products per category
     cat_product_count = {}
     cat_review_count = {}
-    cat_products = {}
     
     for p in amazon_products:
         cat = p.get("category", "").lower().strip()
@@ -56,7 +163,6 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
             continue
         cat_product_count[cat] = cat_product_count.get(cat, 0) + 1
         cat_review_count[cat] = cat_review_count.get(cat, 0) + p.get("reviews", 0)
-        cat_products.setdefault(cat, []).append(p["name"][:50])
     
     gaps = []
     
@@ -67,12 +173,10 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
         # Find matching Amazon category
         amazon_count = 0
         amazon_reviews = 0
-        matched_cat = None
         for acat in cat_product_count:
             if cat in acat or acat in cat:
                 amazon_count = cat_product_count[acat]
                 amazon_reviews = cat_review_count[acat]
-                matched_cat = acat
                 break
         
         # Determine gap level
@@ -89,12 +193,24 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
         evidence = cat_evidence.get(cat, [])
         is_cross_validated = cat in cross_validated
         
-        # Generate product suggestions
-        suggestions = CATEGORY_PRODUCTS.get(cat, [])
-        # Add evidence keywords that look like products
+        # Generate specific product suggestions from evidence keywords
+        suggestions = []
         for kw in evidence:
-            if len(kw) >= 5 and len(kw.split()) >= 2:
-                suggestions.append(kw)
+            kw_lower = kw.lower().strip()
+            if kw_lower in EVIDENCE_TO_PRODUCT:
+                suggestions.extend(EVIDENCE_TO_PRODUCT[kw_lower])
+            elif len(kw_lower) >= 4:
+                suggestions.append(kw_lower)
+        
+        # Deduplicate and limit
+        seen = set()
+        unique_suggestions = []
+        for s in suggestions:
+            s_lower = s.lower()
+            if s_lower not in seen:
+                seen.add(s_lower)
+                unique_suggestions.append(s)
+        suggestions = unique_suggestions[:8]
         
         # Score
         score = 0
@@ -111,6 +227,21 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
         if sd_info.get("level") == "deep_blue":
             score += 10
         
+        # Generate URLs using first suggestion (translate to Chinese for 1688)
+        first_suggest = suggestions[0] if suggestions else cat
+        from translate import translate_title_to_chinese
+        cn_keyword = translate_title_to_chinese(first_suggest)
+        url_1688_keyword = cn_keyword if cn_keyword else first_suggest
+        
+        # Pre-translate all suggestions to Chinese for 1688 links
+        suggestions_cn = []
+        for s in suggestions:
+            if re.search(r'[\u4e00-\u9fff]', s):
+                suggestions_cn.append(s)  # Already Chinese
+            else:
+                cn = translate_title_to_chinese(s)
+                suggestions_cn.append(cn if cn else s)
+        
         gap = {
             "keyword": cat,
             "category": cat,
@@ -122,14 +253,13 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
             "evidence": evidence[:5],
             "is_cross_validated": is_cross_validated,
             "cross_sources": cross_validated.get(cat, 0),
-            "suggestions": list(set(suggestions))[:8],
+            "suggestions": suggestions,
+            "suggestions_cn": suggestions_cn,
             "sd_info": sd_info,
             "source": "category_analysis",
         }
         
-        # URLs for the first suggestion
-        first_suggest = suggestions[0] if suggestions else cat
-        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={first_suggest}"
+        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={url_1688_keyword}"
         gap["url_amazon"] = f"https://www.amazon.co.uk/s?k={first_suggest.replace(' ', '+')}"
         gap["url_google"] = f"https://trends.google.com/trends/explore?q={first_suggest.replace(' ', '+')}&geo=GB"
         
@@ -168,4 +298,4 @@ if __name__ == "__main__":
         print(f"  Amazon: {g['amazon_count']}个产品, {g['amazon_reviews']}条评论")
         print(f"  证据关键词: {', '.join(g['evidence'][:3])}")
         print(f"  建议产品: {', '.join(g['suggestions'][:5])}")
-        print(f"  1688: {g['url_1688'][:60]}")
+        print(f"  1688: {g['url_1688'][:80]}")
