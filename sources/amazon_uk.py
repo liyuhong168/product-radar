@@ -174,8 +174,11 @@ def _parse_amazon_page(html, category, channel_type):
         title = re.sub(r'\s+', ' ', title).strip()
 
         # Extract image URL from <img src="...amazon.com/images/I/..."> in this block
+        # Exclude .js files — they also contain /images/I/ in the path
         img_url = ""
-        img_match = re.search(r'<img[^>]*src="(https?://[^"]*amazon\.com/images/I/[^"]+)"', block)
+        img_match = re.search(r'<img[^>]*src="(https?://[^"]*amazon\.com/images/I/[^"]+\.(?:jpg|jpeg|png|webp)[^"]*)"', block, re.I)
+        if not img_match:
+            img_match = re.search(r'<img[^>]*src="(https?://[^"]*amazon\.com/images/I/[^"]+_AC_[^"]*)"', block)
         if img_match:
             img_url = img_match.group(1)
 

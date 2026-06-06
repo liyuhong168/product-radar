@@ -56,7 +56,10 @@ def backfill():
             asin = blocks[i]
             block = blocks[i + 1]
             if asin in asins_needed and asin not in image_map:
-                img_match = re.search(r'src="(https?://[^"]*amazon\.com/images/I/[^"]+)"', block)
+                # Exclude .js files — they also contain /images/I/
+                img_match = re.search(r'src="(https?://[^"]*amazon\.com/images/I/[^"]+\.(?:jpg|jpeg|png|webp)[^"]*)"', block, re.I)
+                if not img_match:
+                    img_match = re.search(r'src="(https?://[^"]*amazon\.com/images/I/[^"]+_AC_[^"]*)"', block)
                 if img_match:
                     image_map[asin] = img_match.group(1)
                     print(f"    Found image for {asin}")
