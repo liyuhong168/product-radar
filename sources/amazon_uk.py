@@ -97,7 +97,7 @@ SCRAPER_API_KEY = os.environ.get("SCRAPER_API_KEY", "")
 
 def _is_valid_response(html):
     """Check if Amazon response contains real product data."""
-    if not html or len(html) < 1000:
+    if not html:
         return False
     low = html.lower()
     if "captcha" in low or "api-services-support@amazon" in low:
