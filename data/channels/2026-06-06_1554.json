@@ -1,0 +1,1601 @@
+{
+  "scan_date": "2026-06-06",
+  "scan_time": "15:54",
+  "scan_ts": "2026-06-06_1554",
+  "stats": {
+    "total_scanned": 242,
+    "passed_filter": 14,
+    "rejected": 228,
+    "channels": {
+      "etsy_trending": 1,
+      "temu_trending": 10,
+      "multi_source": 10,
+      "new_releases": 14,
+      "tiktok_verified": 10
+    },
+    "trend_categories": {
+      "lighting": 100,
+      "pets": 100,
+      "crafts": 100,
+      "beauty": 97,
+      "eco": 79,
+      "bathroom": 60
+    },
+    "supply_demand": {
+      "crafts": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "beauty": {
+        "ratio": 99,
+        "demand": 97,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "eco": {
+        "ratio": 99,
+        "demand": 79,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "bathroom": {
+        "ratio": 99,
+        "demand": 60,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "home decor": {
+        "ratio": 99,
+        "demand": 55,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "seasonal": {
+        "ratio": 99,
+        "demand": 51,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "lighting": {
+        "ratio": 8.0,
+        "demand": 100,
+        "supply": 252076,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "pets": {
+        "ratio": 7.3,
+        "demand": 100,
+        "supply": 913570,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      }
+    },
+    "divergences": {
+      "car": {
+        "current_heat": 58,
+        "previous_heat": 40,
+        "heat_change_pct": 45.0,
+        "direction": "rising",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "lighting": {
+        "current_heat": 50,
+        "previous_heat": 70,
+        "heat_change_pct": -28.6,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "pets": {
+        "current_heat": 79,
+        "previous_heat": 100,
+        "heat_change_pct": -21.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "sports": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "beauty": {
+        "current_heat": 36,
+        "previous_heat": 75,
+        "heat_change_pct": -52.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "eco": {
+        "current_heat": 65,
+        "previous_heat": 75,
+        "heat_change_pct": -13.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "kitchen": {
+        "current_heat": 21,
+        "previous_heat": 30,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 14,
+        "previous_heat": 65,
+        "heat_change_pct": -78.5,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "home decor": {
+        "current_heat": 79,
+        "previous_heat": 75,
+        "heat_change_pct": 5.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "baby": {
+        "current_heat": 7,
+        "previous_heat": 10,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 51,
+        "previous_heat": 65,
+        "heat_change_pct": -21.5,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 14,
+        "previous_heat": 20,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "garden": {
+        "current_heat": 14,
+        "previous_heat": 45,
+        "heat_change_pct": -68.9,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "office": {
+        "current_heat": 29,
+        "previous_heat": 40,
+        "heat_change_pct": -27.5,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "travel": {
+        "current_heat": 7,
+        "previous_heat": 20,
+        "heat_change_pct": -65.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "phone": {
+        "current_heat": 43,
+        "previous_heat": 60,
+        "heat_change_pct": -28.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 7,
+        "previous_heat": 10,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "storage": {
+        "current_heat": 7,
+        "previous_heat": 10,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      }
+    },
+    "gap_opportunities": 7
+  },
+  "products": [
+    {
+      "asin": "B0GPDNC9J7",
+      "name": "Giftinghouse Official Football World Cup 2026 Wall Chart Schedule – A1 Poster (84 x 59 cm) – 48 Team Fixtures, Dates, St",
+      "price": 5.95,
+      "reviews": 13,
+      "rating": 4.7,
+      "rank": 20,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "13 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GPDNC9J7",
+      "image_url": "",
+      "sources": [
+        "Etsy趋势",
+        "TikTok趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.233,
+      "net_profit": 1.39,
+      "cost_breakdown": {
+        "vat": 0.99,
+        "commission": 0.89,
+        "fba": 1.46,
+        "ads": 0.3,
+        "returns": 0.12,
+        "sourcing": 0.8,
+        "total_cost": 4.56
+      },
+      "off_season": false,
+      "name_cn": "球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 117,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "etsy_trending",
+        "temu_trending",
+        "multi_source",
+        "new_releases",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B0GY96VB6S",
+      "name": "Lockie Fitness Yoga Mat 8 mm Thick, Non Slip Exercise Mat for Women and Men, NBR Foam Pilates Mat, Gym Mat for Home Work",
+      "price": 8.49,
+      "reviews": 35,
+      "rating": 4.4,
+      "rank": 22,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "35 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GY96VB6S",
+      "image_url": "",
+      "sources": [
+        "TikTok趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.347,
+      "net_profit": 2.94,
+      "cost_breakdown": {
+        "vat": 1.42,
+        "commission": 1.27,
+        "fba": 1.46,
+        "ads": 0.42,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 5.55
+      },
+      "off_season": false,
+      "name_cn": "瑜伽 脚垫",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 114,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "💰 高利润": 8,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0GWRK3MR6",
+      "name": "World Cup Wall Chart 2026 – England World Cup Chart - Huge A1 Football Tournament Poster Planner with Fixtures, UK Kick ",
+      "price": 6.66,
+      "reviews": 22,
+      "rating": 4.7,
+      "rank": 5,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "22 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK3MR6",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.274,
+      "net_profit": 1.82,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.33,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.84
+      },
+      "off_season": false,
+      "name_cn": "球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 105,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0GWRT1W4Q",
+      "name": "World Cup Wall Chart 2026 | A1 Size 2026 World Cup Football Poster with UK Fixtures, Dates, Kick Off Times, Stadiums & H",
+      "price": 6.8,
+      "reviews": 11,
+      "rating": 4.7,
+      "rank": 14,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "11 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRT1W4Q",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.281,
+      "net_profit": 1.91,
+      "cost_breakdown": {
+        "vat": 1.14,
+        "commission": 1.02,
+        "fba": 1.46,
+        "ads": 0.34,
+        "returns": 0.14,
+        "sourcing": 0.8,
+        "total_cost": 4.89
+      },
+      "off_season": false,
+      "name_cn": "球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 105,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0GWRK5RZF",
+      "name": "World Cup Wall Chart 2026 - World Cup Chart – Football Tournament Poster Huge A1 Size With Fixtures, UK Kick Off Times, ",
+      "price": 8.32,
+      "reviews": 61,
+      "rating": 4.7,
+      "rank": 1,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "61 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRK5RZF",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.341,
+      "net_profit": 2.84,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 1.25,
+        "fba": 1.46,
+        "ads": 0.42,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 5.48
+      },
+      "off_season": false,
+      "name_cn": "球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 104,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "🟡 中等竞争": 5,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H1T62Y7Z",
+      "name": "Premium World Cup Wall Chart 2026 - XL A1 World Cup Football 2026 Poster, 2-in-1 Double-sided: For Wall or Door - All ga",
+      "price": 8.32,
+      "reviews": 20,
+      "rating": 4.3,
+      "rank": 3,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "20 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1T62Y7Z",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.341,
+      "net_profit": 2.84,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 1.25,
+        "fba": 1.46,
+        "ads": 0.42,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 5.48
+      },
+      "off_season": false,
+      "name_cn": "球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 104,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0GWS2Y4XT",
+      "name": "World Cup Wall Chart 2026 | A1 Size 2026 World Cup Football Poster with UK Fixtures, Dates, Kick Off Times, Stadiums & H",
+      "price": 6.84,
+      "reviews": 20,
+      "rating": 4.4,
+      "rank": 17,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "20 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWS2Y4XT",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.283,
+      "net_profit": 1.93,
+      "cost_breakdown": {
+        "vat": 1.14,
+        "commission": 1.03,
+        "fba": 1.46,
+        "ads": 0.34,
+        "returns": 0.14,
+        "sourcing": 0.8,
+        "total_cost": 4.91
+      },
+      "off_season": false,
+      "name_cn": "球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 100,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H33RDKBV",
+      "name": "SpirWoRchlan Trophy Style Beer Glass for 2026 World Cup, Large Beer Mug for 2026 Football Match Day Bar Watch Party & Gi",
+      "price": 9.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 21,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H33RDKBV",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.387,
+      "net_profit": 3.86,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 0.5,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.13
+      },
+      "off_season": false,
+      "name_cn": "手表 大号 玻璃 球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 100,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0GQRMDX6C",
+      "name": "2026 World Cup Jersey Shape Bunting, 30 Countries String Flags Banner 14x21cm- 10m Long for World Cup Football 2026, Dou",
+      "price": 6.66,
+      "reviews": 1,
+      "rating": 5.0,
+      "rank": 4,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "1 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GQRMDX6C",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.274,
+      "net_profit": 1.82,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.33,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.84
+      },
+      "off_season": false,
+      "name_cn": "戒指 球 杯子",
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.5,
+        "demand": 45,
+        "supply": 389767,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-53%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 30,
+        "heat_change_pct": -53.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 87,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(sports)": 8,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📉 品类降温(-53%)": -10
+      },
+      "stars": 4,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H11D3V7H",
+      "name": "Alyvisun 220PCS Cupcake Cases, Paper Muffin Cases for Baking, Mini Cupcake Wrappers, Greaseproof Baking Cups for Muffins",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 3,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H11D3V7H",
+      "image_url": "",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.344,
+      "net_profit": 2.29,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.53,
+        "fba": 1.46,
+        "ads": 0.33,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.37
+      },
+      "off_season": false,
+      "name_cn": "纸 保护壳 迷你 杯子",
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.1,
+        "demand": 27,
+        "supply": 342116,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-30%)",
+      "div_info": {
+        "current_heat": 21,
+        "previous_heat": 30,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-06_1543",
+          "2026-06-06_1548"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 78,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "📉 品类降温(-30%)": -10
+      },
+      "stars": 3,
+      "is_multi": true,
+      "channel_tags": [
+        "new_releases",
+        "tiktok_verified",
+        "temu_trending",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H2922WKJ",
+      "name": "NanoPolix Scratch Remover, Eliminate All Car Scratches in 60 Seconds, Nano polix Scratch Remover, Quick Fix Removal Past",
+      "price": 7.99,
+      "reviews": 2,
+      "rating": 5.0,
+      "rank": 14,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "2 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2922WKJ",
+      "image_url": "",
+      "profit_margin": 0.33,
+      "net_profit": 2.64,
+      "cost_breakdown": {
+        "vat": 1.33,
+        "commission": 1.2,
+        "fba": 1.46,
+        "ads": 0.4,
+        "returns": 0.16,
+        "sourcing": 0.8,
+        "total_cost": 5.35
+      },
+      "off_season": false,
+      "name_cn": "汽车",
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 79,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 50,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B004W1L8NG",
+      "name": "Waxacar 2 x 3 sq ft Chamois Leathers for Cars, Large Shammy Cloth Absorbent Car Drying Towel Natural Leather Lint Free S",
+      "price": 7.49,
+      "reviews": 5,
+      "rating": 5.0,
+      "rank": 23,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "5 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B004W1L8NG",
+      "image_url": "",
+      "profit_margin": 0.311,
+      "net_profit": 2.33,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.37,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.16
+      },
+      "off_season": false,
+      "name_cn": "皮革 毛巾 大号 汽车",
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 48,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GPWBTRB9",
+      "name": "AAROVIBE Back to Black Trim Restorer, Car Plastic Restorer Black for Interior & Exterior, Revives Faded Trim, Prevents A",
+      "price": 9.99,
+      "reviews": 17,
+      "rating": 4.2,
+      "rank": 8,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "17 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GPWBTRB9",
+      "image_url": "",
+      "profit_margin": 0.387,
+      "net_profit": 3.86,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 0.5,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.13
+      },
+      "off_season": false,
+      "name_cn": "塑料 黑色 汽车",
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 47,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B074H5296B",
+      "name": "Xtremeauto 2 in 1 Car Emergency Escape Tool, Window Breaker & Seat Belt Cutter, Compact Safety Hammer for Car, Vehicle G",
+      "price": 8.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 9,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B074H5296B",
+      "image_url": "",
+      "profit_margin": 0.362,
+      "net_profit": 3.25,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.46,
+        "ads": 0.45,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 5.74
+      },
+      "off_season": false,
+      "name_cn": "工具 皮带 座椅 帽子 汽车",
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 29,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 100,
+      "score": 85,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "brush",
+        "art",
+        "craft"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "cutting mat",
+        "paint brush set",
+        "vinyl sticker",
+        "washi tape",
+        "craft knife"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=vinyl sticker",
+      "url_amazon": "https://www.amazon.co.uk/s?k=vinyl+sticker",
+      "url_google": "https://trends.google.com/trends/explore?q=vinyl+sticker&geo=GB"
+    },
+    {
+      "keyword": "beauty",
+      "category": "beauty",
+      "heat": 97,
+      "score": 85,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "mirror",
+        "brush",
+        "hair",
+        "makeup",
+        "skincare"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "nail art kit",
+        "mirror vanity",
+        "storage organiser",
+        "hair accessories",
+        "makeup brush set"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 97,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=makeup brush set",
+      "url_amazon": "https://www.amazon.co.uk/s?k=makeup+brush+set",
+      "url_google": "https://trends.google.com/trends/explore?q=makeup+brush+set&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 79,
+      "score": 81,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "reusable food wrap",
+        "beeswax wrap",
+        "bamboo cutlery",
+        "compost bin",
+        "steel straw set"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 79,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=reusable food wrap",
+      "url_amazon": "https://www.amazon.co.uk/s?k=reusable+food+wrap",
+      "url_google": "https://trends.google.com/trends/explore?q=reusable+food+wrap&geo=GB"
+    },
+    {
+      "keyword": "bathroom",
+      "category": "bathroom",
+      "heat": 60,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "bath",
+        "toilet",
+        "mirror",
+        "bathroom"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "bathroom shelf",
+        "toilet brush holder",
+        "shower caddy",
+        "bath mat",
+        "towel rail",
+        "soap dispenser"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 60,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=shower caddy",
+      "url_amazon": "https://www.amazon.co.uk/s?k=shower+caddy",
+      "url_google": "https://trends.google.com/trends/explore?q=shower+caddy&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 51,
+      "score": 72,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "gift"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 51,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=seasonal",
+      "url_amazon": "https://www.amazon.co.uk/s?k=seasonal",
+      "url_google": "https://trends.google.com/trends/explore?q=seasonal&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 55,
+      "score": 58,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "clock",
+        "candle",
+        "decor",
+        "mirror"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "artificial plant",
+        "candle holder",
+        "wall shelf floating",
+        "photo frame",
+        "wall hook"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 55,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=wall shelf floating",
+      "url_amazon": "https://www.amazon.co.uk/s?k=wall+shelf+floating",
+      "url_google": "https://trends.google.com/trends/explore?q=wall+shelf+floating&geo=GB"
+    },
+    {
+      "keyword": "phone",
+      "category": "phone",
+      "heat": 45,
+      "score": 45,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "earbuds",
+        "charger",
+        "phone",
+        "stand",
+        "cable"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "phone case",
+        "phone stand",
+        "charger cable",
+        "earbuds case",
+        "screen protector"
+      ],
+      "sd_info": {},
+      "source": "category_analysis",
+      "url_1688": "https://s.1688.com/selloffer/offer_search.htm?keywords=phone case",
+      "url_amazon": "https://www.amazon.co.uk/s?k=phone+case",
+      "url_google": "https://trends.google.com/trends/explore?q=phone+case&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "lighting",
+        100
+      ],
+      [
+        "pets",
+        100
+      ],
+      [
+        "crafts",
+        100
+      ],
+      [
+        "beauty",
+        97
+      ],
+      [
+        "eco",
+        79
+      ],
+      [
+        "bathroom",
+        60
+      ]
+    ],
+    "cross_validated": [
+      "lighting",
+      "pets",
+      "crafts",
+      "beauty",
+      "eco",
+      "bathroom",
+      "seasonal"
+    ],
+    "demand_keywords": [
+      "explore the",
+      "from viral beauty products and",
+      "handmade jewelry",
+      "home decor items",
+      "las mejores tendencias y estrategias",
+      "lidl launches",
+      "personalized gifts",
+      "real market data on trending",
+      "recommend some cool stuff from",
+      "temu products selling on amazon"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}
