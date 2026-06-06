@@ -1,0 +1,182 @@
+{
+  "category_scores": {
+    "car": 70,
+    "pets": 97,
+    "sports": 18,
+    "crafts": 100,
+    "eco": 97,
+    "kitchen": 27,
+    "bathroom": 27,
+    "lighting": 45,
+    "phone": 88,
+    "beauty": 51,
+    "home decor": 88,
+    "seasonal": 51,
+    "cleaning": 18,
+    "garden": 18,
+    "office": 36,
+    "kitchen_gadgets": 9,
+    "travel": 18
+  },
+  "category_evidence": {
+    "car": [
+      "car",
+      "motor"
+    ],
+    "pets": [
+      "cat",
+      "pet"
+    ],
+    "sports": [
+      "water bottle",
+      "yoga"
+    ],
+    "crafts": [
+      "art",
+      "craft"
+    ],
+    "eco": [
+      "sustainable",
+      "eco"
+    ],
+    "kitchen": [
+      "gadget",
+      "kitchen"
+    ],
+    "bathroom": [
+      "toilet",
+      "mirror",
+      "bath"
+    ],
+    "lighting": [
+      "led",
+      "lamp",
+      "light"
+    ],
+    "phone": [
+      "phone",
+      "cable",
+      "earbuds",
+      "stand",
+      "charger"
+    ],
+    "beauty": [
+      "skincare",
+      "mirror",
+      "makeup"
+    ],
+    "home decor": [
+      "decor",
+      "clock",
+      "mirror",
+      "candle",
+      "wall art"
+    ],
+    "seasonal": [
+      "gift"
+    ],
+    "cleaning": [
+      "cleaning"
+    ],
+    "garden": [
+      "plant",
+      "flower"
+    ],
+    "office": [
+      "office",
+      "pen"
+    ],
+    "kitchen_gadgets": [
+      "kitchen gadget"
+    ],
+    "travel": [
+      "travel",
+      "toiletry"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "car": 3,
+      "pets": 1,
+      "sports": 2,
+      "crafts": 3,
+      "eco": 3,
+      "kitchen": 1,
+      "bathroom": 1,
+      "lighting": 2,
+      "phone": 1,
+      "beauty": 2,
+      "home decor": 2,
+      "seasonal": 1,
+      "cleaning": 1
+    },
+    "temu": {
+      "garden": 2,
+      "lighting": 3,
+      "pets": 3,
+      "home decor": 1,
+      "eco": 3,
+      "kitchen": 2,
+      "cleaning": 1,
+      "car": 2,
+      "office": 2,
+      "crafts": 3,
+      "phone": 4,
+      "kitchen_gadgets": 1,
+      "seasonal": 1
+    },
+    "etsy": {
+      "pets": 4,
+      "crafts": 5,
+      "home decor": 5,
+      "eco": 2,
+      "bathroom": 2,
+      "office": 2,
+      "seasonal": 2,
+      "travel": 2,
+      "beauty": 1
+    },
+    "market_intel": {
+      "car": 1,
+      "pets": 1,
+      "phone": 3,
+      "beauty": 1,
+      "eco": 1
+    }
+  },
+  "cross_validated": {
+    "car": 3,
+    "pets": 4,
+    "crafts": 3,
+    "eco": 4,
+    "phone": 3,
+    "beauty": 3,
+    "home decor": 3,
+    "seasonal": 3
+  },
+  "demand_keywords": [
+    "beauty fans",
+    "floral print tunic dress casual",
+    "handmade jewelry",
+    "home decor items",
+    "it charges zero commission on",
+    "mini lightweight wireless earbuds",
+    "personalized gifts",
+    "real market data on trending",
+    "recommend some cool stuff from",
+    "right now on",
+    "stay ahead with insights into",
+    "the findings are based on",
+    "these are the biggest spring",
+    "tiktok made me buy it",
+    "top sellers",
+    "top trending sold on",
+    "trending on",
+    "what are some cool independent",
+    "what things are worth buying",
+    "where can"
+  ],
+  "season": "summer",
+  "total_queries": 10,
+  "total_results_chars": 29240
+}
