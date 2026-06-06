@@ -3,8 +3,8 @@
   "scan_time": "14:12",
   "scan_ts": "2026-06-05_1412",
   "stats": {
-    "total_scanned": 251,
-    "passed_filter": 11,
+    "total_scanned": 271,
+    "passed_filter": 31,
     "rejected": 240,
     "channels": {
       "new_releases": 7,
@@ -321,7 +321,8 @@
       "channel_tags": [
         "new_releases"
       ],
-      "name_cn": "橡胶 数据线 挂钩 绳子"
+      "name_cn": "橡胶 数据线 挂钩 绳子",
+      "image_url": "https://m.media-amazon.com/images/I/41QfkOekTlL._AC_SL1001_.jpg"
     },
     {
       "asin": "B0GL23Y821",
@@ -383,7 +384,8 @@
       "channel_tags": [
         "new_releases"
       ],
-      "name_cn": "黑色 帽子 套装"
+      "name_cn": "黑色 帽子 套装",
+      "image_url": "https://m.media-amazon.com/images/I/51T6p6RVVHL._AC_SL1500_.jpg"
     },
     {
       "asin": "B0GL939PG3",
@@ -445,7 +447,8 @@
       "channel_tags": [
         "new_releases"
       ],
-      "name_cn": "汽车"
+      "name_cn": "汽车",
+      "image_url": "https://m.media-amazon.com/images/I/51FDLZDVARL._AC_SL1001_.jpg"
     },
     {
       "asin": "B0GGBFHZ99",
@@ -506,7 +509,8 @@
       "channel_tags": [
         "new_releases"
       ],
-      "name_cn": "摩托车 聚酯纤维 支架 自行车"
+      "name_cn": "摩托车 聚酯纤维 支架 自行车",
+      "image_url": "https://m.media-amazon.com/images/I/51EPndj885L._AC_SL1001_.jpg"
     },
     {
       "asin": "B0GH7XM354",
@@ -566,7 +570,8 @@
       "channel_tags": [
         "bsr"
       ],
-      "name_cn": "大号 杯子"
+      "name_cn": "大号 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/81zBkXzy1vL._AC_SL1500_.jpg"
     },
     {
       "asin": "B0GQP93C22",
@@ -621,7 +626,8 @@
       "channel_tags": [
         "new_releases"
       ],
-      "name_cn": "花园灯 黑色"
+      "name_cn": "花园灯 黑色",
+      "image_url": "https://m.media-amazon.com/images/I/51-mMz1gQ2L._AC_SL1500_.jpg"
     },
     {
       "asin": "B0GH7Q1N6D",
@@ -681,7 +687,8 @@
       "channel_tags": [
         "new_releases"
       ],
-      "name_cn": "水管 灰色 汽车"
+      "name_cn": "水管 灰色 汽车",
+      "image_url": "https://m.media-amazon.com/images/I/61jRBGV5roL._AC_SL1001_.jpg"
     },
     {
       "asin": "B0GWHDHC64",
@@ -733,7 +740,8 @@
       "channel_tags": [
         "new_releases"
       ],
-      "name_cn": "灯带 小号 工具"
+      "name_cn": "灯带 小号 工具",
+      "image_url": "https://m.media-amazon.com/images/I/61ZBUHXet3L._AC_SL1500_.jpg"
     },
     {
       "asin": "B0GWRK5RZF",
@@ -793,7 +801,8 @@
       "channel_tags": [
         "bsr"
       ],
-      "name_cn": "球 杯子"
+      "name_cn": "球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/812IbMnrauL._AC_SL1270_.jpg"
     },
     {
       "asin": "B0GW9CF7Q8",
@@ -852,7 +861,8 @@
       "channel_tags": [
         "bsr"
       ],
-      "name_cn": "架子 球 杯子"
+      "name_cn": "架子 球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/715MW0ICyGL._AC_SL1080_.jpg"
     },
     {
       "asin": "B0H1T62Y7Z",
@@ -910,7 +920,1256 @@
       "channel_tags": [
         "bsr"
       ],
-      "name_cn": "球 杯子"
+      "name_cn": "球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/911VkwS+EJL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0F9ZM575G",
+      "name": "Cable Extension Cable - Copper Cable 4 Pin Connector - Motherboard Extended Connector Heat Cord Computer Accessories for",
+      "price": 7.02,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 1,
+      "category": "Lighting",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F9ZM575G",
+      "profit_margin": 0.258,
+      "net_profit": 1.81,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.21
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 64,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 49,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "📈 趋势(lighting)": 8,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "📈 排名上升": 10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "数据线 图钉",
+      "image_url": "https://m.media-amazon.com/images/I/61JGU3djA3L._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0GRC94D92",
+      "name": "FourFourTwo World Cup 2026 Wall Chart - The Ultimate World Cup Countdown Poster, Gift for Football Fans, Giant A1 Wall C",
+      "price": 6.99,
+      "reviews": 17,
+      "rating": 4.7,
+      "rank": 13,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "17 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GRC94D92",
+      "profit_margin": 0.257,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.19
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.0,
+        "demand": 27,
+        "supply": 792414,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 44,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15,
+        "🌴 当季(summer)": 10,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "球 风扇 杯子 脚垫",
+      "image_url": "https://m.media-amazon.com/images/I/81Cp-XsNlTL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0DPVBQSM1",
+      "name": "SYLC Caravan Seat Covers Waterproof Velvet, Motorhome Seat Cover with Elastic-band and Lacing, RV Sofa Cushion Cover for",
+      "price": 8.99,
+      "reviews": 50,
+      "rating": 4.5,
+      "rank": 9,
+      "category": "Automotive",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "50 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DPVBQSM1",
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.01
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "心愿榜"
+      ],
+      "score": 43,
+      "score_breakdown": {
+        "💝 心愿榜": 15,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "wished"
+      ],
+      "name_cn": "车衣 饮水器 弹力带 座椅 汽车",
+      "image_url": "https://m.media-amazon.com/images/I/71ddkC8VRNL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0H33RDKBV",
+      "name": "SpirWoRchlan Trophy Style Beer Glass for 2026 World Cup, Large Beer Mug for 2026 Football Match Day Bar Watch Party & Gi",
+      "price": 9.16,
+      "reviews": 9,
+      "rating": 4.6,
+      "rank": 21,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "9 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H33RDKBV",
+      "profit_margin": 0.336,
+      "net_profit": 3.08,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 1.37,
+        "fba": 1.28,
+        "ads": 0.46,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.08
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.0,
+        "demand": 27,
+        "supply": 792414,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 38,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "手表 大号 玻璃 球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/611EX2YotuL._AC_SL1431_.jpg"
+    },
+    {
+      "asin": "B0GPDNC9J7",
+      "name": "Giftinghouse Official Football World Cup 2026 Wall Chart Schedule – A1 Poster (84 x 59 cm) – 48 Team Fixtures, Dates, St",
+      "price": 9.99,
+      "reviews": 10,
+      "rating": 4.8,
+      "rank": 18,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "10 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GPDNC9J7",
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.0,
+        "demand": 27,
+        "supply": 792414,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 32,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/91eMri1xXAL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0GYHCM2C4",
+      "name": "jijAcraft World Cup Football Bunting 2026, 48 Teams World Flags Bunting, 15m Waterproof National Flags Football Party De",
+      "price": 6.82,
+      "reviews": 20,
+      "rating": 4.5,
+      "rank": 15,
+      "category": "Crafts",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "20 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYHCM2C4",
+      "profit_margin": 0.248,
+      "net_profit": 1.69,
+      "cost_breakdown": {
+        "vat": 1.14,
+        "commission": 1.02,
+        "fba": 1.28,
+        "ads": 0.34,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.13
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.0,
+        "demand": 27,
+        "supply": 792414,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Sports",
+      "score": 30,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "📉 无需求信号": -15,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "饮水器 球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/710nur95n+L._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0GWRT1W4Q",
+      "name": "World Cup Wall Chart 2026 | A1 Size 2026 World Cup Football Poster with UK Fixtures, Dates, Kick Off Times, Stadiums & H",
+      "price": 9.99,
+      "reviews": 25,
+      "rating": 4.4,
+      "rank": 20,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "25 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWRT1W4Q",
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.0,
+        "demand": 27,
+        "supply": 792414,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 27,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/91Rm6jzOWEL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0GXWK5PNV",
+      "name": "160 GSM Gloss Laminated World Cup Wall Chart 2026 – Large A1 (84 x 59 cm) Football Wall Planner Poster | 48 Teams, Fixtu",
+      "price": 6.99,
+      "reviews": 13,
+      "rating": 4.8,
+      "rank": 17,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "13 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GXWK5PNV",
+      "profit_margin": 0.257,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.19
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.0,
+        "demand": 27,
+        "supply": 792414,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 24,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "大号 球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/91kxacdx0EL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0GY8HYLFZ",
+      "name": "Premium Reusable World Cup Bunting 2026 - All 48 Qualified Teams - World Cup Football 2026 Decorations - Paper Banner, F",
+      "price": 9.16,
+      "reviews": 59,
+      "rating": 4.2,
+      "rank": 27,
+      "category": "Sports",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "59 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GY8HYLFZ",
+      "profit_margin": 0.336,
+      "net_profit": 3.08,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 1.37,
+        "fba": 1.28,
+        "ads": 0.46,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.08
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 88,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 18,
+      "score_breakdown": {
+        "⚪ 仅Amazon": -10,
+        "🟡 中等竞争": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "bsr"
+      ],
+      "name_cn": "纸 球 杯子",
+      "image_url": "https://m.media-amazon.com/images/I/81T3fF1TGmL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0GQPDHGTB",
+      "name": "Desktop Table Desk Mountable PDU 2 x UK Sockets & USB-A/C Ports Power Pod Black",
+      "price": 6.68,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 23,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GQPDHGTB",
+      "profit_margin": 0.241,
+      "net_profit": 1.61,
+      "cost_breakdown": {
+        "vat": 1.12,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.07
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 17,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "支架 黑色",
+      "image_url": "https://m.media-amazon.com/images/I/61r3R3kNeTL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0GYQ199F8",
+      "name": "World Cup Wall Chart 2026 Interactive Kit (England Edition) – A1 Football Championship Wall Planner, 288 Team Progressio",
+      "price": 6.74,
+      "reviews": 11,
+      "rating": 4.4,
+      "rank": 19,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "11 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYQ199F8",
+      "profit_margin": 0.244,
+      "net_profit": 1.65,
+      "cost_breakdown": {
+        "vat": 1.13,
+        "commission": 1.01,
+        "fba": 1.28,
+        "ads": 0.34,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.09
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 2.0,
+        "demand": 27,
+        "supply": 792414,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-32%)",
+      "div_info": {
+        "current_heat": 17,
+        "previous_heat": 25,
+        "heat_change_pct": -32.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-04_1756",
+          "2026-06-04_2319"
+        ]
+      },
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 15,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "📉 品类降温(-32%)": -10
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "球 杯子 套装",
+      "image_url": "https://m.media-amazon.com/images/I/91D6H7bV6pL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0H2M89P8K",
+      "name": "JADUFHU Over Door Hanger,Over Door Hooks,Multi - Purpose Double Door Hanger for Hanging Bags, Towels,Christmas Wreaths, ",
+      "price": 8.17,
+      "reviews": 3,
+      "rating": 5.0,
+      "rank": 5,
+      "category": "Bathroom",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "3 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2M89P8K",
+      "profit_margin": 0.305,
+      "net_profit": 2.49,
+      "cost_breakdown": {
+        "vat": 1.36,
+        "commission": 1.23,
+        "fba": 1.28,
+        "ads": 0.41,
+        "returns": 0.25,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.68
+      },
+      "off_season": true,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "DIY",
+      "score": 10,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15,
+        "❄️ 过季降权": -20
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "衣架 毛巾 挂钩 包",
+      "image_url": "https://m.media-amazon.com/images/I/51Z0FwfGQ+L._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0H3CM6R1P",
+      "name": "Number Plate Frames | Personalised Custom Novelty Plates - Frameless Number Plate Surround For UK Number Plates - Univer",
+      "price": 9.99,
+      "reviews": 26,
+      "rating": 4.5,
+      "rank": 1,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "26 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H3CM6R1P",
+      "sources": [
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.358,
+      "net_profit": 3.57,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.42
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "TikTok"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 87,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10
+      },
+      "stars": 4,
+      "channel_tags": [
+        "tiktok_verified",
+        "new_releases"
+      ],
+      "name_cn": "盘子"
+    },
+    {
+      "asin": "B0GKPG6VW5",
+      "name": "FWStyle Promo White Corner TV Unit Space Saving Media Stand with Open Shelves for Living Room Bedroom or Apartment H45 x",
+      "price": 9.95,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 18,
+      "category": "Office",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GKPG6VW5",
+      "profit_margin": 0.427,
+      "net_profit": 4.25,
+      "cost_breakdown": {
+        "vat": 1.66,
+        "commission": 0.8,
+        "fba": 1.28,
+        "ads": 0.5,
+        "returns": 0.3,
+        "storage": 0.1,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.7
+      },
+      "off_season": false,
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 4.0,
+        "demand": 56,
+        "supply": 1201329,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Kitchen",
+      "score": 70,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(crafts)": 21,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15,
+        "🌴 当季(summer)": 10,
+        "💧 浅蓝海": 10
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "支架 白色 个 宠物床 笔",
+      "image_url": "https://m.media-amazon.com/images/I/51nq0uXDfRL._AC_SL1500_.jpg"
+    },
+    {
+      "asin": "B0H2922WKJ",
+      "name": "NanoPolix Scratch Remover, Eliminate All Car Scratches in 60 Seconds, Nano polix Scratch Remover, Quick Fix Removal Past",
+      "price": 7.99,
+      "reviews": 18,
+      "rating": 4.6,
+      "rank": 15,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "18 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2922WKJ",
+      "profit_margin": 0.299,
+      "net_profit": 2.39,
+      "cost_breakdown": {
+        "vat": 1.33,
+        "commission": 1.2,
+        "fba": 1.28,
+        "ads": 0.4,
+        "returns": 0.24,
+        "storage": 0.08,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.6
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 64,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20
+      },
+      "stars": 3,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "汽车",
+      "image_url": "https://m.media-amazon.com/images/I/71OKAJGhFNL._SL1500_.jpg"
+    },
+    {
+      "asin": "B0H3NK4NT3",
+      "name": "A.TEEZ GOLDEN HOUR : Part.5 [Digipack Unit 4 Ver Set] 14th Mini Album",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 11,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H3NK4NT3",
+      "profit_margin": 0.31,
+      "net_profit": 2.07,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.53,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.59
+      },
+      "off_season": false,
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 4.0,
+        "demand": 56,
+        "supply": 1201329,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 46,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(crafts)": 21,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "📉 无需求信号": -15,
+        "💧 浅蓝海": 10
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "迷你 包装 个 金色 套装",
+      "image_url": "https://m.media-amazon.com/images/I/41r5LSedWfL._AC_SL1000_.jpg"
+    },
+    {
+      "asin": "B0GSRPLWXL",
+      "name": "Nanopolix Scratch Remover,Nanopolix Ultimate Car Scratch Remover with Nano Sparkle Cloth for Any Car Scratches,Cars Pain",
+      "price": 8.5,
+      "reviews": 32,
+      "rating": 4.2,
+      "rank": 3,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "32 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GSRPLWXL",
+      "profit_margin": 0.317,
+      "net_profit": 2.69,
+      "cost_breakdown": {
+        "vat": 1.42,
+        "commission": 1.27,
+        "fba": 1.28,
+        "ads": 0.43,
+        "returns": 0.26,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.81
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 43,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "脚垫 汽车",
+      "image_url": "https://m.media-amazon.com/images/I/710XKMlTTUL._SL1500_.jpg"
+    },
+    {
+      "asin": "B0H28HXP3K",
+      "name": "Nanopolix Scratch Remover, Nanopolix Ultimate Scratch Remover, Innovative Nano-Cloth Technology Harmless to Cars, Quick ",
+      "price": 6.49,
+      "reviews": 43,
+      "rating": 4.8,
+      "rank": 23,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "43 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H28HXP3K",
+      "profit_margin": 0.231,
+      "net_profit": 1.5,
+      "cost_breakdown": {
+        "vat": 1.08,
+        "commission": 0.97,
+        "fba": 1.28,
+        "ads": 0.32,
+        "returns": 0.19,
+        "storage": 0.06,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 4.99
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 40,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "脚垫 汽车",
+      "image_url": "https://m.media-amazon.com/images/I/710sNdVU+FL._SL1500_.jpg"
+    },
+    {
+      "asin": "B074H5296B",
+      "name": "Xtremeauto 2 in 1 Car Emergency Escape Tool, Window Breaker & Seat Belt Cutter, Compact Safety Hammer for Car, Vehicle G",
+      "price": 8.99,
+      "reviews": 2,
+      "rating": 5.0,
+      "rank": 17,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "2 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B074H5296B",
+      "profit_margin": 0.332,
+      "net_profit": 2.98,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.28,
+        "ads": 0.45,
+        "returns": 0.27,
+        "storage": 0.09,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 6.01
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 30,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 评论偏少": -8,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "工具 皮带 座椅 帽子 汽车",
+      "image_url": "https://m.media-amazon.com/images/I/71ZlreJTF1L._AC_SL1254_.jpg"
+    },
+    {
+      "asin": "B0H154LY2Y",
+      "name": "England Car Flags | Football World Cup 2026 St George Cross Window Flags | Pack of 2 England Supporter Car Flags with Wi",
+      "price": 6.99,
+      "reviews": 2,
+      "rating": 4.3,
+      "rank": 19,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "2 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H154LY2Y",
+      "profit_margin": 0.257,
+      "net_profit": 1.8,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.28,
+        "ads": 0.35,
+        "returns": 0.21,
+        "storage": 0.07,
+        "dsc": 0.07,
+        "sourcing": 1.0,
+        "total_cost": 5.19
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 21,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 评论偏少": -8,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "name_cn": "球 包装 杯子 汽车",
+      "image_url": "https://m.media-amazon.com/images/I/61ltzKX5wxL._AC_SL1500_.jpg"
     }
   ],
   "gaps": [
