@@ -71,15 +71,29 @@ def backfill():
         print(f"  Fetching product page: {asin}...")
         html = _curl_fetch(f"https://www.amazon.co.uk/dp/{asin}")
         if html:
+            # Best: hiRes JSON — actual product main image in high quality
+            m = re.search(r'"hiRes":"([^"]+)"', html)
+            if m:
+                image_map[asin] = m.group(1)
+                print(f"    Found hiRes for {asin}")
+                continue
+            # Second: "large" JSON
+            m = re.search(r'"large":"([^"]+)"', html)
+            if m:
+                image_map[asin] = m.group(1)
+                print(f"    Found large for {asin}")
+                continue
+            # Third: og:image
             m = re.search(r'og:image.*?content="([^"]+)"', html)
             if m:
                 image_map[asin] = m.group(1)
                 print(f"    Found og:image for {asin}")
-            else:
-                m2 = re.search(r'<img[^>]*src="(https?://m\.media-amazon\.com/images/[^"]+)"', html)
-                if m2:
-                    image_map[asin] = m2.group(1)
-                    print(f"    Found img for {asin}")
+                continue
+            # Fourth: data-old-hires
+            m = re.search(r'data-old-hires="([^"]+)"', html)
+            if m:
+                image_map[asin] = m.group(1)
+                print(f"    Found old-hires for {asin}")
     
     print(f"\nFound images for {len(image_map)}/{len(asins_needed)} ASINs")
     
