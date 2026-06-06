@@ -4,6 +4,13 @@
 set -e
 cd /home/lee/product-radar
 
+# ScraperAPI fallback key (free: 5000 req/month)
+# Register at https://dashboard.scraperapi.com/signup
+export SCRAPER_API_KEY=""
+if [ -f "$HOME/.hermes/scraperapi_key.txt" ]; then
+    export SCRAPER_API_KEY=$(cat "$HOME/.hermes/scraperapi_key.txt" | tr -d '\n')
+fi
+
 echo "🔍 选品雷达自动扫描 | $(date '+%Y-%m-%d %H:%M')"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 

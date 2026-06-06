@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Amazon UK data fetcher v2 - New Releases + BSR with channel tagging"""
-import json, subprocess, re, sys, random
+import json, subprocess, re, sys, random, os
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent
@@ -93,8 +93,22 @@ CATEGORY_VALIDATORS = {
 }
 
 
+SCRAPER_API_KEY = os.environ.get("SCRAPER_API_KEY", "")
+
+def _is_valid_response(html):
+    """Check if Amazon response contains real product data."""
+    if not html or len(html) < 1000:
+        return False
+    low = html.lower()
+    if "captcha" in low or "api-services-support@amazon" in low:
+        return False
+    if "data-asin" not in html:
+        return False
+    return True
+
 def _curl_fetch(url):
-    """Fetch a page with curl, forcing GBP."""
+    """Fetch a page with curl, forcing GBP. Falls back to ScraperAPI if blocked."""
+    # Try direct request first
     try:
         result = subprocess.run(
             ["curl", "-s", "-L", "--compressed",
@@ -105,9 +119,31 @@ def _curl_fetch(url):
              url],
             capture_output=True, text=True, timeout=45
         )
-        return result.stdout
+        if _is_valid_response(result.stdout):
+            return result.stdout
+        print(f"  Direct request blocked/invalid (len={len(result.stdout)}), trying ScraperAPI...", file=sys.stderr)
     except Exception as e:
-        print(f"  curl error: {e}", file=sys.stderr)
+        print(f"  curl error: {e}, trying ScraperAPI...", file=sys.stderr)
+
+    # Fallback: ScraperAPI
+    if SCRAPER_API_KEY:
+        try:
+            proxy_url = f"http://api.scraperapi.com?api_key={SCRAPER_API_KEY}&url={url}"
+            result = subprocess.run(
+                ["curl", "-s", "-L", "--compressed",
+                 "--connect-timeout", "15", "--max-time", "45",
+                 proxy_url],
+                capture_output=True, text=True, timeout=60
+            )
+            if _is_valid_response(result.stdout):
+                print(f"  ScraperAPI OK (len={len(result.stdout)})", file=sys.stderr)
+                return result.stdout
+            print(f"  ScraperAPI also failed (len={len(result.stdout)})", file=sys.stderr)
+        except Exception as e:
+            print(f"  ScraperAPI error: {e}", file=sys.stderr)
+    else:
+        print("  No SCRAPER_API_KEY set, skipping fallback", file=sys.stderr)
+
     return ""
 
 
