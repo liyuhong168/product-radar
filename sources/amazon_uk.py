@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Amazon UK data fetcher v2 - New Releases + BSR with channel tagging"""
 import json, subprocess, re, sys, random, os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent
@@ -172,9 +173,9 @@ def _parse_amazon_page(html, category, channel_type):
         title = htmlmod.unescape(title_match.group(1)).strip() if title_match else ""
         title = re.sub(r'\s+', ' ', title).strip()
 
-        # Extract image URL from <img src="m.media-amazon.com..."> in this block
+        # Extract image URL from <img src="...amazon.com/images/I/..."> in this block
         img_url = ""
-        img_match = re.search(r'<img[^>]*src="(https?://m\.media-amazon\.com/images/[^"]+)"', block)
+        img_match = re.search(r'<img[^>]*src="(https?://[^"]*amazon\.com/images/I/[^"]+)"', block)
         if img_match:
             img_url = img_match.group(1)
 
@@ -256,23 +257,26 @@ def fetch(max_per_channel_type=8):
     rotation_file.parent.mkdir(parents=True, exist_ok=True)
     rotation_file.write_text(json.dumps(last_cats))
 
-    # Fetch each URL
-    for category, channel_type, url in selected_keys:
-        print(f"  Fetching {category} ({CHANNEL_NAMES[channel_type]})...", file=sys.stderr)
+    # Fetch URLs in parallel (8 concurrent threads)
+    def _fetch_one(item):
+        category, channel_type, url = item
         html = _curl_fetch(url)
         if not html:
             print(f"  warn {category}/{channel_type}: empty", file=sys.stderr)
-            continue
-
+            return (category, channel_type, [])
         products = _parse_amazon_page(html, category, channel_type)
-        new_count = 0
-        for p in products:
-            if p["asin"] not in seen_asins:
-                seen_asins.add(p["asin"])
-                all_products.append(p)
-                new_count += 1
-
+        new_count = len(products)
         print(f"  ok {category}/{channel_type}: {new_count} new", file=sys.stderr)
+        return (category, channel_type, products)
+
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        futures = {pool.submit(_fetch_one, item): item for item in selected_keys}
+        for future in as_completed(futures):
+            category, channel_type, products = future.result()
+            for p in products:
+                if p["asin"] not in seen_asins:
+                    seen_asins.add(p["asin"])
+                    all_products.append(p)
 
     # Summary by channel
     for ch in CHANNEL_NAMES:
