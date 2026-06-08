@@ -65,16 +65,9 @@ def _render_header(data):
         <line x1="24" y1="24" x2="24" y2="4" stroke="#007AFF" stroke-width="2" stroke-linecap="round"/>
         <path d="M24,24 L24,4 A20,20 0 0,1 40,16 Z" fill="#007AFF" opacity="0.15"/>
         <circle cx="24" cy="24" r="3" fill="#007AFF"/>
-        <circle cx="32" cy="14" r="2.5" fill="#34C759" opacity="0.8">
-            <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="18" cy="12" r="2" fill="#FF9500" opacity="0.7">
-            <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2.5s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="30" cy="28" r="1.8" fill="#34C759" opacity="0.6">
-            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
-        </circle>
-        <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="4s" repeatCount="indefinite"/>
+        <circle cx="32" cy="14" r="2.5" fill="#34C759" opacity="0.8"/>
+        <circle cx="18" cy="12" r="2" fill="#FF9500" opacity="0.7"/>
+        <circle cx="30" cy="28" r="1.8" fill="#34C759" opacity="0.6"/>
     </svg>'''
 
     return f"""
