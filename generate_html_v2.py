@@ -712,6 +712,55 @@ async function syncToGitHub(status) {
         el.style.color = '#FF3B30';
     }
     setTimeout(() => { el.textContent = ''; }, 5000);
+
+    // Also sync rejected products with details
+    syncRejectedToGitHub(token);
+}
+
+// Sync rejected products (with details) to GitHub repo for pattern analysis
+async function syncRejectedToGitHub(token) {
+    if (!token) return;
+    let rejected = {};
+    try { rejected = JSON.parse(localStorage.getItem('rejected_products') || '{}'); } catch {}
+    if (Object.keys(rejected).length === 0) return;
+
+    try {
+        const repo = 'liyuhong168/product-radar';
+        const filePath = 'rejected_by_user.json';
+        const apiUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+
+        // Get existing file (if any) to merge
+        let existingData = {};
+        let sha = null;
+        try {
+            const res = await fetch(apiUrl, {
+                headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                sha = data.sha;
+                existingData = JSON.parse(atob(data.content));
+            }
+        } catch {}
+
+        // Merge: existing + new rejected (local wins)
+        const merged = {...existingData, ...rejected};
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(merged, null, 2))));
+
+        await fetch(apiUrl, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: `sync rejected products (${Object.keys(merged).length} items)`,
+                content: content,
+                sha: sha || undefined,
+            }),
+        });
+    } catch {}
 }
 
 // Tab switching
@@ -756,7 +805,29 @@ categories.forEach(c => {
 function markStatus(asin, status) {
     const s = loadStatus();
     if (s[asin] === status) { delete s[asin]; } // toggle off
-    else { s[asin] = status; }
+    else {
+        s[asin] = status;
+        // Track rejected products with details for pattern analysis
+        if (status === 'rejected') {
+            const p = products.find(x => x.asin === asin);
+            if (p) {
+                let rejected = {};
+                try { rejected = JSON.parse(localStorage.getItem('rejected_products') || '{}'); } catch {}
+                rejected[asin] = {
+                    name: p.name,
+                    category: p.category || '',
+                    channel: p.channel || '',
+                    price: p.price,
+                    reviews: p.reviews,
+                    rating: p.rating,
+                    sources: p.sources || [],
+                    name_cn: p.name_cn || '',
+                    date: new Date().toISOString().slice(0,10)
+                };
+                localStorage.setItem('rejected_products', JSON.stringify(rejected));
+            }
+        }
+    }
     saveStatus(s);
     renderProducts();
 }
