@@ -199,6 +199,9 @@ PHRASE_MAP = {
     "washi tape": "和纸胶带",
     "vinyl sticker": "贴纸",
     "wall shelf": "墙上置物架",
+    "art supplies": "美术用品",
+    "craft supplies": "手工用品",
+    "face roller": "面部按摩滚轮",
 }
 
 # Single words with word-boundary matching
@@ -552,6 +555,7 @@ WORD_MAP = {
     "christmas": "圣诞",
     "halloween": "万圣节",
     "easter": "复活节",
+    "toilet": "马桶",
 }
 
 
