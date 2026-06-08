@@ -52,7 +52,7 @@ EVIDENCE_TO_PRODUCT = {
     "lip": ["lip balm", "lip scrubber"],
     
     # Eco
-    "eco": ["eco products", "reusable bag", "bamboo products"],
+    "eco": ["环保产品", "reusable bag", "bamboo products"],
     "reusable": ["reusable food wrap", "reusable straws", "reusable bags"],
     "bamboo": ["bamboo cutlery", "bamboo toothbrush", "bamboo organizer"],
     "beeswax": ["beeswax wrap", "beeswax candles"],
@@ -122,8 +122,8 @@ EVIDENCE_TO_PRODUCT = {
     "pen": ["pen holder", "pen set", "fountain pen"],
     "monitor": ["monitor stand", "monitor riser", "monitor light"],
     "laptop": ["laptop stand", "laptop sleeve", "laptop cooler"],
-    "office": ["office supplies", "desk organizer", "pen holder"],
-    "stationery": ["stationery set", "notebook", "pen set"],
+    "office": ["办公用品", "desk organizer", "pen holder"],
+    "stationery": ["文具", "notebook", "pen set"],
     
     # Sports
     "yoga": ["yoga mat", "yoga block", "yoga strap"],
@@ -132,8 +132,8 @@ EVIDENCE_TO_PRODUCT = {
     "running": ["running belt", "running light", "running armband"],
     
     # Seasonal / Gift
-    "gift": ["gift ideas", "gift set", "gift box"],
-    "seasonal": ["seasonal items", "seasonal decor", "holiday gift"],
+    "gift": ["礼物", "gift set", "gift box"],
+    "seasonal": ["季节性产品", "seasonal decor", "holiday gift"],
     "party": ["party supplies", "party decoration", "party favours"],
     "wedding": ["wedding decor", "wedding favour", "wedding gift"],
     "birthday": ["birthday gift", "birthday decoration", "birthday card"],

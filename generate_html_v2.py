@@ -508,11 +508,8 @@ body {
 }
 .gap-platform {
     padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
-    text-decoration: none; cursor: pointer; transition: all 0.2s;
 }
-.gap-platform:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 .gap-platform.found { background: #34C75915; color: #34C759; }
-.gap-platform.found:hover { background: #34C75925; }
 .gap-platform.not-found { background: #f0f0f5; color: #8e8e93; }
 .gap-amazon-supply {
     padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
@@ -838,7 +835,7 @@ function getFiltered() {
     const category = document.getElementById('filterCategory').value;
     const status = loadStatus();
 
-    const filtered = products.filter(p => {
+    return products.filter(p => {
         // Channel filter - use channel_tags array instead of single channel
         if (currentChannel !== 'all') {
             const tags = p.channel_tags || [p.channel];
@@ -1051,8 +1048,7 @@ function renderGaps(grid) {
 
         const suggestions = (g.suggestions || []).slice(0, 5);
         const suggestHtml = suggestions.map((s, i) => {
-            const amazonUrl = `https://www.amazon.co.uk/s?k=${encodeURIComponent(s)}&rh=p_36:${encodeURIComponent('599-1000')}`;
-            return `<a class="gap-platform found" href="${amazonUrl}" target="_blank" rel="noopener" title="在Amazon搜索: ${escHtml(s)}">🔍 ${escHtml(s)}</a>`;
+            return `<span class="gap-platform found">${s}</span>`;
         }).join('');
 
         return `
@@ -1094,8 +1090,8 @@ function exportCSV() {
             p.amazon_url
         ]);
     });
-    const csv = rows.map(r => r.join(',')).join('\n');
-    const blob = new Blob(['\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
+    const csv = rows.map(r => r.join(',')).join('\\n');
+    const blob = new Blob(['\\uFEFF' + csv], {type:'text/csv;charset=utf-8'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = `选品雷达_${DATA.scan_date}.csv`;

@@ -267,7 +267,7 @@ def load_history(days=7):
     cutoff = datetime.now() - timedelta(days=days)
     for f in sorted(hist_dir.glob("*.json")):
         try:
-            d = datetime.strptime(f.stem[:10], "%Y-%m-%d")
+            d = datetime.strptime(f.stem, "%Y-%m-%d")
             if d >= cutoff:
                 data = json.loads(f.read_text())
                 for item in data:
