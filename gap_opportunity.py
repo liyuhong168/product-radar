@@ -231,7 +231,9 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
         first_suggest = suggestions[0] if suggestions else cat
         from translate import translate_title_to_chinese
         cn_keyword = translate_title_to_chinese(first_suggest)
-        url_1688_keyword = cn_keyword if cn_keyword else first_suggest
+        # Only use translation if it actually produced Chinese characters
+        has_chinese = bool(re.search(r'[\u4e00-\u9fff]', cn_keyword))
+        url_1688_keyword = cn_keyword if has_chinese else translate_title_to_chinese(cat) or cat
         
         # Pre-translate all suggestions to Chinese for 1688 links
         suggestions_cn = []
@@ -240,7 +242,8 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
                 suggestions_cn.append(s)  # Already Chinese
             else:
                 cn = translate_title_to_chinese(s)
-                suggestions_cn.append(cn if cn else s)
+                has_cn = bool(re.search(r'[\u4e00-\u9fff]', cn))
+                suggestions_cn.append(cn if has_cn else s)
         
         gap = {
             "keyword": cat,

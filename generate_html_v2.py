@@ -1190,6 +1190,36 @@ def generate_html(data_file, output_file=None):
     if not output_file:
         output_file = str(BASE / "output" / "v2.html")
 
+    # Fix gap opportunity 1688 URLs: translate English keywords to Chinese
+    try:
+        from translate import translate_title_to_chinese
+        import re as _re
+        for gap in data.get("gaps", []):
+            # Fix main URL
+            url = gap.get("url_1688", "")
+            if "keywords=" in url:
+                from urllib.parse import unquote, quote, urlparse, parse_qs
+                parsed = urlparse(url)
+                params = parse_qs(parsed.query)
+                kw = params.get("keywords", [""])[0]
+                if not _re.search(r'[\u4e00-\u9fff]', kw):
+                    cn = translate_title_to_chinese(kw)
+                    if _re.search(r'[\u4e00-\u9fff]', cn):
+                        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={quote(cn)}"
+            # Fix suggestions_cn
+            if "suggestions" in gap and "suggestions_cn" in gap:
+                fixed_cn = []
+                for i, cn in enumerate(gap["suggestions_cn"]):
+                    if not _re.search(r'[\u4e00-\u9fff]', cn):
+                        en = gap["suggestions"][i] if i < len(gap["suggestions"]) else cn
+                        new_cn = translate_title_to_chinese(en)
+                        fixed_cn.append(new_cn if _re.search(r'[\u4e00-\u9fff]', new_cn) else cn)
+                    else:
+                        fixed_cn.append(cn)
+                gap["suggestions_cn"] = fixed_cn
+    except Exception:
+        pass  # Don't fail HTML generation over translation
+
     js_data = json.dumps(data, ensure_ascii=False)
 
     page = f"""<!DOCTYPE html>

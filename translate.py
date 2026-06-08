@@ -193,6 +193,12 @@ PHRASE_MAP = {
     "litter tray": "猫砂盆",
     "aquarium filter": "鱼缸过滤器",
     "fish tank": "鱼缸",
+    "food wrap": "保鲜膜",
+    "reusable food wrap": "硅胶保鲜膜",
+    "beeswax wrap": "蜂蜡保鲜布",
+    "washi tape": "和纸胶带",
+    "vinyl sticker": "贴纸",
+    "wall shelf": "墙上置物架",
 }
 
 # Single words with word-boundary matching
@@ -537,6 +543,15 @@ WORD_MAP = {
     "badge": "徽章",
     "pin": "胸针",
     "magnet": "冰箱贴",
+    "seasonal": "季节性",
+    "birthday": "生日",
+    "gift": "礼品",
+    "party": "派对",
+    "decoration": "装饰",
+    "festive": "节日",
+    "christmas": "圣诞",
+    "halloween": "万圣节",
+    "easter": "复活节",
 }
 
 
