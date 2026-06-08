@@ -75,7 +75,6 @@ def _render_header(data):
             <div class="scan-info">{d} {t} · 扫描 {total} · 通过 {passed}</div>
             <div class="date-picker" id="datePicker"></div>
         </div>
-        <div class="stat-badges">{badges}</div>
     </header>"""
 
 
@@ -219,7 +218,7 @@ body {
 
 /* Tab Bar */
 .tab-bar { margin-bottom: 16px; }
-.channel-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; }
+.channel-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
 .tab {
     padding: 10px 18px; border: none; border-radius: 12px;
     background: var(--card-bg); color: var(--text-secondary);
