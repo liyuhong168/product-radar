@@ -1316,7 +1316,6 @@
       "is_cross_validated": true,
       "cross_sources": 3,
       "suggestions": [
-        "环保产品",
         "reusable bag",
         "bamboo products",
         "sustainable products",
@@ -1545,8 +1544,7 @@
         "fountain pen",
         "desk organizer",
         "desk lamp",
-        "desk mat",
-        "办公用品"
+        "desk mat"
       ],
       "suggestions_cn": [
         "笔筒",
@@ -1583,7 +1581,6 @@
       "is_cross_validated": true,
       "cross_sources": 3,
       "suggestions": [
-        "礼物",
         "gift set",
         "gift box"
       ],

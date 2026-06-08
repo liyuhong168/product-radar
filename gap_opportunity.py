@@ -197,6 +197,9 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
         suggestions = []
         for kw in evidence:
             kw_lower = kw.lower().strip()
+            # Skip Chinese keywords
+            if any('\u4e00' <= c <= '\u9fff' for c in kw):
+                continue
             if kw_lower in EVIDENCE_TO_PRODUCT:
                 suggestions.extend(EVIDENCE_TO_PRODUCT[kw_lower])
             elif len(kw_lower) >= 4:

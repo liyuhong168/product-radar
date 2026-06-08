@@ -515,6 +515,19 @@ body {
 .gap-platform.found { background: #34C75915; color: #34C759; }
 .gap-platform.found:hover { background: #34C75925; }
 .gap-platform.not-found { background: #f0f0f5; color: #8e8e93; }
+.gap-keyword-btns {
+    display: inline-flex; gap: 2px; margin: 2px 0;
+}
+.gap-kw-btn {
+    padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    text-decoration: none; cursor: pointer; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 2px;
+}
+.gap-kw-btn:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.gap-kw-btn.amazon { background: #007AFF15; color: #007AFF; }
+.gap-kw-btn.amazon:hover { background: #007AFF25; }
+.gap-kw-btn.google { background: #FF950015; color: #FF9500; padding: 4px 8px; }
+.gap-kw-btn.google:hover { background: #FF950025; }
 .gap-amazon-supply {
     padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
 }
@@ -1053,7 +1066,11 @@ function renderGaps(grid) {
         const suggestions = (g.suggestions || []).slice(0, 5);
         const suggestHtml = suggestions.map((s, i) => {
             const amazonUrl = `https://www.amazon.co.uk/s?k=${encodeURIComponent(s)}&rh=p_36:${encodeURIComponent('599-1000')}`;
-            return `<a class="gap-platform found" href="${amazonUrl}" target="_blank" rel="noopener" title="在Amazon搜索: ${escHtml(s)}">🔍 ${escHtml(s)}</a>`;
+            const googleUrl = `https://trends.google.com/trends/explore?q=${encodeURIComponent(s)}&geo=GB`;
+            return `<span class="gap-keyword-btns">
+                <a class="gap-kw-btn amazon" href="${amazonUrl}" target="_blank" rel="noopener" title="Amazon: ${escHtml(s)}">🛒 ${escHtml(s)}</a>
+                <a class="gap-kw-btn google" href="${googleUrl}" target="_blank" rel="noopener" title="Google Trends: ${escHtml(s)}">📈</a>
+            </span>`;
         }).join('');
 
         return `
@@ -1061,21 +1078,17 @@ function renderGaps(grid) {
             <div class="gap-keyword">🎯 ${escHtml(g.category)}</div>
             <div class="gap-meta">
                 <span style="color:${color};font-weight:700">${label}</span>
-                <span>📊 热度: ${g.heat}</span>
-                <span>🏆 评分: ${g.score}</span>
+                <span>📊 Heat: ${g.heat}</span>
+                <span>🏆 Score: ${g.score}</span>
                 ${cv}
                 ${sdLabel ? `<span>${sdLabel}</span>` : ''}
             </div>
             <div style="font-size:13px;color:#6e6e73">
-                Amazon: ${g.amazon_count}个产品 / ${g.amazon_reviews}条评论
-                ${g.evidence && g.evidence.length > 0 ? `<br>趋势证据: ${g.evidence.slice(0,3).join(', ')}` : ''}
+                Amazon: ${g.amazon_count} products / ${g.amazon_reviews} reviews
+                ${g.evidence && g.evidence.length > 0 ? `<br>Trend: ${g.evidence.slice(0,3).join(', ')}` : ''}
             </div>
-            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-top:4px">📦 建议产品:</div>
+            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-top:4px">📦 Suggestions:</div>
             <div class="gap-platforms">${suggestHtml}</div>
-            <div class="gap-actions">
-                <a class="btn-source" href="${g.url_amazon}" target="_blank" rel="noopener" style="border-color:#007AFF;color:#007AFF">📦 查Amazon</a>
-                <a class="btn-source" href="${g.url_google}" target="_blank" rel="noopener" style="border-color:#34C759;color:#34C759">📈 Google趋势</a>
-            </div>
         </div>`;
     }).join('');
 }
