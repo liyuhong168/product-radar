@@ -6,8 +6,6 @@ Generates a tabbed, filterable product dashboard with review status tracking.
 import json, sys, html as htmlmod, re
 from datetime import datetime
 from pathlib import Path
-from translate import translate_title_to_chinese
-
 BASE = Path(__file__).parent
 
 # Channel config: tab_id -> (emoji, label, color)
@@ -456,15 +454,15 @@ body {
 .signal-confidence.weak { background: #FFCC0015; color: #998500; }
 .signal-confidence.none { background: #f0f0f5; color: #8e8e93; }
 
-/* 1688 Button */
-.btn-1688 {
+/* Source Button */
+.btn-source {
     display: inline-flex; align-items: center; gap: 4px;
     padding: 5px 12px; border: 2px solid #FF6A00;
     border-radius: 10px; background: transparent;
     color: #FF6A00; font-size: 12px; font-weight: 600;
     cursor: pointer; transition: all 0.15s; text-decoration: none;
 }
-.btn-1688:hover { background: #FF6A00; color: white; }
+.btn-source:hover { background: #FF6A00; color: white; }
 
 /* Sourcing Tiers */
 .sourcing-tiers {
@@ -814,7 +812,6 @@ function markStatus(asin, status) {
                     reviews: p.reviews,
                     rating: p.rating,
                     sources: p.sources || [],
-                    name_cn: p.name_cn || '',
                     date: new Date().toISOString().slice(0,10)
                 };
                 localStorage.setItem('rejected_products', JSON.stringify(rejected));
@@ -956,9 +953,6 @@ function renderProducts() {
             divHtml = `<span class="signal-badge ${divClass}">${divLabel}</span>`;
         }
 
-        // 1688 search URL - pre-encoded with GBK at generation time
-        const url1688 = p.url_1688_gbk || `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(p.name_cn || p.name)}`;
-
         // 3-tier sourcing profit estimates
         const tiers = DATA.tiers || [];
         let tiersHtml = '';
@@ -1022,9 +1016,6 @@ function renderProducts() {
             </div>
             ${costLine ? `<button class="cost-toggle" onclick="toggleCost('${p.asin}')">📋 成本明细 ▾</button>
             <div class="cost-detail" id="cost-${p.asin}">${costLine}<br>总计: £${bd.total_cost} · 净利: £${p.net_profit.toFixed(2)}</div>` : ''}
-            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-                <a class="btn-1688" href="${url1688}" target="_blank" rel="noopener">🔍 1688找货源</a>
-            </div>
             ${tiersHtml}
             <div class="status-btns">${statusBtns}</div>
         </div>`;
@@ -1057,11 +1048,8 @@ function renderGaps(grid) {
         const sdLabel = g.sd_info ? g.sd_info.label : '';
 
         const suggestions = (g.suggestions || []).slice(0, 5);
-        const suggestionsCn = (g.suggestions_cn || []).slice(0, 5);
-        const suggestionsUrls = (g.suggestions_urls || []).slice(0, 5);
         const suggestHtml = suggestions.map((s, i) => {
-            const url = suggestionsUrls[i] || `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(suggestionsCn[i] || s)}`;
-            return `<a href="${url}" target="_blank" rel="noopener" class="gap-platform found" style="text-decoration:none">${s}</a>`;
+            return `<span class="gap-platform found">${s}</span>`;
         }).join('');
 
         return `
@@ -1078,12 +1066,11 @@ function renderGaps(grid) {
                 Amazon: ${g.amazon_count}个产品 / ${g.amazon_reviews}条评论
                 ${g.evidence && g.evidence.length > 0 ? `<br>趋势证据: ${g.evidence.slice(0,3).join(', ')}` : ''}
             </div>
-            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-top:4px">📦 建议产品（点击搜1688）:</div>
+            <div style="font-size:12px;font-weight:600;color:#8e8e93;margin-top:4px">📦 建议产品:</div>
             <div class="gap-platforms">${suggestHtml}</div>
             <div class="gap-actions">
-                <a class="btn-1688" href="${g.url_1688}" target="_blank" rel="noopener">🔍 1688找货源</a>
-                <a class="btn-1688" href="${g.url_amazon}" target="_blank" rel="noopener" style="border-color:#007AFF;color:#007AFF">📦 查Amazon</a>
-                <a class="btn-1688" href="${g.url_google}" target="_blank" rel="noopener" style="border-color:#34C759;color:#34C759">📈 Google趋势</a>
+                <a class="btn-source" href="${g.url_amazon}" target="_blank" rel="noopener" style="border-color:#007AFF;color:#007AFF">📦 查Amazon</a>
+                <a class="btn-source" href="${g.url_google}" target="_blank" rel="noopener" style="border-color:#34C759;color:#34C759">📈 Google趋势</a>
             </div>
         </div>`;
     }).join('');
@@ -1181,59 +1168,6 @@ def generate_html(data_file, output_file=None):
 
     if not output_file:
         output_file = str(BASE / "output" / "v2.html")
-
-    # Fix gap opportunity 1688 URLs: translate English keywords to Chinese
-    try:
-        from translate import translate_title_to_chinese
-        import re as _re
-
-        # GBK URL encoding helper (1688.com uses GBK)
-        def _gbk_quote(text):
-            try:
-                gbk_bytes = text.encode('gbk')
-                return ''.join(f'%{b:02X}' for b in gbk_bytes)
-            except (UnicodeEncodeError, LookupError):
-                from urllib.parse import quote as _quote
-                return _quote(text)
-
-        # Pre-encode product 1688 URLs with GBK
-        for p in data.get("products", []):
-            cn = p.get("name_cn", "") or p.get("name", "")
-            p["url_1688_gbk"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(cn)}"
-
-        for gap in data.get("gaps", []):
-            # Fix main URL
-            url = gap.get("url_1688", "")
-            if "keywords=" in url:
-                from urllib.parse import unquote, quote, urlparse, parse_qs
-                parsed = urlparse(url)
-                params = parse_qs(parsed.query)
-                kw = params.get("keywords", [""])[0]
-                if not _re.search(r'[\u4e00-\u9fff]', kw):
-                    cn = translate_title_to_chinese(kw)
-                    if _re.search(r'[\u4e00-\u9fff]', cn):
-                        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(cn)}"
-                else:
-                    # Already Chinese - just GBK-encode it
-                    gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(kw)}"
-            # Fix suggestions_cn
-            if "suggestions" in gap and "suggestions_cn" in gap:
-                fixed_cn = []
-                for i, cn in enumerate(gap["suggestions_cn"]):
-                    if not _re.search(r'[\u4e00-\u9fff]', cn):
-                        en = gap["suggestions"][i] if i < len(gap["suggestions"]) else cn
-                        new_cn = translate_title_to_chinese(en)
-                        fixed_cn.append(new_cn if _re.search(r'[\u4e00-\u9fff]', new_cn) else cn)
-                    else:
-                        fixed_cn.append(cn)
-                gap["suggestions_cn"] = fixed_cn
-                # Pre-encode suggestion URLs with GBK
-                gap["suggestions_urls"] = [
-                    f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(cn)}"
-                    for cn in fixed_cn
-                ]
-    except Exception:
-        pass  # Don't fail HTML generation over translation
 
     js_data = json.dumps(data, ensure_ascii=False)
 

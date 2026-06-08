@@ -233,10 +233,6 @@ def filter_products(products, config):
         else:
             p["off_season"] = False
 
-        # Add Chinese translation for 1688 search
-        from translate import translate_title_to_chinese
-        p["name_cn"] = translate_title_to_chinese(p.get("name", ""))
-        
         passed.append(p)
     return passed, rejected
 

@@ -11,6 +11,12 @@ if [ -f "/home/lee/.hermes/scraperapi_key.txt" ]; then
     export SCRAPER_API_KEY=$(cat "/home/lee/.hermes/scraperapi_key.txt" | tr -d '\n')
 fi
 
+# All detail goes to log file; cron only sees the one-line result
+LOG="/home/lee/product-radar/logs/cron_$(date '+%Y%m%d_%H%M%S').log"
+mkdir -p /home/lee/product-radar/logs
+find /home/lee/product-radar/logs -name "cron_*.log" -mtime +7 -delete 2>/dev/null
+
+{
 echo "🔍 选品雷达自动扫描 | $(date '+%Y-%m-%d %H:%M')"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
@@ -70,3 +76,14 @@ else
     timeout 30 git push origin main 2>/dev/null
 fi
 echo "  ✅ 已部署：https://liyuhong168.github.io/product-radar/v2.html"
+
+} > "$LOG" 2>&1 || {
+    # On failure, output error for cron alert
+    echo "❌ 选品雷达扫描失败 | $(date '+%Y-%m-%d %H:%M')"
+    tail -3 "$LOG"
+    exit 1
+}
+
+# On success, one-line summary for cron delivery
+PRODUCTS=$(python3 -c "import json; d=json.load(open('$(ls -t data/channels/*.json 2>/dev/null | grep -v rejected | grep -v trends | head -1)')); print(len(d.get('products',[])))")
+echo "✅ 选品雷达扫描完成 | $(date '+%Y-%m-%d %H:%M') | ${PRODUCTS}个产品通过筛选 → 已推送飞书+部署GitHub"

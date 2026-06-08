@@ -227,23 +227,8 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
         if sd_info.get("level") == "deep_blue":
             score += 10
         
-        # Generate URLs using first suggestion (translate to Chinese for 1688)
+        # Generate URLs
         first_suggest = suggestions[0] if suggestions else cat
-        from translate import translate_title_to_chinese
-        cn_keyword = translate_title_to_chinese(first_suggest)
-        # Only use translation if it actually produced Chinese characters
-        has_chinese = bool(re.search(r'[\u4e00-\u9fff]', cn_keyword))
-        url_1688_keyword = cn_keyword if has_chinese else translate_title_to_chinese(cat) or cat
-        
-        # Pre-translate all suggestions to Chinese for 1688 links
-        suggestions_cn = []
-        for s in suggestions:
-            if re.search(r'[\u4e00-\u9fff]', s):
-                suggestions_cn.append(s)  # Already Chinese
-            else:
-                cn = translate_title_to_chinese(s)
-                has_cn = bool(re.search(r'[\u4e00-\u9fff]', cn))
-                suggestions_cn.append(cn if has_cn else s)
         
         gap = {
             "keyword": cat,
@@ -257,12 +242,10 @@ def analyze_gaps(trend_data, sd_ratios, amazon_products):
             "is_cross_validated": is_cross_validated,
             "cross_sources": cross_validated.get(cat, 0),
             "suggestions": suggestions,
-            "suggestions_cn": suggestions_cn,
             "sd_info": sd_info,
             "source": "category_analysis",
         }
         
-        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={url_1688_keyword}"
         gap["url_amazon"] = f"https://www.amazon.co.uk/s?k={first_suggest.replace(' ', '+')}"
         gap["url_google"] = f"https://trends.google.com/trends/explore?q={first_suggest.replace(' ', '+')}&geo=GB"
         
@@ -301,4 +284,3 @@ if __name__ == "__main__":
         print(f"  Amazon: {g['amazon_count']}个产品, {g['amazon_reviews']}条评论")
         print(f"  证据关键词: {', '.join(g['evidence'][:3])}")
         print(f"  建议产品: {', '.join(g['suggestions'][:5])}")
-        print(f"  1688: {g['url_1688'][:80]}")
