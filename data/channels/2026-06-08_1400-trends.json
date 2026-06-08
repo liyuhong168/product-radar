@@ -1,0 +1,172 @@
+{
+  "category_scores": {
+    "car": 51,
+    "pets": 97,
+    "crafts": 100,
+    "beauty": 55,
+    "eco": 88,
+    "kitchen": 27,
+    "bathroom": 9,
+    "lighting": 64,
+    "home decor": 88,
+    "seasonal": 51,
+    "sports": 18,
+    "garden": 9,
+    "travel": 9,
+    "office": 36,
+    "phone": 60,
+    "baby": 9,
+    "kitchen_gadgets": 9,
+    "storage": 9
+  },
+  "category_evidence": {
+    "car": [
+      "car"
+    ],
+    "pets": [
+      "pet",
+      "cat",
+      "toy"
+    ],
+    "crafts": [
+      "craft",
+      "art",
+      "stickers"
+    ],
+    "beauty": [
+      "skincare",
+      "mirror",
+      "nail",
+      "hair"
+    ],
+    "eco": [
+      "eco"
+    ],
+    "kitchen": [
+      "kitchen",
+      "gadget"
+    ],
+    "bathroom": [
+      "mirror"
+    ],
+    "lighting": [
+      "led",
+      "lamp",
+      "strip",
+      "light"
+    ],
+    "home decor": [
+      "wall art",
+      "clock",
+      "mirror",
+      "decor"
+    ],
+    "seasonal": [
+      "gift"
+    ],
+    "sports": [
+      "water bottle"
+    ],
+    "garden": [
+      "flower"
+    ],
+    "travel": [
+      "travel"
+    ],
+    "office": [
+      "pen",
+      "office"
+    ],
+    "phone": [
+      "cable",
+      "phone",
+      "charger",
+      "earbuds"
+    ],
+    "baby": [
+      "baby"
+    ],
+    "kitchen_gadgets": [
+      "kitchen gadget"
+    ],
+    "storage": [
+      "box"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "car": 2,
+      "pets": 1,
+      "crafts": 3,
+      "beauty": 6,
+      "eco": 2,
+      "kitchen": 1,
+      "bathroom": 1,
+      "lighting": 4,
+      "home decor": 2,
+      "seasonal": 1,
+      "sports": 1
+    },
+    "temu": {
+      "garden": 1,
+      "pets": 4,
+      "crafts": 4,
+      "travel": 1,
+      "home decor": 2,
+      "eco": 3,
+      "kitchen": 2,
+      "car": 1,
+      "office": 2,
+      "lighting": 3,
+      "sports": 1,
+      "phone": 1,
+      "baby": 1,
+      "kitchen_gadgets": 1,
+      "seasonal": 1,
+      "storage": 1
+    },
+    "etsy": {
+      "pets": 3,
+      "crafts": 4,
+      "home decor": 4,
+      "eco": 3,
+      "office": 2,
+      "seasonal": 2,
+      "phone": 1
+    },
+    "market_intel": {
+      "car": 1,
+      "pets": 1,
+      "phone": 3
+    }
+  },
+  "cross_validated": {
+    "car": 3,
+    "pets": 4,
+    "crafts": 3,
+    "eco": 3,
+    "home decor": 3,
+    "seasonal": 3,
+    "phone": 3
+  },
+  "demand_keywords": [
+    "beauty fans",
+    "from the dominance of",
+    "mini lightweight wireless earbuds",
+    "pink cardigan",
+    "recommend some cool stuff from",
+    "scalloped knit tank",
+    "temu vs",
+    "tiktok made me buy it",
+    "top sellers",
+    "top trending",
+    "trending on",
+    "we love a thoughtful design",
+    "what are some cool independent",
+    "what things are worth buying",
+    "where can"
+  ],
+  "season": "summer",
+  "total_queries": 10,
+  "total_results_chars": 28415
+}
