@@ -963,9 +963,8 @@ function renderProducts() {
             divHtml = `<span class="signal-badge ${divClass}">${divLabel}</span>`;
         }
 
-        // 1688 search URL - use Chinese translation, raw chars (no encodeURIComponent for 1688 GBK compat)
-        const searchName = p.name_cn || p.name;
-        const url1688 = `https://s.1688.com/selloffer/offer_search.htm?keywords=${searchName}`;
+        // 1688 search URL - pre-encoded with GBK at generation time
+        const url1688 = p.url_1688_gbk || `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(p.name_cn || p.name)}`;
 
         // 3-tier sourcing profit estimates
         const tiers = DATA.tiers || [];
@@ -1066,9 +1065,9 @@ function renderGaps(grid) {
 
         const suggestions = (g.suggestions || []).slice(0, 5);
         const suggestionsCn = (g.suggestions_cn || []).slice(0, 5);
+        const suggestionsUrls = (g.suggestions_urls || []).slice(0, 5);
         const suggestHtml = suggestions.map((s, i) => {
-            const searchKw = suggestionsCn[i] || s;
-            const url = `https://s.1688.com/selloffer/offer_search.htm?keywords=${searchKw}`;
+            const url = suggestionsUrls[i] || `https://s.1688.com/selloffer/offer_search.htm?keywords=${encodeURIComponent(suggestionsCn[i] || s)}`;
             return `<a href="${url}" target="_blank" rel="noopener" class="gap-platform found" style="text-decoration:none">${s}</a>`;
         }).join('');
 
@@ -1194,6 +1193,21 @@ def generate_html(data_file, output_file=None):
     try:
         from translate import translate_title_to_chinese
         import re as _re
+
+        # GBK URL encoding helper (1688.com uses GBK)
+        def _gbk_quote(text):
+            try:
+                gbk_bytes = text.encode('gbk')
+                return ''.join(f'%{b:02X}' for b in gbk_bytes)
+            except (UnicodeEncodeError, LookupError):
+                from urllib.parse import quote as _quote
+                return _quote(text)
+
+        # Pre-encode product 1688 URLs with GBK
+        for p in data.get("products", []):
+            cn = p.get("name_cn", "") or p.get("name", "")
+            p["url_1688_gbk"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(cn)}"
+
         for gap in data.get("gaps", []):
             # Fix main URL
             url = gap.get("url_1688", "")
@@ -1205,7 +1219,10 @@ def generate_html(data_file, output_file=None):
                 if not _re.search(r'[\u4e00-\u9fff]', kw):
                     cn = translate_title_to_chinese(kw)
                     if _re.search(r'[\u4e00-\u9fff]', cn):
-                        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={cn}"
+                        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(cn)}"
+                else:
+                    # Already Chinese - just GBK-encode it
+                    gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(kw)}"
             # Fix suggestions_cn
             if "suggestions" in gap and "suggestions_cn" in gap:
                 fixed_cn = []
@@ -1217,6 +1234,11 @@ def generate_html(data_file, output_file=None):
                     else:
                         fixed_cn.append(cn)
                 gap["suggestions_cn"] = fixed_cn
+                # Pre-encode suggestion URLs with GBK
+                gap["suggestions_urls"] = [
+                    f"https://s.1688.com/selloffer/offer_search.htm?keywords={_gbk_quote(cn)}"
+                    for cn in fixed_cn
+                ]
     except Exception:
         pass  # Don't fail HTML generation over translation
 
@@ -1239,7 +1261,8 @@ def generate_html(data_file, output_file=None):
         {_render_product_grid()}
         {_render_empty_state()}
     </div>
-    <script>const DATA = {js_data};
+    <script>
+const DATA = {js_data};
 const CHANNELS = {json.dumps({k: list(v) for k, v in CHANNELS.items()})};
 const STATUS_CONFIG = {json.dumps({k: list(v) for k, v in STATUS_CONFIG.items()})};
     </script>
