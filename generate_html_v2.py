@@ -1205,7 +1205,7 @@ def generate_html(data_file, output_file=None):
                 if not _re.search(r'[\u4e00-\u9fff]', kw):
                     cn = translate_title_to_chinese(kw)
                     if _re.search(r'[\u4e00-\u9fff]', cn):
-                        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={quote(cn)}"
+                        gap["url_1688"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={cn}"
             # Fix suggestions_cn
             if "suggestions" in gap and "suggestions_cn" in gap:
                 fixed_cn = []
