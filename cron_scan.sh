@@ -66,16 +66,15 @@ git diff --cached --quiet && echo "  无变更" && exit 0
 timeout 15 git commit -m "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>/dev/null
 timeout 30 git pull --rebase 2>/dev/null || true
 
-# Read token from file and push
-TOKEN_FILE="/mnt/d/Desktop/token.txt"
-if [ -f "$TOKEN_FILE" ]; then
-    TOKEN=$(cat "$TOKEN_FILE" | tr -d '\n')
-    timeout 30 git push https://liyuhong168:${TOKEN}@github.com/liyuhong168/product-radar.git main 2>/dev/null
+# Push (token already embedded in remote URL)
+timeout 30 git pull --rebase origin main 2>&1 || true
+timeout 30 git push origin main 2>&1
+if [ $? -eq 0 ]; then
+    echo "  ✅ 已部署：https://liyuhong168.github.io/product-radar/v2.html"
 else
-    echo "  ⚠️ Token文件不存在: $TOKEN_FILE"
-    timeout 30 git push origin main 2>/dev/null
+    echo "  ❌ Push失败，请检查"
+    exit 1
 fi
-echo "  ✅ 已部署：https://liyuhong168.github.io/product-radar/v2.html"
 
 } > "$LOG" 2>&1 || {
     # On failure, output error for cron alert
