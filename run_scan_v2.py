@@ -171,10 +171,24 @@ def filter_products(products, config):
     forbidden_brands = set(b.lower() for b in config.get("forbidden_brands", []))
     max_reviews = config.get("max_reviews", 300)
 
+    # Load user-rejected ASINs
+    import pathlib
+    rej_file = pathlib.Path(__file__).parent / "rejected_by_user.json"
+    user_rejected = set()
+    if rej_file.exists():
+        try:
+            user_rejected = set(json.loads(rej_file.read_text(encoding="utf-8")).keys())
+        except: pass
+
     for p in products:
         name, category = p.get("name", ""), p.get("category", "")
         name_lower = name.lower()
         reviews = p.get("reviews", 0)
+        asin = p.get("asin", "")
+
+        # 0. 用户手动标记不考虑
+        if asin and asin in user_rejected:
+            rejected.append({"name": name[:60], "reason": "用户标记不考虑", "asin": asin}); continue
 
         # 1. 禁选品类/关键词
         forbidden, reason = is_forbidden(name, category)
