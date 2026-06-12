@@ -1,0 +1,204 @@
+{
+  "category_scores": {
+    "kitchen": 77,
+    "garden": 15,
+    "bathroom": 31,
+    "cleaning": 46,
+    "car": 31,
+    "lighting": 84,
+    "pets": 100,
+    "sports": 8,
+    "crafts": 100,
+    "travel": 15,
+    "phone": 100,
+    "beauty": 46,
+    "home decor": 61,
+    "eco": 61,
+    "seasonal": 61,
+    "storage": 15,
+    "office": 23,
+    "kitchen_gadgets": 8
+  },
+  "category_evidence": {
+    "kitchen": [
+      "kitchen",
+      "cooking",
+      "gadget"
+    ],
+    "garden": [
+      "flower",
+      "outdoor"
+    ],
+    "bathroom": [
+      "toilet",
+      "bath",
+      "mirror"
+    ],
+    "cleaning": [
+      "cleaner",
+      "cleaning"
+    ],
+    "car": [
+      "car"
+    ],
+    "lighting": [
+      "led",
+      "light",
+      "lamp",
+      "strip"
+    ],
+    "pets": [
+      "bed",
+      "pet",
+      "cat"
+    ],
+    "sports": [
+      "sport"
+    ],
+    "crafts": [
+      "craft",
+      "art"
+    ],
+    "travel": [
+      "travel",
+      "toiletry"
+    ],
+    "phone": [
+      "case",
+      "earbuds",
+      "stand",
+      "cable",
+      "phone",
+      "charger"
+    ],
+    "beauty": [
+      "makeup",
+      "mirror",
+      "skincare",
+      "hair"
+    ],
+    "home decor": [
+      "clock",
+      "decor",
+      "wall art",
+      "candle",
+      "mirror"
+    ],
+    "eco": [
+      "eco"
+    ],
+    "seasonal": [
+      "birthday",
+      "gift"
+    ],
+    "storage": [
+      "box",
+      "container"
+    ],
+    "office": [
+      "pen",
+      "office"
+    ],
+    "kitchen_gadgets": [
+      "kitchen gadget"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "kitchen": 4,
+      "garden": 1,
+      "bathroom": 3,
+      "cleaning": 2,
+      "car": 3,
+      "lighting": 4,
+      "pets": 3,
+      "sports": 1,
+      "crafts": 3,
+      "travel": 1,
+      "phone": 2,
+      "beauty": 6,
+      "home decor": 2,
+      "eco": 1,
+      "seasonal": 2,
+      "storage": 1
+    },
+    "temu": {
+      "storage": 1,
+      "lighting": 4,
+      "pets": 3,
+      "crafts": 3,
+      "phone": 5,
+      "home decor": 1,
+      "eco": 3,
+      "kitchen": 2,
+      "cleaning": 1,
+      "office": 2,
+      "kitchen_gadgets": 1,
+      "seasonal": 1
+    },
+    "etsy": {
+      "pets": 5,
+      "crafts": 4,
+      "bathroom": 1,
+      "office": 1,
+      "lighting": 1,
+      "home decor": 3,
+      "eco": 1,
+      "seasonal": 3,
+      "garden": 1
+    },
+    "market_intel": {
+      "kitchen": 2,
+      "cleaning": 1,
+      "car": 1,
+      "pets": 2,
+      "crafts": 1,
+      "travel": 1,
+      "phone": 4,
+      "eco": 1
+    }
+  },
+  "cross_validated": {
+    "kitchen": 3,
+    "cleaning": 3,
+    "lighting": 3,
+    "pets": 4,
+    "crafts": 4,
+    "phone": 3,
+    "home decor": 3,
+    "eco": 4,
+    "seasonal": 3
+  },
+  "demand_keywords": [
+    "beauty fans",
+    "discover the hottest and most",
+    "healthier and more radiant.",
+    "home and",
+    "known for her eye for",
+    "magnetic eyelashes",
+    "magnetic phone charger",
+    "mini lightweight wireless earbuds",
+    "mini wireless lanyard speaker thumb",
+    "posture corrector",
+    "project hail mary",
+    "real market data on trending",
+    "recommend some cool stuff from",
+    "skincare kits",
+    "spring autumn womens long sleeve",
+    "tech and",
+    "temu products selling on amazon",
+    "these are the",
+    "toiletry bag",
+    "top sellers",
+    "top sellers sold on",
+    "trending on",
+    "wall art",
+    "we love a thoughtful design",
+    "what do you buy for",
+    "what things are worth buying",
+    "where can"
+  ],
+  "season": "summer",
+  "total_queries": 10,
+  "total_results_chars": 27492
+}
