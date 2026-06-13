@@ -156,7 +156,11 @@
     "scratch remover",
     "trim restorer",
     "drinking glass",
-    "glass cup"
+    "glass cup",
+    "seat",
+    "buckle",
+    "belt",
+    "bulb"
   ],
   "sources": {
     "amazon_uk": {
