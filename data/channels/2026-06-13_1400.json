@@ -1,0 +1,1131 @@
+{
+  "scan_date": "2026-06-13",
+  "scan_time": "14:00",
+  "scan_ts": "2026-06-13_1400",
+  "stats": {
+    "total_scanned": 210,
+    "passed_filter": 8,
+    "rejected": 194,
+    "channels": {
+      "multi_source": 4,
+      "new_releases": 7,
+      "etsy_trending": 4,
+      "temu_trending": 4,
+      "tiktok_verified": 4,
+      "event_product": 2,
+      "bsr": 1
+    },
+    "trend_categories": {
+      "lighting": 100,
+      "pets": 100,
+      "crafts": 100,
+      "kitchen": 84,
+      "phone": 84,
+      "home decor": 77
+    },
+    "supply_demand": {
+      "car": {
+        "ratio": 99,
+        "demand": 53,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "crafts": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "home decor": {
+        "ratio": 99,
+        "demand": 77,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "eco": {
+        "ratio": 99,
+        "demand": 61,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "seasonal": {
+        "ratio": 99,
+        "demand": 69,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "travel": {
+        "ratio": 99,
+        "demand": 61,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "phone": {
+        "ratio": 99,
+        "demand": 84,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "lighting": {
+        "ratio": 8.0,
+        "demand": 100,
+        "supply": 270914,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      }
+    },
+    "divergences": {
+      "kitchen": {
+        "current_heat": 42,
+        "previous_heat": 84,
+        "heat_change_pct": -50.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "garden": {
+        "current_heat": 42,
+        "previous_heat": 61,
+        "heat_change_pct": -31.1,
+        "direction": "falling",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 33,
+        "previous_heat": 23,
+        "heat_change_pct": 43.5,
+        "direction": "rising",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 17,
+        "previous_heat": 23,
+        "heat_change_pct": -26.1,
+        "direction": "falling",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "car": {
+        "current_heat": 57,
+        "previous_heat": 61,
+        "heat_change_pct": -6.6,
+        "direction": "stable",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "lighting": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "pets": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "sports": {
+        "current_heat": 25,
+        "previous_heat": 23,
+        "heat_change_pct": 8.7,
+        "direction": "stable",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "travel": {
+        "current_heat": 40,
+        "previous_heat": 8,
+        "heat_change_pct": 400.0,
+        "direction": "rising",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "phone": {
+        "current_heat": 98,
+        "previous_heat": 69,
+        "heat_change_pct": 42.0,
+        "direction": "rising",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "beauty": {
+        "current_heat": 50,
+        "previous_heat": 54,
+        "heat_change_pct": -7.4,
+        "direction": "stable",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "home decor": {
+        "current_heat": 73,
+        "previous_heat": 53,
+        "heat_change_pct": 37.7,
+        "direction": "rising",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "eco": {
+        "current_heat": 57,
+        "previous_heat": 61,
+        "heat_change_pct": -6.6,
+        "direction": "stable",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 73,
+        "previous_heat": 53,
+        "heat_change_pct": 37.7,
+        "direction": "rising",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "office": {
+        "current_heat": 33,
+        "previous_heat": 61,
+        "heat_change_pct": -45.9,
+        "direction": "falling",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 8,
+        "previous_heat": 15,
+        "heat_change_pct": -46.7,
+        "direction": "falling",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      }
+    },
+    "gap_opportunities": 8
+  },
+  "products": [
+    {
+      "asin": "B0GLXNZ8J6",
+      "name": "AhfuLife World Football Cup Backdrop Banner Flags, World Football Cup Party Decorations 2026, 48 Teams Fabric Flags Bann",
+      "price": 7.49,
+      "reviews": 47,
+      "rating": 4.4,
+      "rank": 20,
+      "category": "Crafts",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "47 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GLXNZ8J6",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/81NVf+okZeL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.311,
+      "net_profit": 2.33,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.37,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.16
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 61,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Sports",
+      "score": 150,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "💰 高利润": 8,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "multi_source",
+        "new_releases",
+        "etsy_trending",
+        "temu_trending",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B0GGZ767HY",
+      "name": "lyanny Flexible Silicone RGB LED Light Strip, ARGB Light PSU Cable Extension, for Graphics Card GPU Computer Monitor Des",
+      "price": 8.12,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 4,
+      "category": "Lighting",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GGZ767HY",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61Xl7YaAX1L._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.335,
+      "net_profit": 2.72,
+      "cost_breakdown": {
+        "vat": 1.36,
+        "commission": 1.22,
+        "fba": 1.46,
+        "ads": 0.41,
+        "returns": 0.16,
+        "sourcing": 0.8,
+        "total_cost": 5.4
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 53,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 132,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(car)": 8,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "multi_source",
+        "new_releases",
+        "etsy_trending",
+        "temu_trending",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B0GQYZCV1P",
+      "name": "Maxtonne Car Boot Organiser, Heavy-Duty 600D Oxford Collapsible Storage Box with 3- Compartments & Securing Straps, Fold",
+      "price": 9.99,
+      "reviews": 20,
+      "rating": 4.7,
+      "rank": 21,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "20 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GQYZCV1P",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71ybVlmfDuL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.387,
+      "net_profit": 3.86,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 0.5,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.13
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 53,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 80,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "📈 趋势(car)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20
+      },
+      "stars": 4,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B074H5296B",
+      "name": "Xtremeauto 2 in 1 Car Emergency Escape Tool, Window Breaker & Seat Belt Cutter, Compact Safety Hammer for Car, Vehicle G",
+      "price": 8.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 10,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B074H5296B",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71ZlreJTF1L._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.362,
+      "net_profit": 3.25,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.46,
+        "ads": 0.45,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 5.74
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 53,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 75,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "📈 趋势(car)": 8,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "📈 排名上升": 10,
+        "📊 持续上升": 8
+      },
+      "stars": 3,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H11GY9VV",
+      "name": "Chain Brake Handle, 1130 792 9100 Chainsaw Replace Part Plastic Power Tool Lever Hand Guard Fits for Stihl 017 018 MS170",
+      "price": 6.39,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 5,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H11GY9VV",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/41Z3PnuSbUL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.259,
+      "net_profit": 1.66,
+      "cost_breakdown": {
+        "vat": 1.07,
+        "commission": 0.96,
+        "fba": 1.46,
+        "ads": 0.32,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.73
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 44,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(crafts)": 23,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GVY6N6XL",
+      "name": "GIONAR Universal Non-Slip Gel Motorbike Grip, Durable Rubber, Fit for Off-road & Pitbikes, Enduro Ready, 7/8\" (22mm) Len",
+      "price": 8.99,
+      "reviews": 55,
+      "rating": 4.3,
+      "rank": 20,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "55 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GVY6N6XL",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61vh0qefKWL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.362,
+      "net_profit": 3.25,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.46,
+        "ads": 0.45,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 5.74
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 42,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟡 中等竞争": 5,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15
+      },
+      "stars": 2,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GYXR8P84",
+      "name": "49ft/15m World Cup Flags Football Bunting 2026 for Party Decorations 2026,48 Teams Flags Double Sides Fabric Bunting Ban",
+      "price": 9.16,
+      "reviews": 6,
+      "rating": 4.8,
+      "rank": 12,
+      "category": "Crafts",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "6 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYXR8P84",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71OpRNuB5aL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.366,
+      "net_profit": 3.36,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 1.37,
+        "fba": 1.46,
+        "ads": 0.46,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 5.8
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 61,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Sports",
+      "score": 169,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12,
+        "🌊 深蓝海": 20,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "multi_source",
+        "new_releases",
+        "etsy_trending",
+        "temu_trending",
+        "event_product",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B0GK98329C",
+      "name": "AhfuLife 2Pcs World Cup Football Wall Chart for Party Decorations 2026 - A2 Sizes World Cup WallChart Poster - Includes ",
+      "price": 6.66,
+      "reviews": 46,
+      "rating": 4.5,
+      "rank": 4,
+      "category": "Kitchen",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "46 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GK98329C",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/815FP9o0K-L._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势",
+        "Etsy趋势"
+      ],
+      "profit_margin": 0.344,
+      "net_profit": 2.29,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.53,
+        "fba": 1.46,
+        "ads": 0.33,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.37
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 61,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-50%)",
+      "div_info": {
+        "current_heat": 42,
+        "previous_heat": 84,
+        "heat_change_pct": -50.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-12_1400",
+          "2026-06-13_0850"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 158,
+      "score_breakdown": {
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "🔥 多源热门(kitchen)": 23,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "🌊 深蓝海": 20,
+        "📉 品类降温(-50%)": -10,
+        "📈 排名上升": 10,
+        "📊 持续上升": 8
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "multi_source",
+        "etsy_trending",
+        "temu_trending",
+        "bsr",
+        "event_product",
+        "tiktok_verified"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 100,
+      "score": 85,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "sewing",
+        "art",
+        "craft",
+        "stickers"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "sewing",
+        "art supplies",
+        "paint set",
+        "drawing kit",
+        "craft knife",
+        "craft supplies",
+        "DIY craft kit",
+        "stickers"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=sewing",
+      "url_google": "https://trends.google.com/trends/explore?q=sewing&geo=GB"
+    },
+    {
+      "keyword": "phone",
+      "category": "phone",
+      "heat": 84,
+      "score": 83,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "cable",
+        "ring light",
+        "holder",
+        "earbuds",
+        "charger"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "charging cable",
+        "USB cable",
+        "phone cable",
+        "ring light",
+        "holder",
+        "earbuds case",
+        "wireless earbuds",
+        "phone charger"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 84,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=charging+cable",
+      "url_google": "https://trends.google.com/trends/explore?q=charging+cable&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 77,
+      "score": 80,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "wall art",
+        "candle",
+        "frame",
+        "mirror",
+        "decor"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "wall art print",
+        "wall hanging",
+        "wall decal",
+        "candle holder",
+        "scented candle",
+        "candle set",
+        "photo frame",
+        "picture frame"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 77,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=wall+art+print",
+      "url_google": "https://trends.google.com/trends/explore?q=wall+art+print&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 69,
+      "score": 78,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "birthday",
+        "gift"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "birthday gift",
+        "birthday decoration",
+        "birthday card",
+        "gift ideas",
+        "gift set",
+        "gift box"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 69,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=birthday+gift",
+      "url_google": "https://trends.google.com/trends/explore?q=birthday+gift&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 61,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "eco products",
+        "reusable bag",
+        "bamboo products"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 61,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=eco+products",
+      "url_google": "https://trends.google.com/trends/explore?q=eco+products&geo=GB"
+    },
+    {
+      "keyword": "travel",
+      "category": "travel",
+      "heat": 61,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "travel",
+        "packing",
+        "toiletry"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "travel",
+        "packing",
+        "toiletry"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 61,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=travel",
+      "url_google": "https://trends.google.com/trends/explore?q=travel&geo=GB"
+    },
+    {
+      "keyword": "car",
+      "category": "car",
+      "heat": 53,
+      "score": 72,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "car"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "car accessories",
+        "car organizer",
+        "car phone holder"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 53,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=car+accessories",
+      "url_google": "https://trends.google.com/trends/explore?q=car+accessories&geo=GB"
+    },
+    {
+      "keyword": "beauty",
+      "category": "beauty",
+      "heat": 46,
+      "score": 45,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "makeup",
+        "skincare",
+        "hair",
+        "mirror"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "makeup brush set",
+        "makeup bag",
+        "makeup organizer",
+        "face roller",
+        "gua sha",
+        "face mask",
+        "hair clip",
+        "hair accessories"
+      ],
+      "sd_info": {},
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=makeup+brush+set",
+      "url_google": "https://trends.google.com/trends/explore?q=makeup+brush+set&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "lighting",
+        100
+      ],
+      [
+        "pets",
+        100
+      ],
+      [
+        "crafts",
+        100
+      ],
+      [
+        "kitchen",
+        84
+      ],
+      [
+        "phone",
+        84
+      ],
+      [
+        "home decor",
+        77
+      ]
+    ],
+    "cross_validated": [
+      "kitchen",
+      "car",
+      "lighting",
+      "pets",
+      "crafts",
+      "home decor",
+      "eco",
+      "seasonal",
+      "travel",
+      "phone"
+    ],
+    "demand_keywords": [
+      "beach bag,",
+      "beauty fans",
+      "discover the hottest and most",
+      "from viral beauty products and",
+      "healthier and more radiant.",
+      "is it legal to buy",
+      "it charges zero commission on",
+      "pink cardigan",
+      "primark shoppers",
+      "project hail mary"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}
