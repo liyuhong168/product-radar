@@ -164,12 +164,19 @@ def filter_products(products, config):
     from datetime import datetime
     month = datetime.now().month
     season = "summer" if month in (6,7,8) else "winter" if month in (12,1,2) else "spring" if month in (3,4,5) else "autumn"
-    
+
     seasonal = config.get("seasonal_categories", {})
     off_season_key = f"{season}_cold"
     off_season_kw = set(kw.lower() for kw in seasonal.get(off_season_key, []))
     forbidden_brands = set(b.lower() for b in config.get("forbidden_brands", []))
     max_reviews = config.get("max_reviews", 300)
+
+    # Event keywords for limiting event-based products
+    EVENT_KEYWORDS = {
+        'world cup', 'euro 2024', 'euro 2025', 'euro 2026', 'olympic', 'olympics',
+        'jubilee', 'coronation', 'christmas', 'halloween', 'easter', 'valentine',
+        'mother\'s day', 'father\'s day', 'black friday', 'prime day'
+    }
 
     # Load user-rejected ASINs
     import pathlib
@@ -214,11 +221,11 @@ def filter_products(products, config):
 
         # 3. 评论数范围（排除红海+排除无验证产品）
         max_reviews = config.get("max_reviews", 100)
-        min_reviews = 5  # 至少5条评论，确保有基本需求验证
+        min_reviews = 3  # 最低3条评论，捕捉上升期产品
         if reviews > max_reviews:
             rejected.append({"name": name[:60], "reason": f"评论{reviews}>{max_reviews}(红海)", "asin": p.get("asin")}); continue
-        if reviews < min_reviews and "new_releases" not in p.get("channel", ""):
-            # 新品榜允许0评论，其他渠道需要基本验证
+        # 新品榜和Movers & Shakers允许0评论
+        if reviews < min_reviews and p.get("channel", "") not in ("new_releases", "movers_shakers"):
             rejected.append({"name": name[:60], "reason": f"评论{reviews}<{min_reviews}(无验证)", "asin": p.get("asin")}); continue
 
         # 3b. 评分过滤（排除退货风险品）
@@ -249,6 +256,48 @@ def filter_products(products, config):
 
         passed.append(p)
     return passed, rejected
+
+
+def limit_event_products(products, max_per_event=2):
+    """Limit products from the same event to avoid domination.
+    Returns filtered list with max N products per event type."""
+    EVENT_KEYWORDS = {
+        'world cup': 'world_cup',
+        'euro 2024': 'euro', 'euro 2025': 'euro', 'euro 2026': 'euro',
+        'olympic': 'olympics', 'olympics': 'olympics',
+        'jubilee': 'royal', 'coronation': 'royal',
+        'christmas': 'christmas', 'halloween': 'halloween',
+        'easter': 'easter', 'valentine': 'valentine',
+        'mother\'s day': 'mothers_day', 'father\'s day': 'fathers_day',
+        'black friday': 'black_friday', 'prime day': 'prime_day'
+    }
+
+    event_groups = {}
+    non_event = []
+
+    for p in products:
+        name_lower = p.get('name', '').lower()
+        matched_event = None
+        for keyword, event_type in EVENT_KEYWORDS.items():
+            if keyword in name_lower:
+                matched_event = event_type
+                break
+
+        if matched_event:
+            event_groups.setdefault(matched_event, []).append(p)
+        else:
+            non_event.append(p)
+
+    # Each event keeps max N highest-scored products
+    limited = non_event[:]
+    for event_type, items in event_groups.items():
+        items.sort(key=lambda x: -x.get('score', 0))
+        kept = items[:max_per_event]
+        limited.extend(kept)
+        if len(items) > max_per_event:
+            print(f"  🎯 Event '{event_type}': kept {len(kept)}/{len(items)}", file=sys.stderr)
+
+    return limited
 
 
 def dedup_products(products):
@@ -307,6 +356,18 @@ def assign_channel_tags(p):
     if len(set(sources)) >= 2:
         p["is_multi"] = True
         tags.append("multi_source")
+
+    # Event product tagging
+    EVENT_KEYWORDS = {
+        'world cup', 'euro', 'olympic', 'olympics', 'jubilee', 'coronation',
+        'christmas', 'halloween', 'easter', 'valentine'
+    }
+    name_lower = p.get("name", "").lower()
+    if any(kw in name_lower for kw in EVENT_KEYWORDS):
+        tags.append("event_product")
+        p["is_event"] = True
+    else:
+        p["is_event"] = False
 
     p["channel_tags"] = list(set(tags))
     return p
@@ -408,6 +469,12 @@ def main():
             print(f"    {g['category']} → {g['gap_level']} (Amazon:{g['amazon_count']} products) Score:{g['score']}", file=sys.stderr)
 
     passed = score_all_products(passed, trend_data=trend_data, history=history)
+
+    # 7d. Limit event-based products (avoid single-event domination)
+    print("\n[7d] Event Product Limiting...", file=sys.stderr)
+    passed_before = len(passed)
+    passed = limit_event_products(passed, max_per_event=2)
+    print(f"  Before: {passed_before} → After: {len(passed)}", file=sys.stderr)
 
     # Assign channel tags
     for p in passed:

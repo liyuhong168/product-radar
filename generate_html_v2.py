@@ -14,6 +14,7 @@ CHANNELS = {
     "bsr":            ("📈", "Amazon畅销榜", "#FF9500"),
     "wished":         ("💝", "Amazon心愿榜", "#FF6B9D"),
     "gifts":          ("🎁", "Amazon送礼榜", "#AF52DE"),
+    "movers_shakers": ("🚀", "Amazon飙升榜", "#FF2D55"),
     "tiktok_verified":("🎵", "TikTok热品",   "#FF2D55"),
     "hotukdeals":     ("🔥", "HotUKDeals",   "#FF3B30"),
     "temu_trending":  ("🛒", "Temu热销",     "#FF9500"),

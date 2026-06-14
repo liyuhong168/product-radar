@@ -87,23 +87,24 @@ def _validate_category(product):
 def _classify_signal_sources(product):
     """Classify product signals into internal (Amazon) and external (independent demand signals).
     Returns (internal_sources, external_sources, external_count).
-    
-    Internal = Amazon platform data (new_releases, bsr, wished, gifts)
+
+    Internal = Amazon platform data (new_releases, bsr, wished, gifts, movers_shakers)
     External = Independent demand signals (TikTok, Google Trends, HotUKDeals, Temu, Etsy, YouTube, Reddit)
     """
     sources = [x.lower() for x in product.get("sources", [])]
     sources_str = " ".join(sources)
     channel = product.get("channel", "")
-    
+
     internal = []
     external = []
-    
+
     # Internal: Amazon platform signals
     if "new_releases" in channel: internal.append("新品榜")
     if "bsr" in channel: internal.append("畅销榜")
     if "wished" in channel: internal.append("心愿榜")
     if "gifts" in channel: internal.append("送礼榜")
-    
+    if "movers_shakers" in channel: internal.append("飙升榜")
+
     # External: independent demand signals (each counts as 1)
     if "tiktok" in sources_str: external.append("TikTok")
     if product.get("google_trend") == "rising": external.append("Google")
@@ -112,7 +113,7 @@ def _classify_signal_sources(product):
     if "etsy" in sources_str: external.append("Etsy")
     if "youtube" in sources_str: external.append("YouTube")
     if "reddit" in sources_str: external.append("Reddit")
-    
+
     return internal, external, len(set(external))
 
 
@@ -151,6 +152,7 @@ WEIGHTS = {
     "new_releases": 20,
     "wished": 15,
     "gifts": 10,
+    "movers_shakers": 18,  # 新增：飙升榜权重
     "tiktok": 20,
     "google_rising": 15,
     "reddit": 5,
@@ -192,6 +194,8 @@ WEIGHTS = {
     "no_demand_signal": -15,
     "category_mismatch": -10,
     "off_season": -20,
+    "category_overflow": -10,  # 新增：同类产品过多降分
+    "event_overflow": -8,      # 新增：事件类产品过多降分
 }
 
 
@@ -220,6 +224,10 @@ def score_product(product, trend_data=None, history=None):
     if "gifts" in channel:
         pts = WEIGHTS["gifts"]
         total += pts; breakdown["🎁 送礼榜"] = pts
+
+    if "movers_shakers" in channel:
+        pts = WEIGHTS["movers_shakers"]
+        total += pts; breakdown["🚀 飙升榜"] = pts
 
     # === External Signals (independent demand sources) ===
     if "tiktok" in sources_str:
@@ -390,9 +398,53 @@ def score_product(product, trend_data=None, history=None):
 
 
 def score_all_products(products, trend_data=None, history=None):
-    """Score all products and add score fields."""
+    """Score all products and add score fields.
+    Also applies category diversity penalties to avoid single-category domination."""
+    from collections import Counter
+
+    # Count products per category for diversity scoring
+    cat_counts = Counter(p.get("category", "unknown") for p in products)
+
+    # Track event products for overflow penalty
+    EVENT_KEYWORDS = {
+        'world cup', 'euro', 'olympic', 'olympics', 'jubilee', 'coronation',
+        'christmas', 'halloween', 'easter', 'valentine'
+    }
+
     for p in products:
         score, breakdown = score_product(p, trend_data, history)
+
+        # Category diversity penalty: if same category has too many products
+        category = p.get("category", "unknown")
+        cat_count = cat_counts.get(category, 0)
+        if cat_count >= 8:
+            pts = WEIGHTS["category_overflow"]
+            score += pts
+            breakdown["⚠️ 品类过密"] = pts
+        elif cat_count >= 5:
+            pts = WEIGHTS["category_overflow"] // 2
+            score += pts
+            breakdown["⚠️ 品类较多"] = pts
+
+        # Event overflow penalty: if product is event-related
+        name_lower = p.get("name", "").lower()
+        is_event = any(kw in name_lower for kw in EVENT_KEYWORDS)
+        if is_event:
+            # Count how many event products exist in same category
+            event_in_cat = sum(1 for pp in products
+                              if pp.get("category") == category
+                              and any(kw in pp.get("name", "").lower() for kw in EVENT_KEYWORDS))
+            if event_in_cat >= 4:
+                pts = WEIGHTS["event_overflow"]
+                score += pts
+                breakdown["🎯 事件过密"] = pts
+
+        # Freshness bonus: first appearance in history
+        asin = p.get("asin", "")
+        if history and asin not in history:
+            score += 10
+            breakdown["✨ 新发现"] = 10
+
         p["score"] = score
         p["score_breakdown"] = breakdown
 

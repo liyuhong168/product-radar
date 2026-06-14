@@ -59,6 +59,17 @@ AMAZON_URLS = {
     "Garden|gifts": "https://www.amazon.co.uk/gp/gifts/garden/",
     "DIY|gifts": "https://www.amazon.co.uk/gp/gifts/diy/",
     "Home|gifts": "https://www.amazon.co.uk/gp/gifts/home/",
+    # === MOVERS & SHAKERS (排名飙升) ===
+    "Kitchen|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/kitchen/",
+    "Garden|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/garden/",
+    "DIY|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/diy/",
+    "Sports|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/sports/",
+    "Home|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/home/",
+    "Automotive|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/automotive/",
+    "Pets|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/pet-supplies/",
+    "Office|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/stationery-office/",
+    "Bathroom|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/bathroom/",
+    "Lighting|movers_shakers": "https://www.amazon.co.uk/gp/movers-and-shakers/lighting/",
 }
 
 GBP_COOKIES = "lc-main=en_GB; i18n-prefs=GBP"
@@ -69,6 +80,7 @@ CHANNEL_NAMES = {
     "bsr": "Amazon畅销榜",
     "wished": "Amazon心愿榜",
     "gifts": "Amazon送礼榜",
+    "movers_shakers": "Amazon飙升榜",
 }
 
 # Category validation keywords — product name must contain at least one
