@@ -1,0 +1,977 @@
+{
+  "scan_date": "2026-06-17",
+  "scan_time": "08:50",
+  "scan_ts": "2026-06-17_0850",
+  "stats": {
+    "total_scanned": 131,
+    "passed_filter": 5,
+    "rejected": 119,
+    "channels": {
+      "new_releases": 5,
+      "event_product": 2,
+      "etsy_trending": 2,
+      "temu_trending": 2,
+      "multi_source": 2,
+      "tiktok_verified": 2
+    },
+    "trend_categories": {
+      "crafts": 100,
+      "pets": 86,
+      "lighting": 79,
+      "kitchen": 72,
+      "car": 65,
+      "home decor": 65
+    },
+    "supply_demand": {
+      "garden": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "car": {
+        "ratio": 99,
+        "demand": 65,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "crafts": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "eco": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "home decor": {
+        "ratio": 99,
+        "demand": 65,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "seasonal": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "office": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "pets": {
+        "ratio": 78.3,
+        "demand": 86,
+        "supply": 2,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      }
+    },
+    "divergences": {
+      "kitchen": {
+        "current_heat": 72,
+        "previous_heat": 65,
+        "heat_change_pct": 10.8,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "garden": {
+        "current_heat": 65,
+        "previous_heat": 59,
+        "heat_change_pct": 10.2,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 29,
+        "previous_heat": 25,
+        "heat_change_pct": 16.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 14,
+        "previous_heat": 19,
+        "heat_change_pct": -26.3,
+        "direction": "falling",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "car": {
+        "current_heat": 58,
+        "previous_heat": 53,
+        "heat_change_pct": 9.4,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "lighting": {
+        "current_heat": 72,
+        "previous_heat": 90,
+        "heat_change_pct": -20.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "pets": {
+        "current_heat": 86,
+        "previous_heat": 90,
+        "heat_change_pct": -4.4,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "sports": {
+        "current_heat": 58,
+        "previous_heat": 31,
+        "heat_change_pct": 87.1,
+        "direction": "rising",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "travel": {
+        "current_heat": 51,
+        "previous_heat": 46,
+        "heat_change_pct": 10.9,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "phone": {
+        "current_heat": 36,
+        "previous_heat": 59,
+        "heat_change_pct": -39.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "beauty": {
+        "current_heat": 72,
+        "previous_heat": 44,
+        "heat_change_pct": 63.6,
+        "direction": "rising",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "eco": {
+        "current_heat": 79,
+        "previous_heat": 59,
+        "heat_change_pct": 33.9,
+        "direction": "rising",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 51,
+        "previous_heat": 46,
+        "heat_change_pct": 10.9,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "home decor": {
+        "current_heat": 43,
+        "previous_heat": 59,
+        "heat_change_pct": -27.1,
+        "direction": "falling",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "office": {
+        "current_heat": 21,
+        "previous_heat": 25,
+        "heat_change_pct": -16.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "baby": {
+        "current_heat": 7,
+        "previous_heat": 6,
+        "heat_change_pct": 16.7,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 7,
+        "previous_heat": 6,
+        "heat_change_pct": 16.7,
+        "direction": "stable",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      }
+    },
+    "gap_opportunities": 10
+  },
+  "products": [
+    {
+      "asin": "B0H39FTPXZ",
+      "name": "Shower Head Holder Suction Cup, Adjustable Height & Angle, Wall Mounted, No Drilling, Universal, Removable, Stick on Hea",
+      "price": 7.48,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 8,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H39FTPXZ",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61ln3Ia9z+L._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.311,
+      "net_profit": 2.33,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.37,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.15
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 56,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(kitchen)": 23,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15,
+        "📊 持续上升": 8
+      },
+      "stars": 2,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H2478RNM",
+      "name": "2 Pack 500mm Double T-Track T-Slot Miter Track, Aluminum Alloy Blue Fixture Slot, For Router Table Woodworking Tools, Co",
+      "price": 8.86,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 6,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2478RNM",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/41SH9WxfttL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.358,
+      "net_profit": 3.17,
+      "cost_breakdown": {
+        "vat": 1.48,
+        "commission": 1.33,
+        "fba": 1.46,
+        "ads": 0.44,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 5.69
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 39,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15,
+        "✨ 新发现": 10
+      },
+      "stars": 1,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H39F5DKR",
+      "name": "Shower Head Holder, Universal Shower Holder Bracket, 16-27mm Shower Holder Replacement with Hook, Chrome No Drill Slider",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 5,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H39F5DKR",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61TE+c8RSuL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.274,
+      "net_profit": 1.82,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.33,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.84
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 21,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H2CZRB48",
+      "name": "4Pcs 46 x 30cm England St George Cross Car Window Flags for FIFA 2026 World Cup – Polyester England Vehicle Flag Decorat",
+      "price": 6.08,
+      "reviews": 63,
+      "rating": 3.7,
+      "rank": 16,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "63 reviews, 3.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2CZRB48",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/610NwProTeL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.241,
+      "net_profit": 1.47,
+      "cost_breakdown": {
+        "vat": 1.02,
+        "commission": 0.91,
+        "fba": 1.46,
+        "ads": 0.3,
+        "returns": 0.12,
+        "sourcing": 0.8,
+        "total_cost": 4.61
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 65,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 137,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(car)": 8,
+        "🟡 中等竞争": 5,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "event_product",
+        "etsy_trending",
+        "temu_trending",
+        "multi_source",
+        "new_releases",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B0GPDNC9J7",
+      "name": "Giftinghouse Official Football World Cup 2026 Wall Chart Schedule – A1 Poster (84 x 59 cm) – 48 Team Fixtures, Dates, St",
+      "price": 7.49,
+      "reviews": 24,
+      "rating": 4.6,
+      "rank": 10,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "24 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GPDNC9J7",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/91eMri1xXAL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.311,
+      "net_profit": 2.33,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.37,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.16
+      },
+      "off_season": false,
+      "sd_score": 10,
+      "sd_label": "💧 浅蓝海",
+      "sd_info": {
+        "ratio": 3.1,
+        "demand": 36,
+        "supply": 125872,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "div_score": 15,
+      "div_label": "📈 品类升温(+87%)",
+      "div_info": {
+        "current_heat": 58,
+        "previous_heat": 31,
+        "heat_change_pct": 87.1,
+        "direction": "rising",
+        "dates": [
+          "2026-06-16_1411",
+          "2026-06-16_1412"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 137,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "💧 浅蓝海": 10,
+        "📈 品类升温(+87%)": 15,
+        "📊 持续上升": 8,
+        "⚠️ 品类较多": -5,
+        "🎯 事件过密": -8
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "event_product",
+        "etsy_trending",
+        "temu_trending",
+        "multi_source",
+        "new_releases",
+        "tiktok_verified"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 100,
+      "score": 85,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "craft",
+        "art"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "craft knife",
+        "craft supplies",
+        "DIY craft kit",
+        "art supplies",
+        "paint set",
+        "drawing kit"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=craft+knife",
+      "url_google": "https://trends.google.com/trends/explore?q=craft+knife&geo=GB"
+    },
+    {
+      "keyword": "car",
+      "category": "car",
+      "heat": 65,
+      "score": 76,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "car",
+        "dashboard"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "car accessories",
+        "car organizer",
+        "car phone holder",
+        "dashboard"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 65,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=car+accessories",
+      "url_google": "https://trends.google.com/trends/explore?q=car+accessories&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 65,
+      "score": 76,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "mirror",
+        "clock",
+        "decor",
+        "wall art",
+        "candle"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "makeup mirror",
+        "vanity mirror",
+        "LED mirror",
+        "wall clock",
+        "desk clock",
+        "digital clock",
+        "home decor",
+        "room decor"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 65,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=makeup+mirror",
+      "url_google": "https://trends.google.com/trends/explore?q=makeup+mirror&geo=GB"
+    },
+    {
+      "keyword": "garden",
+      "category": "garden",
+      "heat": 58,
+      "score": 74,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "grill",
+        "flower",
+        "outdoor"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "grill",
+        "flower",
+        "outdoor"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=grill",
+      "url_google": "https://trends.google.com/trends/explore?q=grill&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 58,
+      "score": 74,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "eco products",
+        "reusable bag",
+        "bamboo products"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=eco+products",
+      "url_google": "https://trends.google.com/trends/explore?q=eco+products&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 58,
+      "score": 74,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "birthday",
+        "gift"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "birthday gift",
+        "birthday decoration",
+        "birthday card",
+        "gift ideas",
+        "gift set",
+        "gift box"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=birthday+gift",
+      "url_google": "https://trends.google.com/trends/explore?q=birthday+gift&geo=GB"
+    },
+    {
+      "keyword": "office",
+      "category": "office",
+      "heat": 58,
+      "score": 74,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "office",
+        "desk",
+        "pen"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "office supplies",
+        "desk organizer",
+        "pen holder",
+        "desk lamp",
+        "desk mat",
+        "pen set",
+        "fountain pen"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 58,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=office+supplies",
+      "url_google": "https://trends.google.com/trends/explore?q=office+supplies&geo=GB"
+    },
+    {
+      "keyword": "cleaning",
+      "category": "cleaning",
+      "heat": 44,
+      "score": 59,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "cleaning",
+        "vacuum"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "cleaning",
+        "vacuum"
+      ],
+      "sd_info": {},
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=cleaning",
+      "url_google": "https://trends.google.com/trends/explore?q=cleaning&geo=GB"
+    },
+    {
+      "keyword": "pets",
+      "category": "pets",
+      "heat": 86,
+      "score": 53,
+      "gap_level": "weak",
+      "amazon_count": 4,
+      "amazon_reviews": 2,
+      "evidence": [
+        "pet",
+        "cat",
+        "bed"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "pet grooming",
+        "pet bed",
+        "pet feeder",
+        "cat toy",
+        "cat bed",
+        "cat collar",
+        "cat scratcher",
+        "dog bed"
+      ],
+      "sd_info": {
+        "ratio": 78.3,
+        "demand": 86,
+        "supply": 2,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=pet+grooming",
+      "url_google": "https://trends.google.com/trends/explore?q=pet+grooming&geo=GB"
+    },
+    {
+      "keyword": "lighting",
+      "category": "lighting",
+      "heat": 79,
+      "score": 36,
+      "gap_level": "weak",
+      "amazon_count": 5,
+      "amazon_reviews": 19,
+      "evidence": [
+        "light",
+        "strip",
+        "led",
+        "lamp"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "LED light",
+        "fairy lights",
+        "string lights",
+        "LED strip",
+        "LED strip light",
+        "RGB strip",
+        "LED bulb",
+        "LED panel"
+      ],
+      "sd_info": {
+        "ratio": 26.4,
+        "demand": 79,
+        "supply": 19,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=LED+light",
+      "url_google": "https://trends.google.com/trends/explore?q=LED+light&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "crafts",
+        100
+      ],
+      [
+        "pets",
+        86
+      ],
+      [
+        "lighting",
+        79
+      ],
+      [
+        "kitchen",
+        72
+      ],
+      [
+        "car",
+        65
+      ],
+      [
+        "home decor",
+        65
+      ]
+    ],
+    "cross_validated": [
+      "garden",
+      "cleaning",
+      "car",
+      "crafts",
+      "eco",
+      "kitchen",
+      "home decor",
+      "seasonal",
+      "office",
+      "pets"
+    ],
+    "demand_keywords": [
+      "best item you have bought",
+      "custom t",
+      "discover the hottest and most",
+      "lego technic",
+      "mini wireless lanyard speaker thumb",
+      "personalised hoodies and jumpers",
+      "pink cardigan",
+      "project hail mary",
+      "real market data on trending",
+      "recommend some cool stuff from"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}
