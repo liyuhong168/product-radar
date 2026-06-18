@@ -1,0 +1,1042 @@
+{
+  "scan_date": "2026-06-18",
+  "scan_time": "08:50",
+  "scan_ts": "2026-06-18_0850",
+  "stats": {
+    "total_scanned": 229,
+    "passed_filter": 7,
+    "rejected": 215,
+    "channels": {
+      "wished": 2,
+      "temu_trending": 4,
+      "multi_source": 5,
+      "etsy_trending": 5,
+      "tiktok_verified": 6,
+      "new_releases": 5,
+      "event_product": 2
+    },
+    "trend_categories": {
+      "crafts": 100,
+      "pets": 82,
+      "lighting": 75,
+      "eco": 68,
+      "seasonal": 68,
+      "home decor": 62
+    },
+    "supply_demand": {
+      "car": {
+        "ratio": 99,
+        "demand": 55,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "crafts": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "phone": {
+        "ratio": 99,
+        "demand": 53,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "eco": {
+        "ratio": 99,
+        "demand": 68,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "seasonal": {
+        "ratio": 99,
+        "demand": 68,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "home decor": {
+        "ratio": 99,
+        "demand": 62,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "lighting": {
+        "ratio": 6.0,
+        "demand": 75,
+        "supply": 267670,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "pets": {
+        "ratio": 5.9,
+        "demand": 82,
+        "supply": 967360,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      }
+    },
+    "divergences": {
+      "garden": {
+        "current_heat": 17,
+        "previous_heat": 58,
+        "heat_change_pct": -70.7,
+        "direction": "falling",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 8,
+        "previous_heat": 44,
+        "heat_change_pct": -81.8,
+        "direction": "falling",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "car": {
+        "current_heat": 57,
+        "previous_heat": 65,
+        "heat_change_pct": -12.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "lighting": {
+        "current_heat": 100,
+        "previous_heat": 79,
+        "heat_change_pct": 26.6,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "pets": {
+        "current_heat": 82,
+        "previous_heat": 86,
+        "heat_change_pct": -4.7,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "sports": {
+        "current_heat": 42,
+        "previous_heat": 36,
+        "heat_change_pct": 16.7,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "bedding": {
+        "current_heat": 17,
+        "previous_heat": 14,
+        "heat_change_pct": 21.4,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "phone": {
+        "current_heat": 65,
+        "previous_heat": 29,
+        "heat_change_pct": 124.1,
+        "direction": "rising",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "beauty": {
+        "current_heat": 42,
+        "previous_heat": 29,
+        "heat_change_pct": 44.8,
+        "direction": "rising",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "eco": {
+        "current_heat": 73,
+        "previous_heat": 58,
+        "heat_change_pct": 25.9,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 33,
+        "previous_heat": 58,
+        "heat_change_pct": -43.1,
+        "direction": "falling",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 25,
+        "previous_heat": 21,
+        "heat_change_pct": 19.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "office": {
+        "current_heat": 48,
+        "previous_heat": 58,
+        "heat_change_pct": -17.2,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "home decor": {
+        "current_heat": 73,
+        "previous_heat": 65,
+        "heat_change_pct": 12.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "kitchen": {
+        "current_heat": 57,
+        "previous_heat": 72,
+        "heat_change_pct": -20.8,
+        "direction": "falling",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      },
+      "storage": {
+        "current_heat": 8,
+        "previous_heat": 7,
+        "heat_change_pct": 14.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-17_0850",
+          "2026-06-17_1400"
+        ]
+      }
+    },
+    "gap_opportunities": 7
+  },
+  "products": [
+    {
+      "asin": "B0CN6WTTV3",
+      "name": "Lelepet Warm Coats and Jackets for Dogs, Waterproof Winter Dog Coat for Cold Weather, Reflective Dog Puffer Jacket, Flee",
+      "price": 9.74,
+      "reviews": 198,
+      "rating": 4.6,
+      "rank": 10,
+      "category": "Pets",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "198 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CN6WTTV3",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61zDxEWX4sL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "Etsy趋势",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.481,
+      "net_profit": 4.68,
+      "cost_breakdown": {
+        "vat": 1.63,
+        "commission": 0.49,
+        "fba": 1.46,
+        "ads": 0.49,
+        "returns": 0.19,
+        "sourcing": 0.8,
+        "total_cost": 5.06
+      },
+      "off_season": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.9,
+        "demand": 82,
+        "supply": 967360,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "心愿榜"
+      ],
+      "score": 147,
+      "score_breakdown": {
+        "💝 心愿榜": 15,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "🔥 多源热门(pets)": 23,
+        "⭐ 高评分": 5,
+        "💰 超高利润": 12,
+        "❄️ 过季降权": -20,
+        "🌊 深蓝海": 20,
+        "📊 持续上升": 8
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "wished",
+        "temu_trending",
+        "multi_source",
+        "etsy_trending",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B00PAS7WXA",
+      "name": "Active Film Limo Black, Medium, Light & Ultra Light Car Auto Tint Window Tinting Film 35% Light Black 1mx76cm",
+      "price": 7.99,
+      "reviews": 120,
+      "rating": 3.6,
+      "rank": 6,
+      "category": "Automotive",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "120 reviews, 3.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B00PAS7WXA",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71VUFMb3TVL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Etsy趋势",
+        "TikTok趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.33,
+      "net_profit": 2.64,
+      "cost_breakdown": {
+        "vat": 1.33,
+        "commission": 1.2,
+        "fba": 1.46,
+        "ads": 0.4,
+        "returns": 0.16,
+        "sourcing": 0.8,
+        "total_cost": 5.35
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 55,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "心愿榜"
+      ],
+      "score": 145,
+      "score_breakdown": {
+        "💝 心愿榜": 15,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(car)": 8,
+        "🟡 中等竞争": 5,
+        "💰 高利润": 8,
+        "🌊 深蓝海": 20,
+        "⚠️ 品类较多": -5,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "wished",
+        "temu_trending",
+        "multi_source",
+        "etsy_trending",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B0H39F5DKR",
+      "name": "Shower Head Holder, Universal Shower Holder Bracket, 16-27mm Shower Holder Replacement with Hook, Chrome No Drill Slider",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 5,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H39F5DKR",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61TE+c8RSuL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Etsy趋势",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.274,
+      "net_profit": 1.82,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.33,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.84
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 82,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🎨 Etsy": 6,
+        "🟠 中信号": 10,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4
+      },
+      "stars": 4,
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "multi_source",
+        "etsy_trending",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B004W1L8NG",
+      "name": "Waxacar 2 x 3 sq ft Chamois Leathers for Cars, Large Shammy Cloth Absorbent Car Drying Towel Natural Leather Lint Free S",
+      "price": 7.49,
+      "reviews": 6,
+      "rating": 5.0,
+      "rank": 26,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "6 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B004W1L8NG",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51sE4DnY0VL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.311,
+      "net_profit": 2.33,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.37,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.16
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 55,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 81,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "📈 趋势(car)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15,
+        "🌊 深蓝海": 20,
+        "⚠️ 品类较多": -5,
+        "✨ 新发现": 10
+      },
+      "stars": 4,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H2Z461P4",
+      "name": "16 Pcs Chair Leg Floor Protectors,Clear Silicone Chair Leg Floor Protectors,Stool Leg Covers with Felt Pads,For Hardwood",
+      "price": 7.49,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 4,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2Z461P4",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61S-5fY-nvL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.311,
+      "net_profit": 2.33,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.37,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.16
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "TikTok"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 80,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "✨ 新发现": 10
+      },
+      "stars": 4,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H2CZRB48",
+      "name": "4Pcs 46 x 30cm England St George Cross Car Window Flags for FIFA 2026 World Cup – Polyester England Vehicle Flag Decorat",
+      "price": 6.49,
+      "reviews": 63,
+      "rating": 3.7,
+      "rank": 13,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "63 reviews, 3.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2CZRB48",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/610NwProTeL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Etsy趋势",
+        "TikTok趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.265,
+      "net_profit": 1.72,
+      "cost_breakdown": {
+        "vat": 1.08,
+        "commission": 0.97,
+        "fba": 1.46,
+        "ads": 0.32,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.77
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 55,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 144,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(car)": 8,
+        "🟡 中等竞争": 5,
+        "💰 较好利润": 4,
+        "🌊 深蓝海": 20,
+        "📊 持续上升": 8,
+        "⚠️ 品类较多": -5
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "temu_trending",
+        "multi_source",
+        "etsy_trending",
+        "new_releases",
+        "event_product",
+        "tiktok_verified"
+      ]
+    },
+    {
+      "asin": "B0GLZ6KDXN",
+      "name": "10m England St Georges Flag Bunting 30pcs Flags for Fifa World Cup Football 2026 Decorations,Double Sided England Flag B",
+      "price": 6.24,
+      "reviews": 9,
+      "rating": 4.8,
+      "rank": 12,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "9 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GLZ6KDXN",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71ji0wKBR3L._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Etsy趋势",
+        "TikTok趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.251,
+      "net_profit": 1.57,
+      "cost_breakdown": {
+        "vat": 1.04,
+        "commission": 0.94,
+        "fba": 1.46,
+        "ads": 0.31,
+        "returns": 0.12,
+        "sourcing": 0.8,
+        "total_cost": 4.67
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 68,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 138,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "🌊 深蓝海": 20,
+        "⚠️ 品类较多": -5,
+        "🎯 事件过密": -8,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "temu_trending",
+        "multi_source",
+        "etsy_trending",
+        "new_releases",
+        "event_product",
+        "tiktok_verified"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 100,
+      "score": 85,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "stickers",
+        "craft",
+        "art"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "stickers",
+        "craft knife",
+        "craft supplies",
+        "DIY craft kit",
+        "art supplies",
+        "paint set",
+        "drawing kit"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 100,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=stickers",
+      "url_google": "https://trends.google.com/trends/explore?q=stickers&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 68,
+      "score": 77,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "eco products",
+        "reusable bag",
+        "bamboo products"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 68,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=eco+products",
+      "url_google": "https://trends.google.com/trends/explore?q=eco+products&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 68,
+      "score": 77,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "birthday",
+        "christmas",
+        "gift"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "birthday gift",
+        "birthday decoration",
+        "birthday card",
+        "christmas decoration",
+        "christmas gift",
+        "christmas stocking",
+        "gift ideas",
+        "gift set"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 68,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=birthday+gift",
+      "url_google": "https://trends.google.com/trends/explore?q=birthday+gift&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 62,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "wall art",
+        "candle",
+        "decor",
+        "mirror"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "wall art print",
+        "wall hanging",
+        "wall decal",
+        "candle holder",
+        "scented candle",
+        "candle set",
+        "home decor",
+        "room decor"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 62,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=wall+art+print",
+      "url_google": "https://trends.google.com/trends/explore?q=wall+art+print&geo=GB"
+    },
+    {
+      "keyword": "car",
+      "category": "car",
+      "heat": 55,
+      "score": 73,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "car"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "car accessories",
+        "car organizer",
+        "car phone holder"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 55,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=car+accessories",
+      "url_google": "https://trends.google.com/trends/explore?q=car+accessories&geo=GB"
+    },
+    {
+      "keyword": "phone",
+      "category": "phone",
+      "heat": 53,
+      "score": 57,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "earbuds",
+        "cable",
+        "phone",
+        "stand",
+        "charger"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "earbuds case",
+        "wireless earbuds",
+        "charging cable",
+        "USB cable",
+        "phone cable",
+        "phone case",
+        "phone holder",
+        "phone stand"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 53,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=earbuds+case",
+      "url_google": "https://trends.google.com/trends/explore?q=earbuds+case&geo=GB"
+    },
+    {
+      "keyword": "garden",
+      "category": "garden",
+      "heat": 40,
+      "score": 43,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "flower",
+        "outdoor",
+        "grill"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "flower",
+        "outdoor",
+        "grill"
+      ],
+      "sd_info": {},
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=flower",
+      "url_google": "https://trends.google.com/trends/explore?q=flower&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "crafts",
+        100
+      ],
+      [
+        "pets",
+        82
+      ],
+      [
+        "lighting",
+        75
+      ],
+      [
+        "eco",
+        68
+      ],
+      [
+        "seasonal",
+        68
+      ],
+      [
+        "home decor",
+        62
+      ]
+    ],
+    "cross_validated": [
+      "car",
+      "lighting",
+      "pets",
+      "crafts",
+      "eco",
+      "seasonal",
+      "home decor"
+    ],
+    "demand_keywords": [
+      "beach bag,",
+      "beauty fans",
+      "best item you have bought",
+      "discover the must",
+      "from viral beauty products and",
+      "healthier and more radiant.",
+      "it charges zero commission on",
+      "known for her eye for",
+      "lego technic",
+      "real market data on trending"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}
