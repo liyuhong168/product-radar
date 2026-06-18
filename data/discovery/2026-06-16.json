@@ -1,0 +1,57 @@
+{
+  "trend_forecast": "本周Amazon Prime Day（6/23-26）是最大流量窗口，建议立即下单赶上；7月重点关注世界杯决赛+暑假出行品类。",
+  "insights": [
+    {
+      "keyword": "jute twine garden",
+      "keyword_cn": "花园麻绳",
+      "amazon_keyword": "jute twine",
+      "search_1688": "麻绳 花园 100米",
+      "demand_signals": [
+        "Amazon Garden Best Seller",
+        "英国Grow Your Own趋势持续走强"
+      ],
+      "trend_score": 85,
+      "trend_direction": "rising",
+      "reason": "英国Grow Your Own趋势持续走强，花园麻绳是Garden Best Seller常驻产品。",
+      "action": "建议007\n搜索词：jute twine garden\n1688搜「麻绳 花园 100米」",
+      "competition": "常青品类，竞争适中。"
+    },
+    {
+      "keyword": "cable clips organizer",
+      "keyword_cn": "桌面线卡/理线器",
+      "amazon_keyword": "cable clips",
+      "search_1688": "理线器 桌面 线卡",
+      "demand_signals": [
+        "Amazon DIY Best Seller常驻",
+        "居家办公持续需求"
+      ],
+      "trend_score": 72,
+      "trend_direction": "stable",
+      "reason": "居家办公持续需求，DIY Best Seller常驻产品。",
+      "action": "建议027\n搜索词：cable clips organizer\n1688搜「理线器 桌面 线卡」",
+      "competition": "常青品类，竞争中等。"
+    },
+    {
+      "keyword": "portable fan usb",
+      "keyword_cn": "便携迷你风扇",
+      "amazon_keyword": "portable fan usb rechargeable",
+      "search_1688": "迷你风扇 USB充电 便携",
+      "demand_signals": [
+        "TikTok UK周订单9.59K爆单",
+        "Prime Day窗口期",
+        "夏季降温需求"
+      ],
+      "trend_score": 78,
+      "trend_direction": "rising",
+      "reason": "TikTok UK周订单9.59K爆单，Prime Day窗口期。但注意：带电产品可能在禁止品类中，需确认。",
+      "action": "⚠️ 带电产品，确认是否在禁选品类\n搜索词：portable fan usb\n1688搜「迷你风扇 USB充电」",
+      "competition": "TikTok爆品，竞争激烈。"
+    }
+  ],
+  "scan_date": "2026-06-16",
+  "scan_time": "11:00",
+  "stats": {
+    "total_scanned": 0,
+    "passed_filter": 3
+  }
+}

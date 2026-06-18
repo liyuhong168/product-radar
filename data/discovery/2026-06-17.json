@@ -1,13 +1,10 @@
 {
-  "scan_date": "2026-06-17",
-  "scan_time": "11:12",
-  "trend_forecast": "7-8月英国花园经济持续爆发——太阳能灯、野生动物友好产品（蜜蜂/蝴蝶站）、BBQ配件是三大方向，建议6月底前完成备货。\n\n9月开学季：文具、收纳用品、桌面整理器需求上升，建议7月中旬开始测款。",
+  "trend_forecast": "7-8月英国花园经济持续爆发——太阳能灯、野生动物友好产品（蜜蜂/蝴蝶站）、BBQ配件是三大方向，建议6月底前完成备货。",
   "insights": [
     {
       "keyword": "bee watering station",
       "keyword_cn": "蜜蜂喂水器/蝴蝶喂食站",
       "amazon_keyword": "bee watering station",
-      "amazon_search_url": "",
       "search_1688": "蜜蜂喂水器 树脂 花园",
       "demand_signals": [
         "Amazon Butterfly Feeders新品密集上榜",
@@ -16,64 +13,79 @@
       ],
       "trend_score": 88,
       "trend_direction": "rising",
-      "reason": "英国Wildlife Wonderland趋势爆发，24%家庭在花园创建野生动物友好区。Butterfly Feeders品类Amazon新品密集上榜，前5名review均<500，竞争格局良好。树脂花朵杯造型产品兼具装饰性和功能性，溢价空间大。",
-      "action": "建议007+027各20件测款\n搜索词：bee watering station, butterfly feeder\n1688搜「蜜蜂喂水器 树脂 花园」，预计采购价¥3-5/个",
-      "competition": "前5名review: 45/120/300/89/200，头部集中度低，中小卖家有空间。售价区间£6.99-£9.99。"
+      "reason": "英国Wildlife Wonderland趋势爆发，24%家庭在花园创建野生动物友好区。Butterfly Feeders品类Amazon新品密集上榜，前5名review均<500，竞争格局良好。",
+      "action": "建议007+027各20件测款\n搜索词：bee watering station, butterfly feeder\n1688搜「蜜蜂喂水器 树脂 花园」",
+      "competition": "前5名review: 45/120/300/89/200，头部集中度低。售价区间£6.99-£9.99。"
     },
     {
-      "keyword": "BBQ skewers stainless steel",
+      "keyword": "bbq skewers stainless steel",
       "keyword_cn": "不锈钢烧烤签",
       "amazon_keyword": "bbq skewers stainless steel",
-      "amazon_search_url": "",
       "search_1688": "不锈钢烧烤签 扁平 20件",
       "demand_signals": [
         "Kitchen Hot New Releases前5全是BBQ Skewers",
         "夏季烧烤旺季6-8月",
-        "Google Trends UK BBQ相关词搜索量+180%"
+        "Google Trends BBQ搜索量+180%"
       ],
       "trend_score": 82,
       "trend_direction": "rising",
-      "reason": "英国夏季烧烤季正式开始，Kitchen品类Hot New Releases前5名全部是BBQ Skewers类产品。不锈钢烧烤签属于厨房常青品类，夏季有明显波峰。扁平防转设计是差异化卖点。",
-      "action": "建议007先行20件测款\n搜索词：bbq skewers, metal skewers, kebab sticks\n1688搜「不锈钢烧烤签 扁平」，预计采购价¥2-3/套",
-      "competition": "前5名review: 200/800/150/500/89，头部有集中但中小卖家仍有空间。售价区间£5.99-£8.99。"
+      "reason": "英国夏季烧烤季正式开始，Kitchen品类Hot New Releases前5名全部是BBQ Skewers。扁平防转设计是差异化卖点。",
+      "action": "建议007先行20件测款\n搜索词：bbq skewers, metal skewers\n1688搜「不锈钢烧烤签 扁平」",
+      "competition": "前5名review: 200/800/150/500/89。售价区间£5.99-£8.99。"
     },
     {
-      "keyword": "solar string lights garden",
+      "keyword": "solar string lights outdoor",
       "keyword_cn": "太阳能串灯/花园灯串",
       "amazon_keyword": "solar string lights outdoor",
-      "amazon_search_url": "",
       "search_1688": "太阳能串灯 户外 防水 花园",
       "demand_signals": [
-        "Google Trends UK solar garden lighting Search Score 92/100",
+        "Google Trends UK solar garden lighting Score 92/100",
         "Argos 2026趋势报告#2产品",
-        "Amazon Garden品类Movers & Shakers多款上榜"
+        "Amazon Garden Movers & Shakers"
       ],
       "trend_score": 75,
       "trend_direction": "stable",
-      "reason": "太阳能花园灯是英国夏季刚需，Google Trends搜索量维持高位。Argos 2026趋势报告列为#2趋势产品。但该品类竞争较激烈，前5名review多在1000+，需要找差异化切入点（如特殊造型、更长长度）。",
-      "action": "建议027先行20件测款，选差异化款（如蝴蝶/星星造型）\n搜索词：solar string lights, solar fairy lights garden\n1688搜「太阳能串灯 户外 防水」",
-      "competition": "前5名review: 1200/3500/800/2000/500，竞争较激烈。需找review<300的差异化款。售价区间£7.99-£14.99。"
+      "reason": "太阳能花园灯是英国夏季刚需，Google Trends搜索量维持高位。Argos 2026趋势报告列为#2趋势产品。竞争较激烈，需找差异化款。",
+      "action": "建议027先行20件测款，选差异化款\n搜索词：solar string lights, solar fairy lights\n1688搜「太阳能串灯 户外 防水」",
+      "competition": "前5名review: 1200/3500/800/2000/500，竞争较激烈。售价区间£7.99-£14.99。"
     },
     {
       "keyword": "magnetic fly screen door",
       "keyword_cn": "磁性防蚊门帘",
       "amazon_keyword": "magnetic fly screen door",
-      "amazon_search_url": "",
       "search_1688": "磁性门帘 防蚊 纱门",
       "demand_signals": [
-        "Screen Doors品类BSR #1（9458 reviews）",
+        "Screen Doors品类BSR #1(9458 reviews)",
         "DIY Movers & Shakers多款上榜",
         "夏季蚊虫防护需求"
       ],
       "trend_score": 70,
       "trend_direction": "stable",
-      "reason": "磁性防蚊门帘是夏季品类，Screen Doors品类BSR第一名已有9458 reviews说明市场验证充分。但review数高也说明竞争激烈。需要找review<200的新品或差异化款。",
-      "action": "建议027先行20件测款\n搜索词：magnetic fly screen door, magnetic mosquito net\n1688搜「磁性门帘 防蚊」",
-      "competition": "前5名review: 9458/3200/1500/800/200，竞争激烈。需找review<200的新品。售价区间£8.99-£12.99。"
+      "reason": "磁性防蚊门帘是夏季品类，BSR第一名已有9458 reviews说明市场验证充分。需找review<200的新品。",
+      "action": "建议027先行20件测款\n搜索词：magnetic fly screen door\n1688搜「磁性门帘 防蚊」",
+      "competition": "前5名review: 9458/3200/1500/800/200。售价区间£8.99-£12.99。"
+    },
+    {
+      "keyword": "silicone stretch lids",
+      "keyword_cn": "硅胶保鲜盖",
+      "amazon_keyword": "silicone stretch lids",
+      "search_1688": "硅胶保鲜盖 6件套",
+      "demand_signals": [
+        "Amazon Kitchen常驻热销",
+        "eco-friendly概念走强",
+        "环保替代保鲜膜趋势"
+      ],
+      "trend_score": 65,
+      "trend_direction": "stable",
+      "reason": "厨房常青品类，环保替代保鲜膜趋势持续。多次出现在选品发现推荐中，验证需求稳定。",
+      "action": "建议007/20件测款\n搜索词：silicone stretch lids\n1688搜「硅胶保鲜盖 6件套」",
+      "competition": "常青品类，竞争中等。售价区间£5.99-£9.99。"
     }
   ],
+  "scan_date": "2026-06-17",
+  "scan_time": "11:00",
   "stats": {
-    "total_scanned": 25,
-    "passed_filter": 4
+    "total_scanned": 0,
+    "passed_filter": 5
   }
 }
