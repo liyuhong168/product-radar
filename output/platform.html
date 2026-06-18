@@ -117,7 +117,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans SC
 .profit-txt{font-size:14px;font-weight:700;white-space:nowrap}
 .profit-txt.high{color:var(--green)}.profit-txt.mid{color:var(--orange)}.profit-txt.low{color:var(--red)}
 .cost-tog{font-size:12px;color:var(--blue);cursor:pointer;border:none;background:#f0f4ff;padding:4px 10px;border-radius:8px}
-.cost-det{display:none;font-size:12px;color:var(--muted);background:#f5f5f7;padding:10px 12px;border-radius:8px;line-height:1.8;margin-top:4px;border-left:3px solid:var(--blue)}
+.cost-det{display:none;font-size:12px;color:var(--muted);background:#f5f5f7;padding:10px 12px;border-radius:8px;line-height:1.8;margin-top:4px;border-left:3px solid var(--blue)}
 .cost-det.show{display:block}
 .status-btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:10px;border-top:1px solid var(--border)}
 .st-btn{padding:5px 10px;border:2px solid var(--s-c,#8e8e93);border-radius:10px;background:transparent;color:var(--s-c,#8e8e93);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
@@ -198,18 +198,7 @@ const DATES = ["2026-06-18", "2026-06-17", "2026-06-16", "2026-06-15", "2026-06-
 const STATUS = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier": ["\u627e\u4f9b\u5e94\u5546", "#007AFF"], "sample": ["\u5df2\u91c7\u6837", "#FF9500"], "listed": ["\u5df2\u4e0a\u67b6", "#34C759"], "rejected": ["\u4e0d\u8003\u8651", "#FF3B30"]};
 const SK = 'pp_v3_status';
 const OLD_SK = 'productRadar_v2_status';
-
-// Migrate old status data from radar v2 page
-(function migrateOldStatus() {
-  try {
-    const old = JSON.parse(localStorage.getItem(OLD_SK) || '{}');
-    const cur = JSON.parse(localStorage.getItem(SK) || '{}');
-    if (Object.keys(old).length > 0 && Object.keys(cur).length === 0) {
-      localStorage.setItem(SK, JSON.stringify(old));
-      console.log('Migrated', Object.keys(old).length, 'status entries from radar v2');
-    }
-  } catch(e) {}
-})();
+(function(){try{const o=JSON.parse(localStorage.getItem(OLD_SK)||'{}');const c=JSON.parse(localStorage.getItem(SK)||'{}');if(Object.keys(o).length>0&&Object.keys(c).length===0)localStorage.setItem(SK,JSON.stringify(o))}catch(e){}})();
 
 function getSt(){try{return JSON.parse(localStorage.getItem(SK)||'{}')}catch(e){return{}}}
 function saveSt(a,s){const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}
