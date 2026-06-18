@@ -1,0 +1,77 @@
+{
+  "scan_date": "2026-06-17",
+  "scan_time": "11:12",
+  "products": [
+    {
+      "asin": "B0D5LPVPKV",
+      "name": "Bee Watering Station 4 Pack, Bee Feeder Butterfly Feeder Garden Accessories, Resin Flowers Cup",
+      "price": 7.85,
+      "rating": 4.5,
+      "reviews": 45,
+      "profit_margin": 0.355,
+      "net_profit": 2.79,
+      "cost_breakdown": {
+        "vat": 1.31,
+        "commission": 1.18,
+        "fba": 1.28,
+        "ads": 0.39,
+        "returns": 0.24,
+        "sourcing": 0.67,
+        "total_cost": 5.07
+      },
+      "sources": ["Amazon新品榜", "Google Trends"],
+      "reason": "UK Wildlife Wonderland趋势(24%家庭创建野生动物区) + Butterfly Feeders品类新品密集上榜",
+      "image_url": "",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D5LPVPKV"
+    },
+    {
+      "asin": "B0D7QHKM2M",
+      "name": "BBQ Skewers Stainless Steel 20pcs, Flat Metal Skewers for Grilling, Reusable Kebab Sticks",
+      "price": 6.65,
+      "rating": 4.6,
+      "reviews": 89,
+      "profit_margin": 0.277,
+      "net_profit": 1.84,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.28,
+        "ads": 0.33,
+        "returns": 0.2,
+        "sourcing": 0.55,
+        "total_cost": 4.47
+      },
+      "sources": ["Amazon新品榜"],
+      "reason": "Kitchen Hot New Releases前5全是BBQ Skewers，夏季烧烤旺季爆发中",
+      "image_url": "",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D7QHKM2M"
+    },
+    {
+      "asin": "B0D3FVFLVR",
+      "name": "Solar String Lights Outdoor 12.5M 50LED, Solar Powered Fairy Lights for Garden Patio",
+      "price": 9.57,
+      "rating": 4.4,
+      "reviews": 234,
+      "profit_margin": 0.286,
+      "net_profit": 2.74,
+      "cost_breakdown": {
+        "vat": 1.60,
+        "commission": 1.44,
+        "fba": 1.28,
+        "ads": 0.48,
+        "returns": 0.29,
+        "sourcing": 0.82,
+        "total_cost": 5.91
+      },
+      "sources": ["Google Trends"],
+      "reason": "Google Trends UK solar garden lighting Search Score 92/100 + Argos #2趋势产品",
+      "image_url": "",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D3FVFLVR"
+    }
+  ],
+  "stats": {
+    "total_scanned": 20,
+    "passed_filter": 3
+  },
+  "trend_summary": "7-8月英国花园经济持续爆发——太阳能灯、野生动物友好产品、BBQ配件是三大方向"
+}

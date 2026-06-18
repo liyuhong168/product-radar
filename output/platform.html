@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选品平台 | 2026-06-18</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='none' stroke='%235856D6' stroke-width='2'/%3E%3Ccircle cx='24' cy='24' r='16' fill='none' stroke='%23007AFF' stroke-width='1.5' opacity='0.5'/%3E%3Cpath d='M24,8 L24,24 L36,18Z' fill='%235856D6' opacity='0.3'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%235856D6'/%3E%3C/svg%3E">
+    <style>
+:root {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --border: #e5e5ea;
+    --radius: 16px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --discovery: #5856D6;
+    --radar: #007AFF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1440px; margin: 0 auto; padding: 24px; }
+
+/* Header */
+.header { margin-bottom: 20px; }
+.header-top { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.header h1 { font-size: 28px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.version { font-size: 12px; background: var(--discovery); color: white; padding: 2px 8px; border-radius: 8px; }
+.scan-info { color: var(--text-secondary); font-size: 14px; }
+.stat-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.stat-badge { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+
+/* Source Tabs */
+.source-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.source-tab {
+    padding: 12px 24px; border: none; border-radius: 14px;
+    background: var(--card-bg); color: var(--text-secondary);
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    box-shadow: var(--shadow); transition: all 0.2s;
+    display: flex; align-items: center; gap: 8px;
+}
+.source-tab:hover { background: #e8e8ed; }
+.source-tab.active { color: white; }
+.source-tab .tab-count {
+    background: rgba(255,255,255,0.3); border-radius: 10px;
+    padding: 0 8px; font-size: 13px; min-width: 24px; text-align: center;
+}
+.source-tab:not(.active) .tab-count { background: #e5e5ea; }
+
+/* Status Filter */
+.status-filter { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.filter-label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.status-tab {
+    padding: 5px 12px; border: 2px solid var(--s-color, #8e8e93);
+    border-radius: 16px; background: transparent;
+    color: var(--s-color, #8e8e93); font-size: 12px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.status-tab:hover, .status-tab.active { background: var(--s-color, #8e8e93); color: white; }
+
+/* Filter Bar */
+.filter-bar {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; flex-wrap: wrap;
+    padding: 12px 16px; background: var(--card-bg);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.search-box { flex: 1; min-width: 200px; }
+.search-box input {
+    width: 100%; padding: 8px 14px; border: 2px solid var(--border);
+    border-radius: 10px; font-size: 14px; outline: none; transition: border-color 0.2s;
+}
+.search-box input:focus { border-color: var(--discovery); }
+.filter-group { display: flex; align-items: center; gap: 6px; }
+.filter-group label { font-size: 13px; color: var(--text-secondary); font-weight: 600; }
+.filter-group select {
+    padding: 7px 12px; border: 2px solid var(--border);
+    border-radius: 10px; font-size: 13px; background: white; cursor: pointer; outline: none;
+}
+.btn-export {
+    padding: 8px 16px; border: none; border-radius: 10px;
+    background: var(--discovery); color: white; font-size: 13px;
+    font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+}
+.btn-export:hover { opacity: 0.85; }
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+/* Product Card */
+.product-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column; gap: 10px;
+    border-left: 4px solid transparent;
+    position: relative;
+}
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+.product-card[data-source="discovery"] { border-left-color: var(--discovery); }
+.product-card[data-source="radar"] { border-left-color: var(--radar); }
+.product-card[data-status="listed"] { opacity: 0.7; }
+.product-card[data-status="rejected"] { opacity: 0.5; }
+
+/* New Badge */
+.badge-new {
+    position: absolute; top: 12px; right: 12px;
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+    background: #34C759; color: white;
+}
+.badge-dual {
+    position: absolute; top: 12px; right: 12px;
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+    background: var(--discovery); color: white;
+}
+.badge-repeat {
+    position: absolute; top: 12px; right: 12px;
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 600;
+    background: #f0f0f5; color: #8e8e93;
+}
+
+.card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.source-badge {
+    padding: 3px 10px; border-radius: 8px;
+    font-size: 11px; font-weight: 700; color: white;
+}
+.source-badge.discovery { background: var(--discovery); }
+.source-badge.radar { background: var(--radar); }
+.signal-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.signal-badge {
+    padding: 2px 8px; border-radius: 6px;
+    font-size: 10px; font-weight: 600;
+    background: #f0f0f5; color: var(--text-secondary);
+}
+.signal-badge.tiktok { background: #FF2D5515; color: #FF2D55; }
+.signal-badge.multi { background: #AF52DE15; color: #AF52DE; }
+.signal-badge.sd-deep-blue { background: #007AFF15; color: #007AFF; font-weight: 700; }
+
+.score-badge {
+    padding: 4px 12px; border-radius: 10px;
+    font-size: 14px; font-weight: 700; white-space: nowrap; flex-shrink: 0;
+}
+.score-badge.score-hot { background: #FF2D5515; color: #FF2D55; }
+.score-badge.score-high { background: #FF950015; color: #FF9500; }
+.score-badge.score-mid { background: #007AFF15; color: #007AFF; }
+.score-badge.score-low { background: #f0f0f5; color: #8e8e93; }
+
+.product-image { margin: 8px 0; text-align: center; cursor: pointer; }
+.product-image img {
+    max-width: 100%; max-height: 180px; object-fit: contain;
+    border-radius: 8px; transition: transform 0.2s;
+}
+.product-image img:hover { transform: scale(1.02); }
+.img-placeholder {
+    width: 100%; height: 120px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: #f5f5f7; border-radius: 8px; color: #8e8e93; font-size: 28px;
+}
+.img-placeholder small { font-size: 11px; margin-top: 4px; color: #aeaeb2; }
+
+.product-name {
+    font-size: 15px; font-weight: 600; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+}
+.product-name a { color: var(--text); text-decoration: none; }
+.product-name a:hover { color: var(--discovery); }
+
+.product-meta { display: flex; gap: 16px; font-size: 13px; color: var(--text-secondary); }
+.product-meta span { white-space: nowrap; }
+
+/* Discovery Reason */
+.discovery-reason {
+    font-size: 12px; color: var(--text-secondary);
+    background: #f0f0f8; padding: 8px 12px; border-radius: 8px;
+    line-height: 1.6; border-left: 3px solid var(--discovery);
+}
+
+/* Profit Bar */
+.profit-section { display: flex; align-items: center; gap: 10px; }
+.profit-bar-bg { flex: 1; height: 8px; background: #e5e5ea; border-radius: 4px; overflow: hidden; }
+.profit-bar { height: 100%; border-radius: 4px; transition: width 0.3s; }
+.profit-text { font-size: 14px; font-weight: 700; white-space: nowrap; }
+.profit-text.high { color: #34C759; }
+.profit-text.mid { color: #FF9500; }
+.profit-text.low { color: #FF3B30; }
+
+/* Cost Breakdown */
+.cost-toggle {
+    font-size: 12px; color: var(--discovery); cursor: pointer;
+    border: none; background: #f0f0f8; padding: 4px 10px;
+    border-radius: 8px; transition: background 0.2s;
+}
+.cost-toggle:hover { background: #e0e0f0; }
+.cost-detail {
+    display: none; font-size: 12px; color: var(--text-secondary);
+    background: #f5f5f7; padding: 10px 12px; border-radius: 8px;
+    line-height: 1.8; margin-top: 4px; border-left: 3px solid var(--discovery);
+}
+.cost-detail.show { display: block; }
+
+/* Status Buttons */
+.status-btns {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border);
+}
+.status-btn {
+    padding: 5px 10px; border: 2px solid var(--s-color, #8e8e93);
+    border-radius: 10px; background: transparent;
+    color: var(--s-color, #8e8e93); font-size: 11px;
+    font-weight: 600; cursor: pointer; transition: all 0.15s;
+}
+.status-btn:hover, .status-btn.active { background: var(--s-color, #8e8e93); color: white; }
+
+/* Amazon Link */
+.btn-amazon {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 5px 12px; border: 2px solid #FF6A00;
+    border-radius: 10px; background: transparent;
+    color: #FF6A00; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; text-decoration: none;
+}
+.btn-amazon:hover { background: #FF6A00; color: white; }
+
+/* Empty State */
+.empty-state {
+    text-align: center; padding: 60px 20px; color: var(--text-secondary);
+}
+.empty-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-hint { font-size: 13px; margin-top: 8px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 12px; }
+    .header h1 { font-size: 22px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .filter-bar { flex-direction: column; }
+    .search-box { min-width: 100%; }
+    .source-tabs { flex-wrap: wrap; }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <h1>🎯 选品平台 <span class="version">V1</span></h1>
+                <div class="scan-info">2026-06-18 16:29 · 趋势发现 3 · 雷达扫描 4 · 双源 0</div>
+            </div>
+            <div class="stat-badges">
+                <span class="stat-badge" style="background:var(--discovery)15;color:var(--discovery)">🔍 趋势发现: 3</span>
+                <span class="stat-badge" style="background:var(--radar)15;color:var(--radar)">📡 雷达扫描: 4</span>
+                <span class="stat-badge" style="background:#34C75915;color:#34C759">✨ 新发现: 7</span>
+                <span class="stat-badge" style="background:#AF52DE15;color:#AF52DE">🔗 双源验证: 0</span>
+            </div>
+        </header>
+
+        <div class="source-tabs" id="sourceTabs">
+            <button class="source-tab active" data-source="all" style="--tab-color:#8e8e93">
+                📋 全部 <span class="tab-count">7</span>
+            </button>
+            <button class="source-tab" data-source="discovery" style="--tab-color:var(--discovery)">
+                🔍 趋势发现 <span class="tab-count">3</span>
+            </button>
+            <button class="source-tab" data-source="radar" style="--tab-color:var(--radar)">
+                📡 雷达扫描 <span class="tab-count">4</span>
+            </button>
+        </div>
+
+        <div class="status-filter">
+            <span class="filter-label">状态:</span>
+            <button class="status-tab" data-status="pending" style="--s-color:#8e8e93">待评估</button>
+            <button class="status-tab" data-status="supplier" style="--s-color:#007AFF">找供应商</button>
+            <button class="status-tab" data-status="sample" style="--s-color:#FF9500">已采样</button>
+            <button class="status-tab" data-status="listed" style="--s-color:#34C759">已上架</button>
+            <button class="status-tab" data-status="rejected" style="--s-color:#FF3B30">不考虑</button>
+            <button class="status-tab active" data-status="all">全部</button>
+        </div>
+
+        <div class="filter-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 搜索产品名称..." />
+            </div>
+            <div class="filter-group">
+                <label>价格:</label>
+                <select id="filterPrice">
+                    <option value="all">全部</option>
+                    <option value="5-7">£5-7</option>
+                    <option value="7-8.5">£7-8.5</option>
+                    <option value="8.5-10">£8.5-10</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>利润率:</label>
+                <select id="filterMargin">
+                    <option value="all">全部</option>
+                    <option value="30">≥30%</option>
+                    <option value="25">≥25%</option>
+                    <option value="20">≥20%</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>排序:</label>
+                <select id="sortBy">
+                    <option value="score">评分↓</option>
+                    <option value="margin">利润率↓</option>
+                    <option value="price">价格↑</option>
+                    <option value="reviews">评论数↑</option>
+                    <option value="new">新发现优先</option>
+                </select>
+            </div>
+            <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="empty-state" id="emptyState" style="display:none">
+            <div class="empty-icon">📦</div>
+            <p>没有匹配的产品</p>
+            <p class="empty-hint">尝试调整筛选条件</p>
+        </div>
+    </div>
+
+    <script>
+const DATA = [{"asin": "B0D5LPVPKV", "name": "Bee Watering Station 4 Pack, Bee Feeder Butterfly Feeder Garden Accessories, Resin Flowers Cup", "price": 7.85, "rating": 4.5, "reviews": 45, "profit_margin": 0.355, "net_profit": 2.79, "cost_breakdown": {"vat": 1.31, "commission": 1.18, "fba": 1.28, "ads": 0.39, "returns": 0.24, "sourcing": 0.67, "total_cost": 5.07}, "sources": ["Amazon新品榜", "Google Trends"], "reason": "UK Wildlife Wonderland趋势(24%家庭创建野生动物区) + Butterfly Feeders品类新品密集上榜", "image_url": "", "amazon_url": "https://www.amazon.co.uk/dp/B0D5LPVPKV", "source_type": "discovery"}, {"asin": "B0D7QHKM2M", "name": "BBQ Skewers Stainless Steel 20pcs, Flat Metal Skewers for Grilling, Reusable Kebab Sticks", "price": 6.65, "rating": 4.6, "reviews": 89, "profit_margin": 0.277, "net_profit": 1.84, "cost_breakdown": {"vat": 1.11, "commission": 1.0, "fba": 1.28, "ads": 0.33, "returns": 0.2, "sourcing": 0.55, "total_cost": 4.47}, "sources": ["Amazon新品榜"], "reason": "Kitchen Hot New Releases前5全是BBQ Skewers，夏季烧烤旺季爆发中", "image_url": "", "amazon_url": "https://www.amazon.co.uk/dp/B0D7QHKM2M", "source_type": "discovery"}, {"asin": "B0D3FVFLVR", "name": "Solar String Lights Outdoor 12.5M 50LED, Solar Powered Fairy Lights for Garden Patio", "price": 9.57, "rating": 4.4, "reviews": 234, "profit_margin": 0.286, "net_profit": 2.74, "cost_breakdown": {"vat": 1.6, "commission": 1.44, "fba": 1.28, "ads": 0.48, "returns": 0.29, "sourcing": 0.82, "total_cost": 5.91}, "sources": ["Google Trends"], "reason": "Google Trends UK solar garden lighting Search Score 92/100 + Argos #2趋势产品", "image_url": "", "amazon_url": "https://www.amazon.co.uk/dp/B0D3FVFLVR", "source_type": "discovery"}, {"asin": "B0CN6WTTV3", "name": "Lelepet Warm Coats and Jackets for Dogs, Waterproof Winter Dog Coat for Cold Weather, Reflective Dog Puffer Jacket, Flee", "price": 9.74, "reviews": 198, "rating": 4.6, "rank": 10, "category": "Pets", "channel": "wished", "channel_name": "Amazon心愿榜", "review_info": "198 reviews, 4.6★", "amazon_url": "https://www.amazon.co.uk/dp/B0CN6WTTV3", "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61zDxEWX4sL._AC_UL300_SR300,200_.jpg", "sources": ["Temu热销", "Etsy趋势", "TikTok趋势"], "profit_margin": 0.481, "net_profit": 4.68, "cost_breakdown": {"vat": 1.63, "commission": 0.49, "fba": 1.46, "ads": 0.49, "returns": 0.19, "sourcing": 0.8, "total_cost": 5.06}, "off_season": true, "sd_score": 20, "sd_label": "🌊 深蓝海", "sd_info": {"ratio": 7.2, "demand": 100, "supply": 1014531, "label": "🌊 深蓝海", "level": "deep_blue"}, "div_score": 0, "div_label": "", "div_info": {}, "signal_level": "strong", "signal_label": "🔴 强信号", "external_sources": ["TikTok", "Temu", "Etsy"], "internal_sources": ["心愿榜"], "score": 157, "score_breakdown": {"💝 心愿榜": 15, "🎵 TikTok": 20, "🛒 Temu": 8, "🎨 Etsy": 6, "🔴 强信号": 20, "🔥 多源热门(pets)": 23, "⭐ 高评分": 5, "💰 超高利润": 12, "❄️ 过季降权": -20, "🌊 深蓝海": 20, "📈 排名上升": 10, "📊 持续上升": 8}, "stars": 5, "is_multi": true, "is_event": false, "channel_tags": ["tiktok_verified", "wished", "temu_trending", "etsy_trending", "multi_source"], "source_type": "radar"}, {"asin": "B004W1L8NG", "name": "Waxacar 2 x 3 sq ft Chamois Leathers for Cars, Large Shammy Cloth Absorbent Car Drying Towel Natural Leather Lint Free S", "price": 7.49, "reviews": 6, "rating": 5.0, "rank": 28, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "6 reviews, 5.0★", "amazon_url": "https://www.amazon.co.uk/dp/B004W1L8NG", "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51sE4DnY0VL._AC_UL300_SR300,200_.jpg", "profit_margin": 0.311, "net_profit": 2.33, "cost_breakdown": {"vat": 1.25, "commission": 1.12, "fba": 1.46, "ads": 0.37, "returns": 0.15, "sourcing": 0.8, "total_cost": 5.16}, "off_season": false, "sd_score": 0, "sd_label": "", "sd_info": {}, "div_score": 0, "div_label": "", "div_info": {}, "signal_level": "none", "signal_label": "⚪ 仅Amazon", "external_sources": [], "internal_sources": ["新品榜"], "score": 48, "score_breakdown": {"🆕 新品榜": 20, "⚪ 仅Amazon": -10, "🟢 低竞争": 10, "⭐ 高评分": 5, "💰 高利润": 8, "📉 无需求信号": -15}, "stars": 2, "is_event": false, "channel_tags": ["new_releases"], "source_type": "radar"}, {"asin": "B0H2CZRB48", "name": "4Pcs 46 x 30cm England St George Cross Car Window Flags for FIFA 2026 World Cup – Polyester England Vehicle Flag Decorat", "price": 6.49, "reviews": 63, "rating": 3.7, "rank": 13, "category": "Automotive", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "63 reviews, 3.7★", "amazon_url": "https://www.amazon.co.uk/dp/B0H2CZRB48", "image_url": "https://images-eu.ssl-images-amazon.com/images/I/610NwProTeL._AC_UL300_SR300,200_.jpg", "sources": ["Etsy趋势", "TikTok趋势", "Temu热销"], "profit_margin": 0.265, "net_profit": 1.72, "cost_breakdown": {"vat": 1.08, "commission": 0.97, "fba": 1.46, "ads": 0.32, "returns": 0.13, "sourcing": 0.8, "total_cost": 4.77}, "off_season": false, "sd_score": 20, "sd_label": "🌊 深蓝海", "sd_info": {"ratio": 99, "demand": 90, "supply": 0, "label": "🌊 无竞品", "level": "deep_blue"}, "div_score": 0, "div_label": "", "div_info": {}, "signal_level": "strong", "signal_label": "🔴 强信号", "external_sources": ["TikTok", "Temu", "Etsy"], "internal_sources": ["新品榜"], "score": 151, "score_breakdown": {"🆕 新品榜": 20, "🎵 TikTok": 20, "🛒 Temu": 8, "🎨 Etsy": 6, "🔴 强信号": 20, "🟡 中等竞争": 5, "💰 较好利润": 4, "🌊 深蓝海": 20, "📈 排名上升": 10, "📊 持续上升": 8}, "stars": 5, "is_multi": true, "is_event": true, "channel_tags": ["tiktok_verified", "new_releases", "event_product", "temu_trending", "etsy_trending", "multi_source"], "source_type": "radar"}, {"asin": "B0GSWQWCBN", "name": "YOFANUP World Football Flags Bunting 2026, 50ft/15m, Update 48 Qualified Countries Jersey Bunting for World Cup Decorati", "price": 9.98, "reviews": 20, "rating": 3.5, "rank": 15, "category": "Sports", "channel": "new_releases", "channel_name": "Amazon新品榜", "review_info": "20 reviews, 3.5★", "amazon_url": "https://www.amazon.co.uk/dp/B0GSWQWCBN", "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71dMcO0k+dL._AC_UL300_SR300,200_.jpg", "sources": ["Etsy趋势", "TikTok趋势", "Temu热销"], "profit_margin": 0.387, "net_profit": 3.86, "cost_breakdown": {"vat": 1.67, "commission": 1.5, "fba": 1.46, "ads": 0.5, "returns": 0.2, "sourcing": 0.8, "total_cost": 6.12}, "off_season": false, "sd_score": 20, "sd_label": "🌊 深蓝海", "sd_info": {"ratio": 99, "demand": 90, "supply": 0, "label": "🌊 无竞品", "level": "deep_blue"}, "div_score": 0, "div_label": "", "div_info": {}, "signal_level": "strong", "signal_label": "🔴 强信号", "external_sources": ["TikTok", "Temu", "Etsy"], "internal_sources": ["新品榜"], "score": 143, "score_breakdown": {"🆕 新品榜": 20, "🎵 TikTok": 20, "🛒 Temu": 8, "🎨 Etsy": 6, "🔴 强信号": 20, "🟢 低竞争": 10, "💰 超高利润": 12, "❓ 品类不符": -10, "🌴 当季(summer)": 10, "🌊 深蓝海": 20, "⚠️ 品类较多": -5, "🎯 事件过密": -8, "✨ 新发现": 10}, "stars": 5, "is_multi": true, "is_event": true, "channel_tags": ["tiktok_verified", "new_releases", "event_product", "temu_trending", "etsy_trending", "multi_source"], "source_type": "radar"}];
+const STATUS_CONFIG = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier": ["\u627e\u4f9b\u5e94\u5546", "#007AFF"], "sample": ["\u5df2\u91c7\u6837", "#FF9500"], "listed": ["\u5df2\u4e0a\u67b6", "#34C759"], "rejected": ["\u4e0d\u8003\u8651", "#FF3B30"]};
+const statusKey = 'productPlatform_v1_status';
+
+// Load saved statuses
+function getStatuses() {
+    try { return JSON.parse(localStorage.getItem(statusKey) || '{}'); } catch(e) { return {}; }
+}
+function saveStatus(asin, status) {
+    const s = getStatuses();
+    if (status === 'pending') delete s[asin]; else s[asin] = status;
+    localStorage.setItem(statusKey, JSON.stringify(s));
+}
+
+// Render products
+let currentSource = 'all';
+let currentStatus = 'all';
+
+function render() {
+    const grid = document.getElementById('productGrid');
+    const empty = document.getElementById('emptyState');
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const priceFilter = document.getElementById('filterPrice').value;
+    const marginFilter = document.getElementById('filterMargin').value;
+    const sortBy = document.getElementById('sortBy').value;
+    const statuses = getStatuses();
+
+    let filtered = DATA.filter(p => {
+        // Source filter
+        if (currentSource !== 'all' && p.source_type !== currentSource) return false;
+        // Status filter
+        const st = statuses[p.asin] || 'pending';
+        if (currentStatus !== 'all' && st !== currentStatus) return false;
+        // Search
+        if (search && !p.name.toLowerCase().includes(search)) return false;
+        // Price
+        if (priceFilter !== 'all') {
+            const [min, max] = priceFilter.split('-').map(Number);
+            if (p.price < min || p.price > max) return false;
+        }
+        // Margin
+        if (marginFilter !== 'all') {
+            const minMargin = Number(marginFilter) / 100;
+            if ((p.profit_margin || 0) < minMargin) return false;
+        }
+        return true;
+    });
+
+    // Sort
+    filtered.sort((a, b) => {
+        if (sortBy === 'score') return (b.score || 0) - (a.score || 0);
+        if (sortBy === 'margin') return (b.profit_margin || 0) - (a.profit_margin || 0);
+        if (sortBy === 'price') return (a.price || 0) - (b.price || 0);
+        if (sortBy === 'reviews') return (a.reviews || 0) - (b.reviews || 0);
+        if (sortBy === 'new') {
+            const aNew = a.is_new ? 1 : 0;
+            const bNew = b.is_new ? 1 : 0;
+            if (aNew !== bNew) return bNew - aNew;
+            return (b.score || 0) - (a.score || 0);
+        }
+        return 0;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+    }
+    empty.style.display = 'none';
+
+    grid.innerHTML = filtered.map(p => {
+        const st = statuses[p.asin] || 'pending';
+        const margin = ((p.profit_margin || 0) * 100).toFixed(1);
+        const marginClass = margin >= 30 ? 'high' : margin >= 20 ? 'mid' : 'low';
+        const barColor = margin >= 30 ? '#34C759' : margin >= 20 ? '#FF9500' : '#FF3B30';
+        const score = p.score || 0;
+        const scoreClass = score >= 120 ? 'score-hot' : score >= 80 ? 'score-high' : score >= 40 ? 'score-mid' : 'score-low';
+
+        // Badge
+        let badge = '';
+        if (p.is_dual_source) badge = '<span class="badge-dual">🔗 双源</span>';
+        else if (p.is_new) badge = '<span class="badge-new">✨ NEW</span>';
+
+        // Source badge
+        const srcType = p.source_type || 'radar';
+        const srcLabel = srcType === 'discovery' ? '🔍 趋势发现' : '📡 雷达';
+
+        // Image
+        const img = p.image_url
+            ? `<div class="product-image"><img src="${p.image_url}" alt="${esc(p.name)}" loading="lazy" /></div>`
+            : '<div class="product-image"><div class="img-placeholder">📦<small>无图片</small></div></div>';
+
+        // Amazon URL
+        const amazonUrl = p.amazon_url || (p.asin ? `https://www.amazon.co.uk/dp/${p.asin}` : '#');
+
+        // Cost breakdown
+        const cb = p.cost_breakdown || {};
+        const costHtml = cb.vat ? `
+            <button class="cost-toggle" onclick="this.nextElementSibling.classList.toggle('show')">💰 成本明细</button>
+            <div class="cost-detail">
+                VAT: £${cb.vat?.toFixed(2) || '-'} · 佣金: £${cb.commission?.toFixed(2) || '-'} · FBA: £${cb.fba?.toFixed(2) || '-'}<br>
+                广告: £${cb.ads?.toFixed(2) || '-'} · 退货: £${cb.returns?.toFixed(2) || '-'} · 采购: £${cb.sourcing?.toFixed(2) || '-'}<br>
+                <b>总成本: £${cb.total_cost?.toFixed(2) || '-'} · 净利润: £${(p.net_profit || 0).toFixed(2)}</b>
+            </div>` : '';
+
+        // Sources
+        const sources = (p.sources || []).map(s => {
+            let cls = '';
+            if (s.includes('TikTok')) cls = 'tiktok';
+            else if (s.includes('多源')) cls = 'multi';
+            return `<span class="signal-badge ${cls}">${s}</span>`;
+        }).join('');
+
+        // SD label
+        const sdHtml = p.sd_label ? `<span class="signal-badge sd-deep-blue">${p.sd_label}</span>` : '';
+
+        // Discovery reason
+        const reasonHtml = p.source_type === 'discovery' && p.reason
+            ? `<div class="discovery-reason">💡 ${esc(p.reason)}</div>` : '';
+
+        // First seen
+        const firstSeen = p.first_seen ? `<span>发现: ${p.first_seen}</span>` : '';
+
+        return `
+        <div class="product-card" data-source="${srcType}" data-status="${st}" data-asin="${p.asin || ''}">
+            ${badge}
+            <div class="card-header">
+                <span class="source-badge ${srcType}">${srcLabel}</span>
+                <div class="signal-badges">${sources}${sdHtml}</div>
+                <span class="score-badge ${scoreClass}">${score}分</span>
+            </div>
+            ${img}
+            <div class="product-name"><a href="${amazonUrl}" target="_blank" rel="noopener">${esc(p.name)}</a></div>
+            <div class="product-meta">
+                <span>💷 £${(p.price || 0).toFixed(2)}</span>
+                <span>⭐ ${p.rating || '-'} (${p.reviews || 0})</span>
+                ${firstSeen}
+            </div>
+            <div class="profit-section">
+                <div class="profit-bar-bg"><div class="profit-bar" style="width:${Math.min(margin, 50) * 2}%;background:${barColor}"></div></div>
+                <span class="profit-text ${marginClass}">${margin}%</span>
+            </div>
+            ${costHtml}
+            ${reasonHtml}
+            <div class="status-btns">
+                ${Object.entries(STATUS_CONFIG).map(([k, [label, color]]) =>
+                    `<button class="status-btn ${st===k?'active':''}" style="--s-color:${color}" onclick="setStatus('${p.asin}','${k}',this)">${label}</button>`
+                ).join('')}
+                <a class="btn-amazon" href="${amazonUrl}" target="_blank" rel="noopener">🛒 Amazon</a>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+function setStatus(asin, status, btn) {
+    saveStatus(asin, status);
+    const card = btn.closest('.product-card');
+    card.dataset.status = status;
+    card.querySelectorAll('.status-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
+
+// Source tabs
+document.getElementById('sourceTabs').addEventListener('click', e => {
+    const tab = e.target.closest('.source-tab');
+    if (!tab) return;
+    document.querySelectorAll('.source-tab').forEach(t => {
+        t.classList.remove('active');
+        t.style.background = 'var(--card-bg)';
+        t.style.color = 'var(--text-secondary)';
+    });
+    tab.classList.add('active');
+    tab.style.background = 'var(--tab-color)';
+    tab.style.color = 'white';
+    currentSource = tab.dataset.source;
+    render();
+});
+
+// Status tabs
+document.querySelector('.status-filter').addEventListener('click', e => {
+    const tab = e.target.closest('.status-tab');
+    if (!tab) return;
+    document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    currentStatus = tab.dataset.status;
+    render();
+});
+
+// Filter events
+['searchInput', 'filterPrice', 'filterMargin', 'sortBy'].forEach(id => {
+    document.getElementById(id).addEventListener(id === 'searchInput' ? 'input' : 'change', render);
+});
+
+// CSV export
+function exportCSV() {
+    const statuses = getStatuses();
+    const rows = [['来源','ASIN','名称','价格','利润率','评分','状态','链接']];
+    DATA.forEach(p => {
+        const st = statuses[p.asin] || 'pending';
+        rows.push([
+            p.source_type === 'discovery' ? '趋势发现' : '雷达',
+            p.asin || '',
+            p.name || '',
+            (p.price || 0).toFixed(2),
+            ((p.profit_margin || 0) * 100).toFixed(1) + '%',
+            p.score || 0,
+            STATUS_CONFIG[st]?.[0] || st,
+            p.amazon_url || ''
+        ]);
+    });
+    const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
+    const blob = new Blob(['\ufeff' + csv], {type: 'text/csv;charset=utf-8;'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '选品平台_' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click();
+}
+
+// Init source tabs styling
+document.querySelectorAll('.source-tab').forEach(t => {
+    if (t.classList.contains('active')) {
+        t.style.background = 'var(--tab-color)';
+        t.style.color = 'white';
+    }
+});
+
+// Initial render
+render();
+    </script>
+</body>
+</html>
