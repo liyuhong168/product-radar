@@ -197,6 +197,19 @@ const DISC_ALL = {"2026-06-03": {"insights": [{"keyword": "silicone oven mitts",
 const DATES = ["2026-06-18", "2026-06-17", "2026-06-16", "2026-06-15", "2026-06-14", "2026-06-13", "2026-06-12", "2026-06-11", "2026-06-10", "2026-06-09", "2026-06-08", "2026-06-07", "2026-06-06", "2026-06-05", "2026-06-03"];
 const STATUS = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier": ["\u627e\u4f9b\u5e94\u5546", "#007AFF"], "sample": ["\u5df2\u91c7\u6837", "#FF9500"], "listed": ["\u5df2\u4e0a\u67b6", "#34C759"], "rejected": ["\u4e0d\u8003\u8651", "#FF3B30"]};
 const SK = 'pp_v3_status';
+const OLD_SK = 'productRadar_v2_status';
+
+// Migrate old status data from radar v2 page
+(function migrateOldStatus() {
+  try {
+    const old = JSON.parse(localStorage.getItem(OLD_SK) || '{}');
+    const cur = JSON.parse(localStorage.getItem(SK) || '{}');
+    if (Object.keys(old).length > 0 && Object.keys(cur).length === 0) {
+      localStorage.setItem(SK, JSON.stringify(old));
+      console.log('Migrated', Object.keys(old).length, 'status entries from radar v2');
+    }
+  } catch(e) {}
+})();
 
 function getSt(){try{return JSON.parse(localStorage.getItem(SK)||'{}')}catch(e){return{}}}
 function saveSt(a,s){const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}
