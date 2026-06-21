@@ -1,0 +1,80 @@
+{
+  "keyword": "silicone kitchen gadgets",
+  "product_count": 6,
+  "review_concentration": {
+    "cr5": 1.0,
+    "level": "monopoly",
+    "top5_reviews": 5,
+    "total_reviews": 5
+  },
+  "price_range": {
+    "min": 12.22,
+    "max": 13.32,
+    "median": 13.32
+  },
+  "newcomer_ratio": 1.0,
+  "avg_rating": 4.8,
+  "avg_reviews": 5,
+  "gap_opportunity": true,
+  "competition_level": "MONOPOLY",
+  "differentiation_tips": [
+    "High newcomer presence — market is receptive to new entrants",
+    "Emerging market — early mover advantage possible"
+  ],
+  "products": [
+    {
+      "asin": "B096KSPJKP",
+      "name": "- **URL**: https://www.amazon.co.uk/Silicone-Cooking-Utensils-Non-Stick-Resistant/dp/B096NQYY43",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B096KSPJKP"
+    },
+    {
+      "asin": "B0DS9TD2DW",
+      "name": "- Silicone Cooking Utensils Set, 43Pcs Non-Stick Heat Resistant Kitchen Utensils Spatula Set with Wooden Handle for Baking, Cookin",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B0DS9TD2DW"
+    },
+    {
+      "asin": "B096NQYY43",
+      "name": "- **URL**: https://www.amazon.com/silicone-cooking-utensils/s?k=silicone+cooking+utensils",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B096NQYY43"
+    },
+    {
+      "asin": "B0D8P58KMT",
+      "name": "10-Piece Silicone Kitchen Utensil Set - Non-Stick, Heat Resistant Cooking Utensils Set of Spatula, Turner, Spoons, Tong, Oil Brush and Wh",
+      "price": 13.32,
+      "reviews": 5,
+      "rating": 4.8,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B0D8P58KMT"
+    },
+    {
+      "asin": "B0DZXB3QC7",
+      "name": "- 10-Piece Silicone Kitchen Utensil Set - Non-Stick, Heat Resistant Cooking Utensils Set of Spatula, Turner, Spoons, Tong, Oil Brush and Wh",
+      "price": 13.32,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B0DZXB3QC7"
+    },
+    {
+      "asin": "B07FSLKMKC",
+      "name": "- Real AF Reviews! unveils a 33-piece kitchen utensil set that's a game-changer for non-stick cookware. Discover why this silicone and stainless steel combo ...",
+      "price": 12.22,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B07FSLKMKC"
+    }
+  ]
+}

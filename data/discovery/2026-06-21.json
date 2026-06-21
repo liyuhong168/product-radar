@@ -1,0 +1,677 @@
+{
+  "scan_date": "2026-06-21",
+  "scan_time": "19:55",
+  "trend_forecast": "未来2个月：夏季户外+宠物降温持续走热（6-8月UK热浪期）；mouth tape睡眠健康品类Google Trends YoY增长134%已成主流；环保厨房替代品受限塑政策+消费者意识双驱动。建议7月中旬前完成采购赶上夏季尾声。",
+  "insights": [
+    {
+      "keyword": "silicone ice cube tray",
+      "keyword_cn": "硅胶冰块模具",
+      "amazon_keyword": "silicone ice cube tray",
+      "search_1688": "硅胶冰块模具 创意",
+      "demand_signals": [
+        "夏季冷饮需求",
+        "Amazon Kitchen趋势"
+      ],
+      "trend_score": 65,
+      "trend_direction": "stable",
+      "reason": "夏季冷饮需求增加，创意冰块模具有溢价空间。",
+      "action": "建议007\n搜索词：silicone ice cube tray\n1688搜「硅胶冰块模具 创意」",
+      "competition": "竞争中等。",
+      "signal_scores": {
+        "trend": 80,
+        "gap": 95,
+        "profit": 55,
+        "final": 77.2,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 12.0,
+          "in_target_range": false,
+          "max_1688_cost_cny": 21.1,
+          "max_sourcing_gbp": 2.9,
+          "target_price": 12.0
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "silicone stretch lids",
+      "keyword_cn": "硅胶保鲜盖",
+      "amazon_keyword": "silicone stretch lids",
+      "search_1688": "硅胶保鲜盖 6件套",
+      "demand_signals": [
+        "Amazon Kitchen常驻热销",
+        "eco-friendly概念走强",
+        "环保替代保鲜膜趋势"
+      ],
+      "trend_score": 65,
+      "trend_direction": "stable",
+      "reason": "厨房常青品类，环保替代保鲜膜趋势持续。多次出现在选品发现推荐中，验证需求稳定。",
+      "action": "建议007/20件测款\n搜索词：silicone stretch lids\n1688搜「硅胶保鲜盖 6件套」",
+      "competition": "常青品类，竞争中等。售价区间£5.99-£9.99。",
+      "signal_scores": {
+        "trend": 53,
+        "gap": 30,
+        "profit": 90,
+        "final": 56.8,
+        "recommendation": "WATCH",
+        "gap_level": "red_ocean",
+        "profit_window": {
+          "median_competitor_price": 6.24,
+          "in_target_range": true,
+          "max_1688_cost_cny": 5.9,
+          "max_sourcing_gbp": 0.81,
+          "target_price": 6.24
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "silicone oven mitts",
+      "keyword_cn": "硅胶隔热烤箱手套",
+      "amazon_keyword": "silicone oven mitts",
+      "search_1688": "硅胶隔热手套 烤箱",
+      "demand_signals": [
+        "Amazon Kitchen趋势",
+        "BBQ季节带动"
+      ],
+      "trend_score": 65,
+      "trend_direction": "stable",
+      "reason": "BBQ季节带动烤箱手套需求，利润率36.4%。",
+      "action": "搜索词：silicone oven mitts\n1688搜「硅胶隔热手套 烤箱」",
+      "competition": "竞争中等。",
+      "signal_scores": {
+        "trend": 68,
+        "gap": 95,
+        "profit": 55,
+        "final": 74.2,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 13.29,
+          "in_target_range": false,
+          "max_1688_cost_cny": 24.6,
+          "max_sourcing_gbp": 3.36,
+          "target_price": 13.29
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "air fryer liners",
+      "keyword_cn": "空气炸锅垫纸",
+      "amazon_keyword": "air fryer liners",
+      "search_1688": "空气炸锅垫纸 烘焙纸",
+      "demand_signals": [
+        "Amazon Kitchen热销",
+        "空气炸锅保有量持续增长"
+      ],
+      "trend_score": 70,
+      "trend_direction": "stable",
+      "reason": "空气炸锅保有量持续增长，配套耗材需求稳定。多次出现在推荐中。",
+      "action": "建议007\n搜索词：air fryer liners\n1688搜「空气炸锅垫纸 烘焙纸」",
+      "competition": "常青品类，竞争中等。",
+      "signal_scores": {
+        "trend": 46,
+        "gap": 100,
+        "profit": 95,
+        "final": 84.8,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 7.98,
+          "in_target_range": true,
+          "max_1688_cost_cny": 10.5,
+          "max_sourcing_gbp": 1.44,
+          "target_price": 7.98
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "waterproof phone pouch",
+      "keyword_cn": "防水手机袋",
+      "amazon_keyword": "waterproof phone pouch",
+      "search_1688": "防水手机袋 透明 触屏",
+      "demand_signals": [
+        "夏季户外防水需求",
+        "Prime Day窗口期"
+      ],
+      "trend_score": 75,
+      "trend_direction": "rising",
+      "reason": "夏季户外活动增加，防水手机袋是季节性爆品。利润率高达39.8%。",
+      "action": "建议007\n搜索词：waterproof phone pouch\n1688搜「防水手机袋 透明 触屏」",
+      "competition": "夏季品类，竞争中等。",
+      "signal_scores": {
+        "trend": 68,
+        "gap": 90,
+        "profit": 25,
+        "final": 61.8,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 4.99,
+          "in_target_range": false,
+          "max_1688_cost_cny": 2.6,
+          "max_sourcing_gbp": 0.35,
+          "target_price": 4.99
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "portable fan usb",
+      "keyword_cn": "便携迷你风扇",
+      "amazon_keyword": "portable fan usb rechargeable",
+      "search_1688": "迷你风扇 USB充电 便携",
+      "demand_signals": [
+        "TikTok UK周订单9.59K爆单",
+        "Prime Day窗口期",
+        "夏季降温需求"
+      ],
+      "trend_score": 78,
+      "trend_direction": "rising",
+      "reason": "TikTok UK周订单9.59K爆单，Prime Day窗口期。但注意：带电产品可能在禁止品类中，需确认。",
+      "action": "⚠️ 带电产品，确认是否在禁选品类\n搜索词：portable fan usb\n1688搜「迷你风扇 USB充电」",
+      "competition": "TikTok爆品，竞争激烈。",
+      "signal_scores": {
+        "trend": 88,
+        "gap": 95,
+        "profit": 55,
+        "final": 79.2,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 13.32,
+          "in_target_range": false,
+          "max_1688_cost_cny": 24.6,
+          "max_sourcing_gbp": 3.38,
+          "target_price": 13.32
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "portable cutlery set",
+      "keyword_cn": "便携餐具套装",
+      "amazon_keyword": "portable cutlery set travel",
+      "search_1688": "便携餐具套装 / travel cutlery set",
+      "demand_signals": [
+        "环保趋势+户外夏季需求",
+        "Google Trends reusable cutlery持续上升",
+        "UK限塑令推动",
+        "Joseph Joseph等品牌入驻"
+      ],
+      "trend_score": 75,
+      "trend_direction": "rising",
+      "reason": "环保便携餐具是长期上升趋势，夏季户外活动（野餐/露营/办公午餐）推动需求。不锈钢4件套+收纳盒是主流规格，利润率最高43%。",
+      "action": "007/027均可上，首批20件。1688搜\"便携餐具套装\"或\"travel cutlery set\"，不锈钢4件套+收纳盒。售价£8.99，突出不锈钢+便携+环保卖点。",
+      "competition": "前5名review数200-1000+，价格£6.99-£14.99，Chilly's £12-15，Joseph Joseph £10-14，白牌£6-9",
+      "signal_scores": {
+        "trend": 68,
+        "gap": 95,
+        "profit": 55,
+        "final": 74.2,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 13.97,
+          "in_target_range": false,
+          "max_1688_cost_cny": 26.4,
+          "max_sourcing_gbp": 3.61,
+          "target_price": 13.97
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "mouth tape for sleeping",
+      "keyword_cn": "睡眠封口贴",
+      "amazon_keyword": "mouth tape for sleeping",
+      "search_1688": "睡眠封口贴 / mouth tape",
+      "demand_signals": [
+        "Google Trends YoY增长134%",
+        "Amazon UK 224个搜索结果",
+        "LUNAR月销1K+, Longevity月销3K+",
+        "ELLE/多家媒体2026推荐"
+      ],
+      "trend_score": 90,
+      "trend_direction": "rising",
+      "reason": "睡眠健康品类持续爆发，mouth tape从niche变主流。Amazon UK竞争者多为Small Business，新进入者机会大。60片装£9.98是最佳价格带，避开30片低价区。",
+      "action": "007/027均可上，首批20件。1688搜\"睡眠封口贴\"或\"mouth tape sleeping\"，找60片装棉质hypoallergenic。售价£7.99，突出dermatologically tested卖点。",
+      "competition": "前5名review数300-1270+，价格£4.99-£9.99，LUNAR £4.99(30片)、Longevity £9.99(30片)、Yhemday £9.98(60片)",
+      "signal_scores": {
+        "trend": 62,
+        "gap": 100,
+        "profit": 95,
+        "final": 88.8,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 8.49,
+          "in_target_range": true,
+          "max_1688_cost_cny": 11.8,
+          "max_sourcing_gbp": 1.62,
+          "target_price": 8.49
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "digital food thermometer",
+      "keyword_cn": "数字食品温度计",
+      "amazon_keyword": "digital food thermometer",
+      "search_1688": "数字食品温度计 探针",
+      "demand_signals": [
+        "BBQ+烘焙双重需求",
+        "Amazon Kitchen趋势"
+      ],
+      "trend_score": 62,
+      "trend_direction": "stable",
+      "reason": "BBQ和烘焙双重需求驱动，利润率37.3%。",
+      "action": "搜索词：digital food thermometer\n1688搜「数字食品温度计 探针」",
+      "competition": "竞争适中。",
+      "signal_scores": {
+        "trend": 65,
+        "gap": 95,
+        "profit": 55,
+        "final": 73.5,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 18.16,
+          "in_target_range": false,
+          "max_1688_cost_cny": 37.5,
+          "max_sourcing_gbp": 5.13,
+          "target_price": 18.16
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "garden plant labels",
+      "keyword_cn": "园艺植物标签",
+      "amazon_keyword": "garden plant labels",
+      "search_1688": "园艺植物标签 标识牌",
+      "demand_signals": [
+        "Grow Your Own趋势",
+        "Amazon Garden热销"
+      ],
+      "trend_score": 60,
+      "trend_direction": "stable",
+      "reason": "英国Grow Your Own趋势，园艺植物标签是配套耗材。利润率38.4%。",
+      "action": "搜索词：garden plant labels\n1688搜「园艺植物标签 标识牌」",
+      "competition": "竞争较低。",
+      "signal_scores": {
+        "trend": 62,
+        "gap": 75,
+        "profit": 55,
+        "final": 64.8,
+        "recommendation": "BUY",
+        "gap_level": "emerging",
+        "profit_window": {
+          "median_competitor_price": 13.89,
+          "in_target_range": false,
+          "max_1688_cost_cny": 26.1,
+          "max_sourcing_gbp": 3.58,
+          "target_price": 13.89
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "magnetic fly screen door",
+      "keyword_cn": "磁性防蚊门帘",
+      "amazon_keyword": "magnetic fly screen door",
+      "search_1688": "磁性门帘 防蚊 纱门",
+      "demand_signals": [
+        "Screen Doors品类BSR #1(9458 reviews)",
+        "DIY Movers & Shakers多款上榜",
+        "夏季蚊虫防护需求"
+      ],
+      "trend_score": 70,
+      "trend_direction": "stable",
+      "reason": "磁性防蚊门帘是夏季品类，BSR第一名已有9458 reviews说明市场验证充分。需找review<200的新品。",
+      "action": "建议027先行20件测款\n搜索词：magnetic fly screen door\n1688搜「磁性门帘 防蚊」",
+      "competition": "前5名review: 9458/3200/1500/800/200。售价区间£8.99-£12.99。",
+      "signal_scores": {
+        "trend": 50,
+        "gap": 95,
+        "profit": 55,
+        "final": 69.8,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 48.89,
+          "in_target_range": false,
+          "max_1688_cost_cny": 118.9,
+          "max_sourcing_gbp": 16.29,
+          "target_price": 48.89
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "microwave splatter cover",
+      "keyword_cn": "微波炉防溅盖",
+      "amazon_keyword": "microwave splatter cover",
+      "search_1688": "微波炉防溅盖 硅胶",
+      "demand_signals": [
+        "Amazon Kitchen常驻",
+        "实用厨房工具"
+      ],
+      "trend_score": 60,
+      "trend_direction": "stable",
+      "reason": "厨房常青品类，实用性强。利润率27.2%。",
+      "action": "建议007\n搜索词：microwave splatter cover\n1688搜「微波炉防溅盖 硅胶」",
+      "competition": "常青品类，竞争适中。",
+      "signal_scores": {
+        "trend": 20,
+        "gap": 100,
+        "profit": 90,
+        "final": 76.5,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 6.99,
+          "in_target_range": true,
+          "max_1688_cost_cny": 7.9,
+          "max_sourcing_gbp": 1.08,
+          "target_price": 6.99
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "cable clips organizer",
+      "keyword_cn": "桌面线卡/理线器",
+      "amazon_keyword": "cable clips",
+      "search_1688": "理线器 桌面 线卡",
+      "demand_signals": [
+        "Amazon DIY Best Seller常驻",
+        "居家办公持续需求"
+      ],
+      "trend_score": 72,
+      "trend_direction": "stable",
+      "reason": "居家办公持续需求，DIY Best Seller常驻产品。",
+      "action": "建议027\n搜索词：cable clips organizer\n1688搜「理线器 桌面 线卡」",
+      "competition": "常青品类，竞争中等。",
+      "signal_scores": {
+        "trend": 80,
+        "gap": 10,
+        "profit": 25,
+        "final": 32.8,
+        "recommendation": "SKIP",
+        "gap_level": "red_ocean",
+        "profit_window": {
+          "median_competitor_price": 5.82,
+          "in_target_range": false,
+          "max_1688_cost_cny": 4.8,
+          "max_sourcing_gbp": 0.65,
+          "target_price": 5.82
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "solar string lights outdoor",
+      "keyword_cn": "太阳能串灯/花园灯串",
+      "amazon_keyword": "solar string lights outdoor",
+      "search_1688": "太阳能串灯 户外 防水 花园",
+      "demand_signals": [
+        "Google Trends UK solar garden lighting Score 92/100",
+        "Argos 2026趋势报告#2产品",
+        "Amazon Garden Movers & Shakers"
+      ],
+      "trend_score": 75,
+      "trend_direction": "stable",
+      "reason": "太阳能花园灯是英国夏季刚需，Google Trends搜索量维持高位。Argos 2026趋势报告列为#2趋势产品。竞争较激烈，需找差异化款。",
+      "action": "建议027先行20件测款，选差异化款\n搜索词：solar string lights, solar fairy lights\n1688搜「太阳能串灯 户外 防水」",
+      "competition": "前5名review: 1200/3500/800/2000/500，竞争较激烈。售价区间£7.99-£14.99。",
+      "signal_scores": {
+        "trend": 65,
+        "gap": 95,
+        "profit": 55,
+        "final": 73.5,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 14.16,
+          "in_target_range": false,
+          "max_1688_cost_cny": 26.9,
+          "max_sourcing_gbp": 3.68,
+          "target_price": 14.16
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "bbq skewers stainless steel",
+      "keyword_cn": "不锈钢烧烤签",
+      "amazon_keyword": "bbq skewers stainless steel",
+      "search_1688": "不锈钢烧烤签 扁平 20件",
+      "demand_signals": [
+        "Kitchen Hot New Releases前5全是BBQ Skewers",
+        "夏季烧烤旺季6-8月",
+        "Google Trends BBQ搜索量+180%"
+      ],
+      "trend_score": 82,
+      "trend_direction": "rising",
+      "reason": "英国夏季烧烤季正式开始，Kitchen品类Hot New Releases前5名全部是BBQ Skewers。扁平防转设计是差异化卖点。",
+      "action": "建议007先行20件测款\n搜索词：bbq skewers, metal skewers\n1688搜「不锈钢烧烤签 扁平」",
+      "competition": "前5名review: 200/800/150/500/89。售价区间£5.99-£8.99。",
+      "signal_scores": {
+        "trend": 65,
+        "gap": 95,
+        "profit": 55,
+        "final": 73.5,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 17.16,
+          "in_target_range": false,
+          "max_1688_cost_cny": 34.8,
+          "max_sourcing_gbp": 4.77,
+          "target_price": 17.16
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "bee watering station",
+      "keyword_cn": "蜜蜂喂水器/蝴蝶喂食站",
+      "amazon_keyword": "bee watering station",
+      "search_1688": "蜜蜂喂水器 树脂 花园",
+      "demand_signals": [
+        "Amazon Butterfly Feeders新品密集上榜",
+        "UK Wildlife Wonderland 2026趋势",
+        "24%英国家庭创建野生动物区"
+      ],
+      "trend_score": 88,
+      "trend_direction": "rising",
+      "reason": "英国Wildlife Wonderland趋势爆发，24%家庭在花园创建野生动物友好区。Butterfly Feeders品类Amazon新品密集上榜，前5名review均<500，竞争格局良好。",
+      "action": "建议007+027各20件测款\n搜索词：bee watering station, butterfly feeder\n1688搜「蜜蜂喂水器 树脂 花园」",
+      "competition": "前5名review: 45/120/300/89/200，头部集中度低。售价区间£6.99-£9.99。",
+      "signal_scores": {
+        "trend": 35,
+        "gap": 75,
+        "profit": 55,
+        "final": 58.0,
+        "recommendation": "WATCH",
+        "gap_level": "emerging",
+        "profit_window": {
+          "median_competitor_price": 12.59,
+          "in_target_range": false,
+          "max_1688_cost_cny": 22.7,
+          "max_sourcing_gbp": 3.11,
+          "target_price": 12.59
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "reusable ice cubes",
+      "keyword_cn": "可重复使用冰块",
+      "amazon_keyword": "reusable ice cubes for drinks",
+      "search_1688": "塑料冰块 / reusable ice cubes",
+      "demand_signals": [
+        "夏季BBQ/花园派对刚需",
+        "Amazon UK多个listing月销200+",
+        "6-8月搜索高峰"
+      ],
+      "trend_score": 72,
+      "trend_direction": "rising",
+      "reason": "季节性产品，6-8月是黄金窗口。产品单价低（1688约¥1-2/个），轻量FBA费用低。多色装更受欢迎，可作为BBQ/派对场景的冲动消费产品。",
+      "action": "007/027上，首批20件。1688搜\"塑料冰块\"或\"reusable ice cubes\"，20-30粒多色装。售价£6.99，7月前必须到仓，季节性产品过季即滞销。",
+      "competition": "前5名review数100-500+，价格£4.99-£8.99，Invero 60粒装 £5.99，Ram 50粒装 £6.99",
+      "signal_scores": {
+        "trend": 53,
+        "gap": 90,
+        "profit": 25,
+        "final": 58.0,
+        "recommendation": "WATCH",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 4.99,
+          "in_target_range": false,
+          "max_1688_cost_cny": 2.6,
+          "max_sourcing_gbp": 0.35,
+          "target_price": 4.99
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "dog cooling bandana",
+      "keyword_cn": "宠物降温巾",
+      "amazon_keyword": "dog cooling bandana",
+      "search_1688": "宠物降温巾 / dog cooling bandana",
+      "demand_signals": [
+        "Amazon UK Best Seller in Bandanas for Dogs",
+        "ALL FOR PAWS月销400+",
+        "102个搜索结果",
+        "夏季刚需品"
+      ],
+      "trend_score": 85,
+      "trend_direction": "rising",
+      "reason": "UK夏季热浪频率逐年增加，宠物降温产品搜索量6-8月飙升。Pet Supplies佣金仅5%，利润空间大。PVA材质成本低，1688采购价约¥3-5。",
+      "action": "007/027均可上，首批20件。1688搜\"宠物降温巾\"或\"dog cooling bandana\"，PVA材质吸水速冷型。单条装定价£6.99，避开2pack竞争。",
+      "competition": "前5名review数88-500+，价格£5.99-£13.31(2pack)，ALL FOR PAWS单条£6-8，EXPAWLORER 2pack £13.31",
+      "signal_scores": {
+        "trend": 32,
+        "gap": 10,
+        "profit": 25,
+        "final": 20.8,
+        "recommendation": "SKIP",
+        "gap_level": "red_ocean",
+        "profit_window": {
+          "median_competitor_price": 5.0,
+          "in_target_range": false,
+          "max_1688_cost_cny": 2.6,
+          "max_sourcing_gbp": 0.35,
+          "target_price": 5.0
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "reusable cotton mesh bag",
+      "keyword_cn": "可重复使用棉网购物袋",
+      "amazon_keyword": "reusable cotton mesh bag",
+      "search_1688": "棉网购物袋 环保",
+      "demand_signals": [
+        "eco-friendly趋势",
+        "减塑政策推动"
+      ],
+      "trend_score": 58,
+      "trend_direction": "stable",
+      "reason": "环保趋势持续，减塑政策推动可重复使用购物袋需求。",
+      "action": "建议007\n搜索词：reusable cotton mesh bag\n1688搜「棉网购物袋 环保」",
+      "competition": "竞争适中。",
+      "signal_scores": {
+        "trend": 23,
+        "gap": 10,
+        "profit": 25,
+        "final": 18.5,
+        "recommendation": "SKIP",
+        "gap_level": "red_ocean",
+        "profit_window": {
+          "median_competitor_price": 3.99,
+          "in_target_range": false,
+          "max_1688_cost_cny": 0,
+          "max_sourcing_gbp": 0,
+          "target_price": 3.99
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "jute twine garden",
+      "keyword_cn": "花园麻绳",
+      "amazon_keyword": "jute twine",
+      "search_1688": "麻绳 花园 100米",
+      "demand_signals": [
+        "Amazon Garden Best Seller",
+        "英国Grow Your Own趋势持续走强"
+      ],
+      "trend_score": 85,
+      "trend_direction": "rising",
+      "reason": "英国Grow Your Own趋势持续走强，花园麻绳是Garden Best Seller常驻产品。",
+      "action": "建议007\n搜索词：jute twine garden\n1688搜「麻绳 花园 100米」",
+      "competition": "常青品类，竞争适中。",
+      "signal_scores": {
+        "trend": 61,
+        "gap": 70,
+        "profit": 90,
+        "final": 74.8,
+        "recommendation": "BUY",
+        "gap_level": "moderate",
+        "profit_window": {
+          "median_competitor_price": 6.67,
+          "in_target_range": true,
+          "max_1688_cost_cny": 7.0,
+          "max_sourcing_gbp": 0.96,
+          "target_price": 6.67
+        },
+        "confidence": "high"
+      }
+    },
+    {
+      "keyword": "beeswax food wraps",
+      "keyword_cn": "蜂蜡保鲜布",
+      "amazon_keyword": "beeswax food wraps",
+      "search_1688": "蜂蜡布 / beeswax wrap",
+      "demand_signals": [
+        "Amazon UK 139个搜索结果",
+        "多个产品月销100+",
+        "eco-friendly/zero-waste趋势",
+        "UK限塑政策推动"
+      ],
+      "trend_score": 78,
+      "trend_direction": "stable",
+      "reason": "环保厨房用品是长期趋势，beeswax wraps作为cling film替代品需求稳定。3片装（S/M/L）是最受欢迎的规格，£7.99价格带竞争适中。",
+      "action": "007/027均可上，首批20件。1688搜\"蜂蜡布\"或\"beeswax wrap\"，找3片装有机棉+蜂蜡+荷荷巴油。售价£7.99，突出organic+reusable卖点。",
+      "competition": "前5名review数200-800+，价格£5.99-£12.99，Two White Bears £9.99(7片)，SuperBee £12.98(卷装)",
+      "signal_scores": {
+        "trend": 32,
+        "gap": 95,
+        "profit": 55,
+        "final": 65.2,
+        "recommendation": "BUY",
+        "gap_level": "blue_ocean",
+        "profit_window": {
+          "median_competitor_price": 18.0,
+          "in_target_range": false,
+          "max_1688_cost_cny": 37.0,
+          "max_sourcing_gbp": 5.07,
+          "target_price": 18.0
+        },
+        "confidence": "high"
+      }
+    }
+  ],
+  "stats": {
+    "total_scanned": 21,
+    "passed_filter": 21
+  }
+}

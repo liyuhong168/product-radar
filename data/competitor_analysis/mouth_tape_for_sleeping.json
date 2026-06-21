@@ -1,0 +1,62 @@
+{
+  "keyword": "mouth tape for sleeping",
+  "product_count": 4,
+  "review_concentration": {
+    "cr5": 0,
+    "level": "distributed",
+    "top5_reviews": 0,
+    "total_reviews": 0
+  },
+  "price_range": {
+    "min": 0,
+    "max": 0,
+    "median": 0
+  },
+  "newcomer_ratio": 0,
+  "avg_rating": 0,
+  "avg_reviews": 0,
+  "gap_opportunity": false,
+  "competition_level": "MODERATE",
+  "differentiation_tips": [
+    "Room for quality improvement — avg rating below 4.3",
+    "Emerging market — early mover advantage possible"
+  ],
+  "products": [
+    {
+      "asin": "B0CBCQ8YT6",
+      "name": "https://www.amazon.com/mouth-tape-sleeping/s?k=mouth+tape+for+sleeping",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B0CBCQ8YT6"
+    },
+    {
+      "asin": "B09XJQW7LF",
+      "name": "REM Tape™ Premium Mouth Tape for Sleeping (W/Hole - 30 pcs) - Latex Paraben & BPA Free. Strong Hold, Easy Removal. Scent & Residue Free. One Mo",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B09XJQW7LF"
+    },
+    {
+      "asin": "B0G8T7D4PG",
+      "name": "Amazon.co.uk: Mouth Tape",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B0G8T7D4PG"
+    },
+    {
+      "asin": "B0CJFFXB5Q",
+      "name": "https://www.amazon.co.uk/mouth-tape/s?k=mouth+tape",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B0CJFFXB5Q"
+    }
+  ]
+}

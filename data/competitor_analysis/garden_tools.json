@@ -1,0 +1,62 @@
+{
+  "keyword": "garden tools",
+  "product_count": 4,
+  "review_concentration": {
+    "cr5": 1.0,
+    "level": "monopoly",
+    "top5_reviews": 2026,
+    "total_reviews": 2026
+  },
+  "price_range": {
+    "min": 26.0,
+    "max": 26.0,
+    "median": 26.0
+  },
+  "newcomer_ratio": 0.0,
+  "avg_rating": 0,
+  "avg_reviews": 2026,
+  "gap_opportunity": false,
+  "competition_level": "MONOPOLY",
+  "differentiation_tips": [
+    "Room for quality improvement — avg rating below 4.3",
+    "Established market — focus on unique features or bundling"
+  ],
+  "products": [
+    {
+      "asin": "B09R8VLSKT",
+      "name": "https://www.amazon.co.uk/garden-tools/b?ie=UTF8&node=4224806031",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B09R8VLSKT"
+    },
+    {
+      "asin": "B0FZCZF2L9",
+      "name": "25 Must-Have Gardening Tools on Amazon – Perfect for ... - YouTube",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B0FZCZF2L9"
+    },
+    {
+      "asin": "B002R1YDLM",
+      "name": "Top Gardening Tools Every Gardener Needs! Want to take your garden to the next level? In this video, we showcase 25 must-have gardening ...",
+      "price": 0,
+      "reviews": 0,
+      "rating": 0,
+      "bsr": null,
+      "url": "https://www.amazon.co.uk/dp/B002R1YDLM"
+    },
+    {
+      "asin": "",
+      "name": "",
+      "price": 26.0,
+      "reviews": 2026,
+      "rating": 0,
+      "bsr": null,
+      "url": ""
+    }
+  ]
+}
