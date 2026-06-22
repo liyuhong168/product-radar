@@ -160,7 +160,13 @@
         "multi_source",
         "temu_trending",
         "tiktok_verified"
-      ]
+      ],
+      "bsr_rank": 454,
+      "bsr_category": "Automotive",
+      "bsr_sub_rank": 16,
+      "bsr_sub_category": "Front Window Sunshades",
+      "estimated_daily_sales": 231,
+      "monthly_revenue_est": 63478.8
     },
     {
       "asin": "B0G8GFSMKK",
@@ -235,14 +241,20 @@
         "multi_source",
         "temu_trending",
         "tiktok_verified"
-      ]
+      ],
+      "bsr_rank": 25,
+      "bsr_category": "Lighting",
+      "bsr_sub_rank": 7,
+      "bsr_sub_category": "Indoor-Outdoor String Lights",
+      "estimated_daily_sales": 2700,
+      "monthly_revenue_est": 572670.0
     },
     {
       "asin": "B0H4VTS7GZ",
       "name": "England St George's Cross Car Flag Bundle, 2 Car Window Flags with Poles, 2 Wing Mirror Covers, Universal Fit, Weather-R",
       "price": 9.99,
-      "reviews": 0,
-      "rating": 0,
+      "reviews": 7330,
+      "rating": 4.7,
       "rank": 11,
       "category": "Automotive",
       "channel": "new_releases",
@@ -312,14 +324,20 @@
         "multi_source",
         "temu_trending",
         "tiktok_verified"
-      ]
+      ],
+      "bsr_rank": 335,
+      "bsr_category": "Automotive",
+      "bsr_sub_rank": 2,
+      "bsr_sub_category": "Car Flags",
+      "estimated_daily_sales": 313,
+      "monthly_revenue_est": 93806.1
     },
     {
       "asin": "B0H336CMD3",
       "name": "JADUFHU Canvas for Painting, Canvas Panels, 6 Pcs, Triple Primed, Cotton | Multi Paint Compatible, Individually Wrapped,",
       "price": 6.66,
-      "reviews": 0,
-      "rating": 0,
+      "reviews": 2471,
+      "rating": 4.6,
       "rank": 1,
       "category": "Kitchen",
       "channel": "new_releases",
@@ -383,14 +401,20 @@
         "new_releases",
         "temu_trending",
         "tiktok_verified"
-      ]
+      ],
+      "bsr_rank": 103562,
+      "bsr_category": "Home & Kitchen",
+      "bsr_sub_rank": 37,
+      "bsr_sub_category": "Canvas Panels",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 199.8
     },
     {
       "asin": "B0H498RNC8",
       "name": "JADUFHU Soap Dish, Silicone Soap Holder, Non Slip Drainage Soap Box, Antibacterial Mold Proof, Easy Clean, Odorless, Fle",
       "price": 6.66,
-      "reviews": 0,
-      "rating": 0,
+      "reviews": 771,
+      "rating": 4.3,
       "rank": 2,
       "category": "Kitchen",
       "channel": "new_releases",
@@ -455,14 +479,20 @@
         "new_releases",
         "temu_trending",
         "tiktok_verified"
-      ]
+      ],
+      "bsr_rank": 112918,
+      "bsr_category": "Home & Kitchen",
+      "bsr_sub_rank": 207,
+      "bsr_sub_category": "Soap Dishes",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 199.8
     },
     {
       "asin": "B0GTL73PVL",
       "name": "Car Rear Window Sun Shade,Sun Shade for Back Window,Universal Mesh Sunshade Screen with Strong Suction Cups,Car Screen S",
       "price": 8.99,
-      "reviews": 0,
-      "rating": 0,
+      "reviews": 21,
+      "rating": 4.4,
       "rank": 25,
       "category": "Automotive",
       "channel": "new_releases",
@@ -516,7 +546,13 @@
       "is_event": false,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "bsr_rank": 667,
+      "bsr_category": "Automotive",
+      "bsr_sub_rank": 1,
+      "bsr_sub_category": "Rear Window Sunshades",
+      "estimated_daily_sales": 157,
+      "monthly_revenue_est": 42342.9
     },
     {
       "asin": "B0GVY6N6XL",
@@ -568,7 +604,13 @@
       "is_event": false,
       "channel_tags": [
         "new_releases"
-      ]
+      ],
+      "bsr_rank": 533,
+      "bsr_category": "Automotive",
+      "bsr_sub_rank": 1,
+      "bsr_sub_category": "Motorbike Grips",
+      "estimated_daily_sales": 196,
+      "monthly_revenue_est": 52861.2
     },
     {
       "asin": "B0GYXR8P84",
@@ -648,7 +690,13 @@
         "multi_source",
         "temu_trending",
         "tiktok_verified"
-      ]
+      ],
+      "bsr_rank": 205,
+      "bsr_category": "Sports & Outdoors",
+      "bsr_sub_rank": 6,
+      "bsr_sub_category": "Sports Collectible Flags",
+      "estimated_daily_sales": 439,
+      "monthly_revenue_est": 98643.3
     },
     {
       "asin": "B0H2CZRB48",
@@ -724,7 +772,13 @@
         "multi_source",
         "temu_trending",
         "tiktok_verified"
-      ]
+      ],
+      "bsr_rank": 332,
+      "bsr_category": "Automotive",
+      "bsr_sub_rank": 1,
+      "bsr_sub_category": "Car Flags",
+      "estimated_daily_sales": 316,
+      "monthly_revenue_est": 61525.2
     }
   ],
   "gaps": [
