@@ -1,0 +1,117 @@
+{
+  "scan_date": "2026-06-22",
+  "scan_time": "11:08",
+  "trend_forecast": "未来2个月：Glastonbury音乐节（6/24，2天后）带动派对/户外配件需求；Amazon Prime Day（7/15，23天后）全品类爆发；暑假（7/20起）推动旅行收纳、车载配件、防晒用品持续走高；返校季（8/20）将带动文具和午餐盒类目",
+  "insights": [
+    {
+      "keyword": "car windshield sun shade",
+      "keyword_cn": "车载遮阳挡 折叠防晒挡风玻璃",
+      "amazon_keyword": "car windshield sun shade foldable",
+      "search_1688": "车载遮阳挡 折叠 防晒挡风玻璃",
+      "demand_signals": ["Amazon UK Best Sellers Car Sunshades品类BSR靠前", "夏季高温+暑假自驾游双重驱动", "TikTok车载配件品类持续增长"],
+      "trend_score": 50,
+      "trend_direction": "rising",
+      "reason": "英国夏季高温+暑假自驾游旺季双重驱动，Amazon UK Car Sunshades品类BSR活跃。信号融合评分84分（STRONG_BUY），蓝海竞争格局（前5名平均仅5条review），中位售价£6.6正好落在目标区间。1688采购成本¥4-8，利润率可达24%+。Goodyear/Kinder Fluff等大牌定价£8-12，低价切入空间大。",
+      "action": "建议007店首批20件测试，定价£6.99-7.99。Amazon UK搜索'car windshield sun shade foldable'了解竞品。1688搜索'车载遮阳挡 折叠'，选银色反光款（最畅销），重量<350g控制FBA成本。Prime Day前备货抢流量。",
+      "competition": "前5名review数平均<10条（蓝海），售价区间£5.99-8.99。Goodyear/Kinder Fluff等品牌店定价£9-12但review不多，低价切入机会明确。",
+      "signal_scores": {
+        "trend": 50,
+        "gap": 100,
+        "profit": 90,
+        "final": 84,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥6.8以内可保20%利润"
+      }
+    },
+    {
+      "keyword": "packing cubes travel set",
+      "keyword_cn": "旅行收纳袋套装 行李箱整理",
+      "amazon_keyword": "packing cubes travel set",
+      "search_1688": "旅行收纳袋套装 行李箱整理袋",
+      "demand_signals": ["Amazon UK Packing Organisers品类BSR #3", "暑假旅行旺季即将到来（7/20）", "TikTok旅行好物推荐热门品类"],
+      "trend_score": 58,
+      "trend_direction": "rising",
+      "reason": "暑假旅行旺季（7/20起）即将到来，旅行收纳用品进入需求高峰期。Amazon Essentials 4件套BSR #3、39K+ reviews证明品类需求强劲。信号融合评分72分（BUY），蓝海竞争格局。定价£8时利润率可达28%（家居类佣金仅8%），1688采购成本¥8-12即可。作为家居类目产品，广告竞争低于美妆/电子类。",
+      "action": "建议007/027店首批20件，定价£7.99-8.99。Amazon UK搜索'packing cubes travel set'了解规格。1688搜索'旅行收纳袋套装'，选4件套（S/M/L/SLIM），涤纶材质，带拉链和提手。Prime Day前上架。",
+      "competition": "Amazon Essentials主导但定价£10-12，第三方卖家少且review低。4件套定价£7-9可形成价格优势。消费者关注点：耐用性、尺寸合适、拉链质量。",
+      "signal_scores": {
+        "trend": 58,
+        "gap": 95,
+        "profit": 55,
+        "final": 72,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥10.5以内可保20%利润"
+      }
+    },
+    {
+      "keyword": "ice roller face massager",
+      "keyword_cn": "冰感滚轮 面部按摩器",
+      "amazon_keyword": "ice roller face",
+      "search_1688": "冰感滚轮 不锈钢 面部按摩",
+      "demand_signals": ["TikTok UK美妆护肤品类持续霸榜（H1 2026前10中7个是护肤）", "Kitsch品牌100K+近期订单", "Amazon UK Facial Rollers品类增长"],
+      "trend_score": 80,
+      "trend_direction": "rising",
+      "reason": "TikTok Shop UK H1 2026数据显示护肤品类持续霸榜（前10中7个是beauty/skincare），冰感滚轮是TikTok上反复出现的'before/after'内容利器。Kitsch品牌在Amazon UK有100K+近期订单。信号融合趋势分高达80分（trending+viral+best seller+popular四重信号）。1688采购¥4-8，定价£8利润率28%。夏季消肿/晒后修复是旺季需求。",
+      "action": "建议027店首批20件，定价£7.99-8.99。Amazon UK搜索'ice roller face'了解竞品。1688搜索'冰感滚轮 不锈钢'，选不锈钢款（比塑料高级感），注意包装要有英文说明。可配合TikTok短视频内容推广。",
+      "competition": "Kitsch品牌定价£13.99主导高端市场，低价段（£5-8）竞品少且review低。市场中位价未被AnySearch捕获，但Amazon UK搜索结果显示大量£6-10区间产品。差异化方向：不锈钢材质+精美包装。",
+      "signal_scores": {
+        "trend": 80,
+        "gap": 90,
+        "profit": 40,
+        "final": 70,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥10.5以内可保20%利润"
+      }
+    },
+    {
+      "keyword": "car phone holder mount",
+      "keyword_cn": "车载手机支架 出风口固定",
+      "amazon_keyword": "car phone holder mount",
+      "search_1688": "车载手机支架 出风口固定",
+      "demand_signals": ["Amazon UK Mobile Phone Accessories品类常年BSR前列", "暑假自驾游需求上升", "TikTok车载配件viral内容"],
+      "trend_score": 47,
+      "trend_direction": "stable",
+      "reason": "车载手机支架是Amazon UK常年畅销品类，暑假自驾游进一步推高需求。信号融合评分69分（BUY），蓝海竞争格局（前5名平均仅5条review），中位售价£14.26但存在大量£6-8低价产品可切入。1688采购¥4-8，定价£7利润率24%。刚需品类，退货率低，适合铺货模式。",
+      "action": "建议007店首批20件，定价£6.99-7.99。Amazon UK搜索'car phone holder mount vent'了解竞品。1688搜索'车载手机支架 出风口'，选夹持式（clip-on），兼容大部分手机。注意选带防滑垫的款式提升好评率。",
+      "competition": "前5名review数平均<10条（蓝海），售价区间£6-15。高端品牌£12-15但功能复杂，低价基础款£6-8空间大。消费者关注：夹持力、兼容性、安装简便。",
+      "signal_scores": {
+        "trend": 47,
+        "gap": 95,
+        "profit": 55,
+        "final": 69,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥10.5以内可保20%利润"
+      }
+    },
+    {
+      "keyword": "led glow glasses party",
+      "keyword_cn": "LED发光眼镜 派对音乐节",
+      "amazon_keyword": "led glow glasses party festival",
+      "search_1688": "LED发光眼镜 派对 荧光",
+      "demand_signals": ["Glastonbury音乐节6/24开幕（2天后）", "夏季音乐节/派对季全面开启", "Amazon UK派对用品品类活跃"],
+      "trend_score": 26,
+      "trend_direction": "rising",
+      "reason": "Glastonbury音乐节6/24开幕（仅2天后），整个夏季英国将迎来数十场大型音乐节和户外派对。LED发光眼镜是音乐节标配配件，TikTok上派对相关内容传播力强。信号融合评分64分（BUY），蓝海竞争格局。1688采购¥3-5，定价£7利润率27%。时效性强，需快速上架。",
+      "action": "建议027店紧急首批20件，定价£6.99-7.99，本周内上架抢Glastonbury流量。Amazon UK搜索'led glow glasses party'了解竞品。1688搜索'LED发光眼镜 派对'，选多色可切换款（RGB），含电池。标题包含'festival'、'rave'、'party'关键词。",
+      "competition": "前5名review数平均<10条（蓝海），售价区间£6-12。jaunty partyware 12件装定价偏高，单副/2副装低价切入空间大。季节性产品，窗口期6-9月。",
+      "signal_scores": {
+        "trend": 26,
+        "gap": 95,
+        "profit": 55,
+        "final": 64,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥10.5以内可保20%利润"
+      }
+    }
+  ],
+  "stats": {
+    "total_scanned": 6,
+    "passed_filter": 5,
+    "dropped": ["portable travel umbrella compact (red ocean, 82K+ avg reviews)"]
+  }
+}
