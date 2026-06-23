@@ -1,0 +1,113 @@
+{
+  "scan_date": "2026-06-23",
+  "scan_time": "11:00",
+  "trend_forecast": "未来2个月：Glastonbury音乐节明天开幕→露营/户外配件需求爆发；Prime Day 6/23-26→全品类冲量窗口；7月学校放假→旅行配件+汽车用品进入旺季；8月回校季→文具/收纳类提前备货",
+  "insights": [
+    {
+      "keyword": "portable clothesline",
+      "keyword_cn": "便携晾衣绳",
+      "amazon_keyword": "portable clothesline travel camping",
+      "search_1688": "便携晾衣绳 旅行 可伸缩",
+      "demand_signals": ["TikTok Shop UK trending", "Amazon UK best seller + new release", "露营音乐节季节性需求爆发"],
+      "trend_score": 59,
+      "trend_direction": "rising",
+      "reason": "三层强信号：①趋势分59（trending+best seller+new release三重标签）；②蓝海分100（平均仅7个review，竞争极弱）；③利润分90（中位价£6.99完美落在£6-10区间，1688采购仅¥3-5，利润率34.5%）。Glastonbury音乐节明天开幕+7月暑假双重催化，露营/旅行晾衣是刚需场景。产品超轻（<100g），FBA费用最低档。",
+      "action": "027店首选，首批20件。1688搜索「便携晾衣绳 旅行 可伸缩」选带夹子+收纳袋款。Amazon UK定价£6.99。关键词：portable clothesline, travel clothesline, camping washing line。Prime Day期间可加量。",
+      "competition": "前5名平均仅7个review，中位价£6.99，典型蓝海市场。现有卖家多为无品牌白牌，差异化空间大（可做带夹子套装版）。",
+      "signal_scores": {
+        "trend": 59,
+        "gap": 100,
+        "profit": 90,
+        "final": 86,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥7.9以内可保20%利润，实际采购¥3-5利润率34%"
+      }
+    },
+    {
+      "keyword": "plant watering globes",
+      "keyword_cn": "植物自动浇水球",
+      "amazon_keyword": "plant watering globes self watering",
+      "search_1688": "植物浇水球 玻璃 自动浇水",
+      "demand_signals": ["TikTok viral内容驱动", "暑假出远门自浇水需求", "园艺旺季"],
+      "trend_score": 38,
+      "trend_direction": "rising",
+      "reason": "蓝海+场景双重驱动：①蓝海分95（平均0个review，几乎无竞争）；②暑假场景——7-8月英国人出远门度假，植物自浇水是刚需痛点，与Rysons报告的Holiday Plant Saver趋势完全吻合；③TikTok上有viral内容推动。中位价£11.66，但塑料版可做到£7.99，利润率43.2%（Garden品类佣金仅8%）。",
+      "action": "007店首批20件。1688搜索「植物浇水球 玻璃 自动浇水」或「plant watering globe wholesale」。Amazon UK定价£7.99-£9.99（塑料6件套）。关键词：plant watering globes, self watering bulbs, holiday plant waterer。",
+      "competition": "前5名平均0个review（全新品类），中位价£11.66。现有产品多为玻璃款易碎，可做塑料防摔版差异化。",
+      "signal_scores": {
+        "trend": 38,
+        "gap": 95,
+        "profit": 55,
+        "final": 67,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥20以内可保20%利润，塑料款采购¥4利润率43%"
+      }
+    },
+    {
+      "keyword": "garden kneeler pad",
+      "keyword_cn": "花园跪垫",
+      "amazon_keyword": "garden kneeler pad kneeling mat",
+      "search_1688": "花园跪垫 EVA 跪垫 园艺",
+      "demand_signals": ["Amazon UK viral内容", "园艺旺季高峰", "6月园艺黄金期"],
+      "trend_score": 35,
+      "trend_direction": "stable",
+      "reason": "蓝海园艺品类：①蓝海分95（平均仅5个review）；②6月是英国园艺最旺月份，消费者户外劳作频繁；③Garden品类佣金仅8%，利润优势明显。中位价£18.44偏高，但基础EVA泡沫款可定价£8.99，利润率42.9%。",
+      "action": "007/027店均可上，首批20件。1688搜索「花园跪垫 EVA 泡沫 园艺」选40mm厚款。Amazon UK定价£8.99。关键词：garden kneeler pad, kneeling pad garden, foam kneeler。",
+      "competition": "前5名平均5个review，中位价£18.44（高端品牌为主）。低价位段£8-10几乎空白，用性价比切入。",
+      "signal_scores": {
+        "trend": 35,
+        "gap": 95,
+        "profit": 55,
+        "final": 66,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥38以内可保20%利润，EVA款采购¥6利润率43%"
+      }
+    },
+    {
+      "keyword": "luggage tags",
+      "keyword_cn": "行李牌",
+      "amazon_keyword": "luggage tags travel accessories",
+      "search_1688": "行李牌 旅行 PVC 防水",
+      "demand_signals": ["7重信号：trending+viral+best seller+bestseller+popular+growing+seasonal", "夏季旅行高峰"],
+      "trend_score": 94,
+      "trend_direction": "rising",
+      "reason": "趋势最强品类：①趋势分94（7重信号叠加，本轮最高）；②夏季旅行旺季刚需——Expedia报告显示2026年英国国内旅行需求同比增长77%；③小件轻量，FBA费用低。中位价£21.50偏高，但8件套PVC款可定价£7.99，利润率36.2%。",
+      "action": "027店首批20件。1688搜索「行李牌 旅行 PVC 防水 批发」选8件套装。Amazon UK定价£7.99。关键词：luggage tags, travel tags, suitcase tags。Prime Day前备货。",
+      "competition": "前5名平均133个review，中位价£21.50（高端个性化款为主）。低价位8件套装竞争较少，用数量+性价比切入。",
+      "signal_scores": {
+        "trend": 94,
+        "gap": 55,
+        "profit": 55,
+        "final": 65,
+        "recommendation": "BUY",
+        "gap_level": "中等竞争",
+        "profit_window": "¥46以内可保20%利润，PVC款采购¥4利润率36%"
+      }
+    },
+    {
+      "keyword": "garden hose nozzle",
+      "keyword_cn": "花园水管喷头",
+      "amazon_keyword": "garden hose nozzle spray gun",
+      "search_1688": "花园水管喷头 多功能 喷枪",
+      "demand_signals": ["Amazon UK蓝海品类", "夏季浇水高峰", "园艺旺季"],
+      "trend_score": 20,
+      "trend_direction": "stable",
+      "reason": "纯蓝海逻辑：①蓝海分95（平均仅6个review）；②夏季浇水/洗车高频场景；③Garden品类佣金8%利润优势明显。中位价£27.98说明市场愿付高价，基础款定价£8.99仍有利润空间（利润率44.4%）。",
+      "action": "007店首批20件。1688搜索「花园水管喷头 多功能 喷枪」选7功能塑料款。Amazon UK定价£8.99。关键词：garden hose nozzle, spray gun garden, hose pipe spray。",
+      "competition": "前5名平均6个review，中位价£27.98（Hozelock等品牌主导高端）。低价位段空白，塑料多功能款可快速切入。",
+      "signal_scores": {
+        "trend": 20,
+        "gap": 95,
+        "profit": 55,
+        "final": 62,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥63以内可保20%利润，塑料款采购¥5利润率44%"
+      }
+    }
+  ],
+  "stats": {"total_scanned": 7, "passed_filter": 5}
+}
