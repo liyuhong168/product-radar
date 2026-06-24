@@ -1,31 +1,33 @@
 {
-  "scan_date": "2026-06-23",
-  "scan_time": "14:00",
-  "scan_ts": "2026-06-23_1400",
+  "scan_date": "2026-06-24",
+  "scan_time": "08:50",
+  "scan_ts": "2026-06-24_0850",
   "stats": {
-    "total_scanned": 118,
-    "passed_filter": 2,
-    "rejected": 116,
+    "total_scanned": 158,
+    "passed_filter": 5,
+    "rejected": 153,
     "channels": {
-      "temu_trending": 1,
-      "bsr": 1,
-      "tiktok_verified": 1,
-      "google_trends": 2,
-      "multi_source": 1,
-      "wished": 1
+      "tiktok_verified": 2,
+      "new_releases": 4,
+      "etsy_trending": 2,
+      "multi_source": 2,
+      "temu_trending": 2,
+      "wished": 1,
+      "google_trends": 1,
+      "event_product": 1
     },
     "trend_categories": {
       "crafts": 100,
-      "lighting": 82,
-      "pets": 82,
-      "phone": 82,
-      "eco": 68,
-      "seasonal": 68
+      "phone": 86,
+      "lighting": 79,
+      "pets": 72,
+      "eco": 72,
+      "kitchen": 64
     },
     "supply_demand": {
       "car": {
         "ratio": 99,
-        "demand": 55,
+        "demand": 51,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
@@ -39,43 +41,43 @@
       },
       "eco": {
         "ratio": 99,
-        "demand": 68,
+        "demand": 72,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
       },
       "seasonal": {
         "ratio": 99,
-        "demand": 68,
+        "demand": 58,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
       },
       "phone": {
         "ratio": 99,
-        "demand": 82,
+        "demand": 86,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
       },
       "home decor": {
         "ratio": 99,
-        "demand": 68,
+        "demand": 51,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
       },
       "lighting": {
-        "ratio": 6.7,
-        "demand": 82,
-        "supply": 200018,
+        "ratio": 26.4,
+        "demand": 79,
+        "supply": 19,
         "label": "🌊 深蓝海",
         "level": "deep_blue"
       },
-      "pets": {
+      "kitchen": {
         "ratio": 6.0,
-        "demand": 82,
-        "supply": 956284,
+        "demand": 64,
+        "supply": 45545,
         "label": "🌊 深蓝海",
         "level": "deep_blue"
       }
@@ -272,47 +274,46 @@
         ]
       }
     },
-    "gap_opportunities": 7
+    "gap_opportunities": 9
   },
   "products": [
     {
-      "asin": "B0G8GFSMKK",
-      "name": "Lighprenix Solar Lights Outdoor Garden - 20m 200LEDs Solar Powered Waterproof Multicolor Fairy Lights with 8 Modes, Upgr",
-      "price": 6.72,
-      "reviews": 93,
-      "rating": 4.5,
-      "rank": 28,
-      "category": "Lighting",
-      "channel": "bsr",
-      "channel_name": "Amazon畅销榜",
-      "review_info": "93 reviews, 4.5★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0G8GFSMKK",
-      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/81dri5oGjGL._AC_UL300_SR300,200_.jpg",
-      "google_trend": "rising",
+      "asin": "B0H4VTS7GZ",
+      "name": "England St George's Cross Car Flag Bundle, 2 Car Window Flags with Poles, 2 Wing Mirror Covers, Universal Fit, Weather-R",
+      "price": 9.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 11,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H4VTS7GZ",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51zmlpz7jbL._AC_UL300_SR300,200_.jpg",
       "sources": [
-        "Google趋势",
-        "TikTok趋势",
-        "Temu热销"
+        "Etsy趋势",
+        "Temu热销",
+        "TikTok趋势"
       ],
-      "profit_margin": 0.227,
-      "net_profit": 1.52,
+      "profit_margin": 0.337,
+      "net_profit": 3.36,
       "cost_breakdown": {
-        "vat": 1.12,
-        "commission": 1.01,
+        "vat": 1.67,
+        "commission": 1.5,
         "fba": 1.46,
-        "ads": 0.67,
-        "returns": 0.13,
+        "ads": 1.0,
+        "returns": 0.2,
         "sourcing": 0.8,
-        "total_cost": 5.2
+        "total_cost": 6.63
       },
       "off_season": false,
       "sd_score": 20,
       "sd_label": "🌊 深蓝海",
       "sd_info": {
-        "ratio": 6.7,
-        "demand": 82,
-        "supply": 200018,
-        "label": "🌊 深蓝海",
+        "ratio": 99,
+        "demand": 51,
+        "supply": 0,
+        "label": "🌊 无竞品",
         "level": "deep_blue"
       },
       "div_score": 0,
@@ -322,77 +323,72 @@
       "signal_label": "🔴 强信号",
       "external_sources": [
         "TikTok",
-        "Google",
-        "Temu"
+        "Temu",
+        "Etsy"
       ],
       "internal_sources": [
-        "畅销榜"
+        "新品榜"
       ],
-      "score": 164,
+      "score": 132,
       "score_breakdown": {
+        "🆕 新品榜": 20,
         "🎵 TikTok": 20,
-        "📊 Google↑": 15,
         "🛒 Temu": 8,
+        "🎨 Etsy": 6,
         "🔴 强信号": 20,
-        "🔥 多源热门(lighting)": 21,
-        "🟡 中等竞争": 5,
-        "⭐ 高评分": 5,
-        "🌴 当季(summer)": 10,
-        "🌊 深蓝海": 20,
-        "📈 排名上升": 10
+        "📈 趋势(car)": 8,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "🌊 深蓝海": 20
       },
       "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-06-24",
       "is_multi": true,
       "is_event": false,
       "channel_tags": [
-        "temu_trending",
-        "bsr",
         "tiktok_verified",
-        "google_trends",
-        "multi_source"
-      ],
-      "bsr_rank": 28,
-      "bsr_category": "Lighting",
-      "bsr_sub_rank": 6,
-      "bsr_sub_category": "Indoor-Outdoor String Lights",
-      "estimated_daily_sales": 2646,
-      "monthly_revenue_est": 533433.6
+        "new_releases",
+        "etsy_trending",
+        "multi_source",
+        "temu_trending"
+      ]
     },
     {
-      "asin": "B0H1WKJ7DZ",
-      "name": "ARING PET Summer Dog Collar, Cute Blue Ice Cream Doggy Collars for Puppy Small Medium Large Boy Girl Dogs Pet, for Daily",
-      "price": 8.32,
+      "asin": "B0H1WLCLCY",
+      "name": "ARING PET Summer Dog Collar, Cute Blue Ocean Coastal Beach Theme Doggy Collars for Puppy Small Medium Large Boy Girl Dog",
+      "price": 6.93,
       "reviews": 125,
       "rating": 4.6,
-      "rank": 20,
+      "rank": 19,
       "category": "Pets",
       "channel": "wished",
       "channel_name": "Amazon心愿榜",
       "review_info": "125 reviews, 4.6★",
-      "amazon_url": "https://www.amazon.co.uk/dp/B0H1WKJ7DZ",
-      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71MMQEkjnWL._AC_UL300_SR300,200_.jpg",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1WLCLCY",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61r1xAW2e2L._AC_UL300_SR300,200_.jpg",
       "google_trend": "rising",
       "sources": [
         "Google趋势"
       ],
-      "profit_margin": 0.391,
-      "net_profit": 3.26,
+      "profit_margin": 0.337,
+      "net_profit": 2.33,
       "cost_breakdown": {
-        "vat": 1.39,
-        "commission": 0.42,
+        "vat": 1.16,
+        "commission": 0.35,
         "fba": 1.46,
-        "ads": 0.83,
-        "returns": 0.17,
+        "ads": 0.69,
+        "returns": 0.14,
         "sourcing": 0.8,
-        "total_cost": 5.06
+        "total_cost": 4.6
       },
       "off_season": false,
       "sd_score": 20,
       "sd_label": "🌊 深蓝海",
       "sd_info": {
-        "ratio": 6.0,
-        "demand": 82,
-        "supply": 956284,
+        "ratio": 5.2,
+        "demand": 72,
+        "supply": 960078,
         "label": "🌊 深蓝海",
         "level": "deep_blue"
       },
@@ -407,30 +403,210 @@
       "internal_sources": [
         "心愿榜"
       ],
-      "score": 145,
+      "score": 131,
       "score_breakdown": {
         "💝 心愿榜": 15,
         "📊 Google↑": 15,
         "🔥 多源热门(pets)": 23,
         "🟡 中等竞争": 5,
         "⭐ 高评分": 5,
-        "💰 超高利润": 12,
+        "💰 高利润": 8,
         "🌴 当季(summer)": 10,
-        "🌊 深蓝海": 20,
-        "✨ 新发现": 10
+        "🌊 深蓝海": 20
       },
       "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-06-24",
       "is_event": false,
       "channel_tags": [
-        "google_trends",
-        "wished"
+        "wished",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0H1XBVNBM",
+      "name": "Enzeno motorbike cover 245x105x125cm motorcycle cover waterproof outdoor motorbike Windproof Dustproof moped cover with ",
+      "price": 9.99,
+      "reviews": 39,
+      "rating": 4.9,
+      "rank": 22,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "39 reviews, 4.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1XBVNBM",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71gKIDVM6yL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.337,
+      "net_profit": 3.36,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 1.0,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.63
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
       ],
-      "bsr_rank": 2677,
-      "bsr_category": "Pet Supplies",
-      "bsr_sub_rank": 17,
-      "bsr_sub_category": "Basic Dog Collars",
-      "estimated_daily_sales": 56,
-      "monthly_revenue_est": 13977.6
+      "score": 58,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15,
+        "🌴 当季(summer)": 10
+      },
+      "stars": 2,
+      "is_new": true,
+      "first_seen": "2026-06-24",
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0GVY6N6XL",
+      "name": "GIONAR Universal Non-Slip Gel Motorbike Grip, Durable Rubber, Fit for Off-road & Pitbikes, Enduro Ready, 7/8\" (22mm) Len",
+      "price": 8.99,
+      "reviews": 57,
+      "rating": 4.2,
+      "rank": 23,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "57 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GVY6N6XL",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61vh0qefKWL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.312,
+      "net_profit": 2.8,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.46,
+        "ads": 0.9,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 6.19
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 38,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🟡 中等竞争": 5,
+        "💰 高利润": 8,
+        "📉 无需求信号": -15
+      },
+      "stars": 1,
+      "is_new": true,
+      "first_seen": "2026-06-24",
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ]
+    },
+    {
+      "asin": "B0H2CZRB48",
+      "name": "4Pcs 46 x 30cm England St George Cross Car Window Flags for FIFA 2026 World Cup – Polyester England Vehicle Flag Decorat",
+      "price": 6.49,
+      "reviews": 63,
+      "rating": 3.7,
+      "rank": 25,
+      "category": "Automotive",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "63 reviews, 3.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H2CZRB48",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/610NwProTeL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Etsy趋势",
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.215,
+      "net_profit": 1.39,
+      "cost_breakdown": {
+        "vat": 1.08,
+        "commission": 0.97,
+        "fba": 1.46,
+        "ads": 0.65,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 5.1
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 99,
+        "demand": 51,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 137,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(car)": 8,
+        "🟡 中等竞争": 5,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-06-24",
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "tiktok_verified",
+        "new_releases",
+        "etsy_trending",
+        "event_product",
+        "multi_source",
+        "temu_trending"
+      ]
     }
   ],
   "gaps": [
@@ -470,46 +646,46 @@
     {
       "keyword": "phone",
       "category": "phone",
-      "heat": 82,
-      "score": 82,
+      "heat": 86,
+      "score": 83,
       "gap_level": "strong",
       "amazon_count": 0,
       "amazon_reviews": 0,
       "evidence": [
-        "earbuds",
-        "cable",
         "case",
-        "charger",
-        "phone"
+        "phone",
+        "stand",
+        "earbuds",
+        "holder"
       ],
       "is_cross_validated": true,
       "cross_sources": 3,
       "suggestions": [
+        "case",
+        "phone case",
+        "phone holder",
+        "phone stand",
+        "stand",
         "earbuds case",
         "wireless earbuds",
-        "charging cable",
-        "USB cable",
-        "phone cable",
-        "case",
-        "phone charger",
-        "wireless charger"
+        "holder"
       ],
       "sd_info": {
         "ratio": 99,
-        "demand": 82,
+        "demand": 86,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
       },
       "source": "category_analysis",
-      "url_amazon": "https://www.amazon.co.uk/s?k=earbuds+case",
-      "url_google": "https://trends.google.com/trends/explore?q=earbuds+case&geo=GB"
+      "url_amazon": "https://www.amazon.co.uk/s?k=case",
+      "url_google": "https://trends.google.com/trends/explore?q=case&geo=GB"
     },
     {
       "keyword": "eco",
       "category": "eco",
-      "heat": 68,
-      "score": 77,
+      "heat": 72,
+      "score": 79,
       "gap_level": "strong",
       "amazon_count": 0,
       "amazon_reviews": 0,
@@ -525,7 +701,7 @@
       ],
       "sd_info": {
         "ratio": 99,
-        "demand": 68,
+        "demand": 72,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
@@ -537,82 +713,37 @@
     {
       "keyword": "seasonal",
       "category": "seasonal",
-      "heat": 68,
-      "score": 77,
+      "heat": 58,
+      "score": 74,
       "gap_level": "strong",
       "amazon_count": 0,
       "amazon_reviews": 0,
       "evidence": [
-        "christmas",
-        "gift",
-        "birthday"
+        "gift"
       ],
       "is_cross_validated": true,
       "cross_sources": 3,
       "suggestions": [
-        "christmas decoration",
-        "christmas gift",
-        "christmas stocking",
         "gift ideas",
         "gift set",
-        "gift box",
-        "birthday gift",
-        "birthday decoration"
+        "gift box"
       ],
       "sd_info": {
         "ratio": 99,
-        "demand": 68,
+        "demand": 58,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
       },
       "source": "category_analysis",
-      "url_amazon": "https://www.amazon.co.uk/s?k=christmas+decoration",
-      "url_google": "https://trends.google.com/trends/explore?q=christmas+decoration&geo=GB"
-    },
-    {
-      "keyword": "home decor",
-      "category": "home decor",
-      "heat": 68,
-      "score": 77,
-      "gap_level": "strong",
-      "amazon_count": 0,
-      "amazon_reviews": 0,
-      "evidence": [
-        "wall art",
-        "mirror",
-        "clock",
-        "candle",
-        "decor"
-      ],
-      "is_cross_validated": true,
-      "cross_sources": 3,
-      "suggestions": [
-        "wall art print",
-        "wall hanging",
-        "wall decal",
-        "makeup mirror",
-        "vanity mirror",
-        "LED mirror",
-        "wall clock",
-        "desk clock"
-      ],
-      "sd_info": {
-        "ratio": 99,
-        "demand": 68,
-        "supply": 0,
-        "label": "🌊 无竞品",
-        "level": "deep_blue"
-      },
-      "source": "category_analysis",
-      "url_amazon": "https://www.amazon.co.uk/s?k=wall+art+print",
-      "url_google": "https://trends.google.com/trends/explore?q=wall+art+print&geo=GB"
+      "url_amazon": "https://www.amazon.co.uk/s?k=gift+ideas",
+      "url_google": "https://trends.google.com/trends/explore?q=gift+ideas&geo=GB"
     },
     {
       "keyword": "car",
       "category": "car",
-      "heat": 55,
-      "score": 73,
+      "heat": 51,
+      "score": 72,
       "gap_level": "strong",
       "amazon_count": 0,
       "amazon_reviews": 0,
@@ -628,7 +759,7 @@
       ],
       "sd_info": {
         "ratio": 99,
-        "demand": 55,
+        "demand": 51,
         "supply": 0,
         "label": "🌊 无竞品",
         "level": "deep_blue"
@@ -638,29 +769,134 @@
       "url_google": "https://trends.google.com/trends/explore?q=car+accessories&geo=GB"
     },
     {
-      "keyword": "kitchen",
-      "category": "kitchen",
-      "heat": 60,
-      "score": 30,
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 51,
+      "score": 72,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "mirror",
+        "decor",
+        "candle",
+        "clock"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "makeup mirror",
+        "vanity mirror",
+        "LED mirror",
+        "home decor",
+        "room decor",
+        "table decor",
+        "candle holder",
+        "scented candle"
+      ],
+      "sd_info": {
+        "ratio": 99,
+        "demand": 51,
+        "supply": 0,
+        "label": "🌊 无竞品",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=makeup+mirror",
+      "url_google": "https://trends.google.com/trends/explore?q=makeup+mirror&geo=GB"
+    },
+    {
+      "keyword": "lighting",
+      "category": "lighting",
+      "heat": 79,
+      "score": 51,
       "gap_level": "weak",
       "amazon_count": 5,
-      "amazon_reviews": 46259,
+      "amazon_reviews": 19,
+      "evidence": [
+        "strip",
+        "lamp",
+        "led",
+        "light"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "LED strip",
+        "LED strip light",
+        "RGB strip",
+        "desk lamp",
+        "night light",
+        "table lamp",
+        "LED bulb",
+        "LED light"
+      ],
+      "sd_info": {
+        "ratio": 26.4,
+        "demand": 79,
+        "supply": 19,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=LED+strip",
+      "url_google": "https://trends.google.com/trends/explore?q=LED+strip&geo=GB"
+    },
+    {
+      "keyword": "beauty",
+      "category": "beauty",
+      "heat": 43,
+      "score": 44,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "skincare",
+        "hair",
+        "mirror",
+        "makeup"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "face roller",
+        "gua sha",
+        "face mask",
+        "hair clip",
+        "hair accessories",
+        "hair band",
+        "hair tie",
+        "makeup mirror"
+      ],
+      "sd_info": {},
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=face+roller",
+      "url_google": "https://trends.google.com/trends/explore?q=face+roller&geo=GB"
+    },
+    {
+      "keyword": "kitchen",
+      "category": "kitchen",
+      "heat": 64,
+      "score": 31,
+      "gap_level": "weak",
+      "amazon_count": 5,
+      "amazon_reviews": 45545,
       "evidence": [
         "kitchen",
-        "gadget",
-        "cooking"
+        "cooking",
+        "gadget"
       ],
       "is_cross_validated": false,
       "cross_sources": 0,
       "suggestions": [
         "kitchen",
-        "gadget",
-        "cooking"
+        "cooking",
+        "gadget"
       ],
       "sd_info": {
-        "ratio": 5.6,
-        "demand": 60,
-        "supply": 46259,
+        "ratio": 6.0,
+        "demand": 64,
+        "supply": 45545,
         "label": "🌊 深蓝海",
         "level": "deep_blue"
       },
@@ -676,24 +912,24 @@
         100
       ],
       [
+        "phone",
+        86
+      ],
+      [
         "lighting",
-        82
+        79
       ],
       [
         "pets",
-        82
-      ],
-      [
-        "phone",
-        82
+        72
       ],
       [
         "eco",
-        68
+        72
       ],
       [
-        "seasonal",
-        68
+        "kitchen",
+        64
       ]
     ],
     "cross_validated": [
@@ -707,15 +943,15 @@
       "home decor"
     ],
     "demand_keywords": [
-      "best item you have bought",
-      "crewneck t",
-      "duvet covers and",
-      "lego technic",
+      "active demand",
+      "discover the hottest and most",
+      "early interest",
+      "hanes mens",
+      "made me buy it",
       "pink cardigan",
-      "primark just launched a",
-      "project hail mary",
       "real market data on trending",
       "recommend some cool stuff from",
+      "right now on",
       "scalloped knit tank"
     ],
     "season": "summer",
