@@ -28,12 +28,9 @@ STATUS_CONFIG = {
 }
 
 KANBAN_COLUMNS = [
-    ("pending",   "待验证",       "#8e8e93"),
-    ("supplier",  "已验证-可采购", "#007AFF"),
-    ("sample",    "已下单",       "#FF9500"),
-    ("inbound",   "已到仓",       "#AF52DE"),
-    ("listed",    "已上架",       "#34C759"),
-    ("rejected",  "不考虑",       "#FF3B30"),
+    ("inbox",     "📥 收件箱",   "#007AFF"),
+    ("starred",   "⭐ 值得做",   "#FF9500"),
+    ("verified",  "✅ 已验证",   "#34C759"),
 ]
 
 
@@ -189,8 +186,19 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
         festivals = load_festivals()
         festival_html = generate_festival_html(festivals)
         festival_count = len(festivals)
+        # Serialize festivals for frontend kanban (minimal fields only)
+        festivals_json = json.dumps([
+            {"id": f.get("id",""), "name": f.get("name",""), "icon": f.get("icon",""),
+             "date": f.get("date",""), "importance": f.get("importance",""),
+             "products": [{"sku": p.get("sku",""), "keywords": p.get("keywords",[]),
+                           "category": p.get("category",""), "margin": p.get("margin",""),
+                           "sourcing": p.get("sourcing",""), "matchScore": p.get("matchScore",0)}
+                          for p in f.get("products",[])]}
+            for f in festivals
+        ], ensure_ascii=False)
     except Exception as e:
         festivals = []
+        festivals_json = '[]'
         festival_html = '<div class="empty">节日数据加载失败</div>'
         festival_count = 0
 
@@ -358,23 +366,43 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 
 /* ===== KANBAN ===== */
 .metrics-row{{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}}
-.metric-card{{flex:1;min-width:140px;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 20px;text-align:center}}
-.metric-card .big{{font-size:32px;font-weight:800;color:var(--purple);line-height:1.2}}
-.metric-card .label{{font-size:12px;color:var(--muted);font-weight:600;margin-top:4px}}
-.kanban-board{{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;overflow-x:auto;padding-bottom:12px}}
-.kanban-col{{background:#f8f8fa;border-radius:var(--r);padding:12px;min-width:180px}}
-.kanban-col-hd{{font-size:13px;font-weight:700;padding:8px 0 12px;display:flex;align-items:center;gap:6px}}
-.kanban-col-hd .dot{{width:8px;height:8px;border-radius:50%;flex-shrink:0}}
-.kanban-col-hd .cnt{{font-size:11px;background:var(--border);border-radius:8px;padding:1px 6px;margin-left:auto;color:var(--muted)}}
-.kanban-cards{{display:flex;flex-direction:column;gap:8px;min-height:40px}}
-.kanban-card{{background:var(--card);border-radius:10px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06);cursor:pointer;transition:all .15s}}
-.kanban-card:hover{{box-shadow:0 2px 8px rgba(0,0,0,.12);transform:translateY(-1px)}}
-.kanban-card .kw{{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
-.kanban-card .meta{{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px}}
-.kanban-card .sc{{font-weight:700;padding:1px 6px;border-radius:6px;font-size:11px}}
-.kanban-card .sc.hot{{background:#FF2D5515;color:var(--pink)}}.kban-card .sc.warm{{background:#FF950015;color:var(--orange)}}.kanban-card .sc.cool{{background:#007AFF15;color:var(--blue)}}
-.kanban-drop{{border:2px dashed var(--border);border-radius:10px;padding:16px;text-align:center;color:var(--muted);font-size:12px;margin-top:4px;transition:all .2s}}
-.kanban-drop.over{{border-color:var(--purple);background:#5856D608}}
+.metric-card{{flex:1;min-width:120px;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 16px;text-align:center}}
+.metric-card .big{{font-size:28px;font-weight:800;color:var(--purple);line-height:1.2}}
+.metric-card .label{{font-size:11px;color:var(--muted);font-weight:600;margin-top:4px}}
+.metric-card.urgent .big{{color:#FF3B30}}
+.kanban-board{{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;overflow-x:auto;padding-bottom:12px}}
+.kanban-col{{background:#f8f8fa;border-radius:var(--r);padding:14px;min-width:240px}}
+.kanban-col-hd{{font-size:14px;font-weight:700;padding:8px 0 14px;display:flex;align-items:center;gap:8px}}
+.kanban-col-hd .dot{{width:10px;height:10px;border-radius:50%;flex-shrink:0}}
+.kanban-col-hd .cnt{{font-size:11px;background:var(--border);border-radius:8px;padding:2px 8px;margin-left:auto;color:var(--muted)}}
+.kanban-cards{{display:flex;flex-direction:column;gap:10px;min-height:60px}}
+.kanban-card{{background:var(--card);border-radius:12px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:all .15s;border-left:3px solid var(--blue)}}
+.kanban-card:hover{{box-shadow:0 3px 12px rgba(0,0,0,.12);transform:translateY(-1px)}}
+.kanban-card.src-festival{{border-left-color:#FF9500}}
+.kanban-card.src-discovery{{border-left-color:#AF52DE}}
+.kanban-card.src-radar{{border-left-color:#007AFF}}
+.kanban-card .kc-top{{display:flex;align-items:center;gap:6px;margin-bottom:6px}}
+.kanban-card .kc-src{{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;flex-shrink:0}}
+.kanban-card .kc-src.festival{{background:#FF950015;color:#FF9500}}
+.kanban-card .kc-src.discovery{{background:#AF52DE15;color:#AF52DE}}
+.kanban-card .kc-src.radar{{background:#007AFF15;color:var(--blue)}}
+.kanban-card .kc-deadline{{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:#FF3B3015;color:#FF3B30;margin-left:auto;flex-shrink:0}}
+.kanban-card .kc-deadline.ok{{background:#34C75915;color:#34C759}}
+.kanban-card .kc-name{{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+.kanban-card .kc-cn{{font-size:11px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+.kanban-card .kc-metrics{{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}}
+.kanban-card .kc-tag{{font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px}}
+.kanban-card .kc-tag.score{{background:#007AFF12;color:var(--blue)}}
+.kanban-card .kc-tag.profit{{background:#34C75912;color:#34C759}}
+.kanban-card .kc-tag.gap{{background:#AF52DE12;color:#AF52DE}}
+.kanban-card .kc-actions{{display:flex;gap:4px;margin-top:10px;flex-wrap:wrap}}
+.kanban-card .kc-btn{{font-size:10px;padding:3px 8px;border-radius:6px;border:1px solid var(--border);background:var(--card);cursor:pointer;transition:all .12s;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:3px}}
+.kanban-card .kc-btn:hover{{background:#f0f0f5}}
+.kanban-card .kc-btn.primary{{background:var(--blue);color:#fff;border-color:var(--blue)}}
+.kanban-card .kc-btn.primary:hover{{opacity:.85}}
+.kanban-card .kc-btn.danger{{color:#FF3B30;border-color:#FF3B3030}}
+.kanban-card .kc-btn.danger:hover{{background:#FF3B3010}}
+.kanban-empty{{border:2px dashed var(--border);border-radius:12px;padding:24px;text-align:center;color:var(--muted);font-size:12px}}
 
 /* ===== SEARCH OVERLAY ===== */
 .search-overlay{{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:9999;justify-content:center;padding-top:15vh;backdrop-filter:blur(4px)}}
@@ -588,12 +616,13 @@ const SEASON_EVENTS = {season_json};
 const METRICS = {metrics_json};
 const SEARCH_INDEX = {search_json};
 const KANBAN_COLS = {kanban_json};
+const FESTIVALS = {festivals_json};
 const SK = 'pp_v3_status';
 const OLD_SK = 'productRadar_v2_status';
 (function(){{try{{const o=JSON.parse(localStorage.getItem(OLD_SK)||'{{}}');const c=JSON.parse(localStorage.getItem(SK)||'{{}}');if(Object.keys(o).length>0&&Object.keys(c).length===0)localStorage.setItem(SK,JSON.stringify(o))}}catch(e){{}}}})();
 
 function getSt(){{try{{const local=JSON.parse(localStorage.getItem(SK)||'{{}}');return Object.assign({{}},PROD_STATUS,local)}}catch(e){{return Object.assign({{}},PROD_STATUS)}}}}
-function saveSt(a,s){{const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}}
+function saveSt(a,s,all){{if(all){{localStorage.setItem(SK,JSON.stringify(all))}}else{{const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}}}}
 function esc(s){{const d=document.createElement('div');d.textContent=s||'';return d.innerHTML}}
 
 let curDate = DATES[0] || '';
@@ -816,106 +845,249 @@ function exportCSV(){{
   const b=new Blob(['\\ufeff'+csv],{{type:'text/csv;charset=utf-8;'}});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='选品平台_'+curDate+'.csv';a.click();
 }}
 
-// ===== Kanban Board =====
+// ===== Kanban Board (V5.3 — Decision Inbox) =====
 function renderKanban() {{
   const metricsRow = document.getElementById('metricsRow');
   const board = document.getElementById('kanbanBoard');
+  const sts = getSt(); // localStorage status
 
-  // Metrics cards
-  const m = METRICS || {{}};
-  metricsRow.innerHTML = [
-    {{n: m.discovery_count || 0, l: '发现关键词'}},
-    {{n: m.unique_keywords || 0, l: '唯一关键词'}},
-    {{n: m.rising_trends || 0, l: '上升趋势'}},
-    {{n: m.adopted_count || 0, l: '已采纳'}},
-    {{n: m.listed_count || 0, l: '已上架'}},
-    {{n: m.radar_total_scanned || 0, l: '雷达扫描'}},
-    {{n: m.radar_total_passed || 0, l: '雷达通过'}},
-    {{n: ((m.keyword_hit_rate || 0) * 100).toFixed(1) + '%', l: '命中率'}},
-  ].map(item => `<div class="metric-card"><div class="big">${{item.n}}</div><div class="label">${{item.l}}</div></div>`).join('');
+  // --- Collect items from 3 sources ---
+  const inbox = [];
+  const today = new Date().toISOString().slice(0,10);
 
-  // Group keywords by status from localStorage
-  const sts = getSt();
-  const kanbanData = {{}};
-  KANBAN_COLS.forEach(([key]) => {{ kanbanData[key] = []; }});
+  // Source 1: Festival Planner (highest priority — has deadlines)
+  // FESTIVALS is embedded in the page by festival_engine
+  if (typeof FESTIVALS !== 'undefined') {{
+    FESTIVALS.forEach(f => {{
+      const fDate = new Date(f.date);
+      const now = new Date();
+      if (fDate < now) return; // past event
+      // Sea deadline = event - (63+14) = event - 77 days
+      const seaDeadline = new Date(fDate);
+      seaDeadline.setDate(seaDeadline.getDate() - 77);
+      const daysLeft = Math.ceil((seaDeadline - now) / 86400000);
+      if (daysLeft > 30 || daysLeft < -10) return; // only near window
 
-  // Collect all keywords from discovery data
-  const allKws = [];
-  Object.entries(DISC_ALL).forEach(([date, dd]) => {{
+      (f.products || []).forEach(p => {{
+        const kw = (p.keywords || [])[0] || p.sku || '';
+        if (!kw) return;
+        // Don't add if already moved to starred/verified
+        const kbKey = 'kb_fest_' + f.id + '_' + kw.replace(/\\s+/g,'_').slice(0,20);
+        if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified') return;
+
+        inbox.push({{
+          id: kbKey,
+          name: kw,
+          nameCn: p.sku || '',
+          source: 'festival',
+          score: p.matchScore ? p.matchScore * 20 : 50,
+          profit: p.margin || '',
+          deadline: f.date,
+          deadlineLabel: f.icon + ' ' + f.name,
+          daysLeft: daysLeft,
+          eventName: f.name,
+          eventIcon: f.icon || '📅',
+          amazonKw: kw,
+          aliKw: (p.sourcing || '').replace('1688:','').trim() || p.sku || '',
+          sortWeight: daysLeft <= 7 ? 1000 : daysLeft <= 14 ? 500 : 100,
+        }});
+      }});
+    }});
+  }}
+
+  // Source 2: Discovery keywords
+  Object.entries(DISC_ALL || {{}}).forEach(([date, dd]) => {{
     (dd.insights || []).forEach(ins => {{
-      allKws.push({{
-        keyword: ins.keyword || '',
-        score: ins.trend_score || 0,
+      const kw = ins.keyword || '';
+      if (!kw) return;
+      const kbKey = 'kb_disc_' + kw.replace(/\\s+/g,'_').slice(0,30) + '_' + date;
+      if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified') return;
+
+      const ss = ins.signal_scores || {{}};
+      inbox.push({{
+        id: kbKey,
+        name: ins.amazon_keyword || kw,
+        nameCn: ins.keyword_cn || '',
+        source: 'discovery',
+        score: ss.final || ins.trend_score || 0,
+        profit: ss.profit_window || '',
+        gapLevel: ss.gap_level || '',
+        recommendation: ss.recommendation || '',
+        amazonKw: ins.amazon_keyword || kw,
+        aliKw: ins.search_1688 || '',
         date: date,
-        status: 'pending',
+        sortWeight: (ss.final || 0) + 50, // above radar, below festival
       }});
     }});
   }});
 
-  // Collect products from radar
-  Object.entries(RADAR_ALL).forEach(([date, rd]) => {{
+  // Source 3: Radar products
+  Object.entries(RADAR_ALL || {{}}).forEach(([date, rd]) => {{
     (rd.products || []).forEach(p => {{
-      const st = sts[p.asin] || 'pending';
-      allKws.push({{
-        keyword: p.name || '',
+      if (!p.asin) return;
+      const kbKey = 'kb_radar_' + p.asin;
+      if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified') return;
+
+      inbox.push({{
+        id: kbKey,
+        name: p.name || '',
+        nameCn: '',
+        source: 'radar',
+        asin: p.asin,
         score: p.score || 0,
+        profit: p.profit_margin ? (p.profit_margin * 100).toFixed(0) + '%' : '',
+        amazonKw: '',
+        amazonUrl: p.amazon_url || 'https://www.amazon.co.uk/dp/' + p.asin,
+        aliKw: '',
         date: date,
-        status: kanbanData[st] !== undefined ? st : 'pending',
-        asin: p.asin || '',
+        sortWeight: p.score || 0,
       }});
     }});
   }});
 
-  // Group by status
-  allKws.forEach(item => {{
-    if (kanbanData[item.status] !== undefined) {{
-      kanbanData[item.status].push(item);
-    }} else {{
-      kanbanData['pending'].push(item);
+  // --- Build starred and verified lists ---
+  const starred = [];
+  const verified = [];
+  // Check all localStorage keys for starred/verified items
+  Object.entries(sts).forEach(([key, status]) => {{
+    if (key.startsWith('kb_') && status === 'starred') {{
+      const item = inbox.find(i => i.id === key);
+      if (item) starred.push(item);
+      else starred.push({{id: key, name: key.replace('kb_','').replace(/_/g,' '), source: 'unknown', score: 0, sortWeight: 0}});
+    }}
+    if (key.startsWith('kb_') && status === 'verified') {{
+      const item = inbox.find(i => i.id === key);
+      if (item) verified.push(item);
+      else verified.push({{id: key, name: key.replace('kb_','').replace(/_/g,' '), source: 'unknown', score: 0, sortWeight: 0}});
     }}
   }});
 
-  // Filter by kanban search
-  const kanbanSearch = (document.getElementById('kanbanSearch')?.value || '').toLowerCase();
+  // Sort inbox by weight (festival urgency > discovery score > radar score)
+  inbox.sort((a, b) => b.sortWeight - a.sortWeight);
 
-  board.innerHTML = KANBAN_COLS.map(([key, label, color]) => {{
-    let items = kanbanData[key] || [];
-    if (kanbanSearch) {{
-      items = items.filter(i => i.keyword.toLowerCase().includes(kanbanSearch));
+  // --- Metrics ---
+  const urgentCount = inbox.filter(i => i.source === 'festival' && i.daysLeft <= 7).length;
+  const nearestDeadline = inbox.filter(i => i.deadline).sort((a,b) => a.daysLeft - b.daysLeft)[0];
+  metricsRow.innerHTML = [
+    {{n: inbox.length, l: '📥 收件箱'}},
+    {{n: starred.length, l: '⭐ 值得做'}},
+    {{n: verified.length, l: '✅ 已验证'}},
+    {{n: urgentCount, l: '🔴 紧急(≤7天)', cls: urgentCount > 0 ? 'urgent' : ''}},
+    {{n: nearestDeadline ? nearestDeadline.deadlineLabel + ' ' + nearestDeadline.daysLeft + '天' : '—', l: '📅 最近截止'}},
+  ].map(item => `<div class="metric-card ${{item.cls||''}}"><div class="big">${{item.n}}</div><div class="label">${{item.l}}</div></div>`).join('');
+
+  // --- Render card helper ---
+  function renderCard(item) {{
+    const srcCls = item.source || 'radar';
+    const srcLabel = {{festival:'📅 节日', discovery:'🔍 发现', radar:'📡 雷达'}}[srcCls] || '📡 其他';
+    
+    // Deadline badge
+    let deadlineHtml = '';
+    if (item.deadline && item.daysLeft !== undefined) {{
+      const dlCls = item.daysLeft <= 7 ? '' : 'ok';
+      deadlineHtml = `<span class="kc-deadline ${{dlCls}}">${{item.eventIcon||'📅'}} ${{item.daysLeft}}天</span>`;
     }}
-    const cardsHtml = items.map(item => {{
-      const scCls = item.score >= 80 ? 'hot' : item.score >= 50 ? 'warm' : 'cool';
-      return `<div class="kanban-card" title="${{esc(item.keyword)}}">
-        <div class="kw">${{esc(item.keyword)}}</div>
-        <div class="meta"><span class="sc ${{scCls}}">${{item.score}}分</span><span>${{item.date}}</span></div>
-      </div>`;
-    }}).join('');
-    return `<div class="kanban-col" data-status="${{key}}">
-      <div class="kanban-col-hd"><span class="dot" style="background:${{color}}"></span>${{label}}<span class="cnt">${{items.length}}</span></div>
-      <div class="kanban-cards">${{cardsHtml || '<div class="kanban-drop">拖拽项目到此处</div>'}}</div>
+
+    // Metrics tags
+    let metricsHtml = '';
+    if (item.score) metricsHtml += `<span class="kc-tag score">${{item.score}}分</span>`;
+    if (item.profit) metricsHtml += `<span class="kc-tag profit">${{item.profit}}</span>`;
+    if (item.gapLevel) metricsHtml += `<span class="kc-tag gap">${{item.gapLevel}}</span>`;
+
+    // Action buttons
+    const amazonUrl = item.amazonUrl || (item.amazonKw ? 'https://www.amazon.co.uk/s?k=' + encodeURIComponent(item.amazonKw) : '');
+    const aliKw = item.aliKw || item.nameCn || '';
+    const aliUrl = aliKw ? 'https://s.1688.com/selloffer/offer_search.htm?keywords=' + encodeURIComponent(aliKw).replace(/%20/g,'+') : '';
+    
+    let actionsHtml = '';
+    if (amazonUrl) actionsHtml += `<a class="kc-btn" href="${{amazonUrl}}" target="_blank">🛒 Amazon</a>`;
+    if (aliUrl) actionsHtml += `<a class="kc-btn" href="${{aliUrl}}" target="_blank">🏭 1688</a>`;
+    actionsHtml += `<button class="kc-btn primary" onclick="moveKanban('${{item.id}}','starred')">⭐ 值得做</button>`;
+    actionsHtml += `<button class="kc-btn danger" onclick="moveKanban('${{item.id}}','dismiss')">✕</button>`;
+
+    return `<div class="kanban-card src-${{srcCls}}" data-id="${{item.id}}">
+      <div class="kc-top">
+        <span class="kc-src ${{srcCls}}">${{srcLabel}}</span>
+        ${{deadlineHtml}}
+      </div>
+      <div class="kc-name" title="${{esc(item.name)}}">${{esc(item.name)}}</div>
+      ${{item.nameCn ? `<div class="kc-cn">${{esc(item.nameCn)}}</div>` : ''}}
+      ${{metricsHtml ? `<div class="kc-metrics">${{metricsHtml}}</div>` : ''}}
+      <div class="kc-actions">${{actionsHtml}}</div>
+    </div>`;
+  }}
+
+  // --- Render verified card (simpler — just show name + source) ---
+  function renderVerifiedCard(item) {{
+    const srcCls = item.source || 'radar';
+    const srcLabel = {{festival:'📅', discovery:'🔍', radar:'📡'}}[srcCls] || '📡';
+    const amazonUrl = item.amazonUrl || (item.amazonKw ? 'https://www.amazon.co.uk/s?k=' + encodeURIComponent(item.amazonKw) : '');
+    return `<div class="kanban-card src-${{srcCls}}" data-id="${{item.id}}">
+      <div class="kc-top">
+        <span class="kc-src ${{srcCls}}">${{srcLabel}}</span>
+        ${{item.score ? `<span class="kc-tag score">${{item.score}}分</span>` : ''}}
+        ${{item.profit ? `<span class="kc-tag profit">${{item.profit}}</span>` : ''}}
+        <button class="kc-btn danger" style="margin-left:auto" onclick="moveKanban('${{item.id}}','dismiss')">✕</button>
+      </div>
+      <div class="kc-name">${{esc(item.name)}}</div>
+      <div class="kc-actions">
+        ${{amazonUrl ? `<a class="kc-btn" href="${{amazonUrl}}" target="_blank">🛒 Amazon</a>` : ''}}
+        <button class="kc-btn primary" onclick="moveKanban('${{item.id}}','verified')">✅ 已验证</button>
+      </div>
+    </div>`;
+  }}
+
+  // --- Build board ---
+  const columns = [
+    {{key:'inbox', label:'📥 收件箱', color:'#007AFF', items:inbox, render:renderCard, empty:'三源自动注入，每天更新'}},
+    {{key:'starred', label:'⭐ 值得做', color:'#FF9500', items:starred, render:renderVerifiedCard, empty:'点击卡片的"⭐ 值得做"按钮'}},
+    {{key:'verified', label:'✅ 已验证', color:'#34C759', items:verified, render:renderVerifiedCard, empty:'团队确认可做后标记'}},
+  ];
+
+  board.innerHTML = columns.map(col => {{
+    const cardsHtml = col.items.length > 0
+      ? col.items.map(item => col.render(item)).join('')
+      : `<div class="kanban-empty">${{col.empty}}</div>`;
+    return `<div class="kanban-col" data-status="${{col.key}}">
+      <div class="kanban-col-hd"><span class="dot" style="background:${{col.color}}"></span>${{col.label}}<span class="cnt">${{col.items.length}}</span></div>
+      <div class="kanban-cards">${{cardsHtml}}</div>
     </div>`;
   }}).join('');
+}}
+
+// Kanban actions
+function moveKanban(id, target) {{
+  const sts = getSt();
+  if (target === 'dismiss') {{
+    sts[id] = 'dismissed';
+  }} else {{
+    sts[id] = target;
+  }}
+  saveSt(null, null, sts); // save all
+  renderKanban();
 }}
 
 document.getElementById('kanbanSearch')?.addEventListener('input', renderKanban);
 
 function exportKanbanCSV(){{
   const sts = getSt();
-  const rows = [['状态','关键词','评分','日期']];
-  const allKws = [];
+  const rows = [['状态','关键词','来源','评分','日期']];
+  // Export inbox items
   Object.entries(DISC_ALL).forEach(([date, dd]) => {{
-    (dd.insights || []).forEach(ins => {{ allKws.push([ins.keyword||'', ins.trend_score||0, date, 'pending']); }});
+    (dd.insights || []).forEach(ins => {{
+      const kbKey = 'kb_disc_' + (ins.keyword||'').replace(/\\s+/g,'_').slice(0,30) + '_' + date;
+      rows.push([sts[kbKey]||'inbox', ins.keyword||'', 'discovery', ins.trend_score||0, date]);
+    }});
   }});
   Object.entries(RADAR_ALL).forEach(([date, rd]) => {{
-    (rd.products || []).forEach(p => {{ allKws.push([p.name||'', p.score||0, date, sts[p.asin]||'pending']); }});
-  }});
-  allKws.forEach(([kw, sc, date, st]) => {{
-    const col = KANBAN_COLS.find(([k]) => k === st);
-    rows.push([col ? col[1] : st, kw, sc, date]);
+    (rd.products || []).forEach(p => {{
+      const kbKey = 'kb_radar_' + (p.asin||'');
+      rows.push([sts[kbKey]||'inbox', p.name||'', 'radar', p.score||0, date]);
+    }});
   }});
   const csv = rows.map(r => r.map(c => '"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\\n');
-  const b = new Blob(['\\ufeff'+csv], {{type:'text/csv;charset=utf-8;'}});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = '选品看板.csv'; a.click();
+  const blob = new Blob(['\\uFEFF'+csv], {{type:'text/csv;charset=utf-8'}});
+  const a = document.createElement('a');a.href=URL.createObjectURL(blob);a.download='kanban_'+new Date().toISOString().slice(0,10)+'.csv';a.click();
 }}
 
 // ===== Global Search =====
