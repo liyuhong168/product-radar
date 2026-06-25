@@ -1,0 +1,20 @@
+{
+  "app_token": "H5b1bpalbapqpVssLLBc5o9Lnnh",
+  "table_id": "tbloz7FlbiIwLZYJ",
+  "url": "https://my.feishu.cn/base/H5b1bpalbapqpVssLLBc5o9Lnnh",
+  "fields": {
+    "keyword": "关键词",
+    "keyword_cn": "中文关键词",
+    "status": "状态",
+    "owner": "负责人",
+    "link_1688": "1688链接",
+    "actual_cost": "实际采购成本",
+    "est_margin": "预估利润率",
+    "actual_margin": "实际利润率",
+    "amazon_link": "Amazon搜索链接",
+    "discovery_date": "发现日期",
+    "verify_date": "验证日期",
+    "notes": "备注",
+    "score": "评分"
+  }
+}

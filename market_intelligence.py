@@ -54,10 +54,9 @@ def compute_supply_demand_ratio(cat_reviews, trend_data):
         
         supply = math.log(total_reviews + 1)  # ln(0+1)=0, ln(100+1)=4.6, ln(1000+1)=6.9
         if supply == 0:
-            # No supply data for this category — can't compute ratio
-            # But if demand is high, it's potentially blue ocean (no competition found)
-            if demand_score >= 50:
-                ratios[cat] = {"ratio": 99, "demand": demand_score, "supply": 0, "label": "🌊 无竞品", "level": "deep_blue"}
+            # No supply data for this category — category name didn't match Amazon data
+            # Don't show misleading "无竞品" — mark as insufficient data
+            ratios[cat] = {"ratio": 0, "demand": demand_score, "supply": 0, "label": "⚪ 数据不足", "level": "no_data"}
             continue
         
         ratio = demand_score / supply

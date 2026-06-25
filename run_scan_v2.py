@@ -19,6 +19,7 @@ from sources.anysearch_trends import fetch_trend_signals
 from scoring_engine import score_all_products
 from market_intelligence import analyze_market, get_product_sd_score, get_product_divergence_score
 from gap_opportunity import analyze_gaps
+from keyword_scanner import run_keyword_scan
 
 
 def match_keywords_to_products(keywords, products, source_tag):
@@ -386,9 +387,16 @@ def main():
     print(f"{'='*60}\n", file=sys.stderr)
 
     # 1. Amazon (New/BSR/Wished/Gifts)
-    print("[1/7] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
+    print("[1/8] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
     amazon_products = fetch_amazon(max_per_channel_type=18)  # 扫描全部品类
     print(f"  Amazon: {len(amazon_products)} products", file=sys.stderr)
+
+    # 1b. Keyword-driven scan (discovery + festival keywords)
+    print("\n[1b/8] Keyword-driven scan (discovery + festival)...", file=sys.stderr)
+    keyword_products = run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=3)
+    if keyword_products:
+        amazon_products.extend(keyword_products)
+        print(f"  Added {len(keyword_products)} keyword products → total {len(amazon_products)}", file=sys.stderr)
 
     # 2. AnySearch trends (TikTok+HotUKDeals+Temu+Etsy+YouTube+Google+Reddit)
     print("\n[2/7] AnySearch 多源趋势分析...", file=sys.stderr)

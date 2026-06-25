@@ -297,11 +297,12 @@ def get_upcoming_events(days_ahead=90):
 
             days_until = (event_date - today).days
 
-            # Sourcing deadlines (supplier 3d + logistics + FBA receiving 3d)
-            # Air: 3+13+3=19d, Rail: 3+30+3=36d, Sea: 3+60+3=66d
-            air_deadline = event_date - timedelta(days=19)
-            rail_deadline = event_date - timedelta(days=36)
-            sea_deadline = event_date - timedelta(days=66)
+            # Sourcing deadlines (aligned with uk-festival-planner + festival_engine.py)
+            # Air: production(3)+transit(13)=16d, Truck: 3+30=33d, Sea: 3+60=63d
+            # Buffer: +14d (FBA receiving + safety)
+            air_deadline = event_date - timedelta(days=16 + 14)
+            rail_deadline = event_date - timedelta(days=33 + 14)
+            sea_deadline = event_date - timedelta(days=63 + 14)
 
             # Status — best available option
             if air_deadline < today:
@@ -329,6 +330,54 @@ def get_upcoming_events(days_ahead=90):
             break  # Don't add the same event for next year
 
     upcoming.sort(key=lambda x: x["days_until"])
+    
+    # Merge Festival Planner events (primary source, more complete)
+    try:
+        from festival_engine import load_festivals, get_deadlines
+        festivals = load_festivals()
+        existing_dates = {(e["date"], e["event_name"]) for e in upcoming}
+        
+        for f in festivals:
+            f_date_str = f.get("date", "")
+            if not f_date_str:
+                continue
+            f_date = datetime.strptime(f_date_str, "%Y-%m-%d")
+            if f_date < today or f_date > cutoff:
+                continue
+            
+            # Skip if already in upcoming (from UK_EVENTS)
+            if (f_date_str, f.get("name", "")) in existing_dates:
+                continue
+            
+            deadlines = get_deadlines(f)
+            days_until = (f_date - today).days
+            
+            # Determine urgency from sea deadline
+            sea_days = deadlines.get("sea", {}).get("days_from_today", 999)
+            if sea_days < 0:
+                sourcing_urgency = "OVERDUE"
+            elif sea_days <= 7:
+                sourcing_urgency = "URGENT"
+            else:
+                sourcing_urgency = "OK"
+            
+            upcoming.append({
+                "event_name": f"{f.get('icon', '📅')} {f.get('name', '')}",
+                "date": f_date_str,
+                "days_until": days_until,
+                "recommended_categories": [p.get("category", "") for p in f.get("products", [])[:3]],
+                "sourcing_deadline_air": deadlines.get("air", {}).get("date", ""),
+                "sourcing_deadline_rail": deadlines.get("truck", {}).get("date", ""),
+                "sourcing_deadline_sea": deadlines.get("sea", {}).get("date", ""),
+                "sourcing_urgency": sourcing_urgency,
+                "notes": f"Importance: {f.get('importance', 'B')} | {len(f.get('products', []))} SKUs",
+                "source": "festival_planner",
+            })
+        
+        upcoming.sort(key=lambda x: x["days_until"])
+    except Exception as e:
+        print(f"  ⚠️ Festival Planner merge failed: {e}", file=sys.stderr)
+    
     return upcoming
 
 
