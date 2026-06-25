@@ -7,50 +7,18 @@
   },
   "min_profit_margin": 0.2,
   "max_weight_g": 300,
-  "max_length_cm": 32,
-  "preferred_weight_g": 100,
-  "preferred_thickness_cm": 2.5,
   "exchange_rate_cny_gbp": 7.3,
   "cost_structure": {
     "vat_rate": 0.167,
     "commission_rate": 0.15,
     "commission_home": 0.08,
     "commission_pets": 0.05,
-    "ad_rate": 0.05,
+    "ad_rate": 0.1,
     "return_rate": 0.02,
     "fba_small_standard": 1.46,
     "fba_large_standard": 2.46,
     "sourcing_cost": 0.8
   },
-  "forbidden_categories": [
-    "children",
-    "toys",
-    "baby",
-    "cosmetics",
-    "skincare",
-    "beauty_tools",
-    "food",
-    "medicine",
-    "supplements",
-    "health",
-    "clothing",
-    "shoes",
-    "apparel",
-    "fashion",
-    "furniture",
-    "large_items",
-    "electronics",
-    "battery",
-    "electrical",
-    "powered",
-    "petroleum",
-    "aerosol",
-    "flammable",
-    "weapons",
-    "knives",
-    "liquids",
-    "pet_food"
-  ],
   "forbidden_keywords": [
     "toy",
     "kids",
@@ -226,24 +194,6 @@
       ]
     }
   },
-  "scoring": {
-    "new_releases_bonus": 25,
-    "tiktok_trending_bonus": 25,
-    "google_rising_bonus": 20,
-    "multi_source_boost": 20,
-    "low_review_bonus": 15,
-    "high_margin_bonus": 10,
-    "seasonal_bonus": 10,
-    "reddit_mention_bonus": 5,
-    "bsr_top50_bonus": 5,
-    "bsr_top100_bonus": 3
-  },
-  "demand_signal_required": true,
-  "demand_signal_sources": [
-    "new_releases",
-    "tiktok",
-    "google_trends"
-  ],
   "output": {
     "max_recommendations": 10,
     "snapshot_dir": "data/snapshots",
@@ -252,23 +202,6 @@
   },
   "max_reviews": 200,
   "min_rating": 3.5,
-  "sourcing_tiers": [
-    {
-      "label": "低档",
-      "cost": 0.8,
-      "desc": "1688低价+空运"
-    },
-    {
-      "label": "中档",
-      "cost": 1.2,
-      "desc": "1688均价+空运"
-    },
-    {
-      "label": "高档",
-      "cost": 1.5,
-      "desc": "品牌供应商+卡航"
-    }
-  ],
   "forbidden_brands": [],
   "seasonal_categories": {
     "summer_hot": [

@@ -241,18 +241,13 @@ def sync_discovery_to_bitable(discovery_json_path, app_token, table_id):
 
         # Amazon search link
         amazon_kw = ins.get("amazon_keyword", kw)
-        fields["Amazon搜索链接"] = {
-            "text": f"Amazon UK: {amazon_kw}",
-            "link": f"https://www.amazon.co.uk/s?k={amazon_kw.replace(' ', '+')}",
-        }
+        amz_url = f"https://www.amazon.co.uk/s?k={amazon_kw.replace(' ', '+')}"
+        fields["Amazon搜索链接"] = amz_url
 
         # 1688 search link
         s1688 = ins.get("search_1688", ins.get("keyword_cn", ""))
         if s1688:
-            fields["1688链接"] = {
-                "text": s1688,
-                "link": f"https://s.1688.com/selloffer/offer_search.htm?keywords={s1688.replace(' ', '+')}",
-            }
+            fields["1688链接"] = f"https://s.1688.com/selloffer/offer_search.htm?keywords={s1688.replace(' ', '+')}"
 
         new_records.append({"fields": fields})
         existing.add(kw)  # Prevent dupes within same batch

@@ -85,27 +85,47 @@ def _count_pipeline_stats():
 
 
 def _get_radar_highlights(radar_data, top_n=5):
-    """Extract top-scored categories from radar data."""
+    """Extract top-scored categories/products from radar data."""
     if not radar_data:
         return []
 
-    highlights = []
-    stats = radar_data.get("stats", {})
-    categories = stats.get("trend_categories", {})
-    supply_demand = stats.get("supply_demand", {})
+    # Case 1: dict with stats (old format)
+    if isinstance(radar_data, dict):
+        highlights = []
+        stats = radar_data.get("stats", {})
+        categories = stats.get("trend_categories", {})
+        supply_demand = stats.get("supply_demand", {})
+        sorted_cats = sorted(categories.items(), key=lambda x: x[1], reverse=True)
+        for cat, score in sorted_cats[:top_n]:
+            sd = supply_demand.get(cat, {})
+            highlights.append({
+                "category": cat,
+                "trend_score": score,
+                "demand_label": sd.get("label", ""),
+                "demand_level": sd.get("level", ""),
+            })
+        return highlights
 
-    # Sort categories by trend score
-    sorted_cats = sorted(categories.items(), key=lambda x: x[1], reverse=True)
-    for cat, score in sorted_cats[:top_n]:
-        sd = supply_demand.get(cat, {})
-        highlights.append({
-            "category": cat,
-            "trend_score": score,
-            "demand_label": sd.get("label", ""),
-            "demand_level": sd.get("level", ""),
-        })
+    # Case 2: list of product dicts (current format)
+    if isinstance(radar_data, list):
+        highlights = []
+        for item in radar_data[:top_n]:
+            asin = item.get("asin", "")
+            title = item.get("title", "")[:80]
+            bsr = item.get("bsr_rank", "")
+            cat = item.get("bsr_category", "")
+            price = item.get("price", "")
+            reviews = item.get("reviews", "")
+            rating = item.get("rating", "")
+            highlights.append({
+                "category": f"{title} ({asin})",
+                "trend_score": f"BSR#{bsr} | {cat}",
+                "demand_label": f"${price} | {reviews}评 | {rating}⭐",
+                "demand_level": "",
+            })
+        return highlights
 
-    return highlights
+    return []
 
 
 def generate_daily_report(target_date=None):
@@ -158,7 +178,7 @@ def generate_daily_report(target_date=None):
     lines.append("## 📡 雷达热点")
     lines.append("")
     if highlights:
-        scan_ts = radar_data.get("scan_ts", "") if radar_data else ""
+        scan_ts = radar_data.get("scan_ts", "") if isinstance(radar_data, dict) else ""
         lines.append(f"最新扫描：{scan_ts}")
         lines.append("")
         for h in highlights:

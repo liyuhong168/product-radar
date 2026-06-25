@@ -1,0 +1,440 @@
+#!/usr/bin/env python3
+"""
+Season Engine — UK seasonal event prediction for product sourcing.
+
+Built-in calendar of UK consumer events (Jan-Dec) with:
+- Event dates and recommended product categories
+- Sourcing deadlines (air freight: -45 days, sea freight: -75 days)
+- Seasonal search keyword generation
+
+Usage:
+    python3 season_engine.py                  # upcoming events (90 days)
+    python3 season_engine.py --days 120       # next 120 days
+    python3 season_engine.py --keywords       # current seasonal keywords
+    python3 season_engine.py --json           # JSON output
+"""
+import json, sys
+from datetime import datetime, timedelta
+from pathlib import Path
+
+BASE = Path(__file__).parent
+CONFIG = json.loads((BASE / "config.json").read_text())
+
+# ── UK Seasonal Events Calendar ───────────────────────────────────
+# Each event: name, month, day (approx), categories, year_override for floating dates
+# Fixed dates use (month, day). Floating dates use best-guess for current year.
+# For floating events, we store the typical month/week range and pick a plausible date.
+
+UK_EVENTS = [
+    # January
+    {
+        "event_name": "New Year / January Declutter",
+        "month": 1, "day": 2,
+        "recommended_categories": ["storage", "organiser", "desk accessories", "meal prep"],
+        "notes": "Post-Christmas returns, gift card redemptions, resolutions",
+    },
+    {
+        "event_name": "Veganuary / Health Kick",
+        "month": 1, "day": 5,
+        "recommended_categories": ["kitchen gadgets", "meal prep", "storage containers"],
+        "notes": "Healthy eating drives kitchen accessory sales",
+    },
+
+    # February
+    {
+        "event_name": "Valentine's Day",
+        "month": 2, "day": 14,
+        "recommended_categories": ["gift packaging", "decorative items", "travel accessories", "candle holders"],
+        "notes": "UK Valentine's £1B+ market. Avoid cosmetics/perfume (forbidden)",
+    },
+    {
+        "event_name": "Half Term (Feb)",
+        "month": 2, "day": 17,
+        "recommended_categories": ["outdoor accessories", "craft supplies", "car accessories"],
+        "notes": "Family travel and activity products",
+    },
+
+    # March
+    {
+        "event_name": "Mothering Sunday (UK)",
+        "month": 3, "day": 22,  # Varies late March (2026: approx Mar 22)
+        "recommended_categories": ["kitchen gadgets", "garden accessories", "home decor", "gift sets"],
+        "notes": "UK Mother's Day ≠ US. Different date!",
+    },
+    {
+        "event_name": "Spring Cleaning",
+        "month": 3, "day": 15,
+        "recommended_categories": ["cleaning tools", "storage", "organisers", "bathroom accessories"],
+        "notes": "Spring refresh mindset drives cleaning product sales",
+    },
+    {
+        "event_name": "British Summer Time Begins",
+        "month": 3, "day": 29,  # Last Sunday of March
+        "recommended_categories": ["garden tools", "outdoor lighting", "solar lights"],
+        "notes": "Clocks go forward, evenings get lighter",
+    },
+
+    # April
+    {
+        "event_name": "Easter Weekend",
+        "month": 4, "day": 5,  # Varies (2026: approx Apr 3-6)
+        "recommended_categories": ["garden tools", "outdoor accessories", "kitchen gadgets",
+                                    "party supplies", "Easter decorations"],
+        "notes": "4-day Bank Holiday weekend drives at-home entertaining",
+    },
+    {
+        "event_name": "Spring Gardening Peak",
+        "month": 4, "day": 15,
+        "recommended_categories": ["garden tools", "plant pots", "seed kits", "garden decor", "bird feeders"],
+        "notes": "Garden product demand starts ramping up",
+    },
+
+    # May
+    {
+        "event_name": "Early May Bank Holiday",
+        "month": 5, "day": 4,
+        "recommended_categories": ["garden tools", "BBQ accessories", "outdoor lighting", "picnic items"],
+        "notes": "3-day weekend, garden/BBQ season kicks off",
+    },
+    {
+        "event_name": "Chelsea Flower Show",
+        "month": 5, "day": 19,
+        "recommended_categories": ["garden tools", "plant pots", "garden decor", "bird accessories"],
+        "notes": "RHS Chelsea drives massive garden product interest",
+    },
+    {
+        "event_name": "Spring Bank Holiday",
+        "month": 5, "day": 25,
+        "recommended_categories": ["outdoor accessories", "travel items", "car accessories", "BBQ"],
+        "notes": "3-day weekend, outdoor entertaining",
+    },
+
+    # June
+    {
+        "event_name": "Summer Begins / School Holiday Prep",
+        "month": 6, "day": 1,
+        "recommended_categories": ["travel accessories", "car cleaning", "outdoor gadgets",
+                                    "picnic items", "water bottles"],
+        "notes": "Travel prep and outdoor activity products",
+    },
+    {
+        "event_name": "Father's Day (UK)",
+        "month": 6, "day": 21,  # Third Sunday (2026: Jun 21)
+        "recommended_categories": ["car accessories", "DIY tools", "BBQ accessories", "gadget gifts"],
+        "notes": "Gift-giving for dad — tools, gadgets, car accessories",
+    },
+    {
+        "event_name": "Glastonbury / Festival Season",
+        "month": 6, "day": 24,
+        "recommended_categories": ["camping accessories", "outdoor gear", "festival accessories", "solar lights"],
+        "notes": "Festival season drives camping and outdoor purchases",
+    },
+
+    # July
+    {
+        "event_name": "Amazon Prime Day",
+        "month": 7, "day": 15,  # Usually mid-July
+        "recommended_categories": ["everything — best sellers", "kitchen", "home", "tech accessories"],
+        "notes": "Biggest non-Q4 sales event. Stock FBA by early July!",
+    },
+    {
+        "event_name": "Summer Holidays Start",
+        "month": 7, "day": 20,
+        "recommended_categories": ["outdoor toys", "travel accessories", "car accessories",
+                                    "camping", "picnic", "beach"],
+        "notes": "School summer holidays begin — family activity products peak",
+    },
+
+    # August
+    {
+        "event_name": "Peak Summer / Holiday Season",
+        "month": 8, "day": 1,
+        "recommended_categories": ["travel accessories", "beach items", "car accessories",
+                                    "outdoor cooling", "sun protection"],
+        "notes": "Peak travel and outdoor product demand",
+    },
+    {
+        "event_name": "Summer Bank Holiday",
+        "month": 8, "day": 31,  # Last Monday of August
+        "recommended_categories": ["outdoor accessories", "BBQ", "garden", "party supplies"],
+        "notes": "Last outdoor hurrah of the year",
+    },
+    {
+        "event_name": "Back to School",
+        "month": 8, "day": 20,
+        "recommended_categories": ["stationery", "desk organisers", "lunch boxes",
+                                    "storage", "pencil cases"],
+        "notes": "Major UK shopping event — back to school drives stationery/storage",
+    },
+
+    # September
+    {
+        "event_name": "Autumn Prep",
+        "month": 9, "day": 1,
+        "recommended_categories": ["kitchen gadgets", "autumn decor", "storage",
+                                    "desk accessories", "candles"],
+        "notes": "Routine returns, autumn nesting mindset",
+    },
+    {
+        "event_name": "University Move-In",
+        "month": 9, "day": 15,
+        "recommended_categories": ["storage", "kitchen gadgets", "desk accessories",
+                                    "bedding", "cleaning supplies"],
+        "notes": "Freshers week — students buying essentials for uni accommodation",
+    },
+
+    # October
+    {
+        "event_name": "Halloween",
+        "month": 10, "day": 31,
+        "recommended_categories": ["Halloween decorations", "party supplies",
+                                    "candles", "outdoor decor"],
+        "notes": "UK Halloween growing. Focus on party/decoration items (not costumes/toys)",
+    },
+    {
+        "event_name": "Autumn Gardening",
+        "month": 10, "day": 10,
+        "recommended_categories": ["garden tools", "leaf clearance", "compost bins",
+                                    "bird feeders", "outdoor lighting"],
+        "notes": "Autumn garden prep — leaf tools, bird feeding, winter prep",
+    },
+
+    # November
+    {
+        "event_name": "Bonfire Night",
+        "month": 11, "day": 5,
+        "recommended_categories": ["outdoor accessories", "blankets", "flasks",
+                                    "party supplies", "outdoor lighting"],
+        "notes": "Nov 5 — outdoor event accessories, warm items",
+    },
+    {
+        "event_name": "Black Friday / Cyber Monday",
+        "month": 11, "day": 27,  # Last Friday of Nov (2026: Nov 27)
+        "recommended_categories": ["EVERYTHING — best sellers", "kitchen", "home",
+                                    "storage", "gadgets", "gifts"],
+        "notes": "BIGGEST sales month. FBA gets congested — ship by early October!",
+    },
+    {
+        "event_name": "Christmas Prep Begins",
+        "month": 11, "day": 1,
+        "recommended_categories": ["Christmas decorations", "gift items", "party supplies",
+                                    "kitchen gadgets", "candles", "fairy lights"],
+        "notes": "Christmas shopping season starts. FBA extremely congested.",
+    },
+
+    # December
+    {
+        "event_name": "Christmas",
+        "month": 12, "day": 25,
+        "recommended_categories": ["gift items", "party supplies", "Christmas decorations",
+                                    "kitchen gadgets", "travel accessories"],
+        "notes": "Last order dates Dec 18-20. Stock by October!",
+    },
+    {
+        "event_name": "Boxing Day / Post-Christmas",
+        "month": 12, "day": 26,
+        "recommended_categories": ["storage", "organisers", "sale items", "home refresh"],
+        "notes": "Boxing Day sales + returns period",
+    },
+    {
+        "event_name": "New Year's Eve",
+        "month": 12, "day": 31,
+        "recommended_categories": ["party supplies", "decorations", "kitchen gadgets"],
+        "notes": "NYE entertaining",
+    },
+]
+
+
+def _build_event_date(event, reference_year):
+    """Build a datetime for the event in the reference year.
+    
+    For events that have passed this year, rolls to next year.
+    """
+    month = event["month"]
+    day = event["day"]
+
+    # Handle month overflow (e.g., month=13 for events that need next-year wrap)
+    try:
+        dt = datetime(reference_year, month, day)
+    except ValueError:
+        # Invalid day (e.g., Feb 30), fall back to last day of month
+        if month == 2:
+            dt = datetime(reference_year, 2, 28)
+        elif month in (4, 6, 9, 11):
+            dt = datetime(reference_year, month, 30)
+        else:
+            dt = datetime(reference_year, month, 31)
+
+    return dt
+
+
+def get_upcoming_events(days_ahead=90):
+    """Get upcoming UK seasonal events within the specified window.
+
+    Args:
+        days_ahead: how many days ahead to look (default 90)
+
+    Returns:
+        list of dicts: [{
+            event_name, date, days_until, recommended_categories,
+            sourcing_deadline_air, sourcing_deadline_sea, notes
+        }]
+    """
+    today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    cutoff = today + timedelta(days=days_ahead)
+
+    upcoming = []
+
+    for event in UK_EVENTS:
+        # Try current year, then next year
+        for year_offset in range(2):
+            event_date = _build_event_date(event, today.year + year_offset)
+
+            if event_date < today:
+                continue
+            if event_date > cutoff:
+                break
+
+            days_until = (event_date - today).days
+
+            # Sourcing deadlines (supplier 3d + logistics + FBA receiving 3d)
+            # Air: 3+13+3=19d, Rail: 3+30+3=36d, Sea: 3+60+3=66d
+            air_deadline = event_date - timedelta(days=19)
+            rail_deadline = event_date - timedelta(days=36)
+            sea_deadline = event_date - timedelta(days=66)
+
+            # Status — best available option
+            if air_deadline < today:
+                sourcing_urgency = "OVERDUE"  # All options expired
+            elif rail_deadline < today:
+                sourcing_urgency = "AIR_ONLY"  # Only air freight viable
+            elif sea_deadline < today:
+                sourcing_urgency = "RAIL_OR_AIR"  # Sea missed, rail still OK
+            elif (air_deadline - today).days <= 7:
+                sourcing_urgency = "URGENT"  # Air deadline approaching
+            else:
+                sourcing_urgency = "OK"
+
+            upcoming.append({
+                "event_name": event["event_name"],
+                "date": event_date.strftime("%Y-%m-%d"),
+                "days_until": days_until,
+                "recommended_categories": event["recommended_categories"],
+                "sourcing_deadline_air": air_deadline.strftime("%Y-%m-%d"),
+                "sourcing_deadline_rail": rail_deadline.strftime("%Y-%m-%d"),
+                "sourcing_deadline_sea": sea_deadline.strftime("%Y-%m-%d"),
+                "sourcing_urgency": sourcing_urgency,
+                "notes": event.get("notes", ""),
+            })
+            break  # Don't add the same event for next year
+
+    upcoming.sort(key=lambda x: x["days_until"])
+    return upcoming
+
+
+def get_seasonal_keywords():
+    """Return search keywords relevant to the current season.
+
+    Based on the current month and upcoming events in the next 30 days.
+    Returns list of keyword strings suitable for Amazon UK / AnySearch.
+    """
+    today = datetime.now()
+    month = today.month
+
+    # Seasonal keyword map
+    seasonal = {
+        1: ["storage organiser", "desk accessories", "meal prep containers",
+            "cleaning tools", "kitchen gadgets new year"],
+        2: ["valentine gift ideas", "romantic gift", "travel accessories",
+            "decorative items", "gift packaging"],
+        3: ["spring cleaning tools", "garden tools", "kitchen gadgets",
+            "home decor", "storage solutions", "mothers day gift"],
+        4: ["garden accessories", "easter decoration", "outdoor tools",
+            "kitchen gadgets", "party supplies", "cleaning supplies"],
+        5: ["garden tools", "BBQ accessories", "outdoor lighting",
+            "plant pots", "picnic items", "solar garden light"],
+        6: ["travel accessories", "car cleaning", "outdoor gadgets",
+            "water bottle", "picnic set", "camping accessories",
+            "fathers day gift"],
+        7: ["outdoor accessories", "BBQ tools", "travel gadgets",
+            "car accessories", "camping gear", "beach accessories",
+            "prime day deals"],
+        8: ["travel accessories", "back to school stationery", "lunch box",
+            "desk organiser", "storage", "outdoor cooling"],
+        9: ["kitchen gadgets", "autumn decor", "desk accessories",
+            "storage organiser", "candles", "university essentials"],
+        10: ["halloween decoration", "autumn garden tools", "party supplies",
+             "candles", "outdoor lighting", "bird feeder"],
+        11: ["christmas decoration", "gift ideas", "fairy lights",
+             "party supplies", "kitchen gadgets", "blanket throw",
+             "black friday deals"],
+        12: ["christmas gifts", "party supplies", "storage organiser",
+             "kitchen gadgets", "travel accessories", "home decor"],
+    }
+
+    keywords = seasonal.get(month, ["kitchen accessories", "home gadgets"])
+
+    # Add upcoming event keywords
+    upcoming = get_upcoming_events(days_ahead=30)
+    for event in upcoming:
+        for cat in event["recommended_categories"]:
+            if cat not in keywords and cat != "everything — best sellers":
+                keywords.append(cat.lower())
+
+    # Deduplicate, preserving order
+    seen = set()
+    unique = []
+    for kw in keywords:
+        kw_lower = kw.lower().strip()
+        if kw_lower not in seen:
+            seen.add(kw_lower)
+            unique.append(kw)
+
+    return unique
+
+
+if __name__ == "__main__":
+    output_json = "--json" in sys.argv
+
+    # Parse --days N
+    days = 90
+    for i, arg in enumerate(sys.argv):
+        if arg == "--days" and i + 1 < len(sys.argv):
+            try:
+                days = int(sys.argv[i + 1])
+            except ValueError:
+                pass
+
+    if "--keywords" in sys.argv:
+        keywords = get_seasonal_keywords()
+        if output_json:
+            print(json.dumps(keywords, indent=2))
+        else:
+            print("=== Current Seasonal Keywords ===")
+            for i, kw in enumerate(keywords, 1):
+                print(f"  {i}. {kw}")
+            print(f"\n  Total: {len(keywords)} keywords")
+    else:
+        events = get_upcoming_events(days_ahead=days)
+
+        if output_json:
+            print(json.dumps(events, indent=2, ensure_ascii=False))
+        else:
+            print(f"=== Upcoming UK Events (next {days} days) ===\n")
+            if not events:
+                print("  No events found in this window.")
+            for e in events:
+                urgency_icon = {
+                    "OK": "✅", "URGENT": "⚠️", "AIR_ONLY": "🟡", "OVERDUE": "🔴"
+                }.get(e["sourcing_urgency"], "")
+                print(f"  {e['date']}  ({e['days_until']}d away)  {e['event_name']}  {urgency_icon}")
+                print(f"    Categories: {', '.join(e['recommended_categories'][:4])}")
+                print(f"    Sourcing: air={e['sourcing_deadline_air']} sea={e['sourcing_deadline_sea']} "
+                      f"[{e['sourcing_urgency']}]")
+                if e.get("notes"):
+                    print(f"    Note: {e['notes']}")
+                print()
+
+            print(f"\n--- Current Seasonal Keywords ---")
+            for kw in get_seasonal_keywords()[:10]:
+                print(f"  • {kw}")

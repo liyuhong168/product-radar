@@ -470,6 +470,17 @@ def main():
 
     passed = score_all_products(passed, trend_data=trend_data, history=history)
 
+    # Mark new vs repeat products based on 7-day history
+    for p in passed:
+        key = p.get("asin") or p.get("name", "").lower().strip()
+        if key in history:
+            p["is_new"] = False
+            dates = [h["date"] for h in history[key]]
+            p["first_seen"] = min(dates)[:10]  # YYYY-MM-DD
+        else:
+            p["is_new"] = True
+            p["first_seen"] = scan_date
+
     # 7d. Limit event-based products (avoid single-event domination)
     print("\n[7d] Event Product Limiting...", file=sys.stderr)
     passed_before = len(passed)

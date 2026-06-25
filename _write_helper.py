@@ -1,0 +1,1 @@
+from pathlib import Path as P; P("test").write_text("ok")
