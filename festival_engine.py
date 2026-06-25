@@ -316,10 +316,10 @@ def generate_festival_html(festivals):
                     
                     cat_info = CATEGORY_MAP.get(p.get('category', ''), {"label": p.get('category', ''), "icon": "📦", "color": "#6b7280"})
                     
-                    # Amazon 关键词链接
+                    # Amazon 关键词链接（显示全部，最多4个）
                     keywords_html = "".join(
                         f'<a class="kw-link amazon" href="https://www.amazon.co.uk/s?k={urllib.parse.quote(kw)}" target="_blank">🛒 {kw}</a>'
-                        for kw in p.get('keywords', [])[:2]
+                        for kw in p.get('keywords', [])[:4]
                     )
                     
                     # 1688 搜索链接

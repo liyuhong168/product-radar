@@ -507,7 +507,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 .risk-high{{background:#fef2f2;color:var(--red)}}
 
 /* 搜索链接 */
-.links{{display:flex;flex-direction:column;gap:4px}}
+.links{{display:flex;flex-direction:column;gap:4px;min-width:120px}}
 .kw-link{{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:8px;font-size:11px;text-decoration:none;white-space:nowrap;transition:all .15s}}
 .kw-link.amazon{{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}}
 .kw-link.amazon:hover{{background:#ffedd5;border-color:#fb923c}}
