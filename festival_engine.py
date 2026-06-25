@@ -332,7 +332,7 @@ def generate_festival_html(festivals):
                     
                     ali_html = ''
                     if search_term:
-                        encoded_term = urllib.parse.quote(search_term, encoding='utf-8')
+                        encoded_term = urllib.parse.quote(search_term, encoding='gbk', safe='')
                         ali_html = f'<a class="kw-link ali" href="https://s.1688.com/selloffer/offer_search.htm?keywords={encoded_term}" target="_blank">🏭 {search_term}</a>'
                     
                     products_html += f'''

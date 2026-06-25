@@ -187,12 +187,16 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
         festival_html = generate_festival_html(festivals)
         festival_count = len(festivals)
         # Serialize festivals for frontend kanban (minimal fields only)
+        # Pre-encode 1688 URLs in GBK to avoid garbled text
         festivals_json = json.dumps([
             {"id": f.get("id",""), "name": f.get("name",""), "icon": f.get("icon",""),
              "date": f.get("date",""), "importance": f.get("importance",""),
              "products": [{"sku": p.get("sku",""), "keywords": p.get("keywords",[]),
                            "category": p.get("category",""), "margin": p.get("margin",""),
-                           "sourcing": p.get("sourcing",""), "matchScore": p.get("matchScore",0)}
+                           "sourcing": p.get("sourcing",""), "matchScore": p.get("matchScore",0),
+                           "aliUrl": "https://s.1688.com/selloffer/offer_search.htm?keywords=" + urllib.parse.quote(
+                               (p.get("sourcing","").split("1688:")[1].strip() if "1688:" in p.get("sourcing","") else p.get("sku","")),
+                               encoding='gbk', safe='')}
                           for p in f.get("products",[])]}
             for f in festivals
         ], ensure_ascii=False)
@@ -849,32 +853,33 @@ function exportCSV(){{
 function renderKanban() {{
   const metricsRow = document.getElementById('metricsRow');
   const board = document.getElementById('kanbanBoard');
-  const sts = getSt(); // localStorage status
+  const sts = getSt();
 
   // --- Collect items from 3 sources ---
   const inbox = [];
-  const today = new Date().toISOString().slice(0,10);
+  const now = new Date();
+  const today = now.toISOString().slice(0,10);
 
   // Source 1: Festival Planner (highest priority — has deadlines)
-  // FESTIVALS is embedded in the page by festival_engine
   if (typeof FESTIVALS !== 'undefined') {{
+    const eventCounts = {{}}; // limit per event
     FESTIVALS.forEach(f => {{
       const fDate = new Date(f.date);
-      const now = new Date();
-      if (fDate < now) return; // past event
-      // Sea deadline = event - (63+14) = event - 77 days
+      if (fDate < now) return;
       const seaDeadline = new Date(fDate);
       seaDeadline.setDate(seaDeadline.getDate() - 77);
       const daysLeft = Math.ceil((seaDeadline - now) / 86400000);
-      if (daysLeft > 30 || daysLeft < -10) return; // only near window
+      if (daysLeft > 30 || daysLeft < -10) return;
+      eventCounts[f.id] = 0;
 
       (f.products || []).forEach(p => {{
+        if (eventCounts[f.id] >= 3) return; // max 3 per event
         const kw = (p.keywords || [])[0] || p.sku || '';
         if (!kw) return;
-        // Don't add if already moved to starred/verified
         const kbKey = 'kb_fest_' + f.id + '_' + kw.replace(/\\s+/g,'_').slice(0,20);
-        if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified') return;
+        if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified' || sts[kbKey] === 'dismissed') return;
 
+        eventCounts[f.id]++;
         inbox.push({{
           id: kbKey,
           name: kw,
@@ -888,22 +893,26 @@ function renderKanban() {{
           eventName: f.name,
           eventIcon: f.icon || '📅',
           amazonKw: kw,
-          aliKw: (p.sourcing || '').replace('1688:','').trim() || p.sku || '',
+          aliUrl: p.aliUrl || '',
           sortWeight: daysLeft <= 7 ? 1000 : daysLeft <= 14 ? 500 : 100,
         }});
       }});
     }});
   }}
 
-  // Source 2: Discovery keywords
+  // Source 2: Discovery keywords (max 5)
+  let discCount = 0;
   Object.entries(DISC_ALL || {{}}).forEach(([date, dd]) => {{
     (dd.insights || []).forEach(ins => {{
+      if (discCount >= 5) return;
       const kw = ins.keyword || '';
       if (!kw) return;
       const kbKey = 'kb_disc_' + kw.replace(/\\s+/g,'_').slice(0,30) + '_' + date;
-      if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified') return;
+      if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified' || sts[kbKey] === 'dismissed') return;
 
+      discCount++;
       const ss = ins.signal_scores || {{}};
+      const aliKw = ins.search_1688 || '';
       inbox.push({{
         id: kbKey,
         name: ins.amazon_keyword || kw,
@@ -912,22 +921,25 @@ function renderKanban() {{
         score: ss.final || ins.trend_score || 0,
         profit: ss.profit_window || '',
         gapLevel: ss.gap_level || '',
-        recommendation: ss.recommendation || '',
         amazonKw: ins.amazon_keyword || kw,
-        aliKw: ins.search_1688 || '',
+        aliKw: aliKw,
+        aliUrl: ins.search_1688_url || '',
         date: date,
-        sortWeight: (ss.final || 0) + 50, // above radar, below festival
+        sortWeight: (ss.final || 0) + 50,
       }});
     }});
   }});
 
-  // Source 3: Radar products
+  // Source 3: Radar products (max 10, only new)
+  let radarCount = 0;
   Object.entries(RADAR_ALL || {{}}).forEach(([date, rd]) => {{
     (rd.products || []).forEach(p => {{
-      if (!p.asin) return;
+      if (radarCount >= 10) return;
+      if (!p.asin || p.is_new === false) return;
       const kbKey = 'kb_radar_' + p.asin;
-      if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified') return;
+      if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified' || sts[kbKey] === 'dismissed') return;
 
+      radarCount++;
       inbox.push({{
         id: kbKey,
         name: p.name || '',
@@ -939,6 +951,7 @@ function renderKanban() {{
         amazonKw: '',
         amazonUrl: p.amazon_url || 'https://www.amazon.co.uk/dp/' + p.asin,
         aliKw: '',
+        aliUrl: '',
         date: date,
         sortWeight: p.score || 0,
       }});
@@ -948,21 +961,19 @@ function renderKanban() {{
   // --- Build starred and verified lists ---
   const starred = [];
   const verified = [];
-  // Check all localStorage keys for starred/verified items
   Object.entries(sts).forEach(([key, status]) => {{
-    if (key.startsWith('kb_') && status === 'starred') {{
-      const item = inbox.find(i => i.id === key);
+    if (!key.startsWith('kb_')) return;
+    const item = inbox.find(i => i.id === key);
+    if (status === 'starred') {{
       if (item) starred.push(item);
-      else starred.push({{id: key, name: key.replace('kb_','').replace(/_/g,' '), source: 'unknown', score: 0, sortWeight: 0}});
+      else starred.push({{id: key, name: key.replace(/kb_[^_]+_/,'').replace(/_/g,' '), source: 'unknown', score: 0, sortWeight: 0, amazonKw:'', aliUrl:''}});
     }}
-    if (key.startsWith('kb_') && status === 'verified') {{
-      const item = inbox.find(i => i.id === key);
+    if (status === 'verified') {{
       if (item) verified.push(item);
-      else verified.push({{id: key, name: key.replace('kb_','').replace(/_/g,' '), source: 'unknown', score: 0, sortWeight: 0}});
+      else verified.push({{id: key, name: key.replace(/kb_[^_]+_/,'').replace(/_/g,' '), source: 'unknown', score: 0, sortWeight: 0, amazonKw:'', aliUrl:''}});
     }}
   }});
 
-  // Sort inbox by weight (festival urgency > discovery score > radar score)
   inbox.sort((a, b) => b.sortWeight - a.sortWeight);
 
   // --- Metrics ---
@@ -973,37 +984,43 @@ function renderKanban() {{
     {{n: starred.length, l: '⭐ 值得做'}},
     {{n: verified.length, l: '✅ 已验证'}},
     {{n: urgentCount, l: '🔴 紧急(≤7天)', cls: urgentCount > 0 ? 'urgent' : ''}},
-    {{n: nearestDeadline ? nearestDeadline.deadlineLabel + ' ' + nearestDeadline.daysLeft + '天' : '—', l: '📅 最近截止'}},
+    {{n: nearestDeadline ? nearestDeadline.eventIcon + ' ' + nearestDeadline.eventName + ' ' + nearestDeadline.daysLeft + '天' : '—', l: '📅 最近截止'}},
   ].map(item => `<div class="metric-card ${{item.cls||''}}"><div class="big">${{item.n}}</div><div class="label">${{item.l}}</div></div>`).join('');
 
-  // --- Render card helper ---
-  function renderCard(item) {{
+  // --- Unified card renderer ---
+  function renderCard(item, colKey) {{
     const srcCls = item.source || 'radar';
     const srcLabel = {{festival:'📅 节日', discovery:'🔍 发现', radar:'📡 雷达'}}[srcCls] || '📡 其他';
-    
-    // Deadline badge
+
     let deadlineHtml = '';
-    if (item.deadline && item.daysLeft !== undefined) {{
+    if (item.daysLeft !== undefined) {{
       const dlCls = item.daysLeft <= 7 ? '' : 'ok';
       deadlineHtml = `<span class="kc-deadline ${{dlCls}}">${{item.eventIcon||'📅'}} ${{item.daysLeft}}天</span>`;
     }}
 
-    // Metrics tags
     let metricsHtml = '';
     if (item.score) metricsHtml += `<span class="kc-tag score">${{item.score}}分</span>`;
     if (item.profit) metricsHtml += `<span class="kc-tag profit">${{item.profit}}</span>`;
     if (item.gapLevel) metricsHtml += `<span class="kc-tag gap">${{item.gapLevel}}</span>`;
 
-    // Action buttons
+    // URLs
     const amazonUrl = item.amazonUrl || (item.amazonKw ? 'https://www.amazon.co.uk/s?k=' + encodeURIComponent(item.amazonKw) : '');
-    const aliKw = item.aliKw || item.nameCn || '';
-    const aliUrl = aliKw ? 'https://s.1688.com/selloffer/offer_search.htm?keywords=' + encodeURIComponent(aliKw).replace(/%20/g,'+') : '';
-    
+    const aliUrl = item.aliUrl || '';
+
+    // Action buttons (different per column)
     let actionsHtml = '';
     if (amazonUrl) actionsHtml += `<a class="kc-btn" href="${{amazonUrl}}" target="_blank">🛒 Amazon</a>`;
     if (aliUrl) actionsHtml += `<a class="kc-btn" href="${{aliUrl}}" target="_blank">🏭 1688</a>`;
-    actionsHtml += `<button class="kc-btn primary" onclick="moveKanban('${{item.id}}','starred')">⭐ 值得做</button>`;
-    actionsHtml += `<button class="kc-btn danger" onclick="moveKanban('${{item.id}}','dismiss')">✕</button>`;
+
+    if (colKey === 'inbox') {{
+      actionsHtml += `<button class="kc-btn primary" onclick="event.stopPropagation();moveKanban('${{item.id}}','starred')">⭐ 值得做</button>`;
+      actionsHtml += `<button class="kc-btn danger" onclick="event.stopPropagation();moveKanban('${{item.id}}','dismiss')">✕</button>`;
+    }} else if (colKey === 'starred') {{
+      actionsHtml += `<button class="kc-btn primary" onclick="event.stopPropagation();moveKanban('${{item.id}}','verified')">✅ 待验证</button>`;
+      actionsHtml += `<button class="kc-btn danger" onclick="event.stopPropagation();moveKanban('${{item.id}}','dismiss')">✕</button>`;
+    }} else {{ // verified
+      actionsHtml += `<button class="kc-btn danger" onclick="event.stopPropagation();moveKanban('${{item.id}}','dismiss')">✕</button>`;
+    }}
 
     return `<div class="kanban-card src-${{srcCls}}" data-id="${{item.id}}">
       <div class="kc-top">
@@ -1017,36 +1034,16 @@ function renderKanban() {{
     </div>`;
   }}
 
-  // --- Render verified card (simpler — just show name + source) ---
-  function renderVerifiedCard(item) {{
-    const srcCls = item.source || 'radar';
-    const srcLabel = {{festival:'📅', discovery:'🔍', radar:'📡'}}[srcCls] || '📡';
-    const amazonUrl = item.amazonUrl || (item.amazonKw ? 'https://www.amazon.co.uk/s?k=' + encodeURIComponent(item.amazonKw) : '');
-    return `<div class="kanban-card src-${{srcCls}}" data-id="${{item.id}}">
-      <div class="kc-top">
-        <span class="kc-src ${{srcCls}}">${{srcLabel}}</span>
-        ${{item.score ? `<span class="kc-tag score">${{item.score}}分</span>` : ''}}
-        ${{item.profit ? `<span class="kc-tag profit">${{item.profit}}</span>` : ''}}
-        <button class="kc-btn danger" style="margin-left:auto" onclick="moveKanban('${{item.id}}','dismiss')">✕</button>
-      </div>
-      <div class="kc-name">${{esc(item.name)}}</div>
-      <div class="kc-actions">
-        ${{amazonUrl ? `<a class="kc-btn" href="${{amazonUrl}}" target="_blank">🛒 Amazon</a>` : ''}}
-        <button class="kc-btn primary" onclick="moveKanban('${{item.id}}','verified')">✅ 已验证</button>
-      </div>
-    </div>`;
-  }}
-
   // --- Build board ---
   const columns = [
-    {{key:'inbox', label:'📥 收件箱', color:'#007AFF', items:inbox, render:renderCard, empty:'三源自动注入，每天更新'}},
-    {{key:'starred', label:'⭐ 值得做', color:'#FF9500', items:starred, render:renderVerifiedCard, empty:'点击卡片的"⭐ 值得做"按钮'}},
-    {{key:'verified', label:'✅ 已验证', color:'#34C759', items:verified, render:renderVerifiedCard, empty:'团队确认可做后标记'}},
+    {{key:'inbox', label:'📥 收件箱', color:'#007AFF', items:inbox, empty:'三源自动注入，每天更新'}},
+    {{key:'starred', label:'⭐ 值得做', color:'#FF9500', items:starred, empty:'点击卡片的"⭐ 值得做"按钮'}},
+    {{key:'verified', label:'✅ 已验证', color:'#34C759', items:verified, empty:'团队确认可做后标记'}},
   ];
 
   board.innerHTML = columns.map(col => {{
     const cardsHtml = col.items.length > 0
-      ? col.items.map(item => col.render(item)).join('')
+      ? col.items.map(item => renderCard(item, col.key)).join('')
       : `<div class="kanban-empty">${{col.empty}}</div>`;
     return `<div class="kanban-col" data-status="${{col.key}}">
       <div class="kanban-col-hd"><span class="dot" style="background:${{col.color}}"></span>${{col.label}}<span class="cnt">${{col.items.length}}</span></div>
@@ -1055,7 +1052,6 @@ function renderKanban() {{
   }}).join('');
 }}
 
-// Kanban actions
 function moveKanban(id, target) {{
   const sts = getSt();
   if (target === 'dismiss') {{
@@ -1063,7 +1059,7 @@ function moveKanban(id, target) {{
   }} else {{
     sts[id] = target;
   }}
-  saveSt(null, null, sts); // save all
+  saveSt(null, null, sts);
   renderKanban();
 }}
 
