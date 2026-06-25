@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "asin": "B0H1XBVNBM",
+    "bsr_rank": 586,
+    "bsr_category": "Automotive",
+    "bsr_sub_rank": 3,
+    "bsr_sub_category": "Motorcycle Covers",
+    "reviews": 42,
+    "rating": 4.8,
+    "image_url": "https://m.media-amazon.com/images/I/61YibZkJvSL._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
+    "title": "Enzeno motorbike cover 245x105x125cm motorcycle cover waterproof outdoor motorbike Windproof Dustproof moped cover with snap fastener 210D Oxford Fabric motorcycle black",
+    "price": 43.99,
+    "scraped_at": "2026-06-25T19:23:06.093338"
+  },
+  {
+    "asin": "B0H3ST2P8M",
+    "bsr_rank": 587,
+    "bsr_category": "Automotive",
+    "bsr_sub_rank": 41,
+    "bsr_sub_category": "Front Window Sunshades",
+    "reviews": null,
+    "rating": 4.5,
+    "image_url": "https://m.media-amazon.com/images/I/61a14zcYLfL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+    "title": "Car Windshield Sunshade Umbrella, Foldable 360° Rotatable Bendable Support Rod, UV Heat Blocking Windscreen Sun Shade for Cars SUV Vans",
+    "price": 13.98,
+    "scraped_at": "2026-06-25T19:23:06.095448"
+  }
+]
