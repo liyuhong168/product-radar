@@ -457,6 +457,35 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 .validation-section h4{{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--blue)}}
 .validation-section ul{{margin-left:16px;color:var(--muted)}}
 .validation-section li{{margin-bottom:4px}}
+
+/* 产品品类筛选 */
+.product-cat-tabs{{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}}
+.cat-tab{{padding:6px 14px;border:2px solid var(--border);border-radius:10px;background:var(--card);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}}
+.cat-tab:hover,.cat-tab.active{{border-color:var(--orange);color:var(--orange);background:#fff7ed}}
+
+/* 品类标签 */
+.cat-badge{{display:inline-block;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:600}}
+
+/* 1688 搜索按钮 */
+.ali-kw{{display:inline-flex;align-items:center;gap:2px;padding:2px 8px;margin:2px;border-radius:10px;font-size:10px;background:#fef3c7;color:#d97706;border:1px solid #fcd34d;text-decoration:none;white-space:nowrap;transition:all .15s}}
+.ali-kw:hover{{background:#fde68a;border-color:#f59e0b}}
+
+/* 字体优化 */
+.product-table td{{font-size:13px;line-height:1.6}}
+.product-table td strong{{font-size:14px;color:var(--text)}}
+.sku-en{{color:var(--text-muted);font-size:11px;font-weight:400}}
+.margin{{font-weight:600;color:var(--green)}}
+.stars{{color:#f59e0b;letter-spacing:1px}}
+
+/* 卡片内容字体 */
+.festival-card .card-title{{font-size:17px}}
+.festival-card .card-meta{{font-size:13px;margin-top:6px}}
+.festival-card .products-section h4{{font-size:15px}}
+
+/* 回到顶部按钮 */
+.back-to-top{{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;border:none;font-size:20px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.15);display:none;z-index:999;transition:all .2s}}
+.back-to-top:hover{{background:#ea580c;transform:translateY(-2px)}}
+.back-to-top.show{{display:flex;align-items:center;justify-content:center}}
 </style>
 </head>
 <body>
