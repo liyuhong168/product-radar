@@ -6,6 +6,7 @@ Festival Planner — 从 uk-festival-planner 提取数据，集成到选品平�
 import json
 import subprocess
 import tempfile
+import urllib.parse
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -16,6 +17,14 @@ LOGISTICS_MODES = {
     "air": {"label": "空运", "icon": "✈️", "transit": 13, "leadTime": 19, "production": 3},
     "rail": {"label": "卡航", "icon": "🚂", "transit": 30, "leadTime": 36, "production": 3},
     "sea": {"label": "海运", "icon": "🚢", "transit": 60, "leadTime": 66, "production": 3},
+}
+
+# 品类映射
+CATEGORY_MAP = {
+    "decor": {"label": "装饰", "icon": "🎀", "color": "#8b5cf6"},
+    "gift": {"label": "礼品", "icon": "🎁", "color": "#ec4899"},
+    "apparel": {"label": "服饰", "icon": "👕", "color": "#3b82f6"},
+    "home": {"label": "家居", "icon": "🏠", "color": "#10b981"},
 }
 
 
@@ -102,6 +111,17 @@ def get_urgency_label(urgency):
     }.get(urgency, urgency)
 
 
+def get_urgency_icon(urgency):
+    """紧急度图标"""
+    return {
+        "urgent": "⚠️",
+        "week": "⏰",
+        "month": "📅",
+        "plan": "✅",
+        "past": "⚫"
+    }.get(urgency, "")
+
+
 def generate_festival_html(festivals):
     """生成 Festival Planner 的 HTML"""
     if not festivals:
@@ -119,20 +139,12 @@ def generate_festival_html(festivals):
     upcoming = None
     for f in festivals:
         urgency = get_urgency(f)
-        if urgency != "past":
+        if urgency not in ("past", "urgent"):
             f_date = datetime.strptime(f['date'], '%Y-%m-%d')
             mode = LOGISTICS_MODES["air"]
             deadline = f_date - timedelta(days=mode['leadTime'] + 14)
             if upcoming is None or deadline < upcoming['deadline']:
                 upcoming = {"festival": f, "deadline": deadline, "urgency": urgency}
-    
-    # 品类映射
-    CATEGORY_MAP = {
-        "decor": {"label": "🎃装饰", "color": "#8b5cf6"},
-        "gift": {"label": "🎁礼品", "color": "#ec4899"},
-        "apparel": {"label": "👕服饰", "color": "#3b82f6"},
-        "home": {"label": "🏠家居", "color": "#10b981"},
-    }
     
     # 生成 HTML
     html = f'''
@@ -174,7 +186,7 @@ def generate_festival_html(festivals):
         <label>品类</label>
         <select id="filterCategory" onchange="filterFestivals()">
           <option value="">全部</option>
-          <option value="decor">🎃装饰</option>
+          <option value="decor">🎀装饰</option>
           <option value="gift">🎁礼品</option>
           <option value="apparel">👕服饰</option>
           <option value="home">🏠家居</option>
@@ -231,24 +243,31 @@ def generate_festival_html(festivals):
             products = f.get('products', [])
             festival_id = f.get('id', '')
             
-            # 按品类分组产品
+            # 按品类统计
             products_by_category = {}
             for p in products:
                 cat = p.get('category', 'other')
                 if cat not in products_by_category:
-                    products_by_category[cat] = []
-                products_by_category[cat].append(p)
+                    products_by_category[cat] = 0
+                products_by_category[cat] += 1
             
-            # 生成产品表格（带品类分组）
+            # 品类筛选按钮（放在标题后面）
+            cat_tabs_html = '<span class="cat-tabs-inline">'
+            cat_tabs_html += f'<button class="cat-pill active" onclick="filterProductCat(this, \'\')">全部 ({len(products)})</button>'
+            for cat, count in products_by_category.items():
+                cat_info = CATEGORY_MAP.get(cat, {"label": cat, "icon": "📦", "color": "#6b7280"})
+                cat_tabs_html += f'<button class="cat-pill" onclick="filterProductCat(this, \'{cat}\')">{cat_info["icon"]} {cat_info["label"]} ({count})</button>'
+            cat_tabs_html += '</span>'
+            
+            # 生成产品表格
             products_html = ""
             if products:
-                products_html = '''
+                products_html = f'''
       <div class="products-section">
-        <h4>📦 选品建议 ({len_products} SKUs)</h4>
-        <div class="product-cat-tabs">
-          <button class="cat-tab active" onclick="filterProductCat(this, '')">全部</button>
-          {cat_tabs}
-        </button>
+        <div class="products-header">
+          <h4>📦 选品建议</h4>
+          {cat_tabs_html}
+        </div>
         <div class="product-table-wrap">
           <table class="product-table">
             <thead>
@@ -265,13 +284,7 @@ def generate_festival_html(festivals):
               </tr>
             </thead>
             <tbody>
-            '''.replace('{len_products}', str(len(products))).replace(
-                    '{cat_tabs}', 
-                    "".join(
-                        f'<button class="cat-tab" onclick="filterProductCat(this, \'{cat}\')">{CATEGORY_MAP.get(cat, {}).get("label", cat)} ({len(products_by_category[cat])})</button>'
-                        for cat in products_by_category.keys()
-                    )
-                )
+                '''
                 
                 for p in products:
                     risk_cls = {
@@ -280,40 +293,41 @@ def generate_festival_html(festivals):
                         "高": "risk-high"
                     }.get(p.get('riskLevel', ''), 'risk-mid')
                     
+                    cat_info = CATEGORY_MAP.get(p.get('category', ''), {"label": p.get('category', ''), "icon": "📦", "color": "#6b7280"})
+                    
                     # Amazon 关键词链接
                     keywords_html = "".join(
-                        f'<a class="amazon-kw" href="https://www.amazon.co.uk/s?k={kw}" target="_blank">🛒 {kw}</a>'
+                        f'<a class="kw-link amazon" href="https://www.amazon.co.uk/s?k={urllib.parse.quote(kw)}" target="_blank">🛒 {kw}</a>'
                         for kw in p.get('keywords', [])[:2]
                     )
                     
                     # 1688 搜索链接
                     sourcing = p.get('sourcing', '')
+                    search_term = ''
                     if sourcing and '1688:' in sourcing:
                         search_term = sourcing.split('1688:')[1].strip()
-                        import urllib.parse
-                        encoded_term = urllib.parse.quote(search_term, encoding='utf-8')
-                        ali_html = f'<a class="ali-kw" href="https://s.1688.com/selloffer/offer_search.htm?keywords={encoded_term}" target="_blank">🏭 {search_term}</a>'
                     else:
-                        # 使用 SKU 名称作为搜索词
-                        sku_cn = p.get('sku', '')
-                        if sku_cn:
-                            import urllib.parse
-                            encoded_term = urllib.parse.quote(sku_cn, encoding='utf-8')
-                            ali_html = f'<a class="ali-kw" href="https://s.1688.com/selloffer/offer_search.htm?keywords={encoded_term}" target="_blank">🏭 {sku_cn}</a>'
-                        else:
-                            ali_html = ''
+                        search_term = p.get('sku', '')
+                    
+                    ali_html = ''
+                    if search_term:
+                        encoded_term = urllib.parse.quote(search_term, encoding='utf-8')
+                        ali_html = f'<a class="kw-link ali" href="https://s.1688.com/selloffer/offer_search.htm?keywords={encoded_term}" target="_blank">🏭 {search_term}</a>'
                     
                     products_html += f'''
               <tr data-cat="{p.get('category', '')}">
-                <td><strong>{p.get('sku', '')}</strong><br><span class="sku-en">{p.get('skuEn', '')}</span></td>
-                <td><span class="cat-badge" style="background:{CATEGORY_MAP.get(p.get('category', ''), {}).get('color', '#6b7280')}20;color:{CATEGORY_MAP.get(p.get('category', ''), {}).get('color', '#6b7280')}">{CATEGORY_MAP.get(p.get('category', ''), {}).get('label', p.get('category', ''))}</span></td>
-                <td>{p.get('costRange', '')}</td>
-                <td>{p.get('priceRange', '')}</td>
-                <td><span class="margin">{p.get('margin', '')}</span></td>
-                <td><span class="stars">{"★" * p.get('matchScore', 0)}{"☆" * (5 - p.get('matchScore', 0))}</span></td>
+                <td>
+                  <div class="sku-name">{p.get('sku', '')}</div>
+                  <div class="sku-en">{p.get('skuEn', '')}</div>
+                </td>
+                <td><span class="cat-tag" style="background:{cat_info['color']}15;color:{cat_info['color']}">{cat_info['icon']} {cat_info['label']}</span></td>
+                <td class="cost">{p.get('costRange', '')}</td>
+                <td class="price">{p.get('priceRange', '')}</td>
+                <td class="margin">{p.get('margin', '')}</td>
+                <td class="match">{"★" * p.get('matchScore', 0)}{"☆" * (5 - p.get('matchScore', 0))}</td>
                 <td><span class="risk {risk_cls}">{p.get('riskLevel', '')}</span></td>
-                <td class="kw-cell">{keywords_html}</td>
-                <td class="kw-cell">{ali_html}</td>
+                <td class="links">{keywords_html}</td>
+                <td class="links">{ali_html}</td>
               </tr>
                     '''
                 
@@ -324,20 +338,27 @@ def generate_festival_html(festivals):
       </div>
                 '''
             
+            # 计算选品截止日期
+            f_date = datetime.strptime(f['date'], '%Y-%m-%d')
+            deadline = f_date - timedelta(days=33)  # 19天物流+14天选品
+            
             html += f'''
-      <div class="festival-card" id="festival-{festival_id}" data-urgency="{urgency}" data-category="{f.get('category', '')}" data-month="{month}">
+      <div class="festival-card" id="festival-{festival_id}" data-urgency="{urgency}" data-category="{f.get('category', '')}" data-month="{month}" style="border-left-color:{f.get('themeColor', '#e5e7eb')}">
         <div class="card-header" onclick="this.parentElement.classList.toggle('expanded')">
-          <div class="card-title">
-            <span class="icon">{f.get('icon', '📅')}</span>
-            <span>{f.get('name', '')}</span>
-            <span class="name-en">{f.get('nameEn', '')}</span>
-            {"<span class='badge importance-S'>S级</span>" if importance == 'S' else ''}
-            <span class="badge {urgency}">{get_urgency_label(urgency)}</span>
+          <div class="card-left">
+            <span class="festival-icon">{f.get('icon', '📅')}</span>
+            <div class="card-info">
+              <div class="card-title">
+                <span class="name-cn">{f.get('name', '')}</span>
+                <span class="name-en">{f.get('nameEn', '')}</span>
+                {"<span class='importance-tag'>S级</span>" if importance == 'S' else ''}
+              </div>
+              <div class="card-meta">
+                {f.get('date', '')} · {len(products)} SKUs · 选品截止 {deadline.strftime('%Y-%m-%d')}
+              </div>
+            </div>
           </div>
-          <div class="card-meta">
-            {f.get('date', '')} · {len(products)} SKUs · 选品截止 {f_date - timedelta(days=33) if (f_date := datetime.strptime(f.get('date', '2027-01-01'), '%Y-%m-%d')) else ''}
-          </div>
-          <div class="card-arrow">▶</div>
+          <span class="urgency-tag {urgency}">{get_urgency_icon(urgency)} {get_urgency_label(urgency)}</span>
         </div>
         <div class="card-body">
           {products_html}
@@ -381,7 +402,7 @@ def generate_festival_html(festivals):
       
       // 隐藏空月份
       document.querySelectorAll('.month-section').forEach(section => {
-        const visibleCards = section.querySelectorAll('.festival-card[style=""]');
+        const visibleCards = section.querySelectorAll('.festival-card:not([style*="display: none"])');
         section.style.display = visibleCards.length > 0 ? '' : 'none';
       });
     }
@@ -392,7 +413,7 @@ def generate_festival_html(festivals):
       filterFestivals();
       
       // 滚动到第一个匹配的节日
-      const firstCard = document.querySelector(`.festival-card[data-urgency="${urgency}"]`);
+      const firstCard = document.querySelector('.festival-card[data-urgency="' + urgency + '"]');
       if (firstCard) {
         firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         firstCard.classList.add('expanded');
@@ -418,16 +439,12 @@ def generate_festival_html(festivals):
     
     // 产品品类筛选
     function filterProductCat(btn, cat) {
-      const table = btn.closest('.products-section');
-      table.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      const section = btn.closest('.products-section');
+      section.querySelectorAll('.cat-pill').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
       
-      table.querySelectorAll('.product-table tbody tr').forEach(row => {
-        if (!cat || row.dataset.cat === cat) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
-        }
+      section.querySelectorAll('.product-table tbody tr').forEach(row => {
+        row.style.display = (!cat || row.dataset.cat === cat) ? '' : 'none';
       });
     }
     
@@ -439,10 +456,8 @@ def generate_festival_html(festivals):
     // 显示/隐藏回到顶部按钮
     window.addEventListener('scroll', function() {
       const btn = document.getElementById('backToTop');
-      if (window.scrollY > 300) {
-        btn.classList.add('show');
-      } else {
-        btn.classList.remove('show');
+      if (btn) {
+        btn.classList.toggle('show', window.scrollY > 300);
       }
     });
     </script>

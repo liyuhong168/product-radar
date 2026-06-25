@@ -401,7 +401,8 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 .countdown{{font-size:14px;color:var(--muted);margin-top:8px}}
 .countdown strong{{color:var(--text)}}
 .stat-cards{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}}
-.stat-card{{background:var(--card);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);text-align:center}}
+.stat-card{{background:var(--card);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);text-align:center;cursor:pointer;transition:all .2s}}
+.stat-card:hover{{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}}
 .stat-card.urgent{{border-left:4px solid var(--red)}}
 .stat-card.week{{border-left:4px solid var(--orange)}}
 .stat-card.month{{border-left:4px solid #eab308}}
@@ -411,7 +412,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 .month-nav{{display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;padding:4px 0}}
 .month-nav a{{padding:6px 14px;border-radius:10px;text-decoration:none;color:var(--muted);font-size:13px;font-weight:600;background:var(--card);box-shadow:var(--shadow);transition:all .2s;white-space:nowrap}}
 .month-nav a:hover{{color:var(--orange);background:#fff7ed}}
-.filter-bar{{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;padding:12px 16px;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow)}}
+.filter-bar{{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;padding:12px 16px;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);align-items:center}}
 .filter-group{{display:flex;gap:6px;align-items:center}}
 .filter-group label{{font-size:13px;color:var(--muted);font-weight:600}}
 .filter-bar select,.filter-bar input[type="text"]{{padding:7px 12px;border:2px solid var(--border);border-radius:10px;font-size:13px;background:#fff;cursor:pointer;outline:none}}
@@ -420,70 +421,69 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 .filter-bar button:hover{{border-color:var(--orange);color:var(--orange)}}
 .month-section{{margin-bottom:32px}}
 .month-section h2{{font-size:18px;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--border)}}
-.festival-cards{{display:flex;flex-direction:column;gap:16px}}
-.festival-card{{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;border-left:4px solid var(--border);transition:box-shadow .2s}}
+.festival-cards{{display:flex;flex-direction:column;gap:12px}}
+.festival-card{{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;border-left:4px solid var(--border);transition:all .2s}}
 .festival-card:hover{{box-shadow:0 4px 20px rgba(0,0,0,.12)}}
-.card-header{{padding:16px 20px;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;transition:background .15s}}
+.card-header{{padding:14px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .15s}}
 .card-header:hover{{background:#f8f8fa}}
-.card-title{{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;flex-wrap:wrap}}
-.card-title .icon{{font-size:22px}}
-.card-title .name-en{{font-size:12px;color:var(--muted);font-weight:400}}
-.badge{{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700}}
+.card-left{{display:flex;align-items:center;gap:12px;flex:1;min-width:0}}
+.festival-icon{{font-size:28px;flex-shrink:0}}
+.card-info{{flex:1;min-width:0}}
+.card-title{{display:flex;align-items:center;gap:8px;flex-wrap:wrap}}
+.name-cn{{font-size:15px;font-weight:600;color:var(--text)}}
+.name-en{{font-size:13px;color:var(--muted);font-weight:400}}
+.importance-tag{{padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700;background:#fef2f2;color:var(--red)}}
+.card-meta{{font-size:12px;color:var(--muted);margin-top:4px}}
+.urgency-tag{{padding:4px 12px;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap;flex-shrink:0}}
+.urgency-tag.urgent{{background:#fef2f2;color:var(--red)}}
+.urgency-tag.week{{background:#fff7ed;color:var(--orange)}}
+.urgency-tag.month{{background:#fefce8;color:#ca8a04}}
+.urgency-tag.plan{{background:#f0fdf4;color:var(--green)}}
+.urgency-tag.past{{background:#f1f5f9;color:#8e8e93}}
+.badge{{display:inline-block;padding:2px 8px;border-radius:8px;font-size:11px;font-weight:600}}
 .badge.urgent{{background:#fef2f2;color:var(--red)}}
 .badge.week{{background:#fff7ed;color:var(--orange)}}
 .badge.month{{background:#fefce8;color:#eab308}}
 .badge.plan{{background:#f0fdf4;color:var(--green)}}
 .badge.past{{background:#f1f5f9;color:#8e8e93}}
-.badge.importance-S{{background:#fef2f2;color:var(--red)}}
-.card-meta{{font-size:12px;color:var(--muted);margin-top:4px}}
-.card-arrow{{font-size:12px;color:var(--muted)}}
 .card-body{{padding:0 20px 20px;display:none}}
 .festival-card.expanded .card-body{{display:block}}
-.products-section{{margin-bottom:16px}}
-.products-section h4{{font-size:14px;font-weight:700;margin-bottom:12px;color:var(--text)}}
+
+/* 产品区域 */
+.products-section{{margin-top:16px}}
+.products-header{{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}}
+.products-header h4{{font-size:14px;font-weight:700;color:var(--text);margin:0}}
+.cat-tabs-inline{{display:flex;gap:6px;flex-wrap:wrap}}
+.cat-pill{{padding:3px 10px;border:1px solid var(--border);border-radius:20px;background:var(--card);color:var(--muted);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}}
+.cat-pill:hover,.cat-pill.active{{border-color:var(--orange);color:var(--orange);background:#fff7ed}}
 .product-table-wrap{{overflow-x:auto}}
-.product-table{{width:100%;font-size:12px;border-collapse:collapse;min-width:700px}}
-.product-table th{{text-align:left;padding:10px 12px;background:var(--bg);color:var(--muted);font-weight:600;font-size:11px}}
-.product-table td{{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top}}
+.product-table{{width:100%;border-collapse:collapse}}
+.product-table th{{text-align:left;padding:10px 12px;background:var(--bg);color:var(--muted);font-weight:600;font-size:12px;white-space:nowrap}}
+.product-table td{{padding:10px 12px;border-top:1px solid var(--border);vertical-align:middle;font-size:13px}}
 .product-table tr:hover{{background:var(--bg)}}
-.amazon-kw{{display:inline-flex;align-items:center;gap:2px;padding:2px 8px;margin:2px;border-radius:10px;font-size:10px;background:#fff7ed;color:#ea580c;border:1px solid #fed7aa;text-decoration:none;white-space:nowrap;transition:all .15s}}
-.amazon-kw:hover{{background:#ffedd5;border-color:#fb923c}}
-.kw-cell{{max-width:200px}}
-.risk{{font-size:11px;font-weight:600;padding:2px 8px;border-radius:8px}}
+
+/* 产品表格内容 */
+.sku-name{{font-weight:600;color:var(--text);font-size:13px}}
+.sku-en{{font-size:11px;color:var(--muted);margin-top:2px}}
+.cat-tag{{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;white-space:nowrap}}
+.cost,.price,.margin{{font-size:12px;white-space:nowrap}}
+.margin{{font-weight:600;color:var(--green)}}
+.match{{color:#f59e0b;font-size:12px;letter-spacing:1px;white-space:nowrap}}
+.risk{{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600}}
 .risk-low{{background:#f0fdf4;color:var(--green)}}
 .risk-mid{{background:#fff7ed;color:var(--orange)}}
 .risk-high{{background:#fef2f2;color:var(--red)}}
-.validation-section{{background:#eff6ff;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-size:12px}}
-.validation-section h4{{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--blue)}}
-.validation-section ul{{margin-left:16px;color:var(--muted)}}
-.validation-section li{{margin-bottom:4px}}
 
-/* 产品品类筛选 */
-.product-cat-tabs{{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}}
-.cat-tab{{padding:6px 14px;border:2px solid var(--border);border-radius:10px;background:var(--card);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}}
-.cat-tab:hover,.cat-tab.active{{border-color:var(--orange);color:var(--orange);background:#fff7ed}}
-
-/* 品类标签 */
-.cat-badge{{display:inline-block;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:600}}
-
-/* 1688 搜索按钮 */
-.ali-kw{{display:inline-flex;align-items:center;gap:2px;padding:2px 8px;margin:2px;border-radius:10px;font-size:10px;background:#fef3c7;color:#d97706;border:1px solid #fcd34d;text-decoration:none;white-space:nowrap;transition:all .15s}}
-.ali-kw:hover{{background:#fde68a;border-color:#f59e0b}}
-
-/* 字体优化 */
-.product-table td{{font-size:13px;line-height:1.6}}
-.product-table td strong{{font-size:14px;color:var(--text)}}
-.sku-en{{color:var(--text-muted);font-size:11px;font-weight:400}}
-.margin{{font-weight:600;color:var(--green)}}
-.stars{{color:#f59e0b;letter-spacing:1px}}
-
-/* 卡片内容字体 */
-.festival-card .card-title{{font-size:17px}}
-.festival-card .card-meta{{font-size:13px;margin-top:6px}}
-.festival-card .products-section h4{{font-size:15px}}
+/* 搜索链接 */
+.links{{display:flex;flex-direction:column;gap:4px}}
+.kw-link{{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:8px;font-size:11px;text-decoration:none;white-space:nowrap;transition:all .15s}}
+.kw-link.amazon{{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}}
+.kw-link.amazon:hover{{background:#ffedd5;border-color:#fb923c}}
+.kw-link.ali{{background:#fef3c7;color:#d97706;border:1px solid #fcd34d}}
+.kw-link.ali:hover{{background:#fde68a;border-color:#f59e0b}}
 
 /* 回到顶部按钮 */
-.back-to-top{{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--orange);color:#fff;border:none;font-size:20px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.15);display:none;z-index:999;transition:all .2s}}
+.back-to-top{{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--orange);color:#fff;border:none;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.15);display:none;z-index:999;transition:all .2s}}
 .back-to-top:hover{{background:#ea580c;transform:translateY(-2px)}}
 .back-to-top.show{{display:flex;align-items:center;justify-content:center}}
 </style>
