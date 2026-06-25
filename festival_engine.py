@@ -12,12 +12,18 @@ from pathlib import Path
 
 BASE = Path(__file__).parent
 
-# 物流模式配置
+# 物流模式配置（对齐 uk-festival-planner 原项目）
+# leadTime = production + transit；选品截止日 = 节日 - (leadTime + 14)
+# 14天 = 到仓后入仓2天 + 缓冲12天
 LOGISTICS_MODES = {
-    "air": {"label": "空运", "icon": "✈️", "transit": 13, "leadTime": 19, "production": 3},
-    "rail": {"label": "卡航", "icon": "🚂", "transit": 30, "leadTime": 36, "production": 3},
-    "sea": {"label": "海运", "icon": "🚢", "transit": 60, "leadTime": 66, "production": 3},
+    "air":   {"label": "空运",     "icon": "✈️", "production": 3, "transit": 13, "leadTime": 16},
+    "truck": {"label": "卡航/快铁", "icon": "🚆", "production": 3, "transit": 30, "leadTime": 33},
+    "sea":   {"label": "海运",     "icon": "🚢", "production": 3, "transit": 60, "leadTime": 63},
 }
+
+# 海运作为雷达联动的触发基准（周期最长，提前最多）
+SEA_LEAD_TIME = LOGISTICS_MODES["sea"]["leadTime"]  # 63天
+ARRIVAL_BUFFER = 14  # 到仓后入仓+缓冲
 
 # 品类映射
 CATEGORY_MAP = {
@@ -79,8 +85,23 @@ def load_festivals():
     return []
 
 
-def get_urgency(festival, logistics="air"):
-    """计算节日紧急度"""
+def get_deadlines(festival):
+    """计算三种物流方式的选品截止日"""
+    f_date = datetime.strptime(festival['date'], '%Y-%m-%d')
+    result = {}
+    for key, mode in LOGISTICS_MODES.items():
+        deadline = f_date - timedelta(days=mode['leadTime'] + ARRIVAL_BUFFER)
+        result[key] = {
+            "date": deadline.strftime('%Y-%m-%d'),
+            "label": mode['label'],
+            "icon": mode['icon'],
+            "days_from_today": (deadline - datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)).days,
+        }
+    return result
+
+
+def get_urgency(festival, logistics="sea"):
+    """计算节日紧急度（默认用海运，周期最长）"""
     today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     f_date = datetime.strptime(festival['date'], '%Y-%m-%d')
     
@@ -88,7 +109,7 @@ def get_urgency(festival, logistics="air"):
         return "past"
     
     mode = LOGISTICS_MODES[logistics]
-    deadline = f_date - timedelta(days=mode['leadTime'] + 14)
+    deadline = f_date - timedelta(days=mode['leadTime'] + ARRIVAL_BUFFER)
     days = (deadline - today).days
     
     if days < 0:
@@ -135,14 +156,14 @@ def generate_festival_html(festivals):
         urgency = get_urgency(f)
         stats[urgency] += 1
     
-    # 找到最近的备货节点
+    # 找到最近的备货节点（用海运，周期最长）
     upcoming = None
     for f in festivals:
-        urgency = get_urgency(f)
+        urgency = get_urgency(f, "sea")
         if urgency not in ("past", "urgent"):
             f_date = datetime.strptime(f['date'], '%Y-%m-%d')
-            mode = LOGISTICS_MODES["air"]
-            deadline = f_date - timedelta(days=mode['leadTime'] + 14)
+            mode = LOGISTICS_MODES["sea"]
+            deadline = f_date - timedelta(days=mode['leadTime'] + ARRIVAL_BUFFER)
             if upcoming is None or deadline < upcoming['deadline']:
                 upcoming = {"festival": f, "deadline": deadline, "urgency": urgency}
     
@@ -338,9 +359,12 @@ def generate_festival_html(festivals):
       </div>
                 '''
             
-            # 计算选品截止日期
-            f_date = datetime.strptime(f['date'], '%Y-%m-%d')
-            deadline = f_date - timedelta(days=33)  # 19天物流+14天选品
+            # 计算三种物流方式的选品截止日期
+            deadlines = get_deadlines(f)
+            deadline_text = " · ".join(
+                f'{d["icon"]} {d["label"]} 截止 {d["date"]}'
+                for d in deadlines.values()
+            )
             
             html += f'''
       <div class="festival-card" id="festival-{festival_id}" data-urgency="{urgency}" data-category="{f.get('category', '')}" data-month="{month}" style="border-left-color:{f.get('themeColor', '#e5e7eb')}">
@@ -354,7 +378,7 @@ def generate_festival_html(festivals):
                 {"<span class='importance-tag'>S级</span>" if importance == 'S' else ''}
               </div>
               <div class="card-meta">
-                {f.get('date', '')} · {len(products)} SKUs · 选品截止 {deadline.strftime('%Y-%m-%d')}
+                {f.get('date', '')} · {len(products)} SKUs · {deadline_text}
               </div>
             </div>
           </div>
