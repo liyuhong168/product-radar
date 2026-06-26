@@ -278,12 +278,39 @@ def fetch(max_per_channel_type=8):
     rotation_file.parent.mkdir(parents=True, exist_ok=True)
     rotation_file.write_text(json.dumps(last_cats))
 
+    # Search fallback for categories that return empty (CAPTCHA workaround)
+    SEARCH_FALLBACKS = {
+        'Garden': 'garden tools accessories',
+        'Office': 'office supplies stationery',
+        'Home': 'home accessories gadgets',
+        'Crafts': 'crafts supplies tools',
+        'Phone': 'phone accessories',
+        'Travel': 'travel accessories',
+        'Bathroom': 'bathroom accessories',
+        'Cleaning': 'cleaning supplies tools',
+        'Storage': 'storage organizers',
+        'Tech': 'tech accessories gadgets',
+        'Bedding': 'bedding pillows duvet',
+        'Party': 'party supplies decorations',
+    }
+
     # Fetch URLs in parallel (8 concurrent threads)
     def _fetch_one(item):
         category, channel_type, url = item
         html = _curl_fetch(url)
         if not html:
             print(f"  warn {category}/{channel_type}: empty", file=sys.stderr)
+            # Try search fallback
+            search_query = SEARCH_FALLBACKS.get(category)
+            if search_query:
+                from browseract_fetcher import search_amazon
+                search_products = search_amazon(search_query, max_products=max_per_channel_type, category=category)
+                if search_products:
+                    for p in search_products:
+                        p['channel'] = channel_type
+                        p['channel_name'] = CHANNEL_NAMES.get(channel_type, channel_type)
+                    print(f"  ok {category}/{channel_type}: {len(search_products)} from search fallback", file=sys.stderr)
+                    return (category, channel_type, search_products)
             return (category, channel_type, [])
         products = _parse_amazon_page(html, category, channel_type)
         new_count = len(products)
