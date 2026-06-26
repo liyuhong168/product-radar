@@ -590,6 +590,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
   <div class="filter-bar">
     <div class="search-box"><input type="text" id="kanbanSearch" placeholder="🔍 搜索关键词..."/></div>
     <button class="btn-export" onclick="exportKanbanCSV()">📥 导出看板</button>
+    <span id="syncStatus" style="font-size:11px;color:var(--muted);cursor:pointer;margin-left:8px" onclick="setSyncToken()" title="点击设置 GitHub Token 同步看板">⚪ 未同步</span>
   </div>
   <div class="kanban-board" id="kanbanBoard"></div>
 </div>
@@ -623,10 +624,98 @@ const KANBAN_COLS = {kanban_json};
 const FESTIVALS = {festivals_json};
 const SK = 'pp_v3_status';
 const OLD_SK = 'productRadar_v2_status';
+const SYNC_TOKEN_KEY = 'pp_gh_token';
+const REPO = 'liyuhong168/product-radar';
+const STATUS_FILE = 'data/kanban_status.json';
+let SERVER_STATUS = {{}};  // From GitHub Pages
+let syncing = false;
+
+// Migrate old key
 (function(){{try{{const o=JSON.parse(localStorage.getItem(OLD_SK)||'{{}}');const c=JSON.parse(localStorage.getItem(SK)||'{{}}');if(Object.keys(o).length>0&&Object.keys(c).length===0)localStorage.setItem(SK,JSON.stringify(o))}}catch(e){{}}}})();
 
-function getSt(){{try{{const local=JSON.parse(localStorage.getItem(SK)||'{{}}');return Object.assign({{}},PROD_STATUS,local)}}catch(e){{return Object.assign({{}},PROD_STATUS)}}}}
-function saveSt(a,s,all){{if(all){{localStorage.setItem(SK,JSON.stringify(all))}}else{{const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}}}}
+// Fetch server status on load
+async function fetchServerStatus() {{
+  try {{
+    const r = await fetch('https://liyuhong168.github.io/product-radar/' + STATUS_FILE + '?t=' + Date.now());
+    if (r.ok) {{
+      const data = await r.json();
+      if (data && typeof data === 'object') {{
+        SERVER_STATUS = data;
+        // Merge server into local (server wins for keys that exist on server)
+        const local = JSON.parse(localStorage.getItem(SK) || '{{}}');
+        const merged = Object.assign({{}}, PROD_STATUS, local, SERVER_STATUS);
+        localStorage.setItem(SK, JSON.stringify(merged));
+        // Update sync indicator
+        const el = document.getElementById('syncStatus');
+        if (el) {{ el.textContent = '✅ 已同步 ' + new Date().toLocaleTimeString('zh-CN',{{hour:'2-digit',minute:'2-digit'}}); el.style.color='#34C759'; }}
+      }}
+    }}
+  }} catch(e) {{ console.warn('Sync fetch failed:', e); }}
+}}
+fetchServerStatus();
+
+function getSt(){{try{{const local=JSON.parse(localStorage.getItem(SK)||'{{}}');return Object.assign({{}},PROD_STATUS,SERVER_STATUS,local)}}catch(e){{return Object.assign({{}},PROD_STATUS,SERVER_STATUS)}}}}
+function saveSt(a,s,all){{
+  if(all){{localStorage.setItem(SK,JSON.stringify(all))}}
+  else{{const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}}
+  // Auto-sync to server
+  syncToServer();
+}}
+
+async function syncToServer() {{
+  const token = localStorage.getItem(SYNC_TOKEN_KEY);
+  if (!token || syncing) return;
+  syncing = true;
+  const el = document.getElementById('syncStatus');
+  if (el) {{ el.textContent = '⏳ 同步中...'; el.style.color='#FF9500'; }}
+  try {{
+    // Get current file SHA (required for GitHub API update)
+    const status = JSON.parse(localStorage.getItem(SK) || '{{}}');
+    const body = JSON.stringify(status, null, 2);
+    const shaRes = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + STATUS_FILE, {{
+      headers: {{ 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' }}
+    }});
+    let sha = null;
+    if (shaRes.ok) {{
+      const shaData = await shaRes.json();
+      sha = shaData.sha;
+    }}
+    // Update file
+    const res = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + STATUS_FILE, {{
+      method: 'PUT',
+      headers: {{
+        'Authorization': 'Bearer ' + token,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      }},
+      body: JSON.stringify({{
+        message: 'sync: kanban status update',
+        content: btoa(unescape(encodeURIComponent(body))),
+        sha: sha
+      }})
+    }});
+    if (res.ok) {{
+      if (el) {{ el.textContent = '✅ 已同步 ' + new Date().toLocaleTimeString('zh-CN',{{hour:'2-digit',minute:'2-digit'}}); el.style.color='#34C759'; }}
+    }} else {{
+      const err = await res.json();
+      if (el) {{ el.textContent = '❌ 同步失败'; el.style.color='#FF3B30'; }}
+      console.error('Sync error:', err);
+    }}
+  }} catch(e) {{
+    if (el) {{ el.textContent = '❌ 网络错误'; el.style.color='#FF3B30'; }}
+  }}
+  syncing = false;
+}}
+
+function setSyncToken() {{
+  const current = localStorage.getItem(SYNC_TOKEN_KEY) || '';
+  const token = prompt('输入 GitHub Fine-grained Token（仅需 contents:write 权限）：', current);
+  if (token !== null) {{
+    if (token === '') {{ localStorage.removeItem(SYNC_TOKEN_KEY); }}
+    else {{ localStorage.setItem(SYNC_TOKEN_KEY, token); }}
+    syncToServer();
+  }}
+}}
 function esc(s){{const d=document.createElement('div');d.textContent=s||'';return d.innerHTML}}
 
 let curDate = DATES[0] || '';
