@@ -14,15 +14,22 @@ import json
 import re
 import subprocess
 import sys
+import time
+import threading
 from pathlib import Path
 
 BROWSER_ID = "chrome_local_103642719185797272"
 SESSION_PREFIX = "radar"
-TIMEOUT_NAV = 15
-TIMEOUT_EVAL = 10
+TIMEOUT_NAV = 20
+TIMEOUT_EVAL = 15
 TIMEOUT_CLICK = 5
+MAX_RETRIES = 2
+MAX_CONCURRENT = 3  # Max concurrent Chrome sessions
 
-# JS to extract products from Amazon search results
+# Semaphore for concurrency control
+_semaphore = threading.Semaphore(MAX_CONCURRENT)
+
+# JS to extract products from Amazon search/category pages
 EXTRACT_JS = r"""(() => {
   const items = [];
   const blocks = document.querySelectorAll("[data-component-type=s-search-result]");
@@ -74,10 +81,17 @@ EXTRACT_JS = r"""(() => {
     if (img) imgUrl = img.src;
     
     if (title && price > 0) {
+      // Auto-detect CNY and convert to GBP (Amazon shows CNY for Chinese IP)
+      // ¥ symbol or prices > 100 on Amazon UK usually means CNY
+      let gbpPrice = price;
+      const priceText = priceEl ? priceEl.textContent : '';
+      if (priceText.includes('¥') || priceText.includes('￥') || (price > 50 && !priceText.includes('£'))) {
+        gbpPrice = Math.round(price / 9.3 * 100) / 100;  // CNY → GBP rate ~9.3
+      }
       items.push({
         asin: asin,
         name: title.substring(0, 120),
-        price: price,
+        price: gbpPrice,
         reviews: reviews,
         rating: rating,
         image_url: imgUrl
@@ -106,19 +120,55 @@ def _run_browseract(args, timeout=15, stdin_data=None):
         return "", 1
 
 
-def search_amazon(keyword, max_products=5, category="Search"):
+def _cleanup_session(session):
+    """Force close a BrowserAct session."""
+    try:
+        _run_browseract(["session", "close", session], timeout=5)
+    except Exception:
+        pass
+
+
+def _cleanup_stale_sessions():
+    """Clean up any stale radar sessions."""
+    try:
+        stdout, rc = _run_browseract(["session", "list"], timeout=5)
+        if rc == 0 and stdout:
+            for line in stdout.strip().split('\n'):
+                if SESSION_PREFIX in line or 'amazon_' in line or 'page_' in line:
+                    parts = line.split()
+                    session_name = parts[0] if parts else ''
+                    if session_name and '=' in session_name:
+                        session_name = session_name.split('=')[1] if '=' in session_name else session_name
+                    # Extract session name from "session_name=xxx" format
+                    for part in parts:
+                        if part.startswith('session_name='):
+                            session_name = part.split('=')[1]
+                            break
+                    if session_name:
+                        _cleanup_session(session_name)
+    except Exception:
+        pass
+
+# Clean stale sessions on import
+_cleanup_stale_sessions()
+
+
+def search_amazon(keyword, max_products=5, category="Search", retry=0):
     """Search Amazon UK via BrowserAct, return products in radar-compatible format.
     
-    Returns list of dicts with keys matching _parse_amazon_page output:
-    asin, name, price, reviews, rating, rank, category, channel, 
-    channel_name, review_info, amazon_url, image_url
-    
+    Returns list of dicts with keys matching _parse_amazon_page output.
     Returns empty list on any failure (caller should fallback).
     """
     import urllib.parse
     
-    session = f"{SESSION_PREFIX}_{hash(keyword) % 10000}"
+    session = f"{SESSION_PREFIX}_{hash(keyword) % 10000}_{int(time.time()) % 1000}"
     search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
+    
+    # Acquire semaphore for concurrency control
+    acquired = _semaphore.acquire(timeout=30)
+    if not acquired:
+        print(f"  ⚠️ BrowserAct busy, skipping '{keyword}'", file=sys.stderr)
+        return []
     
     try:
         # 1. Open search page
@@ -127,6 +177,11 @@ def search_amazon(keyword, max_products=5, category="Search"):
             timeout=TIMEOUT_NAV,
         )
         if rc != 0:
+            if retry < MAX_RETRIES:
+                print(f"  ⚠️ BrowserAct open failed for '{keyword}', retry {retry+1}...", file=sys.stderr)
+                _cleanup_session(session)
+                time.sleep(1)
+                return search_amazon(keyword, max_products, category, retry + 1)
             return []
         
         # 2. Accept cookies (if present, ignore failure)
@@ -139,6 +194,11 @@ def search_amazon(keyword, max_products=5, category="Search"):
             stdin_data=EXTRACT_JS,
         )
         if rc != 0 or not stdout.strip():
+            if retry < MAX_RETRIES:
+                print(f"  ⚠️ BrowserAct eval failed for '{keyword}', retry {retry+1}...", file=sys.stderr)
+                _cleanup_session(session)
+                time.sleep(1)
+                return search_amazon(keyword, max_products, category, retry + 1)
             return []
         
         raw_items = json.loads(stdout)
@@ -166,12 +226,79 @@ def search_amazon(keyword, max_products=5, category="Search"):
         return products
     
     except (json.JSONDecodeError, KeyError, Exception) as e:
+        if retry < MAX_RETRIES:
+            print(f"  ⚠️ BrowserAct error for '{keyword}': {e}, retry {retry+1}...", file=sys.stderr)
+            time.sleep(1)
+            return search_amazon(keyword, max_products, category, retry + 1)
         print(f"  ⚠️ BrowserAct failed for '{keyword}': {e}", file=sys.stderr)
         return []
     
     finally:
         # Always close session
-        _run_browseract(["session", "close", session], timeout=5)
+        _cleanup_session(session)
+        if acquired:
+            _semaphore.release()
+
+
+def fetch_page_html(url, retry=0):
+    """Fetch any page HTML via BrowserAct (for category pages).
+    
+    Returns HTML string, or empty string on failure.
+    """
+    import hashlib
+    session = f"page_{hashlib.md5(url.encode()).hexdigest()[:8]}_{int(time.time()) % 1000}"
+    
+    acquired = _semaphore.acquire(timeout=30)
+    if not acquired:
+        print(f"  ⚠️ BrowserAct busy, skipping page fetch", file=sys.stderr)
+        return ""
+    
+    try:
+        # Open page
+        _, rc = _run_browseract(
+            ["--session", session, "browser", "open", BROWSER_ID, url],
+            timeout=TIMEOUT_NAV,
+        )
+        if rc != 0:
+            if retry < MAX_RETRIES:
+                _cleanup_session(session)
+                time.sleep(1)
+                return fetch_page_html(url, retry + 1)
+            return ""
+        
+        # Accept cookies
+        _run_browseract(["--session", session, "click", "8"], timeout=TIMEOUT_CLICK)
+        
+        # Get page HTML
+        stdout, rc = _run_browseract(
+            ["--session", session, "eval", "--stdin"],
+            timeout=TIMEOUT_EVAL,
+            stdin_data="document.documentElement.outerHTML",
+        )
+        
+        if rc == 0 and stdout and len(stdout) > 1000:
+            html = stdout.strip()
+            if html.startswith('"') and html.endswith('"'):
+                html = json.loads(html)
+            return html
+        
+        if retry < MAX_RETRIES:
+            _cleanup_session(session)
+            time.sleep(1)
+            return fetch_page_html(url, retry + 1)
+        return ""
+    
+    except Exception as e:
+        if retry < MAX_RETRIES:
+            time.sleep(1)
+            return fetch_page_html(url, retry + 1)
+        print(f"  ⚠️ BrowserAct page fetch failed: {e}", file=sys.stderr)
+        return ""
+    
+    finally:
+        _cleanup_session(session)
+        if acquired:
+            _semaphore.release()
 
 
 def is_available():
@@ -189,6 +316,8 @@ def is_available():
 if __name__ == "__main__":
     print("=== BrowserAct Fetcher Test ===")
     print(f"Available: {is_available()}")
+    print(f"Max concurrent: {MAX_CONCURRENT}")
+    print(f"Max retries: {MAX_RETRIES}")
     
     if "--test" in sys.argv:
         keyword = sys.argv[sys.argv.index("--test") + 1] if len(sys.argv) > sys.argv.index("--test") + 1 else "wireless mouse"

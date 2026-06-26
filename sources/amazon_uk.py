@@ -154,32 +154,12 @@ def _curl_fetch(url):
 
     # Fallback 2: BrowserAct (real Chrome browser)
     try:
-        from browseract_fetcher import is_available, BROWSER_ID, _run_browseract
+        from browseract_fetcher import is_available, fetch_page_html
         if is_available():
-            import hashlib
-            session = f"amazon_{hashlib.md5(url.encode()).hexdigest()[:8]}"
-            _, rc = _run_browseract(
-                ["--session", session, "browser", "open", BROWSER_ID, url],
-                timeout=20,
-            )
-            if rc == 0:
-                # Accept cookies if prompted
-                _run_browseract(["--session", session, "click", "8"], timeout=3)
-                # Get page HTML
-                stdout, rc = _run_browseract(
-                    ["--session", session, "eval", "--stdin"],
-                    timeout=10,
-                    stdin_data="document.documentElement.outerHTML",
-                )
-                _run_browseract(["session", "close", session], timeout=5)
-                if rc == 0 and stdout and len(stdout) > 1000:
-                    # BrowserAct returns JSON-encoded string, unwrap it
-                    html = stdout.strip()
-                    if html.startswith('"') and html.endswith('"'):
-                        html = json.loads(html)
-                    if _is_valid_response(html):
-                        print(f"  BrowserAct OK (len={len(html)})", file=sys.stderr)
-                        return html
+            html = fetch_page_html(url)
+            if html and _is_valid_response(html):
+                print(f"  BrowserAct OK (len={len(html)})", file=sys.stderr)
+                return html
     except Exception as e:
         print(f"  BrowserAct fallback error: {e}", file=sys.stderr)
 
