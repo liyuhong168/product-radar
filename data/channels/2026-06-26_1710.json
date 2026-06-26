@@ -340,7 +340,13 @@
         "temu_trending",
         "multi_source",
         "etsy_trending"
-      ]
+      ],
+      "bsr_rank": 162281,
+      "bsr_category": "Home & Kitchen",
+      "bsr_sub_rank": 1631,
+      "bsr_sub_category": "Party Packs",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 439.2
     },
     {
       "asin": "B0GSR3S7BG",
@@ -406,7 +412,13 @@
       "channel_tags": [
         "tiktok_verified",
         "new_releases"
-      ]
+      ],
+      "bsr_rank": 298,
+      "bsr_category": "Sports & Outdoors",
+      "bsr_sub_rank": 18,
+      "bsr_sub_category": "Camping & Hiking Towels",
+      "estimated_daily_sales": 402,
+      "monthly_revenue_est": 190789.2
     },
     {
       "asin": "B0GSRTKLPM",
@@ -472,7 +484,13 @@
       "channel_tags": [
         "tiktok_verified",
         "new_releases"
-      ]
+      ],
+      "bsr_rank": 250,
+      "bsr_category": "Sports & Outdoors",
+      "bsr_sub_rank": 4,
+      "bsr_sub_category": "Camping Coolers & Cool Bags",
+      "estimated_daily_sales": 480,
+      "monthly_revenue_est": 316656.0
     },
     {
       "asin": "B0GL3KX17J",
@@ -536,7 +554,13 @@
       "channel_tags": [
         "tiktok_verified",
         "new_releases"
-      ]
+      ],
+      "bsr_rank": 136,
+      "bsr_category": "Sports & Outdoors",
+      "bsr_sub_rank": 2,
+      "bsr_sub_category": "Kettlebells",
+      "estimated_daily_sales": 882,
+      "monthly_revenue_est": 528935.4
     },
     {
       "asin": "B0D9LS94C3",
@@ -595,7 +619,13 @@
       "is_event": false,
       "channel_tags": [
         "keyword_search"
-      ]
+      ],
+      "bsr_rank": 10518,
+      "bsr_category": "Pet Supplies",
+      "bsr_sub_rank": 84,
+      "bsr_sub_category": "Interactive Toys for Cats",
+      "estimated_daily_sales": 14,
+      "monthly_revenue_est": 6623.4
     },
     {
       "asin": "B0D7TF728K",
@@ -657,7 +687,13 @@
       "first_seen": "2026-06-26",
       "channel_tags": [
         "keyword_search"
-      ]
+      ],
+      "bsr_rank": 19100,
+      "bsr_category": "Home & Kitchen",
+      "bsr_sub_rank": 129,
+      "bsr_sub_category": "Party Packs",
+      "estimated_daily_sales": 7,
+      "monthly_revenue_est": 1929.9
     },
     {
       "asin": "B0DNYZ5FXP",
@@ -715,7 +751,13 @@
       "is_event": false,
       "channel_tags": [
         "keyword_search"
-      ]
+      ],
+      "bsr_rank": 18636,
+      "bsr_category": "Garden",
+      "bsr_sub_rank": 116,
+      "bsr_sub_category": "Watering Cans",
+      "estimated_daily_sales": 8,
+      "monthly_revenue_est": 1951.2
     },
     {
       "asin": "B0BMBB9MM4",
@@ -772,7 +814,13 @@
       "is_event": false,
       "channel_tags": [
         "keyword_search"
-      ]
+      ],
+      "bsr_rank": 1897,
+      "bsr_category": "Garden",
+      "bsr_sub_rank": 14,
+      "bsr_sub_category": "Watering Cans",
+      "estimated_daily_sales": 79,
+      "monthly_revenue_est": 20713.8
     },
     {
       "asin": "B08JQM3GZ1",
@@ -851,7 +899,13 @@
         "temu_trending",
         "event_product",
         "etsy_trending"
-      ]
+      ],
+      "bsr_rank": 88876,
+      "bsr_category": "Lighting",
+      "bsr_sub_rank": 4668,
+      "bsr_sub_category": "Indoor-Outdoor String Lights 39,542 in Garden Décor",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 599.7
     },
     {
       "asin": "B0CTJKDJ84",
@@ -929,7 +983,13 @@
         "multi_source",
         "event_product",
         "etsy_trending"
-      ]
+      ],
+      "bsr_rank": 12224,
+      "bsr_category": "Toys & Games",
+      "bsr_sub_rank": 7,
+      "bsr_sub_category": "Swords",
+      "estimated_daily_sales": 12,
+      "monthly_revenue_est": 4086.0
     }
   ],
   "gaps": [
