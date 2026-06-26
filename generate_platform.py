@@ -491,7 +491,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 .product-table-wrap{{overflow-x:auto}}
 .product-table{{width:100%;border-collapse:collapse}}
 .product-table th{{text-align:left;padding:10px 12px;background:var(--bg);color:var(--muted);font-weight:600;font-size:12px;white-space:nowrap}}
-.product-table td{{padding:10px 12px;border-top:1px solid var(--border);vertical-align:middle;font-size:13px}}
+.product-table td{{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top;font-size:13px}}
 .product-table tr:hover{{background:var(--bg)}}
 
 /* 产品表格内容 */
