@@ -137,8 +137,12 @@ def search_amazon_by_keyword(keyword, max_products=5):
     return products[:max_products]
 
 
-def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=3):
+def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=10, max_reviews=200):
     """Run keyword-based scan from discovery + festival sources.
+    
+    Args:
+        max_products_per_kw: Fetch more products per keyword to find low-competition ones
+        max_reviews: Only keep products with reviews below this threshold (default 200)
     
     Returns list of products tagged with their keyword source.
     """
@@ -163,8 +167,11 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
         print(f"  🔍 [{source}] {keyword}...", file=sys.stderr, end="")
         products = search_amazon_by_keyword(keyword, max_products=max_products_per_kw)
         
+        # Filter: only keep products with reviews < max_reviews
+        filtered = [p for p in products if p.get("reviews", 0) < max_reviews]
+        
         # Tag products with keyword source info
-        for p in products:
+        for p in filtered:
             asin = p.get("asin", "")
             if asin in seen_asins:
                 continue
@@ -188,7 +195,12 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
             
             all_products.append(p)
         
-        print(f" → {len(products)} products", file=sys.stderr)
+        kept = len(filtered)
+        total = len(products)
+        if kept < total:
+            print(f" → {total} found, {kept} kept (reviews<{max_reviews})", file=sys.stderr)
+        else:
+            print(f" → {kept} products", file=sys.stderr)
     
     print(f"  ✅ Keyword scan total: {len(all_products)} products", file=sys.stderr)
     return all_products

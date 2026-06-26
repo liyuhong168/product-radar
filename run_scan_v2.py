@@ -393,7 +393,7 @@ def main():
 
     # 1b. Keyword-driven scan (discovery + festival keywords)
     print("\n[1b/8] Keyword-driven scan (discovery + festival)...", file=sys.stderr)
-    keyword_products = run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=3)
+    keyword_products = run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=10, max_reviews=config.get("max_reviews", 200))
     if keyword_products:
         amazon_products.extend(keyword_products)
         print(f"  Added {len(keyword_products)} keyword products → total {len(amazon_products)}", file=sys.stderr)

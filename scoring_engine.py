@@ -166,7 +166,8 @@ WEIGHTS = {
     # "triple_source": 18, → removed, use signal voting
 
     # Competition (inverted: fewer reviews = higher competition risk for 0 reviews)
-    "verified_low": 10,      # 5-50 reviews (sweet spot)
+    "blue_ocean": 15,        # <20 reviews (true blue ocean)
+    "verified_low": 10,      # 20-50 reviews (sweet spot)
     "moderate": 5,           # 50-150 reviews
     "established": 0,        # 150-300 reviews (neutral)
 
@@ -308,6 +309,9 @@ def score_product(product, trend_data=None, history=None):
     elif reviews < 5:
         pts = WEIGHTS["unverified_penalty"]
         total += pts; breakdown["⏳ 评论偏少"] = pts
+    elif reviews < 20:
+        pts = WEIGHTS["blue_ocean"]
+        total += pts; breakdown["🌊 蓝海"] = pts
     elif reviews <= 50:
         pts = WEIGHTS["verified_low"]
         total += pts; breakdown["🟢 低竞争"] = pts

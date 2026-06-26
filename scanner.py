@@ -41,7 +41,21 @@ def load_history(days=7):
 def is_forbidden(name, category=""):
     """Check if product matches forbidden categories."""
     text = (name + " " + category).lower()
+
+    # Special handling: "toy" — allow pet toys and party decorations, block children's toys
+    PET_KEYWORDS = {'cat', 'dog', 'pet', 'kitten', 'puppy', 'ferret', 'rabbit', 'hamster', 'catnip', 'silvervine', 'kitten'}
+    PARTY_KEYWORDS = {'party', 'decoration', 'costume', 'pirate', 'halloween', 'christmas', 'birthday', 'fancy dress', 'bachelorette', 'wedding'}
+    has_toy = bool(re.search(r'(?<![a-z])toy(?:s)?(?![a-z])', text))
+    if has_toy:
+        has_pet = any(re.search(r'(?<![a-z])' + re.escape(kw) + r'(?![a-z])', text) for kw in PET_KEYWORDS)
+        has_party = any(kw in text for kw in PARTY_KEYWORDS)
+        if not has_pet and not has_party:
+            return True, "toy (非宠物/节日)"
+
     for kw in CONFIG["forbidden_keywords"]:
+        # Skip "toy" — handled above with pet whitelist
+        if kw == "toy":
+            continue
         # Use word-boundary matching to avoid false positives
         # e.g., "paint" should not match "painter" or "painters"
         pattern = r'(?<![a-z])' + re.escape(kw.strip()) + r'(?![a-z])' if kw.strip().isalpha() else re.escape(kw)
@@ -54,7 +68,7 @@ def is_forbidden(name, category=""):
     max_kg = CONFIG.get("max_weight_g", 300) / 1000  # 300g = 0.3kg
 
     # Skip volume check for containers (bottles, flasks, tumblers) — their volume is capacity, not content
-    CONTAINER_KEYWORDS = {'bottle', 'flask', 'tumbler', 'jug', 'carafe', 'pitcher', 'thermos', 'canteen'}
+    CONTAINER_KEYWORDS = {'bottle', 'flask', 'tumbler', 'jug', 'carafe', 'pitcher', 'thermos', 'canteen', 'watering can'}
     is_container = any(kw in text for kw in CONTAINER_KEYWORDS)
 
     if not is_container:

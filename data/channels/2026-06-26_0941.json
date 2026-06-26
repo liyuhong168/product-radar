@@ -1,0 +1,511 @@
+{
+  "scan_date": "2026-06-26",
+  "scan_time": "09:41",
+  "scan_ts": "2026-06-26_0941",
+  "stats": {
+    "total_scanned": 134,
+    "passed_filter": 0,
+    "rejected": 134,
+    "channels": {},
+    "trend_categories": {
+      "crafts": 100,
+      "lighting": 92,
+      "pets": 77,
+      "seasonal": 77,
+      "eco": 69,
+      "phone": 69
+    },
+    "supply_demand": {
+      "lighting": {
+        "ratio": 7.7,
+        "demand": 92,
+        "supply": 164973,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "pets": {
+        "ratio": 5.7,
+        "demand": 77,
+        "supply": 706340,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "kitchen": {
+        "ratio": 4.7,
+        "demand": 54,
+        "supply": 89744,
+        "label": "💧 浅蓝海",
+        "level": "light_blue"
+      },
+      "sports": {
+        "ratio": 1.8,
+        "demand": 23,
+        "supply": 357467,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "kitchen_gadgets": {
+        "ratio": 0.7,
+        "demand": 8,
+        "supply": 89744,
+        "label": "🔴 红海",
+        "level": "red_ocean"
+      },
+      "cleaning": {
+        "ratio": 0,
+        "demand": 31,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "car": {
+        "ratio": 0,
+        "demand": 23,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "crafts": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      }
+    },
+    "divergences": {
+      "kitchen": {
+        "current_heat": 62,
+        "previous_heat": 31,
+        "heat_change_pct": 100.0,
+        "direction": "rising",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 31,
+        "previous_heat": 31,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 23,
+        "previous_heat": 23,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "car": {
+        "current_heat": 23,
+        "previous_heat": 23,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "lighting": {
+        "current_heat": 92,
+        "previous_heat": 92,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "pets": {
+        "current_heat": 84,
+        "previous_heat": 84,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "sports": {
+        "current_heat": 15,
+        "previous_heat": 23,
+        "heat_change_pct": -34.8,
+        "direction": "falling",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "bedding": {
+        "current_heat": 8,
+        "previous_heat": 15,
+        "heat_change_pct": -46.7,
+        "direction": "falling",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "travel": {
+        "current_heat": 61,
+        "previous_heat": 15,
+        "heat_change_pct": 306.7,
+        "direction": "rising",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "phone": {
+        "current_heat": 84,
+        "previous_heat": 92,
+        "heat_change_pct": -8.7,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "beauty": {
+        "current_heat": 23,
+        "previous_heat": 23,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "eco": {
+        "current_heat": 53,
+        "previous_heat": 84,
+        "heat_change_pct": -36.9,
+        "direction": "falling",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 69,
+        "previous_heat": 77,
+        "heat_change_pct": -10.4,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "garden": {
+        "current_heat": 15,
+        "previous_heat": 23,
+        "heat_change_pct": -34.8,
+        "direction": "falling",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "office": {
+        "current_heat": 53,
+        "previous_heat": 23,
+        "heat_change_pct": 130.4,
+        "direction": "rising",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "home decor": {
+        "current_heat": 69,
+        "previous_heat": 92,
+        "heat_change_pct": -25.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "baby": {
+        "current_heat": 15,
+        "previous_heat": 15,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 8,
+        "previous_heat": 8,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      },
+      "storage": {
+        "current_heat": 15,
+        "previous_heat": 8,
+        "heat_change_pct": 87.5,
+        "direction": "rising",
+        "dates": [
+          "2026-06-26_0921",
+          "2026-06-26_0936"
+        ]
+      }
+    },
+    "gap_opportunities": 5
+  },
+  "products": [],
+  "gaps": [
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 100,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "craft",
+        "art"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "craft knife",
+        "craft supplies",
+        "DIY craft kit",
+        "art supplies",
+        "paint set",
+        "drawing kit"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=craft+knife",
+      "url_google": "https://trends.google.com/trends/explore?q=craft+knife&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 77,
+      "score": 70,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "birthday",
+        "christmas",
+        "gift"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "birthday gift",
+        "birthday decoration",
+        "birthday card",
+        "christmas decoration",
+        "christmas gift",
+        "christmas stocking",
+        "gift ideas",
+        "gift set"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 77,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=birthday+gift",
+      "url_google": "https://trends.google.com/trends/explore?q=birthday+gift&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 69,
+      "score": 68,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "eco products",
+        "reusable bag",
+        "bamboo products"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 69,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=eco+products",
+      "url_google": "https://trends.google.com/trends/explore?q=eco+products&geo=GB"
+    },
+    {
+      "keyword": "phone",
+      "category": "phone",
+      "heat": 69,
+      "score": 68,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "cable",
+        "charger",
+        "phone",
+        "stand"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "charging cable",
+        "USB cable",
+        "phone cable",
+        "phone charger",
+        "wireless charger",
+        "car charger",
+        "phone case",
+        "phone holder"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 69,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=charging+cable",
+      "url_google": "https://trends.google.com/trends/explore?q=charging+cable&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 54,
+      "score": 48,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "clock",
+        "wall art",
+        "candle",
+        "decor",
+        "mirror"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "wall clock",
+        "desk clock",
+        "digital clock",
+        "wall art print",
+        "wall hanging",
+        "wall decal",
+        "candle holder",
+        "scented candle"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 54,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=wall+clock",
+      "url_google": "https://trends.google.com/trends/explore?q=wall+clock&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "crafts",
+        100
+      ],
+      [
+        "lighting",
+        92
+      ],
+      [
+        "pets",
+        77
+      ],
+      [
+        "seasonal",
+        77
+      ],
+      [
+        "eco",
+        69
+      ],
+      [
+        "phone",
+        69
+      ]
+    ],
+    "cross_validated": [
+      "lighting",
+      "pets",
+      "crafts",
+      "eco",
+      "seasonal",
+      "phone"
+    ],
+    "demand_keywords": [
+      "beach bag,",
+      "from viral beauty products and",
+      "made me buy it",
+      "primark just launched a",
+      "real market data on trending",
+      "recommend some cool stuff from",
+      "right now on",
+      "summer wedding,",
+      "sunflower,",
+      "temu vs"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}

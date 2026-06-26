@@ -1,0 +1,216 @@
+{
+  "category_scores": {
+    "kitchen": 31,
+    "bathroom": 31,
+    "cleaning": 23,
+    "car": 23,
+    "lighting": 92,
+    "pets": 84,
+    "sports": 23,
+    "crafts": 100,
+    "bedding": 15,
+    "travel": 15,
+    "phone": 92,
+    "beauty": 23,
+    "eco": 84,
+    "seasonal": 77,
+    "home decor": 92,
+    "baby": 15,
+    "garden": 23,
+    "office": 23,
+    "kitchen_gadgets": 8,
+    "storage": 8
+  },
+  "category_evidence": {
+    "kitchen": [
+      "kitchen",
+      "gadget"
+    ],
+    "bathroom": [
+      "mirror",
+      "shower",
+      "toilet",
+      "bath"
+    ],
+    "cleaning": [
+      "cleaning"
+    ],
+    "car": [
+      "car"
+    ],
+    "lighting": [
+      "strip",
+      "led",
+      "lamp",
+      "light"
+    ],
+    "pets": [
+      "bed",
+      "pet",
+      "cat"
+    ],
+    "sports": [
+      "fitness",
+      "water bottle"
+    ],
+    "crafts": [
+      "art",
+      "craft"
+    ],
+    "bedding": [
+      "blanket",
+      "pillow"
+    ],
+    "travel": [
+      "toiletry",
+      "travel"
+    ],
+    "phone": [
+      "charger",
+      "phone",
+      "stand",
+      "earbuds",
+      "cable"
+    ],
+    "beauty": [
+      "mirror",
+      "makeup",
+      "skincare"
+    ],
+    "eco": [
+      "eco"
+    ],
+    "seasonal": [
+      "gift",
+      "christmas",
+      "birthday"
+    ],
+    "home decor": [
+      "candle",
+      "decor",
+      "wall art",
+      "clock",
+      "mirror"
+    ],
+    "baby": [
+      "baby",
+      "kids"
+    ],
+    "garden": [
+      "flower",
+      "garden",
+      "outdoor"
+    ],
+    "office": [
+      "pen",
+      "office"
+    ],
+    "kitchen_gadgets": [
+      "kitchen gadget"
+    ],
+    "storage": [
+      "box"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "kitchen": 1,
+      "bathroom": 3,
+      "cleaning": 2,
+      "car": 2,
+      "lighting": 5,
+      "pets": 1,
+      "sports": 2,
+      "crafts": 4,
+      "bedding": 1,
+      "travel": 1,
+      "phone": 3,
+      "beauty": 3,
+      "eco": 3,
+      "seasonal": 1,
+      "home decor": 2,
+      "baby": 1
+    },
+    "temu": {
+      "garden": 2,
+      "sports": 1,
+      "crafts": 4,
+      "travel": 1,
+      "home decor": 1,
+      "baby": 1,
+      "eco": 3,
+      "kitchen": 3,
+      "cleaning": 1,
+      "office": 2,
+      "lighting": 2,
+      "phone": 4,
+      "kitchen_gadgets": 1,
+      "seasonal": 1,
+      "storage": 1,
+      "pets": 1
+    },
+    "etsy": {
+      "garden": 1,
+      "lighting": 2,
+      "pets": 5,
+      "crafts": 4,
+      "home decor": 7,
+      "eco": 3,
+      "seasonal": 6,
+      "bathroom": 1,
+      "office": 1,
+      "bedding": 1
+    },
+    "market_intel": {
+      "car": 1,
+      "lighting": 1,
+      "pets": 2,
+      "crafts": 1,
+      "phone": 3
+    }
+  },
+  "cross_validated": {
+    "lighting": 4,
+    "pets": 4,
+    "crafts": 4,
+    "phone": 3,
+    "eco": 3,
+    "seasonal": 3,
+    "home decor": 3
+  },
+  "demand_keywords": [
+    "active demand",
+    "beach bag,",
+    "dollar oysters",
+    "early interest",
+    "explore trending products",
+    "home and",
+    "made me buy it",
+    "magnetic eyelashes",
+    "magnetic phone charger",
+    "may have to close up",
+    "mini wireless lanyard speaker thumb",
+    "posture corrector",
+    "primark just launched a",
+    "project hail mary",
+    "real market data on trending",
+    "recommend some cool stuff from",
+    "skincare kits",
+    "summer wedding,",
+    "sunflower,",
+    "tech and",
+    "temu vs",
+    "the perfect mignonette sauce",
+    "these are the",
+    "these are the biggest spring",
+    "these earrings",
+    "tiktok made me buy it",
+    "toiletry bag",
+    "top sellers",
+    "top trending",
+    "trending on"
+  ],
+  "season": "summer",
+  "total_queries": 10,
+  "total_results_chars": 31776
+}
