@@ -114,6 +114,48 @@ def _is_valid_response(html):
         return False
     return True
 
+CLOAKBROWSER_CHROME = '/home/lee/.cloakbrowser/chromium-146.0.7680.177.5/chrome'
+
+def _cloakbrowser_fetch(url):
+    """Fetch a page using CloakBrowser (Playwright with stealth Chrome)."""
+    import os
+    if not os.path.exists(CLOAKBROWSER_CHROME):
+        return ""
+    
+    try:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
+            context = browser.new_context(
+                locale='en-GB',
+                timezone_id='Europe/London',
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+            )
+            page = context.new_page()
+            
+            try:
+                page.goto(url, timeout=25000)
+                page.wait_for_timeout(2000)
+                
+                # Accept cookies if present
+                try:
+                    accept = page.query_selector('#sp-cc-accept')
+                    if accept:
+                        accept.click()
+                        page.wait_for_timeout(500)
+                except:
+                    pass
+                
+                html = page.content()
+                return html
+            finally:
+                context.close()
+                browser.close()
+    except Exception as e:
+        print(f"  CloakBrowser error: {e}", file=sys.stderr)
+        return ""
+
+
 def _curl_fetch(url):
     """Fetch a page with curl, forcing GBP. Falls back to ScraperAPI then BrowserAct."""
     # Try direct request first
@@ -162,6 +204,15 @@ def _curl_fetch(url):
                 return html
     except Exception as e:
         print(f"  BrowserAct fallback error: {e}", file=sys.stderr)
+
+    # Fallback 3: CloakBrowser (Playwright with stealth Chrome)
+    try:
+        html = _cloakbrowser_fetch(url)
+        if html and _is_valid_response(html):
+            print(f"  CloakBrowser OK (len={len(html)})", file=sys.stderr)
+            return html
+    except Exception as e:
+        print(f"  CloakBrowser fallback error: {e}", file=sys.stderr)
 
     return ""
 
@@ -294,15 +345,19 @@ def fetch(max_per_channel_type=8):
         'Party': 'party supplies decorations',
     }
 
-    # Fetch URLs in parallel (8 concurrent threads)
+    # Fetch URLs with rate limiting (sequential with delays to avoid 503)
     def _fetch_one(item):
         category, channel_type, url = item
+        import time
+        time.sleep(random.uniform(2, 5))  # Random delay 2-5 seconds
         html = _curl_fetch(url)
         if not html:
             print(f"  warn {category}/{channel_type}: empty", file=sys.stderr)
-            # Try search fallback
+            # Try search fallback with delay
             search_query = SEARCH_FALLBACKS.get(category)
             if search_query:
+                import time
+                time.sleep(3)  # Extra delay before BrowserAct
                 from browseract_fetcher import search_amazon
                 search_products = search_amazon(search_query, max_products=max_per_channel_type, category=category)
                 if search_products:
@@ -317,7 +372,7 @@ def fetch(max_per_channel_type=8):
         print(f"  ok {category}/{channel_type}: {new_count} new", file=sys.stderr)
         return (category, channel_type, products)
 
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=3) as pool:
         futures = {pool.submit(_fetch_one, item): item for item in selected_keys}
         for future in as_completed(futures):
             category, channel_type, products = future.result()
