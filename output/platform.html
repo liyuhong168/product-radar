@@ -97,6 +97,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans SC
 .comp-box .label{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:6px}
 .comp-box .text{font-size:14px;color:var(--text);line-height:1.6}
 
+/* Radar Match */
+.radar-match{background:#f0fdf4;border:1px solid #34C75930;border-radius:12px;padding:14px 18px;margin-top:12px}
+.radar-match .label{font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px}
+.radar-product{font-size:13px;color:var(--text);padding:4px 0;border-bottom:1px solid #34C75915}
+.radar-product:last-child{border-bottom:none}
+
 /* Search Buttons */
 .search-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .btn-search{padding:10px 20px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid transparent;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .15s}
@@ -10187,6 +10193,28 @@ function renderDiscovery() {
     // Competition summary
     const compHtml = ins.competition ? `<div class="comp-box"><div class="label">📊 竞争格局</div><div class="text">${esc(ins.competition)}</div></div>` : '';
 
+    // Radar cross-validation: find matching radar products
+    let radarHtml = '';
+    const kwLower = (ins.keyword || '').toLowerCase();
+    const kwParts = kwLower.split(/\s+/).filter(w => w.length >= 4);
+    if (typeof RADAR_ALL !== 'undefined' && curDate) {
+      const radarData = RADAR_ALL[curDate];
+      if (radarData && radarData.products) {
+        const matched = radarData.products.filter(p => {
+          const name = (p.name || '').toLowerCase();
+          return kwParts.some(part => name.includes(part));
+        });
+        if (matched.length > 0) {
+          radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${matched.length}个产品）</div>` +
+            matched.map(p => {
+              const reviews = p.reviews || 0;
+              const ocean = reviews < 20 ? '🌊蓝海' : reviews <= 50 ? '🟢低竞争' : '🟡中等';
+              return `<div class="radar-product">✅ ${esc((p.name||'').substring(0,45))} — £${(p.price||0).toFixed(2)} | ${reviews}评论 ${ocean} | 利润率${((p.profit_margin||0)*100).toFixed(0)}%</div>`;
+            }).join('') + `</div>`;
+        }
+      }
+    }
+
     return `<div class="insight-card" data-idx="${idx}">
       <div class="insight-hd" onclick="this.parentElement.classList.toggle('open')">
         <div class="insight-score ${scoreCls}">${score}</div>
@@ -10205,6 +10233,7 @@ function renderDiscovery() {
         </div>
         ${ins.action ? `<div class="action-box"><div class="label">📋 行动建议</div><div class="text">${esc(ins.action)}</div></div>` : ''}
         ${compHtml}
+        ${radarHtml}
         <div class="search-btns">
           <a class="btn-search amazon" href="${amzUrl}" target="_blank">🛒 Amazon UK 搜索「${esc(amzKw)}」</a>
           <a class="btn-search alibaba" href="${aliUrl}" target="_blank">🏭 1688 搜索「${esc(aliKw)}」</a>
