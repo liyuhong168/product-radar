@@ -533,7 +533,6 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Noto Sans S
 <div class="date-bar">
   <label>📅 日期：</label>
   <select id="datePicker"></select>
-  <select id="datePickerRadar" style="display:none"></select>
   <div class="stats" id="dateStats"></div>
 </div>
 
@@ -721,9 +720,9 @@ function esc(s){{const d=document.createElement('div');d.textContent=s||'';retur
 let curDate = DATES[0] || '';
 let curTab = 'discovery';
 
-// ===== Date Picker =====
+// ===== Date Picker (unified) =====
 const picker = document.getElementById('datePicker');
-const pickerRadar = document.getElementById('datePickerRadar');
+const ALL_DATES = [...new Set([...DISC_DATES, ...RADAR_DATES])].sort().reverse();
 
 function initDatePicker(dates, selectElem) {{
   selectElem.innerHTML = '';
@@ -734,12 +733,8 @@ function initDatePicker(dates, selectElem) {{
   }});
 }}
 
-// 初始化两个日期选择器
-initDatePicker(DISC_DATES, picker);
-initDatePicker(RADAR_DATES, pickerRadar);
-
+initDatePicker(ALL_DATES, picker);
 picker.addEventListener('change', () => {{ curDate = picker.value; renderAll(); }});
-pickerRadar.addEventListener('change', () => {{ curDate = pickerRadar.value; renderAll(); }});
 
 // ===== Main Tabs =====
 document.querySelector('.main-tabs').addEventListener('click', e => {{
@@ -749,17 +744,8 @@ document.querySelector('.main-tabs').addEventListener('click', e => {{
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById('sec-'+t.dataset.tab).classList.add('active');
   
-  // 切换日期选择器
+  // 切换Tab
   curTab = t.dataset.tab;
-  if (curTab === 'radar') {{
-    picker.style.display = 'none';
-    pickerRadar.style.display = 'block';
-    curDate = pickerRadar.value || '';
-  }} else {{
-    picker.style.display = 'block';
-    pickerRadar.style.display = 'none';
-    curDate = picker.value || '';
-  }}
   
   if (t.dataset.tab === 'kanban') renderKanban();
   renderAll();
