@@ -111,8 +111,19 @@ def load_festival_keywords():
 def search_amazon_by_keyword(keyword, max_products=5):
     """Search Amazon UK for a keyword and return parsed products.
     
-    Uses the same _curl_fetch + _parse_amazon_page as the regular radar scan.
+    Tries BrowserAct first (structured JSON, lower token cost).
+    Falls back to _curl_fetch + _parse_amazon_page on failure.
     """
+    # Try BrowserAct first
+    try:
+        from browseract_fetcher import search_amazon as ba_search
+        products = ba_search(keyword, max_products=max_products, category="Search")
+        if products:
+            return products
+    except Exception:
+        pass  # BrowserAct unavailable, fallback
+    
+    # Fallback: existing curl + HTML parse
     search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
     html = _curl_fetch(search_url)
     
