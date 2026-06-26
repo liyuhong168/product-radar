@@ -36,8 +36,8 @@ def _get_discoveries_for_date(target_date=None):
 def _get_latest_radar():
     """Load the most recent radar channel data."""
     files = sorted(CHANNELS_DIR.glob("*.json"))
-    # Filter out trends/rejected files, get main scan files
-    main_files = [f for f in files if "-trends" not in f.name and "-rejected" not in f.name]
+    # Filter out trends/rejected files and non-scan files
+    main_files = [f for f in files if "-trends" not in f.name and "-rejected" not in f.name and f.name != "bsr_data.json"]
     if not main_files:
         return None
     return _load_json(main_files[-1])
@@ -89,13 +89,35 @@ def _get_radar_highlights(radar_data, top_n=5):
     if not radar_data:
         return []
 
-    # Case 1: dict with stats (old format)
+    # Current format: dict with 'products' key containing passed products
     if isinstance(radar_data, dict):
-        highlights = []
+        products = radar_data.get("products", [])
+        if products:
+            # Sort by score descending
+            sorted_products = sorted(products, key=lambda x: x.get("score", 0), reverse=True)
+            highlights = []
+            for p in sorted_products[:top_n]:
+                name = p.get("name", "")[:50]
+                price = p.get("price", 0)
+                reviews = p.get("reviews", 0)
+                score = p.get("score", 0)
+                margin = p.get("profit_margin", 0)
+                sources = ", ".join(p.get("sources", [])[:3])
+                ocean = "🌊蓝海" if reviews < 20 else "🟢低竞争" if reviews <= 50 else "🟡中等"
+                highlights.append({
+                    "category": name,
+                    "trend_score": f"分数{score}",
+                    "demand_label": f"£{price:.2f} | {reviews}评论 {ocean} | 利润率{margin*100:.0f}%",
+                    "demand_level": sources,
+                })
+            return highlights
+        
+        # Fallback: old format with trend_categories
         stats = radar_data.get("stats", {})
         categories = stats.get("trend_categories", {})
         supply_demand = stats.get("supply_demand", {})
         sorted_cats = sorted(categories.items(), key=lambda x: x[1], reverse=True)
+        highlights = []
         for cat, score in sorted_cats[:top_n]:
             sd = supply_demand.get(cat, {})
             highlights.append({
@@ -103,25 +125,6 @@ def _get_radar_highlights(radar_data, top_n=5):
                 "trend_score": score,
                 "demand_label": sd.get("label", ""),
                 "demand_level": sd.get("level", ""),
-            })
-        return highlights
-
-    # Case 2: list of product dicts (current format)
-    if isinstance(radar_data, list):
-        highlights = []
-        for item in radar_data[:top_n]:
-            asin = item.get("asin", "")
-            title = item.get("title", "")[:80]
-            bsr = item.get("bsr_rank", "")
-            cat = item.get("bsr_category", "")
-            price = item.get("price", "")
-            reviews = item.get("reviews", "")
-            rating = item.get("rating", "")
-            highlights.append({
-                "category": f"{title} ({asin})",
-                "trend_score": f"BSR#{bsr} | {cat}",
-                "demand_label": f"${price} | {reviews}评 | {rating}⭐",
-                "demand_level": "",
             })
         return highlights
 

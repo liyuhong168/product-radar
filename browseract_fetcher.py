@@ -26,7 +26,7 @@ TIMEOUT_CLICK = 5
 MAX_RETRIES = 2
 MAX_CONCURRENT = 3  # Max concurrent Chrome sessions
 
-# Semaphore for concurrency control
+# Semaphore for concurrency control (queue with longer timeout instead of skip)
 _semaphore = threading.Semaphore(MAX_CONCURRENT)
 
 # JS to extract products from Amazon search/category pages
@@ -86,7 +86,7 @@ EXTRACT_JS = r"""(() => {
       let gbpPrice = price;
       const priceText = priceEl ? priceEl.textContent : '';
       if (priceText.includes('¥') || priceText.includes('￥') || (price > 50 && !priceText.includes('£'))) {
-        gbpPrice = Math.round(price / 9.3 * 100) / 100;  // CNY → GBP rate ~9.3
+        gbpPrice = Math.round(price / 9.2 * 100) / 100;  // CNY → GBP rate 9.2 (fixed)
       }
       items.push({
         asin: asin,
@@ -164,10 +164,10 @@ def search_amazon(keyword, max_products=5, category="Search", retry=0):
     session = f"{SESSION_PREFIX}_{hash(keyword) % 10000}_{int(time.time()) % 1000}"
     search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
     
-    # Acquire semaphore for concurrency control
-    acquired = _semaphore.acquire(timeout=30)
+    # Acquire semaphore for concurrency control (wait up to 2 min instead of skipping)
+    acquired = _semaphore.acquire(timeout=120)
     if not acquired:
-        print(f"  ⚠️ BrowserAct busy, skipping '{keyword}'", file=sys.stderr)
+        print(f"  ⚠️ BrowserAct排队超时，跳过 '{keyword}'", file=sys.stderr)
         return []
     
     try:
@@ -248,9 +248,9 @@ def fetch_page_html(url, retry=0):
     import hashlib
     session = f"page_{hashlib.md5(url.encode()).hexdigest()[:8]}_{int(time.time()) % 1000}"
     
-    acquired = _semaphore.acquire(timeout=30)
+    acquired = _semaphore.acquire(timeout=120)
     if not acquired:
-        print(f"  ⚠️ BrowserAct busy, skipping page fetch", file=sys.stderr)
+        print(f"  ⚠️ BrowserAct排队超时，跳过页面拉取", file=sys.stderr)
         return ""
     
     try:
