@@ -1,4 +1,7 @@
 #!/bin/bash
+set -a; source /home/lee/.hermes/.env; set +a
+export SCRAPER_APIKEY=***
+export SCRAPER_API_KEY="$SCRAPER_APIKEY"  # Fix: Python reads SCRAPER_API_KEY (with underscore)
 # Product Radar Daily Scan - Cron wrapper
 # Runs scan + BSR enrichment + platform generation + deploy
 set -e
@@ -16,7 +19,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # Step 1: Run radar scan (timeout: 7 min)
 echo ""
 echo "📡 Step 1: 雷达扫描..."
-timeout 600 python3 run_scan_v2.py 2>/dev/null || { echo "❌ 扫描超时或失败"; exit 1; }
+timeout 900 python3 -u run_scan_v2.py 2>&1 || { echo "❌ 扫描超时或失败"; exit 1; }
 
 # Get latest data file
 LATEST=$(ls -t data/channels/*.json 2>/dev/null | grep -v rejected | grep -v trends | grep -v bsr_data | head -1)

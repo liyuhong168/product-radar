@@ -388,7 +388,7 @@ def main():
 
     # 1. Amazon (New/BSR/Wished/Gifts)
     print("[1/8] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
-    amazon_products = fetch_amazon(max_per_channel_type=18)  # 扫描全部品类
+    amazon_products = fetch_amazon(max_per_channel_type=10)  # 减少品类数加速（Amazon限流）
     print(f"  Amazon: {len(amazon_products)} products", file=sys.stderr)
 
     # 1b. Keyword-driven scan (discovery + festival keywords)

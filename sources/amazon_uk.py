@@ -101,7 +101,17 @@ CATEGORY_VALIDATORS = {
 }
 
 
-SCRAPER_API_KEY = os.environ.get("SCRAPER_API_KEY", "")
+def _load_scraperapi_key():
+    """Load ScraperAPI key: env var first, then ~/.hermes/scraperapi_key.txt"""
+    key = os.environ.get("SCRAPER_API_KEY", "")
+    if key:
+        return key
+    key_file = Path.home() / ".hermes" / "scraperapi_key.txt"
+    if key_file.exists():
+        return key_file.read_text().strip()
+    return ""
+
+SCRAPER_API_KEY = _load_scraperapi_key()
 
 def _is_valid_response(html):
     """Check if Amazon response contains real product data."""
@@ -156,8 +166,10 @@ def _cloakbrowser_fetch(url):
         return ""
 
 
+CLOUDFLARE_WORKER_URL = "https://amazon-uk-proxy.liyuhong66.workers.dev/"
+
 def _curl_fetch(url):
-    """Fetch a page with curl, forcing GBP. Falls back to ScraperAPI then BrowserAct."""
+    """Fetch a page with curl, forcing GBP. Falls back to ScraperAPI → CF Worker → BrowserAct → CloakBrowser."""
     # Try direct request first
     try:
         result = subprocess.run(
@@ -194,7 +206,20 @@ def _curl_fetch(url):
     else:
         print("  No SCRAPER_API_KEY set, skipping fallback", file=sys.stderr)
 
-    # Fallback 2: BrowserAct (real Chrome browser)
+    # Fallback 2: Cloudflare Worker (free proxy via workers.dev)
+    try:
+        import urllib.request, urllib.parse
+        proxy_url = CLOUDFLARE_WORKER_URL + "?url=" + urllib.parse.quote(url, safe='')
+        with urllib.request.urlopen(proxy_url, timeout=30) as resp:
+            html = resp.read().decode("utf-8")
+            if _is_valid_response(html):
+                print(f"  Cloudflare Worker OK (len={len(html)})", file=sys.stderr)
+                return html
+            print(f"  Cloudflare Worker returned invalid response (len={len(html)})", file=sys.stderr)
+    except Exception as e:
+        print(f"  Cloudflare Worker error: {e}", file=sys.stderr)
+
+    # Fallback 3: BrowserAct (real Chrome browser)
     try:
         from browseract_fetcher import is_available, fetch_page_html
         if is_available():
