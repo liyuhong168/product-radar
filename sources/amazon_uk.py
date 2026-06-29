@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Amazon UK data fetcher v2 - New Releases + BSR with channel tagging"""
-import json, subprocess, re, sys, random, os
+import json, subprocess, re, sys, random, os, threading, time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
@@ -126,43 +126,123 @@ def _is_valid_response(html):
 
 CLOAKBROWSER_CHROME = '/home/lee/.cloakbrowser/chromium-146.0.7680.177.5/chrome'
 
+# Thread-safety lock for CloakBrowser (Playwright greenlets are not thread-safe)
+_cloak_lock = __import__('threading').Lock()
+
+# ── 12-hour cache ────────────────────────────────────────────────
+CACHE_FILE = BASE / "data" / "amazon_cache.json"
+CACHE_TTL = 12 * 3600  # 12 hours
+
+def _load_cache():
+    if CACHE_FILE.exists():
+        try:
+            return json.loads(CACHE_FILE.read_text())
+        except Exception:
+            return {}
+    return {}
+
+def _save_cache(cache):
+    CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    CACHE_FILE.write_text(json.dumps(cache))
+
+def _check_cache(url):
+    cache = _load_cache()
+    entry = cache.get(url)
+    if entry:
+        age = time.time() - entry["t"]
+        if age < CACHE_TTL:
+            print(f"  cache HIT ({age/3600:.0f}h old): {url.split('/')[-2]}", file=sys.stderr)
+            return entry["h"]
+    return None
+
+def _set_cache(url, html):
+    cache = _load_cache()
+    cache[url] = {"t": time.time(), "h": html}
+    _save_cache(cache)
+
+# ── Browser singleton (thread-safe via _amazon_fetch_lock) ──────
+_BROWSER = None
+_BROWSER_CTX = None
+_amazon_fetch_lock = threading.Lock()
+
+def _get_browser():
+    global _BROWSER, _BROWSER_CTX
+    if _BROWSER is None:
+        from playwright.sync_api import sync_playwright
+        p = sync_playwright().start()
+        _BROWSER = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
+        _BROWSER_CTX = _BROWSER.new_context(
+            locale='en-GB',
+            timezone_id='Europe/London',
+            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+        )
+        print("  🚀 CloakBrowser launched (singleton, reused across categories)", file=sys.stderr)
+    return _BROWSER, _BROWSER_CTX
+
 def _cloakbrowser_fetch(url):
-    """Fetch a page using CloakBrowser (Playwright with stealth Chrome)."""
-    import os
+    """Fetch a page using CloakBrowser — reuses global browser singleton.
+    On greenlet thread error, falls back to a dedicated fresh instance.
+    """
     if not os.path.exists(CLOAKBROWSER_CHROME):
         return ""
-    
-    try:
-        from playwright.sync_api import sync_playwright
-        with sync_playwright() as p:
-            browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
-            context = browser.new_context(
-                locale='en-GB',
-                timezone_id='Europe/London',
-                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
-            )
-            page = context.new_page()
-            
+
+    with _cloak_lock:
+        try:
+            browser, ctx = _get_browser()
+            page = ctx.new_page()
             try:
-                page.goto(url, timeout=25000)
+                page.goto(url, timeout=45000)
                 page.wait_for_timeout(2000)
-                
+
                 # Accept cookies if present
                 try:
                     accept = page.query_selector('#sp-cc-accept')
                     if accept:
                         accept.click()
                         page.wait_for_timeout(500)
-                except:
+                except Exception:
                     pass
-                
+
                 html = page.content()
-                return html
+                if len(html) > 1000:
+                    return html
+                # Short response may be a 503 / captcha — fall through to fresh instance
             finally:
-                context.close()
+                page.close()
+        except Exception as e:
+            err_str = str(e)
+            print(f"  CloakBrowser singleton error: {err_str[:80]}", file=sys.stderr)
+            # If greenlet thread conflict or short response, try a dedicated fresh instance
+            if "greenlet" in err_str or "Cannot switch" in err_str or "different thread" in err_str:
+                pass  # fall through
+            else:
+                return ""
+
+    # Fallback: dedicated fresh browser instance (avoids greenlet thread conflict)
+    print("  CloakBrowser fallback → dedicated instance", file=sys.stderr)
+    try:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True,
+                                        args=['--disable-blink-features=AutomationControlled'])
+            try:
+                ctx = browser.new_context(
+                    locale='en-GB', timezone_id='Europe/London',
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+                    viewport={'width': 1920, 'height': 1080},
+                )
+                page = ctx.new_page()
+                try:
+                    page.goto(url, timeout=45000, wait_until='domcontentloaded')
+                    page.wait_for_timeout(3000)
+                    html = page.content()
+                    return html
+                finally:
+                    page.close()
+            finally:
                 browser.close()
     except Exception as e:
-        print(f"  CloakBrowser error: {e}", file=sys.stderr)
+        print(f"  CloakBrowser dedicated fallback error: {e}", file=sys.stderr)
         return ""
 
 
@@ -170,7 +250,7 @@ CLOUDFLARE_WORKER_URL = "https://amazon-uk-proxy.liyuhong66.workers.dev/"
 
 def _curl_fetch(url):
     """Fetch a page with curl, forcing GBP. Falls back to ScraperAPI → CF Worker → BrowserAct → CloakBrowser."""
-    # Try direct request first
+    # Try direct request first (fast, but usually blocked)
     try:
         result = subprocess.run(
             ["curl", "-s", "-L", "--compressed",
@@ -183,43 +263,20 @@ def _curl_fetch(url):
         )
         if _is_valid_response(result.stdout):
             return result.stdout
-        print(f"  Direct request blocked/invalid (len={len(result.stdout)}), trying ScraperAPI...", file=sys.stderr)
     except Exception as e:
-        print(f"  curl error: {e}, trying ScraperAPI...", file=sys.stderr)
+        pass
 
-    # Fallback: ScraperAPI
-    if SCRAPER_API_KEY:
-        try:
-            proxy_url = f"http://api.scraperapi.com?api_key={SCRAPER_API_KEY}&url={url}"
-            result = subprocess.run(
-                ["curl", "-s", "-L", "--compressed",
-                 "--connect-timeout", "15", "--max-time", "45",
-                 proxy_url],
-                capture_output=True, text=True, timeout=60
-            )
-            if _is_valid_response(result.stdout):
-                print(f"  ScraperAPI OK (len={len(result.stdout)})", file=sys.stderr)
-                return result.stdout
-            print(f"  ScraperAPI also failed (len={len(result.stdout)})", file=sys.stderr)
-        except Exception as e:
-            print(f"  ScraperAPI error: {e}", file=sys.stderr)
-    else:
-        print("  No SCRAPER_API_KEY set, skipping fallback", file=sys.stderr)
-
-    # Fallback 2: Cloudflare Worker (free proxy via workers.dev)
+    # Primary: CloakBrowser (Playwright with stealth Chrome) — reliable
+    # Skip dead layers: ScraperAPI (quota exhausted), CF Worker (network unreachable), BrowserAct (broken)
     try:
-        import urllib.request, urllib.parse
-        proxy_url = CLOUDFLARE_WORKER_URL + "?url=" + urllib.parse.quote(url, safe='')
-        with urllib.request.urlopen(proxy_url, timeout=30) as resp:
-            html = resp.read().decode("utf-8")
-            if _is_valid_response(html):
-                print(f"  Cloudflare Worker OK (len={len(html)})", file=sys.stderr)
-                return html
-            print(f"  Cloudflare Worker returned invalid response (len={len(html)})", file=sys.stderr)
+        html = _cloakbrowser_fetch(url)
+        if html and _is_valid_response(html):
+            print(f"  CloakBrowser OK (len={len(html)})", file=sys.stderr)
+            return html
     except Exception as e:
-        print(f"  Cloudflare Worker error: {e}", file=sys.stderr)
+        print(f"  CloakBrowser fallback error: {e}", file=sys.stderr)
 
-    # Fallback 3: BrowserAct (real Chrome browser)
+    # Last resort: search fallback via BrowserAct (slow but different fingerprint)
     try:
         from browseract_fetcher import is_available, fetch_page_html
         if is_available():
@@ -229,15 +286,6 @@ def _curl_fetch(url):
                 return html
     except Exception as e:
         print(f"  BrowserAct fallback error: {e}", file=sys.stderr)
-
-    # Fallback 3: CloakBrowser (Playwright with stealth Chrome)
-    try:
-        html = _cloakbrowser_fetch(url)
-        if html and _is_valid_response(html):
-            print(f"  CloakBrowser OK (len={len(html)})", file=sys.stderr)
-            return html
-    except Exception as e:
-        print(f"  CloakBrowser fallback error: {e}", file=sys.stderr)
 
     return ""
 
@@ -315,7 +363,7 @@ def _parse_amazon_page(html, category, channel_type):
     return products
 
 
-def fetch(max_per_channel_type=8):
+def fetch(max_per_channel_type=5):
     """Fetch Amazon UK data from New Releases and BSR."""
     all_products = []
     seen_asins = set()
@@ -370,34 +418,48 @@ def fetch(max_per_channel_type=8):
         'Party': 'party supplies decorations',
     }
 
-    # Fetch URLs with rate limiting (sequential with delays to avoid 503)
+    # Fetch URLs with rate limiting — serialized via lock + cache
     def _fetch_one(item):
         category, channel_type, url = item
-        import time
-        time.sleep(random.uniform(2, 5))  # Random delay 2-5 seconds
-        html = _curl_fetch(url)
-        if not html:
-            print(f"  warn {category}/{channel_type}: empty", file=sys.stderr)
-            # Try search fallback with delay
-            search_query = SEARCH_FALLBACKS.get(category)
-            if search_query:
-                import time
-                time.sleep(3)  # Extra delay before BrowserAct
-                from browseract_fetcher import search_amazon
-                search_products = search_amazon(search_query, max_products=max_per_channel_type, category=category)
-                if search_products:
-                    for p in search_products:
-                        p['channel'] = channel_type
-                        p['channel_name'] = CHANNEL_NAMES.get(channel_type, channel_type)
-                    print(f"  ok {category}/{channel_type}: {len(search_products)} from search fallback", file=sys.stderr)
-                    return (category, channel_type, search_products)
-            return (category, channel_type, [])
-        products = _parse_amazon_page(html, category, channel_type)
-        new_count = len(products)
-        print(f"  ok {category}/{channel_type}: {new_count} new", file=sys.stderr)
-        return (category, channel_type, products)
 
-    with ThreadPoolExecutor(max_workers=3) as pool:
+        # Serialize: only one Amazon request at a time (true sequential delay)
+        with _amazon_fetch_lock:
+            # Check 12h cache first
+            cached = _check_cache(url)
+            if cached is not None:
+                products = _parse_amazon_page(cached, category, channel_type)
+                new_count = len(products)
+                print(f"  cached {category}/{channel_type}: {new_count} products", file=sys.stderr)
+                return (category, channel_type, products)
+
+            # Random delay 2-5 seconds between each real request
+            time.sleep(random.uniform(2, 5))
+
+            html = _curl_fetch(url)
+            if not html:
+                print(f"  warn {category}/{channel_type}: empty", file=sys.stderr)
+                # Try search fallback with delay
+                search_query = SEARCH_FALLBACKS.get(category)
+                if search_query:
+                    time.sleep(3)  # Extra delay before BrowserAct
+                    from browseract_fetcher import search_amazon
+                    search_products = search_amazon(search_query, max_products=max_per_channel_type, category=category)
+                    if search_products:
+                        for p in search_products:
+                            p['channel'] = channel_type
+                            p['channel_name'] = CHANNEL_NAMES.get(channel_type, channel_type)
+                        print(f"  ok {category}/{channel_type}: {len(search_products)} from search fallback", file=sys.stderr)
+                        return (category, channel_type, search_products)
+                return (category, channel_type, [])
+
+            # Save successful fetch to cache
+            _set_cache(url, html)
+            products = _parse_amazon_page(html, category, channel_type)
+            new_count = len(products)
+            print(f"  ok {category}/{channel_type}: {new_count} new", file=sys.stderr)
+            return (category, channel_type, products)
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
         futures = {pool.submit(_fetch_one, item): item for item in selected_keys}
         for future in as_completed(futures):
             category, channel_type, products = future.result()

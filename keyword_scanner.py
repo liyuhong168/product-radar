@@ -108,102 +108,313 @@ def load_festival_keywords():
     return keywords[:10]
 
 
+def _keyword_playwright_fetch(search_url, cloackchrome_path=None):
+    """Fetch Amazon search page using a dedicated Playwright browser (not the shared singleton).
+    Launches and closes per call — avoids the greenlet thread conflict in the shared CloakBrowser.
+    Used for keyword searches (5-10 per scan), so overhead is acceptable.
+
+    If sync_playwright fails (e.g. inside asyncio loop), falls back to a subprocess script.
+    """
+    import os
+    if not cloackchrome_path:
+        from sources.amazon_uk import CLOAKBROWSER_CHROME
+        cloackchrome_path = CLOAKBROWSER_CHROME
+
+    if not os.path.exists(cloackchrome_path):
+        return ""
+
+    # Primary: direct sync_playwright (works in cron/CLI, fails inside asyncio)
+    try:
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            browser = p.chromium.launch(executable_path=cloackchrome_path, headless=True)
+            try:
+                ctx = browser.new_context(
+                    locale='en-GB',
+                    timezone_id='Europe/London',
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+                )
+                page = ctx.new_page()
+                try:
+                    page.goto(search_url, timeout=30000, wait_until='domcontentloaded')
+                    page.wait_for_timeout(3000)
+                    html = page.content()
+                    return html
+                finally:
+                    page.close()
+            finally:
+                browser.close()
+    except Exception as e:
+        err_str = str(e)
+        # If asyncio loop error, fall through to subprocess approach
+        if "asyncio" in err_str or "Sync API" in err_str:
+            pass
+        else:
+            print(f"  dedicated playwright error: {err_str[:80]}", file=sys.stderr)
+            return ""
+
+    # Fallback: run in subprocess (bypasses asyncio context issue)
+    import subprocess as sp
+    import json
+    try:
+        script = (
+            "import sys, json; sys.path.insert(0, '.'); "
+            "from sources.amazon_uk import CLOAKBROWSER_CHROME; "
+            "from playwright.sync_api import sync_playwright; "
+            f"url = {json.dumps(search_url)}; "
+            "with sync_playwright() as p: "
+            "  b = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True); "
+            "  try: "
+            "    ctx = b.new_context(locale='en-GB', timezone_id='Europe/London', "
+            "      user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'); "
+            "    p2 = ctx.new_page(); "
+            "    try: "
+            "      p2.goto(url, timeout=30000, wait_until='domcontentloaded'); "
+            "      p2.wait_for_timeout(3000); "
+            "      print(p2.content()) "
+            "    finally: p2.close() "
+            "  finally: b.close()"
+        )
+        result = sp.run(
+            ["python3", "-c", script],
+            capture_output=True, text=True, timeout=60,
+            cwd=str(__import__('pathlib').Path(__file__).parent)
+        )
+        if result.stdout and len(result.stdout) > 500:
+            return result.stdout
+    except Exception as e:
+        print(f"  subprocess playwright error: {e}", file=sys.stderr)
+
+    return ""
+
+
+def _keyword_curl_fetch(search_url):
+    """Fetch Amazon search page with multiple fallback strategies.
+    Lightweight -- meant for keyword searches (5-10 per scan), avoids the broken CloakBrowser singleton.
+    """
+    import subprocess as sp
+    from sources.amazon_uk import _is_valid_response, USER_AGENT, GBP_COOKIES
+
+    # Strategy 1: Direct curl with desktop + mobile UAs (search pages less aggressively blocked)
+    ua_list = [
+        USER_AGENT,
+        "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.104 Mobile Safari/537.36",
+    ]
+    for ua in ua_list:
+        try:
+            result = sp.run(
+                ["curl", "-s", "-L", "--compressed",
+                 "--connect-timeout", "8", "--max-time", "20",
+                 "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                 "-H", "Accept-Language: en-GB,en;q=0.9",
+                 "-H", "Accept-Encoding: gzip, deflate, br",
+                 "-H", "Cache-Control: no-cache",
+                 "-H", "Pragma: no-cache",
+                 "-H", f"User-Agent: {ua}",
+                 "-b", GBP_COOKIES,
+                 search_url],
+                capture_output=True, text=True, timeout=30
+            )
+            if _is_valid_response(result.stdout):
+                print(f"  curl OK (len={len(result.stdout)})", file=sys.stderr)
+                return result.stdout
+        except Exception:
+            continue
+
+    # Strategy 2: requests with browser-like headers
+    try:
+        import requests as req
+        headers = {
+            "User-Agent": ua_list[0],
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-GB,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        }
+        resp = req.get(search_url, headers=headers, timeout=20, allow_redirects=True)
+        if resp.status_code == 200 and _is_valid_response(resp.text):
+            print(f"  requests OK (len={len(resp.text)})", file=sys.stderr)
+            return resp.text
+    except Exception:
+        pass
+
+    return ""
+
+
 def search_amazon_by_keyword(keyword, max_products=5):
     """Search Amazon UK for a keyword and return parsed products.
-    
-    Tries BrowserAct first (structured JSON, lower token cost).
-    Falls back to _curl_fetch + _parse_amazon_page on failure.
+
+    Fallback chain:
+    1. _curl_fetch → CloakBrowser (singleton → dedicated fallback if greenlet error)
+    2. _keyword_playwright_fetch (dedicated browser, separate from singleton)
+    3. BrowserAct (slow, different fingerprint)
     """
-    # Try BrowserAct first
+    search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
+
+    # Try 1: _curl_fetch (CloakBrowser with greenlet fallback now)
+    html = _curl_fetch(search_url)
+    if not html:
+        # Try 2: dedicated Playwright (separate from the shared singleton)
+        html = _keyword_playwright_fetch(search_url)
+
+    if html:
+        products = _parse_amazon_page(html, "Search", "keyword_search")
+        if products:
+            return products[:max_products]
+
+    # Try 3: BrowserAct (different fingerprint, slow)
     try:
         from browseract_fetcher import search_amazon as ba_search
         products = ba_search(keyword, max_products=max_products, category="Search")
         if products:
             return products
     except Exception:
-        pass  # BrowserAct unavailable, fallback
+        pass
+
+    return []
+
+
+def _dedicated_browser_search(search_url, browser):
+    """Search Amazon using a dedicated browser instance (not the shared singleton).
+    Reuses the browser across calls — must be pre-warmed.
     
-    # Fallback: existing curl + HTML parse
-    search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
-    html = _curl_fetch(search_url)
-    
-    if not html:
-        return []
-    
-    # Use "Search" as category and "keyword_search" as channel type
-    products = _parse_amazon_page(html, "Search", "keyword_search")
-    
-    # Limit results
-    return products[:max_products]
+    Uses homepage search form submission (not direct s?k=) to bypass Amazon's
+    search page blocking.
+    """
+    try:
+        ctx = browser.new_context(
+            locale='en-GB', timezone_id='Europe/London',
+            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+        )
+        page = ctx.new_page()
+        try:
+            # Step 1: Navigate to homepage first (establishes session)
+            page.goto('https://www.amazon.co.uk', timeout=30000, wait_until='domcontentloaded')
+            page.wait_for_timeout(2000)
+
+            # Step 2: Extract keyword from search_url and submit via search form
+            import urllib.parse as up
+            parsed = up.urlparse(search_url)
+            kw = up.parse_qs(parsed.query).get('k', [''])[0]
+
+            if kw:
+                # Fill search box and submit form (mimics real user behavior)
+                page.evaluate(f'(k) => {{ const el = document.querySelector("[name=field-keywords]"); if(el) {{ el.value = k; }} }}', kw)
+                page.wait_for_timeout(300)
+                page.evaluate('() => { const f = document.querySelector("form[name=\'site-search\']"); if(f) f.submit(); }')
+                page.wait_for_timeout(5000)
+            else:
+                # Fallback: direct navigation
+                page.goto(search_url, timeout=30000, wait_until='domcontentloaded')
+                page.wait_for_timeout(3000)
+
+            html = page.content()
+            return html
+        finally:
+            page.close()
+    except Exception as e:
+        print(f"  browser search error: {e}", file=sys.stderr)
+        return ""
 
 
 def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=10, max_reviews=200):
     """Run keyword-based scan from discovery + festival sources.
-    
+
+    Launches a dedicated Playwright browser, warms it up, then searches all keywords.
+    Avoids both greenlet conflict (fresh browser) and 503 (warmed session).
+
     Args:
         max_products_per_kw: Fetch more products per keyword to find low-competition ones
         max_reviews: Only keep products with reviews below this threshold (default 200)
-    
+
     Returns list of products tagged with their keyword source.
     """
     # Load keywords from both sources
     disc_kws = load_discovery_keywords()[:max_discovery_kws]
     fest_kws = load_festival_keywords()[:max_festival_kws]
-    
+
     all_kws = disc_kws + fest_kws
     if not all_kws:
         print("  ℹ️ No pending keywords from discovery or festival", file=sys.stderr)
         return []
-    
+
     print(f"\n🔑 Keyword Scan: {len(disc_kws)} discovery + {len(fest_kws)} festival keywords", file=sys.stderr)
-    
-    all_products = []
-    seen_asins = set()
-    
-    for kw_info in all_kws:
-        keyword = kw_info["keyword"]
-        source = kw_info["source"]
-        
-        print(f"  🔍 [{source}] {keyword}...", file=sys.stderr, end="")
-        products = search_amazon_by_keyword(keyword, max_products=max_products_per_kw)
-        
-        # Filter: only keep products with reviews < max_reviews
-        filtered = [p for p in products if p.get("reviews", 0) < max_reviews]
-        
-        # Tag products with keyword source info
-        for p in filtered:
-            asin = p.get("asin", "")
-            if asin in seen_asins:
+
+    # Launch dedicated browser
+    from sources.amazon_uk import CLOAKBROWSER_CHROME
+    import os
+    browser = None
+    try:
+        from playwright.sync_api import sync_playwright
+        p = sync_playwright().start()
+        browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
+
+        # Now search all keywords with the warmed browser
+        all_products = []
+        seen_asins = set()
+
+        for kw_info in all_kws:
+            keyword = kw_info["keyword"]
+            source = kw_info["source"]
+
+            print(f"  🔍 [{source}] {keyword}...", file=sys.stderr, end="")
+            search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
+
+            html = _dedicated_browser_search(search_url, browser)
+            if not html or len(html) < 2000:
+                print(" → blocked/empty", file=sys.stderr)
                 continue
-            seen_asins.add(asin)
-            
-            p["keyword_source"] = source
-            p["matched_keyword"] = keyword
-            p["channel"] = "keyword_search"
-            p["channel_name"] = f"关键词搜索({source})"
-            
-            if source == "festival":
-                p["festival_event"] = kw_info.get("event", "")
-                p["festival_icon"] = kw_info.get("event_icon", "📅")
-                p["festival_deadline"] = kw_info.get("deadline", "")
-                p["is_event"] = True
-                if "节日" not in p.get("sources", []):
-                    p.setdefault("sources", []).append(f"📅 {kw_info.get('event', '节日')}")
-            else:
-                if "趋势发现" not in p.get("sources", []):
-                    p.setdefault("sources", []).append("趋势发现")
-            
-            all_products.append(p)
-        
-        kept = len(filtered)
-        total = len(products)
-        if kept < total:
-            print(f" → {total} found, {kept} kept (reviews<{max_reviews})", file=sys.stderr)
-        else:
-            print(f" → {kept} products", file=sys.stderr)
-    
-    print(f"  ✅ Keyword scan total: {len(all_products)} products", file=sys.stderr)
-    return all_products
+
+            products = _parse_amazon_page(html, "Search", "keyword_search")
+            if not products:
+                print(" → 0 parsed", file=sys.stderr)
+                continue
+
+            # Filter: only keep products with reviews < max_reviews
+            filtered = [p for p in products if p.get("reviews", 0) < max_reviews]
+
+            # Tag products with keyword source info
+            for p in filtered:
+                asin = p.get("asin", "")
+                if asin in seen_asins:
+                    continue
+                seen_asins.add(asin)
+
+                p["keyword_source"] = source
+                p["matched_keyword"] = keyword
+                p["channel"] = "keyword_search"
+                p["channel_name"] = f"关键词搜索({source})"
+
+                if source == "festival":
+                    p["festival_event"] = kw_info.get("event", "")
+                    p["festival_icon"] = kw_info.get("event_icon", "📅")
+                    p["festival_deadline"] = kw_info.get("deadline", "")
+                    p["is_event"] = True
+                    if "节日" not in p.get("sources", []):
+                        p.setdefault("sources", []).append(f"📅 {kw_info.get('event', '节日')}")
+                else:
+                    if "趋势发现" not in p.get("sources", []):
+                        p.setdefault("sources", []).append("趋势发现")
+
+                all_products.append(p)
+
+            kept = len(filtered)
+            total = len(products)
+            print(f" → {total} found, {kept} kept", file=sys.stderr)
+
+        print(f"  ✅ Keyword scan total: {len(all_products)} products", file=sys.stderr)
+        return all_products
+
+    except Exception as e:
+        print(f"  ❌ Keyword scan error: {e}", file=sys.stderr)
+        return []
+    finally:
+        if browser:
+            try:
+                browser.close()
+            except Exception:
+                pass
 
 
 if __name__ == "__main__":

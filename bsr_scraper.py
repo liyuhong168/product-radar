@@ -134,7 +134,10 @@ async def scrape_batch(asins: list[str], concurrency: int = 3) -> list[dict]:
 
     results = []
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(
+            headless=True,
+            executable_path="/home/lee/.cloakbrowser/chromium-146.0.7680.177.5/chrome"
+        )
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
             locale="en-GB",

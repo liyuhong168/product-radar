@@ -388,15 +388,26 @@ def main():
 
     # 1. Amazon (New/BSR/Wished/Gifts)
     print("[1/8] Amazon UK (New+BSR+Wished+Gifts)...", file=sys.stderr)
-    amazon_products = fetch_amazon(max_per_channel_type=10)  # 减少品类数加速（Amazon限流）
+    amazon_products = fetch_amazon(max_per_channel_type=5)  # 跟新默认值保持一致
     print(f"  Amazon: {len(amazon_products)} products", file=sys.stderr)
 
-    # 1b. Keyword-driven scan (discovery + festival keywords)
+    # 1b. Keyword-driven scan (discovery + festival keywords) with dedicated Playwright
     print("\n[1b/8] Keyword-driven scan (discovery + festival)...", file=sys.stderr)
-    keyword_products = run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=10, max_reviews=config.get("max_reviews", 200))
-    if keyword_products:
-        amazon_products.extend(keyword_products)
-        print(f"  Added {len(keyword_products)} keyword products → total {len(amazon_products)}", file=sys.stderr)
+    import signal
+    class TimeoutError(Exception): pass
+    def _handler(signum, frame): raise TimeoutError("keyword scan timed out")
+    original_handler = signal.signal(signal.SIGALRM, _handler)
+    signal.alarm(120)  # 2min max for keyword scan (new dedicated Playwright per kw)
+    try:
+        keyword_products = run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=10, max_reviews=config.get("max_reviews", 200))
+        if keyword_products:
+            amazon_products.extend(keyword_products)
+            print(f"  Added {len(keyword_products)} keyword products → total {len(amazon_products)}", file=sys.stderr)
+    except TimeoutError:
+        print("  ⏰ 关键词扫描超时（>120s），跳过", file=sys.stderr)
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, original_handler)
 
     # 2. AnySearch trends (TikTok+HotUKDeals+Temu+Etsy+YouTube+Google+Reddit)
     print("\n[2/7] AnySearch 多源趋势分析...", file=sys.stderr)
