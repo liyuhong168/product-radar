@@ -1,42 +1,29 @@
 [
   {
-    "asin": "B0H49GNMTJ",
-    "bsr_rank": 98362,
-    "bsr_category": "Home & Kitchen",
-    "bsr_sub_rank": 187,
-    "bsr_sub_category": "Soap Dishes",
-    "reviews": 176,
-    "rating": 4.7,
-    "image_url": "https://m.media-amazon.com/images/I/51ZkdQeJUTL._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
-    "title": "Travel Soap Box with Sealed Lid, Waterproof Leakproof Soap Holder with Removable Drainage Tray, Dustproof Bar Soap Case for Outdoor, Camping, Gym, Bathroom & Travel Use, 2Pcs (Green & Pink)",
-    "price": 12.99,
-    "scraped_at": "2026-06-29T09:09:10.012504"
-  },
-  {
-    "asin": "B0H4LFV9QC",
-    "bsr_rank": 117721,
-    "bsr_category": "Home & Kitchen",
-    "bsr_sub_rank": 228,
-    "bsr_sub_category": "Soap Dishes",
-    "reviews": 1197,
-    "rating": 4.2,
-    "image_url": "https://m.media-amazon.com/images/I/617n+0sNOVL._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
-    "title": "Silicone Soap Dish, Self Draining Soap Holder, Anti-Slip Soap Tray, Beige | Soap Dish for Bathroom, Shower, Bathtub, Kitchen, Sink Countertop, Keep Soap Dry & Easy Cleaning",
-    "price": 6.66,
-    "scraped_at": "2026-06-29T09:09:10.013372"
-  },
-  {
-    "asin": "B08JQM3GZ1",
-    "bsr_rank": 89679,
-    "bsr_category": "Lighting",
-    "bsr_sub_rank": 4670,
-    "bsr_sub_category": "Indoor-Outdoor String Lights 40,107 in Garden Décor",
-    "reviews": 4,
+    "asin": "B08XXW8D94",
+    "bsr_rank": 33392,
+    "bsr_category": "Grocery",
+    "bsr_sub_rank": 27,
+    "bsr_sub_category": "Dryer Balls",
+    "reviews": 527,
     "rating": 4.4,
-    "image_url": "https://m.media-amazon.com/images/I/710oa83942L._AC_QL10_SX980_SY55_FMwebp_.jpg",
-    "title": "Garden Market Place Inflatable Christmas Penguin with Low Voltage LED Lights 1.2M Tall- Indoor or Outdoors",
-    "price": 18.99,
-    "scraped_at": "2026-06-29T09:09:10.013770"
+    "image_url": "https://m.media-amazon.com/images/I/717Ju483g4L._AC_QL10_SX980_SY55_FMwebp_.jpg",
+    "title": "Wool Tumble Dryer Balls 6-Pack XL Reusable 1000+ Loads Dryer Balls For Laundry UK 100% Natural New Zealand Wool Balls For Tumble Dryer Wool Dryer Balls Alternative To Tumble Dryer Sheets",
+    "price": 6.62,
+    "scraped_at": "2026-06-29T14:11:33.058527"
+  },
+  {
+    "asin": "B09RMFY9QC",
+    "bsr_rank": 75089,
+    "bsr_category": "Grocery",
+    "bsr_sub_rank": 79,
+    "bsr_sub_category": "Dryer Balls",
+    "reviews": 108643,
+    "rating": 4.4,
+    "image_url": "https://m.media-amazon.com/images/I/717Ju483g4L._AC_QL10_SX980_SY55_FMwebp_.jpg",
+    "title": "Wool Dryer Balls, XL - 6 Pack. Reusable, Hypoallergenic, 100% Organic New Zealand Wool. Safe & Unscented, Assorted Colours",
+    "price": 7.87,
+    "scraped_at": "2026-06-29T14:11:33.059346"
   },
   {
     "asin": "B0GF2NXXLP",
@@ -49,6 +36,6 @@
     "image_url": "https://m.media-amazon.com/images/I/81XMcMeV16L._AC_QL10_SX980_SY55_FMwebp_.jpg",
     "title": "Hy-Pro Officially Licensed FIFA World Cup 2026 Football - Training Ball, Football Gifts for Boys - FIFA World Cup 2026 Design",
     "price": 69.99,
-    "scraped_at": "2026-06-29T09:09:15.007272"
+    "scraped_at": "2026-06-29T14:11:33.059759"
   }
 ]
