@@ -1,41 +1,15 @@
 [
   {
-    "asin": "B08XXW8D94",
-    "bsr_rank": 33392,
-    "bsr_category": "Grocery",
-    "bsr_sub_rank": 27,
-    "bsr_sub_category": "Dryer Balls",
-    "reviews": 527,
-    "rating": 4.4,
-    "image_url": "https://m.media-amazon.com/images/I/717Ju483g4L._AC_QL10_SX980_SY55_FMwebp_.jpg",
-    "title": "Wool Tumble Dryer Balls 6-Pack XL Reusable 1000+ Loads Dryer Balls For Laundry UK 100% Natural New Zealand Wool Balls For Tumble Dryer Wool Dryer Balls Alternative To Tumble Dryer Sheets",
-    "price": 6.62,
-    "scraped_at": "2026-06-29T14:11:33.058527"
-  },
-  {
-    "asin": "B09RMFY9QC",
-    "bsr_rank": 75089,
-    "bsr_category": "Grocery",
-    "bsr_sub_rank": 79,
-    "bsr_sub_category": "Dryer Balls",
-    "reviews": 108643,
-    "rating": 4.4,
-    "image_url": "https://m.media-amazon.com/images/I/717Ju483g4L._AC_QL10_SX980_SY55_FMwebp_.jpg",
-    "title": "Wool Dryer Balls, XL - 6 Pack. Reusable, Hypoallergenic, 100% Organic New Zealand Wool. Safe & Unscented, Assorted Colours",
-    "price": 7.87,
-    "scraped_at": "2026-06-29T14:11:33.059346"
-  },
-  {
-    "asin": "B0GF2NXXLP",
-    "bsr_rank": 17,
+    "asin": "B0GYXR8P84",
+    "bsr_rank": 454,
     "bsr_category": "Sports & Outdoors",
-    "bsr_sub_rank": 1,
-    "bsr_sub_category": "Sports Fan Footballs 2 in Fan Clothing",
-    "reviews": 344,
-    "rating": 4.4,
-    "image_url": "https://m.media-amazon.com/images/I/81XMcMeV16L._AC_QL10_SX980_SY55_FMwebp_.jpg",
-    "title": "Hy-Pro Officially Licensed FIFA World Cup 2026 Football - Training Ball, Football Gifts for Boys - FIFA World Cup 2026 Design",
-    "price": 69.99,
-    "scraped_at": "2026-06-29T14:11:33.059759"
+    "bsr_sub_rank": 5,
+    "bsr_sub_category": "Sports Collectible Flags",
+    "reviews": 74,
+    "rating": 4.9,
+    "image_url": "https://m.media-amazon.com/images/I/61JP3+URuCL._AC_QL10_SX980_SY55_FMwebp_.jpg",
+    "title": "49ft/15m World Cup Flags Football Bunting 2026 for Party Decorations 2026,48 Teams Flags Double Sides Fabric Bunting Banner for Restaurant Bar Club Garden Street Party World Cup 2026 Decorations",
+    "price": 7.91,
+    "scraped_at": "2026-06-30T14:09:01.208498"
   }
 ]
