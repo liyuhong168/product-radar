@@ -443,7 +443,7 @@ re.escape(kw)  # 含空格/特殊字符的短语直接转义匹配
 | 食品/药品 | food, snack, vitamin, supplement, pill |
 | 宠物食品 | pet food, dog food, cat food, cat litter |
 | 服装 | dress, shirt, shoes, trousers, clothing |
-| 电子/电池 | lithium, battery, charger, electronic, usb powered, mains powered |
+|| 电子/电池 | lithium, battery, charger, electronic, rechargeable, usb powered, battery operated, plug in, electric, mains powered, motor, powered, cordless, wireless, charging, bluetooth, speaker, headphone, earphone, heater, sensor, vacuum |
 | 风扇类 | ceiling fan, desk fan, tower fan, neck fan, portable fan（精确匹配，不误杀"fantastic"） |
 | 家具 | furniture, chair, wardrobe, mattress |
 | 液体/化学 | liquid, fluid, gel, oil, glue, adhesive, resin, epoxy, bleach, detergent |

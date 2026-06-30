@@ -424,17 +424,37 @@ def main():
     tiktok_matched = match_keywords_to_products(tiktok_products, amazon_products, "TikTok趋势")
     print(f"  TikTok → {len(tiktok_matched)} products", file=sys.stderr)
 
-    # 4. Google Trends
-    print("\n[4/7] Google Trends UK...", file=sys.stderr)
-    gtrends_text = fetch_demand_signals()
-    amazon_products = enrich_google_trends(amazon_products, gtrends_text)
-    gt_count = sum(1 for p in amazon_products if p.get("google_trend") == "rising")
-    print(f"  Google Trends → {gt_count} products", file=sys.stderr)
+    # ── Checkpoint save: save raw products even if later steps crash ──
+    checkpoint = {
+        "scan_date": scan_date, "scan_time": scan_time, "scan_ts": scan_ts,
+        "stats": {"total_scanned": len(amazon_products), "passed": len(tiktok_matched), "sources": ["amazon","keyword","tiktok"]},
+        "products": amazon_products,
+    }
+    try:
+        (BASE / "data" / "channels" / f"{scan_ts}-raw.json").write_text(
+            json.dumps(checkpoint, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"  💾 Checkpoint saved ({len(amazon_products)} products)", file=sys.stderr)
+    except Exception as e:
+        print(f"  ⚠️  Checkpoint save failed: {e}", file=sys.stderr)
+
+    # 4. Google Trends (with error protection)
+    print("\\n[4/7] Google Trends UK...", file=sys.stderr)
+    try:
+        gtrends_text = fetch_demand_signals()
+        amazon_products = enrich_google_trends(amazon_products, gtrends_text)
+        gt_count = sum(1 for p in amazon_products if p.get("google_trend") == "rising")
+        print(f"  Google Trends → {gt_count} products", file=sys.stderr)
+    except Exception as e:
+        print(f"  ⚠️ Google Trends error (non-fatal): {e}", file=sys.stderr)
+        gtrends_text = ""
 
     # 5. Reddit
-    print("\n[5/7] Reddit demand...", file=sys.stderr)
-    reddit_text = fetch_reddit()
-    amazon_products = enrich_reddit(amazon_products, reddit_text)
+    print("\\n[5/7] Reddit demand...", file=sys.stderr)
+    try:
+        reddit_text = fetch_reddit()
+        amazon_products = enrich_reddit(amazon_products, reddit_text)
+    except Exception as e:
+        print(f"  ⚠️ Reddit error (non-fatal): {e}", file=sys.stderr)
 
     # 6. Enrich with AnySearch source signals
     print("\n[6/7] Enriching with trend signals...", file=sys.stderr)
@@ -564,13 +584,11 @@ def main():
                   "sources": p.get("sources",[]), "channel": p.get("channel","")} for p in passed]
     (hist_dir / f"{scan_ts}.json").write_text(json.dumps(hist_data, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    from generate_html_v2 import generate_html
-    output_html = generate_html(str(data_dir / f"{scan_ts}.json"))
+    # HTML output: only platform page (generate_platform.py handles this), skip per-scan v2
 
     print(f"\n{'='*60}", file=sys.stderr)
     print(f"  ✅ {len(passed)} scored products | {len(channel_counts)} channels", file=sys.stderr)
-    print(f"  📊 {output_html}", file=sys.stderr)
-    print(f"{'='*60}\n", file=sys.stderr)
+    print(f"  {'='*60}\n", file=sys.stderr)
 
     print(json.dumps({"date": scan_date, "scanned": len(products), "passed": len(passed),
                        "rejected": len(rejected), "channels": channel_counts,

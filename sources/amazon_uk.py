@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Amazon UK data fetcher v2 - New Releases + BSR with channel tagging"""
 import json, subprocess, re, sys, random, os, threading, time
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent
@@ -459,14 +458,19 @@ def fetch(max_per_channel_type=5):
             print(f"  ok {category}/{channel_type}: {new_count} new", file=sys.stderr)
             return (category, channel_type, products)
 
-    with ThreadPoolExecutor(max_workers=6) as pool:
-        futures = {pool.submit(_fetch_one, item): item for item in selected_keys}
-        for future in as_completed(futures):
-            category, channel_type, products = future.result()
+    # Sequential fetch (no threading — Playwright greenlets are not thread-safe)
+    def _fetch_seq(items):
+        results = []
+        for item in items:
+            category, channel_type, products = _fetch_one(item)
             for p in products:
                 if p["asin"] not in seen_asins:
                     seen_asins.add(p["asin"])
                     all_products.append(p)
+            results.append((category, channel_type, products))
+        return results
+
+    _fetch_seq(selected_keys)
 
     # Summary by channel
     for ch in CHANNEL_NAMES:

@@ -124,7 +124,18 @@
     "drinking glass",
     "glass cup",
     "bulb",
-    "buckle"
+    "buckle",
+    "powered",
+    "cordless",
+    "wireless",
+    "charging",
+    "bluetooth",
+    "speaker",
+    "headphone",
+    "earphone",
+    "heater",
+    "sensor",
+    "vacuum"
   ],
   "sources": {
     "amazon_uk": {
