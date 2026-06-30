@@ -1,136 +1,141 @@
 {
   "scan_date": "2026-06-30",
-  "scan_time": "08:40",
-  "trend_forecast": "未来2个月（2026年7-8月）三大趋势：①UK盛夏热浪持续（5月破纪录高温，风扇销量+1,500%），降温类小件产品需求井喷；②7月12-15日Prime Day + 7月20日学校暑假开始 → 家庭户外/旅行用品需求高峰；③TikTok UK 7月四大品类爆发：户外旅行装备、校园返校用品、美容小仪器、家用降温品。Portable Neck Fan（Winning Score 84）和Cooling Towel（Score 76）为7月最强信号。",
+  "scan_time": "19:42",
+  "trend_forecast": "未来2个月（2026年7-8月）三大趋势：①7月12-15日Prime Day + 7月20日英国学校暑假 → 旅行用品/宠物出行用品/厨房小件需求井喷；②UK 5月破纪录热浪后持续高温，非电子类降温品（冷感毛巾/凝胶眼罩/冰袋）需求稳定但竞争加剧，需选蓝海差异化细分；③TikTok UK 7月四大品类：旅行收纳（Packing Cubes Score 74）、硅胶厨房小工具（Stove Gap Cover百万级播放）、宠物出行（Collapsible Bowls持续热销）、床品收纳（Pillow Protectors Movers & Shakers上榜）。\n\n⚠️ 本次扫描严格遵守非电子品类原则：排除所有含电池/USB/电机/充电功能的产品。",
   "insights": [
     {
-      "keyword": "evaporative cooling towel 3 pack",
-      "keyword_cn": "冰巾 冷感毛巾 3条装 瞬间降温",
-      "amazon_keyword": "cooling towel 3 pack evaporative",
-      "search_1688": "冰巾 冷感毛巾 瞬间降温 运动 户外 3条装",
+      "keyword": "silicone stove gap cover",
+      "keyword_cn": "硅胶炉灶缝隙挡板 防脏 可水洗",
+      "amazon_keyword": "stove gap cover silicone counter",
+      "search_1688": "炉灶缝隙挡板 硅胶 防脏 厨房台面 可水洗",
       "demand_signals": [
-        "TikTok July 2026 Viral Products - Evaporative Cooling Towel 3-Pack Winning Score 76（AliShopping Tools），毛利率78%",
-        "UK记录性5月热浪后，降温产品搜索量飙升，Currys风扇/降温品类搜索+1,500%",
-        "The INKEY List Glycolic Acid Body Stick在TikTok Shop UK 5月营收£455K（较1月增长3.8倍），证明夏季身体护理/降温需求逻辑被验证",
-        "TikTok上cooling towel测温枪演示视频<10秒高完播率格式，适合TikTok Shop引流"
-      ],
-      "trend_score": 78,
-      "trend_direction": "rising",
-      "reason": "UK 2026年破纪录高温持续，7-8月热浪预期更强。冷感毛巾是今夏TikTok UK评分最高的降温小件（Score 76）。1688源头价仅¥8-15/3条装，Amazon UK可卖£7.99-9.99，毛利率可达65%+。超轻量（<80g/条），FBA Small Standard费用仅£1.46，佣金8%（家居品类）。3条装提高AOV，适合007店快消测款。测温枪展示降温效果的内容格式在TikTok上已验证高传播性。Prime Day前7月5日前入仓可赶上促销。",
-      "action": "007店测款：上架3条装冷感毛巾（附收纳管/袋），定价£7.99，1688搜索'冰巾 冷感毛巾 瞬间降温 运动 户外 3条装'，首批20件，选多色组合（蓝/灰/粉），强调'instant cool technology'。Prime Day前7月5日前入仓。",
-      "competition": "蓝海。Amazon UK £6-10价格带cooling towel 3-pack竞品review数平均<10条，大品牌（Sukeen）集中在£12+定价，£8以下区间接近空白。TikTok热度尚未充分传导至Amazon。",
-      "signal_scores": {
-        "trend": 78,
-        "gap": 95,
-        "profit": 90,
-        "final": 87.7,
-        "recommendation": "STRONG_BUY",
-        "gap_level": "蓝海",
-        "profit_window": "1688 ¥15以内可保30%+利润（毛利率预估38%，FBA+8%佣金后）"
-      }
-    },
-    {
-      "keyword": "handheld misting fan foldable",
-      "keyword_cn": "手持喷雾风扇 折叠 便携 USB充电",
-      "amazon_keyword": "handheld misting fan portable USB rechargeable",
-      "search_1688": "手持喷雾风扇 折叠 便携 USB充电 可充电",
-      "demand_signals": [
-        "TikTok July 2026 Handheld Misting Fan Score 68，毛利率72%，'water + fan'演示格式传播性强",
-        "UK heatwave驱动风扇品类暴涨，Currys风扇搜索+1,500%，Tesco电动风扇销量增30倍",
-        "Shark ChillPill三合一风扇£130售罄，验证'高端降温'市场热，但£8-10平价替代品需求被忽视",
-        "TikTok UK #summeressentials话题下，手持风扇类内容7月进入年度最高峰"
+        "TikTok #CleanTok Stove Gap Cover视频累计数百万播放，Emily Mariko等知名创作者推荐",
+        "Amazon US同类产品70,000+ reviews评分4.5+，需求已被大规模验证",
+        "UK夏季BBQ/烹饪频繁，厨房台面缝隙积脏问题是高频痛点",
+        "Amazon UK Kitchen Accessories品类为35%卖家营收占比最大品类（Accio.co 2026报告）",
+        "Amazon UK Hot New Releases中Kitchen Storage & Organisation为最活跃子品类"
       ],
       "trend_score": 72,
       "trend_direction": "rising",
-      "reason": "UK热浪下便携降温是刚需。Shark ChillPill卖£130仍售罄，证明市场需求极大但价格天花板高，平价替代品（£8-10）有巨大缺口。折叠喷雾风扇集风扇+喷雾+折叠三合一，1688¥15-25，Amazon UK可卖£8.99-9.99。轻量<150g，FBA费用低。TikTok上喷雾+风扇的演示效果优于纯风扇。7-8月UK音乐节/户外活动密集，是场景化营销的绝佳机会。",
-      "action": "007店测款：上架折叠手持喷雾风扇（USB-C充电），定价£8.99，1688搜索'手持喷雾风扇 折叠 便携 USB充电 可充电'，首批20件，选白色/粉色/蓝色，强调'3-in-1 mist + fan + portable'。争取7月5日前入仓赶上Prime Day预热。",
-      "competition": "蓝海。Amazon UK £8-10价格带手持喷雾风扇竞品极少（<5个listing），Shark ChillPill£130不在同一竞争面。中国直发竞品多在£15+价格带，£8.99的FBA定价有竞争力。",
+      "reason": "硅胶炉灶缝隙挡板是TikTok #CleanTok已验证的爆款百万级播放产品。解决UK厨房台面与炉灶之间缝隙积灰/食物残渣的真实痛点，70,000+ Amazon US reviews验证需求真实性但UK市场尚属早期。纯硅胶材质（无电子部件），1688 ¥10-18/条，Amazon UK £7.99-8.99售价，毛利率45%+。轻量（<250g）可卷折FBA友好，家居品类佣金8%。Prime Day前入仓可借厨房小件促销流量。差异化选择30寸加长款+5色变体（黑色/灰色/白色/蓝色/墨绿）。",
+      "action": "007店测款：上架硅胶炉灶缝隙挡板30寸加长款，定价£8.99，1688搜索'炉灶缝隙挡板 硅胶 防脏 厨房台面 可水洗'，首批20件，选3色（黑色/灰色/白色）变体，强调'heat-resistant silicone + easy clean + 5° self-drain design'。争取7月5日前入仓赶上Prime Day预热。",
+      "competition": "蓝海。Amazon UK上silicone stove gap cover竞品review数平均<20条，定价£9-15。£8.99价格带仅3-5个listing，大品牌未进入UK市场。美国市场已验证但UK竞争尚未饱和，先发优势明确。",
       "signal_scores": {
         "trend": 72,
+        "gap": 95,
+        "profit": 90,
+        "final": 86.1,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥18以内可保30%+利润（毛利率预估38%，家居佣金8%）"
+      }
+    },
+    {
+      "keyword": "collapsible dog travel bowls 2 pack",
+      "keyword_cn": "折叠宠物旅行碗 硅胶 2个装 便携",
+      "amazon_keyword": "collapsible dog bowls travel 2 pack silicone",
+      "search_1688": "折叠宠物碗 便携 硅胶 狗旅行碗 2个装 挂钩",
+      "demand_signals": [
+        "Amazon UK Pet Supplies Dog Travel Bowls Best Seller - OHMO Collapsible Dog Bowl 2-Pack持续BSR领先",
+        "TikTok UK 7月旅行产品趋势：Compression Packing Cubes Score 74 + 旅行配件热销",
+        "UK 7月20日学校暑假 + 夏季自驾游高峰，宠物出行产品进入年度需求顶峰",
+        "宠物品类在雷达扫描中深蓝海（supply-demand ratio 6.9），宠物佣金仅5%",
+        "Amazon UK Pet Supplies Movers & Shakers - 宠物出行配件品类活跃度上升"
+      ],
+      "trend_score": 68,
+      "trend_direction": "rising",
+      "reason": "7-8月UK暑假是宠物出行产品年度需求高峰。折叠硅胶宠物碗是自驾游/露营/徒步场景的刚需品，UK养狗家庭多（约1,300万只宠物狗）。纯硅胶材质（无电子部件），重量<150g/2个，FBA费用最低档。1688硅胶折叠碗¥8-15/2个，Amazon UK售价£7.99-8.99，宠物品类佣金仅5%（vs家居8%），毛利率可达42%+。差异化选择400ml大容量+带挂钩+2色组合（蓝/橙/灰）。",
+      "action": "027店测款：上架2个装折叠硅胶宠物旅行碗（400ml+挂钩），定价£7.99，1688搜索'折叠宠物碗 便携 硅胶 狗旅行碗 2个装 挂钩'，首批20件，选蓝色/灰色变体，强调'BPA-free silicone + leakproof + carabiner hook'。7月5日前入仓赶暑假出行高峰。",
+      "competition": "蓝海。Amazon UK上2-pack collapsible dog bowls竞品review数平均<15条，OHMO为品类BSR但review仅300+条。£6-9价格带竞品少，差异化定价+2色变体可快速突破。宠物佣金5%是利润优势。",
+      "signal_scores": {
+        "trend": 68,
+        "gap": 95,
+        "profit": 95,
+        "final": 87.7,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥15以内可保30%+利润（宠物佣金5%，毛利率预估42%）"
+      }
+    },
+    {
+      "keyword": "compression packing cubes set 6 piece",
+      "keyword_cn": "压缩旅行收纳袋 6件套 行李整理",
+      "amazon_keyword": "compression packing cubes set 6 piece travel",
+      "search_1688": "压缩旅行收纳袋 6件套 行李箱整理 尼龙 防水",
+      "demand_signals": [
+        "TikTok July 2026 Viral Products - Compression Packing Cubes Set Winning Score 74（AliShopping Tools），跨品类旅行配件",
+        "UK 7月20日学校暑假开始 + 家庭旅行高峰，行李收纳产品进入年度最高搜索季",
+        "Amazon UK Luggage & Travel Gear品类Best Seller中packing cubes为长期热销品",
+        "Google Trends UK 'packing cubes'搜索量7月进入年度峰值（夏季旅行季）",
+        "TikTok UK #packinghacks #travelhacks 高频内容，packing cubes为旅行收纳核心推荐品"
+      ],
+      "trend_score": 70,
+      "trend_direction": "rising",
+      "reason": "7-8月UK暑假旅行高峰（学校7月20日放假），行李收纳是出发前购买的高频小刚需。压缩拉链设计（非真空泵，无电子部件）符合小件铺货要求。1688尼龙防水压缩收纳袋6件套¥18-28，Amazon UK售价£8.99-9.99，毛利率35%+。轻量套装<300g，FBA Small Standard费用低。家居佣金8%。TikTok Score 74为旅行品类最高分，内容格式（10秒快速收纳演示）高度适合短视频营销。差异化选多色/带S型挂钩款。",
+      "action": "027店测款：上架6件套压缩旅行收纳袋（含S型挂钩），定价£8.99，1688搜索'压缩旅行收纳袋 6件套 行李箱整理 尼龙 防水'，首批20件，选3-4色（灰/蓝/粉/绿）变体，强调'compression saves 50% space + waterproof nylon + carry handle'。7月5日前入仓。",
+      "competition": "蓝海。Amazon UK £6-10价格带compression packing cubes 6-piece竞品少（平均review<30条），大品牌（Veken等）定价£15+。£8.99价格带接近空白。尼龙面料差异化空间大。",
+      "signal_scores": {
+        "trend": 70,
         "gap": 90,
         "profit": 85,
         "final": 83.4,
         "recommendation": "STRONG_BUY",
         "gap_level": "蓝海",
-        "profit_window": "1688 ¥25以内可保25%+利润（毛利率预估30%，FBA+8%佣金后）"
+        "profit_window": "1688 ¥25以内可保20%+利润（毛利率预估28%，家居佣金8%，需控制广告费）"
       }
     },
     {
-      "keyword": "baby nail trimmer electric usb c",
-      "keyword_cn": "电动婴儿指甲修剪器 USB-C充电 静音",
-      "amazon_keyword": "electric baby nail trimmer usb rechargeable",
-      "search_1688": "电动婴儿指甲修剪器 USB充电 静音 吸尘",
+      "keyword": "silicone stretch lids reusable 6 pack",
+      "keyword_cn": "硅胶伸缩保鲜盖 可重复使用 6个装 食品级",
+      "amazon_keyword": "silicone stretch lids reusable food covers 6 pack",
+      "search_1688": "硅胶伸缩保鲜盖 6个装 食品级 可重复使用 多尺寸",
       "demand_signals": [
-        "Overview Market Data UK 2026 - Baby Nail Trimmer（Electric）低饱和度品类，毛利率50%+，'Low (untapped)'竞争评分",
-        "Amazon UK Baby Products品类前6月销量稳定，电动指甲修剪器品类持续增长",
-        "TikTok UK #babyhacks 和 #newbornessentials 7-8月育儿内容暑期高峰",
-        "UK新生儿父母对安全修剪指甲工具有刚需，传统剪刀型产品存在安全隐患痛点"
+        "TikTok #zerowaste #kitchenhacks 硅胶伸缩盖数百万播放，Simplify Kitchen Co 2026年度推荐品",
+        "UK环保限塑政策持续收紧，一次性保鲜膜替代品需求增长",
+        "Amazon UK Kitchen Storage & Organisation Best Seller品类活跃（Accio 2026报告厨房为最大品类）",
+        "夏季BBQ/野餐场景多，食品储存/保鲜需求增加",
+        "Prime Day（7月12-15日）厨房小件为促销热门品类"
       ],
-      "trend_score": 65,
+      "trend_score": 58,
       "trend_direction": "rising",
-      "reason": "电动婴儿指甲修剪器在UK婴童市场是持续增长的微品类。Overview Market Data标记为'Low Saturation'(低竞争)，毛利率50%+。1688带吸尘+静音+USB-C款¥15-25，Amazon UK售价£8.99-10.99。轻量小件（<200g），FBA费用低。英国7-8月虽非出生高峰，但暑假走亲访友送礼场景增加，且Prime Day前入仓可借流量。'吸尘'功能（收集碎指甲）是UK父母最关注的差异化卖点。",
-      "action": "007店测款：上架USB-C充电电动婴儿指甲修剪器（带吸尘功能），定价£9.99，1688搜索'电动婴儿指甲修剪器 USB充电 静音 吸尘'，首批15件，选6个打磨头+LED灯款。Prime Day前7月5日前入仓。",
-      "competition": "蓝海。Amazon UK上Baby Nail Trimmer品类BSR集中在£15-25价格带（如Little Martin's Drawer £16.99），£10以下价格带仅有1-2个低review竞品。新品进入壁垒低。注意需通过UKCA认证（婴童品类）。",
+      "reason": "硅胶伸缩保鲜盖是TikTok零废弃厨房运动的代表产品之一，替代一次性保鲜膜。UK环保意识强，限塑政策推动可持续替代品需求。1688食品级硅胶¥5-10/6个装（多尺寸组合），Amazon UK售价£6.99-7.99，毛利率45%+。超轻量（<150g）FBA费用最低档。6个装提高AOV同时满足不同碗盘尺寸需求。注意：与历史推荐的硅胶食品储存袋不同品类（保鲜盖vs储存袋），不冲突。差异化选蒸锅适用（耐热120°C）+ 多色组合。",
+      "action": "007店测款：上架6个装硅胶伸缩保鲜盖（多尺寸+耐热），定价£7.99，1688搜索'硅胶伸缩保鲜盖 6个装 食品级 可重复使用 多尺寸'，首批20件，选混色（绿/蓝/粉/黄）套装，强调'BPA-free silicone + airtight seal + dishwasher safe'。7月5日前入仓。",
+      "competition": "蓝海。Amazon UK £6-8价格带silicone stretch lids竞品review数极低（平均<5条），大品牌定价£10+。UK市场以美国品牌为主（不擅长UK本土化），新品通过价格+多色差异化可快速突破。",
       "signal_scores": {
-        "trend": 65,
-        "gap": 85,
-        "profit": 80,
-        "final": 77.5,
-        "recommendation": "BUY",
-        "gap_level": "蓝海",
-        "profit_window": "1688 ¥25以内可保20%+利润（毛利率预估28%，婴童佣金15%较高需控制成本）"
-      }
-    },
-    {
-      "keyword": "cooling gel eye mask reusable",
-      "keyword_cn": "冷敷眼罩 凝胶 冰眼罩 可重复使用",
-      "amazon_keyword": "cooling gel eye mask for headache",
-      "search_1688": "冷敷眼罩 凝胶 冰眼罩 可重复使用 缓解头痛",
-      "demand_signals": [
-        "Helloskin UK在5月热浪期间cooling eye mask销量增长3倍，购物者放入冰箱后使用",
-        "UK热浪持续，头痛/偏头痛/眼部疲劳降温产品需求激增",
-        "TikTok UK #headacherelief #migrainerelief内容持续增长，冷却眼罩为高频推荐品",
-        "Amazon UK Cooling Eye Mask品类7月搜索量环比+40%（季节性强）"
-      ],
-      "trend_score": 68,
-      "trend_direction": "rising",
-      "reason": "英国5月破纪录高温后，7月热浪持续。冷却凝胶眼罩是Helloskin已验证爆发的产品（热浪周末销量3倍）。解决热浪引起的头痛/眼部疲劳/睡眠障碍等真实痛点。1688凝胶款¥3-8/只，Amazon UK £6.99-8.99售价，毛利率60%+。超轻小件（<100g），FBA费用最低档，家居佣金8%。差异化选择'薰衣草香型'+'可微波可冷藏'双功能提升价值感。",
-      "action": "027店测款：上架可重复使用冷却凝胶眼罩（薰衣草香型/可微波冷藏两用），定价£7.99，1688搜索'冷敷眼罩 凝胶 冰眼罩 可重复使用 缓解头痛'，首批20件，选丝绸外层+凝胶内芯款。7月5日前入仓。",
-      "competition": "蓝海。Amazon UK冷却眼罩£6-9价格带竞品review数极低（平均<10条），大品牌（Sleep Master等）定价£12+。UK市场主要竞品为美国品牌（不擅长UK本土化），新品易突破。",
-      "signal_scores": {
-        "trend": 68,
-        "gap": 90,
+        "trend": 58,
+        "gap": 100,
         "profit": 95,
-        "final": 86.1,
+        "final": 86.8,
         "recommendation": "STRONG_BUY",
         "gap_level": "蓝海",
-        "profit_window": "1688 ¥10以内可保35%+利润（毛利率预估42%，家居佣金8%）"
+        "profit_window": "1688 ¥10以内可保35%+利润（毛利率预估45%，家居佣金8%）"
       }
     },
     {
-      "keyword": "portable mini usb desk fan 360",
-      "keyword_cn": "迷你USB桌面风扇 360度旋转 静音",
-      "amazon_keyword": "mini USB desk fan quiet portable",
-      "search_1688": "迷你USB桌面风扇 360度摇头 静音 可充电",
+      "keyword": "cotton pillow protectors 4 pack zippered",
+      "keyword_cn": "棉质枕头保护套 带拉链 4个装 防螨",
+      "amazon_keyword": "pillow protectors 4 pack zippered cotton",
+      "search_1688": "枕头保护套 纯棉 拉链 防螨 4个装",
       "demand_signals": [
-        "TikTok July 2026 Portable Mini USB Desk Fan Score 73，毛利率74%，跨品类（户外+返校+居家办公）",
-        "UK热浪 - Currys风扇搜索+1,500%，John Lewis风扇销售+100%，降温需求是全场景的",
-        "7月中下旬返校准备期开始，宿舍桌面风扇为学生刚需品",
-        "Amazon UK Desk Fans品类7月进入年度搜索高峰（Google Trends验证）"
+        "Amazon UK Home & Kitchen Movers & Shakers - Craft Native 4-Pack Cotton Pillow Protectors上榜",
+        "UK家庭床上用品为稳定高需求品类，枕头保护套为消耗品（每3-6月替换）",
+        "英国夏季（7-8月）换洗/更换床上用品高峰，空调少所以防螨透气需求增加",
+        "Amazon UK Home & Kitchen品类占卖家营收35%（最大品类），退换货率<1%",
+        "Craft Native以4-pack形式取得BSR成功，验证多包装策略"
       ],
-      "trend_score": 65,
-      "trend_direction": "rising",
-      "reason": "迷你USB桌面风扇有三个需求高峰叠加：①英国热浪持续，家庭/办公/宿舍降温刚需；②7月20日起英国暑假，回家学生的房间风扇需求；③8月返校准备（大学生回宿舍）高峰。1688迷你静音USB风扇¥10-18，Amazon UK售价£8.99-9.99，毛利率40%+。小件轻量（<300g），FBA费用低。差异化选择'超静音<30dB'+'360°旋转'+'多彩（粉/白/蓝可选）'。",
-      "action": "027店测款：上架迷你USB桌面风扇（超静音/360°旋转/可充电），定价£8.99，1688搜索'迷你USB桌面风扇 360度摇头 静音 可充电'，首批20件，选白色/粉色/蓝色三色变体。7月5日前入仓可赶上Prime Day流量。",
-      "competition": "蓝海。Amazon UK £8-10价格带USB桌面风扇竞品较少，主要竞品（如Dreo）定价£15+。£9以下价格带review数平均<20条，新品通过价格+静音差异化可突破。",
+      "trend_score": 50,
+      "trend_direction": "stable",
+      "reason": "枕头保护套是床上用品刚需品，无季节波动但夏季（7-8月）因天气炎热换洗频繁，需求自然上升。UK空调普及率低（<5%家庭），夏季防螨/透气需求高于冬季。纯棉材质+拉链设计+4个装组合，1688¥8-15/4个，Amazon UK售价£7.99-8.99，毛利率35%+。超轻量（<400g/4个）FBA费用最低档。差异化选项：100%纯棉+拉链全封闭+防螨认证。退换货率极低（<0.5%），适合新手铺货。",
+      "action": "007店测款：上架4个装纯棉拉链枕头保护套（50x75cm UK标准枕），定价£7.99，1688搜索'枕头保护套 纯棉 拉链 防螨 4个装'，首批20件，选白色基础款，强调'100% cotton + zippered enclosure + dust mite proof'。7月5日前入仓。",
+      "competition": "蓝海。Amazon UK上4-pack pillow protectors £6-9价格带竞品极少，Craft Native为BSR#1但review仅800+条。£7.99定价可对标Craft Native的£12.99做价格差异化。纯棉面料+拉链设计为标配，差异化空间在包装/尺寸适配UK标准枕。",
       "signal_scores": {
-        "trend": 65,
-        "gap": 80,
+        "trend": 50,
+        "gap": 95,
         "profit": 85,
-        "final": 77.5,
+        "final": 79,
         "recommendation": "BUY",
         "gap_level": "蓝海",
-        "profit_window": "1688 ¥20以内可保25%+利润（毛利率预估32%，家居佣金8%）"
+        "profit_window": "1688 ¥15以内可保20%+利润（毛利率预估28%，家居佣金8%）"
       }
     }
   ]
