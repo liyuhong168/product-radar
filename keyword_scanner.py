@@ -246,7 +246,7 @@ def search_amazon_by_keyword(keyword, max_products=5):
     """Search Amazon UK for a keyword and return parsed products.
 
     Fallback chain:
-    1. _curl_fetch → CloakBrowser (singleton → dedicated fallback if greenlet error)
+    1. _curl_fetch → curl_cffi → ScraperAPI → CloakBrowser
     2. _keyword_playwright_fetch (dedicated browser, separate from singleton)
     3. BrowserAct (slow, different fingerprint)
     """

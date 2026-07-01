@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Amazon UK data fetcher v2 - New Releases + BSR with channel tagging"""
-import json, subprocess, re, sys, random, os, threading, time
+import json, subprocess, re, sys, random, os, threading, time, urllib.parse
 from pathlib import Path
 
 BASE = Path(__file__).parent.parent
@@ -248,7 +248,7 @@ def _cloakbrowser_fetch(url):
 CLOUDFLARE_WORKER_URL = "https://amazon-uk-proxy.liyuhong66.workers.dev/"
 
 def _curl_fetch(url):
-    """Fetch a page with curl, forcing GBP. Falls back to ScraperAPI → CF Worker → BrowserAct → CloakBrowser."""
+    """Fetch a page with curl, forcing GBP. Falls back to curl_cffi → CloakBrowser → BrowserAct."""
     # Try direct request first (fast, but usually blocked)
     try:
         result = subprocess.run(
@@ -264,6 +264,41 @@ def _curl_fetch(url):
             return result.stdout
     except Exception as e:
         pass
+
+    # Try curl_cffi with TLS fingerprint impersonation
+    try:
+        from curl_cffi import requests as cffi_req
+        cffi_headers = {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-GB,en;q=0.9",
+        }
+        resp = cffi_req.get(url, impersonate="chrome", headers=cffi_headers, timeout=30)
+        if resp.status_code == 200 and _is_valid_response(resp.text):
+            print(f"  curl_cffi OK (len={len(resp.text)})", file=sys.stderr)
+            return resp.text
+    except ImportError:
+        pass  # curl_cffi not installed
+    except Exception as e:
+        print(f"  curl_cffi error: {e}", file=sys.stderr)
+
+    # Try ScraperAPI (if quota available — resets monthly on 1st)
+    scraper_key = os.environ.get("SCRAPER_APIKEY", "") or os.environ.get("SCRAPER_API_KEY", "")
+    if scraper_key:
+        try:
+            quoted = urllib.parse.quote(url)
+            scraper_url = f"http://api.scraperapi.com?api_key={scraper_key}&url={quoted}&country_code=gb"
+            result = subprocess.run(
+                ["curl", "-s", "-L", "--max-time", "20",
+                 "-H", f"User-Agent: {USER_AGENT}",
+                 "-H", "Accept-Language: en-GB,en;q=0.9",
+                 scraper_url],
+                capture_output=True, text=True, timeout=30
+            )
+            if _is_valid_response(result.stdout):
+                print(f"  ScraperAPI OK (len={len(result.stdout)})", file=sys.stderr)
+                return result.stdout
+        except Exception as e:
+            print(f"  ScraperAPI error: {e}", file=sys.stderr)
 
     # Primary: CloakBrowser (Playwright with stealth Chrome) — reliable
     # Skip dead layers: ScraperAPI (quota exhausted), CF Worker (network unreachable), BrowserAct (broken)
