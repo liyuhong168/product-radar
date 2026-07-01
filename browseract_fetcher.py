@@ -23,7 +23,7 @@ SESSION_PREFIX = "radar"
 TIMEOUT_NAV = 20
 TIMEOUT_EVAL = 15
 TIMEOUT_CLICK = 5
-MAX_RETRIES = 2
+MAX_RETRIES = 1
 MAX_CONCURRENT = 6  # Max concurrent Chrome sessions
 
 # Semaphore for concurrency control (queue with longer timeout instead of skip)

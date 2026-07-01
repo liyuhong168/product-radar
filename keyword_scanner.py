@@ -407,8 +407,53 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
         return all_products
 
     except Exception as e:
-        print(f"  ❌ Keyword scan error: {e}", file=sys.stderr)
-        return []
+        err_str = str(e)
+        print(f"  ⚠️ Keyword scan browser failed ({err_str[:80]}), falling back to per-keyword curl...", file=sys.stderr)
+        # Fallback: search each keyword individually using _keyword_curl_fetch
+        all_products = []
+        seen_asins = set()
+        for kw_info in all_kws:
+            keyword = kw_info["keyword"]
+            source = kw_info["source"]
+            print(f"  🔍 [{source}] {keyword} (curl)...", file=sys.stderr, end="")
+            search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
+            html = _keyword_curl_fetch(search_url)
+            if not html or len(html) < 2000:
+                print(" → blocked/empty", file=sys.stderr)
+                continue
+            products = _parse_amazon_page(html, "Search", "keyword_search")
+            if not products:
+                print(" → 0 parsed", file=sys.stderr)
+                continue
+            filtered = [p for p in products if p.get("reviews", 0) < max_reviews]
+            for p in filtered:
+                asin = p.get("asin", "")
+                if asin in seen_asins:
+                    continue
+                seen_asins.add(asin)
+                p["keyword_source"] = source
+                p["matched_keyword"] = keyword
+                p["channel"] = "keyword_search"
+                p["channel_name"] = f"关键词搜索({source})"
+                if source == "festival":
+                    p["festival_event"] = kw_info.get("event", "")
+                    p["festival_icon"] = kw_info.get("event_icon", "📅")
+                    p["festival_deadline"] = kw_info.get("deadline", "")
+                    p["is_event"] = True
+                    if "节日" not in p.get("sources", []):
+                        p.setdefault("sources", []).append(f"📅 {kw_info.get('event', '节日')}")
+                else:
+                    if "趋势发现" not in p.get("sources", []):
+                        p.setdefault("sources", []).append("趋势发现")
+                all_products.append(p)
+            kept = len(filtered)
+            total = len(products)
+            print(f" → {total} found, {kept} kept", file=sys.stderr)
+        if all_products:
+            print(f"  ✅ Keyword scan (curl fallback) total: {len(all_products)} products", file=sys.stderr)
+        else:
+            print(f"  ℹ️ No products found via curl fallback", file=sys.stderr)
+        return all_products
     finally:
         if browser:
             try:
