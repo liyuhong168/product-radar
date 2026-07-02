@@ -1,0 +1,203 @@
+{
+  "category_scores": {
+    "kitchen": 58,
+    "cleaning": 14,
+    "car": 51,
+    "lighting": 79,
+    "pets": 72,
+    "sports": 21,
+    "crafts": 100,
+    "bedding": 7,
+    "beauty": 36,
+    "eco": 58,
+    "seasonal": 36,
+    "garden": 36,
+    "bathroom": 51,
+    "office": 51,
+    "travel": 21,
+    "phone": 79,
+    "home decor": 58,
+    "baby": 7,
+    "kitchen_gadgets": 7
+  },
+  "category_evidence": {
+    "kitchen": [
+      "gadget",
+      "mug"
+    ],
+    "cleaning": [
+      "cleaning"
+    ],
+    "car": [
+      "car"
+    ],
+    "lighting": [
+      "light",
+      "led",
+      "strip",
+      "lamp"
+    ],
+    "pets": [
+      "cat",
+      "pet"
+    ],
+    "sports": [
+      "fitness",
+      "water bottle"
+    ],
+    "crafts": [
+      "craft",
+      "paint",
+      "art",
+      "stickers"
+    ],
+    "bedding": [
+      "pillow"
+    ],
+    "beauty": [
+      "mirror",
+      "hair",
+      "skincare",
+      "makeup"
+    ],
+    "eco": [
+      "eco",
+      "sustainable"
+    ],
+    "seasonal": [
+      "gift"
+    ],
+    "garden": [
+      "flower",
+      "plant",
+      "garden"
+    ],
+    "bathroom": [
+      "bathroom",
+      "shower",
+      "bath",
+      "mirror"
+    ],
+    "office": [
+      "pen",
+      "desk"
+    ],
+    "travel": [
+      "travel"
+    ],
+    "phone": [
+      "stand",
+      "earbuds",
+      "charger",
+      "cable",
+      "phone"
+    ],
+    "home decor": [
+      "decor",
+      "wall art",
+      "mirror",
+      "candle"
+    ],
+    "baby": [
+      "baby"
+    ],
+    "kitchen_gadgets": [
+      "slicer"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "kitchen": 3,
+      "cleaning": 2,
+      "car": 3,
+      "lighting": 3,
+      "pets": 1,
+      "sports": 2,
+      "crafts": 4,
+      "bedding": 1,
+      "beauty": 4,
+      "eco": 3,
+      "seasonal": 2,
+      "garden": 1,
+      "bathroom": 1,
+      "office": 2,
+      "travel": 1,
+      "phone": 1,
+      "home decor": 1
+    },
+    "temu": {
+      "pets": 2,
+      "sports": 1,
+      "crafts": 3,
+      "travel": 2,
+      "home decor": 1,
+      "baby": 1,
+      "eco": 2,
+      "kitchen": 2,
+      "car": 1,
+      "office": 1,
+      "lighting": 4,
+      "phone": 5,
+      "kitchen_gadgets": 1
+    },
+    "etsy": {
+      "garden": 3,
+      "pets": 4,
+      "crafts": 6,
+      "seasonal": 3,
+      "kitchen": 1,
+      "bathroom": 1,
+      "office": 2,
+      "home decor": 3,
+      "eco": 1,
+      "beauty": 1
+    },
+    "market_intel": {
+      "bathroom": 3,
+      "car": 1,
+      "lighting": 2,
+      "pets": 1,
+      "crafts": 1,
+      "phone": 3,
+      "home decor": 1
+    }
+  },
+  "cross_validated": {
+    "kitchen": 3,
+    "car": 3,
+    "lighting": 3,
+    "pets": 4,
+    "crafts": 4,
+    "eco": 3,
+    "bathroom": 3,
+    "office": 3,
+    "phone": 3,
+    "home decor": 4
+  },
+  "demand_keywords": [
+    "beach bag,",
+    "discover my favorite",
+    "etsy uk shops we love",
+    "hi everyone",
+    "home and",
+    "made me buy it",
+    "mini lightweight wireless earbuds",
+    "pink cardigan",
+    "real market data on trending",
+    "right now on",
+    "scalloped knit tank",
+    "summer wedding,",
+    "sunflower,",
+    "tech and",
+    "temu vs",
+    "tiktok made me buy it",
+    "top sellers",
+    "top trending",
+    "trending on",
+    "what are some cool independent",
+    "what are some of the"
+  ],
+  "season": "summer",
+  "total_queries": 10,
+  "total_results_chars": 27874
+}
