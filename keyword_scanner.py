@@ -59,10 +59,11 @@ def load_discovery_keywords():
 
 
 def load_festival_keywords():
-    """Load keywords from Festival Planner events within sea freight window.
+    """Load keywords from Festival Planner events within truck (卡航/快铁) freight window.
     
-    Sea freight deadline = festival_date - (63 + 14) = festival_date - 77 days
-    Only include events where sea deadline is within 30 days from today.
+    Truck freight deadline = festival_date - (33 + 14) = festival_date - 47 days
+    Lee's products are mostly light/small items, rarely use sea freight.
+    Only include events where truck deadline is within 30 days from today.
     
     Returns list of dicts: [{"keyword": "...", "keyword_cn": "...", "source": "festival", "event": "...", "deadline": "..."}]
     """
@@ -78,10 +79,10 @@ def load_festival_keywords():
     
     for f in festivals:
         deadlines = get_deadlines(f)
-        sea = deadlines.get("sea", {})
-        days_left = sea.get("days_from_today", 999)
+        truck = deadlines.get("truck", {})
+        days_left = truck.get("days_from_today", 999)
         
-        # Only include events where sea deadline is approaching (0-30 days away)
+        # Only include events where truck deadline is approaching (0-30 days away)
         # Skip events too far away or already past deadline
         if days_left > 30 or days_left < 0:
             continue
@@ -100,7 +101,7 @@ def load_festival_keywords():
                         "source": "festival",
                         "event": event_name,
                         "event_icon": f.get("icon", "📅"),
-                        "deadline": sea.get("date", ""),
+                        "deadline": truck.get("date", ""),
                         "days_left": days_left,
                     })
     
