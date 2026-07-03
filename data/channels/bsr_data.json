@@ -1,54 +1,15 @@
 [
   {
-    "asin": "B0DKBV52GF",
-    "bsr_rank": 1768,
-    "bsr_category": "Computers & Accessories",
-    "bsr_sub_rank": 6,
-    "bsr_sub_category": "Cable Organiser Bags",
-    "reviews": 4605,
-    "rating": 4.8,
-    "image_url": "https://m.media-amazon.com/images/I/81MK2NVuGvL._AC_QL10_SX980_SY55_FMwebp_.jpg",
-    "title": "bagsmart Electronics Organizer Travel Case, Cable Organiser Pouch, Travel Essentials, Tech Organiser, Travel Accessories Bag for Charging Cable, Flash Drive, Power Bank, USB, Black",
-    "price": 8.32,
-    "scraped_at": "2026-07-02T14:09:59.089589"
-  },
-  {
-    "asin": "B0H5QJBXLV",
-    "bsr_rank": 72038,
-    "bsr_category": "DIY & Tools",
-    "bsr_sub_rank": 195,
-    "bsr_sub_category": "Bath & Shower Systems",
-    "reviews": null,
-    "rating": 3.8,
-    "image_url": "https://m.media-amazon.com/images/I/61lZ5dHckhL._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
-    "title": "High Pressure Handheld Shower Head with No Drill Shower Holder, Black | 5 Spray Modes Shower Head, Wall Mount Adhesive Shower Bracket, Water Saving Shower for Low Water Pressure Bathrooms",
-    "price": 20.0,
-    "scraped_at": "2026-07-02T14:09:59.090437"
-  },
-  {
-    "asin": "B0H71XX5XL",
-    "bsr_rank": 64640,
-    "bsr_category": "Garden",
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": 5.0,
-    "image_url": "https://m.media-amazon.com/images/I/31uZWshGerL._AC_US40_.jpg",
-    "title": "Air Filter Covers and Filter Sets for St-ihl MS194T MS193T MS193TC Chainsaw Parts Replaces 1137-140-1903 1137-120-1604 Chainsaw Air Filter Cover with Filter Elements(air filter+cover)",
-    "price": 8.45,
-    "scraped_at": "2026-07-02T14:09:59.090822"
-  },
-  {
-    "asin": "B0H5QDHDSN",
-    "bsr_rank": 97302,
-    "bsr_category": "DIY & Tools",
-    "bsr_sub_rank": 23,
-    "bsr_sub_category": "Shower Taps",
-    "reviews": null,
-    "rating": 4.4,
-    "image_url": "https://m.media-amazon.com/images/I/91n3C050V6L._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
-    "title": "Shower Head and Hose Set with Bracket, Black, 5 Mode Spray | Includes 1.5m Hose & Drill-Free Bracket, Bathroom Accessories, Shower Head Replacement Kit",
-    "price": 12.48,
-    "scraped_at": "2026-07-02T14:10:07.005934"
+    "asin": "B0F18L3TFH",
+    "bsr_rank": 5997,
+    "bsr_category": "Stationery & Office Supplies",
+    "bsr_sub_rank": 42,
+    "bsr_sub_category": "Clips, Clamps & Rings",
+    "reviews": 4492,
+    "rating": 4.6,
+    "image_url": "https://m.media-amazon.com/images/I/815WT3dNGaL._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
+    "title": "340 PCS Paper Clips and Binder Clips Assorted Sizes, 28mm 33mm 50mm Silver Paperclips&15mm 19mm 25mm Black Foldback Binder Clip Set for Home&School&Office Document Organizing,Supplies Desk Essentials",
+    "price": 14.99,
+    "scraped_at": "2026-07-03T09:18:49.951171"
   }
 ]
