@@ -39,7 +39,7 @@ def load_all_radar():
     data_dir = BASE / 'data' / 'channels'
     result = {}
     for f in sorted(data_dir.glob('*.json')):
-        if '-rejected' in f.name or '-trends' in f.name:
+        if '-rejected' in f.name or '-trends' in f.name or '-raw' in f.name:
             continue
         try:
             data = json.loads(f.read_text(encoding='utf-8'))
