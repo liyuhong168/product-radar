@@ -18,7 +18,7 @@ def api(method, path, data=None):
     req = urllib.request.Request(f'https://api.github.com{path}', headers=headers, data=body)
     if method != 'POST':
         req.get_method = lambda: method
-    return json.loads(urllib.request.urlopen(req, timeout=15).read())
+    return json.loads(urllib.request.urlopen(req, timeout=60).read())
 
 def push_files(files, message):
     """推送指定文件列表到GitHub"""

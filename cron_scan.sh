@@ -68,13 +68,16 @@ for i, p in enumerate(d.get('products',[])[:3], 1):
 # Step 4: Deploy to GitHub
 echo ""
 echo "📦 Step 4: 部署到 GitHub Pages..."
-timeout 30 python3 github_api_push.py 2>&1 || {
-    # Fallback to git push
-    timeout 30 git add data/ output/ status.json -f 2>/dev/null
+timeout 60 python3 github_api_push.py "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>&1 || {
+    # Fallback to git push (with longer timeout for 1.3MB platform.html)
+    timeout 60 git add data/ output/ status.json -f 2>/dev/null
     git diff --cached --quiet && echo "  无变更" && exit 0
-    timeout 15 git commit -m "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>/dev/null
-    timeout 30 git pull --rebase 2>/dev/null || true
-    timeout 30 git push origin main 2>&1
+    timeout 20 git commit -m "auto-scan $(date -u '+%Y-%m-%d %H:%M')" 2>/dev/null
+    timeout 60 git pull --rebase 2>/dev/null || true
+    timeout 120 git push origin main 2>&1
+} || {
+    echo "❌ 部署到 GitHub 失败"
+    exit 1
 }
 
 echo ""
