@@ -1,6 +1,6 @@
 [
   {
-    "asin": "B0H3NZ7QWD",
+    "asin": "B0DWMP42Z7",
     "bsr_rank": null,
     "bsr_category": null,
     "bsr_sub_rank": null,
@@ -10,10 +10,10 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-04T09:18:02.673744"
+    "scraped_at": "2026-07-04T14:10:05.575073"
   },
   {
-    "asin": "B0H4ZMBL3R",
+    "asin": "B0DQL6HKV6",
     "bsr_rank": null,
     "bsr_category": null,
     "bsr_sub_rank": null,
@@ -23,10 +23,10 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-04T09:18:02.677206"
+    "scraped_at": "2026-07-04T14:10:05.576118"
   },
   {
-    "asin": "B0H5K4R64X",
+    "asin": "B0H3M4L2RV",
     "bsr_rank": null,
     "bsr_category": null,
     "bsr_sub_rank": null,
@@ -36,10 +36,10 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-04T09:18:02.677772"
+    "scraped_at": "2026-07-04T14:10:05.576836"
   },
   {
-    "asin": "B0H4ZN5CJ6",
+    "asin": "B0H7CLZX8D",
     "bsr_rank": null,
     "bsr_category": null,
     "bsr_sub_rank": null,
@@ -49,58 +49,6 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-04T09:18:44.043402"
-  },
-  {
-    "asin": "B0H4ZQP3G7",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-04T09:18:44.043914"
-  },
-  {
-    "asin": "B0H4V8LCGW",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-04T09:18:44.044274"
-  },
-  {
-    "asin": "B0H5576R74",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-04T09:19:24.512321"
-  },
-  {
-    "asin": "B09JZSN2W3",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-04T09:19:24.513260"
+    "scraped_at": "2026-07-04T14:10:48.609437"
   }
 ]
