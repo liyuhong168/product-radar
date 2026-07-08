@@ -180,9 +180,16 @@ def generate_daily_report(target_date=None):
 
     lines.append("## 📡 雷达热点")
     lines.append("")
-    if highlights:
-        scan_ts = radar_data.get("scan_ts", "") if isinstance(radar_data, dict) else ""
+    if highlights and isinstance(radar_data, dict):
+        # Count new vs repeat
+        radar_products = radar_data.get("products", [])
+        new_count = sum(1 for p in radar_products if p.get("is_new") is True)
+        repeat_count = sum(1 for p in radar_products if p.get("is_new") is False)
+        total_count = len(radar_products)
+
+        scan_ts = radar_data.get("scan_ts", "")
         lines.append(f"最新扫描：{scan_ts}")
+        lines.append(f"扫描 {radar_data.get('stats', {}).get('total_scanned', '?')} 个 → **{total_count} 个通过筛选**（🆕 {new_count} 新品 / ♻️ {repeat_count} 重复）")
         lines.append("")
         for h in highlights:
             lines.append(f"- **{h['category']}** — 趋势分 {h['trend_score']} {h['demand_label']}")

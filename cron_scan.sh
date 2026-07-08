@@ -44,8 +44,24 @@ SCANNED=$(python3 -c "import json; d=json.load(open('$LATEST')); print(d.get('st
 DATE=$(python3 -c "import json; d=json.load(open('$LATEST')); print(d.get('scan_date',''))")
 TIME=$(python3 -c "import json; d=json.load(open('$LATEST')); print(d.get('scan_time',''))")
 
+# New vs repeat breakdown
+NEW=$(python3 -c "
+import json
+d=json.load(open('$LATEST'))
+prods = d.get('products',[])
+new_count = sum(1 for p in prods if p.get('is_new')==True)
+repeat_count = sum(1 for p in prods if p.get('is_new')==False)
+print(f'{new_count},{repeat_count}')
+")
+NEW_COUNT="${NEW%,*}"
+REPEAT_COUNT="${NEW#*,}"
+
 echo ""
 echo "📊 扫描结果：${SCANNED}个产品 → ${PRODUCTS}个通过筛选"
+if [ "$REPEAT_COUNT" -gt 0 ]; then
+    echo "   ├ 🆕 新品：${NEW_COUNT}个"
+    echo "   └ ♻️ 重复（已有）：${REPEAT_COUNT}个"
+fi
 echo "📅 扫描时间：${DATE} ${TIME}"
 
 # Top 3 products with BSR
@@ -91,5 +107,23 @@ echo "✅ 部署完成：https://liyuhong168.github.io/product-radar/platform.ht
 }
 
 # On success, one-line summary for cron delivery
-PRODUCTS=$(python3 -c "import json; d=json.load(open('$(ls -t data/channels/*.json 2>/dev/null | grep -v rejected | grep -v trends | grep -v bsr_data | head -1)')); print(len(d.get('products',[])))")
-echo "✅ 选品雷达扫描完成 | $(date '+%Y-%m-%d %H:%M') | ${PRODUCTS}个产品通过筛选（含BSR数据）→ 已部署GitHub"
+# Re-extract counts (outside the subshell where main logic ran)
+LATEST=$(ls -t data/channels/*.json 2>/dev/null | grep -v rejected | grep -v trends | grep -v bsr_data | head -1)
+PRODUCTS="?"
+NEW_COUNT="?"
+REPEAT_COUNT="?"
+if [ -n "$LATEST" ]; then
+    IFS=',' read -r NEW_COUNT REPEAT_COUNT PRODUCTS <<< $(python3 -c "
+import json
+d=json.load(open('$LATEST'))
+prods = d.get('products',[])
+new_c = sum(1 for p in prods if p.get('is_new')==True)
+rep_c = sum(1 for p in prods if p.get('is_new')==False)
+print(f'{new_c},{rep_c},{len(prods)}')
+")
+fi
+if [ "$REPEAT_COUNT" -gt 0 ] 2>/dev/null; then
+    echo "✅ 选品雷达扫描完成 | $(date '+%Y-%m-%d %H:%M') | ${PRODUCTS}个通过筛选（🆕${NEW_COUNT}新品 ♻️${REPEAT_COUNT}重复）→ 已部署GitHub"
+else
+    echo "✅ 选品雷达扫描完成 | $(date '+%Y-%m-%d %H:%M') | ${PRODUCTS}个新品通过筛选 → 已部署GitHub"
+fi
