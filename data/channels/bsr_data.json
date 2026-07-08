@@ -10,124 +10,7 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-08T09:19:03.723929"
-  },
-  {
-    "asin": "B0H3NZ7QWD",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:19:03.724889"
-  },
-  {
-    "asin": "B0H5JSVMPS",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:19:03.725379"
-  },
-  {
-    "asin": "B0H4ZKYC4V",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:19:46.090970"
-  },
-  {
-    "asin": "B0H4ZMBL3R",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:19:46.092094"
-  },
-  {
-    "asin": "B0H4ZDC9DX",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:19:46.092649"
-  },
-  {
-    "asin": "B0H7538XFD",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:20:26.894748"
-  },
-  {
-    "asin": "B0H4ZQP3G7",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:20:26.895313"
-  },
-  {
-    "asin": "B0H4V8LCGW",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:20:26.895674"
-  },
-  {
-    "asin": "B0H5Q7R1HR",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-08T09:21:08.631311"
+    "scraped_at": "2026-07-08T14:08:56.291132"
   },
   {
     "asin": "B09JZRQ3J1",
@@ -140,6 +23,6 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-08T09:21:08.631853"
+    "scraped_at": "2026-07-08T14:08:56.292375"
   }
 ]
