@@ -34,6 +34,51 @@ KANBAN_COLUMNS = [
 ]
 
 
+def _consolidate_past_months(data_dict):
+    """Merge dates from past months (e.g. 2026-06-*) into monthly keys (e.g. 2026-06)."""
+    current_month = datetime.now().strftime('%Y-%m')
+    monthly = {}  # month_key -> merged data
+    to_remove = []
+
+    for date_key in list(data_dict.keys()):
+        # Only process full date keys (YYYY-MM-DD)
+        if not (len(date_key) == 10 and date_key[4] == '-' and date_key[7] == '-'):
+            continue
+        month_key = date_key[:7]
+        if month_key >= current_month:
+            continue  # current/future month, keep daily
+        if month_key not in monthly:
+            monthly[month_key] = {
+                'products': [],
+                'scan_date': month_key,
+                'scan_time': '',
+            }
+
+        src = data_dict[date_key]
+        # Merge products (dedup by ASIN)
+        existing_asins = {p.get('asin') for p in monthly[month_key].get('products', []) if p.get('asin')}
+        for p in src.get('products', []):
+            if p.get('asin') and p['asin'] not in existing_asins:
+                monthly[month_key].setdefault('products', []).append(p)
+                existing_asins.add(p['asin'])
+        # Merge insights (dedup by keyword)
+        existing_kws = {i.get('keyword') for i in monthly[month_key].get('insights', []) if i.get('keyword')}
+        for i in src.get('insights', []):
+            if i.get('keyword') and i['keyword'] not in existing_kws:
+                monthly[month_key].setdefault('insights', []).append(i)
+                existing_kws.add(i['keyword'])
+        # Carry over trend_forecast if any
+        if src.get('trend_forecast') and not monthly[month_key].get('trend_forecast'):
+            monthly[month_key]['trend_forecast'] = src['trend_forecast']
+
+        to_remove.append(date_key)
+
+    for d in to_remove:
+        del data_dict[d]
+    data_dict.update(monthly)
+    return data_dict
+
+
 def load_all_radar():
     """Load all radar scans, return dict keyed by date. Only include dates with new products. Merge same-day scans."""
     data_dir = BASE / 'data' / 'channels'
@@ -56,15 +101,18 @@ def load_all_radar():
                     result[date] = data
         except (json.JSONDecodeError, KeyError):
             continue
-    
-    # 过滤：只保留有新品的日期
+
+    # 合并过去月份（如6月）到月度 key
+    result = _consolidate_past_months(result)
+
+    # 过滤：只保留有新品的日期/月份
     filtered = {}
     for date, data in result.items():
         products = data.get('products', [])
         new_products = [p for p in products if p.get('is_new') == True]
         if new_products:
             filtered[date] = data
-    
+
     return filtered
 
 
@@ -81,6 +129,8 @@ def load_all_discovery():
                 result[data['scan_date']] = data
         except (json.JSONDecodeError, KeyError):
             continue
+    # 合并过去月份到月度 key
+    result = _consolidate_past_months(result)
     return result
 
 
