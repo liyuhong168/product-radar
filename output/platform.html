@@ -10211,7 +10211,11 @@ function renderDiscovery() {
           // Dynamic threshold: longer keywords need more proof
           // ≤4 parts → need 2 matches, 5+ parts → need 3 matches
           const minMatches = kwParts.length <= 4 ? 2 : 3;
-          return hitCount >= minMatches;
+          if (hitCount < minMatches) return false;
+          // Ensure at least one match is a "distinctive" word (not a generic description word)
+          const genericWords = ['reusable', 'new', 'portable', 'foldable', 'adjustable', 'lightweight', 'durable', 'easy', 'large', 'small', 'medium'];
+          const distinctiveHits = kwParts.filter(part => name.includes(part) && !genericWords.includes(part));
+          return distinctiveHits.length >= 1;
         });
         if (matched.length > 0) {
           radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${matched.length}个产品）</div>` +
