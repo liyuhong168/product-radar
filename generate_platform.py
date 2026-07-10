@@ -596,6 +596,7 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
   <header class="hero" id="sectionTop">
     <div class="hero-main">
       <div class="hero-headline">
+        <div class="hero-logo">🎯</div>
         <div>
           <p class="hero-tag">SELECTION PLATFORM</p>
           <h1>选品平台</h1>
