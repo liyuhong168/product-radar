@@ -10194,15 +10194,21 @@ function renderDiscovery() {
     const compHtml = ins.competition ? `<div class="comp-box"><div class="label">📊 竞争格局</div><div class="text">${esc(ins.competition)}</div></div>` : '';
 
     // Radar cross-validation: find matching radar products
+    // Matching rules:
+    // - Split keyword into >=4-char words (non-Chinese)
+    // - Require at least 2 distinct keyword words to appear in the product name
+    // - This avoids false matches from single common words like "reusable", "silicone", "cooling"
     let radarHtml = '';
     const kwLower = (ins.keyword || '').toLowerCase();
-    const kwParts = kwLower.split(/\s+/).filter(w => w.length >= 4);
-    if (typeof RADAR_ALL !== 'undefined' && curDate) {
+    // Only split on ASCII word boundaries (not Chinese characters)
+    const kwParts = kwLower.replace(/[一-鿿]+/g, '').split(/\s+/).filter(w => w.length >= 4);
+    if (kwParts.length >= 2 && typeof RADAR_ALL !== 'undefined' && curDate) {
       const radarData = RADAR_ALL[curDate];
       if (radarData && radarData.products) {
         const matched = radarData.products.filter(p => {
           const name = (p.name || '').toLowerCase();
-          return kwParts.some(part => name.includes(part));
+          const hitCount = kwParts.filter(part => name.includes(part)).length;
+          return hitCount >= 2;  // require at least 2 matching words
         });
         if (matched.length > 0) {
           radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${matched.length}个产品）</div>` +
