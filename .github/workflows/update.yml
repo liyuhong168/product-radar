@@ -26,6 +26,11 @@ jobs:
           # Copy output files
           cp -r output/* deploy/
           
+          # Copy shared design system
+          if [ -d shared ]; then
+            cp -r shared deploy/shared
+          fi
+          
           # Copy data files for date picker
           cp data/channels/*.json deploy/data/channels/
 
