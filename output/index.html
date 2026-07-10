@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>三店运营OA</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+<link rel="stylesheet" href="shared/oa-theme.css">
 <style>
 /* ── Reset & Base ── */
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { height:100%; overflow:hidden; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','PingFang SC','Helvetica Neue',sans-serif; }
-body { display:flex; background:#f5f5f7; color:#1d1d1f; }
+body { display:flex; background:var(--oa-bg); color:var(--oa-text); }
 
 /* ── Sidebar ── */
 #sidebar {
@@ -83,14 +84,14 @@ body { display:flex; background:#f5f5f7; color:#1d1d1f; }
     z-index:50;
 }
 #topbar .module-title {
-    font-size:15px; font-weight:600; color:#1d1d1f;
+    font-size:15px; font-weight:600; color:var(--oa-text);
     display:flex; align-items:center; gap:8px;
 }
 #topbar .module-title .indicator {
-    width:6px; height:6px; border-radius:50%; background:#34c759; display:inline-block;
+    width:6px; height:6px; border-radius:50%; background:var(--oa-green); display:inline-block;
 }
 #topbar .topbar-right {
-    display:flex; align-items:center; gap:16px; font-size:13px; color:#6e6e73;
+    display:flex; align-items:center; gap:16px; font-size:13px; color:var(--oa-sub);
 }
 #topbar .last-update { font-size:12px; color:#aeaeb2; }
 #clock { font-variant-numeric:tabular-nums; font-weight:500; }
@@ -106,12 +107,12 @@ body { display:flex; background:#f5f5f7; color:#1d1d1f; }
 /* ── Loading overlay ── */
 #loading {
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    background:#f5f5f7; z-index:20; opacity:0; pointer-events:none;
+    background:var(--oa-bg); z-index:20; opacity:0; pointer-events:none;
     transition:opacity .2s ease;
 }
 #loading.show { opacity:1; }
 #loading .spinner {
-    width:28px; height:28px; border:3px solid #e5e5ea; border-top-color:#1a1a2e;
+    width:28px; height:28px; border:3px solid var(--oa-border); border-top-color:#1a1a2e;
     border-radius:50%; animation:spin .7s linear infinite;
 }
 @keyframes spin { to { transform:rotate(360deg); } }

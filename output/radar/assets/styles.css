@@ -1,18 +1,18 @@
 /* ===== 跨境雷达 — 样式表（对齐 AI News Radar 暖色报纸风） ===== */
 
 :root {
-  --bg: #f6f6f2;
-  --surface: #ffffff;
-  --surface-soft: #fbfaf7;
-  --ink: #171717;
-  --muted: #66645f;
-  --line: #d9d6ce;
-  --accent: #126a73;
-  --accent-warm: #b55231;
-  --good: #1f7a4d;
-  --warn: #9a6700;
-  --bad: #b42318;
-  --radius: 8px;
+  --bg: var(--oa-bg);
+  --surface: var(--oa-surface);
+  --surface-soft: #f0f0f5;
+  --ink: var(--oa-text);
+  --muted: var(--oa-sub);
+  --line: var(--oa-border);
+  --accent: var(--oa-primary);
+  --accent-warm: var(--oa-secondary);
+  --good: var(--oa-green);
+  --warn: var(--oa-orange);
+  --bad: var(--oa-red);
+  --radius: var(--oa-radius);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

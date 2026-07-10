@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../shared/oa-theme.css">
 <title>产品运营/补货分析</title>
 <style>
 :root {
-  --bg: #f5f5f7; --card: #ffffff; --text: #1d1d1f; --sub: #6e6e73;
-  --accent: #0071e3; --green: #34c759; --red: #ff3b30; --orange: #ff9500;
-  --border: #d2d2d7; --shadow: 0 2px 12px rgba(0,0,0,0.08); --radius: 16px;
+  --bg: var(--oa-bg); --card: var(--oa-surface); --text: var(--oa-text); --sub: var(--oa-sub);
+  --accent: var(--oa-primary); --green: var(--oa-green); --red: var(--oa-red); --orange: var(--oa-orange);
+  --border: var(--oa-border); --shadow: var(--oa-shadow); --radius: var(--oa-radius);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
@@ -116,7 +117,7 @@ function filterTable() {
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#0071e3"/><path d="M10 24V16l5 4 5-8 6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="10" y="12" width="2" height="12" rx="1" fill="#fff" opacity="0.3"/><rect x="15" y="10" width="2" height="14" rx="1" fill="#fff" opacity="0.3"/><rect x="20" y="8" width="2" height="16" rx="1" fill="#fff" opacity="0.3"/><rect x="25" y="11" width="2" height="13" rx="1" fill="#fff" opacity="0.3"/></svg>
     <h1 style="margin:0">产品运营/补货分析</h1>
   </div>
-  <div class="meta-info">分析日期: 2026-06-26 23:53 · 数据来源: 领星ERP + Amazon UK</div>
+  <div class="meta-info">分析日期: 2026-07-10 12:10 · 数据来源: 领星ERP + Amazon UK</div>
   <div class="filter-bar">
     <div class="store-tabs"><span class="store-tab active" onclick="filterByStore('all',this)">全部</span><span class="store-tab" onclick="filterByStore('007',this)">007店</span><span class="store-tab" onclick="filterByStore('027',this)">027店</span><span class="store-tab" onclick="filterByStore('322',this)">322店</span></div>
     <input id="searchInput" type="text" placeholder="搜索ASIN/品名..." oninput="filterTable()">

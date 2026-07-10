@@ -1,0 +1,188 @@
+/* ════════════════════════════════════════════
+   三店运营OA — 设计系统
+   Shared Design System v2.0
+   所有子板块统一引用此文件
+   ════════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+:root {
+  /* Core palette */
+  --oa-bg:         #f5f5f7;
+  --oa-surface:    #ffffff;
+  --oa-text:       #1d1d1f;
+  --oa-sub:        #6e6e73;
+  --oa-border:     #d2d2d7;
+  --oa-faint:      #f0f0f5;
+  --oa-shadow:     0 2px 12px rgba(0,0,0,0.08);
+  --oa-radius:     16px;
+
+  /* Accent / brand */
+  --oa-primary:    #0071e3;    /* Apple Blue */
+  --oa-secondary:  #5856d6;    /* Purple — ties to sidebar #1a1a2e family */
+  --oa-link:       #007AFF;
+
+  /* Semantic colors */
+  --oa-green:      #34c759;
+  --oa-orange:     #ff9500;
+  --oa-red:        #ff3b30;
+  --oa-pink:       #ff2d55;
+
+  /* Background tints for badges / chips */
+  --oa-tint-blue:   #e5f0ff;
+  --oa-tint-green:  #e8f9ee;
+  --oa-tint-red:    #fff0f0;
+  --oa-tint-orange: #fff3e0;
+  --oa-tint-purple: #f0edff;
+
+  /* Sidebar (reference — not injected into sub-pages) */
+  --oa-sidebar-bg: #1a1a2e;
+}
+
+/* ── Typography ── */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC',
+               'Helvetica Neue', sans-serif;
+  background: var(--oa-bg);
+  color: var(--oa-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Card Component ── */
+.card {
+  background: var(--oa-surface);
+  border-radius: var(--oa-radius);
+  box-shadow: var(--oa-shadow);
+  padding: 20px 24px;
+  overflow: hidden;
+}
+
+/* ── Badges — color-semantic ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.badge-green  { background: var(--oa-tint-green);  color: #1a7d36; }
+.badge-red    { background: var(--oa-tint-red);    color: #d70015; }
+.badge-orange { background: var(--oa-tint-orange); color: #b86900; }
+.badge-blue   { background: var(--oa-tint-blue);   color: #0051a8; }
+.badge-purple { background: var(--oa-tint-purple); color: #4b3fa0; }
+
+/* ── Table ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--oa-faint);
+  font-size: 14px;
+}
+th {
+  font-weight: 600;
+  color: var(--oa-sub);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--oa-border);
+}
+tr:hover td { background: var(--oa-faint); }
+
+/* ── Button ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--oa-surface);
+  color: var(--oa-primary);
+  box-shadow: var(--oa-shadow);
+}
+.btn:hover { opacity: 0.85; }
+.btn-primary { background: var(--oa-primary); color: #fff; }
+.btn-secondary { background: var(--oa-secondary); color: #fff; }
+
+/* ── Section / container ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+/* ── Metric tile ── */
+.metric {
+  background: var(--oa-surface);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--oa-shadow);
+  text-align: center;
+}
+.metric .value { font-size: 22px; font-weight: 700; }
+.metric .label { font-size: 12px; color: var(--oa-sub); text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* ── Tab / filter bar ── */
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tab {
+  padding: 8px 18px;
+  border: 2px solid var(--oa-border);
+  border-radius: 12px;
+  background: var(--oa-surface);
+  color: var(--oa-sub);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tab:hover { border-color: var(--oa-primary); color: var(--oa-primary); }
+.tab.active { border-color: var(--oa-primary); background: var(--oa-tint-blue); color: var(--oa-primary); }
+
+/* ── Status indicators ── */
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+.status-dot.green  { background: var(--oa-green); }
+.status-dot.red    { background: var(--oa-red); }
+.status-dot.orange { background: var(--oa-orange); }
+
+/* ── Tags / Chips ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--oa-faint);
+  color: var(--oa-sub);
+}
+.chip-primary { background: var(--oa-tint-blue); color: var(--oa-primary); }
+.chip-green   { background: var(--oa-tint-green); color: #1a7d36; }
+
+/* ── Layout utilities ── */
+.flex { display: flex; }
+.flex-center { align-items: center; }
+.flex-between { justify-content: space-between; }
+.gap-sm { gap: 8px; }
+.gap-md { gap: 12px; }
+.gap-lg { gap: 20px; }
+.mt-sm { margin-top: 8px; }
+.mt-md { margin-top: 16px; }
+.mt-lg { margin-top: 24px; }
+.mb-sm { margin-bottom: 8px; }
+.mb-md { margin-bottom: 16px; }
