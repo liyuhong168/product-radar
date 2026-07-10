@@ -1,6 +1,6 @@
 [
   {
-    "asin": "B0GXYBVR33",
+    "asin": "B09JZS19B9",
     "bsr_rank": null,
     "bsr_category": null,
     "bsr_sub_rank": null,
@@ -10,32 +10,6 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-10T09:18:22.138565"
-  },
-  {
-    "asin": "B0H2DCZRPR",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-10T09:18:22.140227"
-  },
-  {
-    "asin": "B0GCFK7QLQ",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-10T09:18:22.140750"
+    "scraped_at": "2026-07-10T14:09:57.770134"
   }
 ]
