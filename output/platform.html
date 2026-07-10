@@ -10208,8 +10208,9 @@ function renderDiscovery() {
         const matched = radarData.products.filter(p => {
           const name = (p.name || '').toLowerCase();
           const hitCount = kwParts.filter(part => name.includes(part)).length;
-          // Dynamic threshold: require at least 2 matches + extra for long keywords
-          const minMatches = kwParts.length <= 3 ? 2 : Math.min(3, Math.floor(kwParts.length * 0.4));
+          // Dynamic threshold: longer keywords need more proof
+          // ≤4 parts → need 2 matches, 5+ parts → need 3 matches
+          const minMatches = kwParts.length <= 4 ? 2 : 3;
           return hitCount >= minMatches;
         });
         if (matched.length > 0) {
