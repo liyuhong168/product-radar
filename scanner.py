@@ -83,9 +83,47 @@ def is_forbidden(name, category=""):
     # --- Volume/weight detection ---
     max_ml = 0
     max_l = 0
-    max_kg = CONFIG.get("max_weight_g", 300) / 1000
+    max_kg = CONFIG.get("max_weight_g", 200) / 1000
     CONTAINER_KEYWORDS = {'bottle', 'flask', 'tumbler', 'jug', 'carafe', 'pitcher', 'thermos', 'canteen', 'watering can'}
     is_container = any(kw in text for kw in CONTAINER_KEYWORDS)
+
+    # --- Packaging dimension detection ---
+    MAX_DIM = CONFIG.get("max_package_dimensions", {"l_cm": 32, "w_cm": 22, "h_cm": 6})
+    MAX_L = MAX_DIM["l_cm"]
+    MAX_W = MAX_DIM["w_cm"]
+    MAX_H = MAX_DIM["h_cm"]
+    # Match patterns like "32x22x6cm", "32×22×6 cm", "30 x 20 x 10 cm", "32*22*6cm"
+    dim_match = re.search(
+        r'(\d+(?:\.\d+)?)\s*[x×*]\s*(\d+(?:\.\d+)?)\s*[x×*]\s*(\d+(?:\.\d+)?)\s*(?:cm|mm)?',
+        text
+    )
+    if dim_match:
+        d1, d2, d3 = float(dim_match.group(1)), float(dim_match.group(2)), float(dim_match.group(3))
+        # Assume mm values > 200 are likely mm not cm
+        if d1 > 200: d1 /= 10
+        if d2 > 200: d2 /= 10
+        if d3 > 200: d3 /= 10
+        dims = sorted([d1, d2, d3], reverse=True)
+        if dims[0] > MAX_L or dims[1] > MAX_W or dims[2] > MAX_H:
+            return True, f"包装尺寸 {d1:.0f}x{d2:.0f}x{d3:.0f}cm (限{MAX_L}x{MAX_W}x{MAX_H}cm)"
+
+    # --- OVERSIZE HINTS (products likely too large for small standard) ---
+    OVERSIZE_KEYWORDS = {
+        'large capacity', 'extra large', 'super large', 'jumbo', 'x-large', 'xxl',
+        'giant', 'massive', 'oversized', '6 slot', '6 slots', '7 slot', '7 slots',
+        '8 slot', '8 slots', '9 slot', '9 slots', '10 slot', '10 slots',
+    }
+    if any(kw in text for kw in OVERSIZE_KEYWORDS):
+        return True, f"oversize: 关键词标记为超大体积"
+
+    # --- Multi-piece kit check (sets with 5+ pieces risk bulky packaging) ---
+    # Exclude obviously small items (e.g. pimple patches 36/72 pack, baking mats 2 pack)
+    SET_SMALL_EXEMPT = {'patch', 'sheet', 'strip', 'stick', 'bag', 'sachet', 'lining'}
+    set_match = re.search(r'(\d+)\s*(?:-pack|pack|piece|pcs|件|片|个|枚|套)[^a-z]', text)
+    if set_match:
+        qty = int(set_match.group(1))
+        if qty >= 5 and not any(s in text for s in SET_SMALL_EXEMPT):
+            return True, f"多件套装 {qty}pcs (≥5件, 包装易超标)"
 
     if not is_container:
         vol_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:l\b|litre|litres|liter|liters)', text)
