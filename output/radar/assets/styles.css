@@ -30,7 +30,7 @@ button, input, select { font: inherit; }
 button { cursor: pointer; }
 
 .shell {
-  max-width: 1120px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 26px 18px 48px;
 }
