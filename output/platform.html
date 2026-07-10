@@ -10208,7 +10208,9 @@ function renderDiscovery() {
         const matched = radarData.products.filter(p => {
           const name = (p.name || '').toLowerCase();
           const hitCount = kwParts.filter(part => name.includes(part)).length;
-          return hitCount >= 2;  // require at least 2 matching words
+          // Dynamic threshold: require at least 2 matches + extra for long keywords
+          const minMatches = kwParts.length <= 3 ? 2 : Math.min(3, Math.floor(kwParts.length * 0.4));
+          return hitCount >= minMatches;
         });
         if (matched.length > 0) {
           radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${matched.length}个产品）</div>` +
