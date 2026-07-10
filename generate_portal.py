@@ -29,7 +29,7 @@ MODULES = [
 ]
 
 SYSTEM_NAME = "Amazon项目运营OA"
-SYSTEM_SUB  = "322 · 007 · 027"
+SYSTEM_SUB  = ""
 THEME_COLOR = "#1a1a2e"
 
 def build_html():
