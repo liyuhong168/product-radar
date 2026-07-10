@@ -642,12 +642,70 @@ body {
 }
 
 
+
+
+
+/* ══════ Radar-Style Layout Components (shared) ══════ */
+
+/* ── Shell ── */
+.shell { max-width: 1400px; margin: 0 auto; padding: 20px 24px 40px; min-height: 100vh; display: flex; flex-direction: column; gap: 24px; }
+
+/* ── Hero ── */
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
+.hero-main { min-width: 0; }
+.hero-headline { display: flex; gap: 14px; align-items: center; }
+.hero-headline > div { min-width: 0; }
+.hero-logo { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; font-size: 36px; background: var(--oa-surface); border: 1px solid var(--oa-border); border-radius: 14px; box-shadow: var(--oa-shadow); flex-shrink: 0; }
+.hero-tag { margin: 0; font-size: 12px; letter-spacing: 0; color: var(--oa-sub); }
+.hero h1 { margin: 6px 0 0; font-size: 24px; line-height: 1.2; overflow-wrap: break-word; }
+.hero-sub { margin: 12px 0 0; color: var(--oa-sub); font-size: 15px; line-height: 1.6; }
+.hero-aside { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; background: var(--oa-surface); border: 1px solid var(--oa-border); border-radius: var(--oa-radius); padding: 12px 20px; font-size: 13px; color: var(--oa-sub); }
+.hero-meta .updated-label { text-transform: uppercase; font-size: 11px; letter-spacing: .04em; color: var(--oa-sub); }
+.hero-meta .updated { font-weight: 600; color: var(--oa-text); }
+.hero-stats { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-stats span { white-space: nowrap; }
+
+/* ── Primary Controls ── */
+.primary-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.search-wrap { position: relative; flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+.search-wrap input { padding: 8px 14px; border: 1px solid var(--oa-border); border-radius: var(--oa-radius); font-size: 14px; width: 200px; background: var(--oa-surface); color: var(--oa-text); }
+.search-wrap input:focus { outline: none; border-color: var(--oa-primary); box-shadow: 0 0 0 3px rgba(0,113,227,.12); }
+.search-wrap .result-count { font-size: 13px; color: var(--oa-sub); white-space: nowrap; }
+
+/* ── Section Heading (cross-picks pattern) ── */
+.cross-picks-wrap { display: flex; flex-direction: column; gap: 6px; }
+.cross-picks-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.cross-picks-head > div { min-width: 0; }
+.section-eyebrow { margin: 0; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--oa-sub); }
+.cross-picks-head h2, .policy-head h2, .list-head h2, .action-head h2 { margin: 4px 0 0; font-size: 16px; font-weight: 700; line-height: 1.3; }
+.cross-picks-sub { font-size: 14px; color: var(--oa-sub); margin-bottom: 8px; }
+
+/* ── Store Tabs ── */
+.store-tabs { display: flex; gap: 6px; }
+.store-tab { padding: 6px 16px; border: 1px solid var(--oa-border); border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--oa-surface); color: var(--oa-sub); transition: all .2s; user-select: none; }
+.store-tab:hover { border-color: var(--oa-primary); color: var(--oa-primary); }
+.store-tab.active { background: var(--oa-primary); color: white; border-color: var(--oa-primary); }
+
+/* ── Site Footer ── */
+.site-footer { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--oa-border); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; color: var(--oa-sub); }
+
+
 /* ══════ Responsive ══════ */
 @media (max-width: 1024px) {
   .oa-col-3, .oa-col-4 { grid-column: span 6; }
   .oa-container { padding: 0 16px 32px; }
 }
 @media (max-width: 768px) {
+
+
+  .shell { padding: 16px; gap: 16px; }
+  .hero { grid-template-columns: 1fr; gap: 12px; }
+  .hero h1 { font-size: 22px; }
+  .hero-meta { min-width: 0; }
+  .hero-aside { align-items: flex-start; }
+
   .oa-col-3, .oa-col-4, .oa-col-6, .oa-col-8 { grid-column: span 12; }
   .oa-kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .oa-card { padding: 18px; }
@@ -657,6 +715,11 @@ body {
   .oa-page-title { font-size: 22px; }
   .oa-grid { gap: 14px; }
   .oa-container { padding: 0 12px 24px; }
+
+
+  .search-wrap { width: 100%; }
+  .search-wrap input { width: 100%; }
+
 }
 @media (max-width: 480px) {
   .oa-kpi-grid { grid-template-columns: 1fr; }

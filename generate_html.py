@@ -154,31 +154,12 @@ def build_html(current, previous, all_valid, scan_date):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Radar \u00b7 \u9009\u54c1\u96f7\u8fbe</title>
+<link rel='stylesheet' href='../shared/oa-theme.css'>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f7;color:#1d1d1f;-webkit-font-smoothing:antialiased}}
-.container{{max-width:1200px;margin:0 auto;padding:24px 20px}}
-
-/* Header */
-.header{{text-align:center;padding:48px 0 16px}}
-.header h1{{font-size:2.4em;font-weight:700;letter-spacing:-.02em;background:linear-gradient(135deg,#1d1d1f,#6e6e73);-webkit-background-clip:text;-webkit-text-fill-color:transparent}}
-.header .sub{{color:#86868b;font-size:1.05em;margin-top:8px;font-weight:400}}
-.header .date{{color:#aeaeb2;font-size:.85em;margin-top:6px}}
-
-/* Stats */
-.stats{{display:flex;gap:12px;justify-content:center;margin:28px 0 32px;flex-wrap:wrap}}
-.stat{{background:#fff;border-radius:16px;padding:20px 28px;text-align:center;min-width:130px;box-shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04)}}
-.stat .num{{font-size:2.2em;font-weight:700;letter-spacing:-.02em}}
-.stat .label{{color:#86868b;font-size:.8em;margin-top:2px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}}
-.stat-blue .num{{color:#007AFF}}
-.stat-green .num{{color:#34C759}}
-.stat-orange .num{{color:#FF9500}}
-.stat-purple .num{{color:#AF52DE}}
-
-/* Sources */
-.sources-section{{margin:0 0 32px}}
-.sources-section h2{{font-size:1.1em;font-weight:600;color:#1d1d1f;margin-bottom:12px}}
+.page{{max-width:1400px;margin:0 auto;padding:0 24px 40px}}
 .source-pills{{display:flex;gap:8px;flex-wrap:wrap}}
 .source-pill{{display:inline-flex;align-items:center;gap:5px;background:#fff;border-radius:20px;padding:6px 14px;font-size:.82em;font-weight:500;color:#1d1d1f;box-shadow:0 1px 2px rgba(0,0,0,.05)}}
 .source-pill b{{color:var(--pill-color,#007AFF)}}
@@ -226,9 +207,10 @@ a.product-name:hover{{color:#007AFF}}
 .footer a{{color:#007AFF;text-decoration:none}}
 
 @media(max-width:768px){{
-  .header h1{{font-size:1.8em}}
+  .page{{padding:0 16px 24px}}
+  .oa-hero-title{{font-size:1.8em}}
+  .oa-kpi-grid{{grid-template-columns:repeat(2,1fr)}}
   .grid{{grid-template-columns:1fr}}
-  .stats{{flex-direction:column;align-items:center}}
   .toolbar{{flex-direction:column}}
   .search{{min-width:100%}}
   .card-metrics{{grid-template-columns:repeat(2,1fr)}}
@@ -236,27 +218,43 @@ a.product-name:hover{{color:#007AFF}}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>\U0001f50d Product Radar</h1>
-    <div class="sub">Amazon UK \u00b7 TikTok Shop \u00b7 Google Trends \u00b7 Reddit</div>
-    <div class="date">Last updated {scan_date}</div>
+<div class="oa-hero">
+  <div class="oa-hero-text">
+    <span class="oa-eyebrow">Analysis Dashboard</span>
+    <h1 class="oa-hero-title">🔍 Product Radar</h1>
+    <p class="oa-hero-sub">Amazon UK · TikTok Shop · Google Trends · Reddit · <span class="oa-tag oa-tag-info">{scan_date}</span></p>
   </div>
+</div>
 
-  <div class="stats">
-    <div class="stat stat-blue"><div class="num">{total_scanned}</div><div class="label">Scanned</div></div>
-    <div class="stat stat-green"><div class="num">{passed}</div><div class="label">Passed</div></div>
-    <div class="stat stat-orange"><div class="num">{len(new_items)}</div><div class="label">New</div></div>
-    <div class="stat stat-purple"><div class="num">{len(sources)}</div><div class="label">Sources</div></div>
+<div class="oa-kpi-grid">
+  <div class="oa-kpi">
+    <div class="oa-kpi-label">Scanned</div>
+    <div class="oa-kpi-value">{total_scanned}</div>
   </div>
+  <div class="oa-kpi">
+    <div class="oa-kpi-label">Passed</div>
+    <div class="oa-kpi-value" style="color:var(--oa-green)">{passed}</div>
+  </div>
+  <div class="oa-kpi">
+    <div class="oa-kpi-label">New</div>
+    <div class="oa-kpi-value" style="color:var(--oa-orange)">{len(new_items)}</div>
+  </div>
+  <div class="oa-kpi">
+    <div class="oa-kpi-label">Sources</div>
+    <div class="oa-kpi-value" style="color:var(--oa-purple)">{len(sources)}</div>
+  </div>
+</div>
 
-  <div class="sources-section">
-    <h2>Sources</h2>
-    <div class="source-pills">
+<div class="oa-section">
+  <div class="oa-section-header">
+    <h2 class="oa-section-title">Sources</h2>
+  </div>
+  <div class="oa-flex oa-flex-wrap oa-gap-sm">
 {source_pills}
-    </div>
   </div>
+</div>
 
+<div class="page">
   <div class="toolbar">
     <input type="text" class="search" id="searchBox" placeholder="Search products, ASIN, sources\u2026" oninput="doFilter()">
     {filter_buttons}
