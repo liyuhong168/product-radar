@@ -282,10 +282,6 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
 .date-bar select{{padding:8px 16px;border:1.5px solid var(--oa-primary);border-radius:var(--oa-radius-sm);font-size:13px;background:var(--oa-surface);color:var(--oa-primary);font-weight:600;cursor:pointer;outline:none}}
 .date-bar .stats{{font-size:13px;color:var(--oa-sub);margin-left:auto}}
 
-/* Search Trigger */
-.search-trigger{{position:fixed;top:20px;right:24px;z-index:998;padding:8px 18px;border:1.5px solid var(--oa-border-2);border-radius:var(--oa-radius-sm);background:var(--oa-surface);color:var(--oa-sub);font-size:13px;cursor:pointer;box-shadow:var(--oa-shadow);display:flex;align-items:center;gap:8px;transition:all .2s;backdrop-filter:blur(8px)}}
-.search-trigger:hover{{border-color:var(--oa-primary);color:var(--oa-primary);box-shadow:var(--oa-shadow-lg)}}
-.search-trigger kbd{{background:var(--oa-surface-3);padding:2px 7px;border-radius:6px;font-size:10.5px;font-family:inherit;border:1px solid var(--oa-border-2)}}
 
 /* Main Tabs */
 .main-tabs{{display:flex;gap:8px;margin-bottom:24px}}
@@ -489,8 +485,6 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
 .search-result .sr-date{{font-size:11px;color:var(--oa-light)}}
 .search-empty{{text-align:center;padding:48px 20px;color:var(--oa-sub);font-size:14px}}
 
-@media(max-width:768px){{.search-trigger{{display:none}}}}
-
 /* ===== FESTIVAL PLANNER ===== */
 .festival-header{{margin-bottom:24px}}
 .festival-header h2{{font-size:16px;font-weight:700;color:var(--oa-text);letter-spacing:-0.015em}}
@@ -602,23 +596,14 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
   <header class="hero" id="sectionTop">
     <div class="hero-main">
       <div class="hero-headline">
-        <div class="hero-logo" style="font-size:36px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--oa-surface);border:1px solid var(--oa-border);border-radius:14px;box-shadow:var(--oa-shadow);flex-shrink:0;">🎯</div>
         <div>
           <p class="hero-tag">SELECTION PLATFORM</p>
-          <h1>🎯 选品平台</h1>
+          <h1>选品平台</h1>
         </div>
       </div>
-      <p class="hero-sub">趋势发现 + 雷达扫描 + 选品看板</p>
-    </div>
-    <div class="hero-aside">
-      <div class="hero-meta">
-        <span class="updated-label">平台版本</span>
-        <span class="updated">V5</span>
-      </div>
+      <p class="hero-sub">每天上下午定时运行、实时多源搜索、提供趋势选品方向</p>
     </div>
   </header>
-
-<button class="search-trigger" onclick="toggleSearch()">🔍 全局搜索 <kbd>⌘K</kbd></button>
 
 <div class="date-bar">
   <label>📅 日期：</label>
