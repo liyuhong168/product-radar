@@ -66,6 +66,24 @@ def build_html():
 html, body {{ height:100%; overflow:hidden; }}
 body {{ display:flex; font-family:var(--oa-font); background:var(--oa-bg); color:var(--oa-text); -webkit-font-smoothing:antialiased; }}
 
+/* ── Sidebar Overlay (mobile only) ── */
+#sidebar-overlay {{
+    display:none; position:fixed; inset:0; z-index:150;
+    background:rgba(0,0,0,0.45);
+    opacity:0; pointer-events:none;
+    transition:opacity .25s ease;
+    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+}}
+#sidebar-overlay.show {{
+    opacity:1; pointer-events:auto;
+}}
+
+/* ── Hamburger Menu Button ── */
+#menuBtn {{
+    display:none; /* hidden on desktop */
+}}
+
 /* ── Sidebar ── */
 #sidebar {{
     width:240px; min-width:240px; height:100vh;
@@ -73,7 +91,6 @@ body {{ display:flex; font-family:var(--oa-font); background:var(--oa-bg); color
     color:#fff;
     display:flex; flex-direction:column;
     user-select:none;
-    transition:width .25s ease, min-width .25s ease;
     overflow:hidden;
     z-index:100;
 }}
@@ -192,27 +209,58 @@ body {{ display:flex; font-family:var(--oa-font); background:var(--oa-bg); color
 @keyframes spin {{ to {{ transform:rotate(360deg); }} }}
 
 /* ── Mobile Responsive ── */
-@media (max-width:768px) {{
-    #sidebar {{ width:64px; min-width:64px; }}
-    .nav-label, .nav-group-label, .sidebar-footer, .logo-text, .nav-empty,
-    .sidebar-header .logo-sub, .nav-item.active::before {{ display:none; }}
-    .sidebar-header {{ padding:16px 12px; }}
-    .sidebar-header .logo {{ justify-content:center; gap:0; }}
-    .nav-item {{ padding:13px; justify-content:center; margin:2px 6px; }}
-    .nav-icon {{ font-size:20px; width:auto; }}
-    #topbar {{ padding:0 14px; }}
+@media (max-width: 768px) {{
+    body {{ overflow:auto; }}
+
+    #sidebar-overlay {{ display:block; }}
+
+    #sidebar {{
+        position:fixed; left:0; top:0; z-index:200;
+        transform:translateX(-100%);
+        transition:transform .25s cubic-bezier(.4,0,.2,1);
+    }}
+    #sidebar.open {{
+        transform:translateX(0);
+    }}
+
+    #menuBtn {{
+        display:flex; align-items:center; justify-content:center;
+        width:36px; height:36px; border:none; border-radius:8px;
+        background:var(--oa-surface-2); color:var(--oa-text);
+        font-size:20px; cursor:pointer; flex-shrink:0;
+        transition:background .15s;
+    }}
+    #menuBtn:hover {{ background:var(--oa-surface-3); }}
+
+    .topbar-left {{
+        display:flex; align-items:center; gap:10px; flex:1; min-width:0;
+    }}
+
+    #main {{
+        margin-left:0; width:100%;
+    }}
+
+    #topbar {{ padding:0 12px; }}
     #topbar .last-update {{ display:none; }}
-    #topbar .topbar-right {{ gap:10px; }}
+    #topbar .topbar-right {{ gap:8px; }}
+
+    #current-module {{ font-size:13px; }}
+
+    #content-frame {{
+        height:100%;
+    }}
 }}
-@media (max-width:480px) {{
-    #sidebar {{ width:56px; min-width:56px; }}
-    .nav-item {{ margin:2px 4px; padding:11px; }}
+@media (max-width: 480px) {{
+    #menuBtn {{ width:32px; height:32px; font-size:18px; }}
+    #topbar {{ padding:0 8px; }}
+    #clock {{ font-size:12px; }}
 }}
 </style>
 </head>
 <body>
 
 <!-- Sidebar -->
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <aside id="sidebar">
     <div class="sidebar-header">
         <div class="logo">
@@ -234,9 +282,12 @@ body {{ display:flex; font-family:var(--oa-font); background:var(--oa-bg); color
 <!-- Main -->
 <div id="main">
     <div id="topbar">
-        <div class="module-title">
-            <span class="dot"></span>
-            <span id="current-module">{htmlmod.escape(first["label"])}</span>
+        <div class="topbar-left">
+            <button id="menuBtn" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+            <div class="module-title">
+                <span class="dot"></span>
+                <span id="current-module">{htmlmod.escape(first["label"])}</span>
+            </div>
         </div>
         <div class="topbar-right">
             <span class="last-update" id="last-update"></span>
@@ -265,7 +316,17 @@ const updateEl = document.getElementById('last-update');
 let currentKey = localStorage.getItem('oa_module') || '{first["key"]}';
 let loadTimer = null;
 
+function toggleSidebar() {{
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebar-overlay').classList.toggle('show');
+}}
+
 function switchModule(key, url) {{
+    // Close sidebar on mobile
+    if (window.innerWidth <= 768) {{
+        document.getElementById('sidebar').classList.remove('open');
+        document.getElementById('sidebar-overlay').classList.remove('show');
+    }}
     // Update nav active state
     document.querySelectorAll('.nav-item').forEach(el => {{
         el.classList.toggle('active', el.dataset.key === key);

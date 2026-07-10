@@ -588,6 +588,57 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
 .back-to-top{{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--orange);color:#fff;border:none;font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.15);display:none;z-index:999;transition:all .2s}}
 .back-to-top:hover{{background:#ea580c;transform:translateY(-2px)}}
 .back-to-top.show{{display:flex;align-items:center;justify-content:center}}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {{
+  .hdr {{ margin-bottom:16px; }}
+  .hdr h1 {{ font-size:20px; gap:8px; }}
+  .hdr .info {{ font-size:13px; }}
+  .main-tabs {{ gap:6px; flex-wrap:wrap; }}
+  .main-tab {{ padding:10px 14px; font-size:13px; }}
+  .date-bar {{ flex-wrap:wrap; gap:10px; padding:12px 14px; }}
+  .date-bar .stats {{ margin-left:0; width:100%; font-size:12px; }}
+  .season-bar {{ padding:4px 0 10px; }}
+  .event-chip {{ padding:8px 12px; font-size:12px; }}
+  .event-chip .ev-cats {{ max-width:120px; }}
+  .stat-cards {{ grid-template-columns:repeat(2,1fr); gap:10px; }}
+  .kanban-board {{ grid-template-columns:1fr; gap:12px; }}
+  .kanban-col {{ min-width:0; }}
+  .product-grid {{ grid-template-columns:1fr; gap:12px; }}
+  .pc {{ padding:14px; }}
+  .pc-img img {{ max-height:140px; }}
+  .filter-bar {{ flex-direction:column; align-items:stretch; gap:10px; padding:12px; }}
+  .fg {{ width:100%; }}
+  .search-btns {{ gap:6px; }}
+  .btn-search {{ padding:8px 14px; font-size:12px; }}
+  .metrics-row {{ gap:10px; }}
+  .metric-card {{ min-width:80px; padding:12px; }}
+  .metric-card .big {{ font-size:22px; }}
+  .forecast-card {{ padding:16px; }}
+  .action-box {{ padding:12px 14px; }}
+  .search-modal {{ max-width:96vw; max-height:80vh; }}
+  .insight-card {{ border-left-width:3px; }}
+  .insight-hd {{ padding:14px; gap:10px; flex-wrap:wrap; }}
+  .insight-score {{ width:40px; height:40px; font-size:14px; }}
+  .insight-main {{ width:100%; }}
+  .insight-kw {{ font-size:15px; }}
+  .st-filter {{ gap:6px; }}
+  .st-tab {{ padding:4px 10px; font-size:11px; }}
+  .back-to-top {{ bottom:16px; right:16px; width:38px; height:38px; font-size:16px; }}
+}}
+@media (max-width: 480px) {{
+  .hdr h1 {{ font-size:18px; }}
+  .stat-cards {{ grid-template-columns:1fr; gap:8px; }}
+  .pc-img img {{ max-height:100px; }}
+  .filter-bar {{ padding:10px; }}
+  .search-overlay {{ padding-top:10vh; }}
+  .insight-hd {{ padding:12px; }}
+  .insight-detail {{ padding:0 12px 12px; }}
+  .kanban-card {{ padding:12px; }}
+  .kanban-card .kc-name {{ font-size:12px; }}
+  .pc-name {{ font-size:14px; }}
+  .pc-meta {{ gap:10px; font-size:12px; }}
+}}
 </style>
 </head>
 <body>
