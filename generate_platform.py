@@ -267,7 +267,6 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
 <style>
 /* Variables defined in shared/oa-theme.css — only platform-specific overrides here */
 body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);line-height:1.6;-webkit-font-smoothing:antialiased}}
-.wrap{{max-width:1440px;margin:0 auto;padding:0 24px 48px}}
 
 /* ...existing styles unchanged... */
 
@@ -598,18 +597,26 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
 </style>
 </head>
 <body>
-<div class="wrap">
+<main class="shell">
 
-<div class="oa-hero">
-  <div class="oa-hero-text">
-    <span class="oa-eyebrow">Product Selection Platform</span>
-    <h1 class="oa-hero-title">🎯 选品平台</h1>
-    <p class="oa-hero-sub">趋势发现 + 雷达扫描 + 选品看板</p>
-  </div>
-  <div class="oa-hero-actions">
-    <span class="oa-tag oa-tag-new">V5</span>
-  </div>
-</div>
+  <header class="hero" id="sectionTop">
+    <div class="hero-main">
+      <div class="hero-headline">
+        <div class="hero-logo" style="font-size:36px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--oa-surface);border:1px solid var(--oa-border);border-radius:14px;box-shadow:var(--oa-shadow);flex-shrink:0;">🎯</div>
+        <div>
+          <p class="hero-tag">SELECTION PLATFORM</p>
+          <h1>🎯 选品平台</h1>
+        </div>
+      </div>
+      <p class="hero-sub">趋势发现 + 雷达扫描 + 选品看板</p>
+    </div>
+    <div class="hero-aside">
+      <div class="hero-meta">
+        <span class="updated-label">平台版本</span>
+        <span class="updated">V5</span>
+      </div>
+    </div>
+  </header>
 
 <button class="search-trigger" onclick="toggleSearch()">🔍 全局搜索 <kbd>⌘K</kbd></button>
 
@@ -677,9 +684,7 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
   <div class="kanban-board" id="kanbanBoard"></div>
 </div>
 
-</div>
-
-<!-- Search Overlay -->
+</main>
 <div class="search-overlay" id="searchOverlay">
   <div class="search-modal">
     <div class="search-modal-hd">
