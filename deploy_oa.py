@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-三店运营OA — 统一部署脚本
+电商项目运营OA — 统一部署脚本
 1. 从 kj-news-radar (GitHub) 拉取最新内容 → output/radar/
 2. 从 product-analysis (本地) 复制最新内容 → output/analysis/
 3. 生成 OA 门户页 → output/index.html
@@ -509,7 +509,7 @@ def main():
     msg = sys.argv[1] if len(sys.argv) > 1 else '🔄 OA统一部署'
     
     print("=" * 54)
-    print("  三店运营OA — 统一部署")
+    print("  电商项目运营OA — 统一部署")
     print("=" * 54)
     
     # Step 1: Fetch content from sources

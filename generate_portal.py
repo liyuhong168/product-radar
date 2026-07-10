@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-三店运营OA — 门户页生成器 v3.0
+电商项目运营OA — 门户页生成器 v3.0
 生成 output/index.html (左侧导航 + 右侧iframe内容区)
 模块配置可扩展，新增板块只需加一项
 UI: Apple-inspired design system, refined spacing & typography
@@ -28,7 +28,7 @@ MODULES = [
     }
 ]
 
-SYSTEM_NAME = "三店运营OA"
+SYSTEM_NAME = "电商项目运营OA"
 SYSTEM_SUB  = "322 · 007 · 027"
 THEME_COLOR = "#1a1a2e"
 
@@ -227,7 +227,7 @@ body {{ display:flex; font-family:var(--oa-font); background:var(--oa-bg); color
         {''.join(nav_items)}
     </nav>
     <div class="sidebar-footer">
-        OA v3.0 · {now.strftime('%Y-%m-%d')}
+        电商项目运营OA v3.0 · {now.strftime('%Y-%m-%d')}
     </div>
 </aside>
 
