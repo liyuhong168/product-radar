@@ -17,8 +17,8 @@ MODULES = [
     {
         "group": "核心业务",
         "items": [
-            {"key": "platform", "label": "选品平台", "icon": "🎯", "url": "platform.html", "desc": "产品发现、扫描、看板管理"},
             {"key": "radar",    "label": "跨境雷达", "icon": "📡", "url": "radar/",       "desc": "24h跨境电商情报聚合"},
+            {"key": "platform", "label": "选品平台", "icon": "🎯", "url": "platform.html", "desc": "产品发现、扫描、看板管理"},
             {"key": "analysis", "label": "产品分析", "icon": "📊", "url": "analysis/",    "desc": "运营数据与补货分析"},
         ]
     },
