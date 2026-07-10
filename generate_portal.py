@@ -29,7 +29,7 @@ MODULES = [
 ]
 
 SYSTEM_NAME = "Amazon项目运营OA"
-SYSTEM_SUB  = ""
+SYSTEM_SUB  = "322 · 007 · 027"
 THEME_COLOR = "#1a1a2e"
 
 def build_html():
@@ -86,9 +86,9 @@ body {{ display:flex; font-family:var(--oa-font); background:var(--oa-bg); color
     font-size:24px; font-weight:700; display:flex; align-items:center; gap:12px;
 }}
 .sidebar-header .logo-icon {{ font-size:26px; }}
-.sidebar-header .logo-text {{ display:flex; flex-direction:column; }}
-.sidebar-header .logo-title {{ font-size:20px; font-weight:700; letter-spacing:0.3px; }}
-.sidebar-header .logo-sub {{ font-size:10.5px; color:rgba(255,255,255,0.35); margin-top:2px; letter-spacing:0.6px; }}
+.sidebar-header .logo-text {{ display:flex; flex-direction:row; align-items:baseline; gap:8px; }}
+.sidebar-header .logo-title {{ font-size:16px; font-weight:700; letter-spacing:0.3px; }}
+.sidebar-header .logo-sub {{ font-size:10.5px; color:rgba(255,255,255,0.35); letter-spacing:0.6px; }}
 
 #nav {{ flex:1; overflow-y:auto; padding:10px 0; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.12) transparent; }}
 #nav::-webkit-scrollbar {{ width:4px; }}
