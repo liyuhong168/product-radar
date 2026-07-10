@@ -4,89 +4,88 @@
 <link rel="stylesheet" href="../shared/oa-theme.css">
 <title>产品运营/补货分析</title>
 <style>
-:root {
-  --bg: var(--oa-bg); --card: var(--oa-surface); --text: var(--oa-text); --sub: var(--oa-sub);
-  --accent: var(--oa-primary); --green: var(--oa-green); --red: var(--oa-red); --orange: var(--oa-orange);
-  --border: var(--oa-border); --shadow: var(--oa-shadow); --radius: var(--oa-radius);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
-h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-h2 { font-size: 20px; font-weight: 600; margin: 24px 0 12px; }
-h3 { font-size: 16px; font-weight: 600; margin: 16px 0 8px; color: var(--sub); }
-.card { background: var(--card); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow); }
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.metric { background: var(--card); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); text-align: center; }
-.metric .value { font-size: 22px; font-weight: 700; }
-.metric .label { font-size: 12px; color: var(--sub); text-transform: uppercase; letter-spacing: 0.5px; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
-.badge-green { background: #e8f9ee; color: #1a7d36; }
-.badge-red { background: #ffe5e5; color: #d70015; }
-.badge-orange { background: #fff3e0; color: #c77c00; }
-.badge-blue { background: #e5f0ff; color: #0051a8; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-th { background: #f9f9fb; padding: 10px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; }
-th:hover { background: #ececf0; }
-td { padding: 10px 12px; border-bottom: 1px solid #f0f0f2; }
-tr:hover { background: #f9f9fb; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.back-link { display: inline-flex; align-items: center; gap: 4px; margin-bottom: 16px; font-size: 14px; color: var(--accent); }
+/* ── OA设计系统已在 shared/oa-theme.css ── */
+/* 以下仅保留产品分析特有的样式 */
+
+/* ── Common ── */
+.meta-info { color: var(--oa-sub, #6e6e73); font-size: 13px; margin-bottom: 20px; }
+.back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; color: var(--oa-primary, #0071e3); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
 .stars { color: #ff9500; }
+a { color: var(--oa-link, #007AFF); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Filter bar / store tabs ── */
+.filter-bar { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+.filter-bar .result-count { font-size: 13px; color: var(--oa-sub, #6e6e73); }
+.filter-bar input { padding: 8px 12px; border: 1px solid var(--oa-border, #d2d2d7); border-radius: 10px; font-size: 14px; width: 200px; outline: none; transition: border-color .2s; }
+.filter-bar input:focus { border-color: var(--oa-primary, #0071e3); box-shadow: 0 0 0 3px rgba(0,113,227,.12); }
+.store-tabs { display: flex; gap: 6px; }
+.store-tab { padding: 6px 16px; border: 1px solid var(--oa-border, #d2d2d7); border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--oa-surface, #fff); color: var(--oa-sub, #6e6e73); transition: all 0.2s; user-select: none; }
+.store-tab:hover { border-color: var(--oa-primary, #0071e3); color: var(--oa-primary, #0071e3); }
+.store-tab.active { background: var(--oa-primary, #0071e3); color: white; border-color: var(--oa-primary, #0071e3); }
+
+/* ── Bulletin / Calendar ── */
 .bullet-list { padding-left: 20px; }
 .bullet-list li { margin-bottom: 6px; font-size: 14px; color: #333; }
+
 .calendar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.cal-month { background: var(--card); border-radius: 10px; padding: 12px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.cal-month { background: var(--oa-surface, #fff); border: 1px solid var(--oa-border, #d2d2d7); border-radius: 10px; padding: 12px; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+.cal-month:hover { transform: translateY(-2px); box-shadow: var(--oa-shadow, 0 2px 12px rgba(0,0,0,.08)); }
 .cal-month .month-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
-.cal-month .demand { font-size: 12px; color: var(--sub); }
-.cal-month .sales-est { font-size: 11px; color: var(--accent); margin-top: 2px; font-weight: 500; }
-.competitor-table td { font-size: 13px; }
-.restock-box { border-radius: 12px; padding: 16px; margin-top: 12px; }
-.restock-urgent { background: #fff5f5; border: 1px solid #ffcdd2; }
-.restock-normal { background: #f0f7ff; border: 1px solid #b8d4f0; }
-.restock-batch { background: #f0fff4; border: 1px solid #c8e6c9; }
+.cal-month .demand { font-size: 12px; color: var(--oa-sub, #6e6e73); }
+.cal-month .sales-est { font-size: 11px; color: var(--oa-primary, #0071e3); margin-top: 2px; font-weight: 500; }
+
+/* ── Restock boxes ── */
+.restock-box { border-radius: 12px; padding: 16px; margin-top: 12px; border: 1px solid; }
+.restock-box table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.restock-box table td { padding: 6px 0; border: none; }
+.restock-urgent { background: #fff5f5; border-color: #ffcdd2; }
+.restock-normal { background: #f0f7ff; border-color: #b8d4f0; }
+.restock-batch { background: #f0fff4; border-color: #c8e6c9; }
 .restock-box .title { font-weight: 600; margin-bottom: 8px; }
-.restock-urgent .title { color: var(--red); }
-.restock-normal .title { color: var(--accent); }
-.restock-batch .title { color: var(--green); }
-.insight-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 24px; margin-bottom: 16px; }
-.insight-box h2 { color: white; margin: 0 0 12px; }
+.restock-urgent .title { color: var(--oa-red, #ff3b30); }
+.restock-normal .title { color: var(--oa-primary, #0071e3); }
+.restock-batch .title { color: var(--oa-green, #34c759); }
+
+/* ── Insight box (gradient banner) ── */
+.insight-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: var(--oa-radius, 16px); padding: 24px; margin-bottom: 16px; }
+.insight-box h2 { color: white; margin: 0 0 12px; font-size: 18px; font-weight: 600; }
 .insight-box p { font-size: 16px; line-height: 1.8; }
-.filter-bar { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
-.filter-bar select { display: none; }
-.filter-bar input { padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; width: 200px; }
-.store-tabs { display: flex; gap: 6px; }
-.store-tab { padding: 6px 16px; border: 1px solid var(--border); border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; background: white; color: var(--sub); transition: all 0.2s; user-select: none; }
-.store-tab:hover { border-color: var(--accent); color: var(--accent); }
-.store-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
-.meta-info { color: var(--sub); font-size: 13px; margin-bottom: 20px; }
+
+/* ── Inventory items ── */
 .inventory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.inventory-item { background: #f9f9fb; border-radius: 10px; padding: 12px; text-align: center; }
+.inventory-item { background: var(--oa-faint, #f0f0f5); border-radius: 10px; padding: 12px; text-align: center; }
 .inventory-item .inv-value { font-size: 20px; font-weight: 700; }
-.inventory-item .inv-label { font-size: 11px; color: var(--sub); margin-top: 4px; }
-.stockout-warning { background: #fff5f5; border: 1px solid #ffcdd2; border-radius: 8px; padding: 12px; margin-bottom: 12px; font-weight: 600; color: var(--red); }
+.inventory-item .inv-label { font-size: 11px; color: var(--oa-sub, #6e6e73); margin-top: 4px; }
+
+/* ── Stockout warning ── */
+.stockout-warning { background: #fff5f5; border: 1px solid #ffcdd2; border-radius: 8px; padding: 12px; margin-bottom: 12px; font-weight: 600; color: var(--oa-red, #ff3b30); }
+
+/* ── Trend indicators ── */
 .trend-indicator { display: inline-flex; align-items: center; gap: 6px; font-size: 18px; font-weight: 700; }
-.trend-up { color: var(--green); }
-.trend-down { color: var(--red); }
-.trend-flat { color: var(--sub); }
+.trend-up { color: var(--oa-green, #34c759); }
+.trend-down { color: var(--oa-red, #ff3b30); }
+.trend-flat { color: var(--oa-sub, #6e6e73); }
+
+/* ── Phase / Season tags ── */
 .phase-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
 .phase-peak { background: #e8f9ee; color: #1a7d36; }
 .phase-rising { background: #e5f0ff; color: #0051a8; }
 .phase-low { background: #f5f5f7; color: #6e6e73; }
 .phase-declining { background: #fff3e0; color: #c77c00; }
-.countdown-tag { display: inline-block; background: var(--accent); color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-left: 8px; }
-.suggestion-item { background: #f9f9fb; border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 3px solid var(--accent); }
+
+/* ── Suggestion items ── */
+.suggestion-item { background: var(--oa-faint, #f0f0f5); border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 3px solid var(--oa-primary, #0071e3); }
 .suggestion-item .sug-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
 .suggestion-item .sug-detail { font-size: 13px; color: #555; }
-@media (max-width: 768px) {
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
-  .calendar-grid { grid-template-columns: repeat(3, 1fr); }
-  table { font-size: 12px; }
-  th, td { padding: 6px 8px; }
-}
 
-.filter-bar .result-count { font-size: 13px; color: var(--sub); }
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .oa-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .calendar-grid { grid-template-columns: repeat(3, 1fr); }
+  .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 <script>
 let activeStore = 'all';
@@ -112,23 +111,31 @@ function filterTable() {
 }
 </script>
 </head><body>
-<div class="container">
-  <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#0071e3"/><path d="M10 24V16l5 4 5-8 6 6" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="10" y="12" width="2" height="12" rx="1" fill="#fff" opacity="0.3"/><rect x="15" y="10" width="2" height="14" rx="1" fill="#fff" opacity="0.3"/><rect x="20" y="8" width="2" height="16" rx="1" fill="#fff" opacity="0.3"/><rect x="25" y="11" width="2" height="13" rx="1" fill="#fff" opacity="0.3"/></svg>
-    <h1 style="margin:0">产品运营/补货分析</h1>
+<div class="oa-shell">
+  <div class="oa-hero">
+    <div class="oa-hero-text">
+      <div class="oa-eyebrow">亚马逊英国站 · 运营决策</div>
+      <h1 class="oa-hero-title">产品运营/补货分析</h1>
+      <p class="oa-hero-sub">75 个产品 · 分析日期: 2026-07-10 13:43 · 数据来源: 领星ERP + Amazon UK</p>
+    </div>
   </div>
-  <div class="meta-info">分析日期: 2026-07-10 12:10 · 数据来源: 领星ERP + Amazon UK</div>
+
   <div class="filter-bar">
     <div class="store-tabs"><span class="store-tab active" onclick="filterByStore('all',this)">全部</span><span class="store-tab" onclick="filterByStore('007',this)">007店</span><span class="store-tab" onclick="filterByStore('027',this)">027店</span><span class="store-tab" onclick="filterByStore('322',this)">322店</span></div>
     <input id="searchInput" type="text" placeholder="搜索ASIN/品名..." oninput="filterTable()">
     <span id="resultCount" class="result-count">75 个产品</span>
   </div>
-  <div class="card" style="overflow-x:auto">
-    <table id="productTable">
-      <thead><tr>
-        <th>#</th><th>店铺</th><th>ASIN</th><th>品名</th><th>售价</th><th>评分</th><th>BSR</th><th>月销量</th><th>趋势</th><th>库存(在售/在途)</th><th>断货风险</th><th>分析日期</th>
-      </tr></thead>
-      <tbody><tr data-store="322">
+
+  <div class="oa-section">
+    <div class="oa-section-header">
+      <h2 class="oa-section-title">产品库存监控</h2>
+    </div>
+    <div class="oa-card oa-table-wrap" style="padding:0">
+      <table id="productTable" class="oa-table">
+        <thead><tr>
+          <th>#</th><th>店铺</th><th>ASIN</th><th>品名</th><th>售价</th><th>评分</th><th>BSR</th><th>月销量</th><th>趋势</th><th>库存(在售/在途)</th><th>断货风险</th><th>分析日期</th>
+        </tr></thead>
+        <tbody><tr data-store="322">
           <td>1</td>
           <td>322</td>
           <td><a href="B0F4QW3Q5Q.html">B0F4QW3Q5Q</a></td>
@@ -139,7 +146,7 @@ function filterTable() {
           <td><strong>516.0</strong></td>
           <td>➡️</td>
           <td>355 / 100</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:27</td>
         </tr><tr data-store="322">
           <td>2</td>
@@ -152,7 +159,7 @@ function filterTable() {
           <td><strong>318.0</strong></td>
           <td>📈</td>
           <td>368 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:27</td>
         </tr><tr data-store="322">
           <td>3</td>
@@ -165,7 +172,7 @@ function filterTable() {
           <td><strong>288.0</strong></td>
           <td>📈</td>
           <td>223 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:27</td>
         </tr><tr data-store="322">
           <td>4</td>
@@ -178,7 +185,7 @@ function filterTable() {
           <td><strong>287.0</strong></td>
           <td>➡️</td>
           <td>24 / 100</td>
-          <td><span class="badge badge-red">⚠️ 7天内断货</span></td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:29</td>
         </tr><tr data-store="322">
           <td>5</td>
@@ -191,7 +198,7 @@ function filterTable() {
           <td><strong>286.0</strong></td>
           <td>➡️</td>
           <td>311 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:29</td>
         </tr><tr data-store="322">
           <td>6</td>
@@ -204,7 +211,7 @@ function filterTable() {
           <td><strong>271</strong></td>
           <td>➡️</td>
           <td>78 / 0</td>
-          <td><span class="badge badge-orange">⚠️ 14天内断货</span></td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-24 22:40</td>
         </tr><tr data-store="322">
           <td>7</td>
@@ -217,7 +224,7 @@ function filterTable() {
           <td><strong>258.0</strong></td>
           <td>➡️</td>
           <td>402 / 100</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:29</td>
         </tr><tr data-store="322">
           <td>8</td>
@@ -230,7 +237,7 @@ function filterTable() {
           <td><strong>251.0</strong></td>
           <td>➡️</td>
           <td>472 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:29</td>
         </tr><tr data-store="322">
           <td>9</td>
@@ -243,7 +250,7 @@ function filterTable() {
           <td><strong>248.0</strong></td>
           <td>➡️</td>
           <td>317 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:29</td>
         </tr><tr data-store="322">
           <td>10</td>
@@ -256,7 +263,7 @@ function filterTable() {
           <td><strong>222.0</strong></td>
           <td>➡️</td>
           <td>221 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="322">
           <td>11</td>
@@ -269,7 +276,7 @@ function filterTable() {
           <td><strong>219</strong></td>
           <td>➡️</td>
           <td>200 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>12</td>
@@ -282,7 +289,7 @@ function filterTable() {
           <td><strong>205.0</strong></td>
           <td>➡️</td>
           <td>282.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="007">
           <td>13</td>
@@ -295,7 +302,7 @@ function filterTable() {
           <td><strong>203.0</strong></td>
           <td>📈</td>
           <td>91 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:08</td>
         </tr><tr data-store="322">
           <td>14</td>
@@ -308,7 +315,7 @@ function filterTable() {
           <td><strong>191.0</strong></td>
           <td>📈</td>
           <td>976 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>15</td>
@@ -321,7 +328,7 @@ function filterTable() {
           <td><strong>190.0</strong></td>
           <td>➡️</td>
           <td>373.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>16</td>
@@ -334,7 +341,7 @@ function filterTable() {
           <td><strong>189</strong></td>
           <td>📈</td>
           <td>252 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>17</td>
@@ -347,7 +354,7 @@ function filterTable() {
           <td><strong>186</strong></td>
           <td>📈</td>
           <td>2 / 0</td>
-          <td><span class="badge badge-red">⚠️ 7天内断货</span></td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-24 22:30</td>
         </tr><tr data-store="322">
           <td>18</td>
@@ -360,7 +367,7 @@ function filterTable() {
           <td><strong>185</strong></td>
           <td>➡️</td>
           <td>166 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>19</td>
@@ -373,7 +380,7 @@ function filterTable() {
           <td><strong>184.0</strong></td>
           <td>➡️</td>
           <td>217 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>20</td>
@@ -386,7 +393,7 @@ function filterTable() {
           <td><strong>177.0</strong></td>
           <td>➡️</td>
           <td>133 / 100</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>21</td>
@@ -399,7 +406,7 @@ function filterTable() {
           <td><strong>171.0</strong></td>
           <td>📈</td>
           <td>349.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>22</td>
@@ -412,7 +419,7 @@ function filterTable() {
           <td><strong>171.0</strong></td>
           <td>➡️</td>
           <td>78.0 / 0</td>
-          <td><span class="badge badge-orange">⚠️ 14天内断货</span></td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>23</td>
@@ -425,7 +432,7 @@ function filterTable() {
           <td><strong>165</strong></td>
           <td>➡️</td>
           <td>114 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>24</td>
@@ -438,7 +445,7 @@ function filterTable() {
           <td><strong>160</strong></td>
           <td>➡️</td>
           <td>142 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>25</td>
@@ -451,7 +458,7 @@ function filterTable() {
           <td><strong>148.0</strong></td>
           <td>➡️</td>
           <td>184.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>26</td>
@@ -464,7 +471,7 @@ function filterTable() {
           <td><strong>133.0</strong></td>
           <td>➡️</td>
           <td>313 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>27</td>
@@ -477,7 +484,7 @@ function filterTable() {
           <td><strong>131.0</strong></td>
           <td>➡️</td>
           <td>152.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="322">
           <td>28</td>
@@ -490,7 +497,7 @@ function filterTable() {
           <td><strong>117.0</strong></td>
           <td>➡️</td>
           <td>0 / 0</td>
-          <td><span class="badge badge-red">已断货</span></td>
+          <td><span class="oa-tag oa-tag-hot">已断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>29</td>
@@ -503,7 +510,7 @@ function filterTable() {
           <td><strong>116.0</strong></td>
           <td>📈</td>
           <td>0 / 0</td>
-          <td><span class="badge badge-red">已断货</span></td>
+          <td><span class="oa-tag oa-tag-hot">已断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:20</td>
         </tr><tr data-store="007">
           <td>30</td>
@@ -516,7 +523,7 @@ function filterTable() {
           <td><strong>84.0</strong></td>
           <td>📈</td>
           <td>29.0 / 0</td>
-          <td><span class="badge badge-orange">⚠️ 14天内断货</span></td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:08</td>
         </tr><tr data-store="007">
           <td>31</td>
@@ -529,7 +536,7 @@ function filterTable() {
           <td><strong>69.0</strong></td>
           <td>➡️</td>
           <td>45 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:20</td>
         </tr><tr data-store="007">
           <td>32</td>
@@ -542,7 +549,7 @@ function filterTable() {
           <td><strong>66.0</strong></td>
           <td>➡️</td>
           <td>123 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:20</td>
         </tr><tr data-store="007">
           <td>33</td>
@@ -555,7 +562,7 @@ function filterTable() {
           <td><strong>65.0</strong></td>
           <td>➡️</td>
           <td>210 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:24</td>
         </tr><tr data-store="007">
           <td>34</td>
@@ -568,7 +575,7 @@ function filterTable() {
           <td><strong>55.0</strong></td>
           <td>➡️</td>
           <td>48 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:24</td>
         </tr><tr data-store="007">
           <td>35</td>
@@ -581,7 +588,7 @@ function filterTable() {
           <td><strong>55.0</strong></td>
           <td>➡️</td>
           <td>128 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:24</td>
         </tr><tr data-store="007">
           <td>36</td>
@@ -594,7 +601,7 @@ function filterTable() {
           <td><strong>54.0</strong></td>
           <td>➡️</td>
           <td>138 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:27</td>
         </tr><tr data-store="007">
           <td>37</td>
@@ -607,7 +614,7 @@ function filterTable() {
           <td><strong>52.0</strong></td>
           <td>📈</td>
           <td>48 / 110</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:27</td>
         </tr><tr data-store="007">
           <td>38</td>
@@ -620,7 +627,7 @@ function filterTable() {
           <td><strong>51.0</strong></td>
           <td>📈</td>
           <td>99 / 100</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="007">
           <td>39</td>
@@ -633,7 +640,7 @@ function filterTable() {
           <td><strong>45.0</strong></td>
           <td>📈</td>
           <td>91 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="007">
           <td>40</td>
@@ -646,7 +653,7 @@ function filterTable() {
           <td><strong>44</strong></td>
           <td>📈</td>
           <td>28 / 50</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="007">
           <td>41</td>
@@ -659,7 +666,7 @@ function filterTable() {
           <td><strong>42.0</strong></td>
           <td>📈</td>
           <td>170 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="007">
           <td>42</td>
@@ -672,7 +679,7 @@ function filterTable() {
           <td><strong>42</strong></td>
           <td>➡️</td>
           <td>4 / 0</td>
-          <td><span class="badge badge-red">⚠️ 7天内断货</span></td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>43</td>
@@ -685,7 +692,7 @@ function filterTable() {
           <td><strong>40.0</strong></td>
           <td>📈</td>
           <td>47 / 50</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>44</td>
@@ -698,7 +705,7 @@ function filterTable() {
           <td><strong>40.0</strong></td>
           <td>📈</td>
           <td>10.0 / 0</td>
-          <td><span class="badge badge-orange">⚠️ 14天内断货</span></td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:08</td>
         </tr><tr data-store="007">
           <td>45</td>
@@ -711,7 +718,7 @@ function filterTable() {
           <td><strong>39.0</strong></td>
           <td>📈</td>
           <td>21 / 150</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="007">
           <td>46</td>
@@ -724,7 +731,7 @@ function filterTable() {
           <td><strong>39.0</strong></td>
           <td>📈</td>
           <td>5.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:08</td>
         </tr><tr data-store="007">
           <td>47</td>
@@ -737,7 +744,7 @@ function filterTable() {
           <td><strong>36.0</strong></td>
           <td>📈</td>
           <td>68.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>48</td>
@@ -750,7 +757,7 @@ function filterTable() {
           <td><strong>35.0</strong></td>
           <td>➡️</td>
           <td>78 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>49</td>
@@ -763,7 +770,7 @@ function filterTable() {
           <td><strong>35</strong></td>
           <td>➡️</td>
           <td>11 / 0</td>
-          <td><span class="badge badge-orange">⚠️ 14天内断货</span></td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>50</td>
@@ -776,7 +783,7 @@ function filterTable() {
           <td><strong>34.0</strong></td>
           <td>➡️</td>
           <td>21.0 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>51</td>
@@ -789,7 +796,7 @@ function filterTable() {
           <td><strong>33.0</strong></td>
           <td>📈</td>
           <td>107 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="007">
           <td>52</td>
@@ -802,7 +809,7 @@ function filterTable() {
           <td><strong>33.0</strong></td>
           <td>➡️</td>
           <td>36 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>53</td>
@@ -815,7 +822,7 @@ function filterTable() {
           <td><strong>33.0</strong></td>
           <td>➡️</td>
           <td>58 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:08</td>
         </tr><tr data-store="007">
           <td>54</td>
@@ -828,7 +835,7 @@ function filterTable() {
           <td><strong>32.0</strong></td>
           <td>📈</td>
           <td>64 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="007">
           <td>55</td>
@@ -841,7 +848,7 @@ function filterTable() {
           <td><strong>30.0</strong></td>
           <td>📈</td>
           <td>29 / 50</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="007">
           <td>56</td>
@@ -854,7 +861,7 @@ function filterTable() {
           <td><strong>27.0</strong></td>
           <td>➡️</td>
           <td>186 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
         </tr><tr data-store="027">
           <td>57</td>
@@ -867,7 +874,7 @@ function filterTable() {
           <td><strong>22.0</strong></td>
           <td>➡️</td>
           <td>28.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>58</td>
@@ -880,7 +887,7 @@ function filterTable() {
           <td><strong>17.0</strong></td>
           <td>📈</td>
           <td>33.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>59</td>
@@ -893,7 +900,7 @@ function filterTable() {
           <td><strong>15.0</strong></td>
           <td>📈</td>
           <td>35.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>60</td>
@@ -906,7 +913,7 @@ function filterTable() {
           <td><strong>13.0</strong></td>
           <td>➡️</td>
           <td>7.0 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>61</td>
@@ -919,7 +926,7 @@ function filterTable() {
           <td><strong>13.0</strong></td>
           <td>➡️</td>
           <td>7.0 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>62</td>
@@ -932,7 +939,7 @@ function filterTable() {
           <td><strong>12.0</strong></td>
           <td>📈</td>
           <td>39.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>63</td>
@@ -945,7 +952,7 @@ function filterTable() {
           <td><strong>11.0</strong></td>
           <td>➡️</td>
           <td>9.0 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>64</td>
@@ -958,7 +965,7 @@ function filterTable() {
           <td><strong>10.0</strong></td>
           <td>➡️</td>
           <td>11.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>65</td>
@@ -971,7 +978,7 @@ function filterTable() {
           <td><strong>10.0</strong></td>
           <td>➡️</td>
           <td>10.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
         </tr><tr data-store="027">
           <td>66</td>
@@ -984,7 +991,7 @@ function filterTable() {
           <td><strong>9.0</strong></td>
           <td>➡️</td>
           <td>11.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>67</td>
@@ -997,7 +1004,7 @@ function filterTable() {
           <td><strong>8.0</strong></td>
           <td>➡️</td>
           <td>8.0 / 0</td>
-          <td><span class="badge badge-blue">30天内需补货</span></td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>68</td>
@@ -1010,7 +1017,7 @@ function filterTable() {
           <td><strong>8.0</strong></td>
           <td>📈</td>
           <td>43.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>69</td>
@@ -1023,7 +1030,7 @@ function filterTable() {
           <td><strong>8.0</strong></td>
           <td>➡️</td>
           <td>15.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>70</td>
@@ -1036,7 +1043,7 @@ function filterTable() {
           <td><strong>7.0</strong></td>
           <td>➡️</td>
           <td>14.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>71</td>
@@ -1049,7 +1056,7 @@ function filterTable() {
           <td><strong>6.0</strong></td>
           <td>➡️</td>
           <td>14.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>72</td>
@@ -1062,7 +1069,7 @@ function filterTable() {
           <td><strong>6.0</strong></td>
           <td>📈</td>
           <td>44.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>73</td>
@@ -1075,7 +1082,7 @@ function filterTable() {
           <td><strong>5.0</strong></td>
           <td>➡️</td>
           <td>15.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>74</td>
@@ -1088,7 +1095,7 @@ function filterTable() {
           <td><strong>5.0</strong></td>
           <td>➡️</td>
           <td>15.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr><tr data-store="027">
           <td>75</td>
@@ -1101,11 +1108,15 @@ function filterTable() {
           <td><strong>4.0</strong></td>
           <td>➡️</td>
           <td>16.0 / 0</td>
-          <td><span class="badge badge-green">库存充足</span></td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
           <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
         </tr></tbody>
-    </table>
+      </table>
+    </div>
   </div>
-  <p style="text-align:center;color:var(--sub);font-size:12px;margin-top:24px;">Hermes Agent · 已分析 75 个产品</p>
+
+  <div class="oa-footer">
+    <span>Hermes Agent · 已分析 75 个产品</span>
+  </div>
 </div>
 </body></html>
