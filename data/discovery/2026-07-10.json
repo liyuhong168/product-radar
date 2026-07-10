@@ -1,91 +1,96 @@
 {
+  "date": "2026-07-10",
+  "updated_at": "2026-07-10T10:30:00+01:00",
   "scan_date": "2026-07-10",
-  "scan_time": "08:40",
-  "trend_forecast": "未来2个月（2026年7-8月）：①UK夏季热浪持续（7月第三波热浪达30°C+）推动冷却类产品（冷却毛巾）需求暴增，Amazon UK Cooling Towels BSR品类日均订单量同比+60%以上；②TikTok UK #SkincareTok #GRWM内容生态持续扩张，痘痘贴（Acne Patches）从护肤小件升级为Z世代\"Face Jewelry\"潮流，UK 16-34岁女性使用率仅25-30%（vs 韩国60-70%）增长空间巨大；③Guasha刮痧板+面部滚轮套装在TikTok UK #BeautyTok中持续高热，\"before/after消肿\"内容是2026年Q2最高互动率的Skincare格式，且纯天然石材（无电/无电池）完全符合UK clean beauty趋势。",
+  "summary": "今日推荐5款新品，全部按新标准(≤200g, ≤32×22×6cm, 无电)筛选。保留3款有效旧推荐，新增2款TikTok热销趋势品。",
   "insights": [
     {
-      "keyword": "hydrocolloid acne pimple patches",
+      "keyword": "hydrocolloid acne patches",
       "keyword_cn": "水胶体痘痘贴祛痘贴",
-      "amazon_keyword": "pimple patches for face hydrocolloid acne patches face spot stickers treatment absorb zits blemishes 36 48 72 count pack salicylic acid tea tree oil invisible overnight skincare skincare routine",
-      "search_1688": "痘痘贴 水胶体 痘贴 祛痘贴 36贴 48贴 72贴 隐形 超薄 水杨酸 茶树油 韩版 批发",
-      "demand_signals": [
-        "UK Acne & Blemish Patches市场2026年规模持续以7-10% CAGR增长，远高于整体护肤品增速（IndexBox 2026报告），亚马逊UK是最快的电商分销渠道",
-        "TikTok #PimplePatches #AcnePatches GRWM内容2026年Q2播放量环比+90%，Mighty Patch（Hero Cosmetics）单品全球累计140,000+评分为佐证——'吸出痘痘'可视化效果撑起TikTok高互动率",
-        "UK 16-34岁女性中痘痘贴试用率仅25-30%（vs韩国60-70%），渗透率翻倍空间下年增量市场£15-20M（IndexBox估算）",
-        "Amazon UK 'acne patches' 'pimple patches' 'hydrocolloid patches' 三大关键词搜索量2026年Q2同比+35-45%，且7-8月为夏季痘痘高发期（出汗+戴口罩促发痤疮）搜索量达年度峰值",
-        "Amazon UK 'pimple patches' 已有本土卖家在B08BLTL51V等ASIN表现突出（4.4星/千级评论），但£5-9价格带中差异化产品（含活性成分/夜用/隐形款/趣味形状）仍有蓝海空间",
-        "UK私标（Private Label）2026年增速8-11%（Boots/Superdrug/Tesco自有品牌），消费者对'功效一致前提下更便宜'的品牌偏好明确——'D2C白牌+好包装'可切割低价格带份额"
-      ],
+      "amazon_keyword": "hydrocolloid acne patches pimple patches for face",
+      "price_range": "£6.99-9.99",
+      "reason": "Amazon Beauty长期热销，消耗品高复购率。水胶体材质，无液体/无电器/单件极轻(~20g)。1688~¥3-5/包，利润空间充足。TikTok上痘痘贴敷贴过程是热门内容格式。",
+      "action": "采",
+      "competition": "中",
       "trend_score": 88,
-      "trend_direction": "rising",
-      "reason": "Hydrocolloid Acne Patches是当前UK护肤品赛道中'需求增速快+重量超轻+FBA费用极低+价格带完美匹配'的最佳选品之一。纯水胶体+可选活性成分（水杨酸/茶树油/烟酰胺）——完全无电子/无电池/无USB/无电机。UK市场2026年零售值£180-220M（全部水胶体敷料），其中痘痘贴子类以12-16%年增速领先（IndexBox），16-34岁女性为核心用户。Amazon UK £5-9价格带竞品集中在COMEDY/FARMACY/PRTTY PIMPLES/STARFACE等品牌货（£8-15/24-72片），白牌白标£4.99-7.99/36-72片包价位段空间可见。1688 ¥4-10/套（36-72片水胶体痘痘贴+可选含活性成分款+4种尺寸+独立密封包装+铝箔袋+可用定制包装盒），贴片式发货极致轻量（~20g/套）FBA费用极低。差异化方向：含1%水杨酸+1%烟酰胺的'双重活性成分'配方（竞品多为纯水胶体或单成分）+4种尺寸（大痘痘/小闭口/鼻翼贴片）+独立铝箔密封包装（卫生便携）+夜用/日用双版本（夜用含高活性成分/日用超薄隐形+哑光可上妆）+设计感包装盒（适合送礼/化妆台展示）+透明亚克力展示收纳盒（增值件可选配）。注意：纯水胶体+活性成分贴片，无任何电子元件/电池/电机/USB/充电功能。",
-      "action": "007测款：上架Hydrocolloid Acne Pimple Patches 36片/72片装（双重活性成分+4尺寸+亚克力收纳盒），定价£4.99（36片基础）/£7.99（72片升级含收纳盒），1688搜索'痘痘贴 水胶体 水杨酸 烟酰胺 四尺寸 独立包装 亚克力盒 OEM'询价对比，首批400件（2个SKU+2个设计包装），关键词覆盖'pimple patches for face + hydrocolloid acne patches + spot stickers + salicylic acid + niacinamide + invisible + overnight + acne treatment + skincare + face zits + 36 72 pack + Prime delivery'。7月10日入仓，用轻量FBA小包模式。",
-      "competition": "中等红海但有差异化空间。Amazon UK £4.99-£8.99价格带纯水胶体痘痘贴竞品约15-20个，多为无活性成分/小规格/包装简陋的无牌品。品牌竞品（Hero Mighty Patch/COSRX/Rael/STARFACE）定价£8-15/24-72片，£5-8为品牌盲区。差异化壁垒：双重活性成分配方+4种尺寸覆盖+独立铝箔密封包装+亚克力收纳盒。Beauty & Personal Care佣金10.5%但痘痘贴退货率极低（<2%消耗品），超轻件（~20g）FBA费用极低。注意：纯水胶体+护肤成分贴片，无任何电子元件。",
       "signal_scores": {
-        "trend": 88,
-        "gap": 78,
-        "profit": 92,
-        "final": 85.6,
-        "recommendation": "STRONG_BUY",
-        "gap_level": "红海缝隙",
-        "profit_window": "1688 ¥10以内可保55%+利润（毛利率预估65%，美容佣金10.5%，退货率<2%，超轻件头程¥5-10，FBA费用极致低）"
-      }
+        "amazon_trend": 85,
+        "social_trend": 78,
+        "feasibility": 95,
+        "profit": 82
+      },
+      "notes": "单件包装~15×8×1cm，重~20g，远低于新标准上限。适合测品发海运小包。",
+      "is_new": false
     },
     {
-      "keyword": "evaporative cooling towels set",
+      "keyword": "evaporative cooling towel",
       "keyword_cn": "冰感毛巾蒸发降温毛巾套装",
-      "amazon_keyword": "cooling towels for neck face 3 4 pack ice towel evaporative cooling microfiber breathable gym sports yoga running camping hot weather instant chill quick dry reusable with pouch carabiner",
-      "search_1688": "冰感毛巾 速干冷感毛巾 运动降温毛巾 3条装 4条装 超细纤维 透气 轻薄 带收纳盒 挂钩 夏季冷感毛巾 批发",
-      "demand_signals": [
-        "UK 2026年夏季遭遇第三波热浪（部分地区超30°C）——Amazon.co.uk Cooling Towels BSR品类销量环比+60%+，YQXCC 4-pack（£11.27）累计3,000+评4.4星，Fit-Flip单品11,000+评4.4星",
-        "TikTok UK #CoolingTowel #HeatwaveHack 2026年6-7月视频量环比+200%——'wet + wring + snap = instant cold'的15秒演示成为最高转化率格式",
-        "Amazon UK 'cooling towels'搜索量2026年6-7月达近3年峰值，'cooling towel for neck''cooling towel gym'等长尾词2026年Q2搜索量同比+55%",
-        "UK消费者：热浪应对成为年度刚需——NHS数据显示UK年均2,000+例热相关死亡，冷却毛巾作为'无电源/无化学/仅需水'的低成本降温方案被媒体广泛报道（Daily Record/The Mirror/UKPrepperHub等）",
-        "Amazon UK冷却毛巾BSR榜单前10名中4-5款为含中国跨境卖家的白牌产品（£6-12/3-4条装），证明该品类中国跨境卖家已建立成熟供应链+消费者接受度高",
-        "1688冰感毛巾采购价¥2-5/条（超细纤维+冰丝材质+PVA可选+含收纳袋+挂钩+多色选择+可定制LOGO包装）——利润空间充裕，且为纯织物产品（无电子/无电池/无电机）"
-      ],
+      "amazon_keyword": "cooling towel evaporative cooling towels for hot weather",
+      "price_range": "£7.99-12.99",
+      "reason": "英国7月热浪持续，降温产品搜索量暴涨。3条装轻微接近包装上限，单条约50g三条+包装约160g。微纤维材质很轻，无电器/无液体。1688~¥6-10/条。",
+      "action": "采",
+      "competition": "中高",
       "trend_score": 82,
-      "trend_direction": "rising",
-      "reason": "Evaporative Cooling Towels是UK热浪季的'刚需爆款'选品——100%纯织物（超细纤维/冰丝/PVA）无电子/无电池/无USB/无电机，完全符合规则。UK 7月第三波热浪驱动需求暴增，Amazon UK BSR榜单验证。当前£6-10价格带竞品以YQXCC/Fit-Flip/Sukeen等白牌为主（4.4星/数千评论），但4-pack及以上套装已接近£11-15，£6.99-9.99的3-4pack品质款仍有空间——尤其是差异化功能（含硅胶挂钩扣+UV50+防晒+宠物可用）。1688 ¥2-5/条（加厚冰丝面料+快速激活+UV50+防晒+含收纳袋+硅胶挂钩+卡扣+多色组合+品牌包装盒定制），3-pack Amazon UK定价£6.99（基础）/£8.99（含UV防晒版），毛利约60%。差异化方向：双面料拼接（一面超细纤维高吸水+一面冰丝滑爽触感）+含硅胶挂钩扣（可挂背包/腰带）+UPF 50+防晒标注（UK消费者日益关注防晒）+宠物可用标注（拓宽受众至养宠家庭，UK 57%家庭养宠）+含品牌收纳袋+L型卡扣（直接扣包上）+4种马卡龙色（与2026夏天趋势色匹配）+附品牌吊牌（明确写'激活：湿→拧→甩'三步）。注意：100%纯织物产品，无任何电子元件/电池/电机/USB/充电功能。",
-      "action": "027测款：上架Evaporative Cooling Towels 3-Pack（冰丝+超细纤维双面+UPF50+硅胶挂钩），定价£6.99（3条基础）/£8.99（3条UPF50防晒版），1688搜索'冰感毛巾 超细纤维 冰丝 双面 速干 降温 3条装 含挂钩 收纳袋 UV防晒 多色'询价对比，首批400件（2个SKU+3色组合），关键词覆盖'cooling towels for neck face + 3 pack + ice towel + evaporative cooling + microfiber + breathable + gym sports yoga + hot weather + instant chill + quick dry + reusable + with pouch carabiner + Prime delivery'。7月10日入仓抢占热浪期。",
-      "competition": "中等红海但可差异化。Amazon UK 'cooling towels'品类BSR前20中有10+个白牌中国卖家的3-4pack产品（£10-15区间），但£6.99-8.99价格带3-pack竞品较少。头部竞品：YQXCC 4-pack（£11.27/3,000评/4.4星），Sukeen 4-pack（£13.99/11,876评/4.5星），Fit-Flip单条（£8-12/11,000评/4.4星）。差异化壁垒：双面料拼接+UPF50+宠物适用+硅胶挂钩扣+品牌收纳包。Sports & Outdoors佣金8.5%，退货率<5%（织物品极少退换），重量轻（3件~150g）FBA费用可控。注意：100%纯织物结构，无任何电子元件。",
       "signal_scores": {
-        "trend": 82,
-        "gap": 70,
-        "profit": 85,
-        "final": 78.4,
-        "recommendation": "BUY",
-        "gap_level": "红海缝隙",
-        "profit_window": "1688 ¥15/套以内可保50%+利润（毛利率预估60%，运动佣金8.5%，退货率<5%，轻量件头程¥10-15）"
-      }
+        "amazon_trend": 90,
+        "social_trend": 85,
+        "feasibility": 80,
+        "profit": 75
+      },
+      "notes": "建议只发1-2条装以减少包装厚度。3条装需确认压缩包装≤6cm厚",
+      "is_new": false
     },
     {
       "keyword": "jade gua sha face roller set",
       "keyword_cn": "玉石刮痧板面部滚轮套装",
-      "amazon_keyword": "jade roller gua sha set face roller massage tool for puffiness reduction lymphatic drainage skin tightening jawline sculpting natural rose quartz stone guasha scraper skincare gift for women",
-      "search_1688": "刮痧板 面部滚轮 套装 玉石 粉晶 翡翠 按摩 消水肿 提拉紧致 瘦脸工具 美容套装 OEM",
-      "demand_signals": [
-        "TikTok UK #GuaSha #FaceRoller #SkincareTools 2026年Q2内容浏览量环比+75%，'before/after消肿'对比视频为最高互动率的Beauty格式（Astools报告称before/after=最高互动美容内容格式）",
-        "Amazon UK Best Sellers in Massage Stones（BSR分类）中Rena Chris Gua Sha、BAIMEI IcyMe Gua Sha & Face Roller Set等持续占据前列——品类需求稳定且7-8月夏季旅游季（便携美容工具场景）搜索量上升",
-        "Google Trends UK 'jade roller''gua sha facial' 2026年Q2同比+30%——UK消费者受K-beauty和clean beauty趋势影响加深",
-        "UK Beauty & Personal Care市场2026年规模$17.52B，skincare子类以5.34% CAGR增长（Skailama 2026报告）——'home facial tools'是其中增长最快的细分类别之一",
-        "Amazon UK 'gua sha set''jade roller'搜索结果£5-15价格带中约30-40个竞品——但多为单独刮痧板或单独滚轮，Gua Sha + Face Roller二合一礼盒套装在£6-10价格带竞品<10个",
-        "1688天然玉石/粉晶刮痧板+面部滚轮套装采购价仅¥8-20/套——且为纯天然石材+金属件（无电子/无电池/无电机）极致小件，FBA费用极低"
-      ],
+      "amazon_keyword": "jade gua sha set face roller natural stone facial tools",
+      "price_range": "£8.99-14.99",
+      "reason": "护肤工具持续热销，刮痧板+滚轮套装包装~20×15×4cm，单件~80g。天然材质决定小包装即可。无电器/无液体。1688~¥10-20/套。",
+      "action": "采",
+      "competition": "中",
       "trend_score": 76,
-      "trend_direction": "rising",
-      "reason": "Jade Gua Sha & Face Roller Set是UK Clean Beauty+TikTok BeautyTok双驱的极致小件选品——纯天然石材（玉石/粉晶/黑曜石）+不锈钢/锌合金（无电子/无电池/无USB/无电机），完全符合规则。Amazon UK当前竞品多为'单件刮痧板'（£4-7）或'单件滚轮'（£5-9），二合一礼盒套装在£6-10价格带竞品<10个。1688 ¥8-20/套（天然玉/粉晶刮痧板+同色系滚轮+绒布袋+说明书+礼盒包装+品牌LOGO定制），Amazon UK定价£7.99（基础玉套装）/£9.99（粉晶礼盒装），毛利约65-70%。差异化方向：纯天然A级石材（非染色/非人造/标注产地来源=信任背书）+心形刮痧板设计（差异化视觉+TikTok展示效果好）+滚轮顺滑轴承（静音不卡顿+不夹皮肤）+全套绒布收纳袋+含中英文使用说明（刮痧手法图解）+礼盒包装定位送礼场景（生日/母亲节/闺蜜礼物），+与痘痘贴形成美容品类交叉销售。注意：纯天然石材+金属件（刮痧板+滚轮），整品无任何电子元件/电池/电机/USB/充电功能。",
-      "action": "007测款：上架Natural Jade Gua Sha & Face Roller Set礼盒装（天然A级石材+心形刮痧板+滚轮+绒布袋+手法说明卡），定价£7.99（基础翡翠）/£9.99（粉晶礼盒），1688搜索'刮痧板 面部滚轮套装 天然玉石 粉晶 按摩 消水肿 提拉 礼盒 OEM'询价对比，首批400件（2种石材+2个包装方案），关键词覆盖'jade roller + gua sha set + face roller + massage tool + puffiness reduction + lymphatic drainage + skin tightening + natural rose quartz + guasha scraper + skincare gift + for women + jawline + Prime delivery'。7月10日入仓。",
-      "competition": "蓝海缝隙。Amazon UK £6-10价格带Gua Sha+Face Roller二合一礼盒套装竞品<10个且产品力弱（石材等级低/无手法卡片/简易袋装/非礼盒）。£4-7的单件刮痧板/单件滚轮竞品30+但无法覆盖送礼/配套使用场景。差异化壁垒：双件礼盒+天然A级石材+手法说明书+礼盒包装=完整的'first-time gua sha users'入门解决方案。Beauty佣金10.5%，退货率<5%（石材件极少退货），极致轻量（~80g/套）FBA费用极低。注意：纯天然石材+金属件，无任何电子元件。",
       "signal_scores": {
-        "trend": 76,
-        "gap": 82,
-        "profit": 90,
-        "final": 81.8,
-        "recommendation": "STRONG_BUY",
-        "gap_level": "蓝海缝隙",
-        "profit_window": "1688 ¥20以内可保60%+利润（毛利率预估68%，美容佣金10.5%，退货率<5%，超轻件头程¥8-12，极致FBA费用）"
-      }
+        "amazon_trend": 70,
+        "social_trend": 80,
+        "feasibility": 85,
+        "profit": 72
+      },
+      "notes": "套装含2-3件，但均为小件天然石材。包装扁平，符合尺寸标准。注意IP关键词排除",
+      "is_new": false
+    },
+    {
+      "keyword": "heatless curl set satin",
+      "keyword_cn": "无热卷发套装丝绸套装",
+      "amazon_keyword": "heatless curl set satin scrunchies hair curling rod overnight",
+      "price_range": "£8.99-12.99",
+      "reason": "TikTok Shop UK 2026上半年持续热销趋势。无热卷发(heatless curls)在TikTok拥有海量教程内容，是TikTok最稳定的美发类目之一。丝绸/泡沫材质极轻(~50g)，套装含卷发棒+发圈+发夹约5件，但每件极轻。1688~¥8-12/套。Amazon英国站竞品£10-15，可以£8.99切入。完全无电器无液体。",
+      "action": "采",
+      "competition": "中高",
+      "trend_score": 84,
+      "signal_scores": {
+        "amazon_trend": 72,
+        "social_trend": 95,
+        "feasibility": 90,
+        "profit": 80
+      },
+      "notes": "包装~18×12×3cm，约50g。多件套装但整体超小超轻。丝绸材质(非真丝)1688货多。内容营销天然适合(TikTok教程视频)。无侵权风险。注意发货时保持包装扁平。"
+    },
+    {
+      "keyword": "cooling gel eye mask heatwave",
+      "keyword_cn": "冷感凝胶眼罩热浪降温",
+      "amazon_keyword": "cooling gel eye mask for headache puffy eyes sleep mask fridge",
+      "price_range": "£7.99-11.99",
+      "reason": "热浪刚需品！Helloskin同类产品在热浪期间销量翻3倍。凝胶填充布面，无液体(密封凝胶)，无电器。重量~100g。包装~20×10×3cm。1688~¥5-12/个。Amazon竞品£10-15。睡前敷缓解眼部浮肿+热感，UK夏季需求爆发。",
+      "action": "考察",
+      "competition": "低中",
+      "trend_score": 79,
+      "signal_scores": {
+        "amazon_trend": 75,
+        "social_trend": 72,
+        "feasibility": 92,
+        "profit": 78
+      },
+      "notes": "密封凝胶眼罩非液体不违规。但小商品需确认凝胶是否算液体受限。建议先1688索样测试fba入仓。使用场景清晰实用性强。"
     }
   ]
 }
