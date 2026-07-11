@@ -218,7 +218,7 @@ body { display:flex; font-family:var(--oa-font); background:var(--oa-bg); color:
         </div>
     </div>
     <nav id="nav">
-        <div class="nav-group-label">核心业务</div><a class="nav-item" data-key="radar" href="#" onclick="return switchModule('radar','radar/')"><span class="nav-icon">📡</span><span class="nav-label">跨境雷达</span></a><a class="nav-item" data-key="platform" href="#" onclick="return switchModule('platform','platform.html')"><span class="nav-icon">🎯</span><span class="nav-label">选品平台</span></a><a class="nav-item" data-key="analysis" href="#" onclick="return switchModule('analysis','analysis/')"><span class="nav-icon">📊</span><span class="nav-label">产品分析</span></a><div class="nav-group-label dim">扩展板块（待添加）</div><div class="nav-empty">暂无板块</div>
+        <div class="nav-group-label">核心业务</div><a class="nav-item" data-key="radar" href="#" onclick="return switchModule('radar','https://liyuhong168.github.io/kj-news-radar/')"><span class="nav-icon">📡</span><span class="nav-label">跨境雷达</span></a><a class="nav-item" data-key="platform" href="#" onclick="return switchModule('platform','platform.html')"><span class="nav-icon">🎯</span><span class="nav-label">选品平台</span></a><a class="nav-item" data-key="analysis" href="#" onclick="return switchModule('analysis','analysis/')"><span class="nav-icon">📊</span><span class="nav-label">产品分析</span></a><div class="nav-group-label dim">扩展板块（待添加）</div><div class="nav-empty">暂无板块</div>
     </nav>
     <div class="sidebar-footer">
         Amazon项目运营OA v3.0 · 2026-07-11
@@ -245,13 +245,13 @@ body { display:flex; font-family:var(--oa-font); background:var(--oa-bg); color:
             <div class="spinner"></div>
             <span class="load-text">加载中…</span>
         </div>
-        <iframe id="content-frame" src="radar/" loading="eager"></iframe>
+        <iframe id="content-frame" src="https://liyuhong168.github.io/kj-news-radar/" loading="eager"></iframe>
     </div>
 </div>
 
 <script>
 // ── Navigation ──
-const MODULES = [{"key": "radar", "label": "跨境雷达", "icon": "📡", "url": "radar/", "desc": "24h跨境电商情报聚合"}, {"key": "platform", "label": "选品平台", "icon": "🎯", "url": "platform.html", "desc": "产品发现、扫描、看板管理"}, {"key": "analysis", "label": "产品分析", "icon": "📊", "url": "analysis/", "desc": "运营数据与补货分析"}];
+const MODULES = [{"key": "radar", "label": "跨境雷达", "icon": "📡", "url": "https://liyuhong168.github.io/kj-news-radar/", "desc": "24h跨境电商情报聚合"}, {"key": "platform", "label": "选品平台", "icon": "🎯", "url": "platform.html", "desc": "产品发现、扫描、看板管理"}, {"key": "analysis", "label": "产品分析", "icon": "📊", "url": "analysis/", "desc": "运营数据与补货分析"}];
 const LABEL_MAP = {};
 MODULES.forEach(m => { LABEL_MAP[m.key] = m.label; });
 
