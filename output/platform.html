@@ -10332,7 +10332,6 @@ function renderRadar() {
   let filtered = products.filter(p => {
     const st = sts[p.asin]||'pending';
     if (radarStatus==='all' && st==='rejected') return false;
-    if (radarStatus==='all' && p.is_new===false) return false;
     if (radarStatus!=='all' && st!==radarStatus) return false;
     if (search && !p.name.toLowerCase().includes(search)) return false;
     if (mf!=='all') {if((p.profit_margin||0)<Number(mf)/100)return false}
