@@ -1,18 +1,18 @@
 /* ===== 跨境雷达 — 样式表（对齐 AI News Radar 暖色报纸风） ===== */
 
 :root {
-  --bg: var(--oa-bg);
-  --surface: var(--oa-surface);
-  --surface-soft: #f0f0f5;
-  --ink: var(--oa-text);
-  --muted: var(--oa-sub);
-  --line: var(--oa-border);
-  --accent: var(--oa-primary);
-  --accent-warm: var(--oa-secondary);
-  --good: var(--oa-green);
-  --warn: var(--oa-orange);
-  --bad: var(--oa-red);
-  --radius: var(--oa-radius);
+  --bg: #f6f6f2;
+  --surface: #ffffff;
+  --surface-soft: #fbfaf7;
+  --ink: #171717;
+  --muted: #66645f;
+  --line: #d9d6ce;
+  --accent: #126a73;
+  --accent-warm: #b55231;
+  --good: #1f7a4d;
+  --warn: #9a6700;
+  --bad: #b42318;
+  --radius: 8px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +30,7 @@ button, input, select { font: inherit; }
 button { cursor: pointer; }
 
 .shell {
-  max-width: 1400px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 26px 18px 48px;
 }
@@ -53,8 +53,7 @@ button { cursor: pointer; }
   background: var(--surface);
 }
 .hero-tag { margin: 0; font-size: 12px; letter-spacing: 0; color: var(--muted); }
-.hero h1 { margin: 6px 0 0; font-size: 24px; line-height: 1.2;; line-height: 1.08; overflow-wrap: break-word; margin: 6px 0 0; overflow-wrap: break-word;
-}
+.hero h1 { margin: 6px 0 0; font-size: 36px; line-height: 1.08; overflow-wrap: break-word; }
 .hero-sub { margin: 12px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
 
 .hero-meta {
@@ -326,10 +325,9 @@ input:focus, select:focus, button:focus-visible {
 .policy-head h2,
 .list-head h2 {
   margin: 4px 0 0;
-  font-size: 16px; font-weight: 700; line-height: 1.3;;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.15;
-margin: 4px 0 0;
 }
 #crossPicksMeta,
 #policyCalendarMeta,
@@ -513,8 +511,7 @@ margin: 4px 0 0;
   gap: 12px;
   padding: 18px 18px 0;
 }
-.action-head h2 { margin: 4px 0 0; font-size: 16px; font-weight: 700; line-height: 1.3;; font-weight: 700; line-height: 1.15; margin: 4px 0 0;
-}
+.action-head h2 { margin: 4px 0 0; font-size: 22px; font-weight: 700; line-height: 1.15; }
 #actionMeta { color: var(--muted); font-size: 12px; white-space: nowrap; padding-top: 6px; }
 .action-list { padding: 14px 18px 18px; display: grid; gap: 10px; }
 .action-item {
@@ -616,7 +613,7 @@ margin: 4px 0 0;
 @media (max-width: 640px) {
   .shell { padding: 14px 10px 36px; }
   .hero { grid-template-columns: 1fr; gap: 12px; }
-  .hero h1 { font-size: 22px; }
+  .hero h1 { font-size: 26px; }
   .hero-meta { min-width: 0; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat .v { font-size: 18px; }
