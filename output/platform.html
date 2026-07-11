@@ -136,6 +136,7 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
 .badge-repeat{position:absolute;top:12px;right:12px;padding:3px 10px;border-radius:8px;font-size:10.5px;font-weight:600;background:var(--oa-surface-3);color:var(--oa-sub)}
 .card-hd{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .src-badge{padding:3px 10px;border-radius:8px;font-size:10.5px;font-weight:700;background:var(--oa-blue);color:#fff}
+.src-badge.festival-src{background:var(--oa-orange);color:#fff}
 .score-badge{padding:4px 12px;border-radius:10px;font-size:14px;font-weight:700;white-space:nowrap}
 .score-badge.hot{background:#FF2D5515;color:var(--oa-pink)}.score-badge.high{background:#FF950015;color:var(--oa-orange)}.score-badge.mid{background:#007AFF15;color:var(--oa-blue)}.score-badge.low{background:var(--oa-surface-3);color:var(--oa-sub)}
 .pc-img{margin:8px 0;text-align:center}
@@ -306,7 +307,18 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
 .product-table td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top;font-size:13px}
 .product-table tr:hover{background:var(--bg)}
 
-/* 产品表格内容 */
+/* ===== FESTIVAL PIPELINE ===== */
+.pipeline-section{margin-bottom:16px;background:var(--oa-surface);border-radius:var(--oa-radius);box-shadow:var(--oa-shadow);overflow:hidden}
+.pipeline-flow{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 20px 10px;flex-wrap:wrap}
+.pipeline-step{display:flex;align-items:center;gap:6px;background:var(--oa-surface-3);border-radius:var(--oa-radius-sm);padding:8px 14px;font-size:13px;font-weight:600}
+.pipeline-step .step-icon{font-size:18px}
+.pipeline-step .step-num{font-size:18px;font-weight:800;color:var(--oa-primary);margin-left:4px}
+.pipeline-arrow{font-size:16px;color:var(--oa-light)}
+.pipeline-meta{display:flex;gap:8px;padding:0 20px 14px;flex-wrap:wrap;justify-content:center}
+.pipeline-chip{font-size:11px;padding:4px 10px;border-radius:8px;background:var(--oa-orange-soft);color:var(--oa-orange);font-weight:600}
+.pipeline-chip.empty{background:var(--oa-surface-3);color:var(--oa-sub)}
+
+/* ===== 产品表格内容 ===== */
 .sku-name{font-weight:600;color:var(--text);font-size:13px}
 .sku-en{font-size:11px;color:var(--muted);margin-top:2px}
 .cat-tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;white-space:nowrap}
@@ -453,6 +465,7 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
 
 <!-- FESTIVAL -->
 <div class="section" id="sec-festival">
+  <div id="pipelineVis" class="pipeline-section"></div>
   
     <div class="festival-header">
       <h2>📅 Festival Planner 2026 Jul - 2027 Jun | 61 Events | 300+ SKUs</h2>
@@ -10369,9 +10382,12 @@ function renderRadar() {
     const costH=cb.vat?`<button class="cost-tog" onclick="this.nextElementSibling.classList.toggle('show')">💰 成本明细</button><div class="cost-det">VAT: £${cb.vat?.toFixed(2)||'-'} · 佣金: £${cb.commission?.toFixed(2)||'-'} · FBA: £${cb.fba?.toFixed(2)||'-'}<br>广告: £${cb.ads?.toFixed(2)||'-'} · 退货: £${cb.returns?.toFixed(2)||'-'} · 采购: £${cb.sourcing?.toFixed(2)||'-'}<br><b>总成本: £${cb.total_cost?.toFixed(2)||'-'} · 净利润: £${(p.net_profit||0).toFixed(2)}</b></div>`:'';
     const sigs=(p.sources||[]).map(s=>{let c='';if(s.includes('TikTok'))c='tiktok';if(s.includes('多源'))c='multi';return`<span class="sig ${c}">${s}</span>`}).join('');
     const sd=p.sd_label?`<span class="sig sd">${p.sd_label}</span>`:'';
+    const srcBadge=p.festival_event
+      ?`<span class="src-badge festival-src" title="${esc(p.festival_event)}">${p.festival_icon||'📅'} ${esc(p.festival_event)}</span>`
+      :`<span class="src-badge">📡 雷达</span>`;
     return `<div class="pc" data-status="${st}" data-asin="${p.asin||''}">
       ${badge}
-      <div class="card-hd"><span class="src-badge">📡 雷达</span><div class="sig-badges">${sigs}${sd}</div><span class="score-badge ${scCls}">${sc}分</span></div>
+      <div class="card-hd">${srcBadge}<div class="sig-badges">${sigs}${sd}</div><span class="score-badge ${scCls}">${sc}分</span></div>
       ${img}
       <div class="pc-name"><a href="${url}" target="_blank">${esc(p.name)}</a></div>
       <div class="pc-meta"><span>💷 £${(p.price||0).toFixed(2)}</span><span>⭐ ${p.rating||'-'} (${p.reviews||0})</span>${p.first_seen?`<span>发现: ${p.first_seen}</span>`:''}</div>
@@ -10731,6 +10747,57 @@ function renderAll() {
 
   renderDiscovery();
   renderRadar();
+  renderPipeline();
+}
+
+function renderPipeline() {
+  const el = document.getElementById('pipelineVis');
+  if (!el || typeof FESTIVALS === 'undefined' || !FESTIVALS.length) { el.style.display='none'; return; }
+
+  const now = new Date();
+  let activeFestivals = [];
+  let allKw = new Set();
+
+  FESTIVALS.forEach(f => {
+    const fDate = new Date(f.date);
+    if (fDate < now) return;
+    const seaDeadline = new Date(fDate);
+    seaDeadline.setDate(seaDeadline.getDate() - 77);
+    const daysLeft = Math.ceil((seaDeadline - now) / 86400000);
+    if (daysLeft <= 30 && daysLeft >= -10) {
+      activeFestivals.push(f);
+      (f.products || []).forEach(p => {
+        (p.keywords || []).forEach(kw => {
+          if (kw.length >= 2) allKw.add(kw);
+        });
+      });
+    }
+  });
+
+  const radarData = RADAR_ALL[curDate];
+  const prods = radarData ? (radarData.products || []) : [];
+  const festProds = prods.filter(p => p.festival_event).length;
+
+  if (activeFestivals.length === 0 && festProds === 0) {
+    el.style.display = 'none';
+    return;
+  }
+  el.style.display = 'block';
+
+  const festChips = activeFestivals.slice(0, 6).map(f =>
+    `<span class="pipeline-chip">${f.icon || '📅'} ${f.name}</span>`
+  ).join('');
+
+  el.innerHTML = `
+    <div class="pipeline-flow">
+      <div class="pipeline-step"><span class="step-icon">📅</span>节日日历<span class="step-num">${activeFestivals.length}</span></div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon">🔑</span>关键词<span class="step-num">${allKw.size}</span></div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon">📡</span>雷达产品<span class="step-num">${festProds}</span></div>
+    </div>
+    <div class="pipeline-meta">${festChips || '<span class="pipeline-chip empty">暂无活跃节日</span>'}</div>
+  `;
 }
 
 renderAll();
