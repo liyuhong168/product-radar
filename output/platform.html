@@ -440,6 +440,10 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
     <div class="fg"><label>排序:</label><select id="fSort"><option value="score">评分↓</option><option value="margin">利润率↓</option><option value="new">新发现优先</option></select></div>
     <button class="btn-export" onclick="exportCSV()">📥 导出CSV</button>
   </div>
+  <div class="notice-bar" id="noticeRadar" style="display:none;padding:12px 16px;margin:0 0 12px 0;border-radius:8px;background:#FFF3CD;border:1px solid #FFEAA7;color:#856404;align-items:center;gap:8px;font-size:14px">
+    <span>📢</span>
+    <span>暂无符合的新产品（以下为今日重复扫描产品）</span>
+  </div>
   <div class="product-grid" id="radarGrid"></div>
   <div class="empty" id="emptyRadar" style="display:none">
     <div style="font-size:48px;margin-bottom:12px">📡</div>
@@ -10323,6 +10327,11 @@ function renderRadar() {
 
   if (!products.length) { grid.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
+
+  // Show "暂无符合的新产品" notice when no new products exist today
+  const hasNew = products.some(p => p.is_new === true);
+  const notice = document.getElementById('noticeRadar');
+  if (notice) notice.style.display = hasNew ? 'none' : 'flex';
 
   const search = document.getElementById('radarSearch').value.toLowerCase();
   const mf = document.getElementById('fMargin').value;
