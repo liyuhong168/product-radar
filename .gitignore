@@ -4,3 +4,9 @@ __pycache__/
 output/
 *.html
 logs/
+
+# Auto-generated scan data (pushed via API, no version control needed)
+data/channels/
+data/discovery/
+data/history/
+data/amazon_cache.json
