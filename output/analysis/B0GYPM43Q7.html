@@ -7,27 +7,21 @@
 /* 以下仅保留补货跟进特有的样式 */
 
 /* ── Common ── */
-.meta-info { color: var(--oa-sub, #6e6e73); font-size: 13px; margin-bottom: 20px; }
-.back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; color: var(--oa-primary, #0071e3); text-decoration: none; }
+.back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; color: var(--oa-primary, #0071e3); text-decoration: none; margin-bottom: 16px; }
 .back-link:hover { text-decoration: underline; }
 .stars { color: #ff9500; }
 a { color: var(--oa-link, #007AFF); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ── Filter bar / store tabs ── */
-.filter-bar { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
-.filter-bar .result-count { font-size: 13px; color: var(--oa-sub, #6e6e73); }
-.filter-bar input { padding: 8px 12px; border: 1px solid var(--oa-border, #d2d2d7); border-radius: 10px; font-size: 14px; width: 200px; outline: none; transition: border-color .2s; }
-.filter-bar input:focus { border-color: var(--oa-primary, #0071e3); box-shadow: 0 0 0 3px rgba(0,113,227,.12); }
-.store-tabs { display: flex; gap: 6px; }
-.store-tab { padding: 6px 16px; border: 1px solid var(--oa-border, #d2d2d7); border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--oa-surface, #fff); color: var(--oa-sub, #6e6e73); transition: all 0.2s; user-select: none; }
-.store-tab:hover { border-color: var(--oa-primary, #0071e3); color: var(--oa-primary, #0071e3); }
-.store-tab.active { background: var(--oa-primary, #0071e3); color: white; border-color: var(--oa-primary, #0071e3); }
+/* ── Filter bar ── */
+.filter-bar { display: flex; gap: 10px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+.filter-bar .result-count { font-size: 13px; color: var(--oa-sub, #6e6e73); white-space: nowrap; }
+.filter-bar .oa-input { width: 220px; }
 
 /* ── Store badges ── */
 .store-badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: .5px; }
-.store-badge-007 { background: #e5f0ff; color: #0051a8; }
-.store-badge-027 { background: #e8f9ee; color: #1a7d36; }
+.store-badge-007 { background: var(--oa-blue-soft, #e5f0ff); color: #0051a8; }
+.store-badge-027 { background: var(--oa-green-soft, #e8f9ee); color: #1a7d36; }
 
 /* ── Urgency row indicators ── */
 tr.urgent-row { border-left: 3px solid #ff3b30; }
@@ -39,14 +33,13 @@ tr.steady-row td:first-child { padding-left: 8px; }
 
 /* ── FBA days badge ── */
 .fba-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
-.fba-urgent { background: #fff0f0; color: #d32f2f; }
-.fba-watch { background: #fff8e1; color: #c77c00; }
-.fba-ok { background: #e8f5e9; color: #388e3c; }
+.fba-urgent { background: var(--oa-red-soft, #fff0f0); color: #d32f2f; }
+.fba-watch { background: var(--oa-orange-soft, #fff8e1); color: #c77c00; }
+.fba-ok { background: var(--oa-green-soft, #e8f5e9); color: #388e3c; }
 
-/* ── Bulletin / Calendar ── */
+/* ── Calendar ── */
 .bullet-list { padding-left: 20px; }
-.bullet-list li { margin-bottom: 6px; font-size: 14px; color: #333; }
-
+.bullet-list li { margin-bottom: 6px; font-size: 14px; color: var(--oa-text, #333); }
 .calendar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .cal-month { background: var(--oa-surface, #fff); border: 1px solid var(--oa-border, #d2d2d7); border-radius: 10px; padding: 12px; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
 .cal-month:hover { transform: translateY(-2px); box-shadow: var(--oa-shadow, 0 2px 12px rgba(0,0,0,.08)); }
@@ -58,27 +51,21 @@ tr.steady-row td:first-child { padding-left: 8px; }
 .restock-box { border-radius: 12px; padding: 16px; margin-top: 12px; border: 1px solid; }
 .restock-box table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .restock-box table td { padding: 6px 0; border: none; }
-.restock-urgent { background: #fff5f5; border-color: #ffcdd2; }
-.restock-normal { background: #f0f7ff; border-color: #b8d4f0; }
-.restock-batch { background: #f0fff4; border-color: #c8e6c9; }
+.restock-urgent { background: var(--oa-red-soft, #fff5f5); border-color: #ffcdd2; }
+.restock-normal { background: var(--oa-blue-soft, #f0f7ff); border-color: #b8d4f0; }
+.restock-batch { background: var(--oa-green-soft, #f0fff4); border-color: #c8e6c9; }
 .restock-box .title { font-weight: 600; margin-bottom: 8px; }
 .restock-urgent .title { color: var(--oa-red, #ff3b30); }
 .restock-normal .title { color: var(--oa-primary, #0071e3); }
 .restock-batch .title { color: var(--oa-green, #34c759); }
 
-/* ── Insight box (gradient banner) ── */
+/* ── Insight box ── */
 .insight-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: var(--oa-radius, 16px); padding: 24px; margin-bottom: 16px; }
 .insight-box h2 { color: white; margin: 0 0 12px; font-size: 18px; font-weight: 600; }
 .insight-box p { font-size: 16px; line-height: 1.8; }
 
-/* ── Inventory items ── */
-.inventory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.inventory-item { background: var(--oa-faint, #f0f0f5); border-radius: 10px; padding: 12px; text-align: center; }
-.inventory-item .inv-value { font-size: 20px; font-weight: 700; }
-.inventory-item .inv-label { font-size: 11px; color: var(--oa-sub, #6e6e73); margin-top: 4px; }
-
 /* ── Stockout warning ── */
-.stockout-warning { background: #fff5f5; border: 1px solid #ffcdd2; border-radius: 8px; padding: 12px; margin-bottom: 12px; font-weight: 600; color: var(--oa-red, #ff3b30); }
+.stockout-warning { background: var(--oa-red-soft, #fff5f5); border: 1px solid #ffcdd2; border-radius: 8px; padding: 12px; margin-bottom: 12px; font-weight: 600; color: var(--oa-red, #ff3b30); }
 
 /* ── Trend indicators ── */
 .trend-indicator { display: inline-flex; align-items: center; gap: 6px; font-size: 18px; font-weight: 700; }
@@ -86,34 +73,28 @@ tr.steady-row td:first-child { padding-left: 8px; }
 .trend-down { color: var(--oa-red, #ff3b30); }
 .trend-flat { color: var(--oa-sub, #6e6e73); }
 
-/* ── Phase / Season tags ── */
-.phase-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
-.phase-peak { background: #e8f9ee; color: #1a7d36; }
-.phase-rising { background: #e5f0ff; color: #0051a8; }
-.phase-low { background: #f5f5f7; color: #6e6e73; }
-.phase-declining { background: #fff3e0; color: #c77c00; }
-
-/* ── Suggestion items ── */
-.suggestion-item { background: var(--oa-faint, #f0f0f5); border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 3px solid var(--oa-primary, #0071e3); }
-.suggestion-item .sug-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-.suggestion-item .sug-detail { font-size: 13px; color: #555; }
+/* ── Phase tags ── */
+.phase-tag { display: inline-block; padding: 4px 12px; border-radius: var(--oa-radius-full, 20px); font-size: 13px; font-weight: 600; }
+.phase-peak { background: var(--oa-green-soft, #e8f9ee); color: #1a7d36; }
+.phase-rising { background: var(--oa-blue-soft, #e5f0ff); color: #0051a8; }
+.phase-low { background: var(--oa-surface-3, #f5f5f7); color: #6e6e73; }
+.phase-declining { background: var(--oa-orange-soft, #fff3e0); color: #c77c00; }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .oa-kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .calendar-grid { grid-template-columns: repeat(3, 1fr); }
-  .inventory-grid { grid-template-columns: repeat(2, 1fr); }
   .hide-mobile { display: none; }
 }
 </style>
 </head><body>
-<div class="oa-shell">
+<div class="oa-container">
   <a class="back-link" href="index.html">← 返回总览</a>
   <div class="oa-hero" style="margin-top:4px">
     <div class="oa-hero-text">
-      <div class="oa-eyebrow">ASIN: <a href="https://www.amazon.co.uk/dp/B0GYPM43Q7" target="_blank">B0GYPM43Q7</a> · 007</div>
+      <div class="oa-page-eyebrow">ASIN: <a href="https://www.amazon.co.uk/dp/B0GYPM43Q7" target="_blank">B0GYPM43Q7</a> · 007</div>
       <h1 class="oa-hero-title">LY一次性制冰袋-30片</h1>
-      <p class="oa-hero-sub">分析日期: 2026-07-14 21:33</p>
+      <p class="oa-hero-sub">分析日期: 2026-07-14 21:49</p>
     </div>
   </div>
   
@@ -224,8 +205,8 @@ tr.steady-row td:first-child { padding-left: 8px; }
       </details>
     </div>
   
-  <div class="oa-footer">
-    <span>Hermes Agent · 分析日期 2026-07-14 21:33</span>
+  <div style="margin-top:40px;padding:16px 0;border-top:1px solid var(--oa-border-2,#e5e5ea);font-size:12px;color:var(--oa-sub,#6e6e73);text-align:center">
+    <span>Hermes Agent · 分析日期 2026-07-14 21:49</span>
   </div>
 </div>
 </body></html>
