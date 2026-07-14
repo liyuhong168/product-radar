@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../shared/oa-theme.css">
+<title>产品运营/补货分析</title>
+<style>
+/* ── OA设计系统已在 shared/oa-theme.css ── */
+/* 以下仅保留产品分析特有的样式 */
+
+/* ── Common ── */
+.meta-info { color: var(--oa-sub, #6e6e73); font-size: 13px; margin-bottom: 20px; }
+.back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; color: var(--oa-primary, #0071e3); text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.stars { color: #ff9500; }
+a { color: var(--oa-link, #007AFF); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Filter bar / store tabs ── */
+.filter-bar { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+.filter-bar .result-count { font-size: 13px; color: var(--oa-sub, #6e6e73); }
+.filter-bar input { padding: 8px 12px; border: 1px solid var(--oa-border, #d2d2d7); border-radius: 10px; font-size: 14px; width: 200px; outline: none; transition: border-color .2s; }
+.filter-bar input:focus { border-color: var(--oa-primary, #0071e3); box-shadow: 0 0 0 3px rgba(0,113,227,.12); }
+.store-tabs { display: flex; gap: 6px; }
+.store-tab { padding: 6px 16px; border: 1px solid var(--oa-border, #d2d2d7); border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--oa-surface, #fff); color: var(--oa-sub, #6e6e73); transition: all 0.2s; user-select: none; }
+.store-tab:hover { border-color: var(--oa-primary, #0071e3); color: var(--oa-primary, #0071e3); }
+.store-tab.active { background: var(--oa-primary, #0071e3); color: white; border-color: var(--oa-primary, #0071e3); }
+
+/* ── Bulletin / Calendar ── */
+.bullet-list { padding-left: 20px; }
+.bullet-list li { margin-bottom: 6px; font-size: 14px; color: #333; }
+
+.calendar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.cal-month { background: var(--oa-surface, #fff); border: 1px solid var(--oa-border, #d2d2d7); border-radius: 10px; padding: 12px; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+.cal-month:hover { transform: translateY(-2px); box-shadow: var(--oa-shadow, 0 2px 12px rgba(0,0,0,.08)); }
+.cal-month .month-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+.cal-month .demand { font-size: 12px; color: var(--oa-sub, #6e6e73); }
+.cal-month .sales-est { font-size: 11px; color: var(--oa-primary, #0071e3); margin-top: 2px; font-weight: 500; }
+
+/* ── Restock boxes ── */
+.restock-box { border-radius: 12px; padding: 16px; margin-top: 12px; border: 1px solid; }
+.restock-box table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.restock-box table td { padding: 6px 0; border: none; }
+.restock-urgent { background: #fff5f5; border-color: #ffcdd2; }
+.restock-normal { background: #f0f7ff; border-color: #b8d4f0; }
+.restock-batch { background: #f0fff4; border-color: #c8e6c9; }
+.restock-box .title { font-weight: 600; margin-bottom: 8px; }
+.restock-urgent .title { color: var(--oa-red, #ff3b30); }
+.restock-normal .title { color: var(--oa-primary, #0071e3); }
+.restock-batch .title { color: var(--oa-green, #34c759); }
+
+/* ── Insight box (gradient banner) ── */
+.insight-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: var(--oa-radius, 16px); padding: 24px; margin-bottom: 16px; }
+.insight-box h2 { color: white; margin: 0 0 12px; font-size: 18px; font-weight: 600; }
+.insight-box p { font-size: 16px; line-height: 1.8; }
+
+/* ── Inventory items ── */
+.inventory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.inventory-item { background: var(--oa-faint, #f0f0f5); border-radius: 10px; padding: 12px; text-align: center; }
+.inventory-item .inv-value { font-size: 20px; font-weight: 700; }
+.inventory-item .inv-label { font-size: 11px; color: var(--oa-sub, #6e6e73); margin-top: 4px; }
+
+/* ── Stockout warning ── */
+.stockout-warning { background: #fff5f5; border: 1px solid #ffcdd2; border-radius: 8px; padding: 12px; margin-bottom: 12px; font-weight: 600; color: var(--oa-red, #ff3b30); }
+
+/* ── Trend indicators ── */
+.trend-indicator { display: inline-flex; align-items: center; gap: 6px; font-size: 18px; font-weight: 700; }
+.trend-up { color: var(--oa-green, #34c759); }
+.trend-down { color: var(--oa-red, #ff3b30); }
+.trend-flat { color: var(--oa-sub, #6e6e73); }
+
+/* ── Phase / Season tags ── */
+.phase-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+.phase-peak { background: #e8f9ee; color: #1a7d36; }
+.phase-rising { background: #e5f0ff; color: #0051a8; }
+.phase-low { background: #f5f5f7; color: #6e6e73; }
+.phase-declining { background: #fff3e0; color: #c77c00; }
+
+/* ── Suggestion items ── */
+.suggestion-item { background: var(--oa-faint, #f0f0f5); border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 3px solid var(--oa-primary, #0071e3); }
+.suggestion-item .sug-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.suggestion-item .sug-detail { font-size: 13px; color: #555; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .oa-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .calendar-grid { grid-template-columns: repeat(3, 1fr); }
+  .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+<script>
+let activeStore = 'all';
+function filterByStore(store, el) {
+  activeStore = store;
+  document.querySelectorAll('.store-tab').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  filterTable();
+}
+function filterTable() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const rows = document.querySelectorAll('#productTable tbody tr');
+  let count = 0;
+  rows.forEach(row => {
+    const rowStore = row.dataset.store;
+    const text = row.textContent.toLowerCase();
+    const matchStore = activeStore === 'all' || rowStore === activeStore;
+    const matchSearch = !search || text.includes(search);
+    row.style.display = (matchStore && matchSearch) ? '' : 'none';
+    if (matchStore && matchSearch) count++;
+  });
+  document.getElementById('resultCount').textContent = count + ' 个产品';
+}
+</script>
+</head><body>
+<main class="shell">
+
+  <header class="hero" id="sectionTop">
+    <div class="hero-main">
+      <div class="hero-headline">
+        <div class="hero-logo" style="font-size:36px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--oa-surface);border:1px solid var(--oa-border);border-radius:14px;box-shadow:var(--oa-shadow);flex-shrink:0;">📊</div>
+        <div>
+          <p class="hero-tag">PRODUCT ANALYSIS</p>
+          <h1>产品运营/补货分析</h1>
+        </div>
+      </div>
+      <p class="hero-sub">99 个产品 · 分析日期: 2026-07-14 12:12 · 数据来源: 领星ERP + Amazon UK</p>
+    </div>
+    <div class="hero-aside">
+      <div class="hero-meta">
+        <span class="updated-label">分析时间</span>
+        <span class="updated">分析日期: 2026-07-14 12:12</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="primary-controls">
+    <div class="store-tabs">
+      <span class="store-tab active" onclick="filterByStore('all',this)">全部</span>
+      <span class="store-tab" onclick="filterByStore('007',this)">007店</span>
+      <span class="store-tab" onclick="filterByStore('027',this)">027店</span>
+      <span class="store-tab" onclick="filterByStore('322',this)">322店</span>
+    </div>
+    <div class="search-wrap">
+      <input id="searchInput" type="text" placeholder="搜索ASIN/品名..." oninput="filterTable()">
+      <span id="resultCount" class="result-count">99 个产品</span>
+    </div>
+  </section>
+
+  <section class="cross-picks-wrap" aria-label="产品库存监控">
+    <div class="cross-picks-head">
+      <div>
+        <p class="section-eyebrow">INVENTORY MONITOR</p>
+        <h2>产品库存监控</h2>
+      </div>
+    </div>
+    <div class="cross-picks-sub">实时库存监控 · 断货预警 · 补货建议</div>
+    <div class="oa-card" style="padding:0;border-radius:var(--oa-radius,12px);overflow:hidden;">
+      <table id="productTable" class="oa-table">
+        <thead><tr>
+          <th>#</th><th>店铺</th><th>ASIN</th><th>品名</th><th>售价</th><th>评分</th><th>BSR</th><th>趋势</th><th>断货风险</th><th>分析日期</th>
+        </tr></thead>
+        <tbody><tr data-store="322">
+          <td>1</td>
+          <td>322</td>
+          <td><a href="B0F4QW3Q5Q.html">B0F4QW3Q5Q</a></td>
+          <td><a href="B0F4QW3Q5Q.html">LY底珠垂直帘配件-89mm*20m-1袋</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★☆</span> 4.0 (147)</td>
+          <td>#8,220</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>2</td>
+          <td>322</td>
+          <td><a href="B0GFW4MQH1.html">B0GFW4MQH1</a></td>
+          <td><a href="B0GFW4MQH1.html">LY世界杯餐具-纸巾20件</a></td>
+          <td>£5.49</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#16,611</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>3</td>
+          <td>322</td>
+          <td><a href="B0DQXZXP4F.html">B0DQXZXP4F</a></td>
+          <td><a href="B0DQXZXP4F.html">JX吹龙卷口哨-糖果色（20个）</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">★★★½☆</span> 3.5 (0)</td>
+          <td>#7,277</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>4</td>
+          <td>322</td>
+          <td><a href="B0DQVCDFDJ.html">B0DQVCDFDJ</a></td>
+          <td><a href="B0DQVCDFDJ.html">JX乳胶假发头套 （1件装）</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★☆</span> 4.0 (320)</td>
+          <td>#1,800</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>5</td>
+          <td>322</td>
+          <td><a href="B0F199CC4T.html">B0F199CC4T</a></td>
+          <td><a href="B0F199CC4T.html">CS割草线-4个装</a></td>
+          <td>£8.99</td>
+          <td><span class="stars">★★★★½</span> 4.4 (0)</td>
+          <td>#3,997</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>6</td>
+          <td>322</td>
+          <td><a href="B0F4QQX8G3.html">B0F4QQX8G3</a></td>
+          <td><a href="B0F4QQX8G3.html">LY抛光棉钢丝绒-银色-3m*6.5cm 1件</a></td>
+          <td>£8.99</td>
+          <td><span class="stars">★★★★½</span> 4.4 (180)</td>
+          <td>#2,500</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-24 22:40</td>
+        </tr><tr data-store="322">
+          <td>7</td>
+          <td>322</td>
+          <td><a href="B0F6SWH6M3.html">B0F6SWH6M3</a></td>
+          <td><a href="B0F6SWH6M3.html">LY可拉伸弹力弹力手环-金2+白2+黑2（6件）</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">★★★★½</span> 4.4 (67)</td>
+          <td>#13,219</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>8</td>
+          <td>322</td>
+          <td><a href="B0DRRL43W6.html">B0DRRL43W6</a></td>
+          <td><a href="B0DRRL43W6.html">JX水龙头奶嘴接头 2个</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★☆</span> 4.2 (53)</td>
+          <td>#253</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>9</td>
+          <td>322</td>
+          <td><a href="B0F1MWD22H.html">B0F1MWD22H</a></td>
+          <td><a href="B0F1MWD22H.html">LY油漆涂料过滤袋-白色12件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★½</span> 4.6 (27)</td>
+          <td>#7,907</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>10</td>
+          <td>322</td>
+          <td><a href="B0F199DF3V.html">B0F199DF3V</a></td>
+          <td><a href="B0F199DF3V.html">CS割草线-2个装</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★½</span> 4.4 (129)</td>
+          <td>#4,366</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
+        </tr><tr data-store="322">
+          <td>11</td>
+          <td>322</td>
+          <td><a href="B0DSWCKY94.html">B0DSWCKY94</a></td>
+          <td><a href="B0DSWCKY94.html">JX仿真草皮-绿色15CM*15CM(4张) 真空</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">★★★★☆</span> 4.2 (45)</td>
+          <td>#14,653</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>12</td>
+          <td>322</td>
+          <td><a href="B0F2XXB9PP.html">B0F2XXB9PP</a></td>
+          <td><a href="B0F2XXB9PP.html">JX休闲椅子松紧绳-黑色（4条）</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#4,546.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>13</td>
+          <td>007</td>
+          <td><a href="B0GLGZWMNN.html">B0GLGZWMNN</a></td>
+          <td><a href="B0GLGZWMNN.html">LY纯色折扇竹扇-白色-2件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#73,233</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>14</td>
+          <td>322</td>
+          <td><a href="B0DQY9NS7B.html">B0DQY9NS7B</a></td>
+          <td><a href="B0DQY9NS7B.html">JX手工毛线编织挂件-小黄鸭（1件）</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★½</span> 4.7 (139)</td>
+          <td>#3,808</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>15</td>
+          <td>322</td>
+          <td><a href="B0F2YH696S.html">B0F2YH696S</a></td>
+          <td><a href="B0F2YH696S.html">JX休闲椅子松紧绳-漂白（4条）</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#4,545.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>16</td>
+          <td>322</td>
+          <td><a href="B0FKGZZ1WD.html">B0FKGZZ1WD</a></td>
+          <td><a href="B0FKGZZ1WD.html">JX卡皮巴拉针织玩偶-棕色（1件）</a></td>
+          <td>£8.99</td>
+          <td><span class="stars">★★★★½</span> 4.7 (62)</td>
+          <td>#3,851</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>17</td>
+          <td>322</td>
+          <td><a href="B0F9968BZT.html">B0F9968BZT</a></td>
+          <td><a href="B0F9968BZT.html">LY多功能水龙头接洗配件-塑料可拆卸接-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★☆</span> 4.1 (85)</td>
+          <td>#3,200</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-24 22:30</td>
+        </tr><tr data-store="322">
+          <td>18</td>
+          <td>322</td>
+          <td><a href="B0F21D4XVY.html">B0F21D4XVY</a></td>
+          <td><a href="B0F21D4XVY.html">LY美发夹子-黑色-12件</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★★½</span> 4.4 (0)</td>
+          <td>#26,582</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>19</td>
+          <td>322</td>
+          <td><a href="B0F6TMDZ3B.html">B0F6TMDZ3B</a></td>
+          <td><a href="B0F6TMDZ3B.html">LY木质户外回旋镖-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★½☆</span> 3.4 (0)</td>
+          <td>#9,786</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>20</td>
+          <td>322</td>
+          <td><a href="B0GFWLVZVY.html">B0GFWLVZVY</a></td>
+          <td><a href="B0GFWLVZVY.html">LY巫师录取拉旗-录取信款-20张+绳和点胶</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (12)</td>
+          <td>#11,868</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>21</td>
+          <td>322</td>
+          <td><a href="B0DRPHX2VV.html">B0DRPHX2VV</a></td>
+          <td><a href="B0DRPHX2VV.html">JX折叠扇子（竹子骨） 黑色2把</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#14,151.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>22</td>
+          <td>322</td>
+          <td><a href="B0F2DRXHBM.html">B0F2DRXHBM</a></td>
+          <td><a href="B0F2DRXHBM.html">LY保温水杯套-黑1+红1+蓝1+黄1（4件）</a></td>
+          <td>£9.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>23</td>
+          <td>322</td>
+          <td><a href="B0FB93RDM1.html">B0FB93RDM1</a></td>
+          <td><a href="B0FB93RDM1.html">LY可折叠泡脚桶-小号灰色-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★☆</span> 4.0 (0)</td>
+          <td>#39,922</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>24</td>
+          <td>322</td>
+          <td><a href="B0F5W9N4SW.html">B0F5W9N4SW</a></td>
+          <td><a href="B0F5W9N4SW.html">JXHOOVER 91LA1702皮带橡胶-黑色(2条)</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">★★★★☆</span> 4.2 (0)</td>
+          <td>#60,538</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>25</td>
+          <td>322</td>
+          <td><a href="B0F4XLF6D2.html">B0F4XLF6D2</a></td>
+          <td><a href="B0F4XLF6D2.html">LY游泳防水隔音耳塞-蓝色-12件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#10,725.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>26</td>
+          <td>322</td>
+          <td><a href="B0G1SYNR4W.html">B0G1SYNR4W</a></td>
+          <td><a href="B0G1SYNR4W.html">LY普拉提瑜伽袜-黑1+粉1+灰1</a></td>
+          <td>£6.59</td>
+          <td><span class="stars">★★★★★</span> 5.0 (15)</td>
+          <td>#46,665</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>27</td>
+          <td>322</td>
+          <td><a href="B0FGCYJZTD.html">B0FGCYJZTD</a></td>
+          <td><a href="B0FGCYJZTD.html">JX花环挂钩30CM-黑色（1件）</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>28</td>
+          <td>322</td>
+          <td><a href="B0F9PFM14W.html">B0F9PFM14W</a></td>
+          <td><a href="B0F9PFM14W.html">LY金属亮片百搭围巾-银色-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">已断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="007">
+          <td>29</td>
+          <td>007</td>
+          <td><a href="B0GKT8V2KV.html">B0GKT8V2KV</a></td>
+          <td><a href="B0GKT8V2KV.html">LY冷感毛巾30*100-紫色1+浅灰1</a></td>
+          <td>£9.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-hot">已断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:20</td>
+        </tr><tr data-store="007">
+          <td>30</td>
+          <td>007</td>
+          <td><a href="B0GYPM43Q7.html">B0GYPM43Q7</a></td>
+          <td><a href="B0GYPM43Q7.html">LY一次性制冰袋-30片</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#22,321.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>31</td>
+          <td>007</td>
+          <td><a href="B0GLGT9TQT.html">B0GLGT9TQT</a></td>
+          <td><a href="B0GLGT9TQT.html">LY海盗装饰-帽子1+布钩1+骷髅头眼罩1</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (3)</td>
+          <td>#45,000</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:20</td>
+        </tr><tr data-store="007">
+          <td>32</td>
+          <td>007</td>
+          <td><a href="B0GL8Q8J7J.html">B0GL8Q8J7J</a></td>
+          <td><a href="B0GL8Q8J7J.html">LY吸尘器加长吸头 （黑色）-1件</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★½☆</span> 3.8 (8.0)</td>
+          <td>#71,696</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>33</td>
+          <td>007</td>
+          <td><a href="B0F6SZN7S2.html">B0F6SZN7S2</a></td>
+          <td><a href="B0F6SZN7S2.html">YH条纹彩色丝带-彩色-款式八-1件</a></td>
+          <td>£6.49</td>
+          <td><span class="stars">★★★★½</span> 4.7 (4)</td>
+          <td>#76,852</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>34</td>
+          <td>007</td>
+          <td><a href="B0GLH296QX.html">B0GLH296QX</a></td>
+          <td><a href="B0GLH296QX.html">LY咖啡机硅胶清洁垫片-灰色54mm-2件</a></td>
+          <td>£5.49</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#85,735</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:24</td>
+        </tr><tr data-store="007">
+          <td>35</td>
+          <td>007</td>
+          <td><a href="B0GLH8KJPS.html">B0GLH8KJPS</a></td>
+          <td><a href="B0GLH8KJPS.html">LY-Kpop桃心项链-3件</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
+          <td>#99,181</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>36</td>
+          <td>007</td>
+          <td><a href="B0GLH5B5R5.html">B0GLH5B5R5</a></td>
+          <td><a href="B0GLH5B5R5.html">LY两用塑料勺-紫2+绿2+蓝2+橙2+深粉2</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#271,922</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>37</td>
+          <td>007</td>
+          <td><a href="B0GKV5YM6C.html">B0GKV5YM6C</a></td>
+          <td><a href="B0GKV5YM6C.html">LY豹纹纹身贴-面部2张+身体2张</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
+          <td>#41,391</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>38</td>
+          <td>007</td>
+          <td><a href="B0F6T87KMD.html">B0F6T87KMD</a></td>
+          <td><a href="B0F6T87KMD.html">YH彩色印花餐巾纸-C166款-20张 （1包）</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">★★★★½</span> 4.8 (6.0)</td>
+          <td>#185,446</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="007">
+          <td>39</td>
+          <td>007</td>
+          <td><a href="B0GLGY156B.html">B0GLGY156B</a></td>
+          <td><a href="B0GLGY156B.html">LY足球护腿板-成人款黑色-1双</a></td>
+          <td>£7.49</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#61,136.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>40</td>
+          <td>007</td>
+          <td><a href="B0GKTWHKHQ.html">B0GKTWHKHQ</a></td>
+          <td><a href="B0GKTWHKHQ.html">LY椭圆小框太阳镜-黑全灰+茶框茶片+豹纹框茶片+豆花框双茶片4件</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★★☆</span> 4.2 (3.0)</td>
+          <td>#108,151</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>41</td>
+          <td>007</td>
+          <td><a href="B0GKTYM8H3.html">B0GKTYM8H3</a></td>
+          <td><a href="B0GKTYM8H3.html">LY英伦闪粉蝴蝶结-黑色-1件</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#47,541</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="007">
+          <td>42</td>
+          <td>007</td>
+          <td><a href="B0F7GFGRTB.html">B0F7GFGRTB</a></td>
+          <td><a href="B0F7GFGRTB.html">YH封口贴纸-10张</a></td>
+          <td>£3.99</td>
+          <td><span class="stars">★★★★½</span> 4.8 (4.0)</td>
+          <td>#30,072</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>43</td>
+          <td>007</td>
+          <td><a href="B0GY91K8MN.html">B0GY91K8MN</a></td>
+          <td><a href="B0GY91K8MN.html">LY懒人拉链领带-黑色5*38-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">★★★★☆</span> 4.2 (15)</td>
+          <td>#45,000</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>44</td>
+          <td>322</td>
+          <td><a href="B0F9Y7K6GK.html">B0F9Y7K6GK</a></td>
+          <td><a href="B0F9Y7K6GK.html">LY孕妇防溢乳垫-异形-4件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#20,215.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>45</td>
+          <td>007</td>
+          <td><a href="B0GKV8N3CC.html">B0GKV8N3CC</a></td>
+          <td><a href="B0GKV8N3CC.html">LY腊肠狗发箍四件套+露指手套一双</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
+          <td>#33,109</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>46</td>
+          <td>027</td>
+          <td><a href="B0H155V768.html">B0H155V768</a></td>
+          <td><a href="B0H155V768.html">LY站立足球皇冠奖杯-2件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#157,532.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>47</td>
+          <td>007</td>
+          <td><a href="B0FTF9JNBJ.html">B0FTF9JNBJ</a></td>
+          <td><a href="B0FTF9JNBJ.html">LY光头和尚头套-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
+          <td>#58,483</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="007">
+          <td>48</td>
+          <td>007</td>
+          <td><a href="B0GKTZP68Q.html">B0GKTZP68Q</a></td>
+          <td><a href="B0GKTZP68Q.html">LY指尖足球-2网+1球+2白脚+2橙脚</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#14,226</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:08</td>
+        </tr><tr data-store="007">
+          <td>49</td>
+          <td>007</td>
+          <td><a href="B0GLH157B4.html">B0GLH157B4</a></td>
+          <td><a href="B0GLH157B4.html">LY纯色折扇竹扇-黑色-2件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="007">
+          <td>50</td>
+          <td>007</td>
+          <td><a href="B0F9D6RNDH.html">B0F9D6RNDH</a></td>
+          <td><a href="B0F9D6RNDH.html">YH5合1测试纸-50条-2瓶</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★★☆</span> 4.0 (2.0)</td>
+          <td>#35,591</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>51</td>
+          <td>007</td>
+          <td><a href="B0GKTZ3JH5.html">B0GKTZ3JH5</a></td>
+          <td><a href="B0GKTZ3JH5.html">LY厨师棉布帽-黑色-1件</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">★★★★☆</span> 4.2 (25)</td>
+          <td>#45,000</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="007">
+          <td>52</td>
+          <td>007</td>
+          <td><a href="B0F9CPPX49.html">B0F9CPPX49</a></td>
+          <td><a href="B0F9CPPX49.html">YH3合1测试纸-100条-2瓶</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#51,142.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>53</td>
+          <td>322</td>
+          <td><a href="B0DRKND389.html">B0DRKND389</a></td>
+          <td><a href="B0DRKND389.html">JX迷你小挂钩-透明（30件）</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#13,930.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>54</td>
+          <td>007</td>
+          <td><a href="B0F6T5YYZQ.html">B0F6T5YYZQ</a></td>
+          <td><a href="B0F6T5YYZQ.html">YH彩虹方巾-款式1-2件</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">★★★★½</span> 4.8 (5.0)</td>
+          <td>#50,642</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="007">
+          <td>55</td>
+          <td>007</td>
+          <td><a href="B0GKXJG76D.html">B0GKXJG76D</a></td>
+          <td><a href="B0GKXJG76D.html">LY一次性纱布片-白色（50件）</a></td>
+          <td>£5.49</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#70,265</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="007">
+          <td>56</td>
+          <td>007</td>
+          <td><a href="B0GLY4GTV6.html">B0GLY4GTV6</a></td>
+          <td><a href="B0GLY4GTV6.html">LY固线座卡扣-黑色小号-50件</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">★★★★½</span> 4.5 (2.0)</td>
+          <td>#52,528</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>57</td>
+          <td>007</td>
+          <td><a href="B0GKV1BYW5.html">B0GKV1BYW5</a></td>
+          <td><a href="B0GKV1BYW5.html">LY足球蛋糕装饰-塑料足球1+塑料奖杯1</a></td>
+          <td>£7.49</td>
+          <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
+          <td>#110,406</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="322">
+          <td>58</td>
+          <td>322</td>
+          <td><a href="B0FD7K4PW7.html">B0FD7K4PW7</a></td>
+          <td><a href="B0FD7K4PW7.html">LY双面渔夫帽-墨镜鸭-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#15,135.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>59</td>
+          <td>007</td>
+          <td><a href="B0GLXKW95W.html">B0GLXKW95W</a></td>
+          <td><a href="B0GLXKW95W.html">LY海盗帽-黑色-2件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
+          <td>#73,528</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="322">
+          <td>60</td>
+          <td>322</td>
+          <td><a href="B0GC66432C.html">B0GC66432C</a></td>
+          <td><a href="B0GC66432C.html">LY夏威夷3米挂脖花环-彩色3米-4件</a></td>
+          <td>£6.49</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#18,184.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>61</td>
+          <td>007</td>
+          <td><a href="B0GLHBMP55.html">B0GLHBMP55</a></td>
+          <td><a href="B0GLHBMP55.html">LY-Kpop水晶手串-9件</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
+          <td>#46,823</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:54</td>
+        </tr><tr data-store="027">
+          <td>62</td>
+          <td>027</td>
+          <td><a href="B0H5575ZN2.html">B0H5575ZN2</a></td>
+          <td><a href="B0H5575ZN2.html">LY冷感毛巾30*100-紫色1+浅灰1</a></td>
+          <td>£8.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#10,476.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">已断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="322">
+          <td>63</td>
+          <td>322</td>
+          <td><a href="B0GFWDGSMD.html">B0GFWDGSMD</a></td>
+          <td><a href="B0GFWDGSMD.html">LY世界杯开瓶器-美加墨开瓶器1+足球开瓶器1(共2件)</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#41,201.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>64</td>
+          <td>007</td>
+          <td><a href="B0F9DQMF5Y.html">B0F9DQMF5Y</a></td>
+          <td><a href="B0F9DQMF5Y.html">YH6合1测试纸-50条两瓶</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#12,785.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>65</td>
+          <td>027</td>
+          <td><a href="B0H152MHXG.html">B0H152MHXG</a></td>
+          <td><a href="B0H152MHXG.html">LY七彩织带-1.5cm*40m-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#104,977.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>66</td>
+          <td>007</td>
+          <td><a href="B0GS95PLNS.html">B0GS95PLNS</a></td>
+          <td><a href="B0GS95PLNS.html">LY孕妇防溢乳垫-异形-4件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#30,301.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>67</td>
+          <td>027</td>
+          <td><a href="B0H15B8VL7.html">B0H15B8VL7</a></td>
+          <td><a href="B0H15B8VL7.html">LY毕业蛋糕插牌-金色-24件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="007">
+          <td>68</td>
+          <td>007</td>
+          <td><a href="B0F9DF511S.html">B0F9DF511S</a></td>
+          <td><a href="B0F9DF511S.html">YH2合1测试纸-100条-2瓶</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#17,783.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>69</td>
+          <td>027</td>
+          <td><a href="B0H14D7P2K.html">B0H14D7P2K</a></td>
+          <td><a href="B0H14D7P2K.html">LY防水浴帽-小黄鸭-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#41,177.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>70</td>
+          <td>027</td>
+          <td><a href="B0H14K7CR9.html">B0H14K7CR9</a></td>
+          <td><a href="B0H14K7CR9.html">LY足球奖杯气球-奖杯1+足球2+金星2+丝带1</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
+        </tr><tr data-store="007">
+          <td>71</td>
+          <td>007</td>
+          <td><a href="B0F9DSLHN6.html">B0F9DSLHN6</a></td>
+          <td><a href="B0F9DSLHN6.html">YH7合1测试纸-100条-2瓶</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#14,042.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>72</td>
+          <td>027</td>
+          <td><a href="B0H1457LBS.html">B0H1457LBS</a></td>
+          <td><a href="B0H1457LBS.html">LY丸子头-咖啡（6cm+8cm+10cm+12cm）+20个咖色发卡</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#54,421.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>73</td>
+          <td>027</td>
+          <td><a href="B0H1QX7T2V.html">B0H1QX7T2V</a></td>
+          <td><a href="B0H1QX7T2V.html">LY爱心太阳镜-上粉下蓝-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
+        </tr><tr data-store="027">
+          <td>74</td>
+          <td>027</td>
+          <td><a href="B0H1CP7T5S.html">B0H1CP7T5S</a></td>
+          <td><a href="B0H1CP7T5S.html">LY毕业季气球-银色-PORM2026+星星*2</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
+        </tr><tr data-store="027">
+          <td>75</td>
+          <td>027</td>
+          <td><a href="B0H11RR4PV.html">B0H11RR4PV</a></td>
+          <td><a href="B0H11RR4PV.html">LY纯棉防风口罩-黑色-4件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#104,064.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>76</td>
+          <td>027</td>
+          <td><a href="B0GZWHZ7HM.html">B0GZWHZ7HM</a></td>
+          <td><a href="B0GZWHZ7HM.html">LY仙女魔法棒逗猫棒-浅紫1+兰色1+金1+粉1(共4件)</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
+        </tr><tr data-store="027">
+          <td>77</td>
+          <td>027</td>
+          <td><a href="B0H14PNRRP.html">B0H14PNRRP</a></td>
+          <td><a href="B0H14PNRRP.html">LY字母烫钻BRIDE+爱心-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:31</td>
+        </tr><tr data-store="007">
+          <td>78</td>
+          <td>007</td>
+          <td><a href="B0GZJYCSMQ.html">B0GZJYCSMQ</a></td>
+          <td><a href="B0GZJYCSMQ.html">LY羽毛球腕带-黑一双+灰一双</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#18,846.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>79</td>
+          <td>027</td>
+          <td><a href="B0H159466X.html">B0H159466X</a></td>
+          <td><a href="B0H159466X.html">LY毕业季气球-蓝色-PORM2026+星星*2</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#76,134.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>80</td>
+          <td>027</td>
+          <td><a href="B0H1BJS3D5.html">B0H1BJS3D5</a></td>
+          <td><a href="B0H1BJS3D5.html">LY毕业典礼装饰-肩带1</a></td>
+          <td>£3.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#69,030.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>81</td>
+          <td>027</td>
+          <td><a href="B0H1CQ7YPN.html">B0H1CQ7YPN</a></td>
+          <td><a href="B0H1CQ7YPN.html">LY丸子头-米色（6cm+8cm+10cm+12cm）+20个米色发卡</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>82</td>
+          <td>027</td>
+          <td><a href="B0GZZ7G73W.html">B0GZZ7G73W</a></td>
+          <td><a href="B0GZZ7G73W.html">LY木牌面包片钥匙扣new job-1件</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>83</td>
+          <td>027</td>
+          <td><a href="B0H157K52T.html">B0H157K52T</a></td>
+          <td><a href="B0H157K52T.html">LY毕业季气球-金色-PORM2026+星星*2</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>84</td>
+          <td>027</td>
+          <td><a href="B0H1BXFWN3.html">B0H1BXFWN3</a></td>
+          <td><a href="B0H1BXFWN3.html">LY毛线编织玩偶-坐姿太空人-1件</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>85</td>
+          <td>027</td>
+          <td><a href="B0H4H2P3ZS.html">B0H4H2P3ZS</a></td>
+          <td><a href="B0H4H2P3ZS.html">LY夏威夷派对桌布-137*274cm-1件</a></td>
+          <td>£7.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#56,179.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>86</td>
+          <td>027</td>
+          <td><a href="B0H4MBSDDF.html">B0H4MBSDDF</a></td>
+          <td><a href="B0H4MBSDDF.html">LY多功能运动挎包-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#79,855.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-hot">⚠️ 7天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>87</td>
+          <td>027</td>
+          <td><a href="B0H11Y527M.html">B0H11Y527M</a></td>
+          <td><a href="B0H11Y527M.html">LY零食猫条挤出器-粉1+蓝1（共2件）</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>88</td>
+          <td>027</td>
+          <td><a href="B0H14HRM9Q.html">B0H14HRM9Q</a></td>
+          <td><a href="B0H14HRM9Q.html">LY乔迁礼物-2026-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>89</td>
+          <td>027</td>
+          <td><a href="B0H1CQ1VR9.html">B0H1CQ1VR9</a></td>
+          <td><a href="B0H1CQ1VR9.html">LY毕业典礼装饰-发箍1+肩带1</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#69,030.0</td>
+          <td>📈</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>90</td>
+          <td>027</td>
+          <td><a href="B0H55GRR3S.html">B0H55GRR3S</a></td>
+          <td><a href="B0H55GRR3S.html">LY双面渔夫帽-墨镜鸭-1件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#103,074.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>91</td>
+          <td>027</td>
+          <td><a href="B0GZZ774FW.html">B0GZZ774FW</a></td>
+          <td><a href="B0GZZ774FW.html">LY空气鼻贴D形-黑5对+白5对（共10对）</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>92</td>
+          <td>027</td>
+          <td><a href="B0H11SSLF8.html">B0H11SSLF8</a></td>
+          <td><a href="B0H11SSLF8.html">LY裙边裱花嘴7件+转换头1+蓝袋1+毛刷1</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#0.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-06-25 11:11</td>
+        </tr><tr data-store="027">
+          <td>93</td>
+          <td>027</td>
+          <td><a href="B0H4GYVY2G.html">B0H4GYVY2G</a></td>
+          <td><a href="B0H4GYVY2G.html">LY椰子树字母横幅-1件</a></td>
+          <td>£4.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#88,020.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>94</td>
+          <td>027</td>
+          <td><a href="B0H4M3G9JQ.html">B0H4M3G9JQ</a></td>
+          <td><a href="B0H4M3G9JQ.html">LY笑脸印花渔夫帽-黑色-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#117,642.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>95</td>
+          <td>027</td>
+          <td><a href="B0GZZ7KZV6.html">B0GZZ7KZV6</a></td>
+          <td><a href="B0GZZ7KZV6.html">LY生耳钳Y型拆带器-深灰色-1件</a></td>
+          <td>£5.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#115,342.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-warn">⚠️ 14天内断货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>96</td>
+          <td>027</td>
+          <td><a href="B0H14HC9NS.html">B0H14HC9NS</a></td>
+          <td><a href="B0H14HC9NS.html">LY亚克力爱心挂饰-</a></td>
+          <td>£6.29</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#417,002.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-good">库存充足</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>97</td>
+          <td>027</td>
+          <td><a href="B0H1BZY7PV.html">B0H1BZY7PV</a></td>
+          <td><a href="B0H1BZY7PV.html">LY圆形创口贴-22mm-120张</a></td>
+          <td>£6.59</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#90,169.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>98</td>
+          <td>027</td>
+          <td><a href="B0H4GSRLWR.html">B0H4GSRLWR</a></td>
+          <td><a href="B0H4GSRLWR.html">LY仿真饮料袋350ml*2+夹子*2+贴纸*2</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#270,581.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr><tr data-store="027">
+          <td>99</td>
+          <td>027</td>
+          <td><a href="B0H4M713J3.html">B0H4M713J3</a></td>
+          <td><a href="B0H4M713J3.html">LY沙盘农场动物模型-12件</a></td>
+          <td>£6.99</td>
+          <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
+          <td>#61,504.0</td>
+          <td>➡️</td>
+          <td><span class="oa-tag oa-tag-info">30天内需补货</span></td>
+          <td style="font-size:12px;color:var(--sub)">2026-07-14 12:00</td>
+        </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>Hermes Agent · 已分析 99 个产品</span>
+    </div>
+  </footer>
+
+</main>
+</body></html>
