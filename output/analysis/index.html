@@ -3,9 +3,8 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../shared/oa-theme.css">
 <title>补货跟进</title>
-<style>
-/* ── OA设计系统已在 shared/oa-theme.css ── */
-/* 以下仅保留产品分析特有的样式 */
+<style>/* ── OA设计系统已在 shared/oa-theme.css ── */
+/* 以下仅保留补货跟进特有的样式 */
 
 /* ── Common ── */
 .meta-info { color: var(--oa-sub, #6e6e73); font-size: 13px; margin-bottom: 20px; }
@@ -24,6 +23,25 @@ a:hover { text-decoration: underline; }
 .store-tab { padding: 6px 16px; border: 1px solid var(--oa-border, #d2d2d7); border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--oa-surface, #fff); color: var(--oa-sub, #6e6e73); transition: all 0.2s; user-select: none; }
 .store-tab:hover { border-color: var(--oa-primary, #0071e3); color: var(--oa-primary, #0071e3); }
 .store-tab.active { background: var(--oa-primary, #0071e3); color: white; border-color: var(--oa-primary, #0071e3); }
+
+/* ── Store badges ── */
+.store-badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: .5px; }
+.store-badge-007 { background: #e5f0ff; color: #0051a8; }
+.store-badge-027 { background: #e8f9ee; color: #1a7d36; }
+
+/* ── Urgency row indicators ── */
+tr.urgent-row { border-left: 3px solid #ff3b30; }
+tr.urgent-row td:first-child { padding-left: 8px; }
+tr.watch-row { border-left: 3px solid #ff9500; }
+tr.watch-row td:first-child { padding-left: 8px; }
+tr.steady-row { border-left: 3px solid #34c759; }
+tr.steady-row td:first-child { padding-left: 8px; }
+
+/* ── FBA days badge ── */
+.fba-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
+.fba-urgent { background: #fff0f0; color: #d32f2f; }
+.fba-watch { background: #fff8e1; color: #c77c00; }
+.fba-ok { background: #e8f5e9; color: #388e3c; }
 
 /* ── Bulletin / Calendar ── */
 .bullet-list { padding-left: 20px; }
@@ -85,6 +103,7 @@ a:hover { text-decoration: underline; }
   .oa-kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .calendar-grid { grid-template-columns: repeat(3, 1fr); }
   .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+  .hide-mobile { display: none; }
 }
 </style>
 <script>
@@ -114,9 +133,9 @@ function filterTable() {
 <div class="oa-shell">
   <div class="oa-hero">
     <div class="oa-hero-text">
-      <div class="oa-eyebrow">亚马逊英国站 · 运营决策</div>
+      <div class="oa-eyebrow">007&027 · 补货跟进</div>
       <h1 class="oa-hero-title">补货跟进</h1>
-      <p class="oa-hero-sub">24 个产品需补货 · 分析日期: 2026-07-14 18:45 · 数据来源: 领星ERP + Amazon UK</p>
+      <p class="oa-hero-sub">24 个产品需补货 · 分析日期: 2026-07-14 19:19 · 数据来源: 领星ERP + Amazon UK</p>
     </div>
   </div>
 
@@ -133,272 +152,272 @@ function filterTable() {
     <div class="oa-card oa-table-wrap" style="padding:0">
       <table id="productTable" class="oa-table">
         <thead><tr>
-          <th>#</th><th>店铺</th><th>ASIN</th><th>品名</th><th>售价</th><th>评分</th><th>BSR</th><th>趋势</th><th>补货建议</th><th>分析日期</th>
+          <th>#</th><th>店铺</th><th>ASIN</th><th>品名</th><th>售价</th><th>评分</th><th>BSR</th><th>趋势</th><th>补货建议</th><th class="hide-mobile">分析日期</th>
         </tr></thead>
-        <tbody><tr data-store="007">
+        <tbody><tr data-store="007" class="urgent-row">
           <td>1</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0F9D6RNDH.html">B0F9D6RNDH</a></td>
           <td><a href="B0F9D6RNDH.html">YH5合1测试纸-50条-2瓶</a></td>
           <td>£7.99</td>
           <td><span class="stars">★★★★☆</span> 4.0 (2.0)</td>
           <td>#35,591</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补198件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🔴 补198件空运</span> <span class="fba-badge fba-urgent">1天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>2</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GLGT9TQT.html">B0GLGT9TQT</a></td>
           <td><a href="B0GLGT9TQT.html">LY海盗装饰-帽子1+布钩1+骷髅头眼罩1</a></td>
           <td>£7.99</td>
           <td><span class="stars">★★★★★</span> 5.0 (3)</td>
           <td>#45,000</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补56件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补56件空运</span> <span class="fba-badge fba-urgent">1天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>3</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0F9DQMF5Y.html">B0F9DQMF5Y</a></td>
           <td><a href="B0F9DQMF5Y.html">YH6合1测试纸-50条两瓶</a></td>
           <td>£7.99</td>
           <td><span class="stars">★★★★★</span> 5.0 (7)</td>
           <td>#12,785.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补194件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🔴 补194件空运</span> <span class="fba-badge fba-urgent">2天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>4</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0F9DF511S.html">B0F9DF511S</a></td>
           <td><a href="B0F9DF511S.html">YH2合1测试纸-100条-2瓶</a></td>
           <td>£6.99</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#17,783.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补108件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🔴 补108件空运</span> <span class="fba-badge fba-urgent">3天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>5</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GS95PLNS.html">B0GS95PLNS</a></td>
           <td><a href="B0GS95PLNS.html">LY孕妇防溢乳垫-异形-4件</a></td>
           <td>£6.99</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#30,301.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补187件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🔴 补187件空运</span> <span class="fba-badge fba-urgent">3天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="urgent-row">
           <td>6</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0H1CQ1VR9.html">B0H1CQ1VR9</a></td>
           <td><a href="B0H1CQ1VR9.html">LY毕业典礼装饰-发箍1+肩带1</a></td>
           <td>£6.99</td>
           <td><span class="stars">★★★★★</span> 5.0 (1)</td>
           <td>#69,030.0</td>
           <td>📈</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span> <span class="fba-badge fba-urgent">5天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>7</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GLH5B5R5.html">B0GLH5B5R5</a></td>
           <td><a href="B0GLH5B5R5.html">LY两用塑料勺-紫2+绿2+蓝2+橙2+深粉2</a></td>
           <td>£7.99</td>
           <td><span class="stars">★★★★★</span> 5.0 (2)</td>
           <td>#271,922</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补302件卡航</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🔴 补302件卡航</span> <span class="fba-badge fba-urgent">6天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="urgent-row">
           <td>8</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0H155V768.html">B0H155V768</a></td>
           <td><a href="B0H155V768.html">LY站立足球皇冠奖杯-2件</a></td>
           <td>£6.99</td>
           <td><span class="stars">★★★☆☆</span> 3.0 (1)</td>
           <td>#157,532.0</td>
           <td>📈</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span> <span class="fba-badge fba-urgent">6天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>9</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0F7GFGRTB.html">B0F7GFGRTB</a></td>
           <td><a href="B0F7GFGRTB.html">YH封口贴纸-10张</a></td>
           <td>£3.99</td>
           <td><span class="stars">★★★★½</span> 4.8 (4.0)</td>
           <td>#30,072</td>
           <td>📈</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补320件卡航</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🔴 补320件卡航</span> <span class="fba-badge fba-urgent">7天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>10</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0F9CPPX49.html">B0F9CPPX49</a></td>
           <td><a href="B0F9CPPX49.html">YH3合1测试纸-100条-2瓶</a></td>
           <td>£7.99</td>
           <td><span class="stars">★★★★☆</span> 4.0 (5)</td>
           <td>#51,142.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补70件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补70件空运</span> <span class="fba-badge fba-urgent">7天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="urgent-row">
           <td>11</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GLGZWMNN.html">B0GLGZWMNN</a></td>
           <td><a href="B0GLGZWMNN.html">LY纯色折扇竹扇-白色-2件</a></td>
           <td>£6.99</td>
           <td><span class="stars">★★★★☆</span> 4.0 (2)</td>
           <td>#73,233</td>
           <td>📈</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补418件卡航</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🔴 补418件卡航</span> <span class="fba-badge fba-urgent">7天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="urgent-row">
           <td>12</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0H1BZY7PV.html">B0H1BZY7PV</a></td>
           <td><a href="B0H1BZY7PV.html">LY圆形创口贴-22mm-120张</a></td>
           <td>£6.59</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#90,169.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补30件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🟡 补30件空运</span> <span class="fba-badge fba-urgent">8天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="urgent-row">
           <td>13</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0H14D7P2K.html">B0H14D7P2K</a></td>
           <td><a href="B0H14D7P2K.html">LY防水浴帽-小黄鸭-1件</a></td>
           <td>£6.99</td>
           <td><span class="stars">★★★½☆</span> 3.5 (2)</td>
           <td>#41,177</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span> <span class="fba-badge fba-urgent">9天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="watch-row">
           <td>14</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0H55GRR3S.html">B0H55GRR3S</a></td>
           <td><a href="B0H55GRR3S.html">LY双面渔夫帽-墨镜鸭-1件</a></td>
           <td>£6.99</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#103,074.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span> <span class="fba-badge fba-watch">10天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="watch-row">
           <td>15</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0GZZ7KZV6.html">B0GZZ7KZV6</a></td>
           <td><a href="B0GZZ7KZV6.html">LY生耳钳Y型拆带器-深灰色-1件</a></td>
           <td>£5.99</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#115,342.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span> <span class="fba-badge fba-watch">11天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="watch-row">
           <td>16</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GLGY156B.html">B0GLGY156B</a></td>
           <td><a href="B0GLGY156B.html">LY足球护腿板-成人款黑色-1双</a></td>
           <td>£7.49</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#61,136.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补235件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🔴 补235件空运</span> <span class="fba-badge fba-watch">12天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="watch-row">
           <td>17</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GLH8KJPS.html">B0GLH8KJPS</a></td>
           <td><a href="B0GLH8KJPS.html">LY-Kpop桃心项链-3件</a></td>
           <td>£7.99</td>
           <td><span class="stars">★★★★★</span> 5.0 (1.0)</td>
           <td>#99,181</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补281件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🔴 补281件空运</span> <span class="fba-badge fba-watch">13天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="watch-row">
           <td>18</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0F6SZN7S2.html">B0F6SZN7S2</a></td>
           <td><a href="B0F6SZN7S2.html">YH条纹彩色丝带-彩色-款式八-1件</a></td>
           <td>£6.49</td>
           <td><span class="stars">★★★★½</span> 4.7 (4)</td>
           <td>#76,852</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🔴 补207件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🔴 补207件空运</span> <span class="fba-badge fba-watch">15天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="watch-row">
           <td>19</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GLY4GTV6.html">B0GLY4GTV6</a></td>
           <td><a href="B0GLY4GTV6.html">LY固线座卡扣-黑色小号-50件</a></td>
           <td>£4.99</td>
           <td><span class="stars">★★★★½</span> 4.5 (2.0)</td>
           <td>#52,528</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补51件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🟡 补51件空运</span> <span class="fba-badge fba-watch">15天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="watch-row">
           <td>20</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0H4GSRLWR.html">B0H4GSRLWR</a></td>
           <td><a href="B0H4GSRLWR.html">LY仿真饮料袋350ml*2+夹子*2+贴纸*2</a></td>
           <td>£6.99</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#270,581.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补30件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补30件空运</span> <span class="fba-badge fba-watch">15天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="watch-row">
           <td>21</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GKTWHKHQ.html">B0GKTWHKHQ</a></td>
           <td><a href="B0GKTWHKHQ.html">LY椭圆小框太阳镜-黑全灰+茶框茶片+豹纹框茶片+豆花框双茶片4件</a></td>
           <td>£7.99</td>
           <td><span class="stars">★★★★☆</span> 4.2 (3.0)</td>
           <td>#108,151</td>
           <td>📈</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补51件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补51件空运</span> <span class="fba-badge fba-watch">16天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="steady-row">
           <td>22</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GYPM43Q7.html">B0GYPM43Q7</a></td>
           <td><a href="B0GYPM43Q7.html">LY一次性制冰袋-30片</a></td>
           <td>£5.99</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#22,321.0</td>
           <td>📈</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="007">
+          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span> <span class="fba-badge fba-ok">23天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="007" class="steady-row">
           <td>23</td>
-          <td>007</td>
+          <td><span class="store-badge store-badge-007">007</span></td>
           <td><a href="B0GKXJG76D.html">B0GKXJG76D</a></td>
           <td><a href="B0GKXJG76D.html">LY一次性纱布片-白色（50件）</a></td>
           <td>£5.49</td>
           <td><span class="stars">★☆☆☆☆</span> 1.0 (1)</td>
           <td>#70,265</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补70件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
-        </tr><tr data-store="027">
+          <td><span class="oa-tag oa-tag-hot">🟡 补70件空运</span> <span class="fba-badge fba-ok">24天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
+        </tr><tr data-store="027" class="steady-row">
           <td>24</td>
-          <td>027</td>
+          <td><span class="store-badge store-badge-027">027</span></td>
           <td><a href="B0H152MHXG.html">B0H152MHXG</a></td>
           <td><a href="B0H152MHXG.html">LY七彩织带-1.5cm*40m-1件</a></td>
           <td>£6.99</td>
           <td><span class="stars">☆☆☆☆☆</span> 0 (0)</td>
           <td>#104,977.0</td>
           <td>➡️</td>
-          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span></td>
-          <td style="font-size:12px;color:var(--sub)">2026-07-14 18:45</td>
+          <td><span class="oa-tag oa-tag-hot">🟡 补60件空运</span> <span class="fba-badge fba-ok">28天</span></td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-14 19:19</td>
         </tr></tbody>
       </table>
     </div>
