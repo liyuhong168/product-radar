@@ -208,23 +208,30 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
     if status_path.exists():
         try:
             prod_status = json.loads(status_path.read_text())
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"⚠️ status.json load failed: {e}", file=sys.stderr)
     prod_status_json = json.dumps(prod_status, ensure_ascii=False)
 
-    # Phase 2-4: Season events, metrics, search index
+    # Phase 2.3: 错误可观测化 — 收集加载失败信息供 debug 区展示
+    _load_errors = []
     try:
         season_events = get_upcoming_events(90)
-    except Exception:
+    except Exception as e:
         season_events = []
+        _load_errors.append(f"season_events: {e}")
+        print(f"⚠️ season_events load failed: {e}", file=sys.stderr)
     try:
         metrics = calculate_metrics()
-    except Exception:
+    except Exception as e:
         metrics = {}
+        _load_errors.append(f"metrics: {e}")
+        print(f"⚠️ metrics load failed: {e}", file=sys.stderr)
     try:
         search_index = build_search_index()
-    except Exception:
+    except Exception as e:
         search_index = {"generated": "", "total": 0, "entries": []}
+        _load_errors.append(f"search_index: {e}")
+        print(f"⚠️ search_index load failed: {e}", file=sys.stderr)
 
     season_json = json.dumps(season_events, ensure_ascii=False)
     metrics_json = json.dumps(metrics, ensure_ascii=False)
@@ -255,6 +262,22 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
         festivals_json = '[]'
         festival_html = '<div class="empty">节日数据加载失败</div>'
         festival_count = 0
+        _load_errors.append(f"festivals: {e}")
+        print(f"⚠️ festivals load failed: {e}", file=sys.stderr)
+
+    _load_errors_json = json.dumps(_load_errors, ensure_ascii=False)
+
+    # Phase 2.4: 读取看板注入配置（从 config.json）
+    _default_inject = {"enabled": True, "festival": {"max_per_event": 3, "days_ahead": 30, "sea_deadline_days": 77}, "discovery": {"max_keywords": 5}, "radar": {"max_products": 10, "new_only": True}}
+    kanban_inject = _default_inject
+    _cfg_path = BASE / 'config.json'
+    if _cfg_path.exists():
+        try:
+            _cfg = json.loads(_cfg_path.read_text())
+            kanban_inject = _cfg.get('kanban_injection', _default_inject)
+        except Exception as e:
+            print(f"⚠️ kanban_injection config load failed: {e}", file=sys.stderr)
+    inject_json = json.dumps(kanban_inject, ensure_ascii=False)
 
     html = f'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -716,6 +739,7 @@ body{{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);li
   <div class="filter-bar">
     <div class="search-box"><input type="text" id="kanbanSearch" placeholder="🔍 搜索关键词..."/></div>
     <button class="btn-export" onclick="exportKanbanCSV()">📥 导出看板</button>
+    <button class="btn-export" id="pauseInjectBtn" onclick="toggleInject()">⏸️ 暂停注入</button>
     <span id="syncStatus" style="font-size:11px;color:var(--muted);cursor:pointer;margin-left:8px" onclick="setSyncToken()" title="点击设置 GitHub Token 同步看板">⚪ 未同步</span>
   </div>
   <div class="kanban-board" id="kanbanBoard"></div>
@@ -746,6 +770,7 @@ const METRICS = {metrics_json};
 const SEARCH_INDEX = {search_json};
 const KANBAN_COLS = {kanban_json};
 const FESTIVALS = {festivals_json};
+const INJECT_CFG = {inject_json};
 const SK = 'pp_v3_status';
 const OLD_SK = 'productRadar_v2_status';
 const SYNC_TOKEN_KEY='***';
@@ -765,11 +790,14 @@ async function fetchServerStatus() {{
       const data = await r.json();
       if (data && typeof data === 'object') {{
         SERVER_STATUS = data;
-        // Merge server into local (server wins for keys that exist on server)
         const local = JSON.parse(localStorage.getItem(SK) || '{{}}');
-        const merged = Object.assign({{}}, PROD_STATUS, local, SERVER_STATUS);
-        localStorage.setItem(SK, JSON.stringify(merged));
-        // Update sync indicator
+        // Phase 2.2: 冲突检测 — 比较 _meta.ts，服务端更新时才覆盖本地
+        var localTs = (local._meta && local._meta.ts) || 0;
+        var serverTs = (data._meta && data._meta.ts) || 0;
+        if (serverTs > localTs) {{
+          var merged = Object.assign({{}}, PROD_STATUS, local, data);
+          localStorage.setItem(SK, JSON.stringify(merged));
+        }}
         const el = document.getElementById('syncStatus');
         if (el) {{ el.textContent = '✅ 已同步 ' + new Date().toLocaleTimeString('zh-CN',{{hour:'2-digit',minute:'2-digit'}}); el.style.color='#34C759'; }}
       }}
@@ -780,8 +808,11 @@ fetchServerStatus();
 
 function getSt(){{try{{const local=JSON.parse(localStorage.getItem(SK)||'{{}}');return Object.assign({{}},PROD_STATUS,SERVER_STATUS,local)}}catch(e){{return Object.assign({{}},PROD_STATUS,SERVER_STATUS)}}}}
 function saveSt(a,s,all){{
-  if(all){{localStorage.setItem(SK,JSON.stringify(all))}}
-  else{{const t=getSt();if(s==='pending')delete t[a];else t[a]=s;localStorage.setItem(SK,JSON.stringify(t))}}
+  var t = all || getSt();
+  if(!all){{if(s==='pending')delete t[a];else t[a]=s;}}
+  // Phase 2.2: 附加元数据（timestamp + source），用于冲突检测
+  t._meta = {{ts: Date.now(), src: 'web'}};
+  localStorage.setItem(SK, JSON.stringify(t));
   // Auto-sync to server
   syncToServer();
 }}
@@ -1073,21 +1104,23 @@ function renderKanban() {{
   const inbox = [];
   const now = new Date();
   const today = now.toISOString().slice(0,10);
+  // Phase 2.4: 注入开关（前端可暂停）
+  const _doInject = INJECT_CFG.enabled !== false && localStorage.getItem('kanban_pause_inject') !== '1';
 
   // Source 1: Festival Planner (highest priority — has deadlines)
-  if (typeof FESTIVALS !== 'undefined') {{
+  if (_doInject && typeof FESTIVALS !== 'undefined') {{
     const eventCounts = {{}}; // limit per event
     FESTIVALS.forEach(f => {{
       const fDate = new Date(f.date);
       if (fDate < now) return;
       const seaDeadline = new Date(fDate);
-      seaDeadline.setDate(seaDeadline.getDate() - 77);
+      seaDeadline.setDate(seaDeadline.getDate() - INJECT_CFG.festival.sea_deadline_days);
       const daysLeft = Math.ceil((seaDeadline - now) / 86400000);
-      if (daysLeft > 30 || daysLeft < -10) return;
+      if (daysLeft > INJECT_CFG.festival.days_ahead || daysLeft < -10) return;
       eventCounts[f.id] = 0;
 
       (f.products || []).forEach(p => {{
-        if (eventCounts[f.id] >= 3) return; // max 3 per event
+        if (eventCounts[f.id] >= INJECT_CFG.festival.max_per_event) return;
         const kw = (p.keywords || [])[0] || p.sku || '';
         if (!kw) return;
         const kbKey = 'kb_fest_' + f.id + '_' + kw.replace(/\\s+/g,'_').slice(0,20);
@@ -1114,11 +1147,11 @@ function renderKanban() {{
     }});
   }}
 
-  // Source 2: Discovery keywords (max 5)
+  // Source 2: Discovery keywords
   let discCount = 0;
-  Object.entries(DISC_ALL || {{}}).forEach(([date, dd]) => {{
+  if (_doInject) Object.entries(DISC_ALL || {{}}).forEach(([date, dd]) => {{
     (dd.insights || []).forEach(ins => {{
-      if (discCount >= 5) return;
+      if (discCount >= INJECT_CFG.discovery.max_keywords) return;
       const kw = ins.keyword || '';
       if (!kw) return;
       const kbKey = 'kb_disc_' + kw.replace(/\\s+/g,'_').slice(0,30) + '_' + date;
@@ -1144,12 +1177,12 @@ function renderKanban() {{
     }});
   }});
 
-  // Source 3: Radar products (max 10, only new)
+  // Source 3: Radar products (only new)
   let radarCount = 0;
-  Object.entries(RADAR_ALL || {{}}).forEach(([date, rd]) => {{
+  if (_doInject) Object.entries(RADAR_ALL || {{}}).forEach(([date, rd]) => {{
     (rd.products || []).forEach(p => {{
-      if (radarCount >= 10) return;
-      if (!p.asin || p.is_new === false) return;
+      if (radarCount >= INJECT_CFG.radar.max_products) return;
+      if (!p.asin || (INJECT_CFG.radar.new_only && p.is_new === false)) return;
       const kbKey = 'kb_radar_' + p.asin;
       if (sts[kbKey] === 'starred' || sts[kbKey] === 'verified' || sts[kbKey] === 'dismissed') return;
 
@@ -1279,6 +1312,18 @@ function moveKanban(id, target) {{
 
 document.getElementById('kanbanSearch')?.addEventListener('input', renderKanban);
 
+// Phase 2.4: 暂停/恢复看板注入
+function toggleInject() {{
+  var paused = localStorage.getItem('kanban_pause_inject') === '1';
+  if (paused) {{ localStorage.removeItem('kanban_pause_inject'); }}
+  else {{ localStorage.setItem('kanban_pause_inject', '1'); }}
+  var btn = document.getElementById('pauseInjectBtn');
+  if (btn) btn.textContent = paused ? '⏸️ 暂停注入' : '▶️ 恢复注入';
+  renderKanban();
+}}
+// 初始化按钮状态
+(function(){{var p=localStorage.getItem('kanban_pause_inject')==='1';var b=document.getElementById('pauseInjectBtn');if(b)b.textContent=p?'▶️ 恢复注入':'⏸️ 暂停注入';}})();
+
 function exportKanbanCSV(){{
   const sts = getSt();
   const rows = [['状态','关键词','来源','评分','日期']];
@@ -1399,6 +1444,29 @@ function renderAll() {{
 }}
 
 renderAll();
+</script>
+
+<!-- Phase 2.3: Debug panel (?debug=1 to show) -->
+<div id="debugPanel" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1d1d1f;color:#f5f5f7;padding:12px 20px;font-size:12px;font-family:monospace;z-index:9999;max-height:240px;overflow-y:auto;border-top:2px solid #FF9500">
+  <div style="font-weight:bold;margin-bottom:8px;color:#FF9500">Data Load Status</div>
+  <div id="debugContent"></div>
+</div>
+<script>
+(function(){{
+  var errs = { _load_errors_json };
+  var el = document.getElementById('debugPanel');
+  var dc = document.getElementById('debugContent');
+  if (errs.length === 0) {{
+    dc.innerHTML = '<span style="color:#34C759">All modules loaded OK</span>';
+  }} else {{
+    dc.innerHTML = errs.map(function(e) {{
+      return '<div style="color:#FF3B30;padding:2px 0">FAIL: ' + e + '</div>';
+    }}).join('');
+  }}
+  if (new URLSearchParams(location.search).get('debug') === '1') {{
+    el.style.display = 'block';
+  }}
+}})();
 </script>
 </body>
 </html>'''

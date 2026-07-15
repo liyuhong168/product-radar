@@ -271,5 +271,20 @@
       "cooler",
       "ice"
     ]
+  },
+  "kanban_injection": {
+    "enabled": true,
+    "festival": {
+      "max_per_event": 3,
+      "days_ahead": 30,
+      "sea_deadline_days": 77
+    },
+    "discovery": {
+      "max_keywords": 5
+    },
+    "radar": {
+      "max_products": 10,
+      "new_only": true
+    }
   }
 }
