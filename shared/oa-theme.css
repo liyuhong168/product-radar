@@ -829,6 +829,9 @@ body {
 /* ── Gap utility ── */
 .oa-gap-18 { gap: 18px; }
 
+/* ── Portal Page Layout (body flex container for sidebar+main) ── */
+.oa-portal-page { display: flex; height: 100vh; overflow: hidden; }
+
 /* ── Sidebar ── */
 .oa-sidebar {
     width: 240px; min-width: 240px; height: 100vh;

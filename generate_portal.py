@@ -62,7 +62,7 @@ def build_html():
 <link rel="stylesheet" href="shared/oa-theme.css">
 
 </head>
-<body>
+<body class="oa-portal-page">
 
 <!-- Sidebar -->
 <div id="sidebar-overlay" class="oa-sidebar-overlay" onclick="toggleSidebar()"></div>
