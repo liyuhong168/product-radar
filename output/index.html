@@ -100,6 +100,15 @@ frame.addEventListener('load', function() {
     clearTimeout(loadTimer);
     loading.classList.remove('show');
     updateEl.textContent = '已加载 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+    // Phase 3 Step 4: 请求子页面高度（postMessage）
+    try { frame.contentWindow.postMessage({type: 'oa-get-height'}, '*'); } catch(e) {}
+});
+
+// Phase 3 Step 4: 接收子页面高度，动态调整 iframe
+window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'oa-set-height' && e.data.height > 100) {
+        frame.style.height = e.data.height + 'px';
+    }
 });
 
 // Handle iframe load error
