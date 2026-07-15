@@ -793,35 +793,26 @@ async function syncToServer() {{
   const el = document.getElementById('syncStatus');
   if (el) {{ el.textContent = '⏳ 同步中...'; el.style.color='#FF9500'; }}
   try {{
-    // Get current file SHA (required for GitHub API update)
     const status = JSON.parse(localStorage.getItem(SK) || '{{}}');
-    const body = JSON.stringify(status, null, 2);
-    const shaRes = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + STATUS_FILE, {{
-      headers: {{ 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.v3+json' }}
-    }});
-    let sha = null;
-    if (shaRes.ok) {{
-      const shaData = await shaRes.json();
-      sha = shaData.sha;
-    }}
-    // Update file
-    const res = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + STATUS_FILE, {{
-      method: 'PUT',
+    // Phase 1 安全改造：改用 repository_dispatch 触发 Actions 写入
+    // Token 仅需 Actions:write 权限，不再需要 contents:write
+    // 实际文件写入由 Actions 内置 GITHUB_TOKEN 完成，带格式校验
+    const res = await fetch('https://api.github.com/repos/' + REPO + '/dispatches', {{
+      method: 'POST',
       headers: {{
         'Authorization': 'Bearer ' + token,
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json'
       }},
       body: JSON.stringify({{
-        message: 'sync: kanban status update',
-        content: btoa(unescape(encodeURIComponent(body))),
-        sha: sha
+        event_type: 'status-sync',
+        client_payload: {{ status: status }}
       }})
     }});
-    if (res.ok) {{
+    if (res.ok || res.status === 204) {{
       if (el) {{ el.textContent = '✅ 已同步 ' + new Date().toLocaleTimeString('zh-CN',{{hour:'2-digit',minute:'2-digit'}}); el.style.color='#34C759'; }}
     }} else {{
-      const err = await res.json();
+      const err = await res.json().catch(() => ({{}}));
       if (el) {{ el.textContent = '❌ 同步失败'; el.style.color='#FF3B30'; }}
       console.error('Sync error:', err);
     }}
@@ -833,7 +824,7 @@ async function syncToServer() {{
 
 function setSyncToken() {{
   const current = localStorage.getItem(SYNC_TOKEN_KEY) || '';
-  const token = prompt('输入 GitHub Fine-grained Token（仅需 contents:write 权限）：', current);
+  const token = prompt('输入 GitHub Token（仅需 Actions:write 权限，用于触发状态同步 workflow）：', current);
   if (token !== null) {{
     if (token === '') {{ localStorage.removeItem(SYNC_TOKEN_KEY); }}
     else {{ localStorage.setItem(SYNC_TOKEN_KEY, token); }}

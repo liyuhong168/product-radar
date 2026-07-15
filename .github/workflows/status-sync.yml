@@ -1,0 +1,39 @@
+name: Status Sync
+
+on:
+  repository_dispatch:
+    types: [status-sync]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate and write status
+        env:
+          STATUS_JSON: ${{ toJson(github.event.client_payload.status) }}
+        run: |
+          mkdir -p data
+          echo "$STATUS_JSON" | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          if not isinstance(data, dict):
+              sys.exit('ERROR: status must be a JSON object')
+          for k, v in data.items():
+              if not isinstance(k, str) or not isinstance(v, str):
+                  sys.exit(f'ERROR: invalid entry {k}={v}')
+          print(f'Validation passed: {len(data)} entries')
+          "
+          echo "$STATUS_JSON" | python3 -m json.tool > data/kanban_status.json
+          echo "Written to data/kanban_status.json"
+
+      - name: Commit and push
+        run: |
+          git config user.name "OA Status Bot"
+          git config user.email "actions@github.com"
+          git add data/kanban_status.json
+          git commit -m "chore: sync kanban status [skip ci]" || echo "No changes to commit"
+          git push
