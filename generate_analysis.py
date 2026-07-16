@@ -221,8 +221,9 @@ a.product-name:hover{{color:#007AFF}}
 <div class="oa-hero">
   <div class="oa-hero-text">
     <span class="oa-eyebrow">Analysis Dashboard</span>
-    <h1 class="oa-hero-title">🔍 Product Radar</h1>
-    <p class="oa-hero-sub">Amazon UK · TikTok Shop · Google Trends · Reddit · <span class="oa-tag oa-tag-info">{scan_date}</span></p>
+    <p class="oa-page-eyebrow">RESTOCK TRACKING</p>
+    <h1 class="oa-page-title">📦 补货跟进</h1>
+    <p class="oa-page-desc"><strong>{total_scanned}</strong> 个产品扫描 · <strong style="color:#FF9500">{passed}</strong> 个需补货 · 数据来源: 领星ERP + Amazon UK</p>
   </div>
 </div>
 
