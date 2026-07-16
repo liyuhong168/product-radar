@@ -7,6 +7,10 @@ export SCRAPER_API_KEY="$SCRAPER_APIKEY"  # Fix: Python reads SCRAPER_API_KEY (w
 set -e
 cd /home/lee/product-radar
 
+# Step 0: 同步代码到 GitHub 最新（防止 Hermes 推送旧版本覆盖优化）
+git fetch origin
+ git reset --hard origin/main
+
 # All detail goes to log file; cron only sees the one-line result
 LOG="/home/lee/product-radar/logs/cron_$(date '+%Y%m%d_%H%M%S').log"
 mkdir -p /home/lee/product-radar/logs

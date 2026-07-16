@@ -286,7 +286,7 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>选品平台 | {scan_date}</title>
 <link rel='icon' type='image/svg+xml' href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"%3E%3Ccircle cx="24" cy="24" r="22" fill="none" stroke="%235856D6" stroke-width="2"/%3E%3Ccircle cx="24" cy="24" r="3" fill="%235856D6"/%3E%3C/svg%3E'>
-<link rel='stylesheet' href='shared/oa-theme.css'>
+<link rel='stylesheet' href='shared/oa-theme.css?v=12'>
 
 </head>
 <body>
