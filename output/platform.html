@@ -10056,28 +10056,34 @@ function renderDiscovery() {
     const compHtml = ins.competition ? `<div class="comp-box"><div class="label">📊 竞争格局</div><div class="text">${esc(ins.competition)}</div></div>` : '';
 
     // Radar cross-validation: find matching radar products
-    let radarHtml = '';
-    const kwLower = (ins.keyword || '').toLowerCase();
-    const kwParts = kwLower.split(/\s+/).filter(w => w.length >= 4);
-    if (typeof RADAR_ALL !== 'undefined' && curDate) {
-      const radarData = RADAR_ALL[curDate];
-      if (radarData && radarData.products) {
-        const matched = radarData.products.filter(p => {
-          const name = (p.name || '').toLowerCase();
-          return kwParts.some(part => name.includes(part));
-        });
-        if (matched.length > 0) {
-          radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${matched.length}个产品）</div>` +
-            matched.map(p => {
-              const reviews = p.reviews || 0;
-              const ocean = reviews < 20 ? '🌊蓝海' : reviews <= 50 ? '🟢低竞争' : '🟡中等';
-              return `<div class="radar-product">✅ ${esc((p.name||'').substring(0,45))} — £${(p.price||0).toFixed(2)} | ${reviews}评论 ${ocean} | 利润率${((p.profit_margin||0)*100).toFixed(0)}%</div>`;
-            }).join('') + `</div>`;
+        let radarHtml = '';
+        const kwLower = (ins.keyword || '').toLowerCase();
+        // Fix: single backslash so /\s+/ correctly splits on whitespace
+        const kwParts = kwLower.split(/\s+/).filter(w => w.length >= 4);
+        if (kwParts.length >= 2 && typeof RADAR_ALL !== 'undefined' && curDate) {
+          const radarData = RADAR_ALL[curDate];
+          if (radarData && radarData.products) {
+            const genericWords = ['reusable','portable','new','foldable','adjustable','lightweight','durable','easy','large','small','medium','extra','premium','universal','compact','strong','soft','perfect','great','super','best','high','quality','multi','set','pack','value','piece'];
+            const minMatches = kwParts.length <= 4 ? 2 : 3;
+            const matched = radarData.products.filter(p => {
+              const name = (p.name || '').toLowerCase();
+              const hits = kwParts.filter(part => name.includes(part));
+              if (hits.length < minMatches) return false;
+              const distinct = hits.filter(h => !genericWords.includes(h));
+              return distinct.length >= 1;
+            });
+            if (matched.length > 0) {
+              radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${matched.length}个产品）</div>` +
+                matched.map(p => {
+                  const reviews = p.reviews || 0;
+                  const ocean = reviews < 20 ? '🌊蓝海' : reviews <= 50 ? '🟢低竞争' : '🟡中等';
+                  return `<div class="radar-product">✅ ${esc((p.name||'').substring(0,45))} — £${(p.price||0).toFixed(2)} | ${reviews}评论 ${ocean} | 利润率${((p.profit_margin||0)*100).toFixed(0)}%</div>`;
+                }).join('') + `</div>`;
+            }
+          }
         }
-      }
-    }
 
-    return `<div class="insight-card" data-idx="${idx}">
+        return `<div class="insight-card" data-idx="${idx}">
       <div class="insight-hd" onclick="this.parentElement.classList.toggle('open')">
         <div class="insight-score ${scoreCls}">${score}</div>
         <div class="insight-main">
