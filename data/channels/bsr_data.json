@@ -1,6 +1,6 @@
 [
   {
-    "asin": "B0H33FPZVG",
+    "asin": "B0H4ZMBL3R",
     "bsr_rank": null,
     "bsr_category": null,
     "bsr_sub_rank": null,
@@ -10,10 +10,10 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-15T09:19:37.497299"
+    "scraped_at": "2026-07-16T09:18:34.892244"
   },
   {
-    "asin": "B0H75Y324X",
+    "asin": "B0H4V8LCGW",
     "bsr_rank": null,
     "bsr_category": null,
     "bsr_sub_rank": null,
@@ -23,6 +23,123 @@
     "image_url": null,
     "title": null,
     "price": null,
-    "scraped_at": "2026-07-15T09:19:37.498526"
+    "scraped_at": "2026-07-16T09:18:34.893103"
+  },
+  {
+    "asin": "B0H4ZDC9DX",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:18:34.893572"
+  },
+  {
+    "asin": "B0H4ZCWQF8",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:19:15.720521"
+  },
+  {
+    "asin": "B0H5QJBXLV",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:19:15.721991"
+  },
+  {
+    "asin": "B0H4ZKYC4V",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:19:15.722536"
+  },
+  {
+    "asin": "B0H4ZQP3G7",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:19:56.276051"
+  },
+  {
+    "asin": "B0H7BF1NLJ",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:19:56.278584"
+  },
+  {
+    "asin": "B0H7B5CDBJ",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:19:56.280948"
+  },
+  {
+    "asin": "B0H5JSVMPS",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": "https://m.media-amazon.com/images/I/616sCtQdtrL._AC_SX522_.jpg",
+    "title": "Pet Slow Feeder Bowl for Cats and Dogs, Pet Feeding Dishes | Slow Eating Dog Bowl, Soft Sturdy Food-Grade Silicone, Lick Bowl for Dogs, Puppy Feeding Bowls for Most Cats & Dogs",
+    "price": 14.7,
+    "scraped_at": "2026-07-16T09:20:36.760815"
+  },
+  {
+    "asin": "B0H5554H4N",
+    "bsr_rank": null,
+    "bsr_category": null,
+    "bsr_sub_rank": null,
+    "bsr_sub_category": null,
+    "reviews": null,
+    "rating": null,
+    "image_url": null,
+    "title": null,
+    "price": null,
+    "scraped_at": "2026-07-16T09:20:36.762257"
   }
 ]
