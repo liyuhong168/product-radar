@@ -1050,7 +1050,7 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
 .insight-list{display:flex;flex-direction:column;gap:16px}
 .insight-card{background:var(--oa-surface);border-radius:var(--oa-radius);box-shadow:var(--oa-shadow);overflow:hidden;border-left:4px solid var(--oa-secondary);transition:box-shadow .2s}
 .insight-card:hover{box-shadow:var(--oa-shadow-lg)}
-.insight-hd{padding:20px 20px;cursor:pointer;display:flex;align-items:center;gap:16px;transition:background .15s}
+.insight-hd{padding:16px 20px;cursor:pointer;display:flex;align-items:center;gap:16px;transition:background .15s}
 .insight-hd:hover{background:var(--oa-surface-2)}
 .insight-score{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:var(--oa-surface);flex-shrink:0}
 .insight-score.hot{background:linear-gradient(135deg,var(--oa-pink),#ff6b6b)}
@@ -1111,7 +1111,7 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
 .btn-search.google:hover{background:var(--oa-green);color:var(--oa-surface)}
 
 /* Trend Forecast */
-.forecast-card{background:linear-gradient(135deg,var(--oa-secondary-soft),var(--oa-green-soft));border:1px solid var(--oa-secondary);border-radius:var(--oa-radius);padding:20px;margin-bottom:24px}
+.forecast-card{background:linear-gradient(135deg,var(--oa-secondary-soft),var(--oa-green-soft));border:1px solid var(--oa-secondary);border-radius:var(--oa-radius);padding:16px;margin-bottom:24px}
 .forecast-title{font-size:16px;font-weight:700;color:var(--oa-secondary);margin-bottom:12px}
 .forecast-text{font-size:var(--oa-font-size-body);color:var(--oa-text);line-height:1.8;white-space:pre-wrap}
 
@@ -1128,7 +1128,7 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
 .btn-export:hover{opacity:.85}
 
 .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px}
-.pc{background:var(--oa-surface);border-radius:var(--oa-radius);box-shadow:var(--oa-shadow);padding:20px;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:12px;border-left:4px solid var(--oa-blue);position:relative}
+.pc{background:var(--oa-surface);border-radius:var(--oa-radius);box-shadow:var(--oa-shadow);padding:16px;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:12px;border-left:4px solid var(--oa-blue);position:relative}
 .pc:hover{transform:translateY(-2px);box-shadow:var(--oa-shadow-lg)}
 .pc[data-status="listed"]{opacity:.6}.pc[data-status="rejected"]{opacity:.4}
 .badge-new{position:absolute;top:12px;right:12px;padding:3px 8px;border-radius:8px;font-size:10.5px;font-weight:700;background:var(--oa-green);color:var(--oa-surface)}
@@ -1205,7 +1205,7 @@ body{font-family:var(--oa-font);background:var(--oa-bg);color:var(--oa-text);lin
 .kanban-card .kc-btn.primary:hover{opacity:.85}
 .kanban-card .kc-btn.danger{color:var(--oa-red);border-color:var(--oa-red-soft)}
 .kanban-card .kc-btn.danger:hover{background:var(--oa-red-soft)}
-.kanban-empty{border:2px dashed var(--oa-border-2);border-radius:var(--oa-radius-sm);padding:24px;text-align:center;color:var(--oa-sub);font-size:var(--oa-font-size-body)}
+.kanban-empty{border:2px dashed var(--oa-border-2);border-radius:var(--oa-radius-sm);padding:16px;text-align:center;color:var(--oa-sub);font-size:var(--oa-font-size-body)}
 
 /* ===== SEARCH OVERLAY ===== */
 .search-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:9999;justify-content:center;padding-top:15vh;backdrop-filter:blur(4px)}
