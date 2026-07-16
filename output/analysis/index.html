@@ -83,25 +83,25 @@ function filterTable() {
 </script>
 </head><body>
 <div class="oa-container">
-  <div class="hero" style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end">
-  <div class="hero-main" style="min-width:0">
-    <div class="hero-headline" style="display:flex;gap:14px;align-items:center">
-      <div class="hero-logo" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #d2d2d7;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.06);flex-shrink:0;color:#1c1c1e">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12a9 9 0 1 1-3-6.7L21 8"/>
-          <polyline points="21 3 21 8 16 8"/>
-          <path d="M3 12a9 9 0 1 0 3 6.7L3 16"/>
-          <polyline points="3 21 3 16 8 16"/>
-        </svg>
-      </div>
-      <div style="min-width:0">
-        <p class="hero-tag" style="margin:0;font-size:12px;color:#6e6e73">RESTOCK TRACKING · SKU</p>
-        <h1 style="margin:6px 0 0;font-size:24px;line-height:1.2">补货跟进</h1>
-        <p class="hero-sub" style="margin:12px 0 0;color:#6e6e73;font-size:15px;line-height:1.6">30 个SKU需补货 · 分析日期: 2026-07-16 17:47 · 数据来源: 领星ERP 近7天</p>
+  <header class="hero" id="sectionTop">
+    <div class="hero-main">
+      <div class="hero-headline">
+        <div class="hero-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 1 1-3-6.7L21 8"/>
+            <polyline points="21 3 21 8 16 8"/>
+            <path d="M3 12a9 9 0 1 0 3 6.7L3 16"/>
+            <polyline points="3 21 3 16 8 16"/>
+          </svg>
+        </div>
+        <div>
+          <p class="hero-tag">RESTOCK TRACKING · SKU</p>
+          <h1>补货跟进</h1>
+          <p class="hero-sub">30 个SKU需补货 · 分析日期: 2026-07-16 18:07 · 数据来源: 领星ERP 近7天</p>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </header>
 
   <div class="filter-bar">
     <div class="oa-tabs"><span class="oa-tab active" onclick="filterByStore('all',this)">全部</span><span class="oa-tab" onclick="filterByStore('007',this)">007店</span><span class="oa-tab" onclick="filterByStore('027',this)">027店</span></div>
@@ -130,7 +130,7 @@ function filterTable() {
           <td>4.0%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>51件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>2</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -143,7 +143,7 @@ function filterTable() {
           <td>4.6%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>183件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>3</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -156,7 +156,7 @@ function filterTable() {
           <td>22.2%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>70件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>4</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -169,7 +169,7 @@ function filterTable() {
           <td>10.9%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>36件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>5</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -182,7 +182,7 @@ function filterTable() {
           <td>19.6%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>44件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="urgent-row">
           <td>6</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -195,7 +195,7 @@ function filterTable() {
           <td>45.5%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>180件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="urgent-row">
           <td>7</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -208,7 +208,7 @@ function filterTable() {
           <td>9.9%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>72件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>8</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -221,7 +221,7 @@ function filterTable() {
           <td>20.5%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>145件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>9</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -234,7 +234,7 @@ function filterTable() {
           <td>39.6%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>120件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="urgent-row">
           <td>10</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -247,7 +247,7 @@ function filterTable() {
           <td>15.4%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>116件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>11</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -260,7 +260,7 @@ function filterTable() {
           <td>17.7%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>364件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>12</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -273,7 +273,7 @@ function filterTable() {
           <td>30.4%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>50件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="urgent-row">
           <td>13</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -286,7 +286,7 @@ function filterTable() {
           <td>34.4%</td>
           <td><span class="transport-badge transport-emergency">🔴 紧急空运</span></td>
           <td>50件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="urgent-row">
           <td>14</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -299,7 +299,7 @@ function filterTable() {
           <td>10.3%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>44件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="urgent-row">
           <td>15</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -312,7 +312,7 @@ function filterTable() {
           <td>20.9%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>95件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="watch-row">
           <td>16</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -325,7 +325,7 @@ function filterTable() {
           <td>26.0%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>56件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="watch-row">
           <td>17</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -338,7 +338,7 @@ function filterTable() {
           <td>14.3%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>30件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="watch-row">
           <td>18</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -351,7 +351,7 @@ function filterTable() {
           <td>3.3%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>39件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="watch-row">
           <td>19</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -364,7 +364,7 @@ function filterTable() {
           <td>8.3%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>60件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="watch-row">
           <td>20</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -377,7 +377,7 @@ function filterTable() {
           <td>7.7%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>30件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="watch-row">
           <td>21</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -390,7 +390,7 @@ function filterTable() {
           <td>10.6%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>44件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="watch-row">
           <td>22</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -403,7 +403,7 @@ function filterTable() {
           <td>63.9%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>35件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="steady-row">
           <td>23</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -416,7 +416,7 @@ function filterTable() {
           <td>33.0%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>145件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="steady-row">
           <td>24</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -429,7 +429,7 @@ function filterTable() {
           <td>24.2%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>665件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="steady-row">
           <td>25</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -442,7 +442,7 @@ function filterTable() {
           <td>38.3%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>715件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="steady-row">
           <td>26</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -455,7 +455,7 @@ function filterTable() {
           <td>3.1%</td>
           <td><span class="transport-badge transport-air">🟡 空运</span></td>
           <td>42件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="steady-row">
           <td>27</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -468,7 +468,7 @@ function filterTable() {
           <td>13.9%</td>
           <td><span class="transport-badge transport-land">✅ 卡航/快铁</span></td>
           <td>30件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="007" class="steady-row">
           <td>28</td>
           <td><span class="store-badge store-badge-007">007</span></td>
@@ -481,7 +481,7 @@ function filterTable() {
           <td>11.4%</td>
           <td><span class="transport-badge transport-land">✅ 卡航/快铁</span></td>
           <td>200件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="steady-row">
           <td>29</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -494,7 +494,7 @@ function filterTable() {
           <td>22.2%</td>
           <td><span class="transport-badge transport-land">✅ 卡航/快铁</span></td>
           <td>50件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr><tr data-store="027" class="steady-row">
           <td>30</td>
           <td><span class="store-badge store-badge-027">027</span></td>
@@ -507,7 +507,7 @@ function filterTable() {
           <td>27.7%</td>
           <td><span class="transport-badge transport-land">✅ 卡航/快铁</span></td>
           <td>35件</td>
-          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 17:47</td>
+          <td class="hide-mobile" style="font-size:12px;color:var(--sub)">2026-07-16 18:07</td>
         </tr></tbody>
       </table>
     </div>
