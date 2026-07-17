@@ -10063,7 +10063,7 @@ function renderDiscovery() {
         if (kwParts.length >= 2 && typeof RADAR_ALL !== 'undefined' && curDate) {
           const radarData = RADAR_ALL[curDate];
           if (radarData && radarData.products) {
-            const genericWords = ['reusable','portable','new','foldable','adjustable','lightweight','durable','easy','large','small','medium','extra','premium','universal','compact','strong','soft','perfect','great','super','best','high','quality','multi','value','piece','garden','plant','tray','brush','cleaning','cooling','cover','strap','seat','balls','label','pail','basket','organiser','drawer','bottle'];
+            const genericWords = ['reusable','portable','new','foldable','adjustable','lightweight','durable','easy','large','small','medium','extra','premium','universal','compact','strong','soft','perfect','great','super','best','high','quality','multi','value','piece','garden','plant','tray','brush','cleaning','cooling','cover','strap','seat','balls','label','pail','basket','organiser','drawer','bottle','hand'];
             const minMatches = Math.max(2, Math.ceil(kwParts.length * 0.75));
             const matched = radarData.products.filter(p => {
               const name = (p.name || '').toLowerCase();
