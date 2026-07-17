@@ -1,41 +1,41 @@
 [
   {
     "asin": "B0H5QJBXLV",
-    "bsr_rank": 53322,
+    "bsr_rank": 55599,
     "bsr_category": "DIY & Tools",
-    "bsr_sub_rank": 227,
+    "bsr_sub_rank": 241,
     "bsr_sub_category": "Bath & Shower Systems",
-    "reviews": null,
-    "rating": 4.5,
-    "image_url": "https://m.media-amazon.com/images/I/51H0KIGay9L._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
+    "reviews": 39,
+    "rating": 4.6,
+    "image_url": "https://m.media-amazon.com/images/I/61JMNAdR01L._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
     "title": "High Pressure Handheld Shower Head with No Drill Shower Holder, Black | 5 Spray Modes Shower Head, Wall Mount Adhesive Shower Bracket, Water Saving Shower for Low Water Pressure Bathrooms",
     "price": 20.0,
-    "scraped_at": "2026-07-16T14:09:50.372330"
+    "scraped_at": "2026-07-17T09:18:20.530842"
   },
   {
     "asin": "B0H7BF1NLJ",
-    "bsr_rank": 35762,
+    "bsr_rank": 39454,
     "bsr_category": "DIY & Tools",
-    "bsr_sub_rank": 151,
+    "bsr_sub_rank": 175,
     "bsr_sub_category": "Bath & Shower Systems",
-    "reviews": 2644,
-    "rating": 4.3,
-    "image_url": "https://m.media-amazon.com/images/I/61SVAoEgdVL._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
+    "reviews": 2221,
+    "rating": 4.0,
+    "image_url": "https://m.media-amazon.com/images/I/61f6QOsJKlL._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
     "title": "Shower Head Holder, 45° Rotatable No Drill Wall Mount Bracket with Hook | Heavy Duty Adhesive, Quick Stick-On Installation | Water Resistant Anti-Rust Shower Bracket with Side Hook (Black)",
     "price": 8.32,
-    "scraped_at": "2026-07-16T14:09:50.374472"
+    "scraped_at": "2026-07-17T09:18:20.531830"
   },
   {
     "asin": "B0H7B5CDBJ",
-    "bsr_rank": 42273,
+    "bsr_rank": 45364,
     "bsr_category": "DIY & Tools",
-    "bsr_sub_rank": 182,
+    "bsr_sub_rank": 199,
     "bsr_sub_category": "Bath & Shower Systems",
-    "reviews": 4580,
-    "rating": 4.0,
+    "reviews": 2221,
+    "rating": 4.6,
     "image_url": "https://m.media-amazon.com/images/I/51H0KIGay9L._AC_PT0_BL0_SX490_SY275_FMwebp_QL25_.jpg\\&quot;",
     "title": "Shower Head Holder, 45° Rotatable No Drill Wall Mount Bracket with Hook | Heavy Duty Adhesive, Quick Stick-On Installation | Water Resistant Anti-Rust Shower Bracket with Side Hook (Gray)",
-    "price": 8.32,
-    "scraped_at": "2026-07-16T14:09:50.375095"
+    "price": 34.0,
+    "scraped_at": "2026-07-17T09:18:20.532295"
   }
 ]
