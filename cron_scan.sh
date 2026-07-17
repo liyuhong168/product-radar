@@ -1,20 +1,20 @@
 #!/bin/bash
 set -a; source /home/lee/.hermes/.env; set +a
-export SCRAPER_APIKEY=***
-export SCRAPER_API_KEY="$SCRAPER_APIKEY"  # Fix: Python reads SCRAPER_API_KEY (with underscore)
 # Product Radar Daily Scan - Cron wrapper
+# Credentials read from .env (SCRAPER_API_KEY, GITHUB_TOKEN)
 # Runs scan + BSR enrichment + platform generation + deploy
 set -e
-cd /home/lee/product-radar
+cd "$(dirname "$0")"
 
-# Step 0: 同步代码到 GitHub 最新（防止 Hermes 推送旧版本覆盖优化）
+# Step 0: 同步代码到 GitHub 最新（安全方式，保留本地产物）
 git fetch origin
- git reset --hard origin/main
+git stash push -m "auto-scan-pre-sync" 2>/dev/null || true
+git pull --rebase --autostash origin main 2>/dev/null || git merge --ff-only origin/main 2>/dev/null || true
 
 # All detail goes to log file; cron only sees the one-line result
-LOG="/home/lee/product-radar/logs/cron_$(date '+%Y%m%d_%H%M%S').log"
-mkdir -p /home/lee/product-radar/logs
-find /home/lee/product-radar/logs -name "cron_*.log" -mtime +7 -delete 2>/dev/null
+LOG="$PWD/logs/cron_$(date '+%Y%m%d_%H%M%S').log"
+mkdir -p "$PWD/logs"
+find "$PWD/logs" -name "cron_*.log" -mtime +7 -delete 2>/dev/null
 
 {
 echo "🔍 选品雷达自动扫描 | $(date '+%Y-%m-%d %H:%M')"

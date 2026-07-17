@@ -319,6 +319,27 @@ def _dedicated_browser_search(search_url, browser):
         return ""
 
 
+def _keyword_cloak_fetch(search_url, browser):
+    """Search Amazon using CloakBrowser — direct s?k= navigation, no form submission needed.
+    Reuses the pre-warmed browser across calls.
+    """
+    try:
+        ctx = browser.new_context(
+            locale='en-GB', timezone_id='Europe/London',
+        )
+        page = ctx.new_page()
+        try:
+            page.goto(search_url, timeout=30000, wait_until='domcontentloaded')
+            page.wait_for_timeout(3000)
+            html = page.content()
+            return html
+        finally:
+            page.close()
+    except Exception as e:
+        print(f"  cloak fetch error: {e}", file=sys.stderr)
+        return ""
+
+
 def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_kw=10, max_reviews=200):
     """Run keyword-based scan from discovery + festival sources.
 
@@ -342,14 +363,11 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
 
     print(f"\n🔑 Keyword Scan: {len(disc_kws)} discovery + {len(fest_kws)} festival keywords", file=sys.stderr)
 
-    # Launch dedicated browser
-    from sources.amazon_uk import CLOAKBROWSER_CHROME
-    import os
+    # Launch dedicated browser via CloakBrowser
     browser = None
     try:
-        from playwright.sync_api import sync_playwright
-        p = sync_playwright().start()
-        browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
+        from cloakbrowser import launch as cloak_launch
+        browser = cloak_launch(headless=True)
 
         # Now search all keywords with the warmed browser
         all_products = []
@@ -362,7 +380,7 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
             print(f"  🔍 [{source}] {keyword}...", file=sys.stderr, end="")
             search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
 
-            html = _dedicated_browser_search(search_url, browser)
+            html = _keyword_cloak_fetch(search_url, browser)
             if not html or len(html) < 2000:
                 print(" → blocked/empty", file=sys.stderr)
                 continue

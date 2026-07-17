@@ -2,9 +2,12 @@
 """Resolve git merge conflicts in analysis/index.html and oa-theme.css by keeping the radar-style layout."""
 
 import re
+from pathlib import Path
+
+BASE = Path(__file__).parent
 
 # --- Fix analysis/index.html ---
-path = "/home/lee/product-radar/output/analysis/index.html"
+path = BASE / "output/analysis/index.html"
 with open(path, encoding='utf-8') as f:
     html = f.read()
 
@@ -129,7 +132,7 @@ else:
     print("⚠️ No changes")
 
 # --- Fix shared/oa-theme.css ---
-css_path = "/home/lee/product-radar/shared/oa-theme.css"
+css_path = BASE / "shared/oa-theme.css"
 with open(css_path, encoding='utf-8') as f:
     css = f.read()
 

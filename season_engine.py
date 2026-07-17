@@ -70,7 +70,7 @@ UK_EVENTS = [
     {
         "event_name": "British Summer Time Begins",
         "month": 3, "day": 29,  # Last Sunday of March
-        "recommended_categories": ["garden tools", "outdoor lighting", "solar lights"],
+        "recommended_categories": ["garden tools", "garden decor", "plant pots"],
         "notes": "Clocks go forward, evenings get lighter",
     },
 
@@ -93,7 +93,7 @@ UK_EVENTS = [
     {
         "event_name": "Early May Bank Holiday",
         "month": 5, "day": 4,
-        "recommended_categories": ["garden tools", "BBQ accessories", "outdoor lighting", "picnic items"],
+        "recommended_categories": ["garden tools", "BBQ accessories", "garden decor", "picnic items"],
         "notes": "3-day weekend, garden/BBQ season kicks off",
     },
     {
@@ -126,7 +126,7 @@ UK_EVENTS = [
     {
         "event_name": "Glastonbury / Festival Season",
         "month": 6, "day": 24,
-        "recommended_categories": ["camping accessories", "outdoor gear", "festival accessories", "solar lights"],
+        "recommended_categories": ["camping accessories", "outdoor gear", "festival accessories", "travel accessories"],
         "notes": "Festival season drives camping and outdoor purchases",
     },
 
@@ -195,7 +195,7 @@ UK_EVENTS = [
         "event_name": "Autumn Gardening",
         "month": 10, "day": 10,
         "recommended_categories": ["garden tools", "leaf clearance", "compost bins",
-                                    "bird feeders", "outdoor lighting"],
+                                    "bird feeders", "garden decor"],
         "notes": "Autumn garden prep — leaf tools, bird feeding, winter prep",
     },
 
@@ -204,7 +204,7 @@ UK_EVENTS = [
         "event_name": "Bonfire Night",
         "month": 11, "day": 5,
         "recommended_categories": ["outdoor accessories", "blankets", "flasks",
-                                    "party supplies", "outdoor lighting"],
+                                    "party supplies", "blankets"],
         "notes": "Nov 5 — outdoor event accessories, warm items",
     },
     {
@@ -218,7 +218,7 @@ UK_EVENTS = [
         "event_name": "Christmas Prep Begins",
         "month": 11, "day": 1,
         "recommended_categories": ["Christmas decorations", "gift items", "party supplies",
-                                    "kitchen gadgets", "candles", "fairy lights"],
+                                    "kitchen gadgets", "candles", "tinsel garlands"],
         "notes": "Christmas shopping season starts. FBA extremely congested.",
     },
 
@@ -400,8 +400,8 @@ def get_seasonal_keywords():
             "home decor", "storage solutions", "mothers day gift"],
         4: ["garden accessories", "easter decoration", "outdoor tools",
             "kitchen gadgets", "party supplies", "cleaning supplies"],
-        5: ["garden tools", "BBQ accessories", "outdoor lighting",
-            "plant pots", "picnic items", "solar garden light"],
+        5: ["garden tools", "BBQ accessories", "garden decor",
+            "plant pots", "picnic items", "outdoor cushions"],
         6: ["travel accessories", "car cleaning", "outdoor gadgets",
             "water bottle", "picnic set", "camping accessories",
             "fathers day gift"],
@@ -413,8 +413,8 @@ def get_seasonal_keywords():
         9: ["kitchen gadgets", "autumn decor", "desk accessories",
             "storage organiser", "candles", "university essentials"],
         10: ["halloween decoration", "autumn garden tools", "party supplies",
-             "candles", "outdoor lighting", "bird feeder"],
-        11: ["christmas decoration", "gift ideas", "fairy lights",
+             "candles", "bird feeder", "bird accessories"],
+        11: ["christmas decoration", "gift ideas", "tinsel garlands",
              "party supplies", "kitchen gadgets", "blanket throw",
              "black friday deals"],
         12: ["christmas gifts", "party supplies", "storage organiser",

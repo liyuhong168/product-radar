@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.expanduser("~/.hermes/scripts"))
 from selection_feishu import get_token, create_doc, push_post, push_link
 
 CHAT_ID = "oc_906e4db2810734d00495230b55f23711"
-RADAR_DIR = Path("/home/lee/product-radar")
+RADAR_DIR = Path(__file__).parent
 
 def find_latest_json():
     """找到最新的扫描JSON（非rejected、非trends）"""

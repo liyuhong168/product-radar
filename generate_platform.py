@@ -196,6 +196,12 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
 
     # Serialize to JSON for embedding
     radar_json = json.dumps(radar_js, ensure_ascii=False)
+
+    # Write RADAR_ALL to separate JS file (reduce HTML from 1.45MB to ~630KB)
+    radar_js_path = BASE / 'output' / 'data' / 'radar-all.js'
+    radar_js_path.parent.mkdir(parents=True, exist_ok=True)
+    radar_js_path.write_text(f'window.RADAR_ALL = {radar_json};', encoding='utf-8')
+
     discovery_json = json.dumps(discovery_js, ensure_ascii=False)
     dates_json = json.dumps(all_dates, ensure_ascii=False)
     radar_dates_json = json.dumps(radar_dates, ensure_ascii=False)
@@ -266,6 +272,12 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
         print(f"⚠️ festivals load failed: {e}", file=sys.stderr)
 
     _load_errors_json = json.dumps(_load_errors, ensure_ascii=False)
+
+    # Write DISC_ALL and FESTIVALS to separate JS files (reduce HTML size)
+    disc_js_path = BASE / 'output' / 'data' / 'disc-all.js'
+    disc_js_path.write_text(f'window.DISC_ALL = {discovery_json};', encoding='utf-8')
+    fest_js_path = BASE / 'output' / 'data' / 'festivals.js'
+    fest_js_path.write_text(f'window.FESTIVALS = {festivals_json};', encoding='utf-8')
 
     # Phase 2.4: 读取看板注入配置（从 config.json）
     _default_inject = {"enabled": True, "festival": {"max_per_event": 3, "days_ahead": 30, "sea_deadline_days": 77}, "discovery": {"max_keywords": 5}, "radar": {"max_products": 10, "new_only": True}}
@@ -382,9 +394,10 @@ def generate_platform_html(radar_all=None, discovery_all=None, output_path=None)
   </div>
 </div>
 
+<script src="data/radar-all.js"></script>
+<script src="data/disc-all.js"></script>
+<script src="data/festivals.js"></script>
 <script>
-const RADAR_ALL = {radar_json};
-const DISC_ALL = {discovery_json};
 const DATES = {dates_json};
 const RADAR_DATES = {radar_dates_json};
 const DISC_DATES = {discovery_dates_json};
@@ -394,7 +407,6 @@ const SEASON_EVENTS = {season_json};
 const METRICS = {metrics_json};
 const SEARCH_INDEX = {search_json};
 const KANBAN_COLS = {kanban_json};
-const FESTIVALS = {festivals_json};
 const INJECT_CFG = {inject_json};
 const SK = 'pp_v3_status';
 const OLD_SK = 'productRadar_v2_status';
@@ -592,26 +604,32 @@ function renderDiscovery() {{
     const compHtml = ins.competition ? `<div class="comp-box"><div class="label">📊 竞争格局</div><div class="text">${{esc(ins.competition)}}</div></div>` : '';
 
     // Radar cross-validation: find matching radar products
-    let radarHtml = '';
-    const kwLower = (ins.keyword || '').toLowerCase();
-    const kwParts = kwLower.split(/\\s+/).filter(w => w.length >= 4);
-    if (typeof RADAR_ALL !== 'undefined' && curDate) {{
-      const radarData = RADAR_ALL[curDate];
-      if (radarData && radarData.products) {{
-        const matched = radarData.products.filter(p => {{
-          const name = (p.name || '').toLowerCase();
-          return kwParts.some(part => name.includes(part));
-        }});
-        if (matched.length > 0) {{
-          radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${{matched.length}}个产品）</div>` +
-            matched.map(p => {{
-              const reviews = p.reviews || 0;
-              const ocean = reviews < 20 ? '🌊蓝海' : reviews <= 50 ? '🟢低竞争' : '🟡中等';
-              return `<div class="radar-product">✅ ${{esc((p.name||'').substring(0,45))}} — £${{(p.price||0).toFixed(2)}} | ${{reviews}}评论 ${{ocean}} | 利润率${{((p.profit_margin||0)*100).toFixed(0)}}%</div>`;
-            }}).join('') + `</div>`;
+        let radarHtml = '';
+        const kwLower = (ins.keyword || '').toLowerCase();
+        // Split on space, filter words >= 4 chars
+        const kwParts = kwLower.split(' ').filter(w => w.length >= 4);
+        if (kwParts.length >= 2 && typeof RADAR_ALL !== 'undefined' && curDate) {{
+          const radarData = RADAR_ALL[curDate];
+          if (radarData && radarData.products) {{
+            const genericWords = ['reusable','portable','new','foldable','adjustable','lightweight','durable','easy','large','small','medium','extra','premium','universal','compact','strong','soft','perfect','great','super','best','high','quality','multi','value','piece','garden','plant','tray','brush','cleaning','cooling','cover','strap','seat','balls','label','pail','basket','organiser','drawer','bottle','hand'];
+            const minMatches = Math.max(2, Math.ceil(kwParts.length * 0.75));
+            const matched = radarData.products.filter(p => {{
+              const name = (p.name || '').toLowerCase();
+              const hits = kwParts.filter(part => name.includes(part));
+              if (hits.length < minMatches) return false;
+              const distinct = hits.filter(h => !genericWords.includes(h));
+              return distinct.length >= 1;
+            }});
+            if (matched.length > 0) {{
+              radarHtml = `<div class="radar-match"><div class="label">📡 雷达验证（已找到${{matched.length}}个产品）</div>` +
+                matched.map(p => {{
+                  const reviews = p.reviews || 0;
+                  const ocean = reviews < 20 ? '🌊蓝海' : reviews <= 50 ? '🟢低竞争' : '🟡中等';
+                  return `<div class="radar-product">✅ ${{esc((p.name||'').substring(0,45))}} — £${{(p.price||0).toFixed(2)}} | ${{reviews}}评论 ${{ocean}} | 利润率${{((p.profit_margin||0)*100).toFixed(0)}}%</div>`;
+                }}).join('') + `</div>`;
+            }}
+          }}
         }}
-      }}
-    }}
 
     return `<div class="insight-card" data-idx="${{idx}}">
       <div class="insight-hd" onclick="this.parentElement.classList.toggle('open')">

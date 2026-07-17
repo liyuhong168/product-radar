@@ -1,0 +1,20 @@
+# Amazon Product Radar - Python dependencies
+# Install: pip install -r requirements.txt
+
+# HTTP & API
+requests>=2.31.0
+urllib3>=2.0.0
+
+# Web scraping
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+curl_cffi>=0.6.0
+
+# Browser automation (for anti-bot scraping)
+playwright>=1.40.0
+
+# Optional: Playwright stealth mode
+playwright-stealth>=2.0.0
+
+# Note: playwright requires browser install:
+#   playwright install chromium

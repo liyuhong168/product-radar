@@ -8,12 +8,20 @@ REPO = 'liyuhong168/product-radar'
 BRANCH = 'main'
 
 def get_token():
-    with open(os.path.expanduser('~/.git-credentials')) as f:
-        return f.read().strip().split('ghp_')[1].split('@')[0]
+    """Read GitHub token from environment (set in .env, sourced by cron)"""
+    token = os.environ.get("GITHUB_TOKEN", "")
+    if token:
+        return token
+    # Fallback: read from file (not from git-tracked credentials)
+    token_file = os.path.expanduser("~/.hermes/github_token.txt")
+    if os.path.exists(token_file):
+        with open(token_file) as f:
+            return f.read().strip()
+    raise RuntimeError("GITHUB_TOKEN not set in environment or ~/.hermes/github_token.txt")
 
 def api(method, path, data=None):
     token = get_token()
-    headers = {'Authorization': f'token ghp_{token}', 'Content-Type': 'application/json', 'User-Agent': 'hermes'}
+    headers = {'Authorization': f'token {token}', 'Content-Type': 'application/json', 'User-Agent': 'hermes'}
     body = json.dumps(data).encode() if data else None
     req = urllib.request.Request(f'https://api.github.com{path}', headers=headers, data=body)
     if method != 'POST':
@@ -65,22 +73,22 @@ def _upload_batch(batch):
     return items
 
 if __name__ == '__main__':
-    base = '/home/lee/product-radar'
+    base = os.path.dirname(os.path.abspath(__file__))
     files = []
 
     import glob
-    for subdir in ('data/channels', 'data/history', 'data/discovery', 'output'):
+    for subdir in ('data/channels', 'data/history', 'data/discovery', 'output', 'output/data'):
         full = os.path.join(base, subdir)
         if not os.path.isdir(full):
             continue
         all_files = sorted(os.listdir(full))
         for f in all_files[-12:]:
-            if not f.endswith('.json') and not f.endswith('.html'):
+            if not f.endswith('.json') and not f.endswith('.html') and not f.endswith('.js'):
                 continue
             files.append((f'{subdir}/{f}', os.path.join(full, f)))
 
     # Always-push files
-    for f in ('output/platform.html', 'output/index.html', 'status.json'):
+    for f in ('output/platform.html', 'output/index.html', 'output/data/radar-all.js', 'output/data/disc-all.js', 'output/data/festivals.js', 'status.json'):
         fp = os.path.join(base, f)
         if os.path.exists(fp):
             files.append((f, fp))

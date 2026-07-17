@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from collections import Counter
 
-DATA_DIR = Path("/home/lee/product-radar/data")
+DATA_DIR = Path(__file__).parent / "data"
 DISCOVERY_DIR = DATA_DIR / "discovery"
 CHANNELS_DIR = DATA_DIR / "channels"
 

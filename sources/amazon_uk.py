@@ -358,9 +358,28 @@ def _parse_amazon_page(html, category, channel_type):
         if img_match:
             img_url = img_match.group(1)
 
-        # Extract price in this block
-        price_match = re.search(r'£(\d+\.\d{2})', block)
-        price = float(price_match.group(1)) if price_match else 0
+        # Extract price — handle multiple formats (CloakBrowser returns different HTML)
+        price = 0
+        # Format 1: £ symbol (old HTML)
+        price_match = re.search(r'[££]([\d,.]+)', block)
+        # Format 2: data-csa-c-price-to-pay attribute
+        if not price_match:
+            price_match = re.search(r'data-csa-c-price-to-pay="([\d.]+)"', block)
+        # Format 3: a-offscreen span
+        if not price_match:
+            price_match = re.search(r'class="a-offscreen"[^>]*>([££][\d.]+)', block)
+        # Format 4: a-price-whole + a-price-fraction
+        if not price_match:
+            whole = re.search(r'class="a-price-whole"[^>]*>([\d]+)', block)
+            frac = re.search(r'class="a-price-fraction"[^>]*>([\d]+)', block)
+            if whole and frac:
+                price = float(f"{whole.group(1)}.{frac.group(1)}")
+        if price_match:
+            price_str = price_match.group(1).replace('£', '').replace(',', '').strip()
+            try:
+                price = float(price_str)
+            except ValueError:
+                price = 0
 
         # Extract review count in this block
         review_match = re.search(r'>(\d[\d,]*)</span>\s*</a>', block)
