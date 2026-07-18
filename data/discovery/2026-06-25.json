@@ -1,0 +1,113 @@
+{
+  "scan_date": "2026-06-25",
+  "scan_time": "11:00",
+  "trend_forecast": "Amazon Prime Day 7月15日(20天后)即将到来，夏季度假季7月20日启动。厨房小工具、宠物用品、环保替代品持续走热。TikTok Shop UK美妆个护占主导但不在选品范围内，厨房/家居/宠物赛道竞争较低适合铺货。",
+  "insights": [
+    {
+      "keyword": "reusable metal straws set",
+      "keyword_cn": "不锈钢吸管套装",
+      "amazon_keyword": "reusable metal straws set stainless steel",
+      "search_1688": "不锈钢吸管套装 带刷子 帆布袋",
+      "demand_signals": ["Amazon's Choice标记", "月销1000+件", "4.7星102评价", "环保政策推动英国限塑令下需求持续增长"],
+      "trend_score": 62,
+      "trend_direction": "rising",
+      "reason": "英国2026年限塑政策持续收紧，一次性塑料吸管在餐饮渠道被大量替代。Amazon UK上该品类竞争者少(avg 4 reviews)，评分普遍4.5+说明品质易达标。16件套+2清洁刷+收纳袋的组合差异化明显。月销1K+且排名上升，说明需求真实。Prime Day前备货正当时。",
+      "action": "007店首发20件，Amazon搜索'reusable metal straws set'，1688搜索'不锈钢吸管套装 带刷子'，目标采购价¥4以内。建议16件套(8直8弯)+2刷+收纳袋组合，定价£7.99，利润率36%。",
+      "competition": "前5名平均review仅4条，售价£5.99-£9.99，竞争格局极度蓝海。Euqvunn品牌月销1K+为标杆但review积累不深，新卖家易切入。",
+      "signal_scores": {
+        "trend": 62,
+        "gap": 95,
+        "profit": 55,
+        "final": 62,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥4以内采购可保36%利润率"
+      }
+    },
+    {
+      "keyword": "pet grooming brush deshedding",
+      "keyword_cn": "宠物去浮毛梳",
+      "amazon_keyword": "pet grooming brush deshedding tool dog cat",
+      "search_1688": "宠物梳毛器 去浮毛 猫狗通用",
+      "demand_signals": ["Amazon UK宠物美容Best Seller品类", "TikTok宠物内容持续增长", "夏季换毛季需求高峰", "信号评分73最高分"],
+      "trend_score": 62,
+      "trend_direction": "rising",
+      "reason": "6-8月是猫狗换毛高峰季，宠物去浮毛梳需求自然飙升。Amazon UK宠物品类佣金仅5%（vs家居15%），利润空间显著更大。信号融合评分73为本轮最高，三层信号均显示BUY。前5名review数低说明新品易突围。夏季备货窗口正好。",
+      "action": "027店首发20件，Amazon搜索'pet grooming brush deshedding'，1688搜索'宠物梳毛器 去浮毛'，目标采购价¥6以内。定价£6.99，宠物佣金5%，利润率39%为本轮最高。",
+      "competition": "前5名平均review数低，售价£5-£10区间，Fur Magic和MalsiPree为头部但review积累不深。双面设计(去毛+梳理)为差异化方向。",
+      "signal_scores": {
+        "trend": 62,
+        "gap": 95,
+        "profit": 55,
+        "final": 73,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥6以内采购可保39%利润率(宠物佣金5%)"
+      }
+    },
+    {
+      "keyword": "waffle weave dish cloths cotton",
+      "keyword_cn": "华夫格棉质抹布",
+      "amazon_keyword": "waffle weave dish cloths cotton kitchen",
+      "search_1688": "华夫格抹布 纯棉 厨房清洁布",
+      "demand_signals": ["Amazon Home & Kitchen新趋势品", "信号评分68", "allrecipes/EatingWell等媒体推荐带动搜索", "环保替代一次性纸巾趋势"],
+      "trend_score": 43,
+      "trend_direction": "stable",
+      "reason": "华夫格纹理棉布在欧美厨房清洁品类中是经典但持续增长的细分。媒体(Allrecipes/EatingWell)持续推荐带动搜索量。100%纯棉可机洗、不刮伤餐具的卖点明确。竞品review数少，新品易获BSR。定价£7.99利润率35%达标。",
+      "action": "007店首发20件，Amazon搜索'waffle weave dish cloths'，1688搜索'华夫格抹布 纯棉 厨房'，目标采购价¥5以内。建议4件套装，定价£7.99。",
+      "competition": "竞品数量少(avg 2 reviews)，售价£6-£12区间，差异化靠颜色组合和包装。Homaxy品牌为标杆但竞争壁垒低。",
+      "signal_scores": {
+        "trend": 43,
+        "gap": 95,
+        "profit": 55,
+        "final": 68,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥5以内采购可保35%利润率"
+      }
+    },
+    {
+      "keyword": "silicone food storage bags reusable",
+      "keyword_cn": "硅胶食品储存袋",
+      "amazon_keyword": "silicone food storage bags reusable freezer",
+      "search_1688": "硅胶食品储存袋 可重复使用 冷冻保鲜袋",
+      "demand_signals": ["Amazon 'must have'标签", "环保替代一次性保鲜袋趋势", "信号评分65", "与历史推荐beeswax wraps同赛道但形态不同"],
+      "trend_score": 32,
+      "trend_direction": "stable",
+      "reason": "硅胶食品储存袋是beeswax wraps(已推荐)的互补品，同一环保厨房赛道但形态完全不同。可反复使用数百次的卖点吸引环保消费者。定价£8.99时利润率36%。注意：与beeswax food wraps有部分客群重叠，但SKU形态差异大可并行铺货。",
+      "action": "007店首发20件，Amazon搜索'silicone food storage bags reusable'，1688搜索'硅胶食品储存袋 可重复使用'，目标采购价¥6以内。建议4件套装(不同尺寸)，定价£8.99。",
+      "competition": "前5名review数中等，售价£8-£15区间。竞争者以硅胶袋为主，可在密封设计和尺寸组合上做差异化。",
+      "signal_scores": {
+        "trend": 32,
+        "gap": 95,
+        "profit": 55,
+        "final": 65,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥6以内采购可保36%利润率"
+      }
+    },
+    {
+      "keyword": "mini cookie cutter set stainless steel",
+      "keyword_cn": "迷你不锈钢饼干模具套装",
+      "amazon_keyword": "mini cookie cutter set stainless steel shapes",
+      "search_1688": "迷你饼干模具 不锈钢 多形状套装",
+      "demand_signals": ["Amazon New Release推荐", "Allrecipes编辑推荐2026", "信号评分66", "烘焙品类持续增长"],
+      "trend_score": 35,
+      "trend_direction": "stable",
+      "reason": "烘焙小工具在Amazon UK持续有需求，mini cookie cutter以30件套+收纳盒的组合卖点强。Allrecipes等权威媒体2026年推荐带动搜索。定价仅£5.99为冲动消费价位，复购率高(送礼场景)。利润率30%略低但可通过批量采购压低成本。轻量小件FBA费友好。",
+      "action": "027店首发20件，Amazon搜索'mini cookie cutter set'，1688搜索'迷你饼干模具 不锈钢 多形状'，目标采购价¥3以内。30件套+收纳盒，定价£5.99。",
+      "competition": "竞品review少(avg 5)，售价£4-£8区间，30件套的规格组合形成一定壁垒。Kinice品牌为标杆但未形成垄断。",
+      "signal_scores": {
+        "trend": 35,
+        "gap": 95,
+        "profit": 55,
+        "final": 66,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "¥3以内采购可保30%利润率"
+      }
+    }
+  ],
+  "stats": {"total_scanned": 8, "passed_filter": 5}
+}

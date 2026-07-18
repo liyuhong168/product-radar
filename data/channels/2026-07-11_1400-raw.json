@@ -1,0 +1,86 @@
+{
+  "scan_date": "2026-07-11",
+  "scan_time": "14:00",
+  "scan_ts": "2026-07-11_1400",
+  "stats": {
+    "total_scanned": 5,
+    "passed": 0,
+    "sources": [
+      "amazon",
+      "keyword",
+      "tiktok"
+    ]
+  },
+  "products": [
+    {
+      "asin": "B0FHJ91JY5",
+      "name": "Ring Battery Video Doorbell (newest gen)| DIY Wireless Doorbell Camera | Retinal 2K | 6x Zoom | Non-removable Battery | ",
+      "price": 79.99,
+      "reviews": 1840,
+      "rating": 4.2,
+      "rank": 1,
+      "category": "DIY",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "1840 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FHJ91JY5",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51EXJesihpL._AC_UL300_SR300,200_.jpg"
+    },
+    {
+      "asin": "B0974YCZ3C",
+      "name": "Hippo Hardware M8 (8mm X 100mm) Socket Cap Screw Hex Head Allen Bolts A2 Stainless Steel (Pack of 10)",
+      "price": 15.66,
+      "reviews": 254,
+      "rating": 4.6,
+      "rank": 2,
+      "category": "DIY",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "254 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0974YCZ3C",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71yv-FvdbzL._AC_UL300_SR300,200_.jpg"
+    },
+    {
+      "asin": "B0CQD5M6NV",
+      "name": "WENT Magnetic Fly Screen Door 140x210 cm, Hundreds of Sizes, Insect Screen No Drilling Required, Suitable for Balcony, T",
+      "price": 14.99,
+      "reviews": 3832,
+      "rating": 4.6,
+      "rank": 3,
+      "category": "DIY",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "3832 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CQD5M6NV",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/817wanud-7L._AC_UL300_SR300,200_.jpg"
+    },
+    {
+      "asin": "B018Y08EBY",
+      "name": "Shabby Chic Chalk Based Furniture Paint, Antique Gold - 250 ml | Distressed Matt Finish for Furniture, Home Decor or DIY",
+      "price": 13.46,
+      "reviews": 7846,
+      "rating": 4.4,
+      "rank": 4,
+      "category": "DIY",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "7846 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B018Y08EBY",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71J5hxnlLXL._AC_UL300_SR300,200_.jpg"
+    },
+    {
+      "asin": "B09JZPYDC8",
+      "name": "Hippo Hardware M10 (10mm X 150mm) Coach Screws A2 Stainless Steel Hex Head Lag Bolts Wood Screw DIN 571 (Pack of 5)",
+      "price": 16.19,
+      "reviews": 162,
+      "rating": 4.4,
+      "rank": 5,
+      "category": "DIY",
+      "channel": "wished",
+      "channel_name": "Amazon心愿榜",
+      "review_info": "162 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B09JZPYDC8",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61dem1S0slL._AC_UL300_SR300,200_.jpg"
+    }
+  ]
+}

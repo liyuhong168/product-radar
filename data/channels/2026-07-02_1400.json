@@ -1,0 +1,995 @@
+{
+  "scan_date": "2026-07-02",
+  "scan_time": "14:00",
+  "scan_ts": "2026-07-02_1400",
+  "stats": {
+    "total_scanned": 10,
+    "passed_filter": 4,
+    "rejected": 6,
+    "channels": {
+      "temu_trending": 2,
+      "multi_source": 1,
+      "bsr": 1,
+      "etsy_trending": 1,
+      "new_releases": 3
+    },
+    "trend_categories": {
+      "lighting": 100,
+      "pets": 100,
+      "crafts": 100,
+      "phone": 100,
+      "kitchen": 79,
+      "car": 79
+    },
+    "supply_demand": {
+      "kitchen": {
+        "ratio": 0,
+        "demand": 79,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "car": {
+        "ratio": 0,
+        "demand": 79,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "lighting": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "pets": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "crafts": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "beauty": {
+        "ratio": 0,
+        "demand": 64,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "eco": {
+        "ratio": 0,
+        "demand": 51,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "seasonal": {
+        "ratio": 0,
+        "demand": 60,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      }
+    },
+    "divergences": {
+      "kitchen": {
+        "current_heat": 58,
+        "previous_heat": 94,
+        "heat_change_pct": -38.3,
+        "direction": "falling",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 14,
+        "previous_heat": 21,
+        "heat_change_pct": -33.3,
+        "direction": "falling",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "car": {
+        "current_heat": 51,
+        "previous_heat": 29,
+        "heat_change_pct": 75.9,
+        "direction": "rising",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "lighting": {
+        "current_heat": 79,
+        "previous_heat": 72,
+        "heat_change_pct": 9.7,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "pets": {
+        "current_heat": 72,
+        "previous_heat": 79,
+        "heat_change_pct": -8.9,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "sports": {
+        "current_heat": 21,
+        "previous_heat": 7,
+        "heat_change_pct": 200.0,
+        "direction": "rising",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "bedding": {
+        "current_heat": 7,
+        "previous_heat": 7,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "beauty": {
+        "current_heat": 36,
+        "previous_heat": 36,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "eco": {
+        "current_heat": 58,
+        "previous_heat": 58,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 36,
+        "previous_heat": 58,
+        "heat_change_pct": -37.9,
+        "direction": "falling",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "garden": {
+        "current_heat": 36,
+        "previous_heat": 21,
+        "heat_change_pct": 71.4,
+        "direction": "rising",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 51,
+        "previous_heat": 36,
+        "heat_change_pct": 41.7,
+        "direction": "rising",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "office": {
+        "current_heat": 51,
+        "previous_heat": 58,
+        "heat_change_pct": -12.1,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "travel": {
+        "current_heat": 21,
+        "previous_heat": 36,
+        "heat_change_pct": -41.7,
+        "direction": "falling",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "phone": {
+        "current_heat": 79,
+        "previous_heat": 29,
+        "heat_change_pct": 172.4,
+        "direction": "rising",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "home decor": {
+        "current_heat": 58,
+        "previous_heat": 72,
+        "heat_change_pct": -19.4,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 7,
+        "previous_heat": 7,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-01_1533",
+          "2026-07-02_0910"
+        ]
+      }
+    },
+    "gap_opportunities": 12
+  },
+  "products": [
+    {
+      "asin": "B0DKBV52GF",
+      "name": "bagsmart Electronics Organizer Travel Case, Cable Organiser Pouch, Travel Essentials, Tech Organiser, Travel Accessories",
+      "price": 8.32,
+      "reviews": 127,
+      "rating": 4.5,
+      "rank": 2,
+      "category": "Tech",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "127 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DKBV52GF",
+      "image_url": "https://m.media-amazon.com/images/I/81prtHknb0L._AC_UL320_.jpg",
+      "sources": [
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.291,
+      "net_profit": 2.42,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 1.25,
+        "fba": 1.46,
+        "ads": 0.83,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 5.9
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 104,
+      "score_breakdown": {
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🟠 中信号": 10,
+        "🔥 多源热门(crafts)": 21,
+        "🟡 中等竞争": 5,
+        "⭐ 高评分": 5,
+        "💰 较好利润": 4,
+        "❓ 品类存疑": -5,
+        "🌴 当季(summer)": 10,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-07-02",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "temu_trending",
+        "multi_source",
+        "bsr",
+        "etsy_trending"
+      ],
+      "bsr_rank": 1768,
+      "bsr_category": "Computers & Accessories",
+      "bsr_sub_rank": 6,
+      "bsr_sub_category": "Cable Organiser Bags",
+      "estimated_daily_sales": 84,
+      "monthly_revenue_est": 20966.4
+    },
+    {
+      "asin": "B0H5QJBXLV",
+      "name": "High Pressure Handheld Shower Head with No Drill Shower Holder, Black | 5 Spray Modes Shower Head, Wall Mount Adhesive S",
+      "price": 9.15,
+      "reviews": 0,
+      "rating": 3.8,
+      "rank": 2,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H5QJBXLV",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/513ZdNVPewL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销"
+      ],
+      "profit_margin": 0.316,
+      "net_profit": 2.89,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 1.37,
+        "fba": 1.46,
+        "ads": 0.92,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 6.26
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 83,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🛒 Temu": 8,
+        "🔥 热门品类(phone)": 15,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "✨ 新发现": 10
+      },
+      "stars": 4,
+      "is_new": true,
+      "first_seen": "2026-07-02",
+      "is_event": false,
+      "channel_tags": [
+        "temu_trending",
+        "new_releases"
+      ],
+      "bsr_rank": 72038,
+      "bsr_category": "DIY & Tools",
+      "bsr_sub_rank": 195,
+      "bsr_sub_category": "Bath & Shower Systems",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 274.5
+    },
+    {
+      "asin": "B0H71XX5XL",
+      "name": "Qualoramall Air Filter Covers and Filter Sets for St-ihl MS194T MS193T MS193TC Chainsaw Parts Replaces 1137-140-1903 113",
+      "price": 8.45,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 5,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H71XX5XL",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61B1ZH9kbVL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.296,
+      "net_profit": 2.5,
+      "cost_breakdown": {
+        "vat": 1.41,
+        "commission": 1.27,
+        "fba": 1.46,
+        "ads": 0.84,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 5.95
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 52,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "🔥 多源热门(crafts)": 21,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "📉 无需求信号": -15,
+        "✨ 新发现": 10
+      },
+      "stars": 2,
+      "is_new": true,
+      "first_seen": "2026-07-02",
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "bsr_rank": 64640,
+      "bsr_category": "Garden",
+      "bsr_sub_rank": null,
+      "bsr_sub_category": null,
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 253.5
+    },
+    {
+      "asin": "B0H5QDHDSN",
+      "name": "Shower Head and Hose Set with Bracket, Black, 5 Mode Spray | Includes 1.5m Hose & Drill-Free Bracket, Bathroom Accessori",
+      "price": 12.48,
+      "reviews": 0,
+      "rating": 4.4,
+      "rank": 4,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H5QDHDSN",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61dC8EgOpJL._AC_UL300_SR300,200_.jpg",
+      "profit_margin": 0.382,
+      "net_profit": 4.77,
+      "cost_breakdown": {
+        "vat": 2.08,
+        "commission": 1.87,
+        "fba": 1.46,
+        "ads": 1.25,
+        "returns": 0.25,
+        "sourcing": 0.8,
+        "total_cost": 7.71
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "none",
+      "signal_label": "⚪ 仅Amazon",
+      "external_sources": [],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 39,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "⚪ 仅Amazon": -10,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "📉 无需求信号": -15,
+        "✨ 新发现": 10
+      },
+      "stars": 1,
+      "is_new": true,
+      "first_seen": "2026-07-02",
+      "is_event": false,
+      "channel_tags": [
+        "new_releases"
+      ],
+      "bsr_rank": 97302,
+      "bsr_category": "DIY & Tools",
+      "bsr_sub_rank": 23,
+      "bsr_sub_category": "Shower Taps",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 374.4
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "lighting",
+      "category": "lighting",
+      "heat": 100,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "strip",
+        "light",
+        "lamp",
+        "led"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "LED strip",
+        "LED strip light",
+        "RGB strip",
+        "LED light",
+        "fairy lights",
+        "string lights",
+        "desk lamp",
+        "night light"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=LED+strip",
+      "url_google": "https://trends.google.com/trends/explore?q=LED+strip&geo=GB"
+    },
+    {
+      "keyword": "pets",
+      "category": "pets",
+      "heat": 100,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "cat",
+        "pet",
+        "bed"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "cat toy",
+        "cat bed",
+        "cat collar",
+        "cat scratcher",
+        "pet grooming",
+        "pet bed",
+        "pet feeder",
+        "dog bed"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=cat+toy",
+      "url_google": "https://trends.google.com/trends/explore?q=cat+toy&geo=GB"
+    },
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 100,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "art",
+        "craft",
+        "stickers"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "art supplies",
+        "paint set",
+        "drawing kit",
+        "craft knife",
+        "craft supplies",
+        "DIY craft kit",
+        "stickers"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=art+supplies",
+      "url_google": "https://trends.google.com/trends/explore?q=art+supplies&geo=GB"
+    },
+    {
+      "keyword": "kitchen",
+      "category": "kitchen",
+      "heat": 79,
+      "score": 71,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "kitchen",
+        "gadget"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "kitchen",
+        "gadget"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 79,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=kitchen",
+      "url_google": "https://trends.google.com/trends/explore?q=kitchen&geo=GB"
+    },
+    {
+      "keyword": "car",
+      "category": "car",
+      "heat": 79,
+      "score": 71,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "motor",
+        "car"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "motorcycle accessories",
+        "motorcycle cover",
+        "car accessories",
+        "car organizer",
+        "car phone holder"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 79,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=motorcycle+accessories",
+      "url_google": "https://trends.google.com/trends/explore?q=motorcycle+accessories&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 60,
+      "score": 65,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "gift"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "gift ideas",
+        "gift set",
+        "gift box"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 60,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=gift+ideas",
+      "url_google": "https://trends.google.com/trends/explore?q=gift+ideas&geo=GB"
+    },
+    {
+      "keyword": "office",
+      "category": "office",
+      "heat": 60,
+      "score": 65,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "pen",
+        "office",
+        "desk"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "pen holder",
+        "pen set",
+        "fountain pen",
+        "office supplies",
+        "desk organizer",
+        "desk lamp",
+        "desk mat"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 60,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=pen+holder",
+      "url_google": "https://trends.google.com/trends/explore?q=pen+holder&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 51,
+      "score": 62,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "sustainable",
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "sustainable products",
+        "eco friendly",
+        "eco products",
+        "reusable bag",
+        "bamboo products"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 51,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=sustainable+products",
+      "url_google": "https://trends.google.com/trends/explore?q=sustainable+products&geo=GB"
+    },
+    {
+      "keyword": "phone",
+      "category": "phone",
+      "heat": 100,
+      "score": 60,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "holder",
+        "phone",
+        "earbuds",
+        "case",
+        "cable"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "holder",
+        "phone case",
+        "phone holder",
+        "phone stand",
+        "earbuds case",
+        "wireless earbuds",
+        "case",
+        "charging cable"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=holder",
+      "url_google": "https://trends.google.com/trends/explore?q=holder&geo=GB"
+    },
+    {
+      "keyword": "travel",
+      "category": "travel",
+      "heat": 42,
+      "score": 59,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "travel",
+        "toiletry"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "travel",
+        "toiletry"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 42,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=travel",
+      "url_google": "https://trends.google.com/trends/explore?q=travel&geo=GB"
+    },
+    {
+      "keyword": "beauty",
+      "category": "beauty",
+      "heat": 64,
+      "score": 51,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "hair",
+        "skincare",
+        "makeup",
+        "nail"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "hair clip",
+        "hair accessories",
+        "hair band",
+        "hair tie",
+        "face roller",
+        "gua sha",
+        "face mask",
+        "makeup brush set"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 64,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=hair+clip",
+      "url_google": "https://trends.google.com/trends/explore?q=hair+clip&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 45,
+      "score": 45,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "wall art",
+        "candle",
+        "decor"
+      ],
+      "is_cross_validated": false,
+      "cross_sources": 0,
+      "suggestions": [
+        "wall art print",
+        "wall hanging",
+        "wall decal",
+        "candle holder",
+        "scented candle",
+        "candle set",
+        "home decor",
+        "room decor"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 45,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=wall+art+print",
+      "url_google": "https://trends.google.com/trends/explore?q=wall+art+print&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "lighting",
+        100
+      ],
+      [
+        "pets",
+        100
+      ],
+      [
+        "crafts",
+        100
+      ],
+      [
+        "phone",
+        100
+      ],
+      [
+        "kitchen",
+        79
+      ],
+      [
+        "car",
+        79
+      ]
+    ],
+    "cross_validated": [
+      "kitchen",
+      "car",
+      "lighting",
+      "pets",
+      "crafts",
+      "eco",
+      "seasonal",
+      "office",
+      "travel"
+    ],
+    "demand_keywords": [
+      "beach bag,",
+      "creators excel at demonstrating texture",
+      "discover my favorite",
+      "home and",
+      "made me buy it",
+      "mini handheld fan usb charging",
+      "mini lightweight wireless earbuds",
+      "mini wireless lanyard speaker thumb",
+      "project hail mary",
+      "real market data on trending"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}

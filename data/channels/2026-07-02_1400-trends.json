@@ -1,0 +1,199 @@
+{
+  "category_scores": {
+    "kitchen": 79,
+    "car": 79,
+    "lighting": 100,
+    "pets": 100,
+    "crafts": 100,
+    "beauty": 64,
+    "eco": 51,
+    "seasonal": 60,
+    "office": 60,
+    "sports": 18,
+    "bedding": 36,
+    "home decor": 45,
+    "garden": 27,
+    "cleaning": 9,
+    "travel": 42,
+    "phone": 100,
+    "bathroom": 18,
+    "storage": 9
+  },
+  "category_evidence": {
+    "kitchen": [
+      "kitchen",
+      "gadget"
+    ],
+    "car": [
+      "motor",
+      "car"
+    ],
+    "lighting": [
+      "strip",
+      "light",
+      "lamp",
+      "led"
+    ],
+    "pets": [
+      "cat",
+      "pet",
+      "bed"
+    ],
+    "crafts": [
+      "art",
+      "craft",
+      "stickers"
+    ],
+    "beauty": [
+      "hair",
+      "skincare",
+      "makeup",
+      "nail"
+    ],
+    "eco": [
+      "sustainable",
+      "eco"
+    ],
+    "seasonal": [
+      "gift"
+    ],
+    "office": [
+      "pen",
+      "office",
+      "desk"
+    ],
+    "sports": [
+      "water bottle",
+      "fitness"
+    ],
+    "bedding": [
+      "duvet",
+      "blanket",
+      "pillow",
+      "bedding"
+    ],
+    "home decor": [
+      "wall art",
+      "candle",
+      "decor"
+    ],
+    "garden": [
+      "outdoor",
+      "flower"
+    ],
+    "cleaning": [
+      "vacuum"
+    ],
+    "travel": [
+      "travel",
+      "toiletry"
+    ],
+    "phone": [
+      "holder",
+      "phone",
+      "earbuds",
+      "case",
+      "cable",
+      "stand",
+      "charger"
+    ],
+    "bathroom": [
+      "toilet",
+      "bath"
+    ],
+    "storage": [
+      "storage"
+    ]
+  },
+  "source_signals": {
+    "tiktok": {
+      "kitchen": 3,
+      "car": 3,
+      "lighting": 3,
+      "pets": 1,
+      "crafts": 3,
+      "beauty": 6,
+      "eco": 1,
+      "seasonal": 1,
+      "office": 1,
+      "sports": 1
+    },
+    "temu": {
+      "lighting": 6,
+      "pets": 3,
+      "crafts": 3,
+      "bedding": 4,
+      "beauty": 1,
+      "home decor": 1,
+      "eco": 2,
+      "kitchen": 3,
+      "garden": 1,
+      "cleaning": 1,
+      "car": 3,
+      "office": 2,
+      "travel": 1,
+      "phone": 7,
+      "seasonal": 1
+    },
+    "etsy": {
+      "garden": 2,
+      "pets": 5,
+      "crafts": 5,
+      "seasonal": 3,
+      "bathroom": 2,
+      "office": 2,
+      "travel": 1,
+      "home decor": 4,
+      "eco": 1,
+      "sports": 1
+    },
+    "market_intel": {
+      "kitchen": 1,
+      "car": 1,
+      "storage": 1,
+      "lighting": 1,
+      "pets": 1,
+      "travel": 1,
+      "phone": 4
+    }
+  },
+  "cross_validated": {
+    "kitchen": 3,
+    "car": 3,
+    "lighting": 3,
+    "pets": 4,
+    "crafts": 3,
+    "eco": 3,
+    "seasonal": 3,
+    "office": 3,
+    "travel": 3
+  },
+  "demand_keywords": [
+    "beach bag,",
+    "creators excel at demonstrating texture",
+    "discover my favorite",
+    "home and",
+    "made me buy it",
+    "mini handheld fan usb charging",
+    "mini lightweight wireless earbuds",
+    "mini wireless lanyard speaker thumb",
+    "project hail mary",
+    "real market data on trending",
+    "summer wedding,",
+    "sunflower,",
+    "tech and",
+    "temu vs",
+    "the analysis focuses on high",
+    "the scope covers major retail",
+    "tiktok made me buy it",
+    "top sellers",
+    "top trending",
+    "trending on",
+    "wall art",
+    "what are your tried",
+    "where can"
+  ],
+  "season": "summer",
+  "total_queries": 10,
+  "total_results_chars": 27745
+}

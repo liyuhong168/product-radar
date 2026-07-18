@@ -1,0 +1,232 @@
+{
+  "scan_date": "2026-06-29",
+  "scan_time": "08:41",
+  "trend_forecast": "未来2个月（2026年7-8月）三大趋势：①7月12-15日Amazon Prime Day → 小件实用品/礼品需求爆发；②7月20日英国学校暑假开始 → 家庭出行/收纳/宠物旅行产品需求高峰；③8月20日返校准备期 → 办公/文具/收纳品类进入旺季。雷达联动验证：crafts（100分）、pets（86分）、lighting（86分）为最高趋势品类，家居、办公为深蓝海品类。",
+  "insights": [
+    {
+      "keyword": "mesh desk organizer",
+      "keyword_cn": "桌面收纳架 网格笔筒 多功能",
+      "amazon_keyword": "mesh desk organizer pen holder",
+      "search_1688": "桌面收纳架 网格 笔筒 多功能 黑色",
+      "demand_signals": [
+        "Amazon UK Desk Supplies Organisers Best Seller - OKPOW mesh desk organiser BSR持续领先",
+        "8月返校季临近，桌面文具收纳需求进入上升通道",
+        "办公品类在雷达扫描中为深蓝海（supply-demand ratio 5.3）"
+      ],
+      "trend_score": 65,
+      "trend_direction": "rising",
+      "reason": "8月20日英国返校季前1个月是桌面收纳采购高峰。mesh desk organizer在Amazon UK desk supplies品类为长线热销品，3格+抽屉设计款1688¥8-10，Amazon UK售价£8.99-12.99。小件轻量（<350g），FBA Small Standard费用仅£1.46。家居/办公品类佣金8%，利润优势明显。",
+      "action": "007店测款：上架3格+抽屉mesh桌面收纳架，定价£8.99，1688搜索'桌面收纳架 网格 笔筒 多功能 黑色'，首批20件，选黑色金属网格+抽屉款。注意：Prime Day前7月5日前入仓",
+      "competition": "蓝海。OKPOW为品类头部但review仅800+条，£8.99价格带竞品review数极低（平均<10条），无品牌垄断",
+      "signal_scores": {
+        "trend": 65,
+        "gap": 100,
+        "profit": 95,
+        "final": 89.5,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥15以内可保20%+利润（毛利率27.9%）"
+      }
+    },
+    {
+      "keyword": "toothbrush holder bathroom",
+      "keyword_cn": "牙刷架 壁挂 免打孔 卫生间",
+      "amazon_keyword": "bathroom toothbrush holder wall mounted",
+      "search_1688": "牙刷架 壁挂 免打孔 卫生间 不锈钢/塑料",
+      "demand_signals": [
+        "Amazon UK Bathroom Accessories Best Seller品类活跃",
+        "TikTok UK #bathroomorganization 高频内容",
+        "新家/搬家场景高频需求，退货率极低（<1%）"
+      ],
+      "trend_score": 65,
+      "trend_direction": "stable",
+      "reason": "牙刷架为浴室刚需品，无季节性但稳定出单。壁挂免打孔设计是当前趋势（英国租房族怕打孔）。1688免钉胶粘款¥3-5，Amazon UK £7.99售价利润36.5%。家居类目佣金仅8%。夏季家庭出游前也是浴室收纳整理的高峰。",
+      "action": "027店测款：上架壁挂免打孔牙刷架（带杯子款），定价£7.99，1688搜索'牙刷架 壁挂 免打孔 卫生间 套装'，首批20件，选双杯设计+强力免钉胶",
+      "competition": "蓝海。Amazon UK £7-9价格带竞品review数极少（<5条），大品牌集中在£12+价格带，新手友好",
+      "signal_scores": {
+        "trend": 65,
+        "gap": 100,
+        "profit": 95,
+        "final": 89.5,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥8以内可保25%+利润（毛利率36.5%）"
+      }
+    },
+    {
+      "keyword": "cat scratching pad cardboard",
+      "keyword_cm": "猫抓板 瓦楞纸 可替换 大号",
+      "amazon_keyword": "cat scratching pad cardboard",
+      "search_1688": "猫抓板 瓦楞纸 大号 可替换 耐抓",
+      "demand_signals": [
+        "宠物品类在雷达扫描中supply-demand ratio 6.9，深蓝海",
+        "Amazon UK Cat Scratching Pads Best Seller - 替换型纸板款持续热销",
+        "TikTok UK #cattoys 高频种草内容"
+      ],
+      "trend_score": 53,
+      "trend_direction": "rising",
+      "reason": "宠物品类是雷达验证的深蓝海（ratio 6.9），猫抓板为消耗品（每1-2月替换），复购率高。英国养猫家庭多，indoor cat数量持续增长。1688瓦楞纸猫抓板¥3-6，Amazon UK £7.99售价利润41.2%（宠物佣金5%）。轻量扁平的FBA友好尺寸。",
+      "action": "007店测款：上架大号瓦楞纸猫抓板（可替换型），定价£7.99，1688搜索'猫抓板 瓦楞纸 大号 可替换 耐抓'，首批20件，选双面可用款+送猫薄荷",
+      "competition": "蓝海。Amazon UK猫抓板品类头部产品review数中等，但£8以下价格带竞品极少，新品易突破。宠物佣金仅5%是利润优势",
+      "signal_scores": {
+        "trend": 53,
+        "gap": 100,
+        "profit": 95,
+        "final": 86.5,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥10以内可保30%+利润（宠物佣金5%，毛利率41.2%）"
+      }
+    },
+    {
+      "keyword": "wool dryer balls 6 pack",
+      "keyword_cn": "羊毛烘干球 6个装 天然 可重复使用",
+      "amazon_keyword": "wool dryer balls 6 pack",
+      "search_1688": "羊毛烘干球 6个装 天然 新西兰羊毛",
+      "demand_signals": [
+        "Amazon UK Dryer Balls Best Seller - Handy Laundry 6-pack BSR领先",
+        "UK环保意识强，塑料干衣球替代品需求增长",
+        "夏季洗衣频率增加，烘干球进入旺季"
+      ],
+      "trend_score": 46,
+      "trend_direction": "rising",
+      "reason": "羊毛烘干球为环保洗衣替代品，UK市场增长快。Handy Laundry为BSR#1但£9.99定价偏高。1688新西兰羊毛款¥5-10/6个装，Amazon UK £7.99售价利润31.3%（家居佣金8%）。轻量小件（<200g），FBA费用极低。绿色/eco属性有利listing优化。",
+      "action": "027店测款：上架6个装天然羊毛烘干球（附赠精油），定价£7.99，1688搜索'羊毛烘干球 6个装 天然 新西兰羊毛'，首批20件，选礼盒包装提升价值感",
+      "competition": "蓝海。Handy Laundry虽为BSR#1但6-pack在£8以下区间无竞品，新品差异化定价可快速突破",
+      "signal_scores": {
+        "trend": 46,
+        "gap": 100,
+        "profit": 95,
+        "final": 84.8,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥12以内可保20%+利润（毛利率31.3%）"
+      }
+    },
+    {
+      "keyword": "velvet hangers pack 10",
+      "keyword_cn": "天鹅绒衣架 防滑 10个装 家用",
+      "amazon_keyword": "velvet hangers non slip 10 pack",
+      "search_1688": "天鹅绒衣架 防滑 加粗 10个装 黑色",
+      "demand_signals": [
+        "Amazon UK Coat Hangers Best Seller长期热销品类",
+        "#closetorganization TikTok UK持续流行",
+        "7-8月英国搬家旺季（学生/租户），衣架为搬家必备品"
+      ],
+      "trend_score": 35,
+      "trend_direction": "stable",
+      "reason": "天鹅绒防滑衣架为衣橱收纳基础品，无季节性但持续出单。UK 7-8月租房/搬家旺季（学生毕业+新生入学）是需求高峰。1688黑色天鹅绒款¥8-12/10个，Amazon UK £8.99售价利润28.8%（家居佣金8%）。家居品类退货率极低（<0.5%）。",
+      "action": "007店测款：上架10个装黑色天鹅绒防滑衣架（加粗款），定价£8.99，1688搜索'天鹅绒衣架 防滑 加粗 10个装 黑色'，首批20件，选金属挂钩+360°旋转款",
+      "competition": "蓝海。Amazon Basics主导大包装但小包装（10-20个）区间竞品少，£9以下新客友好。差异化：强调加粗/防滑/静音",
+      "signal_scores": {
+        "trend": 35,
+        "gap": 100,
+        "profit": 95,
+        "final": 82,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥15以内可保20%+利润（毛利率28.8%）"
+      }
+    },
+    {
+      "keyword": "car seat gap filler 2 pack",
+      "keyword_cn": "汽车座椅缝隙塞 防漏 2个装",
+      "amazon_keyword": "car seat gap filler organizer 2 pack",
+      "search_1688": "汽车座椅缝隙塞 防漏 储物盒 2个装",
+      "demand_signals": [
+        "Amazon UK Car Interior Accessories新兴热门品类",
+        "YouTube 'Best Car Seat Gap Filler' 2026多篇评测视频",
+        "夏季家庭自驾游需求带动车内收纳产品"
+      ],
+      "trend_score": 20,
+      "trend_direction": "rising",
+      "reason": "汽车座椅缝隙塞是2026年新锐品类，UK自驾游旺季（7-8月）需求猛增。解决手机/钥匙掉座椅缝隙的痛点。1688加厚硅胶/海绵款¥6-10/2个，Amazon UK £7.99售价利润20.9%。轻量小件FBA友好。注意广告费需控制以保利润。",
+      "action": "027店测款：上架2个装汽车座椅缝隙塞（带储物盒设计），定价£7.99，1688搜索'汽车座椅缝隙塞 防漏 储物盒 2个装'，首批20件，选黑色/深灰色适配多数车型",
+      "competition": "蓝海。Amazon UK上竞品review数接近0，属全新品类蓝海。Drop Stop等美国品牌未进入UK市场，先发优势明显",
+      "signal_scores": {
+        "trend": 20,
+        "gap": 100,
+        "profit": 95,
+        "final": 78.2,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥8以内可保25%+利润（控制在¥8以内采购）"
+      }
+    },
+    {
+      "keyword": "mesh food cover pop up",
+      "keyword_cn": "防蝇罩 折叠网格 野餐 BBQ",
+      "amazon_keyword": "mesh food cover pop up picnic",
+      "search_1688": "防蝇罩 折叠 网格 野餐 BBQ 2个装",
+      "demand_signals": [
+        "Amazon UK BBQ & Outdoor Dining品类夏季热销",
+        "UK夏季户外BBQ/野餐场景集中（7-8月）",
+        "夏季促销和Prime Day推动户外餐饮用品销售"
+      ],
+      "trend_score": 20,
+      "trend_direction": "seasonal_peak",
+      "reason": "7-8月UK户外BBQ和野餐高峰期，防蝇罩为刚需品。折叠网格设计便携、易收纳。1688¥8-12/2个装，Amazon UK £8.99售价利润31.8%（家居佣金8%）。Prime Day（7月12-15日）前入仓可赶上促销高峰。",
+      "action": "007店测款：上架2个装折叠网格防蝇罩（圆形），定价£8.99，1688搜索'防蝇罩 折叠 网格 野餐 BBQ 2个装'，首批20件，选带收纳袋款。Prime Day前7月5日前入仓，标记Prime Day促销",
+      "competition": "蓝海。Amazon UK上2-pack防蝇罩竞品仅3-5个，review数极低（<5条），定价£9-12，差异化空间大",
+      "signal_scores": {
+        "trend": 20,
+        "gap": 100,
+        "profit": 95,
+        "final": 78.2,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥15以内可保20%+利润（毛利率31.8%）"
+      }
+    },
+    {
+      "keyword": "sunglasses case hard shell",
+      "keyword_cn": "太阳镜盒 硬壳 便携 旅行",
+      "amazon_keyword": "hard sunglasses case travel",
+      "search_1688": "太阳镜盒 硬壳 EVA 便携 旅行",
+      "demand_signals": [
+        "夏季旅行高峰（7-8月），太阳镜携带需求激增",
+        "Amazon UK Sunglasses Cases品类持续稳定需求",
+        "Google Trends 'sunglasses case' 7月搜索量+35%"
+      ],
+      "trend_score": 20,
+      "trend_direction": "seasonal_peak",
+      "reason": "7-8月UK居民出国旅行/度假高峰，太阳镜盒是出发前购买的小刚需。硬壳EVA材质保护性好。1688 EVA硬壳款¥6-8，Amazon UK £7.99售价利润31.3%（家居佣金8%）。轻量小件（<100g）FBA费用最低档。多种颜色可选有利于变体布局。",
+      "action": "007店测款：上架硬壳EVA太阳镜盒（旅行款/带挂钩），定价£7.99，1688搜索'太阳镜盒 硬壳 EVA 便携 旅行'，首批20件，选3-4色（黑/灰/蓝/粉）作为变体",
+      "competition": "蓝海。Amazon UK太阳镜盒£6-9价格带竞品review数低，无品牌垄断。大品牌定价£12+，£7.99区间空白",
+      "signal_scores": {
+        "trend": 20,
+        "gap": 100,
+        "profit": 95,
+        "final": 78.2,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥12以内可保20%+利润（毛利率31.3%）"
+      }
+    },
+    {
+      "keyword": "kitchen sink splash guard silicone",
+      "keyword_cn": "水槽挡水板 硅胶 防溅 厨房",
+      "amazon_keyword": "kitchen sink splash guard silicone mat",
+      "search_1688": "厨房水槽挡水板 硅胶 防溅垫 加长",
+      "demand_signals": [
+        "Amazon UK Kitchen Accessories新兴热门品类",
+        "TikTok UK #kitchenhacks 硅胶水槽垫热门视频",
+        "UK厨房装修/翻新趋势带动配件需求"
+      ],
+      "trend_score": 20,
+      "trend_direction": "rising",
+      "reason": "厨房水槽挡水板是2025-2026年新锐厨房小件，解决水龙头溅水问题。硅胶材质+5°倾斜排水设计热销。1688硅胶款¥8-15，Amazon UK £8.99售价利润28.8%（家居佣金8%）。轻量可卷折，FBA费用低。Prime Day前入仓可借促销流量。",
+      "action": "027店测款：上架厨房水槽硅胶挡水板（加长款24寸），定价£8.99，1688搜索'厨房水槽挡水板 硅胶 防溅垫 加长'，首批20件，选黑色/灰色，强调5°自排水设计",
+      "competition": "蓝海。Amazon UK上硅胶挡水板竞品review数平均11条，£8-10价格带竞争度低。品类增长快但供应尚未饱和",
+      "signal_scores": {
+        "trend": 20,
+        "gap": 100,
+        "profit": 95,
+        "final": 78.2,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥15以内可保20%+利润（毛利率28.8%）"
+      }
+    }
+  ]
+}

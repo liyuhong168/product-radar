@@ -1,0 +1,2467 @@
+{
+  "scan_date": "2026-06-29",
+  "scan_time": "10:32",
+  "scan_ts": "2026-06-29_0900",
+  "stats": {
+    "total_scanned": 45,
+    "passed_filter": 4,
+    "rejected": 41,
+    "channels": {
+      "new_releases": 3,
+      "multi_source": 4,
+      "temu_trending": 4,
+      "tiktok_verified": 4,
+      "event_product": 2,
+      "etsy_trending": 2,
+      "google_trends": 1,
+      "bsr": 1,
+      "keyword_search": 40
+    },
+    "trend_categories": {
+      "crafts": 100,
+      "pets": 92,
+      "lighting": 84,
+      "phone": 69,
+      "office": 69,
+      "kitchen": 62
+    },
+    "supply_demand": {
+      "lighting": {
+        "ratio": 9.9,
+        "demand": 84,
+        "supply": 5012,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "kitchen": {
+        "ratio": 6.7,
+        "demand": 62,
+        "supply": 10668,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "bathroom": {
+        "ratio": 2.2,
+        "demand": 23,
+        "supply": 40800,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "sports": {
+        "ratio": 1.2,
+        "demand": 15,
+        "supply": 300082,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "kitchen_gadgets": {
+        "ratio": 0.9,
+        "demand": 8,
+        "supply": 10668,
+        "label": "🔴 红海",
+        "level": "red_ocean"
+      },
+      "bedding": {
+        "ratio": 0.7,
+        "demand": 8,
+        "supply": 43185,
+        "label": "🔴 红海",
+        "level": "red_ocean"
+      },
+      "cleaning": {
+        "ratio": 0,
+        "demand": 15,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "car": {
+        "ratio": 0,
+        "demand": 53,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      }
+    },
+    "divergences": {
+      "kitchen": {
+        "current_heat": 57,
+        "previous_heat": 40,
+        "heat_change_pct": 42.5,
+        "direction": "rising",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 51,
+        "previous_heat": 40,
+        "heat_change_pct": 27.5,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 21,
+        "previous_heat": 20,
+        "heat_change_pct": 5.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "car": {
+        "current_heat": 21,
+        "previous_heat": 20,
+        "heat_change_pct": 5.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "lighting": {
+        "current_heat": 86,
+        "previous_heat": 95,
+        "heat_change_pct": -9.5,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "pets": {
+        "current_heat": 86,
+        "previous_heat": 100,
+        "heat_change_pct": -14.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "sports": {
+        "current_heat": 14,
+        "previous_heat": 20,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "crafts": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "travel": {
+        "current_heat": 7,
+        "previous_heat": 45,
+        "heat_change_pct": -84.4,
+        "direction": "falling",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "phone": {
+        "current_heat": 29,
+        "previous_heat": 85,
+        "heat_change_pct": -65.9,
+        "direction": "falling",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "beauty": {
+        "current_heat": 58,
+        "previous_heat": 40,
+        "heat_change_pct": 45.0,
+        "direction": "rising",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "eco": {
+        "current_heat": 79,
+        "previous_heat": 75,
+        "heat_change_pct": 5.3,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "home decor": {
+        "current_heat": 65,
+        "previous_heat": 85,
+        "heat_change_pct": -23.5,
+        "direction": "falling",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 51,
+        "previous_heat": 60,
+        "heat_change_pct": -15.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "office": {
+        "current_heat": 51,
+        "previous_heat": 50,
+        "heat_change_pct": 2.0,
+        "direction": "stable",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "storage": {
+        "current_heat": 14,
+        "previous_heat": 55,
+        "heat_change_pct": -74.5,
+        "direction": "falling",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "bedding": {
+        "current_heat": 7,
+        "previous_heat": 10,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      }
+    },
+    "gap_opportunities": 10
+  },
+  "products": [
+    {
+      "asin": "B0H49GNMTJ",
+      "name": "JADUFHU Travel Soap Box with Sealed Lid, Waterproof Leakproof Soap Holder with Removable Drainage Tray, Dustproof Bar So",
+      "price": 8.32,
+      "reviews": 176,
+      "rating": 4.7,
+      "rank": 8,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H49GNMTJ",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51phEPEnxBL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.361,
+      "net_profit": 3.01,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 0.67,
+        "fba": 1.46,
+        "ads": 0.83,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 5.31
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 6.7,
+        "demand": 62,
+        "supply": 10668,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 15,
+      "div_label": "📈 品类升温(+42%)",
+      "div_info": {
+        "current_heat": 57,
+        "previous_heat": 40,
+        "heat_change_pct": 42.5,
+        "direction": "rising",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 155,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "🌴 当季(summer)": 10,
+        "🌊 深蓝海": 20,
+        "📈 品类升温(+42%)": 15,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-06-29",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases",
+        "multi_source",
+        "temu_trending",
+        "tiktok_verified"
+      ],
+      "bsr_rank": 98362,
+      "bsr_category": "Home & Kitchen",
+      "bsr_sub_rank": 187,
+      "bsr_sub_category": "Soap Dishes",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 249.6
+    },
+    {
+      "asin": "B0H4LFV9QC",
+      "name": "Silicone Soap Dish, Self Draining Soap Holder, Anti-Slip Soap Tray, Beige | Soap Dish for Bathroom, Shower, Bathtub, Kit",
+      "price": 6.66,
+      "reviews": 1197,
+      "rating": 4.2,
+      "rank": 9,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H4LFV9QC",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51F-tkQLarL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.294,
+      "net_profit": 1.96,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.53,
+        "fba": 1.46,
+        "ads": 0.67,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.7
+      },
+      "off_season": false,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 6.7,
+        "demand": 62,
+        "supply": 10668,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 15,
+      "div_label": "📈 品类升温(+42%)",
+      "div_info": {
+        "current_heat": 57,
+        "previous_heat": 40,
+        "heat_change_pct": 42.5,
+        "direction": "rising",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "signal_level": "medium",
+      "signal_label": "🟠 中信号",
+      "external_sources": [
+        "TikTok",
+        "Temu"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 137,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🟠 中信号": 10,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "🌊 深蓝海": 20,
+        "📈 品类升温(+42%)": 15,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-06-29",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "new_releases",
+        "multi_source",
+        "temu_trending",
+        "tiktok_verified"
+      ],
+      "bsr_rank": 117721,
+      "bsr_category": "Home & Kitchen",
+      "bsr_sub_rank": 228,
+      "bsr_sub_category": "Soap Dishes",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 199.8
+    },
+    {
+      "asin": "B08JQM3GZ1",
+      "name": "Garden Market Place Inflatable Christmas Penguin with Low Voltage LED Lights 1.2M Tall- Indoor or Outdoors",
+      "price": 19.99,
+      "reviews": 9,
+      "rating": 3.8,
+      "rank": 4,
+      "category": "Lighting",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "9 reviews, 3.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B08JQM3GZ1",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61M01SJa6iL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "Temu热销",
+        "Etsy趋势",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.45,
+      "net_profit": 8.99,
+      "cost_breakdown": {
+        "vat": 3.34,
+        "commission": 3.0,
+        "fba": 1.46,
+        "ads": 2.0,
+        "returns": 0.4,
+        "sourcing": 0.8,
+        "total_cost": 11.0
+      },
+      "off_season": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 9.9,
+        "demand": 84,
+        "supply": 5012,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 154,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "🔥 多源热门(lighting)": 23,
+        "🌊 蓝海": 15,
+        "💰 超高利润": 12,
+        "❄️ 过季降权": -20,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-06-26",
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "new_releases",
+        "multi_source",
+        "event_product",
+        "temu_trending",
+        "etsy_trending",
+        "tiktok_verified"
+      ],
+      "bsr_rank": 89679,
+      "bsr_category": "Lighting",
+      "bsr_sub_rank": 4670,
+      "bsr_sub_category": "Indoor-Outdoor String Lights 40,107 in Garden Décor",
+      "estimated_daily_sales": 1,
+      "monthly_revenue_est": 599.7
+    },
+    {
+      "asin": "B0GF2NXXLP",
+      "name": "Hy-Pro Officially Licensed FIFA World Cup 2026 Football - Training Ball, Football Gifts for Boys - FIFA World Cup 2026 D",
+      "price": 12.5,
+      "reviews": 88,
+      "rating": 4.4,
+      "rank": 9,
+      "category": "Sports",
+      "channel": "bsr",
+      "channel_name": "Amazon畅销榜",
+      "review_info": "88 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GF2NXXLP",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/71A9sefU+pL._AC_UL300_SR300,200_.jpg",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势",
+        "Temu热销",
+        "Etsy趋势",
+        "TikTok趋势"
+      ],
+      "profit_margin": 0.382,
+      "net_profit": 4.78,
+      "cost_breakdown": {
+        "vat": 2.09,
+        "commission": 1.88,
+        "fba": 1.46,
+        "ads": 1.25,
+        "returns": 0.25,
+        "sourcing": 0.8,
+        "total_cost": 7.72
+      },
+      "off_season": false,
+      "sd_score": 0,
+      "sd_label": "⚖️ 平衡",
+      "sd_info": {
+        "ratio": 1.2,
+        "demand": 15,
+        "supply": 300082,
+        "label": "⚖️ 平衡",
+        "level": "balanced"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-30%)",
+      "div_info": {
+        "current_heat": 14,
+        "previous_heat": 20,
+        "heat_change_pct": -30.0,
+        "direction": "falling",
+        "dates": [
+          "2026-06-28_1236",
+          "2026-06-28_1257"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Google",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "畅销榜"
+      ],
+      "score": 116,
+      "score_breakdown": {
+        "🎵 TikTok": 20,
+        "📊 Google↑": 15,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "🟡 中等竞争": 5,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10,
+        "🌴 当季(summer)": 10,
+        "📉 品类降温(-30%)": -10,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-06-29",
+      "is_multi": true,
+      "is_event": true,
+      "channel_tags": [
+        "multi_source",
+        "event_product",
+        "google_trends",
+        "bsr",
+        "temu_trending",
+        "etsy_trending",
+        "tiktok_verified"
+      ],
+      "bsr_rank": 17,
+      "bsr_category": "Sports & Outdoors",
+      "bsr_sub_rank": 1,
+      "bsr_sub_category": "Sports Fan Footballs 2 in Fan Clothing",
+      "estimated_daily_sales": 2528,
+      "monthly_revenue_est": 948000.0
+    },
+    {
+      "asin": "B0DNYZTDTG",
+      "name": "ANMEISH Toothbrush holder Wall Mounted,Silver Bathroom Stainless Steel Toothbrush Caddy,7 Multifunctional Slots Toothpas",
+      "price": 6.99,
+      "reviews": 65,
+      "rating": 4.4,
+      "rank": 14,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "65 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DNYZTDTG",
+      "image_url": "https://m.media-amazon.com/images/I/61dw6HImfqL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.24,
+      "net_profit": 1.68,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.46,
+        "ads": 0.7,
+        "returns": 0.14,
+        "sourcing": 0.8,
+        "total_cost": 5.31
+      }
+    },
+    {
+      "asin": "B0GC8BTVCN",
+      "name": "EcoSpa Frosted Glass Tumbler & Toothbrush Holder – Wall Mounted Bathroom Accessory with Polished Chrome Holder, Modern S",
+      "price": 11.95,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 38,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GC8BTVCN",
+      "image_url": "https://m.media-amazon.com/images/I/51C6oVBTJpL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.374,
+      "net_profit": 4.47,
+      "cost_breakdown": {
+        "vat": 2.0,
+        "commission": 1.79,
+        "fba": 1.46,
+        "ads": 1.2,
+        "returns": 0.24,
+        "sourcing": 0.8,
+        "total_cost": 7.48
+      }
+    },
+    {
+      "asin": "B0FC26K16P",
+      "name": "Jorun White Toothbrush Holder Wall Mounted Aluminum Material Toothpaste Holder Bathroom Accessory - Self-Adhesive Toothb",
+      "price": 12.38,
+      "reviews": 10,
+      "rating": 4.6,
+      "rank": 44,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "10 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FC26K16P",
+      "image_url": "https://m.media-amazon.com/images/I/71eZzrerpdL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.38,
+      "net_profit": 4.71,
+      "cost_breakdown": {
+        "vat": 2.07,
+        "commission": 1.86,
+        "fba": 1.46,
+        "ads": 1.24,
+        "returns": 0.25,
+        "sourcing": 0.8,
+        "total_cost": 7.67
+      }
+    },
+    {
+      "asin": "B01F25D59K",
+      "name": "iBathUK | Designer Bathroom Accessory Set Soap Dish + Toothbrush Holder ACCFS2",
+      "price": 13.49,
+      "reviews": 115,
+      "rating": 4.6,
+      "rank": 45,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "115 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B01F25D59K",
+      "image_url": "https://m.media-amazon.com/images/I/71IvN2s+BML._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.395,
+      "net_profit": 5.33,
+      "cost_breakdown": {
+        "vat": 2.25,
+        "commission": 2.02,
+        "fba": 1.46,
+        "ads": 1.35,
+        "returns": 0.27,
+        "sourcing": 0.8,
+        "total_cost": 8.16
+      }
+    },
+    {
+      "asin": "B0H1CWYVWJ",
+      "name": "Black Toothbrush Holder Wall Mounted Black Bathroom Accessories | No need for drilling, suitable for storing daily neces",
+      "price": 7.59,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 51,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H1CWYVWJ",
+      "image_url": "https://m.media-amazon.com/images/I/618ezmMJ4XL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.265,
+      "net_profit": 2.01,
+      "cost_breakdown": {
+        "vat": 1.27,
+        "commission": 1.14,
+        "fba": 1.46,
+        "ads": 0.76,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.58
+      }
+    },
+    {
+      "asin": "B0DXL88XZY",
+      "name": "YOSSEE Transparent Glass Tumbler – Replacement for Wall Mounted Toothbrush Holder – Thick Clear Glass Mug – Universal Fi",
+      "price": 6.99,
+      "reviews": 152,
+      "rating": 4.4,
+      "rank": 54,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "152 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DXL88XZY",
+      "image_url": "https://m.media-amazon.com/images/I/51P0C6mZ3ML._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.24,
+      "net_profit": 1.68,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.46,
+        "ads": 0.7,
+        "returns": 0.14,
+        "sourcing": 0.8,
+        "total_cost": 5.31
+      }
+    },
+    {
+      "asin": "B0FWWRSX4X",
+      "name": "EUIOOVM Toothbrush Holders, Wall Mounted Toothbrush Holder with No Drill - Holds, Versatile Organizer for Bathroom Tooth",
+      "price": 10.99,
+      "reviews": 15,
+      "rating": 4.6,
+      "rank": 55,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "15 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FWWRSX4X",
+      "image_url": "https://m.media-amazon.com/images/I/61VnE5BF9-L._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.357,
+      "net_profit": 3.93,
+      "cost_breakdown": {
+        "vat": 1.84,
+        "commission": 1.65,
+        "fba": 1.46,
+        "ads": 1.1,
+        "returns": 0.22,
+        "sourcing": 0.8,
+        "total_cost": 7.06
+      }
+    },
+    {
+      "asin": "B0FYPM17HN",
+      "name": "4Packs Toothbrush Holder Wall Mounted Toothbrush Holders Wall Mounted with Cover Toothbrush Heads Bathroom Toothbrush Ho",
+      "price": 9.99,
+      "reviews": 0,
+      "rating": 4.6,
+      "rank": 57,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FYPM17HN",
+      "image_url": "https://m.media-amazon.com/images/I/61RgXKVQIrL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "bathroom toothbrush holder wall mounted",
+      "sources": [
+        "趋势发现"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.337,
+      "net_profit": 3.36,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 1.0,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.63
+      }
+    },
+    {
+      "asin": "B0FJQ7F5BR",
+      "name": "Bryndo 6 Pcs Pirate Costume Accessories Set for Women Men, Pirate Fancy Dress with Hat Bandana Head Scarf Sash Eye Patch",
+      "price": 12.49,
+      "reviews": 23,
+      "rating": 4.1,
+      "rank": 2,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "23 reviews, 4.1★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FJQ7F5BR",
+      "image_url": "https://m.media-amazon.com/images/I/71vcVBm3f0L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.382,
+      "net_profit": 4.77,
+      "cost_breakdown": {
+        "vat": 2.09,
+        "commission": 1.87,
+        "fba": 1.46,
+        "ads": 1.25,
+        "returns": 0.25,
+        "sourcing": 0.8,
+        "total_cost": 7.72
+      }
+    },
+    {
+      "asin": "B0F7HTSK4L",
+      "name": "Bryndo 5PCS Pirate Costume Accessories for Adults – Hat Headscarf Sash Belt Eye Patch Anchor Necklace Fancy Dress for Ha",
+      "price": 9.16,
+      "reviews": 41,
+      "rating": 3.9,
+      "rank": 9,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "41 reviews, 3.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F7HTSK4L",
+      "image_url": "https://m.media-amazon.com/images/I/71pXVpsCXsL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.316,
+      "net_profit": 2.9,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 1.37,
+        "fba": 1.46,
+        "ads": 0.92,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 6.26
+      }
+    },
+    {
+      "asin": "B0F7HSW16C",
+      "name": "Bryndo Kids Pirate Costume Set Boys Pirate Captain Dress Up Kit with Hat Vest Sword Hook Eye Patch Earring Fancy Dress f",
+      "price": 8.57,
+      "reviews": 16,
+      "rating": 3.8,
+      "rank": 12,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "16 reviews, 3.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F7HSW16C",
+      "image_url": "https://m.media-amazon.com/images/I/71J658zFg3L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.299,
+      "net_profit": 2.56,
+      "cost_breakdown": {
+        "vat": 1.43,
+        "commission": 1.29,
+        "fba": 1.46,
+        "ads": 0.86,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 6.01
+      }
+    },
+    {
+      "asin": "B0C4Y2PR2M",
+      "name": "FRIUSATE 10Pcs Pirate Costume Accessories Set, Kids Adult Captain Costume, Pirate Head Scarf Eye Patches Earrings Pirate",
+      "price": 6.66,
+      "reviews": 127,
+      "rating": 4.2,
+      "rank": 16,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "127 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0C4Y2PR2M",
+      "image_url": "https://m.media-amazon.com/images/I/714jfIvYKGL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.224,
+      "net_profit": 1.49,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.67,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 5.17
+      }
+    },
+    {
+      "asin": "B0GL6VCMGM",
+      "name": "MELAND Pirate Costume Kids, Light up Fancy Dress up with Pirate Hat for Girls Aged 3-10 Years, World Book Day Costumes f",
+      "price": 14.99,
+      "reviews": 21,
+      "rating": 4.5,
+      "rank": 17,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "21 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GL6VCMGM",
+      "image_url": "https://m.media-amazon.com/images/I/71tRBX6vjuL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.412,
+      "net_profit": 6.18,
+      "cost_breakdown": {
+        "vat": 2.5,
+        "commission": 2.25,
+        "fba": 1.46,
+        "ads": 1.5,
+        "returns": 0.3,
+        "sourcing": 0.8,
+        "total_cost": 8.81
+      }
+    },
+    {
+      "asin": "B0FC6HTZ59",
+      "name": "Vifcotlyp Pirate Accessories Men, Pirate Costume Accessories with Bandana Headscarf Eye Patch Necklace Pirates Fancy Dre",
+      "price": 6.66,
+      "reviews": 109,
+      "rating": 4.3,
+      "rank": 22,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "109 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FC6HTZ59",
+      "image_url": "https://m.media-amazon.com/images/I/71y+eorr58L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.224,
+      "net_profit": 1.49,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.67,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 5.17
+      }
+    },
+    {
+      "asin": "B0FHC6ZL6V",
+      "name": "Crittygo 7 Pieces Pirate Costume Accessories Set, Medieval Pirate Fancy Dress with Headscarf Eye Patch Earrings Ring Nec",
+      "price": 12.79,
+      "reviews": 17,
+      "rating": 4.3,
+      "rank": 23,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "17 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FHC6ZL6V",
+      "image_url": "https://m.media-amazon.com/images/I/71a7GpFYJJL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.386,
+      "net_profit": 4.94,
+      "cost_breakdown": {
+        "vat": 2.14,
+        "commission": 1.92,
+        "fba": 1.46,
+        "ads": 1.28,
+        "returns": 0.26,
+        "sourcing": 0.8,
+        "total_cost": 7.85
+      }
+    },
+    {
+      "asin": "B0D9W6GP1F",
+      "name": "Berich Girls Pirate Costume Kids Halloween Costumes for Girls World Book Day Role Play Fancy Dress up with Pirate Access",
+      "price": 12.99,
+      "reviews": 108,
+      "rating": 4.3,
+      "rank": 24,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "108 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D9W6GP1F",
+      "image_url": "https://m.media-amazon.com/images/I/7128wMByyhL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.389,
+      "net_profit": 5.05,
+      "cost_breakdown": {
+        "vat": 2.17,
+        "commission": 1.95,
+        "fba": 1.46,
+        "ads": 1.3,
+        "returns": 0.26,
+        "sourcing": 0.8,
+        "total_cost": 7.94
+      }
+    },
+    {
+      "asin": "B0GTZB3ZDV",
+      "name": "Fictoria Pirate Costume Men Fancy Dress Adults, Pirate Costume Accessories Hat with Hair Dreadlocks Set, Medieval Viking",
+      "price": 14.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 25,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GTZB3ZDV",
+      "image_url": "https://m.media-amazon.com/images/I/71yLjpJaXRL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.412,
+      "net_profit": 6.18,
+      "cost_breakdown": {
+        "vat": 2.5,
+        "commission": 2.25,
+        "fba": 1.46,
+        "ads": 1.5,
+        "returns": 0.3,
+        "sourcing": 0.8,
+        "total_cost": 8.81
+      }
+    },
+    {
+      "asin": "B0FS1Q9WL1",
+      "name": "AOOWU Pirate Costume Kids, 7 Pcs Boys Pirate Capitain Role Play Dress Up Set with Vest, Eyepatch, Headband, Capitain Fan",
+      "price": 6.66,
+      "reviews": 25,
+      "rating": 4.2,
+      "rank": 28,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "25 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FS1Q9WL1",
+      "image_url": "https://m.media-amazon.com/images/I/71uR-SS2oUL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.224,
+      "net_profit": 1.49,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.67,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 5.17
+      }
+    },
+    {
+      "asin": "B0DNZ98JRP",
+      "name": "IKALI Kids Pirate Costume, 6 Pcs Boys Caribbean Captain Dress Up Costumes Fancy Striped Outfit for Children Halloween 3-",
+      "price": 14.99,
+      "reviews": 46,
+      "rating": 4.4,
+      "rank": 35,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "46 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DNZ98JRP",
+      "image_url": "https://m.media-amazon.com/images/I/71qN6aE1XOL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.412,
+      "net_profit": 6.18,
+      "cost_breakdown": {
+        "vat": 2.5,
+        "commission": 2.25,
+        "fba": 1.46,
+        "ads": 1.5,
+        "returns": 0.3,
+        "sourcing": 0.8,
+        "total_cost": 8.81
+      }
+    },
+    {
+      "asin": "B0C8JC8TYN",
+      "name": "Aomig 3 Pcs Pirate Trousers for Men, Men’s Medieval Viking Renaissance Pirate Costume with Pirate Blindfolds and Bandana",
+      "price": 8.32,
+      "reviews": 46,
+      "rating": 4.0,
+      "rank": 37,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "46 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0C8JC8TYN",
+      "image_url": "https://m.media-amazon.com/images/I/51ce2+ZFEYL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.291,
+      "net_profit": 2.42,
+      "cost_breakdown": {
+        "vat": 1.39,
+        "commission": 1.25,
+        "fba": 1.46,
+        "ads": 0.83,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 5.9
+      }
+    },
+    {
+      "asin": "B000Y1OUY2",
+      "name": "Bristol Novelty Black Distress Pirate Waistcoat, Adult Fancy Dress, One Size, Halloween",
+      "price": 10.29,
+      "reviews": 65,
+      "rating": 3.8,
+      "rank": 38,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "65 reviews, 3.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B000Y1OUY2",
+      "image_url": "https://m.media-amazon.com/images/I/61DC5zERkRL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.343,
+      "net_profit": 3.53,
+      "cost_breakdown": {
+        "vat": 1.72,
+        "commission": 1.54,
+        "fba": 1.46,
+        "ads": 1.03,
+        "returns": 0.21,
+        "sourcing": 0.8,
+        "total_cost": 6.76
+      }
+    },
+    {
+      "asin": "B0FFMFCPSC",
+      "name": "HFZCV 11 Pcs Adult Pirate Costume Men Renaissance Medieval Shirt Ankle Banded Pants with Viking Accessories Beard Arm Gu",
+      "price": 11.0,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 43,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FFMFCPSC",
+      "image_url": "https://m.media-amazon.com/images/I/71Rf-PlX70L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate costume",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.358,
+      "net_profit": 3.93,
+      "cost_breakdown": {
+        "vat": 1.84,
+        "commission": 1.65,
+        "fba": 1.46,
+        "ads": 1.1,
+        "returns": 0.22,
+        "sourcing": 0.8,
+        "total_cost": 7.07
+      }
+    },
+    {
+      "asin": "B0FXGXN7M6",
+      "name": "Vicloon Pirate Treasure Gems and Gold Coins, 150 Pcs Treasure Hunt Kit with 100 Fake Gems and 50 Plastic Golds Coins, Pl",
+      "price": 7.99,
+      "reviews": 47,
+      "rating": 4.6,
+      "rank": 4,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "47 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FXGXN7M6",
+      "image_url": "https://m.media-amazon.com/images/I/810biCLtiTL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.28,
+      "net_profit": 2.24,
+      "cost_breakdown": {
+        "vat": 1.33,
+        "commission": 1.2,
+        "fba": 1.46,
+        "ads": 0.8,
+        "returns": 0.16,
+        "sourcing": 0.8,
+        "total_cost": 5.75
+      }
+    },
+    {
+      "asin": "B0BVBG4WWQ",
+      "name": "Prefdo Metal Pirate Coins, 35PCS X Large Gold Treasure Coin Set Spanish Doubloon Replicas Fantasy Metal Coins Pirate Gol",
+      "price": 10.82,
+      "reviews": 191,
+      "rating": 4.7,
+      "rank": 5,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "191 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0BVBG4WWQ",
+      "image_url": "https://m.media-amazon.com/images/I/71aRvr8CoLL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.354,
+      "net_profit": 3.83,
+      "cost_breakdown": {
+        "vat": 1.81,
+        "commission": 1.62,
+        "fba": 1.46,
+        "ads": 1.08,
+        "returns": 0.22,
+        "sourcing": 0.8,
+        "total_cost": 6.99
+      }
+    },
+    {
+      "asin": "B0GWJMNPPG",
+      "name": "101 Pcs Pirate Coins, Plastic Coins, Gold Coins for Themed Events, Fake Coins for Party Decorations, Treasure Hunt Activ",
+      "price": 7.59,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 7,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWJMNPPG",
+      "image_url": "https://m.media-amazon.com/images/I/71AvNfOOC8L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.265,
+      "net_profit": 2.01,
+      "cost_breakdown": {
+        "vat": 1.27,
+        "commission": 1.14,
+        "fba": 1.46,
+        "ads": 0.76,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.58
+      }
+    },
+    {
+      "asin": "B0G83N29QD",
+      "name": "soitzhoc 100 Piece Pirate gold coins Set | With Clear Box | Treasure Hunt fake, Pirate-Themed Activities plastic coins |",
+      "price": 6.24,
+      "reviews": 13,
+      "rating": 4.7,
+      "rank": 10,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "13 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0G83N29QD",
+      "image_url": "https://m.media-amazon.com/images/I/81p+97HgLqL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.201,
+      "net_profit": 1.25,
+      "cost_breakdown": {
+        "vat": 1.04,
+        "commission": 0.94,
+        "fba": 1.46,
+        "ads": 0.62,
+        "returns": 0.12,
+        "sourcing": 0.8,
+        "total_cost": 4.99
+      }
+    },
+    {
+      "asin": "B0DSG335P1",
+      "name": "Lusofie 100 pcs Gold Coins Pirate Treasure Plastic Coins Replica Spanish Doubloons for Pirate Party Decorations, Games, ",
+      "price": 6.24,
+      "reviews": 24,
+      "rating": 4.5,
+      "rank": 11,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "24 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DSG335P1",
+      "image_url": "https://m.media-amazon.com/images/I/91e2CTx29IL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.201,
+      "net_profit": 1.25,
+      "cost_breakdown": {
+        "vat": 1.04,
+        "commission": 0.94,
+        "fba": 1.46,
+        "ads": 0.62,
+        "returns": 0.12,
+        "sourcing": 0.8,
+        "total_cost": 4.99
+      }
+    },
+    {
+      "asin": "B0BLRYD93J",
+      "name": "100 Plastic Pirate Coins Set - Gold Coins for Kids Treasure Hunt, Themed Event & Birthday Party Props",
+      "price": 7.49,
+      "reviews": 54,
+      "rating": 4.6,
+      "rank": 12,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "54 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0BLRYD93J",
+      "image_url": "https://m.media-amazon.com/images/I/9102f34GjlL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.261,
+      "net_profit": 1.96,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.75,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.53
+      }
+    },
+    {
+      "asin": "B00A26NIN8",
+      "name": "Henbrandt 144 Plastic Party Gold Pirate Treasure Coins ~ Party bag fillers (12pks of 12",
+      "price": 6.99,
+      "reviews": 87,
+      "rating": 4.3,
+      "rank": 18,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "87 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B00A26NIN8",
+      "image_url": "https://m.media-amazon.com/images/I/71vQznSAxPL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.24,
+      "net_profit": 1.68,
+      "cost_breakdown": {
+        "vat": 1.17,
+        "commission": 1.05,
+        "fba": 1.46,
+        "ads": 0.7,
+        "returns": 0.14,
+        "sourcing": 0.8,
+        "total_cost": 5.31
+      }
+    },
+    {
+      "asin": "B0F7R7QDLF",
+      "name": "Byhoo 50 PCS Metal Gold Coins,DND Pirate Coins, Stress Relief Tool,with Velvet Drawstring Pouch for Board Games, Role - ",
+      "price": 10.82,
+      "reviews": 141,
+      "rating": 4.5,
+      "rank": 20,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "141 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F7R7QDLF",
+      "image_url": "https://m.media-amazon.com/images/I/91JSOM3guwL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.354,
+      "net_profit": 3.83,
+      "cost_breakdown": {
+        "vat": 1.81,
+        "commission": 1.62,
+        "fba": 1.46,
+        "ads": 1.08,
+        "returns": 0.22,
+        "sourcing": 0.8,
+        "total_cost": 6.99
+      }
+    },
+    {
+      "asin": "B0DNMD8SJD",
+      "name": "Cisixin 100 Pcs Pirate Gold Coins, Pirate Treasure Coins Set, for Party Birthday Christmas Halloween Game Props",
+      "price": 6.69,
+      "reviews": 0,
+      "rating": 4.5,
+      "rank": 22,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DNMD8SJD",
+      "image_url": "https://m.media-amazon.com/images/I/81S+IM4iTEL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.225,
+      "net_profit": 1.51,
+      "cost_breakdown": {
+        "vat": 1.12,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.67,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 5.18
+      }
+    },
+    {
+      "asin": "B0GWHYBGCW",
+      "name": "Gkhlg 120 Pcs Gold Coins Plastic Fake Coins Lightweight Shiny for Adults Pirate Treasure Hunt Party Decorations Hallowee",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 27,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWHYBGCW",
+      "image_url": "https://m.media-amazon.com/images/I/81SFOkcKKfL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.224,
+      "net_profit": 1.49,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 0.67,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 5.17
+      }
+    },
+    {
+      "asin": "B0CHJ2XCS7",
+      "name": "Metal Pirate Coins, Prefdo 35PCS Silver Treasure Coin Set Spanish Doubloon Replicas Fantasy Metal Coins Pirate Gold Coin",
+      "price": 9.99,
+      "reviews": 191,
+      "rating": 4.7,
+      "rank": 29,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "191 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CHJ2XCS7",
+      "image_url": "https://m.media-amazon.com/images/I/817tMg4J1CL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.337,
+      "net_profit": 3.36,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 1.0,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.63
+      }
+    },
+    {
+      "asin": "B0DC3K5TJ7",
+      "name": "Byhoo 30PCS Metal DND Coins, 1.2\" Gold Silver Copper Tokens with Face Value for Board Game and Tabletop RPG, Fantasy Met",
+      "price": 12.49,
+      "reviews": 21,
+      "rating": 4.9,
+      "rank": 36,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "21 reviews, 4.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DC3K5TJ7",
+      "image_url": "https://m.media-amazon.com/images/I/81i7DAn3dQL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.382,
+      "net_profit": 4.77,
+      "cost_breakdown": {
+        "vat": 2.09,
+        "commission": 1.87,
+        "fba": 1.46,
+        "ads": 1.25,
+        "returns": 0.25,
+        "sourcing": 0.8,
+        "total_cost": 7.72
+      }
+    },
+    {
+      "asin": "B0D9K2X9DT",
+      "name": "Dncvb 186 Pieces Pirate Treasure, 6 Pirate Treasure Bags with Drawstring + 60 Pieces Gold for Kids + 120 Pirate Gems for",
+      "price": 9.66,
+      "reviews": 16,
+      "rating": 4.0,
+      "rank": 40,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "16 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D9K2X9DT",
+      "image_url": "https://m.media-amazon.com/images/I/81wzKtBJZAL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.329,
+      "net_profit": 3.18,
+      "cost_breakdown": {
+        "vat": 1.61,
+        "commission": 1.45,
+        "fba": 1.46,
+        "ads": 0.97,
+        "returns": 0.19,
+        "sourcing": 0.8,
+        "total_cost": 6.48
+      }
+    },
+    {
+      "asin": "B0BX3T973F",
+      "name": "Prasacco 100 Pieces Pirate Coins Was Caught Being Good Coins Fake Plastic Coins for Kids, Colorful Smile Face Reward Coi",
+      "price": 7.48,
+      "reviews": 55,
+      "rating": 4.5,
+      "rank": 41,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "55 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0BX3T973F",
+      "image_url": "https://m.media-amazon.com/images/I/91u5fHaEGpL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.261,
+      "net_profit": 1.95,
+      "cost_breakdown": {
+        "vat": 1.25,
+        "commission": 1.12,
+        "fba": 1.46,
+        "ads": 0.75,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 5.53
+      }
+    },
+    {
+      "asin": "B0D9DBBYPY",
+      "name": "Dncvb 201 Pcs Pirate Treasure, Pirate Treasure Chest with 100 Plastic Gold Coins and 100 Fake Gems, Treasure Hunt Kit fo",
+      "price": 10.82,
+      "reviews": 27,
+      "rating": 4.0,
+      "rank": 42,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "27 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D9DBBYPY",
+      "image_url": "https://m.media-amazon.com/images/I/8115Tc9ajDL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.354,
+      "net_profit": 3.83,
+      "cost_breakdown": {
+        "vat": 1.81,
+        "commission": 1.62,
+        "fba": 1.46,
+        "ads": 1.08,
+        "returns": 0.22,
+        "sourcing": 0.8,
+        "total_cost": 6.99
+      }
+    },
+    {
+      "asin": "B0H25HN39P",
+      "name": "Pirate Treasure Chest, Treasure Chest Kids with 108g Colorful Gems, 20 Pirates Coins, Eyepatch, Compass, Telescope and P",
+      "price": 13.32,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 44,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H25HN39P",
+      "image_url": "https://m.media-amazon.com/images/I/71LGortddrL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.393,
+      "net_profit": 5.24,
+      "cost_breakdown": {
+        "vat": 2.22,
+        "commission": 2.0,
+        "fba": 1.46,
+        "ads": 1.33,
+        "returns": 0.27,
+        "sourcing": 0.8,
+        "total_cost": 8.08
+      }
+    },
+    {
+      "asin": "B0DFY4MGG1",
+      "name": "Picocosmxiruo Gold Coins 25Pcs Miniature 1:6 Scale Metal - St Patrick Leprechaun, Pirate Treasure, Dollhouse (Gold)",
+      "price": 9.99,
+      "reviews": 32,
+      "rating": 4.4,
+      "rank": 46,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "32 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DFY4MGG1",
+      "image_url": "https://m.media-amazon.com/images/I/81ii5GprJnL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.337,
+      "net_profit": 3.36,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 1.0,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.63
+      }
+    },
+    {
+      "asin": "B0F4885ZMB",
+      "name": "v2croft 30 PCS Metal Coins for Board Games, Antique Gold Silver Copper Tokens with Face Value for DND, Tabletop RPG, Pir",
+      "price": 9.99,
+      "reviews": 43,
+      "rating": 4.6,
+      "rank": 47,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "43 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F4885ZMB",
+      "image_url": "https://m.media-amazon.com/images/I/81VA2ytrz3L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate coins",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-07-04",
+      "is_event": true,
+      "sources": [
+        "📅 海盗说话日"
+      ],
+      "is_new": true,
+      "signal_label": "🔍 关键词发现",
+      "sd_label": "趋势匹配",
+      "profit_margin": 0.337,
+      "net_profit": 3.36,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 1.0,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.63
+      }
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "pets",
+      "category": "pets",
+      "heat": 92,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "cat",
+        "dog",
+        "pet"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "cat toy",
+        "cat bed",
+        "cat collar",
+        "cat scratcher",
+        "pet grooming",
+        "pet bed",
+        "pet feeder"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 92,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=cat+toy",
+      "url_google": "https://trends.google.com/trends/explore?q=cat+toy&geo=GB"
+    },
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 100,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "art",
+        "craft"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "art supplies",
+        "paint set",
+        "drawing kit",
+        "craft knife",
+        "craft supplies",
+        "DIY craft kit"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=art+supplies",
+      "url_google": "https://trends.google.com/trends/explore?q=art+supplies&geo=GB"
+    },
+    {
+      "keyword": "phone",
+      "category": "phone",
+      "heat": 69,
+      "score": 68,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "cable",
+        "charger",
+        "phone"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "charging cable",
+        "USB cable",
+        "phone cable",
+        "phone charger",
+        "wireless charger",
+        "car charger",
+        "phone case",
+        "phone holder"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 69,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=charging+cable",
+      "url_google": "https://trends.google.com/trends/explore?q=charging+cable&geo=GB"
+    },
+    {
+      "keyword": "office",
+      "category": "office",
+      "heat": 69,
+      "score": 68,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "pen",
+        "office",
+        "desk"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "pen holder",
+        "pen set",
+        "fountain pen",
+        "office supplies",
+        "desk organizer",
+        "desk lamp",
+        "desk mat"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 69,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=pen+holder",
+      "url_google": "https://trends.google.com/trends/explore?q=pen+holder&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 61,
+      "score": 65,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "eco products",
+        "reusable bag",
+        "bamboo products"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 61,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=eco+products",
+      "url_google": "https://trends.google.com/trends/explore?q=eco+products&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 61,
+      "score": 65,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "gift"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "gift ideas",
+        "gift set",
+        "gift box"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 61,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=gift+ideas",
+      "url_google": "https://trends.google.com/trends/explore?q=gift+ideas&geo=GB"
+    },
+    {
+      "keyword": "car",
+      "category": "car",
+      "heat": 53,
+      "score": 62,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "car"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "car accessories",
+        "car organizer",
+        "car phone holder"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 53,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=car+accessories",
+      "url_google": "https://trends.google.com/trends/explore?q=car+accessories&geo=GB"
+    },
+    {
+      "keyword": "garden",
+      "category": "garden",
+      "heat": 53,
+      "score": 62,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "flower",
+        "garden"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "flower",
+        "garden tool set",
+        "garden light",
+        "garden decor"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 53,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=flower",
+      "url_google": "https://trends.google.com/trends/explore?q=flower&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 53,
+      "score": 62,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "candle",
+        "mirror",
+        "clock",
+        "decor"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 3,
+      "suggestions": [
+        "candle holder",
+        "scented candle",
+        "candle set",
+        "makeup mirror",
+        "vanity mirror",
+        "LED mirror",
+        "wall clock",
+        "desk clock"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 53,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=candle+holder",
+      "url_google": "https://trends.google.com/trends/explore?q=candle+holder&geo=GB"
+    },
+    {
+      "keyword": "lighting",
+      "category": "lighting",
+      "heat": 84,
+      "score": 53,
+      "gap_level": "weak",
+      "amazon_count": 6,
+      "amazon_reviews": 5012,
+      "evidence": [
+        "strip",
+        "led",
+        "light",
+        "lamp"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "LED strip",
+        "LED strip light",
+        "RGB strip",
+        "LED bulb",
+        "LED light",
+        "LED panel",
+        "fairy lights",
+        "string lights"
+      ],
+      "sd_info": {
+        "ratio": 9.9,
+        "demand": 84,
+        "supply": 5012,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=LED+strip",
+      "url_google": "https://trends.google.com/trends/explore?q=LED+strip&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "crafts",
+        100
+      ],
+      [
+        "pets",
+        92
+      ],
+      [
+        "lighting",
+        84
+      ],
+      [
+        "phone",
+        69
+      ],
+      [
+        "office",
+        69
+      ],
+      [
+        "kitchen",
+        62
+      ]
+    ],
+    "cross_validated": [
+      "car",
+      "lighting",
+      "pets",
+      "crafts",
+      "phone",
+      "eco",
+      "seasonal",
+      "garden",
+      "office",
+      "home decor"
+    ],
+    "demand_keywords": [
+      "beach bag,",
+      "cool gadgets",
+      "etsy uk shops we love",
+      "high value items that you",
+      "magnetic eyelashes",
+      "magnetic phone charger",
+      "may have to close up",
+      "pink cardigan",
+      "posture corrector",
+      "real market data on trending"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}

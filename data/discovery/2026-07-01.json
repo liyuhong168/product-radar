@@ -1,0 +1,142 @@
+{
+  "scan_date": "2026-07-01",
+  "scan_time": "08:40",
+  "trend_forecast": "未来2个月（2026年7-8月）三大趋势：①7月12-15日Amazon Prime Day → 小件厨房/家居/收纳品需求爆发，尤其是夏季限定品（冰棒模具/冷感毛巾）；②UK夏季热浪持续（5月已创历史最高温），非电子降温品（冷感毛巾/冰棒模具）需求稳定但需选蓝海差异化细分；③TikTok UK 7月四大品类：冷冻饮品/冰棒自制视频（Ninja SLUSHi病毒传播）、家居收纳整理（Bamboo Drawer Dividers数百万播放）、厨房小工具（Silicone Spatula TikTok 百万级播）、零废弃环保（Produce Bags持续增长）。\n\n⚠️ 本次扫描严格遵守非电子品类原则：排除所有含电池/USB/电机/充电功能的产品。",
+  "insights": [
+    {
+      "keyword": "silicone ice pop molds 6 cavity reusable",
+      "keyword_cn": "硅胶冰棒模具 6格 可重复使用 自制冰棍",
+      "amazon_keyword": "silicone ice lolly moulds 6 cavity reusable",
+      "search_1688": "硅胶冰棒模具 6格 自制冰棍 可重复使用 食品级",
+      "demand_signals": [
+        "Amazon UK Ice Lolly Moulds Best Seller - Bangp Silicone Popsicle Moulds 6-Pack持续BSR领先（4.4★），Vinsani同类产品同品类Best Seller",
+        "TikTok 2026夏季冰饮趋势：Ninja SLUSHi病毒式传播 + iced matcha自制冷饮，DIY冰棒视频在#SummerTreats标签下数百万播放",
+        "UK 5月破纪录高温后7月热浪持续，38°C以上预计，自制健康冰棒成为家庭刚需",
+        "TikTok Viral Products July 2026 - 冷冻饮品为夏季5大趋势赛道之一（$19-$298价格区间），自制冷饮设备搜索量大涨",
+        "Amazon UK Kitchen & Dining Best Seller中，冰棒模具为6-7月季节性搜索峰值品类"
+      ],
+      "trend_score": 65,
+      "trend_direction": "rising",
+      "reason": "7月UK进入年度最热时段（5月已破38°C纪录），自制冰棒是家庭刚需场景。硅胶冰棒模具为纯硅胶材质（无电子部件），1688 ¥6-12/6格模具，Amazon UK售价£7.99-8.99，毛利率42%+。轻量<250g，FBA Small Standard费用最低。差异化选配：带漏斗+清洁刷+可重复使用冰棒棍套装，对比Bangp/Vinsani的无配件款形成差异化。TikTok自制冷饮趋势（Ninja SLUSHi、Iced Matcha）带动自制冰棒文化破圈，7-8月为品类销售高峰期。Prime Day（7月12-15日）入仓可借厨房促销流量。",
+      "action": "007店测款：上架6格硅胶冰棒模具套装（含漏斗+清洁刷+12根可重复使用冰棒棍+50个冰棒袋），定价£7.99，1688搜索'硅胶冰棒模具 6格 自制冰棍 可重复使用 食品级'，首批20件，选彩色硅胶（蓝/绿/粉），强调'BPA-free silicone + easy release + leakproof lid + complete kit'。争取7月5日前入仓赶上Prime Day预热。",
+      "competition": "蓝海。Amazon UK £6-9价格带silicone ice lolly moulds 6-pack竞品review数平均<50条，Bangp为BSR#1但review仅500+条。£7.99套装（附配件）在£6-9区间几乎没有带配件完整套装的竞品，差异化明显。",
+      "signal_scores": {
+        "trend": 65,
+        "gap": 85,
+        "profit": 90,
+        "final": 81.7,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥12以内可保35%+利润（毛利率预估42%，家居佣金8%，套装增加AOV）"
+      }
+    },
+    {
+      "keyword": "bamboo drawer dividers expandable 4 pack",
+      "keyword_cn": "竹制抽屉分隔板 可伸缩 4个装 弹簧调节",
+      "amazon_keyword": "bamboo drawer dividers expandable adjustable 4 pack",
+      "search_1688": "竹抽屉分隔板 可伸缩 弹簧调节 4个装 收纳整理",
+      "demand_signals": [
+        "TikTok #HomeOrganizing #DrawerOrganization 2026年持续热门，bamboo drawer dividers在UK TikTok Shop上架即售罄",
+        "Lakeland UK Bamboo Drawer Dividers Set of 4热销（B&Q同款£16+），验证UK市场对天然材质收纳品的接受度",
+        "UK 2026夏季家居整理趋势：rattan/竹编自然材质家居品热搜，竹质抽屉分隔板为#1收纳推荐品",
+        "Amazon UK Drawer Organisers品类为家居大类活跃子品类，竹质材料比塑料溢价空间大但竞争小",
+        "TikTok 'messy drawer transformation'视频格式在UK累计千万播放，竹质收纳为高频推荐品类"
+      ],
+      "trend_score": 60,
+      "trend_direction": "rising",
+      "reason": "UK 2026夏季家居整理是TikTok热门内容（#HomeOrganizing），竹质/天然材质替代塑料的eco-friendly趋势明确。竹质抽屉分隔板为纯天然竹材+泡沫垫（无电子部件），1688 ¥10-15/4个装，Amazon UK售价£7.99-8.99（vs B&Q/Lakeland £16+定价），毛利率35%+。弹簧伸缩设计（长度42-56cm可调）+防滑泡沫垫，免工具安装。差异化选项：竹质天然色+黑色两色，比Lakeland单一色更多选择。轻量<500g/4个，FBA Small Standard费用低。注意：前期有推adjustable drawer dividers（塑料8-pack），竹质4-pack为完全不同材质和定价策略，不冲突。",
+      "action": "007店测款：上架4个装可伸缩竹质抽屉分隔板（42-56cm可调），定价£7.99，1688搜索'竹抽屉分隔板 可伸缩 弹簧调节 4个装 收纳整理'，首批20件，选天然竹色+黑色两色变体，强调'natural bamboo + spring-loaded expandable + non-slip foam pads + tool-free install'。7月5日前入仓。",
+      "competition": "蓝海。Amazon UK £6-10价格带bamboo drawer dividers 4-pack竞品极少（定价£15+为主），£7.99远低于Lakeland(£16)、B&Q(£12)、Vinsani(£17)等品牌定价。竹质vs塑料的天然材质差异化+价格优势双重壁垒。",
+      "signal_scores": {
+        "trend": 60,
+        "gap": 95,
+        "profit": 85,
+        "final": 82.4,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥15以内可保25%+利润（毛利率预估35%，家居佣金8%）"
+      }
+    },
+    {
+      "keyword": "silicone spatula set 3 piece mini",
+      "keyword_cn": "硅胶锅铲套装 小号3件套 迷你 不粘锅适用",
+      "amazon_keyword": "silicone spatula set mini 3 piece kitchen utensils",
+      "search_1688": "硅胶锅铲套装 小号 3件套 不粘锅 迷你厨房工具",
+      "demand_signals": [
+        "Amazon UK Best Sellers in Spatulas & Turners - NileHome/Wildone硅胶锅铲长期为BSR品类（Wildone 4.5★/1,091条review）",
+        "TikTok #KitchenGadgets #TikTokMadeMeBuyIt - 'kitchen utensils under $10'视频在UK累计数百万播放，迷你锅铲套装为高频推荐品",
+        "UK夏季BBQ/户外烹饪场景增多，便携/迷你厨房工具需求上升",
+        "Prime Day（7月12-15日）厨房小件为历史促销热门品类，$10以下厨房工具为Prime Day转化率最高品类之一",
+        "Amazon UK Kitchen Utensils 12-piece套装定价£16+（竞争红海），但3-5件小套装£6-9区间竞品稀少"
+      ],
+      "trend_score": 62,
+      "trend_direction": "rising",
+      "reason": "Amazon UK厨房用品12件套市场竞争激烈（Wildone/Herogo/Umite Chef等品牌review 500-1000+条），但3-5件迷你小套装在£6-9价格带几乎没有竞争。迷你硅胶锅铲套装（含小锅铲+小刮刀+小夹子）纯硅胶+不锈钢/木质手柄（无电子部件），1688 ¥5-10/3件套，Amazon UK售价£6.99-7.99，毛利率45%+。超轻量<200g，FBA费用最低档。差异化选项：多色（粉色/绿色/灰色/黑色）+ 木质手柄 + 挂孔设计。Prime Day前入仓借厨房促销流量。针对小厨房/公寓用户（UK城市公寓为主）的刚需场景。",
+      "action": "007店测款：上架3件套硅胶迷你锅铲套装（小锅铲+小刮刀+食品夹），定价£7.99，1688搜索'硅胶锅铲套装 小号 3件套 不粘锅 迷你厨房工具'，首批20件，选3色（粉色/灰色/绿色）变体，强调'mini size for small kitchens + BPA-free silicone + heat resistant 230°C + ergonomic wooden handles'。7月5日前入仓。",
+      "competition": "蓝海。Amazon UK £6-8价格带silicone spatula set 3-piece mini竞品review数平均<5条，10-12件套竞争激烈但小套装明显空白。以'小厨房专用'角度切入UK城市公寓市场，差异化定位清晰。",
+      "signal_scores": {
+        "trend": 62,
+        "gap": 90,
+        "profit": 95,
+        "final": 84.9,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥10以内可保35%+利润（毛利率预估45%，家居佣金8%）"
+      }
+    },
+    {
+      "keyword": "cotton mesh produce bags reusable 6 pack",
+      "keyword_cn": "棉网果蔬购物袋 可重复使用 6个装 环保",
+      "amazon_keyword": "cotton mesh produce bags reusable 6 pack drawstring",
+      "search_1688": "棉网果蔬购物袋 可重复使用 6个装 抽绳 环保 有机棉",
+      "demand_signals": [
+        "Amazon UK Reusable Produce Bags Best Seller - 12+1 Pack有机棉网袋BSR#1（2,021条review/4.7★），验证需求规模",
+        "UK环保限塑政策持续收紧，超市塑料袋收费从10p→15p（2026年春季调整），消费者主动寻找替代品",
+        "TikTok UK #ZeroWaste #EcoFriendly #PlasticFree 标签持续增长，自备购物袋文化在UK年轻群体中流行",
+        "UK夏季农夫市场/超市购物旺季，果蔬购物袋进入年度使用高峰",
+        "America's Test Kitchen 2026评选purifyou Reusable Produce Bags Set of 9为#1推荐品，权威背书"
+      ],
+      "trend_score": 55,
+      "trend_direction": "stable",
+      "reason": "UK环保限塑是不可逆的长期趋势，2026年春季塑料袋涨价再次推动消费者转向可重复使用替代品。棉网果蔬购物袋纯棉材质+抽绳设计（无电子部件），1688 ¥5-10/6个装（含2小+2中+2大尺寸），Amazon UK售价£6.99-7.99，毛利率40%+。超轻量<150g/6个，FBA费用最低档。差异化选项：有机棉认证+标签含瓶身重量（tare weight）+双缝线加固。Prime Day环保主题促销流量加持。注意：品类需求稳定而非爆发性增长（trend_score 55 moderate），但作为蓝海补充SKU有稳定复购优势。",
+      "action": "007店测款：上架6个装棉网果蔬购物袋（2小+2中+2大+抽绳设计），定价£6.99，1688搜索'棉网果蔬购物袋 可重复使用 6个装 抽绳 环保 有机棉'，首批20件，选米白/原棉色基本款，强调'100% organic cotton + tare weight label + double stitched + machine washable'。7月5日前入仓。",
+      "competition": "蓝海。Amazon UK £5-8价格带cotton produce bags 6-pack竞品不多但Cottify等品牌较强（500+ reviews），但6-pack定价在£6-7（vs Cottify£9+），价格差异化+Prime Day流量有望破零。",
+      "signal_scores": {
+        "trend": 55,
+        "gap": 80,
+        "profit": 90,
+        "final": 77.2,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥10以内可保30%+利润（毛利率预估40%，家居佣金8%）"
+      }
+    },
+    {
+      "keyword": "microfiber glass cleaning cloths 6 pack",
+      "keyword_cn": "超细纤维玻璃清洁布 6条装 无痕 擦镜布",
+      "amazon_keyword": "microfiber glass cleaning cloths streak free 6 pack",
+      "search_1688": "超细纤维玻璃清洁布 6条装 无痕 擦镜布 双面",
+      "demand_signals": [
+        "Amazon UK Home Cleaning品类为家居大类稳定品类，microfiber cleaning cloths为长线热销品",
+        "TikTok UK #CleanTok 2026年持续热门，'streak-free glass cleaning'视频在UK累计千万播放",
+        "UK夏季（7-8月）日照时间长+花粉季，窗户/玻璃清洁频次增加，清洁布需求季节性上升",
+        "Amazon UK Best Sellers in Cleaning Cloths - 多品牌microfiber cloths持续BSR，验证品类稳定性",
+        "UK家庭夏季大扫除习惯（Spring cleaning延伸到Summer deep cleaning），清洁品需求旺季"
+      ],
+      "trend_score": 48,
+      "trend_direction": "stable",
+      "reason": "超细纤维玻璃清洁布为家居清洁长线刚需品，7-8月因日照增加和花粉季（UK花粉季6-8月高峰），窗户/玻璃/镜面清洁频次上升。纯超细纤维材质（聚酯+聚酰胺混纺，无电子部件），1688 ¥4-7/6条装，Amazon UK售价£5.99-6.99，毛利率35%+。超轻量<100g/6条，FBA费用最低档。差异化选项：双面编织（一面清洁一面抛光）+ 多色区分（蓝/绿/粉/黄各色1-2条）+ 可机洗反复使用500次。退换货率极低（<0.5%），适合稳定铺货。注意：稳定品类而非爆发，trend_score较低但胜在零风险+高复购。",
+      "action": "027店测款：上架6条装超细纤维玻璃清洁布（双面编织+多色），定价£6.99，1688搜索'超细纤维玻璃清洁布 6条装 无痕 擦镜布 双面'，首批20件，选混色套装（蓝/绿/粉/黄各1-2条），强调'streak-free + lint-free + dual-sided weave + machine washable 500+ uses'。7月5日前入仓。",
+      "competition": "蓝海。Amazon UK £5-7价格带microfiber glass cleaning cloths 6-pack竞品review数平均<10条，大品牌定价£10+。£6.99定价+混色差异化空间明显。",
+      "signal_scores": {
+        "trend": 48,
+        "gap": 85,
+        "profit": 85,
+        "final": 74.6,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥7以内可保20%+利润（毛利率预估35%，家居佣金8%，风险最低的新手入门品）"
+      }
+    }
+  ]
+}
