@@ -6,7 +6,11 @@
   },
   "min_profit_margin": 0.2,
   "max_weight_g": 200,
-  "max_package_dimensions": {"l_cm": 30, "w_cm": 21, "h_cm": 6},
+  "max_package_dimensions": {
+    "l_cm": 30,
+    "w_cm": 21,
+    "h_cm": 6
+  },
   "exchange_rate_cny_gbp": 7.3,
   "cost_structure": {
     "vat_rate": 0.167,
@@ -139,7 +143,10 @@
     "earphone",
     "heater",
     "sensor",
-    "vacuum"
+    "vacuum",
+    "seat",
+    "scratch",
+    "remover"
   ],
   "sources": {
     "amazon_uk": {
