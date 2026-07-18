@@ -1,0 +1,1678 @@
+{
+  "scan_date": "2026-07-18",
+  "scan_time": "14:32",
+  "scan_ts": "2026-07-18_1432",
+  "stats": {
+    "total_scanned": 84,
+    "passed_filter": 9,
+    "rejected": 75,
+    "channels": {
+      "tiktok_verified": 7,
+      "google_trends": 5,
+      "etsy_trending": 7,
+      "temu_trending": 7,
+      "new_releases": 9,
+      "multi_source": 7
+    },
+    "trend_categories": {
+      "office": 100,
+      "pets": 100,
+      "phone": 100,
+      "crafts": 89,
+      "garden": 84,
+      "lighting": 82
+    },
+    "supply_demand": {
+      "phone": {
+        "ratio": 9.6,
+        "demand": 100,
+        "supply": 32177,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "lighting": {
+        "ratio": 7.0,
+        "demand": 82,
+        "supply": 116717,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "home decor": {
+        "ratio": 6.5,
+        "demand": 66,
+        "supply": 26000,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "kitchen": {
+        "ratio": 5.8,
+        "demand": 66,
+        "supply": 89553,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "sports": {
+        "ratio": 5.7,
+        "demand": 66,
+        "supply": 100000,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "kitchen_gadgets": {
+        "ratio": 0.4,
+        "demand": 5,
+        "supply": 89553,
+        "label": "🔴 红海",
+        "level": "red_ocean"
+      },
+      "garden": {
+        "ratio": 0,
+        "demand": 84,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "bathroom": {
+        "ratio": 0,
+        "demand": 71,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      }
+    },
+    "divergences": {
+      "garden": {
+        "current_heat": 83,
+        "previous_heat": 91,
+        "heat_change_pct": -8.8,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "bathroom": {
+        "current_heat": 73,
+        "previous_heat": 72,
+        "heat_change_pct": 1.4,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "cleaning": {
+        "current_heat": 49,
+        "previous_heat": 61,
+        "heat_change_pct": -19.7,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "car": {
+        "current_heat": 49,
+        "previous_heat": 56,
+        "heat_change_pct": -12.5,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "office": {
+        "current_heat": 100,
+        "previous_heat": 93,
+        "heat_change_pct": 7.5,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "storage": {
+        "current_heat": 68,
+        "previous_heat": 69,
+        "heat_change_pct": -1.4,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "lighting": {
+        "current_heat": 81,
+        "previous_heat": 91,
+        "heat_change_pct": -11.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "pets": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "sports": {
+        "current_heat": 65,
+        "previous_heat": 66,
+        "heat_change_pct": -1.5,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "crafts": {
+        "current_heat": 86,
+        "previous_heat": 88,
+        "heat_change_pct": -2.3,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "travel": {
+        "current_heat": 73,
+        "previous_heat": 77,
+        "heat_change_pct": -5.2,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "beauty": {
+        "current_heat": 81,
+        "previous_heat": 93,
+        "heat_change_pct": -12.9,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "home decor": {
+        "current_heat": 65,
+        "previous_heat": 80,
+        "heat_change_pct": -18.8,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "baby": {
+        "current_heat": 62,
+        "previous_heat": 56,
+        "heat_change_pct": 10.7,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "eco": {
+        "current_heat": 62,
+        "previous_heat": 69,
+        "heat_change_pct": -10.1,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "seasonal": {
+        "current_heat": 54,
+        "previous_heat": 64,
+        "heat_change_pct": -15.6,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "kitchen": {
+        "current_heat": 62,
+        "previous_heat": 58,
+        "heat_change_pct": 6.9,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "bedding": {
+        "current_heat": 39,
+        "previous_heat": 45,
+        "heat_change_pct": -13.3,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "phone": {
+        "current_heat": 100,
+        "previous_heat": 100,
+        "heat_change_pct": 0.0,
+        "direction": "stable",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "kitchen_gadgets": {
+        "current_heat": 5,
+        "previous_heat": 8,
+        "heat_change_pct": -37.5,
+        "direction": "falling",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      }
+    },
+    "gap_opportunities": 15
+  },
+  "products": [
+    {
+      "asin": "B0H498Q8HJ",
+      "name": "Aluminium Travel Soap Dish with Lid Self Draining, Metal Soap Container Soap Tin Bar Holder Case Box for Camp Gym Hiking",
+      "price": 7.29,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 8,
+      "category": "Storage",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H498Q8HJ",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51e2NWY1gAL._AC_UL300_SR300,200_.jpg",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势",
+        "Reddit需求",
+        "TikTok趋势",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.323,
+      "net_profit": 2.35,
+      "cost_breakdown": {
+        "vat": 1.22,
+        "commission": 0.58,
+        "fba": 1.46,
+        "ads": 0.73,
+        "returns": 0.15,
+        "sourcing": 0.8,
+        "total_cost": 4.94
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.8,
+        "demand": 66,
+        "supply": 89553,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-38%)",
+      "div_info": {
+        "current_heat": 5,
+        "previous_heat": 8,
+        "heat_change_pct": -37.5,
+        "direction": "falling",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Google",
+        "Temu",
+        "Etsy",
+        "Reddit"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "category_corrected": true,
+      "category_original": "Kitchen",
+      "score": 152,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "📊 Google↑": 15,
+        "💬 Reddit": 5,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "🌴 当季(summer)": 10,
+        "🌊 深蓝海": 20,
+        "📉 品类降温(-38%)": -10
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-18",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "google_trends",
+        "etsy_trending",
+        "temu_trending",
+        "new_releases",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0GTQY2R94",
+      "name": "Amig - Barbecue Spatula - 41 cm - Stainless Steel - Grill Utensil for Garden, Terrace, and Outdoors - Durable - Mod. AM3",
+      "price": 9.37,
+      "reviews": 2,
+      "rating": 4.0,
+      "rank": 12,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "2 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GTQY2R94",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51krlPdZn-L._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Google趋势",
+        "Reddit需求",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "google_trend": "rising",
+      "profit_margin": 0.392,
+      "net_profit": 3.67,
+      "cost_breakdown": {
+        "vat": 1.56,
+        "commission": 0.75,
+        "fba": 1.46,
+        "ads": 0.94,
+        "returns": 0.19,
+        "sourcing": 0.8,
+        "total_cost": 5.7
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.8,
+        "demand": 66,
+        "supply": 89553,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-38%)",
+      "div_info": {
+        "current_heat": 5,
+        "previous_heat": 8,
+        "heat_change_pct": -37.5,
+        "direction": "falling",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Google",
+        "Temu",
+        "Etsy",
+        "Reddit"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 151,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "📊 Google↑": 15,
+        "💬 Reddit": 5,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 评论偏少": -8,
+        "💰 超高利润": 12,
+        "🌴 当季(summer)": 10,
+        "🌊 深蓝海": 20,
+        "📉 品类降温(-38%)": -10,
+        "⚠️ 品类较多": -5
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-18",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "google_trends",
+        "etsy_trending",
+        "temu_trending",
+        "new_releases",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H49CNZKS",
+      "name": "Self Draining Pink Silicone Soap Dish, Anti Slip Soap Holder | Multi-use Soap Box & Travel Soap Dish, Portable Travel So",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 10,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H49CNZKS",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51IkNT5zc0L._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Google趋势",
+        "Reddit需求",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "google_trend": "rising",
+      "profit_margin": 0.294,
+      "net_profit": 1.96,
+      "cost_breakdown": {
+        "vat": 1.11,
+        "commission": 0.53,
+        "fba": 1.46,
+        "ads": 0.67,
+        "returns": 0.13,
+        "sourcing": 0.8,
+        "total_cost": 4.7
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.8,
+        "demand": 66,
+        "supply": 89553,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-38%)",
+      "div_info": {
+        "current_heat": 5,
+        "previous_heat": 8,
+        "heat_change_pct": -37.5,
+        "direction": "falling",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Google",
+        "Temu",
+        "Etsy",
+        "Reddit"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 133,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "📊 Google↑": 15,
+        "💬 Reddit": 5,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 待验证": -8,
+        "💰 较好利润": 4,
+        "❓ 品类不符": -10,
+        "🌴 当季(summer)": 10,
+        "🌊 深蓝海": 20,
+        "📉 品类降温(-38%)": -10,
+        "⚠️ 品类较多": -5
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-18",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "google_trends",
+        "etsy_trending",
+        "temu_trending",
+        "new_releases",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H7B5CDBJ",
+      "name": "Shower Head Holder, 45° Rotatable No Drill Wall Mount Bracket with Hook | Heavy Duty Adhesive, Quick Stick-On Installati",
+      "price": 9.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 2,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H7B5CDBJ",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51a0z5ejMTL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.337,
+      "net_profit": 3.36,
+      "cost_breakdown": {
+        "vat": 1.67,
+        "commission": 1.5,
+        "fba": 1.46,
+        "ads": 1.0,
+        "returns": 0.2,
+        "sourcing": 0.8,
+        "total_cost": 6.63
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 127,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "🔥 多源热门(bathroom)": 23,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-16",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "etsy_trending",
+        "temu_trending",
+        "new_releases",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H6ZXR9S2",
+      "name": "2PCS Plastic Scraper with 10 Plastic Blades & 10 Metal Blades, Pink | Razor Blade Scraper Cleaning Tool, Glass Paint Adh",
+      "price": 8.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 3,
+      "category": "DIY",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H6ZXR9S2",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61svrW8mOKL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Reddit需求",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.312,
+      "net_profit": 2.8,
+      "cost_breakdown": {
+        "vat": 1.5,
+        "commission": 1.35,
+        "fba": 1.46,
+        "ads": 0.9,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 6.19
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 0,
+      "sd_label": "",
+      "sd_info": {},
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy",
+        "Reddit"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 127,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "💬 Reddit": 5,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(cleaning)": 8,
+        "⏳ 待验证": -8,
+        "💰 高利润": 8,
+        "✨ 新发现": 10
+      },
+      "stars": 5,
+      "is_new": true,
+      "first_seen": "2026-07-18",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "etsy_trending",
+        "temu_trending",
+        "new_releases",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H6JCG6VQ",
+      "name": "Dual Sided Meat Tenderizer Hammer, Multifunctional Kitchen Meat Mallet | Meat Tenderiser Tool for Steak Chicken Pork Nut",
+      "price": 12.49,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 11,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H6JCG6VQ",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51L+rgcZqRL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.452,
+      "net_profit": 5.65,
+      "cost_breakdown": {
+        "vat": 2.09,
+        "commission": 1.0,
+        "fba": 1.46,
+        "ads": 1.25,
+        "returns": 0.25,
+        "sourcing": 0.8,
+        "total_cost": 6.84
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.8,
+        "demand": 66,
+        "supply": 89553,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-38%)",
+      "div_info": {
+        "current_heat": 5,
+        "previous_heat": 8,
+        "heat_change_pct": -37.5,
+        "direction": "falling",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 121,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "🌊 深蓝海": 20,
+        "📉 品类降温(-38%)": -10,
+        "⚠️ 品类较多": -5
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-18",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "etsy_trending",
+        "temu_trending",
+        "new_releases",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0H4LC8B61",
+      "name": "Silicone Draining Mat, Sink Drainer, Foldable Faucet Splash Guard | Non Slip Reusable Drying Mat, Food Grade Non Toxic D",
+      "price": 9.16,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 5,
+      "category": "Kitchen",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H4LC8B61",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/51GwmtASOrL._AC_UL300_SR300,200_.jpg",
+      "sources": [
+        "TikTok趋势",
+        "Reddit需求",
+        "Etsy趋势",
+        "Temu热销"
+      ],
+      "profit_margin": 0.386,
+      "net_profit": 3.54,
+      "cost_breakdown": {
+        "vat": 1.53,
+        "commission": 0.73,
+        "fba": 1.46,
+        "ads": 0.92,
+        "returns": 0.18,
+        "sourcing": 0.8,
+        "total_cost": 5.62
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.8,
+        "demand": 66,
+        "supply": 89553,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": -10,
+      "div_label": "📉 品类降温(-38%)",
+      "div_info": {
+        "current_heat": 5,
+        "previous_heat": 8,
+        "heat_change_pct": -37.5,
+        "direction": "falling",
+        "dates": [
+          "2026-07-18_1129",
+          "2026-07-18_1418"
+        ]
+      },
+      "signal_level": "strong",
+      "signal_label": "🔴 强信号",
+      "external_sources": [
+        "TikTok",
+        "Temu",
+        "Etsy",
+        "Reddit"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 116,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "🎵 TikTok": 20,
+        "💬 Reddit": 5,
+        "🛒 Temu": 8,
+        "🎨 Etsy": 6,
+        "🔴 强信号": 20,
+        "📈 趋势(kitchen)": 8,
+        "⏳ 待验证": -8,
+        "💰 超高利润": 12,
+        "❓ 品类不符": -10,
+        "🌊 深蓝海": 20,
+        "📉 品类降温(-38%)": -10,
+        "⚠️ 品类较多": -5
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-18",
+      "is_multi": true,
+      "is_event": false,
+      "channel_tags": [
+        "tiktok_verified",
+        "etsy_trending",
+        "temu_trending",
+        "new_releases",
+        "multi_source"
+      ]
+    },
+    {
+      "asin": "B0FTMYK464",
+      "name": "PUMA STELLAR Play Premier League 2026/27 Reactivity Football",
+      "price": 9.57,
+      "reviews": 22,
+      "rating": 4.8,
+      "rank": 3,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "22 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FTMYK464",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/7126KS3hFyL._AC_UL300_SR300,200_.jpg",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.327,
+      "net_profit": 3.13,
+      "cost_breakdown": {
+        "vat": 1.6,
+        "commission": 1.44,
+        "fba": 1.46,
+        "ads": 0.96,
+        "returns": 0.19,
+        "sourcing": 0.8,
+        "total_cost": 6.44
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.7,
+        "demand": 66,
+        "supply": 100000,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 106,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "📈 趋势(sports)": 8,
+        "🟢 低竞争": 10,
+        "⭐ 高评分": 5,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-18",
+      "is_event": false,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    },
+    {
+      "asin": "B0FTMTBTLZ",
+      "name": "PUMA STELLAR Premier League 2026/27 Reactivity Mini Football",
+      "price": 8.74,
+      "reviews": 15,
+      "rating": 4.2,
+      "rank": 13,
+      "category": "Sports",
+      "channel": "new_releases",
+      "channel_name": "Amazon新品榜",
+      "review_info": "15 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FTMTBTLZ",
+      "image_url": "https://images-eu.ssl-images-amazon.com/images/I/61m3xMeQSfL._AC_UL300_SR300,200_.jpg",
+      "google_trend": "rising",
+      "sources": [
+        "Google趋势"
+      ],
+      "profit_margin": 0.304,
+      "net_profit": 2.66,
+      "cost_breakdown": {
+        "vat": 1.46,
+        "commission": 1.31,
+        "fba": 1.46,
+        "ads": 0.87,
+        "returns": 0.17,
+        "sourcing": 0.8,
+        "total_cost": 6.08
+      },
+      "off_season": false,
+      "weight_unknown": true,
+      "sd_score": 20,
+      "sd_label": "🌊 深蓝海",
+      "sd_info": {
+        "ratio": 5.7,
+        "demand": 66,
+        "supply": 100000,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "div_score": 0,
+      "div_label": "",
+      "div_info": {},
+      "signal_level": "weak",
+      "signal_label": "🟡 弱信号",
+      "external_sources": [
+        "Google"
+      ],
+      "internal_sources": [
+        "新品榜"
+      ],
+      "score": 106,
+      "score_breakdown": {
+        "🆕 新品榜": 20,
+        "📊 Google↑": 15,
+        "📈 趋势(sports)": 8,
+        "🌊 蓝海": 15,
+        "💰 高利润": 8,
+        "❓ 品类不符": -10,
+        "🌊 深蓝海": 20
+      },
+      "stars": 5,
+      "is_new": false,
+      "first_seen": "2026-07-18",
+      "is_event": false,
+      "channel_tags": [
+        "new_releases",
+        "google_trends"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "keyword": "office",
+      "category": "office",
+      "heat": 100,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "office",
+        "notebook",
+        "pen",
+        "mouse",
+        "organiser"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "office supplies",
+        "desk organizer",
+        "pen holder",
+        "notebook",
+        "pen set",
+        "fountain pen",
+        "mouse",
+        "organiser"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=office+supplies",
+      "url_google": "https://trends.google.com/trends/explore?q=office+supplies&geo=GB"
+    },
+    {
+      "keyword": "pets",
+      "category": "pets",
+      "heat": 100,
+      "score": 75,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "collar",
+        "toy",
+        "bed",
+        "dog",
+        "pet"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "dog collar",
+        "cat collar",
+        "pet collar",
+        "dog chew toy",
+        "cat interactive toy",
+        "pet ball",
+        "cat bed",
+        "dog bed"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 100,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=dog+collar",
+      "url_google": "https://trends.google.com/trends/explore?q=dog+collar&geo=GB"
+    },
+    {
+      "keyword": "crafts",
+      "category": "crafts",
+      "heat": 89,
+      "score": 74,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "craft",
+        "art",
+        "brush",
+        "paint",
+        "stickers"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "craft knife",
+        "craft supplies",
+        "DIY craft kit",
+        "art supplies",
+        "paint set",
+        "drawing kit",
+        "brush",
+        "acrylic paint set"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 89,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=craft+knife",
+      "url_google": "https://trends.google.com/trends/explore?q=craft+knife&geo=GB"
+    },
+    {
+      "keyword": "garden",
+      "category": "garden",
+      "heat": 84,
+      "score": 73,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "solar",
+        "garden",
+        "grill",
+        "patio",
+        "plant"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "solar light",
+        "solar garden light",
+        "solar lamp",
+        "garden tool set",
+        "garden light",
+        "garden decor",
+        "grill",
+        "patio"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 84,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=solar+light",
+      "url_google": "https://trends.google.com/trends/explore?q=solar+light&geo=GB"
+    },
+    {
+      "keyword": "beauty",
+      "category": "beauty",
+      "heat": 79,
+      "score": 71,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "mirror",
+        "hair",
+        "brush",
+        "nail",
+        "organiser"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "makeup mirror",
+        "vanity mirror",
+        "LED mirror",
+        "hair clip",
+        "hair accessories",
+        "hair band",
+        "hair tie",
+        "brush"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 79,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=makeup+mirror",
+      "url_google": "https://trends.google.com/trends/explore?q=makeup+mirror&geo=GB"
+    },
+    {
+      "keyword": "travel",
+      "category": "travel",
+      "heat": 77,
+      "score": 70,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "luggage",
+        "toiletry",
+        "travel",
+        "neck pillow",
+        "passport"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "luggage",
+        "toiletry",
+        "travel",
+        "neck pillow",
+        "passport",
+        "packing"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 77,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=luggage",
+      "url_google": "https://trends.google.com/trends/explore?q=luggage&geo=GB"
+    },
+    {
+      "keyword": "bathroom",
+      "category": "bathroom",
+      "heat": 71,
+      "score": 68,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "mirror",
+        "shower",
+        "bathroom",
+        "bath",
+        "toilet"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "makeup mirror",
+        "vanity mirror",
+        "LED mirror",
+        "shower caddy",
+        "shower head",
+        "shower curtain",
+        "bathroom",
+        "bath mat"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 71,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=makeup+mirror",
+      "url_google": "https://trends.google.com/trends/explore?q=makeup+mirror&geo=GB"
+    },
+    {
+      "keyword": "storage",
+      "category": "storage",
+      "heat": 71,
+      "score": 68,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "box",
+        "container",
+        "organiser",
+        "storage",
+        "drawer"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "container",
+        "organiser",
+        "food storage",
+        "kitchen storage",
+        "container set",
+        "drawer",
+        "basket",
+        "floating shelf"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 71,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=container",
+      "url_google": "https://trends.google.com/trends/explore?q=container&geo=GB"
+    },
+    {
+      "keyword": "eco",
+      "category": "eco",
+      "heat": 61,
+      "score": 65,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "bamboo",
+        "organic",
+        "sustainable",
+        "reusable",
+        "eco"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "bamboo cutlery",
+        "bamboo toothbrush",
+        "bamboo organizer",
+        "organic products",
+        "organic cotton",
+        "sustainable products",
+        "eco friendly",
+        "reusable food wrap"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 61,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=bamboo+cutlery",
+      "url_google": "https://trends.google.com/trends/explore?q=bamboo+cutlery&geo=GB"
+    },
+    {
+      "keyword": "seasonal",
+      "category": "seasonal",
+      "heat": 59,
+      "score": 64,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "christmas",
+        "valentine",
+        "gift",
+        "birthday"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "christmas decoration",
+        "christmas gift",
+        "christmas stocking",
+        "valentine gift",
+        "valentine card",
+        "gift ideas",
+        "gift set",
+        "gift box"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 59,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=christmas+decoration",
+      "url_google": "https://trends.google.com/trends/explore?q=christmas+decoration&geo=GB"
+    },
+    {
+      "keyword": "baby",
+      "category": "baby",
+      "heat": 59,
+      "score": 64,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "nursery",
+        "kids",
+        "child",
+        "baby"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "nursery",
+        "kids",
+        "child",
+        "baby"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 59,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=nursery",
+      "url_google": "https://trends.google.com/trends/explore?q=nursery&geo=GB"
+    },
+    {
+      "keyword": "car",
+      "category": "car",
+      "heat": 51,
+      "score": 62,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "organiser",
+        "dashboard",
+        "car",
+        "automotive"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "organiser",
+        "dashboard",
+        "car accessories",
+        "car organizer",
+        "car phone holder",
+        "automotive"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 51,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=organiser",
+      "url_google": "https://trends.google.com/trends/explore?q=organiser&geo=GB"
+    },
+    {
+      "keyword": "cleaning",
+      "category": "cleaning",
+      "heat": 48,
+      "score": 61,
+      "gap_level": "strong",
+      "amazon_count": 0,
+      "amazon_reviews": 0,
+      "evidence": [
+        "sponge",
+        "brush",
+        "cleaning",
+        "vacuum",
+        "cleaner"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "sponge",
+        "brush",
+        "cleaning",
+        "vacuum",
+        "cleaner"
+      ],
+      "sd_info": {
+        "ratio": 0,
+        "demand": 48,
+        "supply": 0,
+        "label": "⚪ 数据不足",
+        "level": "no_data"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=sponge",
+      "url_google": "https://trends.google.com/trends/explore?q=sponge&geo=GB"
+    },
+    {
+      "keyword": "phone",
+      "category": "phone",
+      "heat": 100,
+      "score": 55,
+      "gap_level": "weak",
+      "amazon_count": 5,
+      "amazon_reviews": 32177,
+      "evidence": [
+        "charger",
+        "ring light",
+        "cable",
+        "case",
+        "stand"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "phone charger",
+        "wireless charger",
+        "car charger",
+        "ring light",
+        "charging cable",
+        "USB cable",
+        "phone cable",
+        "case"
+      ],
+      "sd_info": {
+        "ratio": 9.6,
+        "demand": 100,
+        "supply": 32177,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=phone+charger",
+      "url_google": "https://trends.google.com/trends/explore?q=phone+charger&geo=GB"
+    },
+    {
+      "keyword": "home decor",
+      "category": "home decor",
+      "heat": 66,
+      "score": 47,
+      "gap_level": "weak",
+      "amazon_count": 5,
+      "amazon_reviews": 26000,
+      "evidence": [
+        "mirror",
+        "candle",
+        "frame",
+        "wall art",
+        "decor"
+      ],
+      "is_cross_validated": true,
+      "cross_sources": 4,
+      "suggestions": [
+        "makeup mirror",
+        "vanity mirror",
+        "LED mirror",
+        "candle holder",
+        "scented candle",
+        "candle set",
+        "photo frame",
+        "picture frame"
+      ],
+      "sd_info": {
+        "ratio": 6.5,
+        "demand": 66,
+        "supply": 26000,
+        "label": "🌊 深蓝海",
+        "level": "deep_blue"
+      },
+      "source": "category_analysis",
+      "url_amazon": "https://www.amazon.co.uk/s?k=makeup+mirror",
+      "url_google": "https://trends.google.com/trends/explore?q=makeup+mirror&geo=GB"
+    }
+  ],
+  "trend_summary": {
+    "top_categories": [
+      [
+        "office",
+        100
+      ],
+      [
+        "pets",
+        100
+      ],
+      [
+        "phone",
+        100
+      ],
+      [
+        "crafts",
+        89
+      ],
+      [
+        "garden",
+        84
+      ],
+      [
+        "lighting",
+        82
+      ]
+    ],
+    "cross_validated": [
+      "kitchen",
+      "garden",
+      "bathroom",
+      "cleaning",
+      "car",
+      "office",
+      "storage",
+      "lighting",
+      "pets",
+      "sports",
+      "crafts",
+      "travel",
+      "beauty",
+      "eco",
+      "seasonal",
+      "bedding",
+      "phone",
+      "home decor",
+      "baby"
+    ],
+    "demand_keywords": [
+      "activate the battery",
+      "active demand",
+      "agentic commerce.",
+      "ai co-founder",
+      "and shows the most diverse",
+      "anniversary gift",
+      "art print",
+      "back to school teacher gift personalized",
+      "beach bag,",
+      "beach jewelry"
+    ],
+    "season": "summer",
+    "sources_scanned": [
+      "tiktok",
+      "temu",
+      "etsy",
+      "market_intel"
+    ]
+  }
+}
