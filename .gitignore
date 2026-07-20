@@ -13,9 +13,6 @@ data/history/
 data/amazon_cache.json
 
 # Output files — explicitly tracked via API, not git
-# Ignore everything inside output/ except the three tracked files
 output/*
 !output/index.html
 !output/platform.html
-!output/analysis/
-!output/analysis/index.html
