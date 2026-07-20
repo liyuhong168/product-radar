@@ -363,11 +363,14 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
 
     print(f"\n🔑 Keyword Scan: {len(disc_kws)} discovery + {len(fest_kws)} festival keywords", file=sys.stderr)
 
-    # Launch dedicated browser via CloakBrowser
+    # Launch dedicated browser via Playwright sync API (NOT cloakbrowser.launch,
+    # which crashes inside asyncio context that run_scan_v2.py sets up)
     browser = None
     try:
-        from cloakbrowser import launch as cloak_launch
-        browser = cloak_launch(headless=True)
+        from sources.amazon_uk import CLOAKBROWSER_CHROME
+        from playwright.sync_api import sync_playwright
+        p = sync_playwright().start()
+        browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
 
         # Now search all keywords with the warmed browser
         all_products = []
@@ -380,7 +383,7 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
             print(f"  🔍 [{source}] {keyword}...", file=sys.stderr, end="")
             search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
 
-            html = _keyword_cloak_fetch(search_url, browser)
+            html = _dedicated_browser_search(search_url, browser)
             if not html or len(html) < 2000:
                 print(" → blocked/empty", file=sys.stderr)
                 continue
@@ -427,16 +430,26 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
 
     except Exception as e:
         err_str = str(e)
-        print(f"  ⚠️ Keyword scan browser failed ({err_str[:80]}), falling back to per-keyword curl...", file=sys.stderr)
-        # Fallback: search each keyword individually using _keyword_curl_fetch
+        msg = f"  ⚠️ Keyword scan browser failed ({err_str[:80]}), falling back to per-keyword search..."
+        print(msg, file=sys.stderr)
+        # Fallback chain: subprocess playwright → curl (both per-keyword)
         all_products = []
         seen_asins = set()
         for kw_info in all_kws:
             keyword = kw_info["keyword"]
             source = kw_info["source"]
-            print(f"  🔍 [{source}] {keyword} (curl)...", file=sys.stderr, end="")
             search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
-            html = _keyword_curl_fetch(search_url)
+
+            # Strategy 1: subprocess Playwright (bypasses asyncio conflict)
+            html = ""
+            print(f"  🔍 [{source}] {keyword} (playwright)...", file=sys.stderr, end="")
+            html = _keyword_playwright_fetch(search_url)
+
+            # Strategy 2: curl fallback
+            if not html or len(html) < 2000:
+                print("(subproc failed) → curl...", file=sys.stderr, end="")
+                html = _keyword_curl_fetch(search_url)
+
             if not html or len(html) < 2000:
                 print(" → blocked/empty", file=sys.stderr)
                 continue
@@ -469,9 +482,9 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
             total = len(products)
             print(f" → {total} found, {kept} kept", file=sys.stderr)
         if all_products:
-            print(f"  ✅ Keyword scan (curl fallback) total: {len(all_products)} products", file=sys.stderr)
+            print(f"  ✅ Keyword scan (subprocess fallback) total: {len(all_products)} products", file=sys.stderr)
         else:
-            print(f"  ℹ️ No products found via curl fallback", file=sys.stderr)
+            print(f"  ℹ️ No products found via fallback", file=sys.stderr)
         return all_products
     finally:
         if browser:
