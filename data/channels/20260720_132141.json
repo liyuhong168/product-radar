@@ -1,0 +1,2298 @@
+{
+  "scan_date": "2026-07-20",
+  "scan_time": "13:21:41",
+  "scan_ts": "20260720_132141",
+  "source": "keyword_scan_fix_validate",
+  "stats": {
+    "total_scanned": 82,
+    "passed_filter": 82,
+    "rejected": 0,
+    "channels": {
+      "keyword_search": 82
+    }
+  },
+  "products": [
+    {
+      "asin": "B0DDWZRRWZ",
+      "name": "Weekly Pill Box Organiser with Upgraded Open Design, Black Large Pill Box 1 Time a Day, Portable 7 Day Travel Tablet Box",
+      "price": 2.49,
+      "reviews": 45,
+      "rating": 4.6,
+      "rank": 4,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "45 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DDWZRRWZ",
+      "image_url": "https://m.media-amazon.com/images/I/61zjPEyZQML._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 24.900000000000002
+    },
+    {
+      "asin": "B0F28XM9W9",
+      "name": "Fullicon Large Pill Boxes 7 Day 2 Times a Day, Easy to Use Tablet Organiser, Secure Weekly Pill Dispenser, Durable Daily",
+      "price": 5.41,
+      "reviews": 197,
+      "rating": 4.6,
+      "rank": 6,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "197 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F28XM9W9",
+      "image_url": "https://m.media-amazon.com/images/I/712Wogv3ffL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 54.1
+    },
+    {
+      "asin": "B0GHXQSYWC",
+      "name": "Pill Organiser 7 Day 1 Times a Day, Medication Organizer Weekly, Travel Daily Pill Box, Large Tablet Box Portable Pill C",
+      "price": 4.2,
+      "reviews": 15,
+      "rating": 4.7,
+      "rank": 7,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "15 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GHXQSYWC",
+      "image_url": "https://m.media-amazon.com/images/I/61DJfoyPw-L._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 42.0
+    },
+    {
+      "asin": "B0F7KVJV57",
+      "name": "Weekly Pill Box Organisers, 7 Day 3 Time a Day Pill Storage Case, Portable Weekly Pill Dispenser with 21 Compartments fo",
+      "price": 3.32,
+      "reviews": 72,
+      "rating": 3.8,
+      "rank": 13,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "72 reviews, 3.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F7KVJV57",
+      "image_url": "https://m.media-amazon.com/images/I/613rEEDF32L._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 33.199999999999996
+    },
+    {
+      "asin": "B0DDK7XBQP",
+      "name": "Weekly Portable Pill Box, Travel Pill Case with Push Button Pop Open Lids Design, 7-Day 1 Times a Day Medicine Storage C",
+      "price": 2.49,
+      "reviews": 20,
+      "rating": 4.9,
+      "rank": 14,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "20 reviews, 4.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DDK7XBQP",
+      "image_url": "https://m.media-amazon.com/images/I/71wCSQo-l7L._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 24.900000000000002
+    },
+    {
+      "asin": "B0F6N8TW3M",
+      "name": "Pill Box Daily Organiser 7 Days 4 Times Case Purse (1 Count)",
+      "price": 3.99,
+      "reviews": 20,
+      "rating": 4.0,
+      "rank": 15,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "20 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F6N8TW3M",
+      "image_url": "https://m.media-amazon.com/images/I/51+7lWYFC9L._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 39.900000000000006
+    },
+    {
+      "asin": "B0FGNZ13B7",
+      "name": "Geebymol Weekly Pill Organiser 7 Day, Large Pill Boxes 7 Day 1 Times a Day, Travel Friendly Daily Pill Containers to Hol",
+      "price": 2.74,
+      "reviews": 60,
+      "rating": 4.8,
+      "rank": 19,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "60 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FGNZ13B7",
+      "image_url": "https://m.media-amazon.com/images/I/61Feg7PFweL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 27.400000000000002
+    },
+    {
+      "asin": "B0GTYHSTPM",
+      "name": "ChioSun 7 Day 2 Times a Day Pill Organiser -Weekly AM/PM Dosette Box, 14 Compartments Tablet Box for Daily Medication & ",
+      "price": 3.16,
+      "reviews": 15,
+      "rating": 4.4,
+      "rank": 22,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "15 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GTYHSTPM",
+      "image_url": "https://m.media-amazon.com/images/I/61+4urwuJHL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 31.6
+    },
+    {
+      "asin": "B0DYT7QPC5",
+      "name": "Glosen Weekly Pill Box 7 Day-Daily Pill Box Organiser with 1 Time a Day Dosing, BPA-Free Travel Pill Box, Tablet Organis",
+      "price": 8.32,
+      "reviews": 145,
+      "rating": 4.7,
+      "rank": 23,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "145 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DYT7QPC5",
+      "image_url": "https://m.media-amazon.com/images/I/71ESBIrjinL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 83.2
+    },
+    {
+      "asin": "B0DYT5ZV1L",
+      "name": "Glosen Weekly Pill Box 7 Day-Daily Pill Box Organiser with 1 Time a Day Dosing, BPA-Free Travel Pill Box, Tablet Organis",
+      "price": 8.32,
+      "reviews": 145,
+      "rating": 4.7,
+      "rank": 26,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "145 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DYT5ZV1L",
+      "image_url": "https://m.media-amazon.com/images/I/71VejbYMXPL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 83.2
+    },
+    {
+      "asin": "B0FL2K3Z9F",
+      "name": "Medication Organizer Weekly Travel Pill Box 7 Days Dossett Boxes Portable Daily Pill Case 7 Day Compartments Easy Open C",
+      "price": 3.71,
+      "reviews": 0,
+      "rating": 4.2,
+      "rank": 27,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FL2K3Z9F",
+      "image_url": "https://m.media-amazon.com/images/I/51fqHhpkGKL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 37.1
+    },
+    {
+      "asin": "B0GV214DN6",
+      "name": "Medication Organizer Travel Weekly Pill Box Round Portable Easy to Open 7 Day Tablet Box Storage Container with Individu",
+      "price": 2.91,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 31,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GV214DN6",
+      "image_url": "https://m.media-amazon.com/images/I/51jbwGDw8tL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 29.1
+    },
+    {
+      "asin": "B0GWR1X2NT",
+      "name": "7 Day Pill Box Organiser, Travel Pill Case Portable Foldable Medicine Organiser, Weekly Storage Case for Vitamins Supple",
+      "price": 3.91,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 34,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWR1X2NT",
+      "image_url": "https://m.media-amazon.com/images/I/61zlPtRmCkL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 39.1
+    },
+    {
+      "asin": "B0GCJQWD4W",
+      "name": "Portable Weekly Pill Box | Easy to Open 7 Day Premium Quality Tablet Box | Travel Pill Case with Snap Shut Lids Design |",
+      "price": 2.82,
+      "reviews": 0,
+      "rating": 4.4,
+      "rank": 37,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GCJQWD4W",
+      "image_url": "https://m.media-amazon.com/images/I/71fepEbpeFL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 28.2
+    },
+    {
+      "asin": "B0FNWHLLY4",
+      "name": "PILLBOX7 Weekly Pill Boxes 7 Day 2 Times a Day Monday - Sunday, AM PM, Easy to Open, Pill Organiser 2 Times a Day | 7 Da",
+      "price": 8.32,
+      "reviews": 42,
+      "rating": 4.8,
+      "rank": 42,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "42 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FNWHLLY4",
+      "image_url": "https://m.media-amazon.com/images/I/71UlPE8ppVL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 83.2
+    },
+    {
+      "asin": "B0D5CTF88T",
+      "name": "3 Pack Transparent Weekly Pill Box, Once Daily Tablet Organiser, Push Lid | Bpa-Free Plastic Case Separates Doses for Vi",
+      "price": 3.32,
+      "reviews": 104,
+      "rating": 4.4,
+      "rank": 46,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "104 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D5CTF88T",
+      "image_url": "https://m.media-amazon.com/images/I/61MuC3DbNwL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 33.199999999999996
+    },
+    {
+      "asin": "B0DZHCW732",
+      "name": "2PSC RSYHVG Pill Boxes 7 Day 1 Times a Day - Pill Box Organiser Weekly Tablet Box | Daily Pill Organiser with Dosset Com",
+      "price": 3.74,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 48,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DZHCW732",
+      "image_url": "https://m.media-amazon.com/images/I/61UoSvI2VyL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 37.400000000000006
+    },
+    {
+      "asin": "B0FQTY864H",
+      "name": "Fabric Resistance Bands Set 3 Non-Slip Exercise Booty Bands (3 Resistance Levels), Glute Bands for Hips/Glute Strength T",
+      "price": 5.24,
+      "reviews": 0,
+      "rating": 3.4,
+      "rank": 7,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 3.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FQTY864H",
+      "image_url": "https://m.media-amazon.com/images/I/71ke5Oj00wL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 52.400000000000006
+    },
+    {
+      "asin": "B0B3NBDDKL",
+      "name": "Pipestation Resistance Bands Set 5 Pack 5-30lbs (2.27-13.6kgs) - Exercise Bands for Women - Mini Loop Pilates Band for G",
+      "price": 5.82,
+      "reviews": 30,
+      "rating": 4.3,
+      "rank": 8,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "30 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0B3NBDDKL",
+      "image_url": "https://m.media-amazon.com/images/I/61BLZ+Fj6qL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0GCZWFNS4",
+      "name": "Gallant Resistance Bands Set of 3 - Non Slip Fabric Booty Bands for Glutes & Legs, Exercise Bands with 3 Resistance Leve",
+      "price": 8.32,
+      "reviews": 17,
+      "rating": 3.9,
+      "rank": 10,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "17 reviews, 3.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GCZWFNS4",
+      "image_url": "https://m.media-amazon.com/images/I/81SFckVE7LL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 83.2
+    },
+    {
+      "asin": "B0F9X3C1ZH",
+      "name": "Zavis Resistance Bands Set (5 Pack) – Premium Exercise Loop Bands for Glutes, Legs & Arms – 5 Strength Levels for Home W",
+      "price": 8.99,
+      "reviews": 0,
+      "rating": 3.4,
+      "rank": 15,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 3.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F9X3C1ZH",
+      "image_url": "https://m.media-amazon.com/images/I/616JWzvbVvL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 89.9
+    },
+    {
+      "asin": "B0F1YZCPJD",
+      "name": "Resistance Bands 5Pcs Set for Men & Women – Exercise Bands for Fitness, Glutes, Legs, Yoga & Strength Training – Long & ",
+      "price": 4.99,
+      "reviews": 0,
+      "rating": 4.0,
+      "rank": 16,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F1YZCPJD",
+      "image_url": "https://m.media-amazon.com/images/I/61AxmBGspxL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.900000000000006
+    },
+    {
+      "asin": "B0GH15M812",
+      "name": "Resistance Bands Set of 5, 100% Natural Latex Skin-Friendly Exercise Loop Bands with 5 Resistance Levels for Legs, Glute",
+      "price": 5.82,
+      "reviews": 39,
+      "rating": 4.7,
+      "rank": 17,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "39 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GH15M812",
+      "image_url": "https://m.media-amazon.com/images/I/61gTQv1evuL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B09HFNLVYN",
+      "name": "3 Sets Resistance Bands | Glutes, Hips and Legs Exercise Band | Ideal for Home Gym Fitness, Yoga, Pilates & Workout | Wo",
+      "price": 6.66,
+      "reviews": 81,
+      "rating": 4.3,
+      "rank": 18,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "81 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B09HFNLVYN",
+      "image_url": "https://m.media-amazon.com/images/I/81aTHcMbUIL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 66.6
+    },
+    {
+      "asin": "B0FMDMMM3G",
+      "name": "Resistance Bands for Women, Exercise Bands Set with Non-Slip Design for HIPS Glutes Legs & Full Body Training, Multiple ",
+      "price": 4.82,
+      "reviews": 0,
+      "rating": 4.8,
+      "rank": 19,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FMDMMM3G",
+      "image_url": "https://m.media-amazon.com/images/I/81uBSxZOI-L._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 48.2
+    },
+    {
+      "asin": "B0D4R3YMK8",
+      "name": "Ram® 5 PACK Gym Resistance Bands Women Men Strength Training Resistant Bands Pilates Yoga Gym Leg Training Glutes Resist",
+      "price": 4.03,
+      "reviews": 163,
+      "rating": 4.2,
+      "rank": 20,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "163 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D4R3YMK8",
+      "image_url": "https://m.media-amazon.com/images/I/51MTTu1FJpL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 40.300000000000004
+    },
+    {
+      "asin": "B0GYRXBF87",
+      "name": "Resistance Bands Set of 5, Mini Loop Exercise Bands for Home Workout, Yoga, Pilates, Glutes & Legs Training - 5 Strength",
+      "price": 7.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 21,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYRXBF87",
+      "image_url": "https://m.media-amazon.com/images/I/51bflK2MO8L._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 79.9
+    },
+    {
+      "asin": "B0F8BKY7M9",
+      "name": "5 Pcs Resistance Bands Set Men & Women, Exercise Bandswith 5 Strength Levels, Elastic Gym Fitness Bands Resistance Women",
+      "price": 4.15,
+      "reviews": 37,
+      "rating": 3.9,
+      "rank": 22,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "37 reviews, 3.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F8BKY7M9",
+      "image_url": "https://m.media-amazon.com/images/I/61NTccAl2LL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 41.5
+    },
+    {
+      "asin": "B0H35KGW96",
+      "name": "EUQWOSDD 5 Pack Resistance Bands Set, Exercise Loop Bands with Carry Bag for Home Gym Yoga Pilates",
+      "price": 7.49,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 24,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H35KGW96",
+      "image_url": "https://m.media-amazon.com/images/I/61aQ1sDSyIL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 74.9
+    },
+    {
+      "asin": "B0H3HBJB5J",
+      "name": "Resistance bands set- 5 Levels for Glutes, Legs & Full body workouts,Booty Bands for Yoga,Pilates,Strength Training for ",
+      "price": 9.99,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 25,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H3HBJB5J",
+      "image_url": "https://m.media-amazon.com/images/I/610ozpNqmfL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 99.9
+    },
+    {
+      "asin": "B0GX6Y7DNJ",
+      "name": "PILALON Resistance Bands, Set of 5 Skin-Friendly Fitness Exercise Loop Bands with 5 Strength Levels for Women & Men - Id",
+      "price": 5.82,
+      "reviews": 35,
+      "rating": 4.8,
+      "rank": 27,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "35 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GX6Y7DNJ",
+      "image_url": "https://m.media-amazon.com/images/I/715nqxEgpYL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0FRXZMK68",
+      "name": "Resistance Bands Set of 5 Stretch Exercise Workout Loop Bands for Women and Men with 5 Strength Levels for Legs and Glut",
+      "price": 5.82,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 28,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FRXZMK68",
+      "image_url": "https://m.media-amazon.com/images/I/610uu9uckTL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0GWTXB2CY",
+      "name": "2pcs Resistance Bands Exercise Bands with Non-Slip Design for HIPS & Glutes, Workout Bands for Women and Men, Booty Band",
+      "price": 4.91,
+      "reviews": 0,
+      "rating": 4.0,
+      "rank": 29,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWTXB2CY",
+      "image_url": "https://m.media-amazon.com/images/I/71PZ7+JJfEL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.1
+    },
+    {
+      "asin": "B0GX78D11C",
+      "name": "PILALON Resistance Bands, Set of 5 Skin-Friendly Fitness Exercise Loop Bands with 5 Strength Levels for Women & Men - Id",
+      "price": 5.82,
+      "reviews": 35,
+      "rating": 4.8,
+      "rank": 30,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "35 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GX78D11C",
+      "image_url": "https://m.media-amazon.com/images/I/71SjiyCSAIL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B09P84SCJB",
+      "name": "HGT Resistance Bands Set - Latex-Free Booty Bands for Women & Men - Supports Stretching, Yoga, PT, Glutes & Legs Trainin",
+      "price": 16.2,
+      "reviews": 34,
+      "rating": 4.2,
+      "rank": 31,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "34 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B09P84SCJB",
+      "image_url": "https://m.media-amazon.com/images/I/71AS4xPW5nL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 162.0
+    },
+    {
+      "asin": "B0D6VYNMKX",
+      "name": "Resistance Bands 5-piece Set with User Guide and Carry Bag,Exercise Bands with 5 Levels for Latex Elastic Bands for Yoga",
+      "price": 6.91,
+      "reviews": 163,
+      "rating": 4.4,
+      "rank": 32,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "163 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D6VYNMKX",
+      "image_url": "https://m.media-amazon.com/images/I/71shLYQ7teL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 69.1
+    },
+    {
+      "asin": "B0GWML219H",
+      "name": "5 Pcs Resistance Bands Set, Exercise Band Loop Set with 5 Resistance Levels Durable Stretch Fitness Training Bands, Pila",
+      "price": 5.99,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 33,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GWML219H",
+      "image_url": "https://m.media-amazon.com/images/I/71309Q7KMGL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 59.900000000000006
+    },
+    {
+      "asin": "B0DZXYN112",
+      "name": "Fabric Resistance Bands, Set of 3 for Exercise with Carry Bag",
+      "price": 10.99,
+      "reviews": 0,
+      "rating": 4.6,
+      "rank": 34,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DZXYN112",
+      "image_url": "https://m.media-amazon.com/images/I/61pmWuVjeAL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 109.9
+    },
+    {
+      "asin": "B09XLM5VF6",
+      "name": "MSC Medium Strength Resistance Bands for leg Workout, Booty workout, General Exercise - Booty Bands Gym accessories for ",
+      "price": 5.82,
+      "reviews": 40,
+      "rating": 4.2,
+      "rank": 39,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "40 reviews, 4.2★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B09XLM5VF6",
+      "image_url": "https://m.media-amazon.com/images/I/61IDJAieuxL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0GSFVLZXN",
+      "name": "3Pcs Resistance Bands for Women,Non-Slip Fabric Booty Bands,3 Strength Levels Exercise Band for Hips Legs Glutes Yoga Fi",
+      "price": 6.59,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 42,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GSFVLZXN",
+      "image_url": "https://m.media-amazon.com/images/I/71LzNf6LMyL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 65.9
+    },
+    {
+      "asin": "B0GQCWB69L",
+      "name": "Resistance Bands, Set of 5 Skin-Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strength Levels, Carryi",
+      "price": 6.5,
+      "reviews": 0,
+      "rating": 4.4,
+      "rank": 43,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GQCWB69L",
+      "image_url": "https://m.media-amazon.com/images/I/51c+XltrUYL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 65.0
+    },
+    {
+      "asin": "B0GF25TZH1",
+      "name": "12 Pcs Fabric Resistance Bands for Working Out, for Working Out Booty Workout Stretch Exercise Bands Non Slip for Legs S",
+      "price": 29.11,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 44,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GF25TZH1",
+      "image_url": "https://m.media-amazon.com/images/I/81BQOlBgWdL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 291.1
+    },
+    {
+      "asin": "B0BYXLWMWB",
+      "name": "Fabric Resistance Bands Exercise Band Workout Fitness Bands for Hips & Glutes Non-Slip Booty Bands for Women Men Beginne",
+      "price": 4.99,
+      "reviews": 0,
+      "rating": 4.5,
+      "rank": 45,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0BYXLWMWB",
+      "image_url": "https://m.media-amazon.com/images/I/7169A4sM4OL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.900000000000006
+    },
+    {
+      "asin": "B08YXY45XJ",
+      "name": "Boolavard 12 inch Resistance Loop Exercise Bands with Carry Bag, Set of 5 Workout Booty Bands for Legs and Butt, Skin & ",
+      "price": 5.82,
+      "reviews": 0,
+      "rating": 4.6,
+      "rank": 46,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "0 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B08YXY45XJ",
+      "image_url": "https://m.media-amazon.com/images/I/51R+M3jbMUL._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0FHDH376W",
+      "name": "Resistance Bands, Set of 5 Premium Quality Skin Friendly Resistance Fitness Exercise Loop Bands with 5 Different Strengt",
+      "price": 4.75,
+      "reviews": 14,
+      "rating": 4.8,
+      "rank": 47,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(discovery)",
+      "review_info": "14 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FHDH376W",
+      "image_url": "https://m.media-amazon.com/images/I/612UWr91JML._AC_UL320_.jpg",
+      "keyword_source": "discovery",
+      "matched_keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym",
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "discovery",
+          "keyword": "resistance bands 5 pack, exercise bands loop, pilates bands set, glute bands, booty bands workout bands home gym"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 47.5
+    },
+    {
+      "asin": "B0FGW3YVWL",
+      "name": "Pirate Flag Bunting - 32.8ft Pirate Skull Banner Birthday Party Decorations for Halloween Outdoor Indoor Decorations",
+      "price": 4.16,
+      "reviews": 0,
+      "rating": 4.8,
+      "rank": 1,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FGW3YVWL",
+      "image_url": "https://m.media-amazon.com/images/I/71CqHsh9bAL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 41.6
+    },
+    {
+      "asin": "B0CC1MS5QK",
+      "name": "DPKOW Pirate Photo Prop, Funny Face in Hole Backdrop Door Banner for Kids Birthday Party Decorations, Giant Fabric Pirat",
+      "price": 7.49,
+      "reviews": 143,
+      "rating": 4.4,
+      "rank": 2,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "143 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CC1MS5QK",
+      "image_url": "https://m.media-amazon.com/images/I/81Sb8U3mKWL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 74.9
+    },
+    {
+      "asin": "B0FXFMJDJ4",
+      "name": "Homiladi Fishing Net Decorations 2Pcs 80x40 Inch Large Cotton Hanging Decor for Under the Sea Party, Nautical Themed Fis",
+      "price": 5.82,
+      "reviews": 0,
+      "rating": 4.7,
+      "rank": 6,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FXFMJDJ4",
+      "image_url": "https://m.media-amazon.com/images/I/71tGiAC-gVL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0CTJKDJ84",
+      "name": "SYOZPXY 12 Pcs Pirate Sword Pirate Party Toys, Inflatable Swords Knife | Inflatable Swords for Birthday Party Supplies H",
+      "price": 13.29,
+      "reviews": 0,
+      "rating": 4.6,
+      "rank": 7,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CTJKDJ84",
+      "image_url": "https://m.media-amazon.com/images/I/71jalkvld+L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 132.89999999999998
+    },
+    {
+      "asin": "B0FH61WJV8",
+      "name": "2pcs Fish Net Decorations for Party, 80x40in Hawaiian Fishing Net Nautical Themed Fishnet for Pirate Ocean Mermaid Party",
+      "price": 8.66,
+      "reviews": 17,
+      "rating": 4.6,
+      "rank": 8,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "17 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FH61WJV8",
+      "image_url": "https://m.media-amazon.com/images/I/71VDYPXcaGL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 86.6
+    },
+    {
+      "asin": "B0DF7BLSKG",
+      "name": "iwiio 16FT Pirate Bunting, Pirate Party Decorations, Halloween Pirate Banner Skull Pirate Flag Bunting, Pirate Themed Pa",
+      "price": 4.91,
+      "reviews": 23,
+      "rating": 4.4,
+      "rank": 10,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "23 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DF7BLSKG",
+      "image_url": "https://m.media-amazon.com/images/I/71fJ1soINiL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.1
+    },
+    {
+      "asin": "B0867WK7RY",
+      "name": "6M Plastic Pirate Bunting Party Decorations Banner Garland - Pirate-Themed Parties - Durable Skull Crossbones Design - 1",
+      "price": 2.9,
+      "reviews": 87,
+      "rating": 4.4,
+      "rank": 11,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "87 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0867WK7RY",
+      "image_url": "https://m.media-amazon.com/images/I/61zQNHjo-iL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 29.0
+    },
+    {
+      "asin": "B0FN41P7L6",
+      "name": "10M/31Ft Pirate Skull Crossbones Pennant Black Pirate Bunting Banner Triangle Flags Pirate Party Decorations for PirateT",
+      "price": 5.99,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 12,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FN41P7L6",
+      "image_url": "https://m.media-amazon.com/images/I/71QJhbdjobL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 59.900000000000006
+    },
+    {
+      "asin": "B0H468RY57",
+      "name": "23FT Pirate Bunting, Triangle Flags Party Decorations, Pirate Skull Crossbones Pennant Black Bunting Banner, Themed Part",
+      "price": 4.99,
+      "reviews": 0,
+      "rating": 3.0,
+      "rank": 14,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 3.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0H468RY57",
+      "image_url": "https://m.media-amazon.com/images/I/71LDVIrncvL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.900000000000006
+    },
+    {
+      "asin": "B0CD7G39B8",
+      "name": "SKHAOVS 9M/29.5Ft Pirate Skull Crossbones Pennant Bunting Triangle Flags Banner Jolly Roger Banner for Pirate Theme Part",
+      "price": 5.82,
+      "reviews": 54,
+      "rating": 4.0,
+      "rank": 16,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "54 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CD7G39B8",
+      "image_url": "https://m.media-amazon.com/images/I/718RlqGQpTL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0BB1KXF1J",
+      "name": "WUERKIYA Pirate Treasure Map Backdrop Island Treasure Map Banner Nautical Tapestry Hanging Decoration for Treasure Hunt ",
+      "price": 7.54,
+      "reviews": 29,
+      "rating": 4.6,
+      "rank": 17,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "29 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0BB1KXF1J",
+      "image_url": "https://m.media-amazon.com/images/I/918GCnrRN5L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 75.4
+    },
+    {
+      "asin": "B07S3NLDJR",
+      "name": "15pcs Pirate Party Decorations Black Balloons Latex Skull and Cross Bones Halloween Birthday",
+      "price": 2.41,
+      "reviews": 0,
+      "rating": 4.7,
+      "rank": 18,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B07S3NLDJR",
+      "image_url": "https://m.media-amazon.com/images/I/61S2VXzDQLL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 24.1
+    },
+    {
+      "asin": "B0GV6R4LGM",
+      "name": "Pirate Directional Sign, 20pcs Pirate Party Signs Decorations Banner Pirates Party Directional Signs for Pirate Theme Pa",
+      "price": 8.32,
+      "reviews": 0,
+      "rating": 0,
+      "rank": 19,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GV6R4LGM",
+      "image_url": "https://m.media-amazon.com/images/I/81DbUJsrETL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 83.2
+    },
+    {
+      "asin": "B0GYD2Q3K4",
+      "name": "100 Pcs Pirate Toothpick Flags, Mini Pirate Cocktail Picks, Skull Pattern Cake Decorations for Pirate Party, Halloween, ",
+      "price": 4.99,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 20,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GYD2Q3K4",
+      "image_url": "https://m.media-amazon.com/images/I/617rWFzPmSL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.900000000000006
+    },
+    {
+      "asin": "B0D6G2Q6ZZ",
+      "name": "NlsqUK Pirate Party Bags, 96Pcs Pirate Party Favours Decorations,Bag Fillers Accessories Party Supplies Keychains Hat Sl",
+      "price": 16.66,
+      "reviews": 33,
+      "rating": 4.3,
+      "rank": 21,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "33 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0D6G2Q6ZZ",
+      "image_url": "https://m.media-amazon.com/images/I/91BR+v0XOHL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 166.6
+    },
+    {
+      "asin": "B0F4MKYTMS",
+      "name": "Pirate Party Decorations Banner Set - 15 Pcs Pirates Birthday Party Decoration Supplies Banner Happy Birthday Hanging Sw",
+      "price": 7.07,
+      "reviews": 0,
+      "rating": 4.0,
+      "rank": 23,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F4MKYTMS",
+      "image_url": "https://m.media-amazon.com/images/I/81zrrCEQnmL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 70.7
+    },
+    {
+      "asin": "B0GBVYXGR8",
+      "name": "4 Pcs Pirate Tablecloth for Party Decor Treasure Map Tablecover Waterproof Rectangle Island Treasure Table Covers for Ki",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 3.8,
+      "rank": 24,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 3.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GBVYXGR8",
+      "image_url": "https://m.media-amazon.com/images/I/712BCsc7c5L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 66.6
+    },
+    {
+      "asin": "B0DSG335P1",
+      "name": "Lusofie 100 pcs Gold Coins Pirate Treasure Plastic Coins Replica Spanish Doubloons for Pirate Party Decorations, Games, ",
+      "price": 6.24,
+      "reviews": 24,
+      "rating": 4.5,
+      "rank": 25,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "24 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DSG335P1",
+      "image_url": "https://m.media-amazon.com/images/I/91e2CTx29IL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 62.400000000000006
+    },
+    {
+      "asin": "B0FHQFD4TH",
+      "name": "4PCS Pirate Skeleton Bunting Flags Halloween Party Decorations Banner for Adventure Themed Events Festival Celebrations",
+      "price": 5.82,
+      "reviews": 0,
+      "rating": 2.5,
+      "rank": 26,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 2.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FHQFD4TH",
+      "image_url": "https://m.media-amazon.com/images/I/71mBzg-5G5L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0GBX8TNLF",
+      "name": "Pirate Party Decorations Include Banner, Bunting, Hanging Swirls, Honeycomb, Cake Toppers for Kids Boys Birthday Treasur",
+      "price": 8.32,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 27,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GBX8TNLF",
+      "image_url": "https://m.media-amazon.com/images/I/71TrAXLivyL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 83.2
+    },
+    {
+      "asin": "B0GBVRRLYQ",
+      "name": "Pirate Backdrop Decorations Supplies 110 x 180 cm Treasure Map Backdrop for Halloween Birthday Carnival Treasure Adventu",
+      "price": 6.66,
+      "reviews": 0,
+      "rating": 4.0,
+      "rank": 28,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GBVRRLYQ",
+      "image_url": "https://m.media-amazon.com/images/I/71KsUwxw64L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 66.6
+    },
+    {
+      "asin": "B0G8HM2GKQ",
+      "name": "wutdgeg 160 pieces pirate treasure, gold coins, gems | coins，treasure hunt kit | For treasure hunts, festive party packs",
+      "price": 5.82,
+      "reviews": 31,
+      "rating": 3.8,
+      "rank": 29,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "31 reviews, 3.8★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0G8HM2GKQ",
+      "image_url": "https://m.media-amazon.com/images/I/817b+G-xYqL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0CB5X5C13",
+      "name": "Pirate Flag, Hianjoo Jolly Roger Skull Flag 5ft x 3ft with Metal Eyelets, Vivid Color Fade Proof Polyester Canvas Header",
+      "price": 4.92,
+      "reviews": 66,
+      "rating": 4.5,
+      "rank": 30,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "66 reviews, 4.5★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CB5X5C13",
+      "image_url": "https://m.media-amazon.com/images/I/71TLVFcDobL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.2
+    },
+    {
+      "asin": "B0FFN61HDQ",
+      "name": "Halloween Decorations Pirate metal signs Pirates Only No Trespassing, Walk The Plank Warning, Spooky Skeleton Skull Wall",
+      "price": 4.99,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 31,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FFN61HDQ",
+      "image_url": "https://m.media-amazon.com/images/I/814RgiSXt+L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.900000000000006
+    },
+    {
+      "asin": "B0DJSQKJ4P",
+      "name": "PEOVLVN 10 Pieces Pirate Eye Patches, Black Eye Patch Elastic Felt Single Eye Patch Reusable Eyepatch One Eye Cover for ",
+      "price": 3.32,
+      "reviews": 17,
+      "rating": 4.0,
+      "rank": 32,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "17 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0DJSQKJ4P",
+      "image_url": "https://m.media-amazon.com/images/I/61lbIc+GtPL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 33.199999999999996
+    },
+    {
+      "asin": "B0GBWJ2VSB",
+      "name": "100 Pcs Pirate Party Decorations Pirate Tableware Set Includes Plates Napkins Cups for Kids Boys Birthday Treasure Party",
+      "price": 9.99,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 33,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GBWJ2VSB",
+      "image_url": "https://m.media-amazon.com/images/I/81U8KpGA1EL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 99.9
+    },
+    {
+      "asin": "B0G6KGW4SX",
+      "name": "CUTHOLLOW 3PCS Beware of Pirates Decorations Porch Sign Banner, Beware of Pirates Pattern Party Decorations Hanging Welc",
+      "price": 12.49,
+      "reviews": 0,
+      "rating": 4.6,
+      "rank": 34,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0G6KGW4SX",
+      "image_url": "https://m.media-amazon.com/images/I/71E31x7JYCL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 124.9
+    },
+    {
+      "asin": "B0FND3Y2SP",
+      "name": "Canvas Trend 10m/31ft Pirate Bunting, Skull Crossbones Pirates Decorations, Black Triangle Flag Pirates Party Decoration",
+      "price": 3.37,
+      "reviews": 0,
+      "rating": 2.9,
+      "rank": 35,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 2.9★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FND3Y2SP",
+      "image_url": "https://m.media-amazon.com/images/I/71KgldNFbeL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 33.7
+    },
+    {
+      "asin": "B0GBWH6YP9",
+      "name": "Pirate Party Decorations-20 Guests-Include Plates, Cups, Napkins, Tablecloth, Banner, Cake Topper, Hanging Swirls for Ki",
+      "price": 10.82,
+      "reviews": 0,
+      "rating": 4.6,
+      "rank": 36,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GBWH6YP9",
+      "image_url": "https://m.media-amazon.com/images/I/81P53MJzFEL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 108.2
+    },
+    {
+      "asin": "B0FFN625WK",
+      "name": "Halloween Decorations Pirate Sign Pirates Only, No Trespassing, All Others Walk The Plank! Spooky Skull and Crossbones B",
+      "price": 4.16,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 38,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FFN625WK",
+      "image_url": "https://m.media-amazon.com/images/I/714P+hVZ0IL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 41.6
+    },
+    {
+      "asin": "B0F1383QMM",
+      "name": "32FT Pirate Flag, Pirate Bunting, Pirate Accessories Pirate Themed Party Accessories for Outdoor Decoration Vivid Color ",
+      "price": 5.49,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 39,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0F1383QMM",
+      "image_url": "https://m.media-amazon.com/images/I/61jqdQCIBwL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 54.900000000000006
+    },
+    {
+      "asin": "B0CB89Q9DC",
+      "name": "Abeillo Pirate Party Tablecloth - 130 x 220 cm Treasure Map Tablecover Plastic Rectangular Table Covers Pirate Party Dec",
+      "price": 5.82,
+      "reviews": 89,
+      "rating": 4.4,
+      "rank": 41,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "89 reviews, 4.4★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CB89Q9DC",
+      "image_url": "https://m.media-amazon.com/images/I/81yYc66byiL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    },
+    {
+      "asin": "B0CB5Z748D",
+      "name": "Pirate Party Flag, Hianjoo Cosplay Pirate Costume Accessories 5ft x 3ft with Metal Eyelets, Vivid Color Fade Proof Polye",
+      "price": 4.92,
+      "reviews": 34,
+      "rating": 4.6,
+      "rank": 43,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "34 reviews, 4.6★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CB5Z748D",
+      "image_url": "https://m.media-amazon.com/images/I/61tHy1fbPaL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 49.2
+    },
+    {
+      "asin": "B0GBWJH3V5",
+      "name": "Pirate Party Decorations-20 Guests-Include Plates, Cups, Napkins, Tablecloth, Banner, Cake Topper, Hanging Swirls for Ki",
+      "price": 10.82,
+      "reviews": 0,
+      "rating": 4.7,
+      "rank": 44,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 4.7★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0GBWJH3V5",
+      "image_url": "https://m.media-amazon.com/images/I/81DbFBD5+VL._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 108.2
+    },
+    {
+      "asin": "B0CGCSVZG9",
+      "name": "ZERODECO Nautical Decor, Natural Fish Net Party Decorations for Pirate Party, Wedding, Birthday Party, Beach Theme Party",
+      "price": 8.32,
+      "reviews": 79,
+      "rating": 4.3,
+      "rank": 46,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "79 reviews, 4.3★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0CGCSVZG9",
+      "image_url": "https://m.media-amazon.com/images/I/81IyhDlhn8L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 83.2
+    },
+    {
+      "asin": "B0FPBG3FQ4",
+      "name": "LIQWEI 2 Pack Natural Fish Net Decorations for Party, Natural Cotton Hawaiian Party Fishing Net Decorative, Nautical The",
+      "price": 7.07,
+      "reviews": 13,
+      "rating": 4.0,
+      "rank": 47,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "13 reviews, 4.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FPBG3FQ4",
+      "image_url": "https://m.media-amazon.com/images/I/71ov4ZUM5-L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 70.7
+    },
+    {
+      "asin": "B0FR8WFBP2",
+      "name": "Halloween Decorations Pirate Metal Sign Pirates Only No Trespassing, All Others Walk The Plank! Spooky Skull and Crossbo",
+      "price": 5.82,
+      "reviews": 0,
+      "rating": 5.0,
+      "rank": 48,
+      "category": "Search",
+      "channel": "keyword_search",
+      "channel_name": "关键词搜索(festival)",
+      "review_info": "0 reviews, 5.0★",
+      "amazon_url": "https://www.amazon.co.uk/dp/B0FR8WFBP2",
+      "image_url": "https://m.media-amazon.com/images/I/61WxRmIOU+L._AC_UL320_.jpg",
+      "keyword_source": "festival",
+      "matched_keyword": "pirate decorations",
+      "festival_event": "海盗说话日",
+      "festival_icon": "🏴‍☠️",
+      "festival_deadline": "2026-08-03",
+      "is_event": true,
+      "sources": [
+        {
+          "type": "keyword_scan",
+          "source": "festival",
+          "keyword": "pirate decorations"
+        }
+      ],
+      "is_new": true,
+      "first_seen": "2026-07-20",
+      "score": 58.2
+    }
+  ],
+  "gaps": {},
+  "trend_summary": {}
+}
