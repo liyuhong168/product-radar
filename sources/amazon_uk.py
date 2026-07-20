@@ -374,6 +374,13 @@ def _parse_amazon_page(html, category, channel_type):
             frac = re.search(r'class="a-price-fraction"[^>]*>([\d]+)', block)
             if whole and frac:
                 price = float(f"{whole.group(1)}.{frac.group(1)}")
+                # If the price symbol indicates non-GBP, convert roughly
+                sym_match = re.search(r'class="a-price-symbol"[^>]*>(\w+)', block)
+                if sym_match and sym_match.group(1) not in ('£', 'GBP'):
+                    # Rough GBP conversion: 1 GBP ≈ 9 CNY ≈ 1.3 USD ≈ 1.2 EUR ≈ 0.85 CHF
+                    rates = {'CNY': 9.0, 'USD': 1.3, 'EUR': 1.2, 'CHF': 0.85}
+                    rate = rates.get(sym_match.group(1), 9.0)
+                    price = round(price / rate, 2)
         if price_match:
             price_str = price_match.group(1).replace('£', '').replace(',', '').strip()
             try:

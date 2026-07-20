@@ -135,6 +135,11 @@ def _keyword_playwright_fetch(search_url, cloackchrome_path=None):
                     timezone_id='Europe/London',
                     user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
                 )
+                # Set GBP cookies so Amazon returns UK prices instead of CNY
+                ctx.add_cookies([
+                    {"name": "lc-main", "url": "https://www.amazon.co.uk", "value": "en_GB"},
+                    {"name": "i18n-prefs", "url": "https://www.amazon.co.uk", "value": "GBP"},
+                ])
                 page = ctx.new_page()
                 try:
                     page.goto(search_url, timeout=30000, wait_until='domcontentloaded')
@@ -168,6 +173,10 @@ def _keyword_playwright_fetch(search_url, cloackchrome_path=None):
             "  try: "
             "    ctx = b.new_context(locale='en-GB', timezone_id='Europe/London', "
             "      user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'); "
+            "    ctx.add_cookies(["
+            "      {'name':'lc-main','url':'https://www.amazon.co.uk','value':'en_GB'},"
+            "      {'name':'i18n-prefs','url':'https://www.amazon.co.uk','value':'GBP'},"
+            "    ]); "
             "    p2 = ctx.new_page(); "
             "    try: "
             "      p2.goto(url, timeout=30000, wait_until='domcontentloaded'); "
@@ -288,6 +297,11 @@ def _dedicated_browser_search(search_url, browser):
             locale='en-GB', timezone_id='Europe/London',
             user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
         )
+        # Set GBP cookies so Amazon returns UK prices instead of CNY
+        ctx.add_cookies([
+            {"name": "lc-main", "url": "https://www.amazon.co.uk", "value": "en_GB"},
+            {"name": "i18n-prefs", "url": "https://www.amazon.co.uk", "value": "GBP"},
+        ])
         page = ctx.new_page()
         try:
             # Step 1: Navigate to homepage first (establishes session)
@@ -327,6 +341,11 @@ def _keyword_cloak_fetch(search_url, browser):
         ctx = browser.new_context(
             locale='en-GB', timezone_id='Europe/London',
         )
+        # Set GBP cookies so Amazon returns UK prices instead of CNY
+        ctx.add_cookies([
+            {"name": "lc-main", "url": "https://www.amazon.co.uk", "value": "en_GB"},
+            {"name": "i18n-prefs", "url": "https://www.amazon.co.uk", "value": "GBP"},
+        ])
         page = ctx.new_page()
         try:
             page.goto(search_url, timeout=30000, wait_until='domcontentloaded')
