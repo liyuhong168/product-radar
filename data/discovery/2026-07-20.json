@@ -1,0 +1,137 @@
+{
+  "date": "2026-07-20",
+  "updated_at": "2026-07-20T08:00:00+08:00",
+  "scan_date": "2026-07-20",
+  "scan_time": "08:00",
+  "summary": "2026-07-20 选品发现：4个全新品类推荐 — 避开过去10天已覆盖的Beauty/Hair/Stationery/Auto/Kitchen/Pet/Laundry/Travel/Baby/Cleaning，转向Bathroom Organisation、Sports Summer Cooling、Home Office Desk、Health Pill Storage 4个全新方向，捕捉UK夏季热浪（40°C+）和秋季back-to-school/desk organisation前期趋势",
+
+  "insights": [
+    {
+      "keyword": "cotton pad & q tip holder 2 pack with bamboo lids bathroom organisers",
+      "keyword_cn": "化妆棉棉签收纳盒2件装 带竹盖 浴室桌面收纳",
+      "amazon_keyword": "cotton pad holder with lid, cotton bud holder bathroom, q tip dispenser bamboo lid, bathroom canisters set 2 pack, makeup vanity organiser clear acrylic",
+      "search_1688": "化妆棉收纳盒 棉签盒 竹盖 2个装 跨境 亚马逊 浴室桌面收纳",
+
+      "demand_signals": [
+        "Amazon UK Bathroom Canisters类目BSR活跃 — Tbestmax 3-Pack Cotton Swab Ball Pad Holder £8.19 #6 in Bathroom Canisters，4.4星/2026年持续排名。Harbour Housewares 2-Pack Cotton Pad Holder with Bamboo Lid £10.99在B&Q渠道铺货验证线下需求。500+相关ASIN在UK站活跃，£5-12价格带是核心区间",
+        "TikTok UK #HomeTok #BathroomOrganisation内容持续爆发 — TikTok UK上'bathroom refresh'/'organisation reset'类内容反复推荐cotton pad holder，Dailymotion转载的'Welcome To My Wish List - Reorganise My Bathroom'视频中Cotton Pad Holder被列为TOP 1选品。Malacasa.com专题文章确认：TikTok上'cotton pad storage solutions'是高频内容话题，用户在寻找美观+防尘的存储方案",
+        "UK家居收纳消费升级趋势 — UK消费者对浴室整洁和#SpaBathroom审美的追求持续升温，棉签/化妆棉从原包装塑料袋转移至透明/竹盖可重复使用容器是社交平台主推生活方式，竹盖生态风呼应UK环保意识",
+        "1688供应链已成熟完善 — 台州、义乌大量工厂供应带竹盖亚克力/PET棉花收纳盒，¥5-8/2件套（约£0.55-0.85），货源充足，支持小批量混色出货，台州市利客来等工厂专供跨境"
+      ],
+      "trend_score": 78,
+      "trend_direction": "rising",
+      "reason": "浴室桌面收纳是UK HomeTok长期增长赛道，cotton pad holder从'可有可无'变为'浴室必备审美单品'。透明亚克力+竹盖设计呼应UK流行的spa bathroom审美，£8-10价格带正是UK消费者愿意为'改善浴室美观'支付的价格区间。与过去10天推荐品类完全不重叠（非美容工具/非厨房/非旅行/非婴儿）——纯纯的浴室组织收纳新方向。Bathroom Canisters类目品牌集中度极低，无一家统治市场。",
+
+      "action": "027新店测款：上架Cotton Pad & Q-Tip Holder Set 2-Pack with Bamboo Lids，定价£7.99，1688搜'化妆棉收纳盒 竹盖 2个装 跨境'，首批200套，选透明PET+天然竹盖。关键词：cotton pad holder with lid + cotton bud holder bathroom + q tip dispenser + bathroom canisters set + makeup vanity organizer。差异化：2件套一大一小（棉签小罐+化妆棉大罐）+ 竹盖天然纹理 + 透明罐身可见内容物。",
+
+      "competition": "中等竞争，市场容量大但高度碎片化——BSR #1 in Bathroom Canisters只有3,000+评论，前10名品牌评论数从200到3,000不等，无垄断品牌。DTC品牌UniqueCharm在TikTok推广同款，但UK站Amazon品牌竞争远低于US站。£6-10区间约有30-40个ASIN，差异化空间大（包装/颜色/尺寸组合）。注意：玻璃材质在英国运费高且破损风险大，PET/亚克力是正确选择。",
+
+      "signal_scores": {
+        "trend": 78,
+        "gap": 72,
+        "profit": 82,
+        "final": 77.2,
+        "recommendation": "BUY",
+        "gap_level": "中等竞争但高度碎片化（无垄断品牌）",
+        "profit_window": "1688 ¥8以内可保45%+利润率（售价£7.99，采购£0.70，FBA约£2.60，佣金8%约£0.64，净利约£4.05，毛利率约50%）"
+      }
+    },
+
+    {
+      "keyword": "cooling towel 2 pack with pouch and carabiner summer sports",
+      "keyword_cn": "冷感毛巾2条装 带收纳袋和挂钩 夏季运动户外",
+      "amazon_keyword": "cooling towel 2 pack, ice towel for neck, chilly towel for sports, cooling towel with pouch, summer cooling cloth gym",
+      "search_1688": "冷感毛巾 2条装 收纳袋 挂钩 跨境 亚马逊 运动户外",
+
+      "demand_signals": [
+        "2026欧洲热浪天灾级需求 — Kalodata 2026年7月报告：European heatwave重塑TikTok Shop夏季热销榜，cooling products占所有5大欧洲市场Top 15的60-80%。UK站TikTok Shop上CoolTowel品牌凭借cooling towels获25,000+用户/1,000+五星好评，TikTok创始人Harrison Nott个人创业故事获Alibaba CoCreate大奖",
+        "Amazon UK Sports & Outdoors品类验证 — YQXCC 2 Pack Cooling Towels £9.99 #2 in Camping & Hiking Towels，4.4星/2026年持续排名。July 2026 TikTok Viral Products报告将Cooling Towel列为home cooling category前三，demand高峰期从6月持续到8月底",
+        "UK July 2026实测高温天气 — 2026年7月UK遭遇多轮热浪，温度突破35°C+。'heatwave'搜索量在UK Google Trends飙升，cooling towel作为无需电力的个人降温方案成为刚需。UK不普及空调，83%家庭无空调，cooling towel是性价比最高的降温手段",
+        "AliShopping Tools/TikTok选品分析 — 2026年7月分析确认cooling towels 'flood TikTok every heatwave'。3-pack format提升perceived value，但2-pack降低客单价更适配£8-10价格带。Yiwugo.com义乌购上冷感毛巾¥1.45/条起批（约£0.16），iYiBuy跨境专供款30×100cm英文袋装仅$0.32"
+      ],
+      "trend_score": 85,
+      "trend_direction": "rising",
+      "reason": "欧洲热浪不是短周期天气事件，而是结构性极端气候趋势。2026年6-7月欧洲连创高温纪录，cooling towel作为'无需用电的个人降温方案'在UK市场有真实需求基础。YQXCC等品牌已验证定价£9.99有效，UK消费者在热浪期间搜索'cooling towel'的频率呈指数级增长。Sports & Outdoors是完全未涉足的新品类，且夏季高温窗口还有6-8周（持续到8月底）。", 
+
+      "action": "007增品/027新店测款：上架Cooling Towel 2-Pack with Pouch & Carabiner，定价£8.99，1688搜'冷感毛巾 2条装 收纳袋 挂钩 跨境'，首批300套。关键词：cooling towel 2 pack + ice towel for neck + cooling towel with pouch + summer cooling cloth + chilly towel sports。差异化：2条装双色（蓝+灰）+ 配防水pouch+登山扣 + 30×100cm大尺寸 + 带英文包装袋。注意：超轻≤150g/2-pack（含包装），折叠后包装约15×10×4cm，LTL compliant。",
+
+      "competition": "中等竞争，有头部但非垄断——YQXCC (#2 in Camping & Hiking Towels) £9.99占位，但UK站Sports & Outdoors类目容量大、搜索量高，热浪期大量消费者'解决当下问题'而非认品牌。£6-10区间约20-30个ASIN活跃，品牌集中度低于US站。差异化点：2-pack低于头部3-pack的价格（£8.99 vs £9.99）+ 双色搭配视觉新鲜 + pouch+carabiner赠品感。注意：100%聚酯纤维/尼龙织物，无电池/电子件/化学涂层/USB，完全合规。",
+
+      "signal_scores": {
+        "trend": 85,
+        "gap": 68,
+        "profit": 88,
+        "final": 80.2,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "中等竞争（头部品牌集中度有限，热浪红利窗口6-8周）",
+        "profit_window": "1688 ¥6以内可保50%+利润率（售价£8.99，采购£0.60，FBA约£2.40，佣金8%约£0.72，净利约£5.27，毛利率约58%）"
+      }
+    },
+
+    {
+      "keyword": "adhesive cable management clips 50 pack desk cable tidy organisers",
+      "keyword_cn": "自粘理线器 50个装 桌面数据线收纳整理扣",
+      "amazon_keyword": "cable management clips, self adhesive cable clips, desk cable tidy, wire management clips, cable organisers cord holder 50 pack",
+      "search_1688": "桌面理线器 自粘 50个装 卡扣 跨境 亚马逊",
+
+      "demand_signals": [
+        "Amazon UK DIY & Tools Cable Management类目大容量已验证 — SOULWIT 50-Pcs Self Adhesive Clips £10.79、100 PCS Cable Clips £6.66（#1 in Cable Wall Clips，7,471评论+£6.57定价）。Amazon UK 'cable management clips'搜索量持续高位，年销售曲线从8月back-to-school季开始爬坡",
+        "TikTok UK #DeskTok #HomeOffice #WIR趋势 — 'desk transformation'/'cable management'类内容在TikTok Home Office赛道持续。2026年7月，AliShopping Tools将'desk organisers'列为July 2026 TikTok Viral Products Top 10品类，back-to-school prep推动8-9月新增需求",
+        "UK WFH（在家办公）结构性需求 — UK hybrid work模式固化（61%知识型员工仍保持hybrid），home office organisation是持续需求而非季节性脉冲。£5-7价格带cable clips是'无脑加购'的低成本办公桌提升方案",
+        "UK学生返校前期预热 — 7月下旬UK学校仍在学期末，但8月中旬至9月是UK back-to-school/大学宿舍采购季，desk organisation product search每年同期环比增长25-30%。提前4周上架可抢占排名建设期",
+        "1688供应链价格极低 — 电线固定卡扣/理线器在1688大量工厂供应，¥3-6/50个（约£0.35-0.65），义乌佶海塑制等工厂专供跨境，支持小批量混色"
+      ],
+      "trend_score": 80,
+      "trend_direction": "rising",
+      "reason": "Cable Management Clips是DIY & Tools类目的高复购消耗品，8月back-to-school采购季前期需求开始爬坡。TikTok #DeskTok内容趋势叠加UK home office常态化，desk organisation品类全年有需求。自粘理线器是'价格极低/利润极好/物流极友好'的完美FBA小件——50g/£6.99/final mile cost最低档。与过去10天所有品类无重叠。",
+
+      "action": "322老店推新：上架Adhesive Cable Management Clips 50-Pack，定价£6.99，1688搜'桌面理线器 自粘 50个装 卡扣'，首批500套（采购成本极低）。关键词：cable management clips + self adhesive cable clips + desk cable tidy + wire management clips + cord holder。差异化：50个混装20大+30小（适配不同线径）+ 黑色/透明双色可选 + 3M VHB adhesive背胶（真实强粘性卖点）+ 可重复使用设计。包装设计为扁平袋装（≤20×15×1cm）降低FBA费用至Small Envelope档。",
+
+      "competition": "红海市场但品类容量极大——£5-8区间约60-80个ASIN活跃，品牌集中度低（无一家品牌>10%份额）。SOULWIT 50-pcs £10.79、100 PCS Cable Clips £6.66（#1 Cable Wall Clips）验证Top位置可通过review积累获得。差异化窗口：50-pack但混合大小+3M胶+可重复使用+扁平包装降低FBA运费=综合性价比超越对手。注意：纯塑料+3M胶，无电子/电池/电机/化学液体，完全合规。",
+
+      "signal_scores": {
+        "trend": 80,
+        "gap": 58,
+        "profit": 90,
+        "final": 74.2,
+        "recommendation": "BUY",
+        "gap_level": "红海市场（竞争激烈但品类容量极大，差异化可切份额）",
+        "profit_window": "1688 ¥5以内可保55%+利润率（售价£6.99，采购£0.45，FBA约£1.70 Small Envelope，佣金8%约£0.56，净利约£4.28，毛利率约61%）"
+      }
+    },
+
+    {
+      "keyword": "weekly pill organiser 7 day one time a day portable tablet box",
+      "keyword_cn": "一周药盒 7格 每日一次 便携药品分装盒",
+      "amazon_keyword": "pill organiser 7 day, weekly pill box, tablet organiser 7 day, pill box one time a day, portable medicine case daily pill container",
+      "search_1688": "一周药盒 7格 便携 分装 跨境 亚马逊",
+
+      "demand_signals": [
+        "Amazon UK Health & Personal Care BSR头部容量极大 — Pill Organisers类目Top 20 ASIN密集分布，Mark Curve Weekly Pill Box #1（7K+/月销售，4.8星/1,902评论£7.99）、Opret Pill Organiser £5.99-6.99、AUVON Pill Box等品牌验证品类爆发力。BSR在Personal Pill Organizers子类目前10名每月合计销量3万+",
+        "UK人口老龄化+健康意识双驱动 — 2026年UK 65岁以上人口约1,300万（占总人口19%），pill organiser是慢病管理的刚需工具。同时35-50岁人群的保健意识提升（维生素/鱼油/补充剂日常化），weekly pill box从'老年人用品'变为'健康生活方式工具'",
+        "TikTok UK #HealthyHabits #SupplementRoutine内容增长 — pill organisation/wellness routine类内容在UK TikTok增长，'Sunday reset'（每周日准备好一周药盒）是高频生活仪式感内容。Amazon UK pill organiser搜索量年增12-15%",
+        "1688供应链已验证 — 义乌大量工厂供应7格药盒¥3-8/个（约£0.35-0.85），'药盒便携一周七天大容量'款式¥3.11起（6,300+件销量），'药盒一日三餐'¥1.26起（6,500+件销量）。星优药盒¥8.52/个（100+件销量，品牌工厂），品质差异明显",
+        "UK学校假期+差旅场景 — 7-8月UK Summer Holidays旅游高峰，便携pill organiser是travel essential的常客，出差/旅游/拜访亲友时便携药盒的需求集中释放"
+      ],
+      "trend_score": 82,
+      "trend_direction": "stable",
+      "reason": "Pill Organiser是Health & Personal Care类目的常青刚需品，无季节大幅波动但有夏季假期场景加成。£6-8价格带是pill organiser的核心价格锚点。Mark Curve #1定价£7.99且7K+/月说明定价合理性。UK老龄化加速+中年保健意识提升双驱动，category在稳定增长。重量仅50-70g/只，包装约22×5×2.5cm（Small Parcel），FBA友好。与过去10天所有品类无重叠。",
+
+      "action": "322老店推新：上架Weekly Pill Organiser 7 Day 1 Time a Day，定价£6.99，1688搜'一周药盒 7格 便携'，首批300套。关键词：pill organiser 7 day + weekly pill box + tablet organiser + pill box one time a day + portable medicine case。差异化：①按UK习惯Mon-Sun英文字体压印（非贴纸不脱落） ②多色可选（彩虹渐变7色/纯色） ③Push-button pop-open lid（老年友好设计） ④BPA Free食品级PP材质 ⑤含2个备用便携小盒。注意：纯PP塑料，无电子/电池/电机/化学物质/液体，完全合规。",
+
+      "competition": "高竞争但市场天花板极高——Personal Pill Organizers类目Top 20竞争激烈（Mark Curve/AUVON/Opret/Betife等），但BSR #1每月7K+、类目整体月销超50K+，市场足够大容纳新进入者。UK消费者对£6-8价格带接受度高，评论数决定排名的效应明显。差异化方向：Mon-Sun压印字体（vs贴纸，UK消费者抱怨贴纸脱落是top差评点）+ push-button可靠设计 + 7色差异化（vs标准黑白灰）。注意：BPA Free认证需确认+UKCA合规申报。",
+
+      "signal_scores": {
+        "trend": 82,
+        "gap": 55,
+        "profit": 86,
+        "final": 73.1,
+        "recommendation": "BUY",
+        "gap_level": "高竞争但市场天花板高（Top 20竞争激烈，但类目月销5万+可切细分）",
+        "profit_window": "1688 ¥5以内可保55%+利润率（售价£6.99，采购£0.45，FBA约£1.90，佣金8%约£0.56，净利约£4.08，毛利率约58%）"
+      }
+    }
+  ],
+
+  "trend_forecast": "未来1-2个月（2026年7月下旬-9月）四大趋势方向：①UK欧洲热浪持续（预计至少到8月下旬），Cooling Towels/夏季降温产品进入年度最高需求期，Sports & Outdoors类目因天气驱动的sales peak明显；②#HomeTok #BathroomOrganisation内容赛道持续增长，UK消费者对'改善浴室美学'的小件收纳品（Cotton Pad Holder等）接受度高，品类无垄断品牌；③Back-to-School/大学宿舍采购季（8月中旬-9月）前期趋势启动，Desk Organisation/Cable Management品类需求从7月下旬开始爬坡；④Health & Personal Care的Pill Organisers品类呈稳定刚需增长，UK老龄化+健康生活方式双重驱动。\n\n⚠️ 本次推荐严格遵守FBA小件标准：重量≤200g / 包装≤32×22×6cm / 无电子部件（不含电池/USB/充电/电机/电子元件）。\n\n📌 与历史推荐差异化说明（避免重复）：本次推荐覆盖Bathroom Organisation（浴室棉签盒收纳）、Sports & Outdoors（冷感毛巾降温）、Home Office/DIY（桌面理线器）、Health & Personal Care（一周药盒）4个全新子类目，与过去10天（7/11-7/19）推荐的美容/美发/文具/车载/厨房/宠物/洗衣/旅行/婴儿/清洁品类完全无重复。\n\n📌 四品评分对比：Cooling Towel 80.2 > Cotton Pad Holder 77.2 > Cable Clips 74.2 > Pill Organiser 73.1。STRONG_BUY推荐Cooling Towel（热浪窗口红利），BUY推荐其余三品。"
+}
