@@ -74,7 +74,7 @@ def analyze_patterns(rejected):
         if reviews <= 5: review_ranges['0-5'] += 1
         elif reviews <= 20: review_ranges['5-20'] += 1
         elif reviews <= 50: review_ranges['20-50'] += 1
-        else: review_ranges['5-100'] += 1
+        else: review_ranges['50-100'] += 1
 
         # 来源
         for src in info.get('sources', []):

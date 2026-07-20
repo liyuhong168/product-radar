@@ -118,7 +118,7 @@ def is_forbidden(name, category=""):
 
     # --- Multi-piece kit check (sets with 5+ pieces risk bulky packaging) ---
     # Exclude obviously small items (e.g. pimple patches 36/72 pack, baking mats 2 pack)
-    SET_SMALL_EXEMPT = {'patch', 'sheet', 'strip', 'stick', 'bag', 'sachet', 'lining'}
+    SET_SMALL_EXEMPT = {'patch', 'sheet', 'strip', 'stick', 'bag', 'sachet', 'lining', 'mouse', 'mice', 'feather', 'rattle', 'ball', 'catnip', 'cat'}
     set_match = re.search(r'(\d+)\s*(?:-pack|pack|piece|pcs|件|片|个|枚|套)[^a-z]', text)
     if set_match:
         qty = int(set_match.group(1))
@@ -140,7 +140,7 @@ def is_forbidden(name, category=""):
     if g_match and int(g_match.group(1)) > CONFIG.get("max_weight_g", 300):
         return True, f"重量 {g_match.group(0)} (>{CONFIG.get('max_weight_g', 300)}g)"
 
-    return False, None
+    return False
 
 
 def calc_profit(price_gbp, category="general"):
