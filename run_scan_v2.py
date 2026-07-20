@@ -199,7 +199,11 @@ def filter_products(products, config):
             rejected.append({"name": name[:60], "reason": "用户标记不考虑", "asin": asin}); continue
 
         # 1. 禁选品类/关键词
-        forbidden, reason = is_forbidden(name, category)
+        result = is_forbidden(name, category)
+        if isinstance(result, tuple):
+            forbidden, reason = result
+        else:
+            forbidden, reason = result, ""
         if forbidden:
             rejected.append({"name": name[:60], "reason": f"禁选: {reason}", "asin": p.get("asin")}); continue
 
