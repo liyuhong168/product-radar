@@ -16,3 +16,6 @@ data/amazon_cache.json
 output/*
 !output/index.html
 !output/platform.html
+
+# Internal team docs — not for public repo
+OA系统介绍-团队版.md
