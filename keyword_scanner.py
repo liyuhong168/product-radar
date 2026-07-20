@@ -363,76 +363,84 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
 
     print(f"\n🔑 Keyword Scan: {len(disc_kws)} discovery + {len(fest_kws)} festival keywords", file=sys.stderr)
 
-    # Launch dedicated browser via Playwright sync API (NOT cloakbrowser.launch,
-    # which crashes inside asyncio context that run_scan_v2.py sets up)
+    # Try primary: Playwright sync API directly (works when no asyncio loop)
     browser = None
     try:
-        from sources.amazon_uk import CLOAKBROWSER_CHROME
-        from playwright.sync_api import sync_playwright
-        p = sync_playwright().start()
-        browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
+        try:
+            from sources.amazon_uk import CLOAKBROWSER_CHROME
+            from playwright.sync_api import sync_playwright
+            p = sync_playwright().start()
+            browser = p.chromium.launch(executable_path=CLOAKBROWSER_CHROME, headless=True)
 
-        # Now search all keywords with the warmed browser
-        all_products = []
-        seen_asins = set()
+            # Now search all keywords with the warmed browser
+            all_products = []
+            seen_asins = set()
 
-        for kw_info in all_kws:
-            keyword = kw_info["keyword"]
-            source = kw_info["source"]
+            for kw_info in all_kws:
+                keyword = kw_info["keyword"]
+                source = kw_info["source"]
 
-            print(f"  🔍 [{source}] {keyword}...", file=sys.stderr, end="")
-            search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
+                print(f"  🔍 [{source}] {keyword}...", file=sys.stderr, end="")
+                search_url = f"https://www.amazon.co.uk/s?k={urllib.parse.quote(keyword)}"
 
-            html = _dedicated_browser_search(search_url, browser)
-            if not html or len(html) < 2000:
-                print(" → blocked/empty", file=sys.stderr)
-                continue
-
-            products = _parse_amazon_page(html, "Search", "keyword_search")
-            if not products:
-                print(" → 0 parsed", file=sys.stderr)
-                continue
-
-            # Filter: only keep products with reviews < max_reviews
-            filtered = [p for p in products if p.get("reviews", 0) < max_reviews]
-
-            # Tag products with keyword source info
-            for p in filtered:
-                asin = p.get("asin", "")
-                if asin in seen_asins:
+                html = _dedicated_browser_search(search_url, browser)
+                if not html or len(html) < 2000:
+                    print(" → blocked/empty", file=sys.stderr)
                     continue
-                seen_asins.add(asin)
 
-                p["keyword_source"] = source
-                p["matched_keyword"] = keyword
-                p["channel"] = "keyword_search"
-                p["channel_name"] = f"关键词搜索({source})"
+                products = _parse_amazon_page(html, "Search", "keyword_search")
+                if not products:
+                    print(" → 0 parsed", file=sys.stderr)
+                    continue
 
-                if source == "festival":
-                    p["festival_event"] = kw_info.get("event", "")
-                    p["festival_icon"] = kw_info.get("event_icon", "📅")
-                    p["festival_deadline"] = kw_info.get("deadline", "")
-                    p["is_event"] = True
-                    if "节日" not in p.get("sources", []):
-                        p.setdefault("sources", []).append(f"📅 {kw_info.get('event', '节日')}")
-                else:
-                    if "趋势发现" not in p.get("sources", []):
-                        p.setdefault("sources", []).append("趋势发现")
+                # Filter: only keep products with reviews < max_reviews
+                filtered = [p for p in products if p.get("reviews", 0) < max_reviews]
 
-                all_products.append(p)
+                # Tag products with keyword source info
+                for p in filtered:
+                    asin = p.get("asin", "")
+                    if asin in seen_asins:
+                        continue
+                    seen_asins.add(asin)
 
-            kept = len(filtered)
-            total = len(products)
-            print(f" → {total} found, {kept} kept", file=sys.stderr)
+                    p["keyword_source"] = source
+                    p["matched_keyword"] = keyword
+                    p["channel"] = "keyword_search"
+                    p["channel_name"] = f"关键词搜索({source})"
 
-        print(f"  ✅ Keyword scan total: {len(all_products)} products", file=sys.stderr)
-        return all_products
+                    if source == "festival":
+                        p["festival_event"] = kw_info.get("event", "")
+                        p["festival_icon"] = kw_info.get("event_icon", "📅")
+                        p["festival_deadline"] = kw_info.get("deadline", "")
+                        p["is_event"] = True
+                        if "节日" not in p.get("sources", []):
+                            p.setdefault("sources", []).append(f"📅 {kw_info.get('event', '节日')}")
+                    else:
+                        if "趋势发现" not in p.get("sources", []):
+                            p.setdefault("sources", []).append("趋势发现")
 
-    except Exception as e:
-        err_str = str(e)
-        msg = f"  ⚠️ Keyword scan browser failed ({err_str[:80]}), falling back to per-keyword search..."
-        print(msg, file=sys.stderr)
-        # Fallback chain: subprocess playwright → curl (both per-keyword)
+                    all_products.append(p)
+
+                kept = len(filtered)
+                total = len(products)
+                print(f" → {total} found, {kept} kept", file=sys.stderr)
+
+            print(f"  ✅ Keyword scan total: {len(all_products)} products", file=sys.stderr)
+            return all_products
+
+        except Exception as e:
+            err_str = str(e)
+            print(f"  ⚠️ Keyword scan browser failed ({err_str[:80]})", file=sys.stderr)
+
+        # Fallback 1: re-run in subprocess (isolated from asyncio context)
+        print("  ↻ Retrying keyword scan in subprocess (isolated from asyncio)...", file=sys.stderr)
+        sub_result = _run_keyword_scan_subprocess(max_discovery_kws, max_festival_kws,
+                                                  max_products_per_kw, max_reviews)
+        if sub_result:
+            return sub_result
+
+        # Fallback 2: per-keyword subprocess Playwright → curl
+        print("  ↻ Falling back to per-keyword search (subprocess playwright → curl)...", file=sys.stderr)
         all_products = []
         seen_asins = set()
         for kw_info in all_kws:
@@ -482,16 +490,59 @@ def run_keyword_scan(max_discovery_kws=5, max_festival_kws=5, max_products_per_k
             total = len(products)
             print(f" → {total} found, {kept} kept", file=sys.stderr)
         if all_products:
-            print(f"  ✅ Keyword scan (subprocess fallback) total: {len(all_products)} products", file=sys.stderr)
+            print(f"  ✅ Keyword scan (per-keyword fallback) total: {len(all_products)} products", file=sys.stderr)
         else:
             print(f"  ℹ️ No products found via fallback", file=sys.stderr)
         return all_products
+
     finally:
         if browser:
             try:
                 browser.close()
             except Exception:
                 pass
+
+
+def _run_keyword_scan_subprocess(max_discovery_kws=5, max_festival_kws=5,
+                                  max_products_per_kw=10, max_reviews=200):
+    """Run the full keyword scan in a subprocess to bypass asyncio context.
+
+    run_scan_v2.py sets up an asyncio event loop (via BrowserAct/curl_cffi)
+    which crashes both playwright.sync_api and cloakbrowser.launch().
+    Running in a subprocess gives a clean Python process with no event loop.
+    """
+    import json, subprocess, sys
+    script = (
+        "import sys, json; sys.path.insert(0, %s); "
+        "from keyword_scanner import run_keyword_scan; "
+        "r = run_keyword_scan(%d, %d, %d, %d); "
+        "print(json.dumps(r))"
+    ) % (json.dumps(str(BASE)), max_discovery_kws, max_festival_kws,
+         max_products_per_kw, max_reviews)
+
+    try:
+        result = subprocess.run(
+            [sys.executable, "-c", script],
+            capture_output=True, text=True, timeout=300,
+            cwd=str(BASE)
+        )
+        if result.returncode != 0:
+            err = result.stderr.strip() or f"exit code {result.returncode}"
+            print(f"  ⚠️ Subprocess keyword scan failed: {err[:120]}", file=sys.stderr)
+            return []
+        if not result.stdout or len(result.stdout) < 20:
+            print("  ℹ️ Subprocess keyword scan returned empty", file=sys.stderr)
+            return []
+        products = json.loads(result.stdout)
+        if products:
+            print(f"  ✅ Subprocess keyword scan: {len(products)} products", file=sys.stderr)
+        return products
+    except subprocess.TimeoutExpired:
+        print("  ⏰ Subprocess keyword scan timed out (>300s)", file=sys.stderr)
+        return []
+    except Exception as e:
+        print(f"  ⚠️ Subprocess keyword scan error: {e}", file=sys.stderr)
+        return []
 
 
 if __name__ == "__main__":
