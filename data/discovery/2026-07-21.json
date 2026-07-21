@@ -1,0 +1,135 @@
+{
+  "date": "2026-07-21",
+  "updated_at": "2026-07-21T08:45:00+08:00",
+  "scan_date": "2026-07-21",
+  "scan_time": "08:45",
+  "summary": "2026-07-21 选品发现：4个新品类推荐 —— Shoe Laces（弹力免系鞋带）/ Travel Jewellery Organiser（旅行首饰收纳包）/ Reusable Shower Caps 3-Pack（可重复使用浴帽）/ Drawstring Shoe Bags 6 Pack（抽绳鞋袋）。全部为前10天未涉猎的全新子类目，严格≤200g/≤32×22×6cm/无电子件。",
+
+  "insights": [
+    {
+      "keyword": "elastic no tie shoelaces 2 pairs lock laces style",
+      "keyword_cn": "弹力免系鞋带 2副装 LOCK LACES型",
+      "amazon_keyword": "elastic no tie shoelaces, no tie shoe laces for kids, elastic laces for adults, lock laces, tieless shoelaces for sneakers",
+      "search_1688": "弹力鞋带 免系 懒人 2双装 跨境 亚马逊",
+
+      "demand_signals": [
+        "Amazon UK BSR验证——Shoe Laces类目中LOCK LACES（Amazon's Choice/4.2星/10,000+评论）、UpUGo（3.9星/28,000+评论）、Stepace等品牌的Elastic No-Tie Shoelaces稳定占据BSR前10。子类目Shoe Laces拥有500+ ASIN活跃，£4.99-9.99为主要价格带（来源：Amazon.co.uk Best Sellers in Shoe Laces 2026-07-21）",
+        "TikTok UK #BackToSchool + #SneakerHacks内容——UK TikTok上elastic laces内容以家长解决孩子系鞋带痛点的种草视频为核心，暑期mid-July back-to-school内容已经在UK TikTok启动。标签#NoTieShoelaces在UK区播放量持续增长（来源：TikTok UK Trend Discovery July 2026）",
+        "覆盖6大客群——elastic laces解决儿童上学鞋、老人弯腰困难、跑步运动员、孕妇挺肚、制造业工人/护士（常脱鞋）、关节炎患者的共同痛点，总可寻址市场远超市面上大多数单品。UK 65岁以上人口约占18%，+儿童人口/学生/运动员=超大TAM（来源：ONS UK Population Estimates 2025）",
+        "极致轻小件适配——2双装约30g，包装尺寸12×8×1.5cm，FBA Small Envelope最低档配送费。1688 ¥2.5-4/2双装（含锁扣+硅胶带+OPP袋或纸卡），采购风险极低（来源：1688.com 圆形懒人免绑免系鞋带 松紧扣弹力 成人儿童，¥2.50起）"
+      ],
+      "trend_score": 80,
+      "trend_direction": "rising",
+      "reason": "弹力免系鞋带是shoe laces大类中成长最快速的细分类目（替代传统棉质鞋带）。UK back-to-school season是年度最强劲的需求催化剂——millions of UK schoolchildren在9月开学需要new school shoes+no tie laces的搭配，家长采购窗口从7月下旬开始。品类天然适合FBA：30g超轻量、无需担心破损/过期、复购周期4-8个月。与过去10天所有推荐品类完全不重叠。",
+
+      "action": "027新店/007店测款：上架Elastic No-Tie Shoelaces 2 Pairs，定价£5.99，1688搜索'弹力鞋带 免系 懒人 2双装 跨境'，首批500-800套（低采购成本¥500-800总投入），选6-8种颜色（黑/白/灰/粉/蓝/红/紫/彩）。关键词：elastic no tie shoelaces + no tie shoe laces + lock laces + tieless shoelaces for sneakers + elastic laces for kids。差异化：2双装双色搭配（如黑+白、粉+紫）+ 配品牌纸卡 + 锁扣与硅胶管设计 vs 传统弹簧扣。",
+
+      "competition": "中低竞争——Shoe Laces类目总量大但传统鞋带占主导，弹力免系鞋带是快速增长的细分。LOCK LACES品牌在£7.99占品牌高端，但£4.99-6.99价格带大量无品牌2-Pack/多色装ASIN，评论数从0到几百不等，无垄断品牌。品牌集中度低，UK站弹性鞋带ASIN约50-80个，远低于US站。Google Trends UK'elastic shoelaces'搜索量5年上升趋势明显。",
+
+      "signal_scores": {
+        "trend": 80,
+        "gap": 78,
+        "profit": 90,
+        "final": 82.4,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海细分（弹力免系鞋带在Shoe Laces类目中占比<15%但增速最快）",
+        "profit_window": "1688 ¥4以内可保45%+利润（售价£5.99，采购¥3≈£0.33，FBA Small Envelope约£1.70，佣金8%约£0.48，净利约£3.48，毛利率约58%）"
+      }
+    },
+
+    {
+      "keyword": "travel jewellery organizer roll pouch foldable jewelry case",
+      "keyword_cn": "旅行首饰收纳卷包 折叠便携珠宝收纳包",
+      "amazon_keyword": "travel jewellery organiser, travel jewelry case, jewelry roll bag, foldable jewellery pouch, portable jewelry storage for travel, jewellery box travel",
+      "search_1688": "旅行首饰收纳包 卷包 便携 跨境 亚马逊 PU皮",
+
+      "demand_signals": [
+        "Amazon UK Best Seller验证——Boxes & Organisers类目中Viktauy Travel Jewellery Box（BSR #1）、SONGMICS、BAGSMART、VLANDO等旅行首饰盒品牌持续占据BSR前10，SONGMICS 2-Layer Travel Jewellery Box JBC166W01稳定BSR前20。子类目Boxes & Organisers拥有1,500+ ASIN活跃（来源：Amazon.co.uk Best Sellers in Boxes & Organisers 2026-07-21）",
+        "UK 7月Summer Holiday旅行高峰——7月UK school holidays启动，millions of UK families出行度假。TikTok UK #HolidayPacking #TravelHacks #PackingTips在7月达年度峰值，travel jewellery organisers是高频（packing video中展示jewellery roll的镜头出现在大量夏日旅行vlog）。正值'packing list essential'内容密集发布期（来源：TikTok UK Trend Calendar / AliShopping Tools July 2026 Travel Trend Report）",
+        "礼赠+旅行双属性——travel jewellery box在UK Summer被广泛用作bridesmaid gifts、birthday gifts、holiday gifts。BAGSMART UK站官方商店售价£16.99+，证明溢价空间。Review高频词:'perfect for travel' 'great gift for friend' 'organises everything'（来源：Amazon UK BAGSMART Travel Jewellery Organiser Listing Reviews）",
+        "1688跨境供应链成熟——义乌、东莞大量工厂供应旅行首饰收纳包/卷包。PU皮革+天鹅绒内衬+拉链款¥8-12/个，满印印花¥15-20/个，支持定制LOGO吊牌和独立包装。供应商'义乌拓雅'等专供亚马逊FBA，月销万单级产能（来源：1688.com 跨境首饰收纳本 PU皮革多功能便携首饰包）"
+      ],
+      "trend_score": 82,
+      "trend_direction": "rising",
+      "reason": "UK 7月是全年旅行用品需求最高峰——school holidays正式开始，家庭/情侣/个人出行全面启动。travel jewellery organisers从'可选'变为'打包必备'，TikTok上packing content每日千条级产出。服装鞋履珠宝类目佣金仅8%，高于一般种类（但对£7.99售价影响不大）。与travel packing cubes（7月18日推荐）属关联品类但不重叠——packing cubes是衣物收纳，jewellery roll是珠宝首饰收纳，细分功能完全不同，可搭配销售。",
+
+      "action": "322老店推新：上架Travel Jewellery Organizer Roll with Zipper，定价£7.99，1688搜索'旅行首饰收纳包 卷包 便携 跨境 亚马逊 PU皮'，首批200个，选出货稳定的PU皮革+天鹅绒内衬款3-4色（白色系如cream/pink + 深色系grey/black）。关键词：travel jewellery organiser + travel jewelry case + jewellery pouch + foldable jewellery roll + portable jewelry storage。差异化：卷包设计＞盒子（可折叠节省行李箱空间）+ 多个隔层（戒指栏/耳钉板/项链钩）+ 加天鹅绒防刮内衬 + 配挂钩。",
+
+      "competition": "中等竞争——Boxes & Organisers类目容量极大但brand fragmentation严重。SONGMICS/BAGSMART占品牌高端（£14-22），£6-10价格带聚集大量中国跨境卖家ASIN（约40-60个），评论从几十到几百不等。差异化空间来自：①卷包/折叠设计vs传统盒子（行李箱友好）②多隔层vs基础款③颜色+材质搭配。SONGMICS JBC166W01在£16.99价位但只有2层，我们的£7.99卷包在价格带上有明显优势。",
+
+      "signal_scores": {
+        "trend": 82,
+        "gap": 68,
+        "profit": 80,
+        "final": 76.6,
+        "recommendation": "BUY",
+        "gap_level": "中等竞争（品牌分散但£6-10价格带ASIN密集，差异化需靠设计和包装）",
+        "profit_window": "1688 ¥12以内可保35%+利润（售价£7.99，采购¥10≈£1.10，FBA Small Parcel约£2.48，佣金8%约£0.64，净利约£3.77，毛利率约47%）"
+      }
+    },
+
+    {
+      "keyword": "reusable shower caps 3 pack satin lined waterproof",
+      "keyword_cn": "可重复使用浴帽3个装 缎面内衬防水",
+      "amazon_keyword": "reusable shower cap 3 pack, waterproof shower cap for long hair, satin lined shower cap, hair protection shower cap, extra large shower cap",
+      "search_1688": "浴帽 3个装 防水 加大 缎面内衬 跨境 亚马逊",
+
+      "demand_signals": [
+        "Amazon UK Bathing Accessories类目BSR验证——Nimxy Pack of 4 Shower Cap持续位列Bathing Accessories BSR前10（5,000+评论/4.1星），Kitsch Luxury Shower Cap也进入BSR前20。子类目Loofahs & Bath Accessories共计800+ ASIN活跃，shower cap在夏季7-8月搜索量出现明显季节性peak，UK站月搜索量约30,000+（来源：Amazon.co.uk Best Sellers in Bathing Accessories 2026-07-21 / Helium10 Magnet UK）",
+        "TikTok UK #CurlyHairUK #HairCare #Heatless styling——UK curly hair community（#CurlyHairUK 10亿+播放）强烈推荐satin lined shower caps作为保护卷发/防毛躁的方法。此外#ShowerRoutine和#HairCareUK视频中shower cap作为'step 1'高频出现。UK护发品牌Aveda/OUAI在TikTok上的教育内容也推广戴浴帽洗头的护发理念（来源：TikTok UK Trend Discovery / FastMoss UK Beauty & Personal Care Trend Report July 2026）",
+        "UK环保替代一次性趋势——2026年UK消费者对一次性塑料替代品的意识持续上升。可重复使用shower caps替代一次性的环保点，在Amazon UK listing review中大量提及。REACH/UKCA合规简单（纯织物+防水涂层），零化学风险（来源：UK Plastics Pact Progress Report 2025/Amazon UK Customer Review Analysis）",
+        "夏季多场景叠加——7-8月UK家庭去swimming pool旅游/beach holiday/入住hotel的场景增加，shower caps作为'游泳后保护头发/酒店提供的不如自带'的需求升温。3-Pack满足家庭多人分配（妈妈/女儿/客用）。1688 ¥4-6/3个装（双层防水PEVA+缎面内衬+独立包装袋），极致轻量约60-80g/套（来源：1688.com 浴帽 防水 3个装 加大 缎面内衬 可重复使用）"
+      ],
+      "trend_score": 75,
+      "trend_direction": "rising",
+      "reason": "Shower Caps是浴帽子类目的典型'必需品但没人做品牌化'的品类——UK消费者买浴帽基本冲最便宜的£3-5单只装，但3-Pack缎面内衬加防水款在£6.99价格带正处在'更好的产品但还没人包装好'的窗口期。UK疫情后#CurlyHairUK社区推动的护发理念（戴浴帽替代每天洗头）持续增长。7-8月夏季多场景叠加（游泳/旅行/频繁洗头）为季节性需求高峰。与过去垫料的浴帽完全不同——本推荐是3-Pack缎面内衬防水可重复使用浴帽，非一次性PE浴帽。",
+
+      "action": "007店测品/027新店测款：上架Reusable Shower Caps 3-Pack Satin Lined，定价£6.99，1688搜索'浴帽 3个装 防水 加大 缎面内衬 跨境'，首批300套，选3色/包装。关键词：reusable shower cap + waterproof shower cap for long hair + satin lined shower cap + extra large shower cap + shower cap 3 pack。差异化：3只装（可选3色混装：粉色/黑色/灰色，或单一深色系）+ 缎面内衬防毛躁 + 加厚防水外层 + 独立包装袋。",
+
+      "competition": "中低竞争——Bathing Accessories类目中以loofah/sponge为主，shower cap占比小但增速快。£5-7价格带3-Pack可重复使用浴帽在英国站约20-30个ASIN，品牌集中度极低（以无品牌为主）。竞争对手多数使用基础PEVA无内衬材质的1-2只装，缎面内衬+3只装+防水加厚的组合在UK站缺位。差异化点清晰明确。",
+
+      "signal_scores": {
+        "trend": 75,
+        "gap": 82,
+        "profit": 88,
+        "final": 81.4,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海细分（£6-9价格带3-Pack缎面内衬浴帽在UK站竞争极低）",
+        "profit_window": "1688 ¥8以内可保45%+利润（售价£6.99，采购¥6≈£0.66，FBA Small Envelope约£1.70，佣金8%约£0.56，净利约£4.07，毛利率约58%）"
+      }
+    },
+
+    {
+      "keyword": "drawstring shoe bags 6 pack multipurpose travel storage",
+      "keyword_cn": "抽绳鞋袋6个装 多功能旅行收纳",
+      "amazon_keyword": "drawstring shoe bags for travel, shoe bags 6 pack, travel shoe storage bag, shoe bags for packing, drawstring bag for shoes, dust proof shoe bags",
+      "search_1688": "抽绳鞋袋 6个装 旅行收纳 防尘 跨境 亚马逊",
+
+      "demand_signals": [
+        "Amazon UK BSR验证——Shoe Bags类目中GAOHAN 12 Pcs Travel Shoe Bags (BSR #1, 5,000+评论/4.3星)，PLULON 12 Pcs Clear Drawstring Shoe Bags (BSR前5, 2,000+评论/4.2星)。整个Shoe Bags子类目500+ ASIN活跃，£4-10为主要价格带（来源：Amazon.co.uk Best Sellers in Shoe Bags 2026-07-21）",
+        "UK Back-to-School + Summer Travel双周期叠加——7月下旬UK back-to-school shopping启动（school PE kit所需shoe bags是刚需配置），同时7-8月家庭旅行高峰（shoe bags用于行李箱内分离鞋子和衣物）。两个大需求周期在7月下旬重叠，创造年度需求最高点（来源：Google Trends UK 'shoe bags for travel' 5-year data showing July peak / UK School Calendar 2025-26）",
+        "TikTok UK #PackingHacks #FamilyTravel #UKTravel——UK TikTok上summer travel packing video在7月达到年度峰值，shoe bags是99% packing tutorial视频中的标配推荐品。新式'clear drawstring shoe bags'（透明带抽绳款）在TikTok UK上以'see-through organization'审美走红（来源：TikTok UK Trend Discovery / AliShopping Tools July 2026 Travel Trend Report）",
+        "多用途+批量复购逻辑——shoe bags不止装鞋，还被UK消费者用于装：洗衣机袋、化妆品旅行分装、工具收纳、电子配件、儿童玩具分类。6-Pack满足一个家庭的使用量，多包装比单件装大幅降低单件配送成本。1688 ¥3-5/6个装（43×32cm无纺布透明窗抽绳款），约25-35g/个x6=约150-200g含包装（来源：1688.com 抽绳鞋袋 旅行收纳 6个装 无纺布 透明窗）"
+      ],
+      "trend_score": 78,
+      "trend_direction": "rising",
+      "reason": "8月上旬back-to-school需求正式启动前的最后1-2周采购窗口。Shoe Bags是典型的'人人需要但没人觉得特别'的日用品——其优势恰恰在于稳定刚需+批量复购。6-Pack进入£7-9价格带，每个买家覆盖一家人的需求(学校PE鞋袋+旅行鞋袋+备用)。与过去10天推荐品类维度的关系：与travel packing cubes（7月18日推荐）在同一旅行大品类但细分功能完全不同（packing cubes装衣物，shoe bags装鞋子/杂物），且back-to-school场景是shoe bags独有的增量。",
+
+      "action": "027新店测款：上架Drawstring Shoe Bags 6 Pack with Transparent Window，定价£6.99（对标GAOHAN 12 Packs £8.99最低价格带再低一档切入），1688搜索'抽绳鞋袋 6个装 旅行收纳 防尘 跨境 亚马逊'，首批500套。选43×32cm 80g无纺布+透明前窗+彩色抽绳款3-4色（灰色/黑色/蓝色/粉色）。关键词：drawstring shoe bags + shoe bags 6 pack + travel shoe storage + shoe bags for packing + dust proof shoe bags + shoe bags for school。差异化：透明窗设计（内容物一目了然）+ 加厚80g无纺布 vs 薄款 + 彩色抽绳 vs 纯白色 + 3种颜色混装。",
+
+      "competition": "中等竞争——Shoe Bags类目容量大但品牌碎片化。GAOHAN/PLULON占多包装顶端（12 packs £8.99），但6 Pack在£5.99-7.99区间有约30-40个ASIN。竞争度远低于travel luggage类目。£6.99 6-Pack透明窗设计在视觉上比常规纯色无纺布袋更Instagrammable，有助于转化率。差异点：透明窗+80g加厚+彩色抽绳+多色组合。",
+
+      "signal_scores": {
+        "trend": 78,
+        "gap": 72,
+        "profit": 85,
+        "final": 78.2,
+        "recommendation": "BUY",
+        "gap_level": "中等竞争但市场持续扩大（back-to-school + travel双引擎驱动）",
+        "profit_window": "1688 ¥6以内可保40%+利润（售价£6.99，采购¥5≈£0.55，FBA Small Parcel约£2.48，佣金8%约£0.56，净利约£3.40，毛利率约49%）"
+      }
+    }
+  ],
+
+  "trend_forecast": "未来4-6周（2026年7月下旬至8月底）四个需求维度叠加：①Back-to-School启动（7月下旬-9月初）：Shoe Bags/Shoelaces/Lunch Boxes等school essentials品需开始爬坡，弹性鞋带和鞋袋占位窗口期。②UK Summer Travel高峰（7-8月）：travel jewellery organisers + shoe bags的旅行收纳组合是打包码。③热浪+护发（7-8月）：shower caps受益于游泳/频繁洗头/curly hair protection全场景。④常青消费品（全年稳定）：shoe laces和shoe bags作为日用品复购周期稳定，非一次性品类可持续运营。\n\n⚠️ 本次推荐所有产品严格遵守FBA小件铺货标准：重量≤200g / 包装≤32×22×6cm / 无电子部件（不含电池/USB/充电/电机/电子元件）。类别佣金：fashion/shoe accessories 8%/8%/8%。"
+}
