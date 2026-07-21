@@ -9851,7 +9851,7 @@
 <script src="data/festivals.js"></script>
 <script>
 const DATES = ["2026-07-21", "2026-07-20", "2026-07-18", "2026-07-17", "2026-07-16", "2026-07-15", "2026-07-14", "2026-07-13", "2026-07-11", "2026-07-10", "2026-07-09", "2026-07-08", "2026-07-07", "2026-07-06", "2026-07-05", "2026-07-04", "2026-07-03", "2026-07-02", "2026-07-01", "2026-06"];
-const RADAR_DATES = ["2026-07-20", "2026-07-18", "2026-07-17", "2026-07-16", "2026-07-15", "2026-07-14", "2026-07-13", "2026-07-10", "2026-07-09", "2026-07-08", "2026-07-07", "2026-07-06", "2026-07-04", "2026-07-03", "2026-07-02", "2026-06"];
+const RADAR_DATES = ["2026-07-21", "2026-07-20", "2026-07-18", "2026-07-17", "2026-07-16", "2026-07-15", "2026-07-14", "2026-07-13", "2026-07-10", "2026-07-09", "2026-07-08", "2026-07-07", "2026-07-06", "2026-07-04", "2026-07-03", "2026-07-02", "2026-06"];
 const DISC_DATES = ["2026-07-21", "2026-07-20", "2026-07-18", "2026-07-17", "2026-07-16", "2026-07-15", "2026-07-14", "2026-07-13", "2026-07-11", "2026-07-10", "2026-07-09", "2026-07-08", "2026-07-07", "2026-07-06", "2026-07-05", "2026-07-04", "2026-07-03", "2026-07-02", "2026-07-01", "2026-06"];
 const STATUS = {"pending": ["\u5f85\u8bc4\u4f30", "#8e8e93"], "supplier": ["\u627e\u4f9b\u5e94\u5546", "#007AFF"], "sample": ["\u5df2\u91c7\u6837", "#FF9500"], "listed": ["\u5df2\u4e0a\u67b6", "#34C759"], "rejected": ["\u4e0d\u8003\u8651", "#FF3B30"]};
 const PROD_STATUS = {"B0GLNF9ZRJ": "supplier", "B0GY96VB6S": "rejected", "B0GPWBTRB9": "rejected", "B0H2922WKJ": "rejected", "B0H33RDKBV": "rejected", "B0GRMJCPM3": "rejected", "B0GQPDHGTB": "rejected", "B0GVTCQ4JG": "rejected", "B0GSRPLWXL": "rejected", "B0GKPG6VW5": "rejected", "B074H5296B": "rejected", "B0G8GFSMKK": "rejected"};
@@ -10158,7 +10158,7 @@ function renderRadar() {
     const url=p.amazon_url||(p.asin?`https://www.amazon.co.uk/dp/${p.asin}`:'#');
     const cb=p.cost_breakdown||{};
     const costH=cb.vat?`<button class="cost-tog" onclick="this.nextElementSibling.classList.toggle('show')">💰 成本明细</button><div class="cost-det">VAT: £${cb.vat?.toFixed(2)||'-'} · 佣金: £${cb.commission?.toFixed(2)||'-'} · FBA: £${cb.fba?.toFixed(2)||'-'}<br>广告: £${cb.ads?.toFixed(2)||'-'} · 退货: £${cb.returns?.toFixed(2)||'-'} · 采购: £${cb.sourcing?.toFixed(2)||'-'}<br><b>总成本: £${cb.total_cost?.toFixed(2)||'-'} · 净利润: £${(p.net_profit||0).toFixed(2)}</b></div>`:'';
-    const sigs=(p.sources||[]).filter(s=>typeof s==='string').map(s=>{let c='';if(s.includes('TikTok'))c='tiktok';if(s.includes('多源'))c='multi';return`<span class="sig ${c}">${s}</span>`}).join('');
+    const sigs=(p.sources||[]).map(s=>{let c='';if(s.includes('TikTok'))c='tiktok';if(s.includes('多源'))c='multi';return`<span class="sig ${c}">${s}</span>`}).join('');
     const sd=p.sd_label?`<span class="sig sd">${p.sd_label}</span>`:'';
     return `<div class="pc" data-status="${st}" data-asin="${p.asin||''}">
       ${badge}
