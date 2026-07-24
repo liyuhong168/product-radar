@@ -1,15 +1,19 @@
-[
-  {
-    "asin": "B0D9QJG3VS",
-    "bsr_rank": null,
-    "bsr_category": null,
-    "bsr_sub_rank": null,
-    "bsr_sub_category": null,
-    "reviews": null,
-    "rating": null,
-    "image_url": null,
-    "title": null,
-    "price": null,
-    "scraped_at": "2026-07-20T11:34:45.696457"
-  }
-]
+{
+  "scraped_at": "2026-07-23T22:33:29.777862",
+  "type": "bsr_enrichment",
+  "products": [
+    {
+      "asin": "B0D9QJG3VS",
+      "bsr_rank": null,
+      "bsr_category": null,
+      "bsr_sub_rank": null,
+      "bsr_sub_category": null,
+      "reviews": null,
+      "rating": null,
+      "image_url": null,
+      "title": null,
+      "price": null,
+      "scraped_at": "2026-07-20T11:34:45.696457"
+    }
+  ]
+}

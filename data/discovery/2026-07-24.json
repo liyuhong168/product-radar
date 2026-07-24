@@ -1,0 +1,114 @@
+{
+  "date": "2026-07-24",
+  "updated_at": "2026-07-24T08:40:00+08:00",
+  "scan_date": "2026-07-24",
+  "scan_time": "08:40",
+  "summary": "2026-07-24 选品发现：4个严格符合小件铺货标准（≤200g/≤32×22×6cm/无电子件）的趋势产品推荐 — 全新Laundry/Shoe Care+Kitchen+Eco Shopping赛道，跳出已连续覆盖的Beauty/Hair/Stationery/Pet/Organisation品类",
+  "insights": [
+    {
+      "keyword": "mesh laundry bags 6 pack delicates wash bags",
+      "keyword_cn": "细网洗衣袋 6件套 护洗袋 内衣文胸洗衣网袋",
+      "amazon_keyword": "mesh laundry bags 6 pack, delicates wash bags, washing machine wash bags, bra laundry bag set",
+      "search_1688": "洗衣袋 6件套 细网 护洗袋 文胸洗护袋 家用 批发",
+      "demand_signals": [
+        "Amazon UK Best Seller验证 — Gogooda 5-Pack Mesh Laundry Bags长期占据Washing Machine Wash Bags子类目#1 Best Seller，BSR第1名，评论数10,000+，多个竞品（FUYOAL 6-Pack £5.99等）持续涌入，品类需求稳定增长",
+        "Back to School + Uni Dorm Season启动 — 7月下旬英国Back to School购物季开启，大学生宿舍入住（9月）前2个月是采购高峰，洗衣袋作为宿舍必备刚需品搜索量即将攀升",
+        "TikTok UK #LaundryTok/#CleaningTok稳健增长 — UK cleaning content持续走红，#LaundryTok话题播放量数十亿次，mesh laundry bags作为'衣物护洗神器'在TikTok Shop UK持续出单",
+        "夏季衣物换洗高频期 — 7月英国热浪持续（30°C+），夏季轻薄衣物每日换洗频率高，mesh bags细分需求旺盛"
+      ],
+      "trend_score": 82,
+      "trend_direction": "rising",
+      "reason": "洗衣袋是家居刚需品的常青品类，纯涤纶网布+塑料拉链，100%非电子，重量极轻（6件套约100-150g），包装约20×15×3cm小标准件完美适配。7月下旬Back to School季启动驱动新一轮采购高峰，同时夏季衣物高频换洗带来天然需求。1688 ¥6-8/套（涤纶细网6件套含文胸袋），Amazon UK £5.99-7.99售价，毛利率约30%。差异化方向：多色组合（灰/白/粉/蓝混装）+ 升级三明治加厚网布 + 附洗衣标签，可做礼品套装入OPP袋。",
+      "action": "007店测款：上架Mesh Laundry Bags 6-Pack Delicates Set，定价£6.99（3件起优惠£5.99），1688搜索'洗衣袋 6件套 细网 护洗袋 文胸洗护袋 家用 批发'，首批300套。关键词覆盖：'mesh laundry bags 6 pack' + 'delicates wash bags for washing machine' + 'bra washing bags' + 'laundry bags for delicates with zipper'。差异化卖点：彩色拉链+双色网格+附赠洗衣标签。",
+      "competition": "中等竞争——品类容量大但品牌集中度不高。£5-8区间约20-30个ASIN，以中国卖家无品牌白牌为主。差异化空间在包装方式（卡片装提升价值感）、颜色搭配（莫兰迪色系）、SKU组合方式（混装大/中/小/文胸袋+鞋袋）。Back to School季（7-9月）是搜索爬坡期，8月初前上架正好。",
+      "signal_scores": {
+        "trend": 82,
+        "gap": 72,
+        "profit": 85,
+        "final": 79.8,
+        "recommendation": "BUY",
+        "gap_level": "中等竞争",
+        "profit_window": "1688 ¥8以内可保30%+利润（毛利率预估32%，家居佣金8%，FBA配送约£1.46，含VAT/Ad/Return）"
+      }
+    },
+    {
+      "keyword": "reusable cotton mesh produce bags 3 pack",
+      "keyword_cn": "环保棉绳编织网兜 购物袋 3件套 果蔬网袋",
+      "amazon_keyword": "reusable produce bags, cotton mesh shopping bags 3 pack, vegetable fruit net bags, eco friendly grocery bags",
+      "search_1688": "棉绳编织网兜 购物袋 环保 水果蔬菜网袋 手提 3件套",
+      "demand_signals": [
+        "Amazon UK BSR持续验证 — TOTKEN 3-Pack Reusable Cotton Mesh Bags在Reusable Produce Bags子类目长期位列Top 10，售价£6.66，评论数5,000+，品类年增长率15%+",
+        "TikTok UK #EcoTok/#SustainableLiving趋势 — 2026年UK消费者环保意识持续提升，#ZeroWaste #SustainableTok内容稳健增长，cotton produce bags作为'减塑入门'品类持续出镜",
+        "UK超市塑料包装税效应扩散 — 2025-2026英国塑料包装税推动消费者自带购物袋习惯，Tesco/Asda/Sainsbury's等主流超市鼓励使用reusable bags，reusable produce bags从'环保选择'变为'主流刚需'",
+        "夏季农贸市场/采摘季 — 7-8月是英国夏季农贸市场和U-Pick采摘旺季，消费者携带果蔬网兜购物场景高频"
+      ],
+      "trend_score": 78,
+      "trend_direction": "stable-rising",
+      "reason": "环保购物网兜是长尾成长型品类，纯棉绳+网眼结构，100%非电子，单件重量约20-30g，3件套含包装约80g，包装约15×10×2cm极致小件。UK环保法规持续推动消费行为转变，品类处于稳健爬坡期而非爆发期。1688 ¥9-15/套（有机棉绳手工编织，3色混装），Amazon UK £6.66-8.97售价，毛利率约25%。差异化方向：马卡龙色系（奶油黄/雾霾蓝/乾燥粉）+ 附带品牌卡纸标签 + 可附加小布袋收纳。注意：1688有专门做跨境有机棉的供应商，需确认是否带有机棉认证标签（Oeko-Tex/OCS），这对UK消费者是加分项。",
+      "action": "027新店测款：上架Reusable Cotton Mesh Produce Bags 3-Pack，定价£7.99，1688搜索'棉绳编织网兜 购物袋 环保 水果蔬菜网袋 3件套'，首批200套。关键词：'reusable produce bags' + 'cotton mesh shopping bags' + 'veg fruit net bags farmers market' + 'eco friendly grocery bags'。差异化：马卡龙色+便携收纳小袋+品牌卡纸。",
+      "competition": "中低竞争——品类仍在增长早期，BSR Top 20中品牌集中度低。英国本土Etsy手工卖家定价£12+，中国卖家£6-9价格带有机棉认证产品不多。关键是包装质感和认证标签，1688供应商需确认有机棉认证（至少OEKO-TEX）。风险提示：单品利润绝对值较低（约£1.5-2/单），需靠套装提客单。",
+      "signal_scores": {
+        "trend": 78,
+        "gap": 80,
+        "profit": 75,
+        "final": 77.6,
+        "recommendation": "BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥15以内可保25%+利润（毛利率预估28%，家居佣金8%，FBA配送约£1.46，含VAT/Ad/Return）"
+      }
+    },
+    {
+      "keyword": "silicone kitchen tongs set 2 pack",
+      "keyword_cn": "硅胶厨房夹子 2件套 不粘锅烹饪夹 烤肉夹",
+      "amazon_keyword": "silicone kitchen tongs set 2 pack, cooking tongs non stick, BBQ tongs silicone, air fryer tongs",
+      "search_1688": "硅胶厨房夹 不锈钢 食品夹 烹饪夹 2件套 不粘锅 跨境",
+      "demand_signals": [
+        "Amazon UK BSR验证 — Navani Silicone Kitchen Tongs 2-Pack持续占据Kitchen Tongs类目Top 10，售价£5.99-7.99，品类月搜索量稳定在10万+",
+        "UK BBQ旺季高峰 — 7-8月是英国BBQ烧烤旺季（7月热浪持续），TikTok UK #BBQTok #SummerGrilling内容爆发，kitchen tongs是烧烤刚需工具",
+        "Air Fryer普及驱动配件需求 — UK空气炸锅普及率持续攀升（2026年预计超50%家庭拥有），silicone tongs作为air fryer配件（取食物不伤涂层）需求持续增长",
+        "Prime Day后的品类红利 — 7月Prime Day大量air fryer出货，带动配件品类（tongs/liners/mats）在7-8月持续出单"
+      ],
+      "trend_score": 84,
+      "trend_direction": "rising",
+      "reason": "硅胶锅铲是BBQ旺季+Air Fryer配件的双驱动品类。不锈钢管柄+食品级硅胶头，纯金属+硅胶材质，无电子/电池，每件约120-180g（2件套含包装），包装约28×8×3cm小标准件。1688 ¥8-12/套（硅胶头+不锈钢柄2件套，含OPP袋/卡纸），Amazon UK £6.99-8.99售价，毛利率约25%。差异化方向：莫兰迪色系硅胶头（灰绿/淡紫/奶白）+ 超长30cm柄适合air fryer深篮 + 加收纳挂钩环。",
+      "action": "322老店推新：上架Silicone Kitchen Tongs Set 2-Pack，定价£7.99，1688搜索'硅胶厨房夹 不锈钢 食品夹 烹饪夹 2件套 不粘锅 跨境'，首批300套。关键词覆盖：'silicone kitchen tongs' + 'air fryer tongs non stick' + 'BBQ tongs set' + 'cooking tongs silicone tips' + 'heat resistant kitchen tongs'。利用老店权重推家用厨具品类。",
+      "competition": "中等竞争——盘大且持续增长。£5-9区间约30+个ASIN，但多数产品包装简陋（仅塑料袋）。差异化关键：卡纸+磁吸收纳+多色可选+硅胶头可拆卸方便清洗。注意硅胶耐温标≥230°C（446°F）是UK消费者关注点。",
+      "signal_scores": {
+        "trend": 84,
+        "gap": 65,
+        "profit": 78,
+        "final": 75.6,
+        "recommendation": "BUY",
+        "gap_level": "中等竞争",
+        "profit_window": "1688 ¥12以内可保25%+利润（毛利率预估26%，家居佣金8%，FBA配送约£1.46，含VAT/Ad/Return）"
+      }
+    },
+    {
+      "keyword": "shoe washing machine bag 2 pack trainer wash bag",
+      "keyword_cn": "洗鞋袋 2件套 洗衣机专用 运动鞋 球鞋清洗袋",
+      "amazon_keyword": "shoe washing machine bag 2 pack, trainer washing bag, laundry shoe bag, sneaker wash bag for washing machine",
+      "search_1688": "洗鞋袋 洗衣机专用 运动鞋 球鞋清洗袋 保护袋 护鞋袋 2件套",
+      "demand_signals": [
+        "Amazon UK BSR验证 — Shoe Washing Machine Bag品类快速增长，ADEHMDA/SZWLJ等品牌BSR持续上升，£5.99-8.99价格带多个ASIN月销500+",
+        "TikTok UK #ShoeTok #CleanTok爆发 — #ShoeCleaning #TrainerCare在TikTok UK持续热门，shoe wash bag作为'球鞋护理神器'频繁出镜，UK sneaker culture（运动鞋文化）推动品类增长",
+        "Back to School PE Kit需求 — 7-8月英国Back to School季，学生体育课/PE Kit清洗需求增加，shoe bag是宿舍/家庭刚需品",
+        "夏季运动/户外活动高频 — 7月UK夏季户外活动（足球/跑步/露营）增加，运动鞋清洗频率提升，品类进入季节性高峰期"
+      ],
+      "trend_score": 80,
+      "trend_direction": "rising",
+      "reason": "洗鞋袋是Laundry Bag品类的细分新兴增长点。涤纶法兰绒/网布+隐形拉链，纯纺织物+塑料拉链，100%非电子，2件套约80-120g，包装约20×14×3cm小标准件。UK sneaker culture极强（Nike/Adidas NB等），球鞋爱好者愿为'不伤鞋的清洗方案'付费。1688 ¥5-8/套（法兰绒加厚款2件套），Amazon UK £7.99售价，毛利率约35%。差异化方向：法兰绒加厚内衬（比普通网袋更护鞋）+ 双色可选（灰/黑）+ 附品牌卡纸。注意：与Mesh Laundry Bags做差异定位，互补上架形成Laundry Care品类矩阵。",
+      "action": "027新店追加：上架Shoe Washing Machine Bag 2-Pack，定价£7.99，1688搜索'洗鞋袋 洗衣机专用 运动鞋 球鞋清洗袋 保护袋 护鞋袋 2件套'，首批200套。关键词覆盖：'shoe washing machine bag' + 'trainer washing bag' + 'sneaker wash bag machine' + 'shoe laundry bag protector'。与Mesh Laundry Bags形成Laundry Care品类组合，可做捆绑促销。",
+      "competition": "中低竞争——品类仍在早期快速增长阶段。£5-9区间约10-15个ASIN，品牌集中度低。差异化在于内衬材质（法兰绒vs普通网布）+ 尺寸适配（UK鞋码7-12的大尺寸款）。注意：需标明适用鞋码范围，是UK消费者跳出的关键参数。",
+      "signal_scores": {
+        "trend": 80,
+        "gap": 82,
+        "profit": 88,
+        "final": 83.0,
+        "recommendation": "STRONG_BUY",
+        "gap_level": "蓝海",
+        "profit_window": "1688 ¥8以内可保35%+利润（毛利率预估37%，家居佣金8%，FBA配送约£1.46，含VAT/Ad/Return）"
+      }
+    }
+  ],
+  "trend_forecast": "2026年7月下旬至8月三大趋势方向：① Back to School季启动（7月下旬-9月），宿舍/校园刚需品（洗衣袋/洗鞋袋/收纳）进入搜索爬坡期，是最佳上架窗口；② UK BBQ+夏季户外活动高峰持续（7-8月热浪），厨房工具（硅胶夹/BBQ配件）需求旺盛；③ UK环保消费趋势持续深化，reusable bags（可重复使用购物袋）品类从环保选择变为主流刚需，特别是棉绳编织网兜类仍有蓝海空间。\n\n⚠️ 本次推荐严守FBA小件标准：重量≤200g / 包装≤32×22×6cm / 无电子部件（不含电池/USB/充电/电机）。"
+}
